@@ -26,7 +26,7 @@
     "typescript": "3.1.6"
   },
   "scripts": {
-    "lint": "tslint -p tsconfig.json -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
+    "lint": "tslint -p tsconfig.json -c tslint.commit.json 'src/**/*.tsx' 'src/**/*.ts'",
     "typecheck": "tsc --noEmit -p .",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -39,7 +39,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run typecheck && yarn run test:single && lint-staged"
+      "pre-commit": "yarn run typecheck && lint-staged && yarn run test:single"
     }
   },
   "lint-staged": {

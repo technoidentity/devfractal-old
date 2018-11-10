@@ -35,7 +35,7 @@
     "no-default-export": true,
     "no-any": false,
     "no-arg": true,
-    "no-console": [true, "log"],
+    "no-console": false,
     "no-bitwise": true,
     "no-consecutive-blank-lines": true,
     "no-conditional-assignment": true,
