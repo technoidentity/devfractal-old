@@ -60,7 +60,14 @@
     "radix": true,
     "switch-default": true,
     "triple-equals": [true, "allow-null-check"],
-    "typedef": [true, "parameter", "property-declaration", "call-signature"],
+    "typedef": [
+      true,
+      "parameter",
+      "property-declaration",
+      "call-signature",
+      "variable-declaration",
+      "member-variable-declaration"
+    ],
     "variable-name": [
       true,
       "ban-keywords",
@@ -84,13 +91,10 @@
     "readonly-keyword": [true, { "ignore-prefix": "mutable" }],
     "readonly-array": [true, { "ignore-rest-parameters": true }],
     "no-let": true,
-    "no-array-mutation": true,
-    "no-object-mutation": true,
     "no-method-signature": true,
     "no-delete": true,
     "no-this": true,
     // "no-class": true,
-    "no-expression-statement": [true, { "ignore-predix": "console." }],
     "no-loop-statement": true,
 
     "restrict-plus-operands": true,
