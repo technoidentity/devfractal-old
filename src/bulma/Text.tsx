@@ -6,10 +6,19 @@ type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 interface TextProps {
   readonly size: TextSize
   readonly children: React.ReactChild
+  readonly inline?: boolean
 }
 
-export const Text: React.SFC<TextProps> = (props: TextProps) => {
-  const size: string = `is-size-${props.size}`
-  const classes: string = classNames(size)
-  return <div className={classes}>{props.children}</div>
+export const Text: React.SFC<TextProps> = ({
+  size,
+  children,
+  inline = false,
+}: TextProps) => {
+  const cnSize: string = `is-size-${size}`
+  const classes: string = classNames(cnSize)
+  return inline ? (
+    <span className={classes}>{children}</span>
+  ) : (
+    <div className={classes}>{children}</div>
+  )
 }
