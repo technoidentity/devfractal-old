@@ -1,3 +1,4 @@
 import React from 'react'
+import { Text } from './bulma/Text'
 
-export const App: React.SFC = () => <h1 className="is-size-1">Hello, World</h1>
+export const App: React.SFC = () => <Text size="1">Hello, World!</Text>
