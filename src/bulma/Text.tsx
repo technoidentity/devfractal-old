@@ -46,7 +46,7 @@ export const Text: React.SFC<TextProps> = ({
   color,
   children,
   inline = false,
-}: TextProps) => {
+}) => {
   const cnSize: string = responsiveSize
     ? `is-size-${size}-${responsiveSize}`
     : `is-size-${size}`
