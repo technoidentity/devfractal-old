@@ -47,7 +47,7 @@ export const Button: React.SFC<ButtonProps> = ({
   children,
   onClick,
 }) => {
-  const classes: string = classNames({
+  const classes: string = classNames('button', {
     [`is-${color}`]: color,
     [`is-${size}`]: size,
     [`is-${display}`]: display,
@@ -56,7 +56,7 @@ export const Button: React.SFC<ButtonProps> = ({
   })
   return (
     <div className="control">
-      <button className={`button ${classes}`} onClick={onClick}>
+      <button className={classes} onClick={onClick}>
         {children}
       </button>
     </div>
