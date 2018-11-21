@@ -35,6 +35,7 @@ interface ButtonProps {
   readonly style?: ButtonStyle
   readonly state?: ButtonState
   readonly children: React.ReactChild
+  readonly onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button: React.SFC<ButtonProps> = ({
@@ -44,6 +45,7 @@ export const Button: React.SFC<ButtonProps> = ({
   style,
   state,
   children,
+  onClick,
 }) => {
   const classes: string = classNames({
     [`is-${color}`]: color,
@@ -54,7 +56,9 @@ export const Button: React.SFC<ButtonProps> = ({
   })
   return (
     <div className="control">
-      <button className={`button ${classes}`}>{children}</button>
+      <button className={`button ${classes}`} onClick={onClick}>
+        {children}
+      </button>
     </div>
   )
 }
