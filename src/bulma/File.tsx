@@ -24,7 +24,7 @@ interface FileProps {
   readonly size?: FileSize
   readonly alignment?: FileAlignment
   readonly modifier?: FileModifier
-  readonly children: React.ReactChild
+  readonly children: React.ReactNode
 }
 
 export const File: React.SFC<FileProps> = ({
