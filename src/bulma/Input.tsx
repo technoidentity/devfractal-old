@@ -1,4 +1,6 @@
-import React from 'react'
+import * as React from 'react'
+
+import classNames from 'classnames'
 
 type InputColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -9,21 +11,43 @@ type InputStyle = 'rounded'
 type InputState = 'hovered' | 'focused'
 
 interface InputProps {
-  readonly color: InputColor
-  readonly size: InputSize
-  readonly style: InputStyle
-  readonly state: InputState
-  readonly placeHolder: string
-  readonly disabled: boolean
+  readonly color?: InputColor
+  readonly size?: InputSize
+  readonly style?: InputStyle
+  readonly state?: InputState
+  readonly placeholder?: string
+  readonly name: string
+  readonly value?: string
+  readonly onChange: React.ChangeEventHandler<HTMLInputElement>
+  readonly disabled?: boolean
 }
 
-export const Input: React.SFC<InputProps> = props => (
-  <input
-    className={`input is-${props.color} is-${props.size} is-${props.style} is-${
-      props.state
-    }`}
-    type="text"
-    placeholder={props.placeHolder}
-    disabled={props.disabled}
-  />
-)
+export const Input: React.SFC<InputProps> = ({
+  color,
+  size,
+  style,
+  state,
+  placeholder,
+  name,
+  value,
+  onChange,
+  disabled,
+}) => {
+  const classes: string = classNames('input', {
+    [`is-${color}`]: color,
+    [`is-${size}`]: size,
+    [`is-${style}`]: style,
+    [`is-${state}`]: state,
+  })
+  return (
+    <input
+      className={classes}
+      type="text"
+      placeholder={placeholder}
+      name={name}
+      value={value}
+      onChange={onChange}
+      disabled={disabled}
+    />
+  )
+}
