@@ -8,6 +8,22 @@ type InputSize = 'small' | 'medium' | 'large'
 
 type InputStyle = 'rounded'
 
+type InputType =
+  | 'text'
+  | 'password'
+  | 'email'
+  | 'tel'
+  | 'color'
+  | 'date'
+  | 'datetime-local'
+  | 'month'
+  | 'number'
+  | 'range'
+  | 'search'
+  | 'time'
+  | 'url'
+  | 'week'
+
 type InputState = 'hovered' | 'focused'
 
 interface InputProps {
@@ -18,6 +34,7 @@ interface InputProps {
   readonly placeholder?: string
   readonly name: string
   readonly value?: string
+  readonly type: InputType
   readonly onChange: React.ChangeEventHandler<HTMLInputElement>
   readonly disabled?: boolean
 }
@@ -30,6 +47,7 @@ export const Input: React.SFC<InputProps> = ({
   placeholder,
   name,
   value,
+  type,
   onChange,
   disabled,
 }) => {
@@ -43,7 +61,7 @@ export const Input: React.SFC<InputProps> = ({
     <div className="control">
       <input
         className={classes}
-        type="text"
+        type={type}
         placeholder={placeholder}
         name={name}
         value={value}
