@@ -40,14 +40,16 @@ export const Input: React.SFC<InputProps> = ({
     [`is-${state}`]: state,
   })
   return (
-    <input
-      className={classes}
-      type="text"
-      placeholder={placeholder}
-      name={name}
-      value={value}
-      onChange={onChange}
-      disabled={disabled}
-    />
+    <div className="control">
+      <input
+        className={classes}
+        type="text"
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+      />
+    </div>
   )
 }
