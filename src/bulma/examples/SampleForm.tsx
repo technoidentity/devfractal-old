@@ -1,23 +1,36 @@
 import * as React from 'react'
+import { Input } from '../Input'
+import { TextArea } from '../TextArea'
+import { CheckBox } from '../CheckBox'
+import { Label } from '../Label'
+import { Field } from '../Field'
+import { Select } from '../Select'
+import { RadioButton } from '../RadioButton'
+import { Button } from '../Button'
 
 export const SampleForm: React.SFC = () => {
   return (
     <div className="section">
       <div className="container">
-        <div className="field">
-          <label className="label">Name</label>
-          <div className="control">
-            <input className="input" type="text" placeholder="Text input" />
-          </div>
-        </div>
-        <div className="field">
+        <Field>
+          <Label>Name</Label>
+          <Input
+            name="input"
+            type="text"
+            placeholder="Text input"
+            onChange={() => ({})}
+          />
+        </Field>
+
+        <Field>
           <label className="label">Username</label>
           <div className="control has-icons-left has-icons-right">
-            <input
-              className="input is-success"
+            <Input
+              name="Username"
               type="text"
               placeholder="Text input"
               value=""
+              onChange={() => ({})}
             />
             <span className="icon is-small is-left">
               <i className="fas fa-user" />
@@ -27,16 +40,17 @@ export const SampleForm: React.SFC = () => {
             </span>
           </div>
           <p className="help is-success">This username is available</p>
-        </div>
+        </Field>
 
-        <div className="field">
-          <label className="label">Email</label>
+        <Field>
+          <Label>Email</Label>
           <div className="control has-icons-left has-icons-right">
-            <input
-              className="input is-danger"
+            <Input
+              name="email"
               type="email"
               placeholder="Email input"
               value=""
+              onChange={() => ({})}
             />
             <span className="icon is-small is-left">
               <i className="fas fa-envelope" />
@@ -45,53 +59,43 @@ export const SampleForm: React.SFC = () => {
               <i className="fas fa-exclamation-triangle" />
             </span>
           </div>
-        </div>
+        </Field>
         <p className="help is-danger">This email is invalid</p>
-        <div className="field">
-          <label className="label">Subject</label>
-          <div className="control">
-            <div className="select">
-              <select>
-                <option>Select dropdown</option>
-                <option>With options</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Message</label>
-          <div className="control">
-            <textarea className="textarea" placeholder="Textarea" />
-          </div>
-        </div>
-        <div className="field">
-          <div className="control">
-            <label className="checkbox">
-              <input type="checkbox" />I agree to the
-              <a href="#">terms and conditions</a>
-            </label>
-          </div>
-        </div>
-        <div className="field">
-          <div className="control">
-            <label className="radio">
-              <input type="radio" name="question" />
-              <span>Yes</span>
-            </label>
-            <label className="radio">
-              <input type="radio" name="question" />
-              <span> No</span>
-            </label>
-          </div>
-        </div>
-        <div className="field is-grouped">
-          <div className="control">
-            <button className="button is-link">Submit</button>
-          </div>
-          <div className="control">
-            <button className="button is-text">Cancel</button>
-          </div>
-        </div>
+
+        <Field>
+          <Label>Subject</Label>
+          <Select name="foobar" onChange={() => ({})}>
+            <option>Select dropdown</option>
+            <option>With options</option>
+          </Select>
+        </Field>
+
+        <Field>
+          <Label>Message</Label>
+          <TextArea placeholder="Textarea" rows={4} />
+        </Field>
+
+        <Field>
+          <CheckBox name="foobar" onChange={() => ({})}>
+            I agree to the
+            <a href="#"> terms and conditions</a>
+          </CheckBox>
+        </Field>
+
+        <Field grouped>
+          <RadioButton name="foobar" onChange={() => ({})}>
+            Yes
+          </RadioButton>
+          <RadioButton name="foobar" onChange={() => ({})}>
+            No
+          </RadioButton>
+        </Field>
+
+        <Field grouped>
+          <Button onClick={() => ({})}>Submit</Button>
+
+          <Button onClick={() => ({})}>Cancel</Button>
+        </Field>
       </div>
     </div>
   )
