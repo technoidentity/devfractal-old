@@ -3,7 +3,24 @@ import classNames from 'classnames'
 
 type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
+type TextFontFamily =
+  | 'sans-serif'
+  | 'monospace'
+  | 'primary'
+  | 'secondary'
+  | 'code'
+
+type TextAlignment = 'centered' | 'justified' | 'left' | 'right'
+
 type TextResponsiveSize =
+  | 'mobile'
+  | 'tablet'
+  | 'touch'
+  | 'desktop'
+  | 'widescreen'
+  | 'fullhd'
+
+type TextResponsiveAlignment =
   | 'mobile'
   | 'tablet'
   | 'touch'
@@ -32,31 +49,47 @@ type TextColor =
   | 'white-ter'
   | 'white-bis'
 
+type TextWeight = 'light' | 'normal' | 'semiBold' | 'bold'
+
+type TextTransformation = 'capitalized' | 'lowercase' | 'uppercase' | 'italic'
+
 interface TextProps {
-  readonly size: TextSize
   readonly color?: TextColor
+  readonly size?: TextSize
+  readonly alignment?: TextAlignment
+  readonly transformation?: TextTransformation
+  readonly weight?: TextWeight
+  readonly fontFamily?: TextFontFamily
   readonly responsiveSize?: TextResponsiveSize
+  readonly responsiveAlignment?: TextResponsiveAlignment
   readonly children: React.ReactChild
-  readonly inline?: boolean
 }
 
 export const Text: React.SFC<TextProps> = ({
-  size,
-  responsiveSize,
   color,
+  size,
+  alignment,
+  transformation,
+  weight,
+  fontFamily,
+  responsiveSize,
+  responsiveAlignment,
   children,
-  inline = false,
 }) => {
   const cnSize: string = responsiveSize
     ? `is-size-${size}-${responsiveSize}`
     : `is-size-${size}`
 
-  const classes: string = classNames(cnSize, {
+  const cnAlignment: string = responsiveAlignment
+    ? `has-text-${alignment}-${responsiveAlignment}`
+    : `has-text-${alignment}`
+
+  const classes: string = classNames(cnSize, cnAlignment, {
     [`has-text-${color}`]: color,
+    [`has-text-${weight}`]: weight,
+    [`is-${transformation}`]: transformation,
+    [`is-family-${fontFamily}`]: fontFamily,
+    [`has-text-${alignment}`]: alignment,
   })
-  return inline ? (
-    <span className={classes}>{children}</span>
-  ) : (
-    <div className={classes}>{children}</div>
-  )
+  return <span className={classes}>{children}</span>
 }
