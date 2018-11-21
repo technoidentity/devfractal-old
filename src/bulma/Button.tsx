@@ -36,12 +36,19 @@ interface ButtonProps {
   readonly children: React.ReactChild
 }
 
-export const Button: React.SFC<ButtonProps> = props => (
-  <a
-    className={`button is-${props.color} is-${props.size} is-${
-      props.display
-    } is-${props.style} is-${props.state}`}
-  >
-    {props.children}
-  </a>
+export const Button: React.SFC<ButtonProps> = ({
+  color,
+  size,
+  display,
+  style,
+  state,
+  children,
+}) => (
+  <div className="control">
+    <button
+      className={`button is-${color} is-${size} is-${display} is-${style} is-${state}`}
+    >
+      {children}
+    </button>
+  </div>
 )
