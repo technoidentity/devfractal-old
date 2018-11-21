@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import classNames from 'classnames'
 
@@ -18,6 +18,7 @@ interface InputProps {
   readonly placeholder?: string
   readonly name: string
   readonly value?: string
+  readonly onChange: React.ChangeEventHandler<HTMLInputElement>
   readonly disabled?: boolean
 }
 
@@ -29,6 +30,7 @@ export const Input: React.SFC<InputProps> = ({
   placeholder,
   name,
   value,
+  onChange,
   disabled,
 }) => {
   const classes: string = classNames('input', {
@@ -44,6 +46,7 @@ export const Input: React.SFC<InputProps> = ({
       placeholder={placeholder}
       name={name}
       value={value}
+      onChange={onChange}
       disabled={disabled}
     />
   )
