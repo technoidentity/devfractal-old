@@ -15,6 +15,7 @@
     "interface-name": [true, "never-prefix"],
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
+    "jsx-boolean-value": false,
     "label-position": true,
     "member-ordering": [
       true,
