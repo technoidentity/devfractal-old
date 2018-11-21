@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export interface FieldProps {
-  readonly children: ReadonlyArray<JSX.Element>
+  readonly children: React.ReactNode
 }
 
 export const Field: React.SFC<FieldProps> = ({ children }) => (
