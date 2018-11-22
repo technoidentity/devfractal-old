@@ -9,6 +9,7 @@ export interface FieldProps {
   readonly addons?: boolean
   readonly addonsCentered?: boolean
   readonly addonsRight?: boolean
+  readonly horizontal?: boolean
   readonly children: React.ReactNode
 }
 
@@ -21,6 +22,7 @@ export const Field: React.SFC<FieldProps> = ({
   addons,
   addonsCentered,
   addonsRight,
+  horizontal,
 }) => {
   const classes: string = classNames('field', {
     'is-grouped': grouped,
@@ -30,6 +32,7 @@ export const Field: React.SFC<FieldProps> = ({
     'is-grouped-right': groupedRight,
     'has-addons-right': addonsRight,
     'is-grouped-multiline': groupedMultiline,
+    'is-horizontal': horizontal,
   })
   return <div className={classes}>{children}</div>
 }
