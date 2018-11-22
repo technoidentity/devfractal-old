@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classNames from 'classnames'
 
 type MessageColor =
   | 'dark'
@@ -25,9 +26,11 @@ interface MessageBodyProps {
   readonly children: React.ReactChild
 }
 export const Message: React.SFC<MessageProps> = ({ size, color, children }) => {
-  return (
-    <article className={`message-is-${size} is-${color}`}>{children}</article>
-  )
+  const classes: string = classNames('message', {
+    [`is-${size}`]: size,
+    [`is-${color}`]: color,
+  })
+  return <article className={classes}>{children}</article>
 }
 
 export const MessageHeader: React.SFC<MessageHeaderProps> = ({ children }) => {
