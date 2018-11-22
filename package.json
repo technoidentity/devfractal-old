@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-router": "^4.4.1",
+    "@types/react-router-dom": "^4.3.1",
     "@types/classnames": "^2.2.6",
     "@types/jest": "23.3.9",
     "@types/node": "10.12.9",
@@ -59,9 +61,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "@types/react-router": "^4.4.1",
-    "@types/react-router-dom": "^4.3.1"
-  }
+  ]
 }
