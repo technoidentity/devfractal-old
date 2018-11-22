@@ -59,5 +59,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react-router": "^4.4.1",
+    "@types/react-router-dom": "^4.3.1"
+  }
 }
