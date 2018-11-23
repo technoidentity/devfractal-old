@@ -32,10 +32,10 @@ interface InputProps {
   readonly style?: InputStyle
   readonly state?: InputState
   readonly placeholder?: string
-  readonly name: string
+  readonly name?: string
   readonly value?: string
   readonly type: InputType
-  readonly onChange: React.ChangeEventHandler<HTMLInputElement>
+  readonly onChange?: React.ChangeEventHandler<HTMLInputElement>
   readonly disabled?: boolean
 }
 

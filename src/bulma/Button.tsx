@@ -36,7 +36,7 @@ interface ButtonProps {
   readonly state?: ButtonState
   readonly fullwidth?: boolean
   readonly children: React.ReactChild
-  readonly onClick: React.MouseEventHandler<HTMLButtonElement>
+  readonly onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button: React.SFC<ButtonProps> = ({

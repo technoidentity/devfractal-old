@@ -1,9 +1,9 @@
 import React from 'react'
 
 interface RadioProps {
-  readonly name: string
+  readonly name?: string
   readonly value?: string
-  readonly onChange: React.ChangeEventHandler<HTMLInputElement>
+  readonly onChange?: React.ChangeEventHandler<HTMLInputElement>
   readonly checked?: boolean
   readonly disabled?: boolean
   readonly children: React.ReactNode
