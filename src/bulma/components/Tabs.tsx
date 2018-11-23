@@ -15,22 +15,17 @@ interface TabsProps {
 }
 
 interface TabsItemProps {
-  readonly href: string
   readonly active?: boolean
   readonly children: React.ReactChild
 }
 
-export const TabsItem: React.SFC<TabsItemProps> = ({
-  href,
-  active,
-  children,
-}) => {
+export const TabsItem: React.SFC<TabsItemProps> = ({ active, children }) => {
   const classes: string = classNames({
     'is-active': active,
   })
   return (
     <li className={classes}>
-      <a href={href}>{children}</a>
+      <a>{children}</a>
     </li>
   )
 }
