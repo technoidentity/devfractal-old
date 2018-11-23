@@ -9,6 +9,7 @@ import { LevelExample } from './bulma/examples/LevelExample'
 import { BreadcrumbExample } from './bulma/examples/Breadcrumb'
 import { MessageExample } from './bulma/examples/MessageExample'
 import { TabsExample } from './bulma/examples/TabsExample'
+import { PanelExample } from './bulma/examples/Panelexample'
 export const App: React.SFC = () => (
   <Router>
     <div>
@@ -40,6 +41,9 @@ export const App: React.SFC = () => (
             <li>
               <Link to="/tabs-example">Tabs Example</Link>
             </li>
+            <li>
+              <Link to="/panel-example">Panel Example</Link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -57,6 +61,7 @@ export const App: React.SFC = () => (
           />
           <Route path="/message-example" exact component={MessageExample} />
           <Route path="/tabs-example" exact component={TabsExample} />
+          <Route path="/panel-example" exact component={PanelExample} />
         </div>
       </div>
     </div>
