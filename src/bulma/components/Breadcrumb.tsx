@@ -1,8 +1,20 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
+type BreadcrumbSize = 'small' | 'medium' | 'large'
+
+type BreadcrumbAlignment = 'centered' | 'right'
+
+type BreadcrumbSeparator =
+  | 'arrow-separator'
+  | 'bullet-separator'
+  | 'dot-separator'
+  | 'succeeds-separator'
+
 interface BreadcrumbProps {
-  readonly alignment?: 'centered' | 'right'
+  readonly size: BreadcrumbSize
+  readonly alignment?: BreadcrumbAlignment
+  readonly separator?: BreadcrumbSeparator
   readonly children: ReadonlyArray<JSX.Element>
 }
 
@@ -13,16 +25,15 @@ interface BreadcrumbItemProps {
 }
 
 export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
-  active,
   href,
+  active,
   children,
 }) => {
-  return active ? (
-    <li className="is-active" aria-current="page">
-      <a href={href}>{children}</a>
-    </li>
-  ) : (
-    <li>
+  const classes: string = classNames({
+    'is-active': active,
+  })
+  return (
+    <li className={classes} aria-current="page">
       <a href={href}>{children}</a>
     </li>
   )
@@ -31,9 +42,13 @@ export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
 export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
   children,
   alignment,
+  size,
+  separator,
 }) => {
   const classes: string = classNames('breadcrumb', {
     [`is-${alignment}`]: alignment,
+    [`is-${size}`]: size,
+    [`has-${separator}`]: separator,
   })
   return (
     <nav className={classes} aria-label="breadcrumbs">
