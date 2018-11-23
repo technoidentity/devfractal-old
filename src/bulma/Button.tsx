@@ -34,8 +34,9 @@ interface ButtonProps {
   readonly display?: ButtonDisplay
   readonly style?: ButtonStyle
   readonly state?: ButtonState
+  readonly fullwidth?: boolean
   readonly children: React.ReactChild
-  readonly onClick: React.MouseEventHandler<HTMLButtonElement>
+  readonly onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button: React.SFC<ButtonProps> = ({
@@ -44,6 +45,7 @@ export const Button: React.SFC<ButtonProps> = ({
   display,
   style,
   state,
+  fullwidth,
   children,
   onClick,
 }) => {
@@ -53,6 +55,7 @@ export const Button: React.SFC<ButtonProps> = ({
     [`is-${display}`]: display,
     [`is-${style}`]: style,
     [`is-${state}`]: state,
+    'is-fullwidth': fullwidth,
   })
   return (
     <div className="control">

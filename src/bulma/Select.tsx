@@ -14,8 +14,8 @@ interface SelectProps {
   readonly style?: SelectStyle
   readonly size?: SelectSize
   readonly state?: SelectState
-  readonly name: string
-  readonly onChange: React.ChangeEventHandler<HTMLSelectElement>
+  readonly name?: string
+  readonly onChange?: React.ChangeEventHandler<HTMLSelectElement>
   readonly children: ReadonlyArray<JSX.Element>
 }
 
