@@ -1,3 +1,14 @@
 import * as React from 'react'
+import classNames from 'classnames'
 
-export const Section: React.SFC = () => <div />
+interface SectionProps {
+  readonly modifier?: 'medium' | 'large'
+  readonly children: React.ReactNode
+}
+
+export const Section: React.SFC<SectionProps> = ({ modifier, children }) => {
+  const classes: string = classNames('section', {
+    [`is-${modifier}`]: modifier,
+  })
+  return <section className={classes}>{children}</section>
+}
