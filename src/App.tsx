@@ -6,6 +6,7 @@ import { LoginForm } from './bulma/examples/LoginForm'
 import { DropDownExample } from './bulma/examples/Dropdown'
 import { LayoutExample } from './bulma/examples/LayoutExamples'
 import { LevelExample } from './bulma/examples/LevelExample'
+import { BreadcrumbExample } from './bulma/examples/Breadcrumb'
 
 export const App: React.SFC = () => (
   <Router>
@@ -22,10 +23,15 @@ export const App: React.SFC = () => (
             </li>
             <li>
               <Link to="/dropdown">DropDownExample</Link>
+            </li>
+            <li>
               <Link to="/layout-example">Layout Example</Link>
             </li>
             <li>
               <Link to="/level-example">Level Example</Link>
+            </li>
+            <li>
+              <Link to="/breadcrumb-example">Breadcrumb Example</Link>
             </li>
           </ul>
         </nav>
@@ -37,6 +43,11 @@ export const App: React.SFC = () => (
           <Route path="/dropdown" exact component={DropDownExample} />
           <Route path="/layout-example" exact component={LayoutExample} />
           <Route path="/level-example" exact component={LevelExample} />
+          <Route
+            path="/breadcrumb-example"
+            exact
+            component={BreadcrumbExample}
+          />
         </div>
       </div>
     </div>
