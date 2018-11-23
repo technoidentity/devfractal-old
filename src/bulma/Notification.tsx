@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classNames from 'classnames'
 
 type NotificationColor =
   | 'primary'
@@ -17,5 +18,8 @@ export const Notification: React.SFC<NotificationProps> = ({
   color,
   children,
 }) => {
-  return <div className={`notification is-${color}`}>{children}</div>
+  const classes: string = classNames('notification', {
+    [`is-${color}`]: color,
+  })
+  return <div className={classes}>{children}</div>
 }
