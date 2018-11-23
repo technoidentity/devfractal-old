@@ -12,10 +12,10 @@ type BreadcrumbSeparator =
   | 'succeeds-separator'
 
 interface BreadcrumbProps {
-  readonly size: BreadcrumbSize
+  readonly size?: BreadcrumbSize
   readonly alignment?: BreadcrumbAlignment
   readonly separator?: BreadcrumbSeparator
-  readonly children: ReadonlyArray<JSX.Element>
+  readonly children: React.ReactNode
 }
 
 interface BreadcrumbItemProps {
