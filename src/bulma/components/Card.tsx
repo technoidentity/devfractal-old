@@ -1,4 +1,7 @@
 import * as React from 'react'
+import classNames from 'classnames'
+
+type CardheaderTitleAlignment = 'centered'
 
 interface CardProps {
   readonly children: React.ReactNode
@@ -9,7 +12,7 @@ interface CardHeaderProps {
 }
 
 interface CardHeaderTitleProps {
-  readonly alignment?: 'centered'
+  readonly alignment?: CardheaderTitleAlignment
   readonly children: React.ReactChild
 }
 
@@ -40,7 +43,13 @@ export const CardHeader: React.SFC<CardHeaderProps> = ({ children }) => (
 
 export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
   children,
-}) => <p className="header-title">{children}</p>
+  alignment,
+}) => {
+  const classes: string = classNames('header-title', {
+    [`is-${alignment}`]: alignment,
+  })
+  return <p className={classes}>{children}</p>
+}
 
 export const CardContent: React.SFC<CardContentProps> = ({ children }) => (
   <div className="card-content">{children}</div>
