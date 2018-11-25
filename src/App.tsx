@@ -12,6 +12,7 @@ import { TabsExample } from './bulma/examples/TabsExample'
 import { PanelExample } from './bulma/examples/Panelexample'
 import { ModalExample } from './bulma/examples/ModalExample'
 import { MediaObjectExample } from './bulma/examples/MediaObjectExample'
+import { CardExample } from './bulma/examples/CardExample'
 
 export const App: React.SFC = () => (
   <Router>
@@ -53,6 +54,9 @@ export const App: React.SFC = () => (
             <li>
               <Link to="/mediaobject-example">Media Object Example</Link>
             </li>
+            <li>
+              <Link to="/card-example">Card Example</Link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -77,6 +81,7 @@ export const App: React.SFC = () => (
             exact
             component={MediaObjectExample}
           />
+          <Route path="/card-example" exact component={CardExample} />
         </div>
       </div>
     </div>

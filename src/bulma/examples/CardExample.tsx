@@ -1,0 +1,48 @@
+import * as React from 'react'
+import {
+  Card,
+  CardHeader,
+  CardHeaderTitle,
+  CardImage,
+  CardContent,
+} from '../components/Card'
+import { Image } from '../Image'
+import { Title, SubTitle } from '../Title'
+import { Content } from '../Content'
+import { MediaContent, MediaLeft, Media } from '../Media'
+
+export const CardExample: React.SFC = () => (
+  <Card>
+    <CardHeader>
+      <CardHeaderTitle>Card</CardHeaderTitle>
+    </CardHeader>
+    <CardImage>
+      <Image responsiveImageRatio="2by3">
+        <img
+          src="https://bulma.io/images/placeholders/1280x960.png"
+          alt="Placeholder image"
+        />
+      </Image>
+    </CardImage>
+    <CardContent>
+      <Media>
+        <MediaLeft>
+          <Image size="48x48">
+            <img
+              src="https://bulma.io/images/placeholders/96x96.png"
+              alt="Placeholder image"
+            />
+          </Image>
+        </MediaLeft>
+        <MediaContent>
+          <Title size="4">John Smith</Title>
+          <SubTitle size="6">@johnsmith</SubTitle>
+        </MediaContent>
+      </Media>
+      <Content>
+        Bulma is an open source CSS framework based on Flexbox and used by more
+        than 100,000 developers.
+      </Content>
+    </CardContent>
+  </Card>
+)
