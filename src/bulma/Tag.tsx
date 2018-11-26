@@ -21,16 +21,21 @@ interface TagProps {
   readonly children: React.ReactNode
 }
 
-export const Tag: React.SFC<TagProps> = ({
-  size,
-  color,
-  modifier,
-  children,
-}) => {
-  const classes: string = classNames('tag', {
-    [`is-${size}`]: size,
-    [`is-${modifier}`]: modifier,
-    [`is-${color}`]: color,
-  })
-  return <span className={classes}>{children}</span>
+export class Tag extends React.Component<TagProps> {
+  render(): JSX.Element {
+    const {
+      size,
+      color,
+      modifier,
+      children,
+      // tslint:disable-next-line:no-this
+    } = this.props
+
+    const classes: string = classNames('tag', {
+      [`is-${size}`]: size,
+      [`is-${modifier}`]: modifier,
+      [`is-${color}`]: color,
+    })
+    return <span className={classes}>{children}</span>
+  }
 }
