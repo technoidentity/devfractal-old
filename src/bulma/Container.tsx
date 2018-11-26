@@ -4,7 +4,7 @@ import classNames from 'classnames'
 interface ContainerProps {
   readonly breakpoint?: 'widescreen' | 'fullhd'
   readonly fluid?: boolean
-  readonly children: React.ReactChild
+  readonly children: React.ReactNode
 }
 
 export const Container: React.SFC<ContainerProps> = ({
