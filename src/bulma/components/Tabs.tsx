@@ -11,7 +11,7 @@ interface TabsProps {
   readonly fullWidth?: boolean
   readonly toggle?: boolean
   readonly boxed?: boolean
-  readonly children: ReadonlyArray<JSX.Element>
+  readonly children: React.ReactNode
 }
 
 interface TabsItemProps {
@@ -47,11 +47,7 @@ export const Tabs: React.SFC<TabsProps> = ({
   })
   return (
     <div className={classes}>
-      <ul>
-        {React.Children.map(children, child => (
-          <li>{child}</li>
-        ))}
-      </ul>
+      <ul>{children}</ul>
     </div>
   )
 }
