@@ -20,6 +20,8 @@ type ButtonDisplay = 'small' | 'normal' | 'medium' | 'large' | 'fullwidth'
 
 type ButtonStyle = 'inverted' | 'outlined' | 'rounded'
 
+type ButtonModifier = 'selected'
+
 type ButtonState =
   | 'normal'
   | 'hover'
@@ -28,9 +30,15 @@ type ButtonState =
   | 'loading'
   | 'static'
 
+interface ButtonsProps {
+  readonly alignment?: 'centered' | 'right'
+  readonly addons?: boolean
+  readonly children: React.ReactNode
+}
 interface ButtonProps {
   readonly color?: ButtonColor
   readonly size?: ButtonSize
+  readonly modifier?: ButtonModifier
   readonly display?: ButtonDisplay
   readonly style?: ButtonStyle
   readonly state?: ButtonState
@@ -39,9 +47,23 @@ interface ButtonProps {
   readonly onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
+export const Buttons: React.SFC<ButtonsProps> = ({
+  addons,
+  alignment,
+  children,
+}) => {
+  const classes: string = classNames('buttons', {
+    [`is-${alignment}`]: alignment,
+    'has-addons': addons,
+  })
+
+  return <div className={classes}>{children}</div>
+}
+
 export const Button: React.SFC<ButtonProps> = ({
   color,
   size,
+  modifier,
   display,
   style,
   state,
@@ -52,6 +74,7 @@ export const Button: React.SFC<ButtonProps> = ({
   const classes: string = classNames('button', {
     [`is-${color}`]: color,
     [`is-${size}`]: size,
+    [`is-${modifier}`]: modifier,
     [`is-${display}`]: display,
     [`is-${style}`]: style,
     [`is-${state}`]: state,
