@@ -27,6 +27,7 @@ interface TileProps {
   readonly vertical?: boolean
   readonly color?: TileColor
   readonly notification?: boolean
+  readonly box?: boolean
 }
 
 export const Tile: React.SFC<TileProps> = ({
@@ -36,6 +37,7 @@ export const Tile: React.SFC<TileProps> = ({
   vertical,
   color,
   notification,
+  box,
 }) => {
   const classes: string = classNames('tile', {
     [`is-${modifier}`]: modifier,
@@ -43,6 +45,7 @@ export const Tile: React.SFC<TileProps> = ({
     [`is-vertical`]: vertical,
     [`is-${color}`]: color,
     [`notification`]: notification,
+    [`box`]: box,
   })
   return <article className={classes}>{children}</article>
 }
