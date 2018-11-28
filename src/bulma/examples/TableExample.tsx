@@ -79,7 +79,7 @@ export const TableExample: React.SFC = () => (
             title="Leicester City F.C."
           >
             Leicester City
-          </a>{' '}
+          </a>
           <strong>(C)</strong>
         </Td>
         <Td>38</Td>
@@ -91,7 +91,7 @@ export const TableExample: React.SFC = () => (
         <Td>+32</Td>
         <Td>81</Td>
         <Td>
-          Qualification for the{' '}
+          Qualification for the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
             title="2016–17 UEFA Champions League"
@@ -119,7 +119,7 @@ export const TableExample: React.SFC = () => (
         <Td>+29</Td>
         <Td>71</Td>
         <Td>
-          Qualification for the{' '}
+          Qualification for the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
             title="2016–17 UEFA Champions League"
@@ -147,7 +147,7 @@ export const TableExample: React.SFC = () => (
         <Td>+34</Td>
         <Td>70</Td>
         <Td>
-          Qualification for the{' '}
+          Qualification for the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
             title="2016–17 UEFA Champions League"
@@ -175,7 +175,7 @@ export const TableExample: React.SFC = () => (
         <Td>+30</Td>
         <Td>66</Td>
         <Td>
-          Qualification for the{' '}
+          Qualification for the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Play-off_round"
             title="2016–17 UEFA Champions League"
@@ -203,7 +203,7 @@ export const TableExample: React.SFC = () => (
         <Td>+14</Td>
         <Td>66</Td>
         <Td>
-          Qualification for the{' '}
+          Qualification for the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
             title="2016–17 UEFA Europa League"
@@ -231,7 +231,7 @@ export const TableExample: React.SFC = () => (
         <Td>+18</Td>
         <Td>63</Td>
         <Td>
-          Qualification for the{' '}
+          Qualification for the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
             title="2016–17 UEFA Europa League"
@@ -259,7 +259,7 @@ export const TableExample: React.SFC = () => (
         <Td>+14</Td>
         <Td>62</Td>
         <Td>
-          Qualification for the{' '}
+          Qualification for the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Third_qualifying_round"
             title="2016–17 UEFA Europa League"
@@ -476,7 +476,7 @@ export const TableExample: React.SFC = () => (
             title="Newcastle United F.C."
           >
             Newcastle United
-          </a>{' '}
+          </a>
           <strong>(R)</strong>
         </Td>
         <Td>38</Td>
@@ -488,7 +488,7 @@ export const TableExample: React.SFC = () => (
         <Td>−21</Td>
         <Td>37</Td>
         <Td>
-          Relegation to the{' '}
+          Relegation to the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
             title="2016–17 Football League Championship"
@@ -505,7 +505,7 @@ export const TableExample: React.SFC = () => (
             title="Norwich City F.C."
           >
             Norwich City
-          </a>{' '}
+          </a>
           <strong>(R)</strong>
         </Td>
         <Td>38</Td>
@@ -517,14 +517,14 @@ export const TableExample: React.SFC = () => (
         <Td>−28</Td>
         <Td>34</Td>
         <Td>
-          Relegation to the{' '}
+          Relegation to the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
             title="2016–17 Football League Championship"
           >
             Football League Championship
           </a>
-        </Td>{' '}
+        </Td>
       </Tr>
       <Tr>
         <Th>20</Th>
@@ -534,7 +534,7 @@ export const TableExample: React.SFC = () => (
             title="Aston Villa F.C."
           >
             Aston Villa
-          </a>{' '}
+          </a>
           <strong>(R)</strong>
         </Td>
         <Td>38</Td>
@@ -546,7 +546,7 @@ export const TableExample: React.SFC = () => (
         <Td>−49</Td>
         <Td>17</Td>
         <Td>
-          Relegation to the{' '}
+          Relegation to the
           <a
             href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
             title="2016–17 Football League Championship"
