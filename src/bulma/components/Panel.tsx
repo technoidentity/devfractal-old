@@ -48,7 +48,7 @@ export const PanelTabs: React.SFC<PanelTabsProps> = ({ children }) => {
   return (
     <p className="panel-tabs">
       {React.Children.map(children, child => (
-        <div>{child}</div>
+        <a>{child}</a>
       ))}
     </p>
   )
