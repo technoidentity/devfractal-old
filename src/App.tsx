@@ -20,6 +20,12 @@ import {
 } from './bulma/examples'
 
 import { TableExample } from './bulma/examples/TableExample'
+import { InputExample } from './bulma/examples/InputExample'
+import { SelectExample } from './bulma/examples/SelectExample'
+import { HeroExample } from './bulma/examples/HeroExample'
+import { FooterExample } from './bulma/examples/FooterExample'
+import { CheckBoxExample } from './bulma/examples/CheckBoxExample'
+import { RadioButtonExample } from './bulma/examples/RadioButtonExample'
 import { MenuExample } from './bulma/examples/MenuExample'
 import { PaginationExample } from './bulma/examples/PaginationExample'
 import { NotificationExample } from './bulma/examples/NotificationExample'
@@ -52,6 +58,24 @@ class App extends React.Component {
                 </li>
                 <li>
                   <Link to="/login-form">Login Form</Link>
+                </li>
+                <li>
+                  <Link to="/input-example">InputExample</Link>
+                </li>
+                <li>
+                  <Link to="/select-example">SelectExample</Link>
+                </li>
+                <li>
+                  <Link to="/checkbox-example">CheckBoxExample</Link>
+                </li>
+                <li>
+                  <Link to="/hero-example">HeroExample</Link>
+                </li>
+                <li>
+                  <Link to="/footer-example">FooterExample</Link>
+                </li>
+                <li>
+                  <Link to="/radiobutton-example">RadioButtonExample</Link>
                 </li>
                 <li>
                   <Link to="/dropdown">DropDownExample</Link>
@@ -132,6 +156,20 @@ class App extends React.Component {
             <div className="container">
               <Route path="/sample-form" exact component={SampleForm} />
               <Route path="/login-form" exact component={LoginForm} />
+              <Route path="/input-example" exact component={InputExample} />
+              <Route path="/select-example" exact component={SelectExample} />
+              <Route path="/hero-example" exact component={HeroExample} />
+              <Route path="/footer-example" exact component={FooterExample} />
+              <Route
+                path="/radiobutton-example"
+                exact
+                component={RadioButtonExample}
+              />
+              <Route
+                path="/checkbox-example"
+                exact
+                component={CheckBoxExample}
+              />
               <Route path="/dropdown" exact component={DropDownExample} />
               <Route path="/layout-example" exact component={LayoutExample} />
               <Route path="/level-example" exact component={LevelExample} />
