@@ -73,7 +73,7 @@ interface ThProps {
 export const Th: React.SFC<ThProps> = ({ children }) => <th>{children}</th>
 
 interface TdProps {
-  readonly children: React.ReactNode
+  readonly children?: React.ReactNode
 }
 
 export const Td: React.SFC<TdProps> = ({ children }) => <td>{children}</td>
