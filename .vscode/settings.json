@@ -1,3 +1,41 @@
 {
-  "javascript.validate.enable": false
+  "editor.fontFamily": "'Roboto Mono',Monaco, 'Ubuntu Mono', Consolas, mononoki, 'Fira Code', 'Hack', 'Source Code Pro', Courier New', 'Dejavu Sans Mono', monospace",
+  "editor.tabSize": 2,
+  "editor.fontLigatures": true,
+  "editor.emptySelectionClipboard": false,
+  "editor.trimAutoWhitespace": true,
+  "editor.formatOnSave": true,
+  "editor.autoIndent": true,
+  "editor.tabCompletion": "on",
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary",
+
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onFocusChange",
+
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.validate.enable": false,
+  "tslint.enable": true,
+  "tslint.alwaysShowStatus": true,
+  "typescript.suggest.completeFunctionCalls": true,
+  "javascript.suggest.completeFunctionCalls": true,
+
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html",
+    "plaintext": "jade"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": false,
+  "[html]": {
+    "editor.formatOnSave": false
+  },
+
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false
 }
