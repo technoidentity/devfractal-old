@@ -5,38 +5,36 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import {
   BreadcrumbExample,
   CardExample,
+  CheckBoxExample,
+  ContainerExample,
+  DeleteExample,
   DropDownExample,
+  FieldExample,
+  FooterExample,
+  HeroExample,
+  ImageExample,
+  InputExample,
   LayoutExample,
   LevelExample,
   LoginForm,
   MediaObjectExample,
+  MenuExample,
   MessageExample,
   ModalExample,
   NavbarExample,
+  NotificationExample,
+  PaginationExample,
   PanelExample,
+  ProgressBarExample,
   SampleForm,
+  SectionExample,
+  SelectExample,
+  TableExample,
   TabsExample,
+  TagExample,
   TileExample,
+  TitleExample,
 } from './bulma/examples'
-
-import { TableExample } from './bulma/examples/TableExample'
-import { InputExample } from './bulma/examples/InputExample'
-import { SelectExample } from './bulma/examples/SelectExample'
-import { HeroExample } from './bulma/examples/HeroExample'
-import { FooterExample } from './bulma/examples/FooterExample'
-import { CheckBoxExample } from './bulma/examples/CheckBoxExample'
-import { RadioButtonExample } from './bulma/examples/RadioButtonExample'
-import { MenuExample } from './bulma/examples/MenuExample'
-import { PaginationExample } from './bulma/examples/PaginationExample'
-import { NotificationExample } from './bulma/examples/NotificationExample'
-import { TitleExample } from './bulma/examples/TitleExample'
-import { DeleteExample } from './bulma/examples/DeleteExample'
-import { ImageExample } from './bulma/examples/ImageExample'
-import { ProgressBarExample } from './bulma/examples/ProgressBarExample'
-import { TagExample } from './bulma/examples/TagExample'
-import { SectionExample } from './bulma/examples/SectionExample'
-import { ContainerExample } from './bulma/examples/ContainerExample'
-import { FieldExample } from './bulma/examples/FieldExample'
 
 setConfig({
   ignoreSFC: true,
@@ -160,11 +158,6 @@ class App extends React.Component {
               <Route path="/select-example" exact component={SelectExample} />
               <Route path="/hero-example" exact component={HeroExample} />
               <Route path="/footer-example" exact component={FooterExample} />
-              <Route
-                path="/radiobutton-example"
-                exact
-                component={RadioButtonExample}
-              />
               <Route
                 path="/checkbox-example"
                 exact
