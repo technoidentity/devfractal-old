@@ -52,11 +52,7 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
   })
   return (
     <nav className={classes} aria-label="breadcrumbs">
-      <ul>
-        {React.Children.map(children, child => (
-          <li>{child}</li>
-        ))}
-      </ul>
+      <ul>{children}</ul>
     </nav>
   )
 }
