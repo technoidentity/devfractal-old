@@ -28,6 +28,9 @@ import { DeleteExample } from './bulma/examples/DeleteExample'
 import { ImageExample } from './bulma/examples/ImageExample'
 import { ProgressBarExample } from './bulma/examples/ProgressBarExample'
 import { TagExample } from './bulma/examples/TagExample'
+import { SectionExample } from './bulma/examples/SectionExample'
+import { ContainerExample } from './bulma/examples/ContainerExample'
+import { FieldExample } from './bulma/examples/FieldExample'
 
 setConfig({
   ignoreSFC: true,
@@ -113,6 +116,15 @@ class App extends React.Component {
                 <li>
                   <Link to="/tag-example">Tag Example</Link>
                 </li>
+                <li>
+                  <Link to="/section-example"> Section Example</Link>
+                </li>
+                <li>
+                  <Link to="/container-example"> Container Example</Link>
+                </li>
+                <li>
+                  <Link to="/field-example"> Field Example</Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -161,6 +173,13 @@ class App extends React.Component {
                 component={ProgressBarExample}
               />
               <Route path="/tag-example" exact component={TagExample} />
+              <Route path="/section-example" exact component={SectionExample} />
+              <Route
+                path="/container-example"
+                exact
+                component={ContainerExample}
+              />
+              <Route path="/field-example" exact component={FieldExample} />
             </div>
           </div>
         </div>
