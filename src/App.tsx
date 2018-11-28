@@ -19,6 +19,8 @@ import {
   TileExample,
 } from './bulma/examples'
 
+import { MenuExample } from './bulma/examples/MenuExample'
+
 setConfig({
   ignoreSFC: true,
   pureSFC: true,
@@ -76,6 +78,9 @@ class App extends React.Component {
                 <li>
                   <Link to="/tile-example">Tile Example</Link>
                 </li>
+                <li>
+                  <Link to="/menu-example">Menu Example</Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -103,6 +108,7 @@ class App extends React.Component {
               <Route path="/card-example" exact component={CardExample} />
               <Route path="/navbar-example" exact component={NavbarExample} />
               <Route path="/tile-example" exact component={TileExample} />
+              <Route path="/menu-example" exact component={MenuExample} />
             </div>
           </div>
         </div>
