@@ -21,6 +21,13 @@ import {
 
 import { TableExample } from './bulma/examples/TableExample'
 import { MenuExample } from './bulma/examples/MenuExample'
+import { PaginationExample } from './bulma/examples/PaginationExample'
+import { NotificationExample } from './bulma/examples/NotificationExample'
+import { TitleExample } from './bulma/examples/TitleExample'
+import { DeleteExample } from './bulma/examples/DeleteExample'
+import { ImageExample } from './bulma/examples/ImageExample'
+import { ProgressBarExample } from './bulma/examples/ProgressBarExample'
+import { TagExample } from './bulma/examples/TagExample'
 
 setConfig({
   ignoreSFC: true,
@@ -85,6 +92,27 @@ class App extends React.Component {
                 <li>
                   <Link to="/table-example">Table Example</Link>
                 </li>
+                <li>
+                  <Link to="/pagination-example">Pagination Example</Link>
+                </li>
+                <li>
+                  <Link to="/notification-example">Notification Example</Link>
+                </li>
+                <li>
+                  <Link to="/title-example">Title Example</Link>
+                </li>
+                <li>
+                  <Link to="/delete-example">delete Example</Link>
+                </li>
+                <li>
+                  <Link to="/image-example">Image Example</Link>
+                </li>
+                <li>
+                  <Link to="/progressbar-example">ProgressBar Example</Link>
+                </li>
+                <li>
+                  <Link to="/tag-example">Tag Example</Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -114,6 +142,25 @@ class App extends React.Component {
               <Route path="/tile-example" exact component={TileExample} />
               <Route path="/menu-example" exact component={MenuExample} />
               <Route path="/table-example" exact component={TableExample} />
+              <Route
+                path="/pagination-example"
+                exact
+                component={PaginationExample}
+              />
+              <Route
+                path="/notification-example"
+                exact
+                component={NotificationExample}
+              />
+              <Route path="/title-example" exact component={TitleExample} />
+              <Route path="/delete-example" exact component={DeleteExample} />
+              <Route path="/image-example" exact component={ImageExample} />
+              <Route
+                path="/progressbar-example"
+                exact
+                component={ProgressBarExample}
+              />
+              <Route path="/tag-example" exact component={TagExample} />
             </div>
           </div>
         </div>
