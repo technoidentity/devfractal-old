@@ -19,6 +19,7 @@ import {
   TileExample,
 } from './bulma/examples'
 
+import { TableExample } from './bulma/examples/TableExample'
 import { MenuExample } from './bulma/examples/MenuExample'
 
 setConfig({
@@ -81,6 +82,9 @@ class App extends React.Component {
                 <li>
                   <Link to="/menu-example">Menu Example</Link>
                 </li>
+                <li>
+                  <Link to="/table-example">Table Example</Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -109,6 +113,7 @@ class App extends React.Component {
               <Route path="/navbar-example" exact component={NavbarExample} />
               <Route path="/tile-example" exact component={TileExample} />
               <Route path="/menu-example" exact component={MenuExample} />
+              <Route path="/table-example" exact component={TableExample} />
             </div>
           </div>
         </div>
