@@ -1,23 +1,21 @@
 import * as React from 'react'
 import { Level, LevelItem } from '../Level'
+import { SubTitle } from '../Title'
+import { Field } from '../Field'
+import { Input } from '../Input'
+import { Button } from '../Button'
 
 export const LevelExample: React.SFC = () => (
   <Level>
     <LevelItem levelItemType="left">
       <LevelItem>
-        <p className="subtitle is-5">
-          <strong>123</strong> posts
-        </p>
+        <SubTitle size="5">123 posts</SubTitle>
       </LevelItem>
       <LevelItem>
-        <div className="field has-addons">
-          <p className="control">
-            <input className="input" type="text" placeholder="Find a post" />
-          </p>
-          <p className="control">
-            <button className="button">Search</button>
-          </p>
-        </div>
+        <Field addons>
+          <Input type="text" placeholder="Find a Post" />
+          <Button>Search</Button>
+        </Field>
       </LevelItem>
     </LevelItem>
 
@@ -35,7 +33,7 @@ export const LevelExample: React.SFC = () => (
         <a>Deleted</a>
       </LevelItem>
       <LevelItem>
-        <a className="button is-success">New</a>
+        <Button color="success">New</Button>
       </LevelItem>
     </LevelItem>
   </Level>

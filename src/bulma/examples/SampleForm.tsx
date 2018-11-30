@@ -7,64 +7,32 @@ import { Field } from '../Field'
 import { Select } from '../Select'
 import { RadioButton } from '../RadioButton'
 import { Button } from '../Button'
+import { Section } from '../Section'
+import { Container } from '../Container'
 
 export const SampleForm: React.SFC = () => {
   return (
-    <div className="section">
-      <div className="container">
+    <Section>
+      <Container>
         <Field>
           <Label>Name</Label>
-          <Input
-            name="input"
-            type="text"
-            placeholder="Text input"
-            onChange={() => ({})}
-          />
+          <Input type="text" placeholder="Input Text" />
         </Field>
-
         <Field>
-          <label className="label">Username</label>
-          <div className="control has-icons-left has-icons-right">
-            <Input
-              name="Username"
-              type="text"
-              placeholder="Text input"
-              value=""
-              onChange={() => ({})}
-            />
-            <span className="icon is-small is-left">
-              <i className="fas fa-user" />
-            </span>
-            <span className="icon is-small is-right">
-              <i className="fas fa-check" />
-            </span>
-          </div>
+          <Label>Username</Label>
+          <Input type="text" placeholder="Input Text" />
           <p className="help is-success">This username is available</p>
         </Field>
 
         <Field>
           <Label>Email</Label>
-          <div className="control has-icons-left has-icons-right">
-            <Input
-              name="email"
-              type="email"
-              placeholder="Email input"
-              value=""
-              onChange={() => ({})}
-            />
-            <span className="icon is-small is-left">
-              <i className="fas fa-envelope" />
-            </span>
-            <span className="icon is-small is-right">
-              <i className="fas fa-exclamation-triangle" />
-            </span>
-          </div>
+          <Input type="email" placeholder="Email Input" />
         </Field>
         <p className="help is-danger">This email is invalid</p>
 
         <Field>
           <Label>Subject</Label>
-          <Select name="foobar" onChange={() => ({})}>
+          <Select>
             <option>Select dropdown</option>
             <option>With options</option>
           </Select>
@@ -76,7 +44,7 @@ export const SampleForm: React.SFC = () => {
         </Field>
 
         <Field>
-          <CheckBox name="foobar" onChange={() => ({})}>
+          <CheckBox>
             I agree to the
             <a href="#"> terms and conditions</a>
           </CheckBox>
@@ -92,11 +60,11 @@ export const SampleForm: React.SFC = () => {
         </Field>
 
         <Field grouped>
-          <Button onClick={() => ({})}>Submit</Button>
+          <Button>Submit</Button>
 
-          <Button onClick={() => ({})}>Cancel</Button>
+          <Button>Cancel</Button>
         </Field>
-      </div>
-    </div>
+      </Container>
+    </Section>
   )
 }

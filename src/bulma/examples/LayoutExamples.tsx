@@ -1,37 +1,40 @@
 import * as React from 'react'
 import { Columns } from '../Columns'
 import { Column } from '../Column'
+import { Section } from '../Section'
+import { Container } from '../Container'
+import { Notification } from '../Notification'
 
 export const LayoutExample: React.SFC = () => (
-  <div className="section">
-    <div className="container">
+  <Section>
+    <Container>
       <Columns>
         <Column>
-          <p className="notification is-info">First column</p>
+          <Notification color="info">First column</Notification>
           <Columns>
             <Column>
-              <p className="notification is-info">First nested column</p>
+              <Notification color="info">First nested column</Notification>
             </Column>
             <Column>
-              <p className="notification is-info">Second nested column</p>
+              <Notification color="info">Second nested column</Notification>
             </Column>
           </Columns>
         </Column>
         <Column>
-          <p className="notification is-danger">Second column</p>
+          <Notification color="danger">Second column</Notification>
           <Columns>
             <Column>
-              <p className="notification is-danger">50%</p>
+              <Notification color="danger">50%</Notification>
             </Column>
             <Column>
-              <p className="notification is-danger">Auto</p>
+              <Notification color="danger">Auto</Notification>
             </Column>
             <Column>
-              <p className="notification is-danger">Auto</p>
+              <Notification color="danger">Auto</Notification>
             </Column>
           </Columns>
         </Column>
       </Columns>
-    </div>
-  </div>
+    </Container>
+  </Section>
 )
