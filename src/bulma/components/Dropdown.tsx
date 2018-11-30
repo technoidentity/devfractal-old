@@ -9,27 +9,16 @@ interface DropDownProps {
   readonly modifier?: DropDownModifier
   readonly alignment?: DropDownAlignment
   readonly active?: boolean
-  readonly children?: React.ReactNode
-}
-
-interface DropDownTriggerProps {
-  readonly children: React.ReactNode
 }
 
 interface DropDownMenuProps {
   readonly id: string
   readonly role: string
-  readonly children: React.ReactNode
-}
-
-interface DropDownContentProps {
-  readonly children: React.ReactNode
 }
 
 interface DropDownItemProps {
   readonly active?: boolean
   readonly href: string
-  readonly children: React.ReactNode
 }
 
 export const DropDown: React.SFC<DropDownProps> = ({
@@ -46,9 +35,9 @@ export const DropDown: React.SFC<DropDownProps> = ({
   return <div className={classes}>{children}</div>
 }
 
-export const DropDownTrigger: React.SFC<DropDownTriggerProps> = ({
-  children,
-}) => <div className="dropdown-trigger">{children}</div>
+export const DropDownTrigger: React.SFC = ({ children }) => (
+  <div className="dropdown-trigger">{children}</div>
+)
 
 export const DropDownMenu: React.SFC<DropDownMenuProps> = ({
   role,
@@ -60,9 +49,9 @@ export const DropDownMenu: React.SFC<DropDownMenuProps> = ({
   </div>
 )
 
-export const DropDownContent: React.SFC<DropDownContentProps> = ({
-  children,
-}) => <div className="dropdown-content">{children}</div>
+export const DropDownContent: React.SFC = ({ children }) => (
+  <div className="dropdown-content">{children}</div>
+)
 
 export const DropDownItem: React.SFC<DropDownItemProps> = ({
   active,

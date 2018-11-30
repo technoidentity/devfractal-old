@@ -21,7 +21,6 @@ type TileSize =
   | '12'
 
 interface TileProps {
-  readonly children: React.ReactNode
   readonly modifier?: TileModifier
   readonly size?: TileSize
   readonly vertical?: boolean

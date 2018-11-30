@@ -14,7 +14,6 @@ type HeroColor =
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar'
 
 interface HeroProps {
-  readonly children: React.ReactNode
   readonly color?: HeroColor
   readonly bold?: boolean
   readonly size?: HeroSize
@@ -29,26 +28,14 @@ export const Hero: React.SFC<HeroProps> = ({ children, color, bold, size }) => {
   return <section className={classes}>{children}</section>
 }
 
-interface HeroHeadProps {
-  readonly children: React.ReactNode
-}
-
-export const HeroHead: React.SFC<HeroHeadProps> = ({ children }) => (
+export const HeroHead: React.SFC = ({ children }) => (
   <div className="hero-head">{children}</div>
 )
 
-interface HeroBodyProps {
-  readonly children: React.ReactNode
-}
-
-export const HeroBody: React.SFC<HeroBodyProps> = ({ children }) => (
+export const HeroBody: React.SFC = ({ children }) => (
   <div className="hero-body">{children}</div>
 )
 
-interface HeroFootProps {
-  readonly children: React.ReactNode
-}
-
-export const HeroFoot: React.SFC<HeroFootProps> = ({ children }) => (
+export const HeroFoot: React.SFC = ({ children }) => (
   <div className="hero-head">{children}</div>
 )

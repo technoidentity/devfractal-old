@@ -1,14 +1,10 @@
 import * as React from 'react'
 
-interface MenuLabelProps {
-  readonly children: React.ReactChild
-}
-
 export const Menu: React.SFC = ({ children }) => (
   <aside className="menu">{children}</aside>
 )
 
-export const MenuLabel: React.SFC<MenuLabelProps> = ({ children }) => (
+export const MenuLabel: React.SFC = ({ children }) => (
   <p className="menu-label">{children}</p>
 )
 

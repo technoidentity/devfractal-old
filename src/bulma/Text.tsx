@@ -62,7 +62,6 @@ interface TextProps {
   readonly fontFamily?: TextFontFamily
   readonly responsiveSize?: TextResponsiveSize
   readonly responsiveAlignment?: TextResponsiveAlignment
-  readonly children: React.ReactChild
 }
 
 export const Text: React.SFC<TextProps> = ({

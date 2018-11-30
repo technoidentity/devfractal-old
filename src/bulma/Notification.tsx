@@ -11,7 +11,6 @@ type NotificationColor =
 
 interface NotificationProps {
   readonly color?: NotificationColor
-  readonly children: React.ReactNode
 }
 
 export const Notification: React.SFC<NotificationProps> = ({

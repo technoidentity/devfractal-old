@@ -5,7 +5,6 @@ type ContentSize = 'small' | 'medium' | 'large'
 
 interface ContentProps {
   readonly size?: ContentSize
-  readonly children: React.ReactNode
 }
 
 export const Content: React.SFC<ContentProps> = ({ size, children }) => {

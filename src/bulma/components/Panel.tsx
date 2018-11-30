@@ -1,36 +1,19 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-interface PanelHeadingProps {
-  readonly children: React.ReactChild
-}
-
-interface PanelTabsProps {
-  readonly children: ReadonlyArray<JSX.Element>
-}
-
 interface PanelTabsItemProps {
   readonly active?: boolean
-  readonly children: React.ReactChild
 }
 
-interface PanelBlockProps {
-  readonly children: React.ReactNode
-}
-
-interface PanelProps {
-  readonly children: React.ReactNode
-}
-
-export const Panel: React.SFC<PanelProps> = ({ children }) => (
+export const Panel: React.SFC = ({ children }) => (
   <nav className="panel">{children}</nav>
 )
 
-export const PanelHeading: React.SFC<PanelHeadingProps> = ({ children }) => (
+export const PanelHeading: React.SFC = ({ children }) => (
   <p className="panel-heading">{children}</p>
 )
 
-export const PanelBlock: React.SFC<PanelBlockProps> = ({ children }) => (
+export const PanelBlock: React.SFC = ({ children }) => (
   <div className="panel-block">{children}</div>
 )
 
@@ -44,6 +27,6 @@ export const PanelTabsItem: React.SFC<PanelTabsItemProps> = ({
   return <a className={classes}>{children}</a>
 }
 
-export const PanelTabs: React.SFC<PanelTabsProps> = ({ children }) => {
+export const PanelTabs: React.SFC = ({ children }) => {
   return <p className="panel-tabs">{children}</p>
 }

@@ -11,12 +11,10 @@ interface TabsProps {
   readonly fullWidth?: boolean
   readonly toggle?: boolean
   readonly boxed?: boolean
-  readonly children: React.ReactNode
 }
 
 interface TabsItemProps {
   readonly active?: boolean
-  readonly children: React.ReactChild
 }
 
 export const TabsItem: React.SFC<TabsItemProps> = ({ active, children }) => {

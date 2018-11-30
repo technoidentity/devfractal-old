@@ -1,21 +1,16 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-interface Children {
-  readonly children: React.ReactChild
-}
-
 interface PaginationProps {
   readonly rounded?: boolean
   readonly size?: 'small' | 'medium' | 'large'
-  readonly children: React.ReactNode
 }
 
-export const PaginationPrevious: React.SFC<Children> = ({ children }) => (
+export const PaginationPrevious: React.SFC = ({ children }) => (
   <a className="pagination-previous">{children}</a>
 )
 
-export const PaginationNext: React.SFC<Children> = ({ children }) => (
+export const PaginationNext: React.SFC = ({ children }) => (
   <a className="pagination-next">{children}</a>
 )
 

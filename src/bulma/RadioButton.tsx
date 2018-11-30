@@ -6,7 +6,6 @@ interface RadioProps {
   readonly onChange?: React.ChangeEventHandler<HTMLInputElement>
   readonly checked?: boolean
   readonly disabled?: boolean
-  readonly children: React.ReactNode
 }
 
 export const RadioButton: React.SFC<RadioProps> = ({

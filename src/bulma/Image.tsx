@@ -30,7 +30,6 @@ type ResponsiveImageRatio =
 interface ImageProps {
   readonly size?: FixedSquaredImageSize
   readonly responsiveImageRatio?: ResponsiveImageRatio
-  readonly children: React.ReactChild
 }
 
 export const Image: React.SFC<ImageProps> = ({

@@ -15,13 +15,11 @@ interface BreadcrumbProps {
   readonly size?: BreadcrumbSize
   readonly alignment?: BreadcrumbAlignment
   readonly separator?: BreadcrumbSeparator
-  readonly children: React.ReactNode
 }
 
 interface BreadcrumbItemProps {
   readonly href: string
   readonly active?: boolean
-  readonly children: React.ReactChild
 }
 
 export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
