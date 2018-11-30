@@ -3,6 +3,8 @@ import { Input } from '../Input'
 import { Field } from '../Field'
 import { Label } from '../Label'
 import { Button } from '../Button'
+import { Section } from '../Section'
+import { Container } from '../Container'
 
 const logger: (evt: any) => void = evt => {
   // tslint:disable no-console
@@ -15,8 +17,8 @@ const logger: (evt: any) => void = evt => {
 
 export const LoginForm: React.SFC = () => {
   return (
-    <div className="section">
-      <div className="container">
+    <Section>
+      <Container>
         <Field>
           <Label>User Name</Label>
           <Input name="username" type="text" onChange={logger} />
@@ -33,7 +35,7 @@ export const LoginForm: React.SFC = () => {
             Reset
           </Button>
         </Field>
-      </div>
-    </div>
+      </Container>
+    </Section>
   )
 }
