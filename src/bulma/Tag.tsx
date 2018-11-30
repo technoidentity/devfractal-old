@@ -18,7 +18,6 @@ interface TagProps {
   readonly size?: TagSize
   readonly color?: TagColor
   readonly modifier?: TagModifier
-  readonly children: React.ReactNode
 }
 
 export class Tag extends React.Component<TagProps> {

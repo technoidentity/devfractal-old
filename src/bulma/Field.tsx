@@ -10,7 +10,6 @@ export interface FieldProps {
   readonly addonsCentered?: boolean
   readonly addonsRight?: boolean
   readonly horizontal?: boolean
-  readonly children: React.ReactNode
 }
 
 export const Field: React.SFC<FieldProps> = ({

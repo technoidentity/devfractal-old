@@ -16,7 +16,6 @@ interface ProgressBarProps {
   readonly color?: ProgressBarColor
   readonly value?: string
   readonly max: string
-  readonly children: React.ReactChild
 }
 
 export const ProgressBar: React.SFC<ProgressBarProps> = ({

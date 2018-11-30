@@ -3,11 +3,6 @@ import classNames from 'classnames'
 
 interface ModalProps {
   readonly active?: boolean
-  readonly children: React.ReactNode
-}
-
-interface ModalContentProps {
-  readonly children: React.ReactNode
 }
 
 export const ModalCard: React.SFC = ({ children }) => (
@@ -33,7 +28,7 @@ export const ModalBackground: React.SFC = () => (
   <div className="modal-background" />
 )
 
-export const ModalContent: React.SFC<ModalContentProps> = ({ children }) => (
+export const ModalContent: React.SFC = ({ children }) => (
   <div className="modal-content">{children}</div>
 )
 

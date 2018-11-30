@@ -16,7 +16,6 @@ interface SelectProps {
   readonly state?: SelectState
   readonly name?: string
   readonly onChange?: React.ChangeEventHandler<HTMLSelectElement>
-  readonly children: ReadonlyArray<JSX.Element>
 }
 
 export const Select: React.SFC<SelectProps> = ({

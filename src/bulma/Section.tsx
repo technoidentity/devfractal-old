@@ -3,7 +3,6 @@ import classNames from 'classnames'
 
 interface SectionProps {
   readonly modifier?: 'medium' | 'large'
-  readonly children: React.ReactNode
 }
 
 export const Section: React.SFC<SectionProps> = ({ modifier, children }) => {

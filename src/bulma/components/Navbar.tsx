@@ -24,22 +24,18 @@ interface NavBarItemsProps {
   readonly hoverable?: boolean
   readonly href?: string
   readonly active?: boolean
-  readonly children: React.ReactNode
 }
 
 interface NavBarMenuProps {
   readonly active?: boolean
-  readonly children: React.ReactNode
 }
 
 interface NavbarDropdownprops {
   readonly boxed?: boolean
-  readonly children: React.ReactNode
 }
 
 interface NavBarLinkProps {
   readonly arrowless?: boolean
-  readonly children: React.ReactNode
 }
 
 export const Navbar: React.SFC<NavbarProps> = ({

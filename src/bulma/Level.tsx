@@ -4,16 +4,11 @@ import className from 'classnames'
 
 type LevelItemType = 'left' | 'right'
 
-interface LevelProps {
-  readonly children: React.ReactNode
-}
-
 interface LevelItemProps {
-  readonly children: React.ReactNode
   readonly levelItemType?: LevelItemType
 }
 
-export const Level: React.SFC<LevelProps> = ({ children }) => (
+export const Level: React.SFC = ({ children }) => (
   <nav className="level">{children}</nav>
 )
 

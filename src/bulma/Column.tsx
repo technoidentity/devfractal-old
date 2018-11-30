@@ -38,7 +38,6 @@ type ColumnResponsive =
   | 'fullhd'
 
 interface ColumnProps {
-  readonly children: React.ReactNode
   readonly size?: ColumnSize
   readonly gridSize?: ColumnGridSize
   readonly offsetSize?: ColumnOffsetSize

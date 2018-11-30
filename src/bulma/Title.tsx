@@ -8,12 +8,10 @@ type SubTitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 interface TitleProps {
   readonly size?: TitleSize
   readonly spaced?: boolean
-  readonly children: React.ReactChild
 }
 
 interface SubTitleProps {
   readonly size?: SubTitleSize
-  readonly children: React.ReactChild
 }
 
 export const Title: React.SFC<TitleProps> = ({ size, spaced, children }) => {

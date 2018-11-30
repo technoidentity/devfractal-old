@@ -9,7 +9,6 @@ type ColumnsResponsive =
   | 'fullhd'
 
 interface ColumnsProps {
-  readonly children: ReadonlyArray<JSX.Element>
   readonly responsiveness?: ColumnsResponsive
   readonly gapless?: boolean
   readonly multiline?: boolean

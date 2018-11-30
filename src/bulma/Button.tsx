@@ -33,7 +33,6 @@ type ButtonState =
 interface ButtonsProps {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
-  readonly children: React.ReactNode
 }
 interface ButtonProps {
   readonly color?: ButtonColor
@@ -43,7 +42,6 @@ interface ButtonProps {
   readonly style?: ButtonStyle
   readonly state?: ButtonState
   readonly fullwidth?: boolean
-  readonly children: React.ReactChild
   readonly onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 

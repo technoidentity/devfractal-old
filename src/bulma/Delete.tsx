@@ -11,5 +11,5 @@ export const Delete: React.SFC<DeleteProps> = ({ size }) => {
   const classes: string = classNames('delete', {
     [`is-${size}`]: size,
   })
-  return <a className={classes} />
+  return <div className={classes} />
 }
