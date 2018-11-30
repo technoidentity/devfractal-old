@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { SubTitle, Title } from '../Title'
+import { Section } from '../Section'
 
 export const TitleExample: React.SFC = () => (
-  <div>
+  <Section>
     <Title size="1">Title 1</Title>
     <SubTitle size="3">Subtitle 3</SubTitle>
     <Title size="2" spaced>
@@ -13,5 +14,5 @@ export const TitleExample: React.SFC = () => (
       Title 3
     </Title>
     <SubTitle size="5">Subtitle 5</SubTitle>
-  </div>
+  </Section>
 )

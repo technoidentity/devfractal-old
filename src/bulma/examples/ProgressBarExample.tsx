@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { ProgressBar } from '../ProgressBar'
+import { Section } from '../Section'
 
 export const ProgressBarExample: React.SFC = () => (
-  <div>
+  <Section>
     <ProgressBar value="15" max="100">
       15%
     </ProgressBar>
@@ -12,5 +13,5 @@ export const ProgressBarExample: React.SFC = () => (
     <ProgressBar color="info" value="45" max="100">
       45%
     </ProgressBar>
-  </div>
+  </Section>
 )
