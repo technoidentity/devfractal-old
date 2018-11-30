@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Input } from '../Input'
-import { handler } from './common'
+import { logger } from './common'
 
 export const InputExample: React.SFC = () => (
   <Input
@@ -9,6 +9,6 @@ export const InputExample: React.SFC = () => (
     state="focused"
     rounded
     placeholder="Input Text"
-    onKeyDown={handler}
+    onKeyDown={() => logger('hello from input')}
   />
 )
