@@ -1,14 +1,18 @@
 import * as React from 'react'
 import { Tag } from '../Tag'
-import { Section } from '../Section'
+import { logger } from './common'
+import { Tags } from '../Tags'
 
 export const TagExample: React.SFC = () => (
-  <Section>
+  <Tags>
     <Tag>all</Tag>
     <Tag>medium</Tag>
     <Tag>size</Tag>
-    <Tag color="primary">all</Tag>
+    <Tag color="primary" onClick={() => logger('hello from tag')}>
+      all
+    </Tag>
+    <div>Hello</div>
     <Tag color="info">medium</Tag>
     <Tag color="link">size</Tag>
-  </Section>
+  </Tags>
 )

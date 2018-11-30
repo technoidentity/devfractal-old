@@ -1,14 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { Tag } from './Tag'
-
 type TagsSize = 'medium' | 'large'
 
-interface TagsProps {
+interface TagsProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly size?: TagsSize
   readonly addons?: boolean
-  readonly children: ReadonlyArray<Tag>
 }
 
 export const Tags: React.SFC<TagsProps> = ({ size, addons, children }) => {
