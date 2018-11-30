@@ -6,8 +6,6 @@ type InputColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
 type InputSize = 'small' | 'medium' | 'large'
 
-type InputStyle = 'rounded'
-
 type InputType =
   | 'text'
   | 'password'
@@ -26,48 +24,31 @@ type InputType =
 
 type InputState = 'hovered' | 'focused'
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   readonly color?: InputColor
-  readonly size?: InputSize
-  readonly style?: InputStyle
+  readonly inputSize?: InputSize
+  readonly rounded?: boolean
   readonly state?: InputState
-  readonly placeholder?: string
-  readonly name?: string
-  readonly value?: string
   readonly type: InputType
-  readonly onChange?: React.ChangeEventHandler<HTMLInputElement>
-  readonly disabled?: boolean
 }
 
 export const Input: React.SFC<InputProps> = ({
   color,
-  size,
-  style,
+  inputSize,
+  rounded,
   state,
-  placeholder,
-  name,
-  value,
-  type,
-  onChange,
-  disabled,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('input', {
+  const classes: string = classNames(className, 'input', {
     [`is-${color}`]: color,
-    [`is-${size}`]: size,
-    [`is-${style}`]: style,
+    [`is-${inputSize}`]: inputSize,
+    [`is-rounded`]: rounded,
     [`is-${state}`]: state,
   })
   return (
     <div className="control">
-      <input
-        className={classes}
-        type={type}
-        placeholder={placeholder}
-        name={name}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-      />
+      <input className={classes} {...props} />
     </div>
   )
 }
