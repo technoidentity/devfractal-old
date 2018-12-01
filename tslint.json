@@ -1,7 +1,6 @@
 {
   "extends": ["tslint-react", "tslint-config-prettier", "tslint-immutable"],
   "rules": {
-    "align": [true, "parameters", "arguments", "statements"],
     "ban": false,
     "adjacent-overload-signatures": true,
     "class-name": true,
@@ -92,7 +91,6 @@
     "readonly-keyword": [true, { "ignore-prefix": "mutable" }],
     "readonly-array": [true, { "ignore-rest-parameters": true }],
     "no-let": true,
-    "no-method-signature": true,
     "no-delete": true,
     "no-this": true,
     // "no-class": true,
