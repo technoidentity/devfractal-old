@@ -3,13 +3,6 @@ import classNames from 'classnames'
 
 type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
-type TextFontFamily =
-  | 'sans-serif'
-  | 'monospace'
-  | 'primary'
-  | 'secondary'
-  | 'code'
-
 type TextAlignment = 'centered' | 'justified' | 'left' | 'right'
 
 type TextResponsiveSize =
@@ -53,13 +46,12 @@ type TextWeight = 'light' | 'normal' | 'semiBold' | 'bold'
 
 type TextTransformation = 'capitalized' | 'lowercase' | 'uppercase' | 'italic'
 
-interface TextProps {
+interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   readonly color?: TextColor
   readonly size?: TextSize
   readonly alignment?: TextAlignment
   readonly transformation?: TextTransformation
   readonly weight?: TextWeight
-  readonly fontFamily?: TextFontFamily
   readonly responsiveSize?: TextResponsiveSize
   readonly responsiveAlignment?: TextResponsiveAlignment
 }
@@ -70,10 +62,11 @@ export const Text: React.SFC<TextProps> = ({
   alignment,
   transformation,
   weight,
-  fontFamily,
   responsiveSize,
   responsiveAlignment,
   children,
+  className,
+  ...props
 }) => {
   const cnSize: string = responsiveSize
     ? `is-size-${size}-${responsiveSize}`
@@ -83,12 +76,20 @@ export const Text: React.SFC<TextProps> = ({
     ? `has-text-${alignment}-${responsiveAlignment}`
     : `has-text-${alignment}`
 
-  const classes: string = classNames(cnSize, cnAlignment, {
-    [`has-text-${color}`]: color,
-    [`has-text-${weight}`]: weight,
-    [`is-${transformation}`]: transformation,
-    [`is-family-${fontFamily}`]: fontFamily,
-    [`has-text-${alignment}`]: alignment,
-  })
-  return <span className={classes}>{children}</span>
+  const classes: string = classNames(
+    cnSize,
+    cnAlignment,
+    {
+      [`has-text-${color}`]: color,
+      [`has-text-${weight}`]: weight,
+      [`is-${transformation}`]: transformation,
+      [`has-text-${alignment}`]: alignment,
+    },
+    className,
+  )
+  return (
+    <span {...props} className={classes}>
+      {children}
+    </span>
+  )
 }
