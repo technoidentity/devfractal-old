@@ -37,5 +37,6 @@
   },
 
   "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false
+  "telemetry.enableCrashReporter": false,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
