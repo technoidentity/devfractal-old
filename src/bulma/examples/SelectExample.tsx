@@ -31,7 +31,7 @@ export const SelectExample: React.SFC = () => (
       </Select>
     </Field>
     <Field>
-      <Select state="loading">
+      <Select loading>
         <option>Select dropdown</option>
         <option>With options</option>
       </Select>
