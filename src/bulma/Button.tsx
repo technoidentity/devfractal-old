@@ -85,7 +85,7 @@ export const Button: React.SFC<ButtonProps> = ({
   )
   return (
     <div className="control">
-      <button className={classes} {...props}>
+      <button {...props} className={classes}>
         {children}
       </button>
     </div>

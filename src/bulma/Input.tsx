@@ -48,7 +48,7 @@ export const Input: React.SFC<InputProps> = ({
   })
   return (
     <div className="control">
-      <input className={classes} {...props} />
+      <input {...props} className={classes} />
     </div>
   )
 }
