@@ -3,18 +3,19 @@ import { Delete } from '../Delete'
 import { Message, MessageHeader, MessageBody } from '../components/Message'
 import { Notification } from '../Notification'
 import { Section } from '../Section'
+import { logger } from './common'
 
 export const DeleteExample: React.SFC = () => (
   <Section>
     <Notification color="danger">
-      <Delete />
+      <Delete className="is-large" onClick={() => logger('clicked')} />
       Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor
       sit amet, consectetur adipiscing elit
     </Notification>
     <Message color="info">
       <MessageHeader>
         Info
-        <Delete />
+        <Delete size="medium" />
       </MessageHeader>
       <MessageBody>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
