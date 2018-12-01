@@ -5,38 +5,36 @@ type TextAreaColor = 'primary' | 'info' | 'warning' | 'success' | 'danger'
 
 type TextAreaSize = 'small' | 'large' | 'normal' | 'medium'
 
-type TextAreaState = 'normal' | 'hovered' | 'focused' | 'loading' | 'disabled'
+type TextAreaState = 'normal' | 'hovered' | 'focused'
 
-interface TextAreaProps {
+interface TextAreaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   readonly color?: TextAreaColor
   readonly size?: TextAreaSize
   readonly state?: TextAreaState
-  readonly placeholder?: string
-  readonly disabled?: boolean
-  readonly rows: number
+  readonly rows?: number
 }
 
 export const TextArea: React.SFC<TextAreaProps> = ({
   color,
   size,
   state,
-  placeholder,
-  disabled,
   rows,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('textarea', {
-    [`is-${color}`]: color,
-    [`is-${size}`]: size,
-    [`is-${state}`]: state,
-  })
+  const classes: string = classNames(
+    'textarea',
+    {
+      [`is-${color}`]: color,
+      [`is-${size}`]: size,
+      [`is-${state}`]: state,
+    },
+    className,
+  )
   return (
     <div className="control">
-      <textarea
-        className={classes}
-        placeholder={placeholder}
-        disabled={disabled}
-        rows={rows}
-      />
+      <textarea {...props} className={classes} />
     </div>
   )
 }
