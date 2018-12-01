@@ -1,31 +1,13 @@
 import React from 'react'
 
-interface CheckBoxProps {
-  readonly name?: string
-  readonly value?: string
-  readonly onChange?: React.ChangeEventHandler<HTMLInputElement>
-  readonly checked?: boolean
-  readonly disabled?: boolean
+interface CheckBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  readonly readOnly?: boolean
 }
 
-export const CheckBox: React.SFC<CheckBoxProps> = ({
-  name,
-  value,
-  onChange,
-  checked,
-  disabled,
-  children,
-}) => (
+export const CheckBox: React.SFC<CheckBoxProps> = ({ children, ...props }) => (
   <div className="control">
     <label className="checkbox">
-      <input
-        type="checkbox"
-        name={name}
-        value={value}
-        onChange={onChange}
-        checked={checked}
-        disabled={disabled}
-      />
+      <input {...props} type="checkbox" />
       {children}
     </label>
   </div>
