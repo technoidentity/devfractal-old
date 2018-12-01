@@ -7,6 +7,7 @@ import { Container } from './bulma/Container'
 import { Content } from './bulma/Content'
 import {
   BreadcrumbExample,
+  ButtonExample,
   CardExample,
   CheckBoxExample,
   ContainerExample,
@@ -35,13 +36,12 @@ import {
   TableExample,
   TabsExample,
   TagExample,
+  TextAreaExample,
+  TextExample,
   TileExample,
   TitleExample,
 } from './bulma/examples'
 import { Section } from './bulma/Section'
-import { ButtonExample } from './bulma/examples/ButtonExample'
-import { TextAreaExample } from './bulma/examples/TextAreaExample'
-import { TextExample } from './bulma/examples/TextExample'
 
 setConfig({
   ignoreSFC: true,
