@@ -39,6 +39,9 @@ import {
   TitleExample,
 } from './bulma/examples'
 import { Section } from './bulma/Section'
+import { ButtonExample } from './bulma/examples/ButtonExample'
+import { TextAreaExample } from './bulma/examples/TextAreaExample'
+import { TextExample } from './bulma/examples/TextExample'
 
 setConfig({
   ignoreSFC: true,
@@ -157,6 +160,15 @@ class App extends React.Component {
                     <li>
                       <Link to="/field-example"> Field Example</Link>
                     </li>
+                    <li>
+                      <Link to="/button-example">Button Example</Link>
+                    </li>
+                    <li>
+                      <Link to="/textarea-example">Textarea Example</Link>
+                    </li>
+                    <li>
+                      <Link to="/text-example">Text Example</Link>
+                    </li>
                   </ul>
                 </nav>
               </Content>
@@ -251,6 +263,17 @@ class App extends React.Component {
                     component={ContainerExample}
                   />
                   <Route path="/field-example" exact component={FieldExample} />
+                  <Route
+                    path="/button-example"
+                    exact
+                    component={ButtonExample}
+                  />
+                  <Route
+                    path="/textarea-example"
+                    exact
+                    component={TextAreaExample}
+                  />
+                  <Route path="/text-example" exact component={TextExample} />
                 </Container>
               </Section>
             </Column>
