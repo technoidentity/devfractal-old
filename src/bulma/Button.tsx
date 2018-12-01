@@ -16,15 +16,15 @@ type ButtonColor =
 
 type ButtonSize = 'small' | 'normal' | 'medium' | 'large'
 
-type ButtonDisplay = 'small' | 'normal' | 'medium' | 'large' | 'fullwidth'
-
-type ButtonStyle = 'inverted' | 'outlined' | 'rounded'
+type ButtonDisplay = 'small' | 'normal' | 'medium' | 'large'
 
 type ButtonModifier = 'selected'
 
+type ButtonStyle = 'rounded' | 'inverted' | 'outlined'
+
 type ButtonState =
   | 'normal'
-  | 'hover'
+  | 'hovered'
   | 'focused'
   | 'active'
   | 'loading'
@@ -34,16 +34,6 @@ interface ButtonsProps {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
 }
-interface ButtonProps {
-  readonly color?: ButtonColor
-  readonly size?: ButtonSize
-  readonly modifier?: ButtonModifier
-  readonly display?: ButtonDisplay
-  readonly style?: ButtonStyle
-  readonly state?: ButtonState
-  readonly fullwidth?: boolean
-  readonly onClick?: React.MouseEventHandler<HTMLButtonElement>
-}
 
 export const Buttons: React.SFC<ButtonsProps> = ({
   addons,
@@ -52,10 +42,20 @@ export const Buttons: React.SFC<ButtonsProps> = ({
 }) => {
   const classes: string = classNames('buttons', {
     [`is-${alignment}`]: alignment,
-    'has-addons': addons,
+    [`has-${addons}`]: addons,
   })
 
   return <div className={classes}>{children}</div>
+}
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  readonly color?: ButtonColor
+  readonly size?: ButtonSize
+  readonly modifier?: ButtonModifier
+  readonly display?: ButtonDisplay
+  readonly state?: ButtonState
+  readonly fullwidth?: boolean
+  readonly buttonStyle?: ButtonStyle
 }
 
 export const Button: React.SFC<ButtonProps> = ({
@@ -63,24 +63,29 @@ export const Button: React.SFC<ButtonProps> = ({
   size,
   modifier,
   display,
-  style,
   state,
   fullwidth,
+  buttonStyle,
   children,
-  onClick,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('button', {
-    [`is-${color}`]: color,
-    [`is-${size}`]: size,
-    [`is-${modifier}`]: modifier,
-    [`is-${display}`]: display,
-    [`is-${style}`]: style,
-    [`is-${state}`]: state,
-    'is-fullwidth': fullwidth,
-  })
+  const classes: string = classNames(
+    'button',
+    {
+      [`is-${color}`]: color,
+      [`is-${size}`]: size,
+      [`is-${modifier}`]: modifier,
+      [`is-${display}`]: display,
+      [`is-${state}`]: state,
+      [`is-${buttonStyle}`]: buttonStyle,
+      [`is-fullwidth`]: fullwidth,
+    },
+    className,
+  )
   return (
     <div className="control">
-      <button className={classes} onClick={onClick}>
+      <button className={classes} {...props}>
         {children}
       </button>
     </div>
