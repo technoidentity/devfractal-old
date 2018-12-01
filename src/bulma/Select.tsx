@@ -5,13 +5,14 @@ type SelectColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
 type SelectSize = 'small' | 'medium' | 'large'
 
-type SelectState = 'hovered' | 'focused' | 'loading'
+type SelectState = 'hovered' | 'focused'
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   readonly color?: SelectColor
   readonly rounded?: boolean
   readonly selectSize?: SelectSize
   readonly state?: SelectState
+  readonly loading?: boolean
 }
 
 export const Select: React.SFC<SelectProps> = ({
@@ -20,6 +21,7 @@ export const Select: React.SFC<SelectProps> = ({
   state,
   children,
   rounded,
+  loading,
   className,
   ...props
 }) => {
@@ -27,6 +29,7 @@ export const Select: React.SFC<SelectProps> = ({
     [`is-${color}`]: color,
     [`is-rounded`]: rounded,
     [`is-${selectSize}`]: selectSize,
+    ['is-loading']: loading,
   })
   const classes: string = classNames(
     {
