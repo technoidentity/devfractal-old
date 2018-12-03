@@ -14,6 +14,7 @@ type ResponsiveImageRatio =
   | 'square'
   | '1by1'
   | '5by4'
+  | '4by3'
   | '3by2'
   | '5by3'
   | '16by9'
@@ -27,7 +28,7 @@ type ResponsiveImageRatio =
   | '1by2'
   | '1by3'
 
-interface ImageProps {
+interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   readonly size?: FixedSquaredImageSize
   readonly responsiveImageRatio?: ResponsiveImageRatio
 }
@@ -36,11 +37,17 @@ export const Image: React.SFC<ImageProps> = ({
   size,
   children,
   responsiveImageRatio,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('image', {
+  const figureClasses: string = classNames('image', {
     [`is-${size}`]: size,
     [`is-${responsiveImageRatio}`]: responsiveImageRatio,
   })
 
-  return <figure className={classes}>{children}</figure>
+  return (
+    <figure {...props} className={figureClasses}>
+      {children}
+    </figure>
+  )
 }
