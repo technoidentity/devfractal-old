@@ -92,7 +92,7 @@
     "readonly-array": [true, { "ignore-rest-parameters": true }],
     "no-let": true,
     "no-delete": true,
-    "no-this": true,
+    // "no-this": true,
     // "no-class": true,
     "no-loop-statement": true,
 
