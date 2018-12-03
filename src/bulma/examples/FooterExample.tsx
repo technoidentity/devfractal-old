@@ -2,9 +2,10 @@ import * as React from 'react'
 
 import { Footer } from '../Footer'
 import { Container } from '../Container'
+import '../../style.css'
 
 export const FooterExample: React.SFC = () => (
-  <Footer>
+  <Footer className="has-text-primary">
     <Container>
       <p>
         <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>
