@@ -12,6 +12,7 @@ import {
   NavbarEnd,
 } from '../components/Navbar'
 import { Buttons, Button } from '../Button'
+import { logger } from './common'
 
 export const NavbarExample: React.SFC = () => (
   <Navbar>
@@ -23,7 +24,7 @@ export const NavbarExample: React.SFC = () => (
           height="28"
         />
       </NavbarItem>
-      <NavbarBurger>
+      <NavbarBurger role="button">
         <span aria-hidden="true" />
         <span aria-hidden="true" />
         <span aria-hidden="true" />
@@ -34,9 +35,9 @@ export const NavbarExample: React.SFC = () => (
       <NavbarStart>
         <NavbarItem>Home</NavbarItem>
 
-        <NavbarItem>Documentation</NavbarItem>
+        <NavbarItem className="is-active">Documentation</NavbarItem>
 
-        <NavbarItem dropdown hoverable>
+        <NavbarItem dropdown className="is-hoverable">
           <NavbarLink>More</NavbarLink>
 
           <NavbarDropdown>
@@ -52,8 +53,12 @@ export const NavbarExample: React.SFC = () => (
       <NavbarEnd>
         <NavbarItem>
           <Buttons>
-            <Button color="primary">Sign up</Button>
-            <Button color="light">Log in</Button>
+            <Button color="primary" onClick={() => logger('signup')}>
+              Sign up
+            </Button>
+            <Button color="light" onClick={() => logger('login')}>
+              Log in
+            </Button>
           </Buttons>
         </NavbarItem>
       </NavbarEnd>
