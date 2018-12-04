@@ -28,7 +28,7 @@ export const MediaObjectExample: React.SFC = () => (
           </Image>
         </MediaLeft>
         <MediaContent>
-          <Content>
+          <Content className="is-medium">
             <strong>Barbara Middleton</strong>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta
             eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque
@@ -63,19 +63,19 @@ export const MediaObjectExample: React.SFC = () => (
           </Media>
           <Media>
             <MediaLeft>
-              <Image size="48x48">
+              <Image className="is-48x48">
                 <img src="https://bulma.io/images/placeholders/128x128.png" />
               </Image>
             </MediaLeft>
             <MediaContent>
               <Field>
                 <div className="control">
-                  <TextArea rows={3} />
+                  <TextArea className="is-primary" />
                 </div>
               </Field>
               <Field>
                 <div className="control">
-                  <Button>Post comment</Button>
+                  <Button className="is-primary">Post comment</Button>
                 </div>
               </Field>
             </MediaContent>
