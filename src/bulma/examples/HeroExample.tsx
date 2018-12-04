@@ -27,7 +27,6 @@ export const HeroExample: React.SFC = () => (
                   src="https://bulma.io/images/bulma-type-white.png"
                   alt="Logo"
                 />
-                >
               </NavbarItem>
               <NavbarBurger data-target="navbarMenuHeroA">
                 <span />
@@ -42,9 +41,6 @@ export const HeroExample: React.SFC = () => (
                 <NavbarItem>Documentation</NavbarItem>
                 <NavbarItem>
                   <Button color="primary" buttonStyle="inverted">
-                    <span className="icon">
-                      <i className="fab fa-github" />
-                    </span>
                     <span>Download</span>
                   </Button>
                 </NavbarItem>
@@ -55,7 +51,7 @@ export const HeroExample: React.SFC = () => (
       </HeroHead>
 
       <HeroBody>
-        <Container>
+        <Container className="has-text-centered">
           <Title>Title</Title>
           <SubTitle>Subtitle</SubTitle>
         </Container>
@@ -71,7 +67,7 @@ export const HeroExample: React.SFC = () => (
               <li>
                 <a>Modifiers</a>
               </li>
-              <li>
+              <li className="is-active">
                 <a>Grid</a>
               </li>
               <li>
