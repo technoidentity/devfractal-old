@@ -37,7 +37,7 @@ type ColumnResponsive =
   | 'widescreen'
   | 'fullhd'
 
-interface ColumnProps {
+interface ColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly size?: ColumnSize
   readonly gridSize?: ColumnGridSize
   readonly offsetSize?: ColumnOffsetSize
@@ -65,14 +65,25 @@ export const Column: React.SFC<ColumnProps> = ({
   offsetSize,
   narrow,
   responsive,
+  className,
+  ...props
 }) => {
   const sizeResponsive: string = getSizeResponsive(size, responsive)
 
-  const classes: string = classNames('column', sizeResponsive, {
-    [`is-${size}`]: size,
-    [`is-${gridSize}`]: gridSize,
-    [`is-offset-${offsetSize}`]: offsetSize,
-    [`is-narrow`]: narrow,
-  })
-  return <div className={classes}>{children}</div>
+  const classes: string = classNames(
+    'column',
+    sizeResponsive,
+    {
+      [`is-${size}`]: size,
+      [`is-${gridSize}`]: gridSize,
+      [`is-offset-${offsetSize}`]: offsetSize,
+      [`is-narrow`]: narrow,
+    },
+    className,
+  )
+  return (
+    <div className={classes} {...props}>
+      {children}
+    </div>
+  )
 }

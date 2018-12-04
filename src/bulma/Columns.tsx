@@ -8,7 +8,7 @@ type ColumnsResponsive =
   | 'widescreen'
   | 'fullhd'
 
-interface ColumnsProps {
+interface ColumnsProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly responsiveness?: ColumnsResponsive
   readonly gapless?: boolean
   readonly multiline?: boolean
@@ -21,13 +21,23 @@ export const Columns: React.SFC<ColumnsProps> = ({
   gapless,
   multiline,
   columnCentered,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('columns', {
-    [`is-${responsiveness}`]: responsiveness,
-    [`is-gapless`]: gapless,
-    [`is-multiline`]: multiline,
-    [`is-centered`]: columnCentered,
-  })
+  const classes: string = classNames(
+    'columns',
+    {
+      [`is-${responsiveness}`]: responsiveness,
+      [`is-gapless`]: gapless,
+      [`is-multiline`]: multiline,
+      [`is-centered`]: columnCentered,
+    },
+    className,
+  )
 
-  return <div className={classes}>{children}</div>
+  return (
+    <div className={classes} {...props}>
+      {children}
+    </div>
+  )
 }
