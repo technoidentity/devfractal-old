@@ -74,9 +74,9 @@ export const Button: React.SFC<ButtonProps> = ({
     'button',
     {
       [`is-${color}`]: color,
-      [`is-${size}`]: size,
-      [`is-${modifier}`]: modifier,
       [`is-${display}`]: display,
+      [`is-${modifier}`]: modifier,
+      [`is-${size}`]: size,
       [`is-${state}`]: state,
       [`is-${buttonStyle}`]: buttonStyle,
       [`is-fullwidth`]: fullwidth,
