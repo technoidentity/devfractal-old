@@ -16,8 +16,6 @@ type ButtonColor =
 
 type ButtonSize = 'small' | 'normal' | 'medium' | 'large'
 
-type ButtonDisplay = 'small' | 'normal' | 'medium' | 'large'
-
 type ButtonModifier = 'selected'
 
 type ButtonStyle = 'rounded' | 'inverted' | 'outlined'
@@ -52,7 +50,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   readonly color?: ButtonColor
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier
-  readonly display?: ButtonDisplay
   readonly state?: ButtonState
   readonly fullwidth?: boolean
   readonly buttonStyle?: ButtonStyle
@@ -62,7 +59,6 @@ export const Button: React.SFC<ButtonProps> = ({
   color,
   size,
   modifier,
-  display,
   state,
   fullwidth,
   buttonStyle,
@@ -74,7 +70,6 @@ export const Button: React.SFC<ButtonProps> = ({
     'button',
     {
       [`is-${color}`]: color,
-      [`is-${display}`]: display,
       [`is-${modifier}`]: modifier,
       [`is-${size}`]: size,
       [`is-${state}`]: state,
