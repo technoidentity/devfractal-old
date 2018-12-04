@@ -8,22 +8,22 @@ import { Container } from '../Container'
 
 export const TileExample: React.SFC = () => (
   <Container>
-    <Tile modifier="ancestor">
+    <Tile className="is-ancestor">
       <Tile vertical size="8">
         <Tile>
-          <Tile modifier="parent" vertical>
-            <Tile modifier="child" notification color="primary">
+          <Tile tileType="parent" vertical>
+            <Tile tileType="child" notification className="is-primary">
               <Title>Vertical...</Title>
               <SubTitle>Top tile</SubTitle>
             </Tile>
-            <Tile modifier="child" notification color="warning">
+            <Tile tileType="child" notification color="warning">
               <Title>...tiles</Title>
               <SubTitle>Bottom tile</SubTitle>
             </Tile>
           </Tile>
 
-          <Tile modifier="parent">
-            <Tile modifier="child" notification color="info">
+          <Tile tileType="parent">
+            <Tile tileType="child" notification color="info">
               <Title>Middle tile</Title>
               <SubTitle>With an image</SubTitle>
               <Image responsiveImageRatio="5by3">
@@ -33,8 +33,8 @@ export const TileExample: React.SFC = () => (
           </Tile>
         </Tile>
 
-        <Tile modifier="parent">
-          <Tile modifier="child" notification color="danger">
+        <Tile tileType="parent">
+          <Tile tileType="child" notification color="danger">
             <Title>Wide tile</Title>
             <SubTitle>Aligned with the right tile</SubTitle>
             <Content>
@@ -48,8 +48,8 @@ export const TileExample: React.SFC = () => (
           </Tile>
         </Tile>
       </Tile>
-      <Tile modifier="parent">
-        <Tile modifier="child" notification color="success">
+      <Tile tileType="parent">
+        <Tile tileType="child" notification color="success">
           <Content>
             <Title>Tall tile</Title>
             <SubTitle>With even more content</SubTitle>
