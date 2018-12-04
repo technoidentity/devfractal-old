@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-interface TableProps {
+interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
   readonly bordered?: boolean
   readonly striped?: boolean
   readonly narrow?: boolean
@@ -17,36 +17,116 @@ export const Table: React.SFC<TableProps> = ({
   narrow,
   hoverable,
   fullwidth,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('table', {
-    [`is-bordered`]: bordered,
-    [`is-striped`]: striped,
-    [`is-narrow`]: narrow,
-    [`is-hoverable`]: hoverable,
-    [`is-fullwidth`]: fullwidth,
-  })
-  return <table className={classes}>{children}</table>
+  const classes: string = classNames(
+    'table',
+    {
+      [`is-bordered`]: bordered,
+      [`is-striped`]: striped,
+      [`is-narrow`]: narrow,
+      [`is-hoverable`]: hoverable,
+      [`is-fullwidth`]: fullwidth,
+    },
+    className,
+  )
+  return (
+    <table className={classes} {...props}>
+      {children}
+    </table>
+  )
 }
 
-export const TableHead: React.SFC = ({ children }) => <thead>{children}</thead>
+interface TableHeadProps extends React.HTMLAttributes<HTMLElement> {}
 
-export const TableBody: React.SFC = ({ children }) => <tbody>{children}</tbody>
+export const TableHead: React.SFC<TableHeadProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(className)
+  return (
+    <thead className={classes} {...props}>
+      {children}
+    </thead>
+  )
+}
 
-export const TableFoot: React.SFC = ({ children }) => <tfoot>{children}</tfoot>
+interface TableBodyProps extends React.HTMLAttributes<HTMLElement> {}
 
-interface TrProps {
-  readonly children: React.ReactNode
+export const TableBody: React.SFC<TableBodyProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(className)
+  return (
+    <tbody className={classes} {...props}>
+      {children}
+    </tbody>
+  )
+}
+
+interface TableFootProps extends React.HTMLAttributes<HTMLElement> {}
+
+export const TableFoot: React.SFC<TableFootProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(className)
+  return (
+    <tfoot className={classes} {...props}>
+      {children}
+    </tfoot>
+  )
+}
+interface TrProps extends React.HTMLAttributes<HTMLTableRowElement> {
   readonly selected?: boolean
 }
 
-export const Tr: React.SFC<TrProps> = ({ children, selected }) => {
-  const classes: string = classNames('tr', {
-    [`is-selected`]: selected,
-  })
+export const Tr: React.SFC<TrProps> = ({
+  children,
+  selected,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(
+    'tr',
+    {
+      [`is-selected`]: selected,
+    },
+    className,
+  )
 
-  return <tr className={classes}>{children}</tr>
+  return (
+    <tr className={classes} {...props}>
+      {children}
+    </tr>
+  )
 }
 
-export const Th: React.SFC = ({ children }) => <th>{children}</th>
+interface ThProps extends React.ThHTMLAttributes<HTMLTableHeaderCellElement> {}
 
-export const Td: React.SFC = ({ children }) => <td>{children}</td>
+export const Th: React.SFC<ThProps> = ({ children, className, ...props }) => {
+  const classes: string = classNames(className)
+
+  return (
+    <th className={classes} {...props}>
+      {' '}
+      {children}
+    </th>
+  )
+}
+
+interface TdProps extends React.TdHTMLAttributes<HTMLTableDataCellElement> {}
+
+export const Td: React.SFC<TdProps> = ({ children, className, ...props }) => {
+  const classes: string = classNames(className)
+  return (
+    <td className={classes} {...props}>
+      {children}
+    </td>
+  )
+}
