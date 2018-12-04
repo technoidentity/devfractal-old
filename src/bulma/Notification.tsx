@@ -9,16 +9,26 @@ type NotificationColor =
   | 'warning'
   | 'danger'
 
-interface NotificationProps {
+interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly color?: NotificationColor
 }
 
 export const Notification: React.SFC<NotificationProps> = ({
   color,
   children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('notification', {
-    [`is-${color}`]: color,
-  })
-  return <div className={classes}>{children}</div>
+  const classes: string = classNames(
+    'notification',
+    {
+      [`is-${color}`]: color,
+    },
+    className,
+  )
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
 }

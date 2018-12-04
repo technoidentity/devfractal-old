@@ -21,7 +21,7 @@ export const ButtonExample: React.SFC = () => (
       <Button> dark</Button>
     </Buttons>
 
-    <Field addons addonsCentered>
+    <Field className="has-addons has-addons-centered">
       <div className="control">
         <Button className="is-primary" size="medium">
           Left

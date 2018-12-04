@@ -1,17 +1,61 @@
 import * as React from 'react'
+import classNames from 'classnames'
 
-export const Media: React.SFC = ({ children }) => (
-  <article className="media">{children}</article>
-)
+interface MediaProps extends React.HTMLAttributes<HTMLElement> {}
 
-export const MediaLeft: React.SFC = ({ children }) => (
-  <figure className="media-left">{children}</figure>
-)
+export const Media: React.SFC<MediaProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('media', className)
+  return (
+    <article {...props} className={classes}>
+      {children}
+    </article>
+  )
+}
+interface MediaLeftProps extends React.HTMLAttributes<HTMLElement> {}
 
-export const MediaRight: React.SFC = ({ children }) => (
-  <div className="media-right">{children}</div>
-)
+export const MediaLeft: React.SFC<MediaLeftProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('media-left', className)
+  return (
+    <figure {...props} className={classes}>
+      {children}
+    </figure>
+  )
+}
 
-export const MediaContent: React.SFC = ({ children }) => (
-  <div className="media-content">{children}</div>
-)
+interface MediaRightProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const MediaRight: React.SFC<MediaRightProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('media-right', className)
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
+}
+
+interface MediaContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const MediaContent: React.SFC<MediaContentProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('media-content', className)
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
+}

@@ -1,32 +1,94 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-interface PanelTabsItemProps {
+interface PanelProps extends React.HTMLAttributes<HTMLElement> {}
+
+export const Panel: React.SFC<PanelProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('panel', className)
+  return (
+    <nav {...props} className={classes}>
+      {children}
+    </nav>
+  )
+}
+
+interface PanelHeadingProps extends React.HTMLAttributes<HTMLElement> {}
+
+export const PanelHeading: React.SFC<PanelHeadingProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('panel-heading', className)
+  return (
+    <p {...props} className={classes}>
+      {children}
+    </p>
+  )
+}
+
+interface PanelBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly active?: boolean
 }
 
-export const Panel: React.SFC = ({ children }) => (
-  <nav className="panel">{children}</nav>
-)
-
-export const PanelHeading: React.SFC = ({ children }) => (
-  <p className="panel-heading">{children}</p>
-)
-
-export const PanelBlock: React.SFC = ({ children }) => (
-  <div className="panel-block">{children}</div>
-)
+export const PanelBlock: React.SFC<PanelBlockProps> = ({
+  children,
+  active,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(
+    'panel-block',
+    {
+      [`is-active`]: active,
+    },
+    className,
+  )
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
+}
+interface PanelTabsItemProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  readonly active?: boolean
+}
 
 export const PanelTabsItem: React.SFC<PanelTabsItemProps> = ({
   active,
   children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames({
-    'is-active': active,
-  })
-  return <a className={classes}>{children}</a>
+  const classes: string = classNames(
+    {
+      [`is-active`]: active,
+    },
+    className,
+  )
+  return (
+    <a {...props} className={classes}>
+      {children}
+    </a>
+  )
 }
 
-export const PanelTabs: React.SFC = ({ children }) => {
-  return <p className="panel-tabs">{children}</p>
+interface PanelTabsProps extends React.HTMLAttributes<HTMLElement> {}
+
+export const PanelTabs: React.SFC<PanelTabsProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('panel-tabs', className)
+  return (
+    <p {...props} className={classes}>
+      {children}
+    </p>
+  )
 }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Message, MessageHeader, MessageBody } from '../components/Message'
 export const MessageExample: React.SFC = () => (
-  <Message>
+  <Message className="is-primary" size="large">
     <MessageHeader>Hello World</MessageHeader>
     <MessageBody>
       To check if x is assignable to y, we first look at the parameter list.

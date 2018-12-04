@@ -3,13 +3,26 @@ import classNames from 'classnames'
 
 type ContentSize = 'small' | 'medium' | 'large'
 
-interface ContentProps {
+interface ContentProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly size?: ContentSize
 }
 
-export const Content: React.SFC<ContentProps> = ({ size, children }) => {
-  const classes: string = classNames('content', {
-    [`is-${size}`]: size,
-  })
-  return <div className={classes}>{children}</div>
+export const Content: React.SFC<ContentProps> = ({
+  size,
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(
+    'content',
+    {
+      [`is-${size}`]: size,
+    },
+    className,
+  )
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
 }

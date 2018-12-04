@@ -5,69 +5,112 @@ type DropDownModifier = 'hoverable' | 'active'
 
 type DropDownAlignment = 'right' | 'up'
 
-interface DropDownProps {
+interface DropDownProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly modifier?: DropDownModifier
   readonly alignment?: DropDownAlignment
-  readonly active?: boolean
-}
-
-interface DropDownMenuProps {
-  readonly id: string
-  readonly role: string
-}
-
-interface DropDownItemProps {
-  readonly active?: boolean
-  readonly href: string
 }
 
 export const DropDown: React.SFC<DropDownProps> = ({
-  active,
   modifier,
   alignment,
   children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('dropdown', {
-    [`is-${modifier}`]: modifier,
-    [`is-${alignment}`]: alignment,
-    'is-active': active,
-  })
-  return <div className={classes}>{children}</div>
+  const classes: string = classNames(
+    'dropdown',
+    {
+      [`is-${modifier}`]: modifier,
+      [`is-${alignment}`]: alignment,
+    },
+    className,
+  )
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
 }
-
-export const DropDownTrigger: React.SFC = ({ children }) => (
-  <div className="dropdown-trigger">{children}</div>
-)
+interface DropDownMenuProps extends React.HTMLAttributes<HTMLElement> {
+  readonly id?: string
+  readonly role?: string
+}
 
 export const DropDownMenu: React.SFC<DropDownMenuProps> = ({
   role,
   id,
   children,
-}) => (
-  <div className="dropdown-menu" id={id} role={role}>
-    {children}
-  </div>
-)
-
-export const DropDownContent: React.SFC = ({ children }) => (
-  <div className="dropdown-content">{children}</div>
-)
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('dropdown-menu', className)
+  return (
+    <div {...props} className={classes} id={id} role={role}>
+      {children}
+    </div>
+  )
+}
+interface DropDownItemProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  readonly active?: boolean
+}
 
 export const DropDownItem: React.SFC<DropDownItemProps> = ({
   active,
-  href,
   children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('dropdown-item', {
-    'is-active': active,
-  })
+  const classes: string = classNames(
+    'dropdown-item',
+    {
+      [`is-active`]: active,
+    },
+    className,
+  )
   return (
-    <a className={classes} href={href}>
+    <a {...props} className={classes}>
       {children}
     </a>
   )
 }
 
-export const DropDownDivider: React.SFC = () => (
-  <hr className="dropdown-divider" />
-)
+interface DropDownTriggerProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const DropDownTrigger: React.SFC<DropDownTriggerProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('dropdown-trigger', className)
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
+}
+
+interface DropDownContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const DropDownContent: React.SFC<DropDownContentProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('dropdown-content', className)
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
+}
+
+interface DropDownDividerProps extends React.HTMLAttributes<HTMLElement> {}
+
+export const DropDownDivider: React.SFC<DropDownDividerProps> = ({
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('dropdown-divider', className)
+  return <hr {...props} className={classes} />
+}

@@ -15,7 +15,7 @@ export const LevelExample: React.SFC = () => (
             <SubTitle size="5">123 posts</SubTitle>
           </LevelItem>
           <LevelItem>
-            <Field addons>
+            <Field className="has-addons">
               <Input type="text" placeholder="Find a Post" />
               <Button>Search</Button>
             </Field>

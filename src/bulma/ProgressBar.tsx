@@ -11,7 +11,7 @@ type ProgressBarColor =
 
 type ProgressBarSize = 'small' | 'medium' | 'large'
 
-interface ProgressBarProps {
+interface ProgressBarProps extends React.HTMLAttributes<HTMLProgressElement> {
   readonly size?: ProgressBarSize
   readonly color?: ProgressBarColor
   readonly value?: string
@@ -24,14 +24,20 @@ export const ProgressBar: React.SFC<ProgressBarProps> = ({
   children,
   max,
   value,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('progress', {
-    [`is-${size}`]: size,
-    [`is-${color}`]: color,
-  })
+  const classes: string = classNames(
+    'progress',
+    {
+      [`is-${size}`]: size,
+      [`is-${color}`]: color,
+    },
+    className,
+  )
 
   return (
-    <progress className={classes} value={value} max={max}>
+    <progress {...props} className={classes} value={value} max={max}>
       {children}
     </progress>
   )

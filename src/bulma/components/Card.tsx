@@ -1,47 +1,106 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-type CardHeaderTitleAlignment = 'centered'
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-interface CardHeaderTitleProps {
-  readonly alignment?: CardHeaderTitleAlignment
+export const Card: React.SFC<CardProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('card', className)
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
 }
 
-interface CardFooterItemProps {
-  readonly href: string
+interface CardHeaderProps extends React.HTMLAttributes<HTMLHeadElement> {}
+
+export const CardHeader: React.SFC<CardHeaderProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('card-header', className)
+  return (
+    <header {...props} className={classes}>
+      {children}
+    </header>
+  )
 }
 
-export const Card: React.SFC = ({ children }) => (
-  <div className="card">{children}</div>
-)
-
-export const CardHeader: React.SFC = ({ children }) => (
-  <header className="card-header">{children}</header>
-)
-
+interface CardHeaderTitleProps extends React.HTMLAttributes<HTMLHeadElement> {}
 export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
   children,
-  alignment,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('header-title', {
-    [`is-${alignment}`]: alignment,
-  })
-  return <p className={classes}>{children}</p>
+  const classes: string = classNames('header-title', className)
+  return (
+    <p {...props} className={classes}>
+      {children}
+    </p>
+  )
 }
 
-export const CardContent: React.SFC = ({ children }) => (
-  <div className="card-content">{children}</div>
-)
+interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export const CardImage: React.SFC = ({ children }) => (
-  <figure className="card-image">{children}</figure>
-)
+export const CardContent: React.SFC<CardContentProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('card-content', className)
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
+}
 
-export const CardFooter: React.SFC = ({ children }) => (
-  <footer className="card-footer">{children}</footer>
-)
+interface CardFooterProps extends React.HTMLAttributes<HTMLElement> {}
+
+export const CardFooter: React.SFC<CardFooterProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('card-footer', className)
+  return (
+    <footer {...props} className={classes}>
+      {children}
+    </footer>
+  )
+}
+interface CardFooterItemProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 export const CardFooterItem: React.SFC<CardFooterItemProps> = ({
-  href,
   children,
-}) => <a href={href}>{children}</a>
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('card-footer-item', className)
+  return (
+    <a {...props} className={classes}>
+      {children}
+    </a>
+  )
+}
+
+interface CardImageProps extends React.HTMLAttributes<HTMLElement> {}
+
+export const CardImage: React.SFC<CardImageProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('card-image', className)
+  return (
+    <figure {...props} className={classes}>
+      {children}
+    </figure>
+  )
+}

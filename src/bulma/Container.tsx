@@ -23,7 +23,7 @@ export const Container: React.SFC<ContainerProps> = ({
   )
 
   return (
-    <div className={classes} {...props}>
+    <div {...props} className={classes}>
       {children}
     </div>
   )

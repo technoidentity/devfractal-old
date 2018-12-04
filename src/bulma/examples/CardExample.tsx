@@ -5,6 +5,8 @@ import {
   CardHeaderTitle,
   CardImage,
   CardContent,
+  CardFooter,
+  CardFooterItem,
 } from '../components/Card'
 import { Image } from '../Image'
 import { Title, SubTitle } from '../Title'
@@ -14,7 +16,7 @@ import { MediaContent, MediaLeft, Media } from '../Media'
 export const CardExample: React.SFC = () => (
   <Card>
     <CardHeader>
-      <CardHeaderTitle>Card</CardHeaderTitle>
+      <CardHeaderTitle className="is-large">Card</CardHeaderTitle>
     </CardHeader>
     <CardImage>
       <Image responsiveImageRatio="2by3">
@@ -35,7 +37,7 @@ export const CardExample: React.SFC = () => (
           </Image>
         </MediaLeft>
         <MediaContent>
-          <Title size="4">John Smith</Title>
+          <Title className="is-size-1">John Smith</Title>
           <SubTitle size="6">@johnsmith</SubTitle>
         </MediaContent>
       </Media>
@@ -44,5 +46,10 @@ export const CardExample: React.SFC = () => (
         than 100,000 developers.
       </Content>
     </CardContent>
+    <CardFooter>
+      <CardFooterItem href="#">save</CardFooterItem>
+      <CardFooterItem href="#">edit</CardFooterItem>
+      <CardFooterItem href="#">delete</CardFooterItem>
+    </CardFooter>
   </Card>
 )

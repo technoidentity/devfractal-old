@@ -5,46 +5,58 @@ type TabsSize = 'small' | 'medium' | 'large'
 
 type TabsAlignment = 'centered' | 'right'
 
-interface TabsProps {
-  readonly size?: TabsSize
-  readonly alignment?: TabsAlignment
-  readonly fullWidth?: boolean
-  readonly toggle?: boolean
-  readonly boxed?: boolean
-}
-
-interface TabsItemProps {
+type TabsStyle = 'boxed' | 'toggle' | 'toggle-rounded'
+interface TabsItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
   readonly active?: boolean
 }
 
-export const TabsItem: React.SFC<TabsItemProps> = ({ active, children }) => {
-  const classes: string = classNames({
-    'is-active': active,
-  })
+export const TabsItem: React.SFC<TabsItemProps> = ({
+  active,
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(
+    {
+      [`is-active`]: active,
+    },
+    className,
+  )
   return (
-    <li className={classes}>
+    <li {...props} className={classes}>
       <a>{children}</a>
     </li>
   )
 }
 
+interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
+  readonly size?: TabsSize
+  readonly alignment?: TabsAlignment
+  readonly fullwidth?: boolean
+  readonly tabsStyle?: TabsStyle
+}
+
 export const Tabs: React.SFC<TabsProps> = ({
   size,
   alignment,
-  fullWidth,
-  toggle,
-  boxed,
+  fullwidth,
+  tabsStyle,
   children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('tabs', {
-    [`is-${size}`]: size,
-    [`is-${alignment}`]: alignment,
-    'is-boxed': boxed,
-    'is-toggle': toggle,
-    'is-fullwidth': fullWidth,
-  })
+  const classes: string = classNames(
+    'tabs',
+    {
+      [`is-${size}`]: size,
+      [`is-${alignment}`]: alignment,
+      [`is-${tabsStyle}`]: tabsStyle,
+      [`is-fullwidth`]: fullwidth,
+    },
+    className,
+  )
   return (
-    <div className={classes}>
+    <div {...props} className={classes}>
       <ul>{children}</ul>
     </div>
   )

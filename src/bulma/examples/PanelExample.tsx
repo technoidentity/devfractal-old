@@ -9,6 +9,7 @@ import {
 
 import { Button } from '../Button'
 import { Input } from '../Input'
+import { CheckBox } from '../CheckBox'
 
 export const PanelExample: React.SFC = () => (
   <Panel>
@@ -17,20 +18,23 @@ export const PanelExample: React.SFC = () => (
       <Input type="text" />
     </PanelBlock>
     <PanelTabs>
-      <PanelTabsItem active>all</PanelTabsItem>
+      <PanelTabsItem className="is-active">all</PanelTabsItem>
       <PanelTabsItem>public</PanelTabsItem>
       <PanelTabsItem>sources</PanelTabsItem>
-      <PanelTabsItem>forks</PanelTabsItem>
+      <PanelTabsItem active>forks</PanelTabsItem>
     </PanelTabs>
     <PanelBlock>bulma</PanelBlock>
-    <PanelBlock>message</PanelBlock>
+    <PanelBlock className="is-active">message</PanelBlock>
     <PanelBlock>marksheet</PanelBlock>
     <PanelBlock>miniresetcss</PanelBlock>
     <PanelBlock>jgthms.github.io</PanelBlock>
     <PanelBlock>marksheet</PanelBlock>
-    <PanelBlock>miniresetcss</PanelBlock>
+    <PanelBlock className="is-active">miniresetcss</PanelBlock>
     <PanelBlock>
-      <Button color="primary" fullwidth>
+      <CheckBox>Remember me</CheckBox>
+    </PanelBlock>
+    <PanelBlock>
+      <Button color="primary" className="is-link is-outlined is-fullwidth">
         reset all filters
       </Button>
     </PanelBlock>

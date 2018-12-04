@@ -50,7 +50,7 @@ export const SampleForm: React.SFC = () => {
           </CheckBox>
         </Field>
 
-        <Field grouped>
+        <Field className="is-grouped">
           <RadioButton name="foobar" onChange={() => ({})}>
             Yes
           </RadioButton>
@@ -59,7 +59,7 @@ export const SampleForm: React.SFC = () => {
           </RadioButton>
         </Field>
 
-        <Field grouped>
+        <Field className="is-grouped">
           <Button>Submit</Button>
 
           <Button>Cancel</Button>

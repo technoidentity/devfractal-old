@@ -11,30 +11,35 @@ type BreadcrumbSeparator =
   | 'dot-separator'
   | 'succeeds-separator'
 
-interface BreadcrumbProps {
-  readonly size?: BreadcrumbSize
-  readonly alignment?: BreadcrumbAlignment
-  readonly separator?: BreadcrumbSeparator
-}
-
-interface BreadcrumbItemProps {
-  readonly href: string
+interface BreadcrumbItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
+  readonly href?: string
   readonly active?: boolean
 }
 
 export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
-  href,
   active,
+  href,
   children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames({
-    'is-active': active,
-  })
+  const classes: string = classNames(
+    {
+      [`is-active`]: active,
+    },
+    className,
+  )
   return (
-    <li className={classes} aria-current="page">
+    <li {...props} className={classes}>
       <a href={href}>{children}</a>
     </li>
   )
+}
+
+interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
+  readonly size?: BreadcrumbSize
+  readonly alignment?: BreadcrumbAlignment
+  readonly separator?: BreadcrumbSeparator
 }
 
 export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
@@ -42,14 +47,20 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
   alignment,
   size,
   separator,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('breadcrumb', {
-    [`is-${alignment}`]: alignment,
-    [`is-${size}`]: size,
-    [`has-${separator}`]: separator,
-  })
+  const classes: string = classNames(
+    'breadcrumb',
+    {
+      [`is-${alignment}`]: alignment,
+      [`is-${size}`]: size,
+      [`has-${separator}`]: separator,
+    },
+    className,
+  )
   return (
-    <nav className={classes} aria-label="breadcrumbs">
+    <nav {...props} className={classes} aria-label="breadcrumbs">
       <ul>{children}</ul>
     </nav>
   )
