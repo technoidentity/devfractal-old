@@ -28,11 +28,16 @@ export const Tag: React.SFC<TagProps> = ({
   className,
   ...props
 }) => {
-  const classes: string = classNames(className, 'tag', {
-    [`is-${size}`]: size,
-    [`is-${modifier}`]: modifier,
-    [`is-${color}`]: color,
-  })
+  const classes: string = classNames(
+    className,
+    'tag',
+    {
+      [`is-${size}`]: size,
+      [`is-${modifier}`]: modifier,
+      [`is-${color}`]: color,
+    },
+    className,
+  )
   return (
     <span {...props} className={classes}>
       {children}

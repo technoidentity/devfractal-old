@@ -8,10 +8,24 @@ interface TagsProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly addons?: boolean
 }
 
-export const Tags: React.SFC<TagsProps> = ({ size, addons, children }) => {
-  const classes: string = classNames('tags', {
-    [`are-${size}`]: size,
-    [`has-addons`]: addons,
-  })
-  return <div className={classes}>{children}</div>
+export const Tags: React.SFC<TagsProps> = ({
+  size,
+  addons,
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(
+    'tags',
+    {
+      [`are-${size}`]: size,
+      [`has-addons`]: addons,
+    },
+    className,
+  )
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
 }
