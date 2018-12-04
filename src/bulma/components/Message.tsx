@@ -1,6 +1,5 @@
 import * as React from 'react'
 import classNames from 'classnames'
-
 type MessageColor =
   | 'dark'
   | 'primary'
@@ -12,23 +11,59 @@ type MessageColor =
 
 type MessageSize = 'normal' | 'small' | 'medium' | 'large'
 
-interface MessageProps {
+interface MessageProps extends React.HTMLAttributes<HTMLElement> {
   readonly color?: MessageColor
   readonly size?: MessageSize
 }
 
-export const Message: React.SFC<MessageProps> = ({ size, color, children }) => {
-  const classes: string = classNames('message', {
-    [`is-${size}`]: size,
-    [`is-${color}`]: color,
-  })
-  return <article className={classes}>{children}</article>
+export const Message: React.SFC<MessageProps> = ({
+  size,
+  color,
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(
+    'message',
+    {
+      [`is-${size}`]: size,
+      [`is-${color}`]: color,
+    },
+    className,
+  )
+  return (
+    <article {...props} className={classes}>
+      {children}
+    </article>
+  )
 }
 
-export const MessageHeader: React.SFC = ({ children }) => {
-  return <div className={`message-header`}>{children}</div>
+interface MessageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const MessageHeader: React.SFC<MessageHeaderProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('message-header', className)
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
 }
 
-export const MessageBody: React.SFC = ({ children }) => {
-  return <div className={`message-body`}>{children}</div>
+interface MessageBodyProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const MessageBody: React.SFC<MessageBodyProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('message-body', className)
+  return (
+    <div {...props} className={classes}>
+      {children}
+    </div>
+  )
 }
