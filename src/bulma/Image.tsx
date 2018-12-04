@@ -40,13 +40,17 @@ export const Image: React.SFC<ImageProps> = ({
   className,
   ...props
 }) => {
-  const figureClasses: string = classNames('image', {
-    [`is-${size}`]: size,
-    [`is-${responsiveImageRatio}`]: responsiveImageRatio,
-  })
+  const classes: string = classNames(
+    'image',
+    {
+      [`is-${size}`]: size,
+      [`is-${responsiveImageRatio}`]: responsiveImageRatio,
+    },
+    className,
+  )
 
   return (
-    <figure {...props} className={figureClasses}>
+    <figure {...props} className={classes}>
       {children}
     </figure>
   )
