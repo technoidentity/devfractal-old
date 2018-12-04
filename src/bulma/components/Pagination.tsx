@@ -1,67 +1,123 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-interface PaginationProps {
+interface PaginationProps extends React.HTMLAttributes<HTMLElement> {
   readonly rounded?: boolean
   readonly size?: 'small' | 'medium' | 'large'
 }
 
-export const PaginationPrevious: React.SFC = ({ children }) => (
-  <a className="pagination-previous">{children}</a>
-)
+export const Pagination: React.SFC<PaginationProps> = ({
+  rounded,
+  size,
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames(
+    'pagination',
+    {
+      [`is-${size}`]: size,
+      [`is-rounded`]: rounded,
+    },
+    className,
+  )
+  return (
+    <nav
+      {...props}
+      className={classes}
+      role="navigation"
+      aria-label="pagination"
+    >
+      {children}
+    </nav>
+  )
+}
 
-export const PaginationNext: React.SFC = ({ children }) => (
-  <a className="pagination-next">{children}</a>
-)
-
-interface PaginationLinkProps {
-  readonly ariaLabel?: string
+interface PaginationLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   readonly current?: boolean
 }
 
 export const PaginationLink: React.SFC<PaginationLinkProps> = ({
   current,
   children,
-  ariaLabel,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('pagination-link', {
-    'is-current': current,
-  })
+  const classes: string = classNames(
+    'pagination-link',
+    {
+      [`is-current`]: current,
+    },
+    className,
+  )
   return (
     <li>
-      <a className={classes} aria-label={ariaLabel}>
+      <a {...props} className={classes}>
         {children}
       </a>
     </li>
   )
 }
 
-interface PaginationListProps {
-  readonly children: React.ReactNode
-}
+interface PaginationListProps extends React.HTMLAttributes<HTMLElement> {}
 
 export const PaginationList: React.SFC<PaginationListProps> = ({
   children,
-}) => <ul className="pagination-list">{children}</ul>
-
-export const PaginationEllipsis: React.SFC = () => (
-  <li>
-    <span className="pagination-ellipsis">&hellip;</span>
-  </li>
-)
-
-export const Pagination: React.SFC<PaginationProps> = ({
-  rounded,
-  size,
-  children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('pagination', {
-    [`is-${size}`]: size,
-    [`is-rounded`]: rounded,
-  })
+  const classes: string = classNames('pagination-list', className)
   return (
-    <nav className={classes} role="navigation" aria-label="pagination">
+    <ul {...props} className={classes}>
       {children}
-    </nav>
+    </ul>
+  )
+}
+interface PaginationEllipsisProps
+  extends React.HTMLAttributes<HTMLSpanElement> {}
+
+export const PaginationEllipsis: React.SFC<PaginationEllipsisProps> = ({
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('pagination-ellipsis', className)
+  return (
+    <li>
+      <span {...props} className={classes}>
+        &hellip;
+      </span>
+    </li>
+  )
+}
+interface PaginationPreviousProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+
+export const PaginationPrevious: React.SFC<PaginationPreviousProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('pagination-previous', className)
+  return (
+    <a {...props} className={classes}>
+      {children}
+    </a>
+  )
+}
+
+interface PaginationNextProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+
+export const PaginationNext: React.SFC<PaginationNextProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const classes: string = classNames('pagination-next', className)
+  return (
+    <a {...props} className={classes}>
+      {children}
+    </a>
   )
 }
