@@ -3,26 +3,27 @@ import { Field } from '../Field'
 import { Input } from '../Input'
 import { Button } from '../Button'
 import { Label } from '../Label'
+import { Control } from '../Control'
 
 export const FieldExample: React.SFC = () => (
   <div>
     <Field addonsModifier="addons" className="has-addons-centered">
-      <div className="control">
+      <Control>
         <Input type="text" className="is-success" />
-      </div>
-      <div className="control">
+      </Control>
+      <Control>
         <Button color="info">search</Button>
-      </div>
+      </Control>
     </Field>
     <Field>
       <Label>Name</Label>
-      <div className="control">
+      <Control>
         <Input
           type="text"
           placeholder="e.g Alex Smith"
           className="is-primary"
         />
-      </div>
+      </Control>
     </Field>
   </div>
 )

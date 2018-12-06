@@ -6,6 +6,7 @@ import { Content } from '../Content'
 import { Button } from '../Button'
 import { Field } from '../Field'
 import { TextArea } from '../TextArea'
+import { Control } from '../Control'
 
 export const MediaObjectExample: React.SFC = () => (
   <Media>
@@ -69,14 +70,14 @@ export const MediaObjectExample: React.SFC = () => (
             </MediaLeft>
             <MediaContent>
               <Field>
-                <div className="control">
-                  <TextArea className="is-primary" />
-                </div>
+                <Control>
+                  <TextArea color="primary" />
+                </Control>
               </Field>
               <Field>
-                <div className="control">
+                <Control>
                   <Button className="is-primary">Post comment</Button>
-                </div>
+                </Control>
               </Field>
             </MediaContent>
           </Media>

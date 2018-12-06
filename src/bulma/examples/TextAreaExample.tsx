@@ -2,32 +2,33 @@ import * as React from 'react'
 import { Field } from '../Field'
 import { TextArea } from '../TextArea'
 import { logger } from './common'
+import { Control } from '../Control'
 
 export const TextAreaExample: React.SFC = () => (
   <div>
     <Field>
-      <div className="control is-loading">
+      <Control>
         <TextArea
           className="is-large is-focused is-primary "
           placeholder="large text area"
           onChange={() => logger('changed')}
         />
-      </div>
+      </Control>
     </Field>
     <Field>
-      <div className="control">
+      <Control>
         <TextArea color="info" disabled />
-      </div>
+      </Control>
     </Field>
     <Field>
-      <div className="control">
+      <Control state="loading">
         <TextArea color="danger" />
-      </div>
+      </Control>
     </Field>
     <Field>
-      <div className="control">
+      <Control>
         <TextArea />
-      </div>
+      </Control>
     </Field>
   </div>
 )

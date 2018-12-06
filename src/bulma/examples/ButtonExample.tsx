@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Button, Buttons } from '../Button'
 import { logger } from './common'
 import { Field } from '../Field'
+import { Control } from '../Control'
 
 export const ButtonExample: React.SFC = () => (
   <div>
@@ -22,17 +23,17 @@ export const ButtonExample: React.SFC = () => (
     </Buttons>
 
     <Field className="has-addons has-addons-centered">
-      <div className="control">
+      <Control>
         <Button className="is-primary" size="medium">
           Left
         </Button>
-      </div>
-      <div className="control">
+      </Control>
+      <Control>
         <Button disabled>Center</Button>
-      </div>
-      <div className="control">
+      </Control>
+      <Control>
         <Button onClick={() => logger('clicked')}>Right</Button>
-      </div>
+      </Control>
     </Field>
   </div>
 )
