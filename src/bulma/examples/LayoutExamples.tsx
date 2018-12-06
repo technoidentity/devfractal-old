@@ -22,7 +22,7 @@ export const LayoutExample: React.SFC = () => (
             </Columns>
           </Column>
           <Column>
-            <Notification color="danger">Second column</Notification>
+            <Notification className="is-danger">Second column</Notification>
             <Columns>
               <Column>
                 <Notification color="danger">50%</Notification>
@@ -49,7 +49,7 @@ export const LayoutExample: React.SFC = () => (
         <Column size="one-quarter">
           <Notification color="primary">is-one-quarter</Notification>
         </Column>
-        <Column size="one-quarter">
+        <Column className="is-one-quarter">
           <Notification color="primary">is-one-quarter</Notification>
         </Column>
         <Column size="half">
@@ -93,7 +93,7 @@ export const LayoutExample: React.SFC = () => (
       <Columns responsiveness="mobile">
         <Column gridSize="4" offsetSize="8">
           <div>
-            <Notification color="primary">
+            <Notification className="is-primary">
               <code>is-4 is-offset-8</code>
             </Notification>
           </div>
@@ -101,7 +101,7 @@ export const LayoutExample: React.SFC = () => (
       </Columns>
 
       <Columns responsiveness="mobile">
-        <Column gridSize="11" offsetSize="1">
+        <Column className="is-11 is-offset-1">
           <div>
             <Notification color="primary">
               <code>is-11 is-offset-1</code>

@@ -4,7 +4,7 @@ import { Table, TableHead, TableBody, TableFoot, Tr, Th, Td } from '../Table'
 import { logger } from './common'
 
 export const TableExample: React.SFC = () => (
-  <Table bordered striped hoverable>
+  <Table bordered className="is-striped" hoverable>
     <TableHead>
       <Tr>
         <Th>
