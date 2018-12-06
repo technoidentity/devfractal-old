@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 import { hot, setConfig } from 'react-hot-loader'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import { Column } from './bulma/Column'
@@ -11,6 +12,7 @@ import {
   CardExample,
   CheckBoxExample,
   ContainerExample,
+  Counter,
   DeleteExample,
   DropDownExample,
   FieldExample,
@@ -67,6 +69,9 @@ class App extends React.Component {
                     </li>
                     <li>
                       <Link to="/login-form">Login Form</Link>
+                    </li>
+                    <li>
+                      <Link to="/counter-example">Counter Example</Link>
                     </li>
                     <li>
                       <Link to="/input-example">InputExample</Link>
@@ -227,6 +232,7 @@ class App extends React.Component {
                     component={NavbarExample}
                   />
                   <Route path="/tile-example" exact component={TileExample} />
+                  <Route path="/counter-example" exact component={Counter} />
                   <Route path="/menu-example" exact component={MenuExample} />
                   <Route path="/table-example" exact component={TableExample} />
                   <Route
