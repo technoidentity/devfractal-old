@@ -11,7 +11,7 @@ import {
 
 export const DropDownExample: React.SFC = () => (
   <div>
-    <DropDown active>
+    <DropDown modifier="active">
       <DropDownTrigger>
         <Button
           className="is-primary"
