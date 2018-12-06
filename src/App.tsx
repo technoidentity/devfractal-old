@@ -17,6 +17,7 @@ import {
   DropDownExample,
   FieldExample,
   FooterExample,
+  FormikLoginFormExample,
   HeroExample,
   ImageExample,
   InputExample,
@@ -73,6 +74,11 @@ class App extends React.Component {
                     </li>
                     <li>
                       <Link to="/counter-example">Counter Example</Link>
+                    </li>
+                    <li>
+                      <Link to="/formik-login-form-example">
+                        Formik LoginForm Example
+                      </Link>
                     </li>
                     <li>
                       <Link to="/input-example">InputExample</Link>
@@ -223,6 +229,11 @@ class App extends React.Component {
                   />
                   <Route path="/tabs-example" exact component={TabsExample} />
                   <Route path="/panel-example" exact component={PanelExample} />
+                  <Route
+                    path="/formik-login-form-example"
+                    exact
+                    component={FormikLoginFormExample}
+                  />
                   <Route path="/modal-example" exact component={ModalExample} />
                   <Route
                     path="/mediaobject-example"
