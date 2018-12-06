@@ -11,7 +11,7 @@ import {
 
 export const DropDownExample: React.SFC = () => (
   <div>
-    <DropDown className="is-active">
+    <DropDown active>
       <DropDownTrigger>
         <Button
           className="is-primary"
@@ -24,7 +24,7 @@ export const DropDownExample: React.SFC = () => (
       <DropDownMenu id="dropdown-menu" role="menu">
         <DropDownContent>
           <DropDownItem href="#">Dropdown item</DropDownItem>
-          <DropDownItem className="is-active">Dropdown item</DropDownItem>
+          <DropDownItem active>Dropdown item</DropDownItem>
           <DropDownItem>Dropdown item</DropDownItem>
           <DropDownItem>Dropdown item</DropDownItem>
           <DropDownDivider />
@@ -32,7 +32,7 @@ export const DropDownExample: React.SFC = () => (
         </DropDownContent>
       </DropDownMenu>
     </DropDown>
-    <DropDown className="is-hoverable">
+    <DropDown modifier="hoverable">
       <DropDownTrigger>
         <Button aria-haspopup="true" aria-controls="dropdown-menu4">
           Hover me

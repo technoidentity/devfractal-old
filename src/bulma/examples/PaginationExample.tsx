@@ -10,7 +10,7 @@ import {
 
 export const PaginationExample: React.SFC = () => (
   <div>
-    <Pagination className="is-small">
+    <Pagination size="small">
       <PaginationPrevious>Previous</PaginationPrevious>
       <PaginationNext>Next page</PaginationNext>
       <PaginationList>
@@ -27,7 +27,7 @@ export const PaginationExample: React.SFC = () => (
         <PaginationLink aria-label="Goto page 86">86</PaginationLink>
       </PaginationList>
     </Pagination>
-    <Pagination className="is-small is-rounded">
+    <Pagination className="is-small" rounded>
       <PaginationPrevious>Previous</PaginationPrevious>
       <PaginationNext>Next page</PaginationNext>
       <PaginationList>
