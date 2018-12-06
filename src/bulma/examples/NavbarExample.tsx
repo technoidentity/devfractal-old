@@ -35,7 +35,7 @@ export const NavbarExample: React.SFC = () => (
       <NavbarStart>
         <NavbarItem>Home</NavbarItem>
 
-        <NavbarItem className="is-active">Documentation</NavbarItem>
+        <NavbarItem modifier="active">Documentation</NavbarItem>
 
         <NavbarItem dropdown className="is-hoverable">
           <NavbarLink>More</NavbarLink>

@@ -4,7 +4,7 @@ import { Section } from '../Section'
 
 export const ProgressBarExample: React.SFC = () => (
   <Section>
-    <ProgressBar className="is-primary is-large" value="15" max="100">
+    <ProgressBar className="is-primary" size="large" value="15" max="100">
       15%
     </ProgressBar>
     <ProgressBar color="link" value="30" max="100">

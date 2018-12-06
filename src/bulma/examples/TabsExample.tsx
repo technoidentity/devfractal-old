@@ -12,7 +12,7 @@ export const TabsExample: React.SFC = () => (
     <Tabs size="medium">
       <TabsItem>Pictures</TabsItem>
       <TabsItem>Music</TabsItem>
-      <TabsItem className="is-active">Videos</TabsItem>
+      <TabsItem active>Videos</TabsItem>
       <TabsItem>Documents</TabsItem>
     </Tabs>
   </div>

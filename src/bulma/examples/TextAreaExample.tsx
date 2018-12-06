@@ -9,7 +9,9 @@ export const TextAreaExample: React.SFC = () => (
     <Field>
       <Control>
         <TextArea
-          className="is-large is-focused is-primary "
+          className="is-large"
+          state="focused"
+          color="primary"
           placeholder="large text area"
           onChange={() => logger('changed')}
         />

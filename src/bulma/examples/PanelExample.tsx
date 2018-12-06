@@ -18,13 +18,13 @@ export const PanelExample: React.SFC = () => (
       <Input type="text" />
     </PanelBlock>
     <PanelTabs>
-      <PanelTabsItem className="is-active">all</PanelTabsItem>
+      <PanelTabsItem active>all</PanelTabsItem>
       <PanelTabsItem>public</PanelTabsItem>
       <PanelTabsItem>sources</PanelTabsItem>
-      <PanelTabsItem active>forks</PanelTabsItem>
+      <PanelTabsItem className="active">forks</PanelTabsItem>
     </PanelTabs>
     <PanelBlock>bulma</PanelBlock>
-    <PanelBlock className="is-active">message</PanelBlock>
+    <PanelBlock active>message</PanelBlock>
     <PanelBlock>marksheet</PanelBlock>
     <PanelBlock>miniresetcss</PanelBlock>
     <PanelBlock>jgthms.github.io</PanelBlock>

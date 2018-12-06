@@ -8,7 +8,7 @@ import {
 import { Image } from '../Image'
 import { logger } from './common'
 export const ModalExample: React.SFC = () => (
-  <Modal className="is-active">
+  <Modal active>
     <ModalBackground />
     <ModalContent>
       <Image>
