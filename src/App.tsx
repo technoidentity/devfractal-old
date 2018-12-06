@@ -44,6 +44,7 @@ import {
   TitleExample,
 } from './bulma/examples'
 import { Section } from './bulma/Section'
+import { SignUpForm } from './bulma/examples/SignupFormExample'
 
 setConfig({
   ignoreSFC: true,
@@ -174,6 +175,9 @@ class App extends React.Component {
                     <li>
                       <Link to="/text-example">Text Example</Link>
                     </li>
+                    <li>
+                      <Link to="/signup-form">SignUp Example</Link>
+                    </li>
                   </ul>
                 </nav>
               </Content>
@@ -280,6 +284,7 @@ class App extends React.Component {
                     component={TextAreaExample}
                   />
                   <Route path="/text-example" exact component={TextExample} />
+                  <Route path="/signup-form" exact component={SignUpForm} />
                 </Container>
               </Section>
             </Column>
