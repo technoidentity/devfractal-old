@@ -44,7 +44,7 @@ import {
   TitleExample,
 } from './bulma/examples'
 import { Section } from './bulma/Section'
-import { SignUpForm } from './bulma/examples/SignupFormExample'
+import { FormikSignUpForm } from './bulma/examples/SignupFormExample'
 
 setConfig({
   ignoreSFC: true,
@@ -284,7 +284,11 @@ class App extends React.Component {
                     component={TextAreaExample}
                   />
                   <Route path="/text-example" exact component={TextExample} />
-                  <Route path="/signup-form" exact component={SignUpForm} />
+                  <Route
+                    path="/signup-form"
+                    exact
+                    component={FormikSignUpForm}
+                  />
                 </Container>
               </Section>
             </Column>

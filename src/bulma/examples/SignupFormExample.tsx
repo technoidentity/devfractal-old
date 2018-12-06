@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Form, Field, Formik, FormikProps, ErrorMessage } from 'formik'
 
 import * as Yup from 'yup'
+import { logger } from './common'
 
 interface SignUpFormValues {
   readonly username: string
@@ -87,4 +88,8 @@ export const SignUpForm: React.SFC<SignUpFormProps> = ({ onSignUp }) => (
     onSubmit={onSignUp}
     render={InnerSignUpForm}
   />
+)
+
+export const FormikSignUpForm: React.SFC = () => (
+  <SignUpForm onSignUp={() => logger('hello')} />
 )
