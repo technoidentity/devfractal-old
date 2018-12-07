@@ -5,7 +5,7 @@ import { Media, MediaLeft, MediaContent } from '../Media'
 import { Content } from '../Content'
 
 export const BoxExample: React.SFC = () => (
-  <Box>
+  <Box shadowLess>
     <Media>
       <MediaLeft>
         <figure className="image is-64x64">
