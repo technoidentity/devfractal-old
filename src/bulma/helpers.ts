@@ -16,12 +16,12 @@ export interface Helpers {
 export const helpersClasses: (helpers: Helpers) => string = helpers =>
   classNames({
     [`is-${helpers.floating}`]: helpers.floating,
-    [`is-margin-less`]: helpers.marginLess,
-    [`is-padding-less}`]: helpers.paddingLess,
+    [`is-marginless`]: helpers.marginLess,
+    [`is-paddingless}`]: helpers.paddingLess,
     [`is-overlay`]: helpers.overlay,
     [`is-clipped`]: helpers.clipped,
-    [`is-radius-less}`]: helpers.radiusLess,
-    [`is-shadow-less`]: helpers.shadowLess,
+    [`is-radiusless}`]: helpers.radiusLess,
+    [`is-shadowless`]: helpers.shadowLess,
     [`is-unselectable`]: helpers.unSelectable,
     [`is-invisible`]: helpers.invisible,
     [`is-sr-only}`]: helpers.srOnly,
