@@ -8,6 +8,7 @@ import { Container } from './bulma/Container'
 import { Content } from './bulma/Content'
 import {
   BreadcrumbExample,
+  BoxExample,
   ButtonExample,
   CardExample,
   CheckBoxExample,
@@ -91,6 +92,9 @@ class App extends React.Component {
                     </li>
                     <li>
                       <Link to="/hero-example">HeroExample</Link>
+                    </li>
+                    <li>
+                      <Link to="/box-example">BoxExample</Link>
                     </li>
                     <li>
                       <Link to="/footer-example">FooterExample</Link>
@@ -284,6 +288,7 @@ class App extends React.Component {
                     component={ContainerExample}
                   />
                   <Route path="/field-example" exact component={FieldExample} />
+                  <Route path="/box-example" exact component={BoxExample} />
                   <Route
                     path="/button-example"
                     exact
