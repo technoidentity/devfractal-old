@@ -27,6 +27,25 @@ export const helpersClasses: (helpers: Helpers) => string = helpers =>
     [`is-sr-only}`]: helpers.srOnly,
   })
 
+export type HelpersRemoved<T> = Pick<T, Exclude<keyof T, keyof Helpers>>
+
+export function removeHelpers<T extends Helpers>(props: T): HelpersRemoved<T> {
+  const {
+    floating,
+    marginLess,
+    paddingLess,
+    overlay,
+    clipped,
+    radiusLess,
+    shadowLess,
+    unSelectable,
+    invisible,
+    srOnly,
+    ...result
+  } = props
+  return result
+}
+
 export type Display =
   | 'block'
   | 'flex'
