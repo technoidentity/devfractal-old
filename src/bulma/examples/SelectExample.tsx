@@ -7,7 +7,7 @@ import { logger } from './common'
 export const SelectExample: React.SFC = () => (
   <div>
     <Field>
-      <Select selectSize="small">
+      <Select selectSize="small" color="primary">
         <option>Select dropdown</option>
         <option>With options</option>
       </Select>
@@ -25,7 +25,7 @@ export const SelectExample: React.SFC = () => (
       </Select>
     </Field>
     <Field>
-      <Select color="warning" selectSize="large">
+      <Select color="warning" selectSize="large" rounded>
         <option>Select dropdown</option>
         <option>With options</option>
       </Select>
