@@ -15,11 +15,11 @@ export const Footer: React.SFC<FooterProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemove: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
   const classes: string = classNames('footer', className, helpersClasses(props))
 
   return (
-    <footer {...propsHelpersRemove} {...props} className={classes}>
+    <footer {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </footer>
   )
