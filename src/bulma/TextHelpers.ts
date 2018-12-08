@@ -76,7 +76,7 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = (
 
 export type TextHelpersRemoved<T> = Pick<T, Exclude<keyof T, keyof TextHelpers>>
 
-export function removeHelpers<T extends TextHelpers>(
+export function removeTextHelpers<T extends TextHelpers>(
   props: T,
 ): TextHelpersRemoved<T> {
   const {
