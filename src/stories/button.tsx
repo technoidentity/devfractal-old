@@ -49,4 +49,4 @@ storiesOf('Button ', module)
       <Button state="static">active</Button>
     </div>
   ))
-  .add('with fullwidth', () => <Button fullwidth={Boolean(true)}>OK</Button>)
+  .add('with fullWidth', () => <Button fullWidth={Boolean(true)}>OK</Button>)

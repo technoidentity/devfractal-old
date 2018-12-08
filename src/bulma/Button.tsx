@@ -51,7 +51,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier
   readonly state?: ButtonState
-  readonly fullwidth?: boolean
+  readonly fullWidth?: boolean
   readonly buttonStyle?: ButtonStyle
 }
 
@@ -60,7 +60,7 @@ export const Button: React.SFC<ButtonProps> = ({
   size,
   modifier,
   state,
-  fullwidth,
+  fullWidth,
   buttonStyle,
   children,
   className,
@@ -74,7 +74,7 @@ export const Button: React.SFC<ButtonProps> = ({
       [`is-${size}`]: size,
       [`is-${state}`]: state,
       [`is-${buttonStyle}`]: buttonStyle,
-      [`is-fullwidth`]: fullwidth,
+      [`is-fullwidth`]: fullWidth,
     },
     className,
   )
