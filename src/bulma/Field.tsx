@@ -9,6 +9,7 @@ type FieldGroupModifier =
   | 'horizontal'
 
 type FieldAddonModifier = 'addons' | 'addons-centered' | 'addons-right'
+
 export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly groupModifier?: FieldGroupModifier
   readonly addonsModifier?: FieldAddonModifier
@@ -29,6 +30,7 @@ export const Field: React.SFC<FieldProps> = ({
     },
     className,
   )
+
   return (
     <div {...props} className={classes}>
       {children}
