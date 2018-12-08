@@ -1,6 +1,12 @@
 import * as React from 'react'
 
 import classNames from 'classnames'
+import {
+  Helpers,
+  HelpersRemoved,
+  removeHelpers,
+  helpersClasses,
+} from './helpers'
 
 type ColumnSize =
   | 'three-quarters'
@@ -37,7 +43,7 @@ type ColumnResponsive =
   | 'widescreen'
   | 'fullhd'
 
-interface ColumnProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ColumnProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly size?: ColumnSize
   readonly gridSize?: ColumnGridSize
   readonly offsetSize?: ColumnOffsetSize
@@ -68,6 +74,7 @@ export const Column: React.SFC<ColumnProps> = ({
   className,
   ...props
 }) => {
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
   const sizeResponsive: string = getSizeResponsive(size, responsive)
 
   const classes: string = classNames(
@@ -80,9 +87,10 @@ export const Column: React.SFC<ColumnProps> = ({
       [`is-narrow`]: narrow,
     },
     className,
+    helpersClasses(props),
   )
   return (
-    <div className={classes} {...props}>
+    <div {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </div>
   )

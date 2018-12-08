@@ -1,5 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  Helpers,
+  helpersClasses,
+  HelpersRemoved,
+  removeHelpers,
+} from './helpers'
 
 type ColumnsResponsive =
   | 'mobile'
@@ -8,7 +14,7 @@ type ColumnsResponsive =
   | 'widescreen'
   | 'fullhd'
 
-interface ColumnsProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ColumnsProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly responsiveness?: ColumnsResponsive
   readonly gapless?: boolean
   readonly multiline?: boolean
@@ -24,6 +30,7 @@ export const Columns: React.SFC<ColumnsProps> = ({
   className,
   ...props
 }) => {
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
   const classes: string = classNames(
     'columns',
     {
@@ -33,10 +40,11 @@ export const Columns: React.SFC<ColumnsProps> = ({
       [`is-centered`]: columnCentered,
     },
     className,
+    helpersClasses(props),
   )
 
   return (
-    <div className={classes} {...props}>
+    <div {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </div>
   )
