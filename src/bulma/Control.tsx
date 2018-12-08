@@ -1,36 +1,21 @@
-import * as React from 'react'
 import classNames from 'classnames'
 
-type ControlSizeProps = 'large' | 'medium' | 'small'
-
-type ControlState = 'loading'
-
-interface ControlProps extends React.HTMLAttributes<HTMLDivElement> {
-  readonly size?: ControlSizeProps
-  readonly state?: ControlState
+export interface ControlHelpers {
+  readonly loading?: boolean
   readonly expanded?: boolean
 }
 
-export const Control: React.SFC<ControlProps> = ({
-  size,
-  state,
-  expanded,
-  children,
-  className,
-  ...props
-}) => {
-  const classes: string = classNames(
-    'control',
-    {
-      [`is-${size}`]: size,
-      [`is-${state}`]: state,
-      [`is-expanded`]: expanded,
-    },
-    className,
-  )
-  return (
-    <div {...props} className={classes}>
-      {children}
-    </div>
-  )
+type ControlClassesArgs = ControlHelpers & {
+  readonly size: 'small' | 'medium' | 'large'
 }
+
+export const controlClasses: (props: ControlClassesArgs) => string = ({
+  loading,
+  expanded,
+  size,
+}) =>
+  classNames('control', {
+    [`is-loading`]: loading,
+    [`is-expanded`]: expanded,
+    [`is-${size}`]: size,
+  })
