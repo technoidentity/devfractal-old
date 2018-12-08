@@ -1,8 +1,16 @@
 import * as React from 'react'
 
 import classNames from 'classnames'
+import {
+  Helpers,
+  HelpersRemoved,
+  removeHelpers,
+  helpersClasses,
+} from './helpers'
 
-interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
+interface TableProps
+  extends React.TableHTMLAttributes<HTMLTableElement>,
+    Helpers {
   readonly bordered?: boolean
   readonly striped?: boolean
   readonly narrow?: boolean
@@ -20,6 +28,7 @@ export const Table: React.SFC<TableProps> = ({
   className,
   ...props
 }) => {
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
   const classes: string = classNames(
     'table',
     {
@@ -30,59 +39,63 @@ export const Table: React.SFC<TableProps> = ({
       [`is-fullwidth`]: fullwidth,
     },
     className,
+    helpersClasses(props),
   )
   return (
-    <table className={classes} {...props}>
+    <table {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </table>
   )
 }
 
-interface TableHeadProps extends React.HTMLAttributes<HTMLElement> {}
+interface TableHeadProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
 export const TableHead: React.SFC<TableHeadProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames(className)
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const classes: string = classNames(className, helpersClasses(props))
   return (
-    <thead className={classes} {...props}>
+    <thead {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </thead>
   )
 }
 
-interface TableBodyProps extends React.HTMLAttributes<HTMLElement> {}
+interface TableBodyProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
 export const TableBody: React.SFC<TableBodyProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames(className)
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const classes: string = classNames(className, helpersClasses(props))
   return (
-    <tbody className={classes} {...props}>
+    <tbody {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </tbody>
   )
 }
 
-interface TableFootProps extends React.HTMLAttributes<HTMLElement> {}
+interface TableFootProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
 export const TableFoot: React.SFC<TableFootProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames(className)
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const classes: string = classNames(className, helpersClasses(props))
   return (
-    <tfoot className={classes} {...props}>
+    <tfoot {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </tfoot>
   )
 }
-interface TrProps extends React.HTMLAttributes<HTMLTableRowElement> {
+interface TrProps extends React.HTMLAttributes<HTMLTableRowElement>, Helpers {
   readonly selected?: boolean
 }
 
@@ -92,40 +105,47 @@ export const Tr: React.SFC<TrProps> = ({
   className,
   ...props
 }) => {
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
   const classes: string = classNames(
     'tr',
     {
       [`is-selected`]: selected,
     },
     className,
+    helpersClasses(props),
   )
 
   return (
-    <tr className={classes} {...props}>
+    <tr {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </tr>
   )
 }
 
-interface ThProps extends React.ThHTMLAttributes<HTMLTableHeaderCellElement> {}
+interface ThProps
+  extends React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
+    Helpers {}
 
 export const Th: React.SFC<ThProps> = ({ children, className, ...props }) => {
-  const classes: string = classNames(className)
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const classes: string = classNames(className, helpersClasses(props))
 
   return (
-    <th className={classes} {...props}>
-      {' '}
+    <th {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </th>
   )
 }
 
-interface TdProps extends React.TdHTMLAttributes<HTMLTableDataCellElement> {}
+interface TdProps
+  extends React.TdHTMLAttributes<HTMLTableDataCellElement>,
+    Helpers {}
 
 export const Td: React.SFC<TdProps> = ({ children, className, ...props }) => {
-  const classes: string = classNames(className)
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const classes: string = classNames(className, helpersClasses(props))
   return (
-    <td className={classes} {...props}>
+    <td {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </td>
   )
