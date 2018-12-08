@@ -1,25 +1,32 @@
 import * as React from 'react'
 
 import classNames from 'classnames'
+import {
+  Helpers,
+  HelpersRemoved,
+  removeHelpers,
+  helpersClasses,
+} from './helpers'
 
 type LevelItemType = 'left' | 'right'
 
-interface LevelProps extends React.HTMLAttributes<HTMLElement> {}
+interface LevelProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
 export const Level: React.SFC<LevelProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('level', className)
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const classes: string = classNames('level', className, helpersClasses(props))
   return (
-    <nav className={classes} {...props}>
+    <nav {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </nav>
   )
 }
 
-interface LevelItemProps extends React.HTMLAttributes<HTMLDivElement> {
+interface LevelItemProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly levelItemType?: LevelItemType
 }
 
@@ -29,6 +36,7 @@ export const LevelItem: React.SFC<LevelItemProps> = ({
   className,
   ...props
 }) => {
+  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
   const classes: string = classNames(
     'level-item',
     {
@@ -36,9 +44,10 @@ export const LevelItem: React.SFC<LevelItemProps> = ({
       [`level-${levelItemType}`]: levelItemType,
     },
     className,
+    helpersClasses(props),
   )
   return (
-    <div className={classes} {...props}>
+    <div {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </div>
   )
