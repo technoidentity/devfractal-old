@@ -14,7 +14,7 @@ export const Box: React.SFC<BoxProps> = ({ children, className, ...props }) => {
   const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
   const classes: string = classNames('box', helpersClasses(props), className)
   return (
-    <div className={classes} {...propsHelpersRemoved}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )
