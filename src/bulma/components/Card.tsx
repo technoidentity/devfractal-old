@@ -31,13 +31,22 @@ export const CardHeader: React.SFC<CardHeaderProps> = ({
   )
 }
 
-interface CardHeaderTitleProps extends React.HTMLAttributes<HTMLHeadElement> {}
+interface CardHeaderTitleProps extends React.HTMLAttributes<HTMLHeadElement> {
+  readonly alignment?: 'centered'
+}
 export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
+  alignment,
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('header-title', className)
+  const classes: string = classNames(
+    'card-header-title',
+    {
+      [`is-${alignment}`]: alignment,
+    },
+    className,
+  )
   return (
     <p {...props} className={classes}>
       {children}

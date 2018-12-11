@@ -16,7 +16,9 @@ import { MediaContent, MediaLeft, Media } from '../Media'
 export const CardExample: React.SFC = () => (
   <Card>
     <CardHeader>
-      <CardHeaderTitle className="is-large">Card</CardHeaderTitle>
+      <CardHeaderTitle className="is-large" alignment="centered">
+        Card
+      </CardHeaderTitle>
     </CardHeader>
     <CardImage>
       <Image responsiveImageRatio="2by3">
