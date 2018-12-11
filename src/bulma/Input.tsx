@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 import {
-  Helpers,
-  helpersClasses,
-  removeHelpers,
-  HelpersRemoved,
+  CommonHelpers,
+  commonHelpersClasses,
+  removeCommonHelpers,
+  CommonHelpersRemoved,
 } from './helpers'
 
 type InputColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
@@ -32,7 +32,7 @@ type InputState = 'hovered' | 'focused'
 
 interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    Helpers {
+    CommonHelpers {
   readonly color?: InputColor
   readonly inputSize?: InputSize
   readonly rounded?: boolean
@@ -48,11 +48,13 @@ export const Input: React.SFC<InputProps> = ({
   className,
   ...props
 }) => {
-  const propsRemoveHelpers: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsRemoveHelpers: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     className,
     'input',
-    helpersClasses(props),
+    commonHelpersClasses(props),
     {
       [`is-${color}`]: color,
       [`is-${inputSize}`]: inputSize,

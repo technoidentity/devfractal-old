@@ -2,23 +2,29 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 import {
-  Helpers,
-  HelpersRemoved,
-  removeHelpers,
-  helpersClasses,
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
 } from './helpers'
 
 type LevelItemType = 'left' | 'right'
 
-interface LevelProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+interface LevelProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {}
 
 export const Level: React.SFC<LevelProps> = ({
   children,
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
-  const classes: string = classNames('level', className, helpersClasses(props))
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'level',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
     <nav {...propsHelpersRemoved} {...props} className={classes}>
       {children}
@@ -26,7 +32,9 @@ export const Level: React.SFC<LevelProps> = ({
   )
 }
 
-interface LevelItemProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+interface LevelItemProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {
   readonly levelItemType?: LevelItemType
 }
 
@@ -36,7 +44,9 @@ export const LevelItem: React.SFC<LevelItemProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'level-item',
     {
@@ -44,7 +54,7 @@ export const LevelItem: React.SFC<LevelItemProps> = ({
       [`level-${levelItemType}`]: levelItemType,
     },
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
   return (
     <div {...propsHelpersRemoved} {...props} className={classes}>

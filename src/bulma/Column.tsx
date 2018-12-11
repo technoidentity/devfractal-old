@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 import {
-  Helpers,
-  HelpersRemoved,
-  removeHelpers,
-  helpersClasses,
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
 } from './helpers'
 
 type ColumnSize =
@@ -43,7 +43,9 @@ type ColumnResponsive =
   | 'widescreen'
   | 'fullhd'
 
-interface ColumnProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+interface ColumnProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {
   readonly size?: ColumnSize
   readonly gridSize?: ColumnGridSize
   readonly offsetSize?: ColumnOffsetSize
@@ -74,7 +76,9 @@ export const Column: React.SFC<ColumnProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const sizeResponsive: string = getSizeResponsive(size, responsive)
 
   const classes: string = classNames(
@@ -87,7 +91,7 @@ export const Column: React.SFC<ColumnProps> = ({
       [`is-narrow`]: narrow,
     },
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
   return (
     <div {...propsHelpersRemoved} {...props} className={classes}>

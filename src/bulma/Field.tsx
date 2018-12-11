@@ -2,10 +2,10 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { Label } from './Label'
 import {
-  Helpers,
-  HelpersRemoved,
-  removeHelpers,
-  helpersClasses,
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
 } from './helpers'
 
 type FieldGroupModifier = 'grouped-centered' | 'grouped-right'
@@ -16,7 +16,7 @@ type FieldSize = 'narrow' | 'expanded'
 
 export interface FieldProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {
+    CommonHelpers {
   readonly grouped?: boolean
   readonly horizontal?: boolean
   readonly groupedMultiline?: boolean
@@ -36,7 +36,9 @@ export const Field: React.SFC<FieldProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'field',
     {
@@ -49,7 +51,7 @@ export const Field: React.SFC<FieldProps> = ({
       [`has-${addonsModifier}`]: addonsModifier,
     },
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
 
   return (
@@ -63,7 +65,7 @@ type FieldLabelSize = 'small' | 'normal' | 'medium' | 'large'
 
 export interface FieldLabelProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {
+    CommonHelpers {
   readonly fieldLabelSize?: FieldLabelSize
 }
 
@@ -73,12 +75,14 @@ export const FieldLabel: React.SFC<FieldLabelProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'field-label',
     [`is-${fieldLabelSize}`],
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
   return (
     <div {...propsHelpersRemoved} {...props} className={classes}>
@@ -89,18 +93,20 @@ export const FieldLabel: React.SFC<FieldLabelProps> = ({
 
 export interface FieldBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {}
+    CommonHelpers {}
 
 export const FieldBody: React.SFC<FieldBodyProps> = ({
   children,
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'field-body',
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
   return (
     <div {...propsHelpersRemoved} {...props} className={classes}>
@@ -113,15 +119,17 @@ export const FieldBody: React.SFC<FieldBodyProps> = ({
 
 export interface FieldSetProps
   extends React.FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    Helpers {}
+    CommonHelpers {}
 
 export const FieldSet: React.SFC<FieldSetProps> = ({
   children,
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
-  const classes: string = classNames(className, helpersClasses(props))
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(className, commonHelpersClasses(props))
   return (
     <fieldset {...propsHelpersRemoved} {...props} className={classes}>
       <div className="field">{children}</div>

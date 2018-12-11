@@ -1,13 +1,15 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import {
-  Helpers,
-  helpersClasses,
-  HelpersRemoved,
-  removeHelpers,
+  CommonHelpers,
+  commonHelpersClasses,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
 } from './helpers'
 
-interface FooterProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+interface FooterProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 // @TODO: children should be Content
 export const Footer: React.SFC<FooterProps> = ({
@@ -15,8 +17,14 @@ export const Footer: React.SFC<FooterProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
-  const classes: string = classNames('footer', className, helpersClasses(props))
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'footer',
+    className,
+    commonHelpersClasses(props),
+  )
 
   return (
     <footer {...propsHelpersRemoved} {...props} className={classes}>

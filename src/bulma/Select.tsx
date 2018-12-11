@@ -1,10 +1,10 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import {
-  Helpers,
-  HelpersRemoved,
-  removeHelpers,
-  helpersClasses,
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
 } from './helpers'
 
 type SelectColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
@@ -15,7 +15,7 @@ type SelectState = 'hovered' | 'focused'
 
 interface SelectProps
   extends React.SelectHTMLAttributes<HTMLSelectElement>,
-    Helpers {
+    CommonHelpers {
   readonly color?: SelectColor
   readonly rounded?: boolean
   readonly selectSize?: SelectSize
@@ -33,7 +33,9 @@ export const Select: React.SFC<SelectProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
 
   const divClasses: string = classNames('select', {
     [`is-${color}`]: color,
@@ -46,7 +48,7 @@ export const Select: React.SFC<SelectProps> = ({
       [`is-${state}`]: state,
     },
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
   return (
     <div className="control">

@@ -1,8 +1,8 @@
-import { helpersClasses, responsiveClass } from './helpers'
+import { commonHelpersClasses, responsiveClass } from './helpers'
 
 it('helper classes', () => {
   expect(
-    helpersClasses({
+    commonHelpersClasses({
       floating: 'pulled-left',
       marginLess: true,
       srOnly: true,

@@ -2,15 +2,15 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 import {
-  Helpers,
-  HelpersRemoved,
-  removeHelpers,
-  helpersClasses,
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
 } from './helpers'
 
 interface TableProps
   extends React.TableHTMLAttributes<HTMLTableElement>,
-    Helpers {
+    CommonHelpers {
   readonly bordered?: boolean
   readonly striped?: boolean
   readonly narrow?: boolean
@@ -28,7 +28,9 @@ export const Table: React.SFC<TableProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'table',
     {
@@ -39,7 +41,7 @@ export const Table: React.SFC<TableProps> = ({
       [`is-fullwidth`]: fullwidth,
     },
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
   return (
     <table {...propsHelpersRemoved} {...props} className={classes}>
@@ -48,15 +50,19 @@ export const Table: React.SFC<TableProps> = ({
   )
 }
 
-interface TableHeadProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+interface TableHeadProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const TableHead: React.SFC<TableHeadProps> = ({
   children,
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
-  const classes: string = classNames(className, helpersClasses(props))
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(className, commonHelpersClasses(props))
   return (
     <thead {...propsHelpersRemoved} {...props} className={classes}>
       {children}
@@ -64,15 +70,19 @@ export const TableHead: React.SFC<TableHeadProps> = ({
   )
 }
 
-interface TableBodyProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+interface TableBodyProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const TableBody: React.SFC<TableBodyProps> = ({
   children,
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
-  const classes: string = classNames(className, helpersClasses(props))
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(className, commonHelpersClasses(props))
   return (
     <tbody {...propsHelpersRemoved} {...props} className={classes}>
       {children}
@@ -80,22 +90,28 @@ export const TableBody: React.SFC<TableBodyProps> = ({
   )
 }
 
-interface TableFootProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+interface TableFootProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const TableFoot: React.SFC<TableFootProps> = ({
   children,
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
-  const classes: string = classNames(className, helpersClasses(props))
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(className, commonHelpersClasses(props))
   return (
     <tfoot {...propsHelpersRemoved} {...props} className={classes}>
       {children}
     </tfoot>
   )
 }
-interface TrProps extends React.HTMLAttributes<HTMLTableRowElement>, Helpers {
+interface TrProps
+  extends React.HTMLAttributes<HTMLTableRowElement>,
+    CommonHelpers {
   readonly selected?: boolean
 }
 
@@ -105,14 +121,16 @@ export const Tr: React.SFC<TrProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'tr',
     {
       [`is-selected`]: selected,
     },
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
 
   return (
@@ -124,11 +142,13 @@ export const Tr: React.SFC<TrProps> = ({
 
 interface ThProps
   extends React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
-    Helpers {}
+    CommonHelpers {}
 
 export const Th: React.SFC<ThProps> = ({ children, className, ...props }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
-  const classes: string = classNames(className, helpersClasses(props))
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(className, commonHelpersClasses(props))
 
   return (
     <th {...propsHelpersRemoved} {...props} className={classes}>
@@ -139,11 +159,13 @@ export const Th: React.SFC<ThProps> = ({ children, className, ...props }) => {
 
 interface TdProps
   extends React.TdHTMLAttributes<HTMLTableDataCellElement>,
-    Helpers {}
+    CommonHelpers {}
 
 export const Td: React.SFC<TdProps> = ({ children, className, ...props }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
-  const classes: string = classNames(className, helpersClasses(props))
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(className, commonHelpersClasses(props))
   return (
     <td {...propsHelpersRemoved} {...props} className={classes}>
       {children}

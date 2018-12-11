@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-export interface Helpers {
+export interface CommonHelpers {
   readonly floating?: 'clearfix' | 'pulled-left' | 'pulled-right'
   readonly marginLess?: boolean
   readonly paddingLess?: boolean
@@ -13,7 +13,9 @@ export interface Helpers {
   readonly srOnly?: boolean
 }
 
-export const helpersClasses: (helpers: Helpers) => string = helpers =>
+export const commonHelpersClasses: (
+  helpers: CommonHelpers,
+) => string = helpers =>
   classNames({
     [`is-${helpers.floating}`]: helpers.floating,
     [`is-marginless`]: helpers.marginLess,
@@ -27,9 +29,14 @@ export const helpersClasses: (helpers: Helpers) => string = helpers =>
     [`is-sr-only}`]: helpers.srOnly,
   })
 
-export type HelpersRemoved<T> = Pick<T, Exclude<keyof T, keyof Helpers>>
+export type CommonHelpersRemoved<T> = Pick<
+  T,
+  Exclude<keyof T, keyof CommonHelpers>
+>
 
-export function removeHelpers<T extends Helpers>(props: T): HelpersRemoved<T> {
+export function removeCommonHelpers<T extends CommonHelpers>(
+  props: T,
+): CommonHelpersRemoved<T> {
   const {
     floating,
     marginLess,

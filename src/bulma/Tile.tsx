@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 import {
-  Helpers,
-  HelpersRemoved,
-  removeHelpers,
-  helpersClasses,
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
 } from './helpers'
 
 type TileType = 'ancestor' | 'parent' | 'child'
@@ -26,7 +26,9 @@ type TileSize =
   | '11'
   | '12'
 
-interface TileProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+interface TileProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {
   readonly tileType?: TileType
   readonly size?: TileSize
   readonly vertical?: boolean
@@ -46,7 +48,9 @@ export const Tile: React.SFC<TileProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: HelpersRemoved<typeof props> = removeHelpers(props)
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'tile',
     {
@@ -58,7 +62,7 @@ export const Tile: React.SFC<TileProps> = ({
       [`box`]: box,
     },
     className,
-    helpersClasses(props),
+    commonHelpersClasses(props),
   )
   return (
     <div {...propsHelpersRemoved} {...props} className={classes}>
