@@ -14,7 +14,7 @@ export const Modal: React.SFC<ModalProps> = ({
   const classes: string = classNames(
     'modal',
     {
-      [`is-active'`]: active,
+      [`is-active`]: active,
     },
     className,
   )
