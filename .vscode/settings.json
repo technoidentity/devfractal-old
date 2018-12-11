@@ -1,5 +1,4 @@
 {
-  "editor.fontFamily": "Monaco, 'Ubuntu Mono', Consolas, mononoki, 'Fira Code', 'Hack', 'Source Code Pro', Courier New', 'Dejavu Sans Mono', monospace",
   "editor.tabSize": 2,
   "editor.fontLigatures": true,
   "editor.emptySelectionClipboard": false,
