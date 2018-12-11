@@ -1,5 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  commonHelpersClasses,
+  removeCommonHelpers,
+} from './commonHelpers'
 
 type ButtonColor =
   | 'white'
@@ -28,7 +34,9 @@ type ButtonState =
   | 'loading'
   | 'static'
 
-interface ButtonsProps {
+interface ButtonsProps
+  extends React.ButtonHTMLAttributes<HTMLElement>,
+    CommonHelpers {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
 }
@@ -37,16 +45,33 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   addons,
   alignment,
   children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('buttons', {
-    [`is-${alignment}`]: alignment,
-    [`has-${addons}`]: addons,
-  })
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
 
-  return <div className={classes}>{children}</div>
+  const classes: string = classNames(
+    'buttons',
+    {
+      [`is-${alignment}`]: alignment,
+      [`has-${addons}`]: addons,
+    },
+    className,
+    commonHelpersClasses(props),
+  )
+
+  return (
+    <div {...propsHelpersRemoved} {...props} className={classes}>
+      {children}
+    </div>
+  )
 }
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    CommonHelpers {
   readonly color?: ButtonColor
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier
@@ -66,6 +91,9 @@ export const Button: React.SFC<ButtonProps> = ({
   className,
   ...props
 }) => {
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'button',
     {
@@ -77,10 +105,11 @@ export const Button: React.SFC<ButtonProps> = ({
       [`is-fullwidth`]: fullWidth,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
     <div className="control">
-      <button {...props} className={classes}>
+      <button {...propsHelpersRemoved} {...props} className={classes}>
         {children}
       </button>
     </div>
