@@ -47,6 +47,7 @@ type TextTransformation = 'capitalized' | 'lowercase' | 'uppercase' | 'italic'
 
 export interface TextHelpers {
   readonly textColor?: TextColor
+  readonly textBackgroundColor?: TextColor
   readonly textSize?: TextSize
   readonly textAlignment?: TextAlignment
   readonly textTransformation?: TextTransformation
@@ -68,6 +69,7 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = (
 
   return classNames(cnSize, cnAlignment, {
     [`has-text-${helpers.textColor}`]: helpers.textColor,
+    [`has-background-${helpers.textBackgroundColor}`]: helpers.textColor,
     [`has-text-${helpers.textWeight}`]: helpers.textWeight,
     [`is-${helpers.textTransformation}`]: helpers.textTransformation,
     [`has-text-${helpers.responsiveAlignment}`]: helpers.responsiveAlignment,
@@ -81,6 +83,7 @@ export function removeTextHelpers<T extends TextHelpers>(
 ): TextHelpersRemoved<T> {
   const {
     textColor,
+    textBackgroundColor,
     textSize,
     textAlignment,
     textTransformation,
