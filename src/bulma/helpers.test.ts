@@ -1,4 +1,5 @@
-import { commonHelpersClasses, responsiveClass } from './commonHelpers'
+import { commonHelpersClasses } from './commonHelpers'
+import { responsiveClass } from './responsiveHelpers'
 
 it('helper classes', () => {
   expect(
@@ -10,7 +11,7 @@ it('helper classes', () => {
   )
 })
 
-it('responsiveClasses', () => {
+it('responsiveClass', () => {
   expect(responsiveClass('inline-flex') === 'is-inline-flex')
   expect(responsiveClass('flex', 'tablet-only') === 'is-flex-tablet-only')
   expect(
