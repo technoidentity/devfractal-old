@@ -6,7 +6,7 @@ import {
   commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
-} from './helpers'
+} from './commonHelpers'
 
 type HeroColor =
   | 'primary'

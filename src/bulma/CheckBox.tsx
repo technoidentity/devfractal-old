@@ -5,8 +5,8 @@ import {
   CommonHelpers,
   CommonHelpersRemoved,
   commonHelpersClasses,
-} from './helpers'
-import { removeCommonHelpers } from './helpers'
+  removeCommonHelpers,
+} from './commonHelpers'
 
 interface CheckBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

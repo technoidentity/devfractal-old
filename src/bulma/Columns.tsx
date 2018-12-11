@@ -5,7 +5,7 @@ import {
   commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
-} from './helpers'
+} from './commonHelpers'
 
 type ColumnsResponsive =
   | 'mobile'

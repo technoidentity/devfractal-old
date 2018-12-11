@@ -6,7 +6,7 @@ import {
   removeCommonHelpers,
   commonHelpersClasses,
   CommonHelpersRemoved,
-} from './helpers'
+} from './commonHelpers'
 
 interface BoxProps
   extends React.HTMLAttributes<HTMLDivElement>,

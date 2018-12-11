@@ -6,7 +6,7 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './helpers'
+} from './commonHelpers'
 
 type TileType = 'ancestor' | 'parent' | 'child'
 

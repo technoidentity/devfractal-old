@@ -5,7 +5,7 @@ import {
   commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
-} from './helpers'
+} from './commonHelpers'
 
 interface FooterProps
   extends React.HTMLAttributes<HTMLElement>,
