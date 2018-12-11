@@ -9,7 +9,7 @@ export interface CommonHelpers {
   readonly radiusLess?: boolean
   readonly shadowLess?: boolean
   readonly unSelectable?: boolean
-  readonly invisible?: boolean
+  readonly notVisible?: boolean
   readonly srOnly?: boolean
 }
 
@@ -25,7 +25,7 @@ export const commonHelpersClasses: (
     [`is-radiusless}`]: helpers.radiusLess,
     [`is-shadowless`]: helpers.shadowLess,
     [`is-unselectable`]: helpers.unSelectable,
-    [`is-invisible`]: helpers.invisible,
+    [`is-invisible`]: helpers.notVisible,
     [`is-sr-only}`]: helpers.srOnly,
   })
 
@@ -46,7 +46,7 @@ export function removeCommonHelpers<T extends CommonHelpers>(
     radiusLess,
     shadowLess,
     unSelectable,
-    invisible,
+    notVisible: invisible,
     srOnly,
     ...result
   } = props
