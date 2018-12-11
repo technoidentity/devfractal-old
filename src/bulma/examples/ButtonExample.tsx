@@ -6,7 +6,7 @@ import { Field } from '../Field'
 
 export const ButtonExample: React.SFC = () => (
   <div>
-    <Buttons alignment="centered">
+    <Buttons alignment="centered" floating="pulled-left">
       <Button
         className="is-info is-selected"
         buttonStyle="rounded"
@@ -15,7 +15,9 @@ export const ButtonExample: React.SFC = () => (
       >
         Primary
       </Button>
-      <Button state="static">success</Button>
+      <Button state="static" notVisible>
+        success
+      </Button>
       <Button state="active">danger</Button>
       <Button state="focused">info</Button>
       <Button> dark</Button>
