@@ -47,6 +47,7 @@ import {
 } from './bulma/examples'
 import { Section } from './bulma/Section'
 import { FormikSignUpForm } from './bulma/examples/SignupFormExample'
+import { FileExample } from './bulma/examples/FileExample'
 
 setConfig({
   ignoreSFC: true,
@@ -188,6 +189,9 @@ class App extends React.Component {
                     <li>
                       <Link to="/signup-form">SignUp Example</Link>
                     </li>
+                    <li>
+                      <Link to="/file-example">File Example</Link>
+                    </li>
                   </ul>
                 </nav>
               </Content>
@@ -305,6 +309,7 @@ class App extends React.Component {
                     exact
                     component={FormikSignUpForm}
                   />
+                  <Route path="/file-example" exact component={FileExample} />
                 </Container>
               </Section>
             </Column>
