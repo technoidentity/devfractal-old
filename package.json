@@ -47,8 +47,9 @@
   },
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.commit.json 'src/**/*.tsx' 'src/**/*.ts'",
-    "typecheck": "tsc --noEmit -p .",
-    "start": "react-app-rewired start",
+    "check-types": "tsc --noEmit -p .",
+    "check-all": "yarn lint && yarn check-types && yarn test:single",
+    "start": "yarn check-all && react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "test:single": "CI=true react-app-rewired test",
@@ -61,12 +62,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run typecheck && lint-staged && yarn run test:single"
+      "pre-commit": "yarn check-types && lint-staged && yarn test:single"
     }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn run lint"
+      "yarn lint"
     ],
     "src/**/*.{ts,tsx,js,jsx,json,css}": [
       "prettier --single-quote --write",
