@@ -48,7 +48,7 @@ export const Columns: React.SFC<ColumnsProps> = ({
   )
 
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )

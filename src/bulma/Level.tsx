@@ -26,7 +26,7 @@ export const Level: React.SFC<LevelProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <nav {...propsHelpersRemoved} {...props} className={classes}>
+    <nav {...propsHelpersRemoved} className={classes}>
       {children}
     </nav>
   )
@@ -57,7 +57,7 @@ export const LevelItem: React.SFC<LevelItemProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )

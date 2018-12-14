@@ -27,7 +27,7 @@ export const Footer: React.SFC<FooterProps> = ({
   )
 
   return (
-    <footer {...propsHelpersRemoved} {...props} className={classes}>
+    <footer {...propsHelpersRemoved} className={classes}>
       {children}
     </footer>
   )

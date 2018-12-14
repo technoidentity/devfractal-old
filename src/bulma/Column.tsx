@@ -94,7 +94,7 @@ export const Column: React.SFC<ColumnProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )

@@ -44,7 +44,7 @@ export const Table: React.SFC<TableProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <table {...propsHelpersRemoved} {...props} className={classes}>
+    <table {...propsHelpersRemoved} className={classes}>
       {children}
     </table>
   )
@@ -64,7 +64,7 @@ export const TableHead: React.SFC<TableHeadProps> = ({
   > = removeCommonHelpers(props)
   const classes: string = classNames(className, commonHelpersClasses(props))
   return (
-    <thead {...propsHelpersRemoved} {...props} className={classes}>
+    <thead {...propsHelpersRemoved} className={classes}>
       {children}
     </thead>
   )
@@ -84,7 +84,7 @@ export const TableBody: React.SFC<TableBodyProps> = ({
   > = removeCommonHelpers(props)
   const classes: string = classNames(className, commonHelpersClasses(props))
   return (
-    <tbody {...propsHelpersRemoved} {...props} className={classes}>
+    <tbody {...propsHelpersRemoved} className={classes}>
       {children}
     </tbody>
   )
@@ -104,7 +104,7 @@ export const TableFoot: React.SFC<TableFootProps> = ({
   > = removeCommonHelpers(props)
   const classes: string = classNames(className, commonHelpersClasses(props))
   return (
-    <tfoot {...propsHelpersRemoved} {...props} className={classes}>
+    <tfoot {...propsHelpersRemoved} className={classes}>
       {children}
     </tfoot>
   )
@@ -134,7 +134,7 @@ export const Tr: React.SFC<TrProps> = ({
   )
 
   return (
-    <tr {...propsHelpersRemoved} {...props} className={classes}>
+    <tr {...propsHelpersRemoved} className={classes}>
       {children}
     </tr>
   )
@@ -151,7 +151,7 @@ export const Th: React.SFC<ThProps> = ({ children, className, ...props }) => {
   const classes: string = classNames(className, commonHelpersClasses(props))
 
   return (
-    <th {...propsHelpersRemoved} {...props} className={classes}>
+    <th {...propsHelpersRemoved} className={classes}>
       {children}
     </th>
   )
@@ -167,7 +167,7 @@ export const Td: React.SFC<TdProps> = ({ children, className, ...props }) => {
   > = removeCommonHelpers(props)
   const classes: string = classNames(className, commonHelpersClasses(props))
   return (
-    <td {...propsHelpersRemoved} {...props} className={classes}>
+    <td {...propsHelpersRemoved} className={classes}>
       {children}
     </td>
   )

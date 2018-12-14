@@ -47,7 +47,7 @@ export const Hero: React.SFC<HeroProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <section {...propsHelpersRemoved} {...props} className={classes}>
+    <section {...propsHelpersRemoved} className={classes}>
       {children}
     </section>
   )
@@ -72,7 +72,7 @@ export const HeroHead: React.SFC<HeroHeadProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )
@@ -97,7 +97,7 @@ export const HeroBody: React.SFC<HeroBodyProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )
@@ -121,7 +121,7 @@ export const HeroFoot: React.SFC<HeroFootProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )

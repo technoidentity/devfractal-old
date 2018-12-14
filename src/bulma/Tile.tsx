@@ -65,7 +65,7 @@ export const Tile: React.SFC<TileProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )

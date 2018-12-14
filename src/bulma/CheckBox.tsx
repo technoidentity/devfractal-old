@@ -29,7 +29,7 @@ export const CheckBox: React.SFC<CheckBoxProps> = ({
   return (
     <div className="control">
       <label className={classes}>
-        <input {...propsHelpersRemoved} {...props} type="checkbox" />
+        <input {...propsHelpersRemoved} type="checkbox" />
         {children}
       </label>
     </div>

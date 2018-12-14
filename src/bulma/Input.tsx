@@ -51,10 +51,12 @@ export const Input: React.SFC<InputProps> = ({
   const propsRemoveHelpers: CommonHelpersRemoved<
     typeof props
   > = removeCommonHelpers(props)
+
   const classes: string = classNames(
     className,
     'input',
     commonHelpersClasses(props),
+
     {
       [`is-${color}`]: color,
       [`is-${inputSize}`]: inputSize,
@@ -64,7 +66,7 @@ export const Input: React.SFC<InputProps> = ({
   )
   return (
     <div className="control">
-      <input {...propsRemoveHelpers} {...props} className={classes} />
+      <input {...propsRemoveHelpers} className={classes} />
     </div>
   )
 }

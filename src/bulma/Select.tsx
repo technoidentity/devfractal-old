@@ -53,7 +53,7 @@ export const Select: React.SFC<SelectProps> = ({
   return (
     <div className="control">
       <div className={divClasses}>
-        <select {...propsHelpersRemoved} {...props} className={classes}>
+        <select {...propsHelpersRemoved} className={classes}>
           {children}
         </select>
       </div>
