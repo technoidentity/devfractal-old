@@ -6,6 +6,7 @@ import { TextArea } from '../TextArea'
 import { Label } from '../Label'
 import { Select } from '../Select'
 import { RadioButton } from '../RadioButton'
+import { Section } from '../Section'
 
 export const FieldExample: React.SFC = () => (
   <div>
@@ -32,7 +33,7 @@ export const FieldExample: React.SFC = () => (
       <FieldLabel />
       <FieldBody>
         <Field fieldSize="expanded">
-          <Field addonsModifier="addons">
+          <Field addons addonsModifier="addons-centered">
             <p className="control">
               <Button state="static">+44</Button>
             </p>
@@ -118,5 +119,34 @@ export const FieldExample: React.SFC = () => (
         </Field>
       </FieldBody>
     </Field>
+
+    <Section>
+      <Field addonsModifier="addons-centered">
+        <p className="control">
+          <Select>
+            <option>$</option>
+            <option>£</option>
+            <option>€</option>
+          </Select>
+        </p>
+        <p className="control">
+          <Input type="text" placeholder="Amount of money" />
+        </p>
+        <p className="control">
+          <Button color="primary">Transfer</Button>
+        </p>
+      </Field>
+    </Section>
+
+    <Section>
+      <Field groupModifier="grouped-centered">
+        <p className="control">
+          <Button color="primary">Submit</Button>
+        </p>
+        <p className="control">
+          <Button color="light">Cancel</Button>
+        </p>
+      </Field>
+    </Section>
   </div>
 )
