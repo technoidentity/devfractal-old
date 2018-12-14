@@ -1,7 +1,15 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+interface SectionProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {
   readonly modifier?: 'medium' | 'large'
 }
 
@@ -11,15 +19,19 @@ export const Section: React.SFC<SectionProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'section',
     {
       [`is-${modifier}`]: modifier,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <section {...props} className={classes}>
+    <section {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </section>
   )

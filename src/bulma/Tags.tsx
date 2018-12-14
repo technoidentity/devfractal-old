@@ -1,9 +1,17 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type TagsSize = 'medium' | 'large'
 
-interface TagsProps extends React.HTMLAttributes<HTMLDivElement> {
+interface TagsProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {
   readonly size?: TagsSize
   readonly addons?: boolean
 }
@@ -15,6 +23,9 @@ export const Tags: React.SFC<TagsProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'tags',
     {
@@ -22,9 +33,10 @@ export const Tags: React.SFC<TagsProps> = ({
       [`has-addons`]: addons,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <div {...props} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </div>
   )

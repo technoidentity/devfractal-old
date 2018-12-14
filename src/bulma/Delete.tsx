@@ -1,9 +1,17 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type DeleteSize = 'small' | 'medium' | 'large'
 
-interface DeleteProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface DeleteProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    CommonHelpers {
   readonly size?: DeleteSize
 }
 
@@ -12,12 +20,16 @@ export const Delete: React.SFC<DeleteProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'delete',
     {
       [`is-${size}`]: size,
     },
     className,
+    commonHelpersClasses(props),
   )
-  return <a {...props} className={classes} />
+  return <a {...propsCommonHelpersRemoved} className={classes} />
 }

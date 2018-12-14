@@ -1,5 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
@@ -46,7 +52,9 @@ type TextWeight = 'light' | 'normal' | 'semiBold' | 'bold'
 
 type TextTransformation = 'capitalized' | 'lowercase' | 'uppercase' | 'italic'
 
-interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
+interface TextProps
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    CommonHelpers {
   readonly color?: TextColor
   readonly size?: TextSize
   readonly alignment?: TextAlignment
@@ -68,6 +76,9 @@ export const Text: React.SFC<TextProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const cnSize: string = responsiveSize
     ? `is-size-${size}-${responsiveSize}`
     : `is-size-${size}`
@@ -86,9 +97,10 @@ export const Text: React.SFC<TextProps> = ({
       [`has-text-${alignment}`]: alignment,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <span {...props} className={classes}>
+    <span {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </span>
   )

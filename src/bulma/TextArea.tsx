@@ -1,5 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type TextAreaColor = 'primary' | 'info' | 'warning' | 'success' | 'danger'
 
@@ -8,7 +14,8 @@ type TextAreaSize = 'small' | 'large' | 'normal' | 'medium'
 type TextAreaState = 'normal' | 'hovered' | 'focused'
 
 interface TextAreaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    CommonHelpers {
   readonly color?: TextAreaColor
   readonly size?: TextAreaSize
   readonly state?: TextAreaState
@@ -23,6 +30,9 @@ export const TextArea: React.SFC<TextAreaProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'textarea',
     {
@@ -31,10 +41,11 @@ export const TextArea: React.SFC<TextAreaProps> = ({
       [`is-${state}`]: state,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
     <div className="control">
-      <textarea {...props} className={classes} />
+      <textarea {...propsCommonHelpersRemoved} className={classes} />
     </div>
   )
 }

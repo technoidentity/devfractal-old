@@ -1,11 +1,19 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from '../commonHelpers'
 
 type DropDownModifier = 'hoverable' | 'active'
 
 type DropDownAlignment = 'right' | 'up'
 
-interface DropDownProps extends React.HTMLAttributes<HTMLDivElement> {
+interface DropDownProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {
   readonly modifier?: DropDownModifier
   readonly alignment?: DropDownAlignment
 }
@@ -17,6 +25,9 @@ export const DropDown: React.SFC<DropDownProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'dropdown',
     {
@@ -24,14 +35,17 @@ export const DropDown: React.SFC<DropDownProps> = ({
       [`is-${alignment}`]: alignment,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <div {...props} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </div>
   )
 }
-interface DropDownMenuProps extends React.HTMLAttributes<HTMLElement> {
+interface DropDownMenuProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {
   readonly id?: string
   readonly role?: string
 }
@@ -43,15 +57,23 @@ export const DropDownMenu: React.SFC<DropDownMenuProps> = ({
   className,
   ...props
 }) => {
-  const classes: string = classNames('dropdown-menu', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'dropdown-menu',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <div {...props} className={classes} id={id} role={role}>
+    <div {...propsCommonHelpersRemoved} className={classes} id={id} role={role}>
       {children}
     </div>
   )
 }
 interface DropDownItemProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    CommonHelpers {
   readonly active?: boolean
 }
 
@@ -61,56 +83,87 @@ export const DropDownItem: React.SFC<DropDownItemProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'dropdown-item',
     {
       [`is-active`]: active,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <a {...props} className={classes}>
+    <a {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </a>
   )
 }
 
-interface DropDownTriggerProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface DropDownTriggerProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {}
 
 export const DropDownTrigger: React.SFC<DropDownTriggerProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('dropdown-trigger', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'dropdown-trigger',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <div {...props} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </div>
   )
 }
 
-interface DropDownContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface DropDownContentProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {}
 
 export const DropDownContent: React.SFC<DropDownContentProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('dropdown-content', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'dropdown-content',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <div {...props} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </div>
   )
 }
 
-interface DropDownDividerProps extends React.HTMLAttributes<HTMLElement> {}
+interface DropDownDividerProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const DropDownDivider: React.SFC<DropDownDividerProps> = ({
   className,
   ...props
 }) => {
-  const classes: string = classNames('dropdown-divider', className)
-  return <hr {...props} className={classes} />
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'dropdown-divider',
+    className,
+    commonHelpersClasses(props),
+  )
+  return <hr {...propsCommonHelpersRemoved} className={classes} />
 }

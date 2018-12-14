@@ -1,5 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type ProgressBarColor =
   | 'primary'
@@ -11,7 +17,9 @@ type ProgressBarColor =
 
 type ProgressBarSize = 'small' | 'medium' | 'large'
 
-interface ProgressBarProps extends React.HTMLAttributes<HTMLProgressElement> {
+interface ProgressBarProps
+  extends React.HTMLAttributes<HTMLProgressElement>,
+    CommonHelpers {
   readonly size?: ProgressBarSize
   readonly color?: ProgressBarColor
   readonly value?: string
@@ -27,6 +35,9 @@ export const ProgressBar: React.SFC<ProgressBarProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'progress',
     {
@@ -34,10 +45,16 @@ export const ProgressBar: React.SFC<ProgressBarProps> = ({
       [`is-${color}`]: color,
     },
     className,
+    commonHelpersClasses(props),
   )
 
   return (
-    <progress {...props} className={classes} value={value} max={max}>
+    <progress
+      {...propsCommonHelpersRemoved}
+      className={classes}
+      value={value}
+      max={max}
+    >
       {children}
     </progress>
   )

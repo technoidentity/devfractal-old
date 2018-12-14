@@ -1,5 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type FixedSquaredImageSize =
   | '16x16'
@@ -28,7 +34,9 @@ type ResponsiveImageRatio =
   | '1by2'
   | '1by3'
 
-interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface ImageProps
+  extends React.ImgHTMLAttributes<HTMLImageElement>,
+    CommonHelpers {
   readonly size?: FixedSquaredImageSize
   readonly responsiveImageRatio?: ResponsiveImageRatio
 }
@@ -40,6 +48,9 @@ export const Image: React.SFC<ImageProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'image',
     {
@@ -47,10 +58,11 @@ export const Image: React.SFC<ImageProps> = ({
       [`is-${responsiveImageRatio}`]: responsiveImageRatio,
     },
     className,
+    commonHelpersClasses(props),
   )
 
   return (
-    <figure {...props} className={classes}>
+    <figure {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </figure>
   )

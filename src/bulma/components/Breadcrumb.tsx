@@ -1,6 +1,13 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
+import {
+  CommonHelpers,
+  commonHelpersClasses,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+} from '../commonHelpers'
+
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 
 type BreadcrumbAlignment = 'centered' | 'right'
@@ -11,7 +18,9 @@ type BreadcrumbSeparator =
   | 'dot-separator'
   | 'succeeds-separator'
 
-interface BreadcrumbItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
+interface BreadcrumbItemProps
+  extends React.LiHTMLAttributes<HTMLLIElement>,
+    CommonHelpers {
   readonly href?: string
   readonly active?: boolean
 }
@@ -23,20 +32,26 @@ export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     {
       [`is-active`]: active,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <li {...props} className={classes}>
+    <li {...propsCommonHelpersRemoved} className={classes}>
       <a href={href}>{children}</a>
     </li>
   )
 }
 
-interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
+interface BreadcrumbProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {
   readonly size?: BreadcrumbSize
   readonly alignment?: BreadcrumbAlignment
   readonly separator?: BreadcrumbSeparator
@@ -50,6 +65,9 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'breadcrumb',
     {
@@ -58,9 +76,14 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
       [`has-${separator}`]: separator,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <nav {...props} className={classes} aria-label="breadcrumbs">
+    <nav
+      {...propsCommonHelpersRemoved}
+      className={classes}
+      aria-label="breadcrumbs"
+    >
       <ul>{children}</ul>
     </nav>
   )

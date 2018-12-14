@@ -1,9 +1,17 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type ContentSize = 'small' | 'medium' | 'large'
 
-interface ContentProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ContentProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {
   readonly size?: ContentSize
 }
 
@@ -13,15 +21,19 @@ export const Content: React.SFC<ContentProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'content',
     {
       [`is-${size}`]: size,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <div {...props} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </div>
   )

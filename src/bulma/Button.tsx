@@ -1,5 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type ButtonColor =
   | 'white'
@@ -46,7 +52,9 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   return <div className={classes}>{children}</div>
 }
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    CommonHelpers {
   readonly color?: ButtonColor
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier
@@ -66,6 +74,9 @@ export const Button: React.SFC<ButtonProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'button',
     {
@@ -77,10 +88,11 @@ export const Button: React.SFC<ButtonProps> = ({
       [`is-fullwidth`]: fullWidth,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
     <div className="control">
-      <button {...props} className={classes}>
+      <button {...propsCommonHelpersRemoved} className={classes}>
         {children}
       </button>
     </div>

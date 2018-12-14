@@ -1,7 +1,15 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from '../commonHelpers'
 
-interface PaginationProps extends React.HTMLAttributes<HTMLElement> {
+interface PaginationProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {
   readonly rounded?: boolean
   readonly size?: 'small' | 'medium' | 'large'
 }
@@ -13,6 +21,9 @@ export const Pagination: React.SFC<PaginationProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'pagination',
     {
@@ -20,10 +31,11 @@ export const Pagination: React.SFC<PaginationProps> = ({
       [`is-rounded`]: rounded,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
     <nav
-      {...props}
+      {...propsCommonHelpersRemoved}
       className={classes}
       role="navigation"
       aria-label="pagination"
@@ -34,7 +46,8 @@ export const Pagination: React.SFC<PaginationProps> = ({
 }
 
 interface PaginationLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    CommonHelpers {
   readonly current?: boolean
 }
 
@@ -44,79 +57,116 @@ export const PaginationLink: React.SFC<PaginationLinkProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'pagination-link',
     {
       [`is-current`]: current,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
     <li>
-      <a {...props} className={classes}>
+      <a {...propsCommonHelpersRemoved} className={classes}>
         {children}
       </a>
     </li>
   )
 }
 
-interface PaginationListProps extends React.HTMLAttributes<HTMLElement> {}
+interface PaginationListProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const PaginationList: React.SFC<PaginationListProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('pagination-list', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'pagination-list',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <ul {...props} className={classes}>
+    <ul {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </ul>
   )
 }
 interface PaginationEllipsisProps
-  extends React.HTMLAttributes<HTMLSpanElement> {}
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    CommonHelpers {}
 
 export const PaginationEllipsis: React.SFC<PaginationEllipsisProps> = ({
   className,
   ...props
 }) => {
-  const classes: string = classNames('pagination-ellipsis', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'pagination-ellipsis',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
     <li>
-      <span {...props} className={classes}>
+      <span {...propsCommonHelpersRemoved} className={classes}>
         &hellip;
       </span>
     </li>
   )
 }
 interface PaginationPreviousProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    CommonHelpers {}
 
 export const PaginationPrevious: React.SFC<PaginationPreviousProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('pagination-previous', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'pagination-previous',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <a {...props} className={classes}>
+    <a {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </a>
   )
 }
 
 interface PaginationNextProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    CommonHelpers {}
 
 export const PaginationNext: React.SFC<PaginationNextProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('pagination-next', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'pagination-next',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <a {...props} className={classes}>
+    <a {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </a>
   )

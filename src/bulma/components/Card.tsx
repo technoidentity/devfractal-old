@@ -1,37 +1,63 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from '../commonHelpers'
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {}
 
 export const Card: React.SFC<CardProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('card', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'card',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <div {...props} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </div>
   )
 }
 
-interface CardHeaderProps extends React.HTMLAttributes<HTMLHeadElement> {}
+interface CardHeaderProps
+  extends React.HTMLAttributes<HTMLHeadElement>,
+    CommonHelpers {}
 
 export const CardHeader: React.SFC<CardHeaderProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('card-header', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'card-header',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <header {...props} className={classes}>
+    <header {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </header>
   )
 }
 
-interface CardHeaderTitleProps extends React.HTMLAttributes<HTMLHeadElement> {
+interface CardHeaderTitleProps
+  extends React.HTMLAttributes<HTMLHeadElement>,
+    CommonHelpers {
   readonly alignment?: 'centered'
 }
 export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
@@ -40,75 +66,114 @@ export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'card-header-title',
     {
       [`is-${alignment}`]: alignment,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <p {...props} className={classes}>
+    <p {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </p>
   )
 }
 
-interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface CardContentProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {}
 
 export const CardContent: React.SFC<CardContentProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('card-content', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'card-content',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <div {...props} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </div>
   )
 }
 
-interface CardFooterProps extends React.HTMLAttributes<HTMLElement> {}
+interface CardFooterProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const CardFooter: React.SFC<CardFooterProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('card-footer', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'card-footer',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <footer {...props} className={classes}>
+    <footer {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </footer>
   )
 }
 interface CardFooterItemProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    CommonHelpers {}
 
 export const CardFooterItem: React.SFC<CardFooterItemProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('card-footer-item', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'card-footer-item',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <a {...props} className={classes}>
+    <a {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </a>
   )
 }
 
-interface CardImageProps extends React.HTMLAttributes<HTMLElement> {}
+interface CardImageProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const CardImage: React.SFC<CardImageProps> = ({
   children,
   className,
   ...props
 }) => {
-  const classes: string = classNames('card-image', className)
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
+  const classes: string = classNames(
+    'card-image',
+    className,
+    commonHelpersClasses(props),
+  )
   return (
-    <figure {...props} className={classes}>
+    <figure {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </figure>
   )

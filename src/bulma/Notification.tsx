@@ -1,5 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type NotificationColor =
   | 'primary'
@@ -9,7 +15,9 @@ type NotificationColor =
   | 'warning'
   | 'danger'
 
-interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
+interface NotificationProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CommonHelpers {
   readonly color?: NotificationColor
 }
 
@@ -19,15 +27,19 @@ export const Notification: React.SFC<NotificationProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'notification',
     {
       [`is-${color}`]: color,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <div {...props} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </div>
   )

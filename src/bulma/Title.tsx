@@ -1,17 +1,21 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {
+  CommonHelpers,
+  CommonHelpersRemoved,
+  removeCommonHelpers,
+  commonHelpersClasses,
+} from './commonHelpers'
 
 type TitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 
 type SubTitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 
-interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
+interface TitleProps
+  extends React.HTMLAttributes<HTMLHeadingElement>,
+    CommonHelpers {
   readonly size?: TitleSize
   readonly spaced?: boolean
-}
-
-interface SubTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  readonly size?: SubTitleSize
 }
 
 export const Title: React.SFC<TitleProps> = ({
@@ -21,6 +25,9 @@ export const Title: React.SFC<TitleProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'title',
     {
@@ -28,12 +35,19 @@ export const Title: React.SFC<TitleProps> = ({
       [`is-${spaced}`]: spaced,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <h1 {...props} className={classes}>
+    <h1 {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </h1>
   )
+}
+
+interface SubTitleProps
+  extends React.HTMLAttributes<HTMLHeadingElement>,
+    CommonHelpers {
+  readonly size?: SubTitleSize
 }
 
 export const SubTitle: React.SFC<SubTitleProps> = ({
@@ -42,15 +56,19 @@ export const SubTitle: React.SFC<SubTitleProps> = ({
   className,
   ...props
 }) => {
+  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'subtitle',
     {
       [`is-${size}`]: size,
     },
     className,
+    commonHelpersClasses(props),
   )
   return (
-    <h1 {...props} className={classes}>
+    <h1 {...propsCommonHelpersRemoved} className={classes}>
       {children}
     </h1>
   )
