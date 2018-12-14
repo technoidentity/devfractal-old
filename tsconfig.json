@@ -3,6 +3,7 @@
     "target": "es5",
     "allowJs": true,
     "skipLibCheck": true,
+    "lib": ["dom", "es2018"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -24,5 +25,6 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
+
   "include": ["src"]
 }

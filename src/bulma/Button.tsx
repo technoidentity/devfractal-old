@@ -34,7 +34,9 @@ type ButtonState =
   | 'loading'
   | 'static'
 
-interface ButtonsProps {
+interface ButtonsProps
+  extends React.ButtonHTMLAttributes<HTMLElement>,
+    CommonHelpers {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
 }
@@ -43,13 +45,28 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   addons,
   alignment,
   children,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('buttons', {
-    [`is-${alignment}`]: alignment,
-    [`has-${addons}`]: addons,
-  })
+  const propsHelpersRemoved: CommonHelpersRemoved<
+    typeof props
+  > = removeCommonHelpers(props)
 
-  return <div className={classes}>{children}</div>
+  const classes: string = classNames(
+    'buttons',
+    {
+      [`is-${alignment}`]: alignment,
+      [`has-${addons}`]: addons,
+    },
+    className,
+    commonHelpersClasses(props),
+  )
+
+  return (
+    <div {...propsHelpersRemoved} {...props} className={classes}>
+      {children}
+    </div>
+  )
 }
 
 interface ButtonProps

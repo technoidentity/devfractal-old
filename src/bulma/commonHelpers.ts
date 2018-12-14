@@ -46,7 +46,7 @@ export function removeCommonHelpers<T extends CommonHelpers>(
     radiusLess,
     shadowLess,
     unSelectable,
-    notVisible: invisible,
+    notVisible,
     srOnly,
     ...result
   } = props

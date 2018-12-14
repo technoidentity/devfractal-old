@@ -19,11 +19,13 @@ type FileAlignment = 'centered' | 'right'
 
 type FileModifier = 'fullWidth' | 'boxed'
 
-interface FileProps {
+interface FileProps extends React.HTMLAttributes<HTMLElement> {
   readonly color?: FileColor
   readonly size?: FileSize
   readonly alignment?: FileAlignment
   readonly modifier?: FileModifier
+  readonly name?: boolean
+  readonly fileLabel?: string
 }
 
 export const File: React.SFC<FileProps> = ({
@@ -32,20 +34,29 @@ export const File: React.SFC<FileProps> = ({
   alignment,
   modifier,
   children,
+  fileLabel,
+  className,
+  ...props
 }) => {
-  const classes: string = classNames('file', {
-    [`is-${color}`]: color,
-    [`is-${size}`]: size,
-    [`is-${alignment}`]: alignment,
-    [`is-${modifier}`]: modifier,
-  })
+  const classes: string = classNames(
+    'file',
+    {
+      [`is-${color}`]: color,
+      [`is-${size}`]: size,
+      [`is-${alignment}`]: alignment,
+      [`is-${modifier}`]: modifier,
+      [`has-name`]: name,
+    },
+    className,
+  )
   return (
-    <div className={classes}>
+    <div {...props} className={classes}>
       <label className="file-label">
         <input className="file-input" type="file" name="upload" />
         <span className="file-cta">
-          <span className="file-label">{children}</span>
+          <span className="file-label">{fileLabel}</span>
         </span>
+        <span className="file-name">{children}</span>
       </label>
     </div>
   )
