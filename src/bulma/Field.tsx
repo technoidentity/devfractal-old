@@ -10,7 +10,7 @@ import {
 
 type FieldGroupModifier = 'grouped-centered' | 'grouped-right'
 
-type FieldAddonModifier = 'addons' | 'addons-centered' | 'addons-right'
+type FieldAddonModifier = 'addons-centered' | 'addons-right'
 
 type FieldSize = 'narrow' | 'expanded'
 
@@ -18,6 +18,7 @@ export interface FieldProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
   readonly grouped?: boolean
+  readonly addons?: boolean
   readonly horizontal?: boolean
   readonly groupedMultiline?: boolean
   readonly fieldSize?: FieldSize
@@ -28,6 +29,7 @@ export interface FieldProps
 export const Field: React.SFC<FieldProps> = ({
   children,
   grouped,
+  addons,
   horizontal,
   groupedMultiline,
   groupModifier,
@@ -42,9 +44,9 @@ export const Field: React.SFC<FieldProps> = ({
   const classes: string = classNames(
     'field',
     {
-      [`is-grouped`]:
-        grouped || horizontal || groupedMultiline || groupModifier,
+      [`is-grouped`]: grouped || groupedMultiline || groupModifier,
       [`is-horizontal`]: horizontal,
+      [`has-addons`]: addons || addonsModifier,
       [`is-${fieldSize}`]: fieldSize,
       [`is-grouped-multiline`]: groupedMultiline,
       [`is-${groupModifier}`]: groupModifier,
@@ -55,7 +57,7 @@ export const Field: React.SFC<FieldProps> = ({
   )
 
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       {children}
     </div>
   )
@@ -85,7 +87,7 @@ export const FieldLabel: React.SFC<FieldLabelProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
+    <div {...propsHelpersRemoved} className={classes}>
       <Label>{children}</Label>
     </div>
   )
@@ -109,10 +111,8 @@ export const FieldBody: React.SFC<FieldBodyProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
-      <div className="field">
-        <div className="control">{children}</div>
-      </div>
+    <div {...propsHelpersRemoved} className={classes}>
+      {children}
     </div>
   )
 }
@@ -131,7 +131,7 @@ export const FieldSet: React.SFC<FieldSetProps> = ({
   > = removeCommonHelpers(props)
   const classes: string = classNames(className, commonHelpersClasses(props))
   return (
-    <fieldset {...propsHelpersRemoved} {...props} className={classes}>
+    <fieldset {...propsHelpersRemoved} className={classes}>
       <div className="field">{children}</div>
     </fieldset>
   )
