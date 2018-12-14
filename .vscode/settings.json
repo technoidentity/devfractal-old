@@ -1,42 +1,20 @@
 {
-  "editor.fontFamily": "Monaco, 'Ubuntu Mono', Consolas, mononoki, 'Fira Code', 'Hack', 'Source Code Pro', Courier New', 'Dejavu Sans Mono', monospace",
+  "editor.fontFamily": "'Firacode-Retina', 'Roboto Mono', mononoki, Monaco, Consolas, 'Ubuntu Mono', 'Courier New', monospace",
+  "editor.fontSize": 15,
   "editor.tabSize": 2,
-  "editor.fontLigatures": true,
-  "editor.emptySelectionClipboard": false,
-  "editor.trimAutoWhitespace": true,
   "editor.formatOnSave": true,
-  "editor.autoIndent": true,
   "editor.tabCompletion": "on",
   "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "boundary",
-
   "files.insertFinalNewline": true,
   "files.autoSave": "onFocusChange",
-
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
-  "tslint.enable": true,
-  "tslint.alwaysShowStatus": true,
   "typescript.suggest.completeFunctionCalls": true,
   "javascript.suggest.completeFunctionCalls": true,
-
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact",
-    "vue-html": "html",
-    "plaintext": "jade"
-  },
-  "emmet.syntaxProfiles": {
-    "javascript": "html"
-  },
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "emmet.syntaxProfiles": { "javascript": "html" },
   "emmet.triggerExpansionOnTab": true,
-
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": false,
-  "[html]": {
-    "editor.formatOnSave": false
-  },
-
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
   "typescript.tsdk": "node_modules/typescript/lib"
 }
