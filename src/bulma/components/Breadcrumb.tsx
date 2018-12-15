@@ -6,7 +6,7 @@ import {
   commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
-} from '../commonHelpers'
+} from '../modifiers/commonHelpers'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { CheckBox } from '../CheckBox'
+import { CheckBox } from '../form/CheckBox'
 import { logger } from './common'
 // import { logger } from './common'
 

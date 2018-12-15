@@ -8,10 +8,10 @@ import {
   CardFooter,
   CardFooterItem,
 } from '../components/Card'
-import { Image } from '../Image'
-import { Title, SubTitle } from '../Title'
-import { Content } from '../Content'
-import { MediaContent, MediaLeft, Media } from '../Media'
+import { Image } from '../elements/Image'
+import { Title, SubTitle } from '../elements/Title'
+import { Content } from '../elements/Content'
+import { MediaContent, MediaLeft, Media } from '../layout/Media'
 
 export const CardExample: React.SFC = () => (
   <Card>

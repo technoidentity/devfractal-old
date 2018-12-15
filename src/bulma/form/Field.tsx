@@ -6,7 +6,7 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
 type FieldGroupModifier = 'grouped-centered' | 'grouped-right'
 

@@ -5,19 +5,19 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
-interface ContainerProps
+type ContentSize = 'small' | 'medium' | 'large'
+
+interface ContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
-  readonly breakpoint?: 'widescreen' | 'fullhd'
-  readonly fluid?: boolean
+  readonly size?: ContentSize
 }
 
-export const Container: React.SFC<ContainerProps> = ({
+export const Content: React.SFC<ContentProps> = ({
+  size,
   children,
-  fluid,
-  breakpoint,
   className,
   ...props
 }) => {
@@ -25,15 +25,13 @@ export const Container: React.SFC<ContainerProps> = ({
     typeof props
   > = removeCommonHelpers(props)
   const classes: string = classNames(
-    'container',
+    'content',
     {
-      ['is-fluid']: fluid,
-      [`is-${breakpoint}`]: breakpoint,
+      [`is-${size}`]: size,
     },
     className,
     commonHelpersClasses(props),
   )
-
   return (
     <div {...propsCommonHelpersRemoved} className={classes}>
       {children}

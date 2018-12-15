@@ -5,33 +5,34 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
-type ProgressBarColor =
+type TagColor =
+  | 'black'
+  | 'dark'
+  | 'light'
   | 'primary'
   | 'link'
   | 'info'
   | 'success'
-  | 'warning'
-  | 'danger'
 
-type ProgressBarSize = 'small' | 'medium' | 'large'
+type TagSize = 'normal' | 'medium' | 'large'
 
-interface ProgressBarProps
-  extends React.HTMLAttributes<HTMLProgressElement>,
+type TagModifier = 'rounded' | 'delete'
+
+interface TagProps
+  extends React.HTMLAttributes<HTMLSpanElement>,
     CommonHelpers {
-  readonly size?: ProgressBarSize
-  readonly color?: ProgressBarColor
-  readonly value?: string
-  readonly max: string
+  readonly size?: TagSize
+  readonly color?: TagColor
+  readonly modifier?: TagModifier
 }
 
-export const ProgressBar: React.SFC<ProgressBarProps> = ({
+export const Tag: React.SFC<TagProps> = ({
   size,
   color,
+  modifier,
   children,
-  max,
-  value,
   className,
   ...props
 }) => {
@@ -39,23 +40,19 @@ export const ProgressBar: React.SFC<ProgressBarProps> = ({
     typeof props
   > = removeCommonHelpers(props)
   const classes: string = classNames(
-    'progress',
+    className,
+    'tag',
     {
       [`is-${size}`]: size,
+      [`is-${modifier}`]: modifier,
       [`is-${color}`]: color,
     },
     className,
     commonHelpersClasses(props),
   )
-
   return (
-    <progress
-      {...propsCommonHelpersRemoved}
-      className={classes}
-      value={value}
-      max={max}
-    >
+    <span {...propsCommonHelpersRemoved} className={classes}>
       {children}
-    </progress>
+    </span>
   )
 }

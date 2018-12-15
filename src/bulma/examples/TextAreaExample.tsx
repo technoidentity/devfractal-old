@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Field } from '../Field'
-import { TextArea } from '../TextArea'
+import { Field } from '../form/Field'
+import { TextArea } from '../form/TextArea'
 import { logger } from './common'
 
 export const TextAreaExample: React.SFC = () => (

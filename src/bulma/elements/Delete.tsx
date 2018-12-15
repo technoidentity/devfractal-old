@@ -5,19 +5,18 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
-type ContentSize = 'small' | 'medium' | 'large'
+type DeleteSize = 'small' | 'medium' | 'large'
 
-interface ContentProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+interface DeleteProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     CommonHelpers {
-  readonly size?: ContentSize
+  readonly size?: DeleteSize
 }
 
-export const Content: React.SFC<ContentProps> = ({
+export const Delete: React.SFC<DeleteProps> = ({
   size,
-  children,
   className,
   ...props
 }) => {
@@ -25,16 +24,12 @@ export const Content: React.SFC<ContentProps> = ({
     typeof props
   > = removeCommonHelpers(props)
   const classes: string = classNames(
-    'content',
+    'delete',
     {
       [`is-${size}`]: size,
     },
     className,
     commonHelpersClasses(props),
   )
-  return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
-      {children}
-    </div>
-  )
+  return <a {...propsCommonHelpersRemoved} className={classes} />
 }

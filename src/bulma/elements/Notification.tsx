@@ -5,33 +5,24 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
-type TagColor =
-  | 'black'
-  | 'dark'
-  | 'light'
+type NotificationColor =
   | 'primary'
   | 'link'
   | 'info'
   | 'success'
+  | 'warning'
+  | 'danger'
 
-type TagSize = 'normal' | 'medium' | 'large'
-
-type TagModifier = 'rounded' | 'delete'
-
-interface TagProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
+interface NotificationProps
+  extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
-  readonly size?: TagSize
-  readonly color?: TagColor
-  readonly modifier?: TagModifier
+  readonly color?: NotificationColor
 }
 
-export const Tag: React.SFC<TagProps> = ({
-  size,
+export const Notification: React.SFC<NotificationProps> = ({
   color,
-  modifier,
   children,
   className,
   ...props
@@ -40,19 +31,16 @@ export const Tag: React.SFC<TagProps> = ({
     typeof props
   > = removeCommonHelpers(props)
   const classes: string = classNames(
-    className,
-    'tag',
+    'notification',
     {
-      [`is-${size}`]: size,
-      [`is-${modifier}`]: modifier,
       [`is-${color}`]: color,
     },
     className,
     commonHelpersClasses(props),
   )
   return (
-    <span {...propsCommonHelpersRemoved} className={classes}>
+    <div {...propsCommonHelpersRemoved} className={classes}>
       {children}
-    </span>
+    </div>
   )
 }

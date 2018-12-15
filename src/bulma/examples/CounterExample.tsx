@@ -1,11 +1,11 @@
 import * as React from 'react'
 
-import { Button } from '../Button'
-import { Text } from '../Text'
-import { Section } from '../Section'
-import { Columns } from '../Columns'
-import { Column } from '../Column'
-import { Box } from '../Box'
+import { Button } from '../form/Button'
+import { Text } from '../modifiers/Text'
+import { Section } from '../layout/Section'
+import { Columns } from '../columns/Columns'
+import { Column } from '../columns/Column'
+import { Box } from '../elements/Box'
 
 interface CounterViewProps {
   readonly count: number

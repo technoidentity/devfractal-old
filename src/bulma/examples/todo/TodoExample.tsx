@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { Table, TableHead, Tr, TableBody, Td } from '../../Table'
-import { CheckBox } from '../../CheckBox'
-import { Input } from '../../Input'
+import { Table, TableHead, Tr, TableBody, Td } from '../../elements/Table'
+import { CheckBox } from '../../form/CheckBox'
+import { Input } from '../../elements/Input'
 import { format } from 'date-fns'
 
 interface Todo {

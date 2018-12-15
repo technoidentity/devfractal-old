@@ -1,6 +1,14 @@
 import * as React from 'react'
 
-import { Table, TableHead, TableBody, TableFoot, Tr, Th, Td } from '../Table'
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableFoot,
+  Tr,
+  Th,
+  Td,
+} from '../elements/Table'
 import { logger } from './common'
 
 export const TableExample: React.SFC = () => (

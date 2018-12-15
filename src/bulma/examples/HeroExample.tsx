@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import { HeroBody, HeroHead, HeroFoot, Hero } from '../Hero'
-import { Title, SubTitle } from '../Title'
-import { Container } from '../Container'
-import { Section } from '../Section'
+import { HeroBody, HeroHead, HeroFoot, Hero } from '../layout/Hero'
+import { Title, SubTitle } from '../elements/Title'
+import { Container } from '../layout/Container'
+import { Section } from '../layout/Section'
 import {
   Navbar,
   NavbarBrand,
@@ -12,7 +12,7 @@ import {
   NavbarMenu,
   NavbarBurger,
 } from '../components/Navbar'
-import { Button } from '../Button'
+import { Button } from '../form/Button'
 import { Tabs } from '../components/Tabs'
 
 export const HeroExample: React.SFC = () => (

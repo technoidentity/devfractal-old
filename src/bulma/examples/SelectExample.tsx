@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { Select } from '../Select'
-import { Field } from '../Field'
+import { Select } from '../form/Select'
+import { Field } from '../form/Field'
 import { logger } from './common'
 
 export const SelectExample: React.SFC = () => (

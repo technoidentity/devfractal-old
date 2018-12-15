@@ -6,7 +6,7 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
 interface TableProps
   extends React.TableHTMLAttributes<HTMLTableElement>,

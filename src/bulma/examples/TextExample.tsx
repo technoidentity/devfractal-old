@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Text } from '../Text'
+import { Text } from '../modifiers/Text'
 export const TextExample: React.SFC = () => (
   <div>
     <Text

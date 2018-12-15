@@ -6,7 +6,7 @@ import {
   commonHelpersClasses,
   removeCommonHelpers,
   CommonHelpersRemoved,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
 type InputColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 

@@ -2,37 +2,33 @@ import * as React from 'react'
 import classNames from 'classnames'
 import {
   CommonHelpers,
+  commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
-  commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
-interface SectionProps
+interface FooterProps
   extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {
-  readonly modifier?: 'medium' | 'large'
-}
+    CommonHelpers {}
 
-export const Section: React.SFC<SectionProps> = ({
-  modifier,
+// @TODO: children should be Content
+export const Footer: React.SFC<FooterProps> = ({
   children,
   className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
+  const propsHelpersRemoved: CommonHelpersRemoved<
     typeof props
   > = removeCommonHelpers(props)
   const classes: string = classNames(
-    'section',
-    {
-      [`is-${modifier}`]: modifier,
-    },
+    'footer',
     className,
     commonHelpersClasses(props),
   )
+
   return (
-    <section {...propsCommonHelpersRemoved} className={classes}>
+    <footer {...propsHelpersRemoved} className={classes}>
       {children}
-    </section>
+    </footer>
   )
 }

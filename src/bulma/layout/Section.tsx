@@ -5,18 +5,17 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
-type DeleteSize = 'small' | 'medium' | 'large'
-
-interface DeleteProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+interface SectionProps
+  extends React.HTMLAttributes<HTMLElement>,
     CommonHelpers {
-  readonly size?: DeleteSize
+  readonly modifier?: 'medium' | 'large'
 }
 
-export const Delete: React.SFC<DeleteProps> = ({
-  size,
+export const Section: React.SFC<SectionProps> = ({
+  modifier,
+  children,
   className,
   ...props
 }) => {
@@ -24,12 +23,16 @@ export const Delete: React.SFC<DeleteProps> = ({
     typeof props
   > = removeCommonHelpers(props)
   const classes: string = classNames(
-    'delete',
+    'section',
     {
-      [`is-${size}`]: size,
+      [`is-${modifier}`]: modifier,
     },
     className,
     commonHelpersClasses(props),
   )
-  return <a {...propsCommonHelpersRemoved} className={classes} />
+  return (
+    <section {...propsCommonHelpersRemoved} className={classes}>
+      {children}
+    </section>
+  )
 }

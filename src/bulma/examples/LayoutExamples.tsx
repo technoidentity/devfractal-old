@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Columns } from '../Columns'
-import { Column } from '../Column'
-import { Section } from '../Section'
-import { Container } from '../Container'
-import { Notification } from '../Notification'
+import { Columns } from '../columns/Columns'
+import { Column } from '../columns/Column'
+import { Section } from '../layout/Section'
+import { Container } from '../layout/Container'
+import { Notification } from '../elements/Notification'
 
 export const LayoutExample: React.SFC = () => (
   <div>

@@ -5,21 +5,19 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
-type TagsSize = 'medium' | 'large'
-
-interface TagsProps
+interface ContainerProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
-  readonly size?: TagsSize
-  readonly addons?: boolean
+  readonly breakpoint?: 'widescreen' | 'fullhd'
+  readonly fluid?: boolean
 }
 
-export const Tags: React.SFC<TagsProps> = ({
-  size,
-  addons,
+export const Container: React.SFC<ContainerProps> = ({
   children,
+  fluid,
+  breakpoint,
   className,
   ...props
 }) => {
@@ -27,14 +25,15 @@ export const Tags: React.SFC<TagsProps> = ({
     typeof props
   > = removeCommonHelpers(props)
   const classes: string = classNames(
-    'tags',
+    'container',
     {
-      [`are-${size}`]: size,
-      [`has-addons`]: addons,
+      ['is-fluid']: fluid,
+      [`is-${breakpoint}`]: breakpoint,
     },
     className,
     commonHelpersClasses(props),
   )
+
   return (
     <div {...propsCommonHelpersRemoved} className={classes}>
       {children}

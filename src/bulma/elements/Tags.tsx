@@ -5,24 +5,20 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
-type NotificationColor =
-  | 'primary'
-  | 'link'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'danger'
+type TagsSize = 'medium' | 'large'
 
-interface NotificationProps
+interface TagsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
-  readonly color?: NotificationColor
+  readonly size?: TagsSize
+  readonly addons?: boolean
 }
 
-export const Notification: React.SFC<NotificationProps> = ({
-  color,
+export const Tags: React.SFC<TagsProps> = ({
+  size,
+  addons,
   children,
   className,
   ...props
@@ -31,9 +27,10 @@ export const Notification: React.SFC<NotificationProps> = ({
     typeof props
   > = removeCommonHelpers(props)
   const classes: string = classNames(
-    'notification',
+    'tags',
     {
-      [`is-${color}`]: color,
+      [`are-${size}`]: size,
+      [`has-addons`]: addons,
     },
     className,
     commonHelpersClasses(props),

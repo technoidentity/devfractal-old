@@ -5,7 +5,7 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from './commonHelpers'
+} from '../modifiers/commonHelpers'
 
 type SelectColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 

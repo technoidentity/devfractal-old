@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import { hot, setConfig } from 'react-hot-loader'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
-import { Column } from './bulma/Column'
-import { Columns } from './bulma/Columns'
-import { Container } from './bulma/Container'
-import { Content } from './bulma/Content'
+import { Column } from './bulma/columns/Column'
+import { Columns } from './bulma/columns/Columns'
+import { Container } from './bulma/layout/Container'
+import { Content } from './bulma/elements/Content'
 import {
   BreadcrumbExample,
   BoxExample,
@@ -46,7 +46,7 @@ import {
   TitleExample,
   TodoListApp,
 } from './bulma/examples'
-import { Section } from './bulma/Section'
+import { Section } from './bulma/layout/Section'
 import { FormikSignUpForm } from './bulma/examples/SignupFormExample'
 import { FileExample } from './bulma/examples/FileExample'
 

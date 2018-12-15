@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { ProgressBar } from '../ProgressBar'
-import { Section } from '../Section'
+import { ProgressBar } from '../elements/ProgressBar'
+import { Section } from '../layout/Section'
 
 export const ProgressBarExample: React.SFC = () => (
   <Section>

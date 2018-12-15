@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Delete } from '../Delete'
+import { Delete } from '../elements/Delete'
 import { Message, MessageHeader, MessageBody } from '../components/Message'
-import { Notification } from '../Notification'
-import { Section } from '../Section'
+import { Notification } from '../elements/Notification'
+import { Section } from '../layout/Section'
 import { logger } from './common'
 
 export const DeleteExample: React.SFC = () => (

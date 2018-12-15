@@ -11,7 +11,7 @@ import {
   NavbarDivider,
   NavbarEnd,
 } from '../components/Navbar'
-import { Buttons, Button } from '../Button'
+import { Buttons, Button } from '../form/Button'
 import { logger } from './common'
 
 export const NavbarExample: React.SFC = () => (

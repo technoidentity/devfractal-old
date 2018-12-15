@@ -5,7 +5,7 @@ import {
   CommonHelpersRemoved,
   removeCommonHelpers,
   commonHelpersClasses,
-} from '../commonHelpers'
+} from '../modifiers/commonHelpers'
 
 interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,

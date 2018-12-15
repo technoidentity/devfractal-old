@@ -5,7 +5,7 @@ import {
   ModalContent,
   ModalClose,
 } from '../components/Modal'
-import { Image } from '../Image'
+import { Image } from '../elements/Image'
 import { logger } from './common'
 export const ModalExample: React.SFC = () => (
   <Modal active>

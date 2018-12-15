@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Field, FieldLabel, FieldBody } from '../Field'
-import { Input } from '../Input'
-import { Button } from '../Button'
-import { TextArea } from '../TextArea'
-import { Label } from '../Label'
-import { Select } from '../Select'
-import { RadioButton } from '../RadioButton'
-import { Section } from '../Section'
+import { Field, FieldLabel, FieldBody } from '../form/Field'
+import { Input } from '../elements/Input'
+import { Button } from '../form/Button'
+import { TextArea } from '../form/TextArea'
+import { Label } from '../form/Label'
+import { Select } from '../form/Select'
+import { RadioButton } from '../form/RadioButton'
+import { Section } from '../layout/Section'
 
 export const FieldExample: React.SFC = () => (
   <div>
