@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@storybook/react": "^4.1.1",
     "@types/classnames": "^2.2.6",
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.14",
@@ -39,8 +40,8 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-immutable": "^5.0.0",
     "tslint-react": "^3.6.0",
-    "yup": "^0.26.6",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "yup": "^0.26.6"
   },
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.commit.json 'src/**/*.tsx' 'src/**/*.ts'",
