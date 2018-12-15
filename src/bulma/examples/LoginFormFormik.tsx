@@ -1,7 +1,18 @@
 import * as React from 'react'
-import { Formik, Form, Field, FormikProps, ErrorMessage } from 'formik'
+import {
+  Formik,
+  Form,
+  Field,
+  FormikProps,
+  FieldProps,
+  ErrorMessage,
+} from 'formik'
 import * as Yup from 'yup'
 import { logger } from './common'
+import { Label } from '../form/Label'
+import { Button } from '../form/Button'
+import { Field as BulmaField } from '../form/Field'
+import { Input } from '../elements/Input'
 // import { Form, Field, FormikProps, Formik } from 'formik'
 
 interface LoginValues {
@@ -9,17 +20,36 @@ interface LoginValues {
   readonly password: string
 }
 
-export const LoginFormInner: React.SFC<FormikProps<LoginValues>> = ({}) => (
+export const FormikInput: React.SFC<FieldProps> = ({
+  form,
+  field,
+  ...props
+}) => <Input type="text" {...field} {...props} />
+
+export const LoginFormInner: React.SFC<FormikProps<LoginValues>> = props => (
   <Form>
-    <label>Username:</label>
-    <Field id="username" name="username" type="text" />
-    <ErrorMessage name="username" component="div" className="field-error" />
+    <Label>Username:</Label>
+    <Field id="username" name="username" type="text" component={FormikInput} />
+    <ErrorMessage name="username" className="field-error" />
     <br />
-    <label>Password:</label>
-    <Field id="password" name="password" type="password" />
-    <ErrorMessage name="password" component="div" className="field-error" />
+    <Label>Password:</Label>
+    <Field
+      id="password"
+      name="password"
+      type="password"
+      component={FormikInput}
+    />
+    <ErrorMessage name="password" className="field-error" />
     <br />
-    <button type="submit">Submit</button>
+    <BulmaField groupModifier="grouped-right">
+      <Button type="submit" color="info">
+        Submit
+      </Button>
+      <Button color="info" onClick={props.handleReset}>
+        Reset
+      </Button>
+    </BulmaField>
+    <code>{JSON.stringify(props.values)}</code>
   </Form>
 )
 
