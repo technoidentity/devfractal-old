@@ -1,4 +1,4 @@
-import { classNames } from '../examples/classNames'
+import { classNames } from './classNames'
 
 it('classNames works with strings', () => {
   expect(classNames('', [''], '')).toBe('')
