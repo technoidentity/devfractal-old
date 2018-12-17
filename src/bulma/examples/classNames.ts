@@ -1,20 +1,25 @@
-import { String, Object as Obj, Array } from 'tcomb'
-
+import tcomb from 'tcomb'
 // tslint:disable
 
-export const classNamesForObject = (arg: any): string[] =>
-  Object.keys(arg).filter((key: string) => arg[key])
+export const classNames = (...args: any[]) => {
+  let result: string[] = []
 
-export const classNames = (...args: any[]): string =>
-  args
-    .reduce((acc, arg) => {
-      if (arg === '' || arg === undefined || arg === null) return acc
-      if (String.is(arg)) return [...acc, arg]
-      if (Obj.is(arg)) return [...acc, ...classNamesForObject(arg)]
-      if (Array.is(arg)) {
-        const result = classNames(...arg)
-        return result === '' ? acc : [...acc, result]
+  for (const arg of args) {
+    if (arg === '' || arg === null || arg === undefined) {
+    } else if (tcomb.String.is(arg)) {
+      result.push(arg)
+    } else if (tcomb.Object.is(arg)) {
+      for (const key of Object.keys(arg)) {
+        if (arg[key]) {
+          result.push(key)
+        }
       }
-      throw new Error(`classNames can't handle ${arg}`)
-    }, [])
-    .join(' ')
+    } else if (tcomb.Array.is(arg)) {
+      const res = classNames(...arg)
+      if (res !== '') {
+        result.push(res)
+      }
+    }
+  }
+  return result.join(' ')
+}
