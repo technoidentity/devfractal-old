@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 
-type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
+export type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
-type TextAlignment = 'centered' | 'justified' | 'left' | 'right'
+export type TextAlignment = 'centered' | 'justified' | 'left' | 'right'
 
-type TextResponsiveSize =
+export type TextResponsiveSize =
   | 'mobile'
   | 'tablet'
   | 'touch'
@@ -12,7 +12,7 @@ type TextResponsiveSize =
   | 'widescreen'
   | 'fullhd'
 
-type TextResponsiveAlignment =
+export type TextResponsiveAlignment =
   | 'mobile'
   | 'tablet'
   | 'touch'
@@ -20,7 +20,7 @@ type TextResponsiveAlignment =
   | 'widescreen'
   | 'fullhd'
 
-type TextColor =
+export type TextColor =
   | 'white'
   | 'black'
   | 'light'
@@ -41,9 +41,13 @@ type TextColor =
   | 'white-ter'
   | 'white-bis'
 
-type TextWeight = 'light' | 'normal' | 'semiBold' | 'bold'
+export type TextWeight = 'light' | 'normal' | 'semiBold' | 'bold'
 
-type TextTransformation = 'capitalized' | 'lowercase' | 'uppercase' | 'italic'
+export type TextTransformation =
+  | 'capitalized'
+  | 'lowercase'
+  | 'uppercase'
+  | 'italic'
 
 export interface TextHelpers {
   readonly textColor?: TextColor
@@ -52,27 +56,35 @@ export interface TextHelpers {
   readonly textAlignment?: TextAlignment
   readonly textTransformation?: TextTransformation
   readonly textWeight?: TextWeight
-  readonly responsiveSize?: TextResponsiveSize
-  readonly responsiveAlignment?: TextResponsiveAlignment
+  readonly textResponsiveSize?: TextResponsiveSize
+  readonly textResponsiveAlignment?: TextResponsiveAlignment
 }
 
-export const textHelpersClasses: (textHelpers: TextHelpers) => string = (
-  helpers: TextHelpers,
-) => {
-  const cnSize: string = helpers.responsiveSize
-    ? `is-size-${helpers.textSize}-${helpers.responsiveSize}`
-    : `is-size-${helpers.textSize}`
+export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
+  textColor,
+  textBackgroundColor,
+  textSize,
+  textAlignment,
+  textTransformation,
+  textWeight,
+  textResponsiveSize: responsiveSize,
+  textResponsiveAlignment: responsiveAlignment,
+}) => {
+  const cnSize: string = responsiveSize
+    ? `is-size-${textSize}-${responsiveSize}`
+    : `is-size-${textSize}`
 
-  const cnAlignment: string = helpers.responsiveAlignment
-    ? `has-text-${helpers.responsiveAlignment}-${helpers.responsiveAlignment}`
-    : `has-text-${helpers.responsiveAlignment}`
+  const cnAlignment: string = responsiveAlignment
+    ? `has-text-${responsiveAlignment}-${responsiveAlignment}`
+    : `has-text-${responsiveAlignment}`
 
   return classNames(cnSize, cnAlignment, {
-    [`has-text-${helpers.textColor}`]: helpers.textColor,
-    [`has-background-${helpers.textBackgroundColor}`]: helpers.textColor,
-    [`has-text-${helpers.textWeight}`]: helpers.textWeight,
-    [`is-${helpers.textTransformation}`]: helpers.textTransformation,
-    [`has-text-${helpers.responsiveAlignment}`]: helpers.responsiveAlignment,
+    [`has-text-${textColor}`]: textColor,
+    [`has-text-${textAlignment}`]: textAlignment,
+    [`has-background-${textBackgroundColor}`]: textColor,
+    [`has-text-${textWeight}`]: textWeight,
+    [`is-${textTransformation}`]: textTransformation,
+    [`has-text-${responsiveAlignment}`]: responsiveAlignment,
   })
 }
 
@@ -88,8 +100,8 @@ export function removeTextHelpers<T extends TextHelpers>(
     textAlignment,
     textTransformation,
     textWeight,
-    responsiveSize,
-    responsiveAlignment,
+    textResponsiveSize: responsiveSize,
+    textResponsiveAlignment: responsiveAlignment,
     ...result
   } = props
   return result

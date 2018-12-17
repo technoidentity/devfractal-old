@@ -4,8 +4,8 @@ export const TextExample: React.SFC = () => (
   <div>
     <Text
       className="has-text-success is-size-1"
-      transformation="uppercase"
-      weight="light"
+      textTransformation="uppercase"
+      textWeight="light"
     >
       helloWorld
     </Text>

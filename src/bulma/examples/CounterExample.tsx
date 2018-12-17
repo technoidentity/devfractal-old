@@ -30,7 +30,7 @@ export const CounterView: React.SFC<CounterViewProps> = ({
           >
             +
           </Button>
-          <Text size="1">{count}</Text>
+          <Text textSize="1">{count}</Text>
           <Button
             color="danger"
             size="large"
