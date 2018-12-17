@@ -16,7 +16,7 @@ export type ResponsiveModifier =
   | 'widescreen'
   | 'fullhd'
 
-interface ResponsiveHelpers {
+export interface ResponsiveHelpers {
   readonly display?: Display
   readonly breakpoint?: ResponsiveModifier
   readonly hidden?: boolean

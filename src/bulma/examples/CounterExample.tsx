@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import { Button } from '../form/Button'
-import { Text } from '../modifiers/Text'
 import { Section } from '../layout/Section'
 import { Columns } from '../columns/Columns'
 import { Column } from '../columns/Column'
@@ -30,7 +29,7 @@ export const CounterView: React.SFC<CounterViewProps> = ({
           >
             +
           </Button>
-          <Text textSize="1">{count}</Text>
+          <h1>{count}</h1>
           <Button
             color="danger"
             size="large"
