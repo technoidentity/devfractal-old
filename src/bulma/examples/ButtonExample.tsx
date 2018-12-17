@@ -15,7 +15,7 @@ export const ButtonExample: React.SFC = () => (
       >
         Primary
       </Button>
-      <Button state="static" notVisible>
+      <Button state="static" invisible>
         success
       </Button>
       <Button state="active">danger</Button>

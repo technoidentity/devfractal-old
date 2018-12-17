@@ -27,9 +27,11 @@ export interface ResponsiveHelpers {
 export const responsiveClass: (helpers: ResponsiveHelpers) => string = ({
   display,
   breakpoint,
-  responsiveVisibility: visibility,
+  responsiveVisibility,
 }) => {
-  const hiddenClass: string = visibility ? `-${visibility}` : ''
+  const hiddenClass: string = responsiveVisibility
+    ? `-${responsiveVisibility}`
+    : ''
   const breakpointClass: string = breakpoint ? `-${breakpoint}` : ''
 
   return `${display}${hiddenClass}${breakpointClass}`
@@ -40,11 +42,6 @@ export type ResponsiveHelpersRemoved<T> = Omit<T, keyof ResponsiveHelpers>
 export function removeResponsiveHelpers<T extends ResponsiveHelpers>(
   props: T,
 ): ResponsiveHelpersRemoved<T> {
-  const {
-    display,
-    breakpoint,
-    responsiveVisibility: visibility,
-    ...result
-  } = props
+  const { display, breakpoint, responsiveVisibility, ...result } = props
   return result
 }
