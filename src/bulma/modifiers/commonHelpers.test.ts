@@ -21,7 +21,7 @@ it('responsiveClass', () => {
     responsiveClass({
       display: 'flex',
       breakpoint: 'tablet-only',
-      hidden: true,
+      responsiveVisibility: true,
     }) === 'is-hidden-flex-tablet-only',
   )
 })
