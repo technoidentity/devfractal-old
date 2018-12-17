@@ -12,7 +12,7 @@ import {
   TextHelpers,
   textHelpersClasses,
   removeTextHelpers,
-} from './TextHelpers'
+} from './textHelpers'
 
 interface TextProps
   extends React.HTMLAttributes<HTMLSpanElement>,
