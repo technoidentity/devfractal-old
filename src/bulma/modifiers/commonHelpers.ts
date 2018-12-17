@@ -13,20 +13,29 @@ export interface CommonHelpers {
   readonly srOnly?: boolean
 }
 
-export const commonHelpersClasses: (
-  helpers: CommonHelpers,
-) => string = helpers =>
+export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
+  floating,
+  marginLess,
+  paddingLess,
+  overlay,
+  clipped,
+  radiusLess,
+  shadowLess,
+  unSelectable,
+  notVisible,
+  srOnly,
+}) =>
   classNames({
-    [`is-${helpers.floating}`]: helpers.floating,
-    [`is-marginless`]: helpers.marginLess,
-    [`is-paddingless}`]: helpers.paddingLess,
-    [`is-overlay`]: helpers.overlay,
-    [`is-clipped`]: helpers.clipped,
-    [`is-radiusless}`]: helpers.radiusLess,
-    [`is-shadowless`]: helpers.shadowLess,
-    [`is-unselectable`]: helpers.unSelectable,
-    [`is-invisible`]: helpers.notVisible,
-    [`is-sr-only}`]: helpers.srOnly,
+    [`is-${floating}`]: floating,
+    [`is-marginless`]: marginLess,
+    [`is-paddingless}`]: paddingLess,
+    [`is-overlay`]: overlay,
+    [`is-clipped`]: clipped,
+    [`is-radiusless}`]: radiusLess,
+    [`is-shadowless`]: shadowLess,
+    [`is-unselectable`]: unSelectable,
+    [`is-invisible`]: notVisible,
+    [`is-sr-only}`]: srOnly,
   })
 
 export type CommonHelpersRemoved<T> = Pick<
