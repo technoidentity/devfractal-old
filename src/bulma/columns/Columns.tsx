@@ -1,11 +1,8 @@
 import * as React from 'react'
+
 import classNames from 'classnames'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+
+import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
 type ColumnsResponsive =
   | 'mobile'
@@ -14,9 +11,7 @@ type ColumnsResponsive =
   | 'widescreen'
   | 'fullhd'
 
-interface ColumnsProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+interface ColumnsProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly responsiveness?: ColumnsResponsive
   readonly gapless?: boolean
   readonly multiline?: boolean
@@ -32,9 +27,6 @@ export const Columns: React.SFC<ColumnsProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'columns',
     {
@@ -43,12 +35,12 @@ export const Columns: React.SFC<ColumnsProps> = ({
       [`is-multiline`]: multiline,
       [`is-centered`]: columnCentered,
     },
+    helpersClasses(props),
     className,
-    commonHelpersClasses(props),
   )
 
   return (
-    <div {...propsHelpersRemoved} className={classes}>
+    <div {...removeHelpers(props)} className={classes}>
       {children}
     </div>
   )
