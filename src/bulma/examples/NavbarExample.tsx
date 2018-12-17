@@ -53,10 +53,10 @@ export const NavbarExample: React.SFC = () => (
       <NavbarEnd>
         <NavbarItem>
           <Buttons>
-            <Button color="primary" onClick={() => logger('signup')}>
+            <Button variant="primary" onClick={() => logger('signup')}>
               Sign up
             </Button>
-            <Button color="light" onClick={() => logger('login')}>
+            <Button variant="light" onClick={() => logger('login')}>
               Log in
             </Button>
           </Buttons>

@@ -7,7 +7,7 @@ import {
   commonHelpersClasses,
 } from '../modifiers/commonHelpers'
 
-type SelectColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
+type SelectVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
 type SelectSize = 'small' | 'medium' | 'large'
 
@@ -16,7 +16,7 @@ type SelectState = 'hovered' | 'focused'
 interface SelectProps
   extends React.SelectHTMLAttributes<HTMLSelectElement>,
     CommonHelpers {
-  readonly color?: SelectColor
+  readonly variant?: SelectVariant
   readonly rounded?: boolean
   readonly selectSize?: SelectSize
   readonly state?: SelectState
@@ -24,7 +24,7 @@ interface SelectProps
 }
 
 export const Select: React.SFC<SelectProps> = ({
-  color,
+  variant,
   selectSize,
   state,
   children,
@@ -38,7 +38,7 @@ export const Select: React.SFC<SelectProps> = ({
   > = removeCommonHelpers(props)
 
   const divClasses: string = classNames('select', {
-    [`is-${color}`]: color,
+    [`is-${variant}`]: variant,
     [`is-rounded`]: rounded,
     [`is-${selectSize}`]: selectSize,
     ['is-loading']: loading,

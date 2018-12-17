@@ -11,13 +11,13 @@ export const LayoutExample: React.SFC = () => (
       <Container>
         <Columns>
           <Column>
-            <Notification color="info">First column</Notification>
+            <Notification variant="info">First column</Notification>
             <Columns>
               <Column>
-                <Notification color="info">First nested column</Notification>
+                <Notification variant="info">First nested column</Notification>
               </Column>
               <Column>
-                <Notification color="info">Second nested column</Notification>
+                <Notification variant="info">Second nested column</Notification>
               </Column>
             </Columns>
           </Column>
@@ -25,13 +25,13 @@ export const LayoutExample: React.SFC = () => (
             <Notification className="is-danger">Second column</Notification>
             <Columns>
               <Column>
-                <Notification color="danger">50%</Notification>
+                <Notification variant="danger">50%</Notification>
               </Column>
               <Column>
-                <Notification color="danger">Auto</Notification>
+                <Notification variant="danger">Auto</Notification>
               </Column>
               <Column>
-                <Notification color="danger">Auto</Notification>
+                <Notification variant="danger">Auto</Notification>
               </Column>
             </Columns>
           </Column>
@@ -41,31 +41,31 @@ export const LayoutExample: React.SFC = () => (
     <Section>
       <Columns multiline responsiveness="mobile">
         <Column size="one-quarter">
-          <Notification color="primary">is-one-quarter</Notification>
+          <Notification variant="primary">is-one-quarter</Notification>
         </Column>
         <Column size="one-quarter">
-          <Notification color="primary">is-one-quarter</Notification>
+          <Notification variant="primary">is-one-quarter</Notification>
         </Column>
         <Column size="one-quarter">
-          <Notification color="primary">is-one-quarter</Notification>
+          <Notification variant="primary">is-one-quarter</Notification>
         </Column>
         <Column className="is-one-quarter">
-          <Notification color="primary">is-one-quarter</Notification>
+          <Notification variant="primary">is-one-quarter</Notification>
         </Column>
         <Column size="half">
-          <Notification color="primary">is-half</Notification>
+          <Notification variant="primary">is-half</Notification>
         </Column>
         <Column size="one-quarter">
-          <Notification color="primary">is-one-quarter</Notification>
+          <Notification variant="primary">is-one-quarter</Notification>
         </Column>
         <Column size="one-quarter">
-          <Notification color="primary">is-one-quarter</Notification>
+          <Notification variant="primary">is-one-quarter</Notification>
         </Column>
         <Column size="one-quarter">
-          <Notification color="primary">is-one-quarter</Notification>
+          <Notification variant="primary">is-one-quarter</Notification>
         </Column>
         <Column>
-          <Notification color="primary">Auto</Notification>
+          <Notification variant="primary">Auto</Notification>
         </Column>
       </Columns>
     </Section>
@@ -73,7 +73,7 @@ export const LayoutExample: React.SFC = () => (
       <Columns responsiveness="mobile">
         <Column size="half" offsetSize="one-quarter">
           <div>
-            <Notification color="primary">
+            <Notification variant="primary">
               <code>is-half is-offset-one-quarter</code>
             </Notification>
           </div>
@@ -83,7 +83,7 @@ export const LayoutExample: React.SFC = () => (
       <Columns responsiveness="mobile">
         <Column size="three-fifths" offsetSize="one-fifth">
           <div>
-            <Notification color="primary">
+            <Notification variant="primary">
               <code>is-three-fifths is-offset-one-fifth</code>
             </Notification>
           </div>
@@ -103,7 +103,7 @@ export const LayoutExample: React.SFC = () => (
       <Columns responsiveness="mobile">
         <Column className="is-11 is-offset-1">
           <div>
-            <Notification color="primary">
+            <Notification variant="primary">
               <code>is-11 is-offset-1</code>
             </Notification>
           </div>

@@ -69,7 +69,7 @@ export const MediaObjectExample: React.SFC = () => (
             </MediaLeft>
             <MediaContent>
               <Field>
-                <TextArea color="primary" />
+                <TextArea variant="primary" />
               </Field>
               <Field>
                 <Button className="is-primary">Post comment</Button>

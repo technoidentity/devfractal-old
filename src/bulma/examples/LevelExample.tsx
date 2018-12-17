@@ -36,7 +36,7 @@ export const LevelExample: React.SFC = () => (
             <a>Deleted</a>
           </LevelItem>
           <LevelItem>
-            <Button color="success">New</Button>
+            <Button variant="success">New</Button>
           </LevelItem>
         </LevelItem>
       </Level>

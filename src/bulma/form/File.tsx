@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-type FileColor =
+type FileVariant =
   | 'white'
   | 'black'
   | 'light'
@@ -20,7 +20,7 @@ type FileAlignment = 'centered' | 'right'
 type FileModifier = 'fullWidth' | 'boxed'
 
 interface FileProps extends React.HTMLAttributes<HTMLElement> {
-  readonly color?: FileColor
+  readonly variant?: FileVariant
   readonly size?: FileSize
   readonly alignment?: FileAlignment
   readonly modifier?: FileModifier
@@ -29,7 +29,7 @@ interface FileProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export const File: React.SFC<FileProps> = ({
-  color,
+  variant,
   size,
   alignment,
   modifier,
@@ -41,7 +41,7 @@ export const File: React.SFC<FileProps> = ({
   const classes: string = classNames(
     'file',
     {
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
       [`is-${size}`]: size,
       [`is-${alignment}`]: alignment,
       [`is-${modifier}`]: modifier,

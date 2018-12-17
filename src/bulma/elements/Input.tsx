@@ -8,7 +8,7 @@ import {
   CommonHelpersRemoved,
 } from '../modifiers/commonHelpers'
 
-type InputColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
+type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
 type InputSize = 'small' | 'medium' | 'large'
 
@@ -33,7 +33,7 @@ type InputState = 'hovered' | 'focused'
 interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     CommonHelpers {
-  readonly color?: InputColor
+  readonly variant?: InputVariant
   readonly inputSize?: InputSize
   readonly rounded?: boolean
   readonly state?: InputState
@@ -41,7 +41,7 @@ interface InputProps
 }
 
 export const Input: React.SFC<InputProps> = ({
-  color,
+  variant,
   inputSize,
   rounded,
   state,
@@ -58,7 +58,7 @@ export const Input: React.SFC<InputProps> = ({
     commonHelpersClasses(props),
 
     {
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
       [`is-${inputSize}`]: inputSize,
       [`is-rounded`]: rounded,
       [`is-${state}`]: state,

@@ -25,21 +25,21 @@ storiesOf('Select', module)
       </Select>
     </div>
   ))
-  .add('with color', () => (
+  .add('with variant', () => (
     <div>
-      <Select color="primary">
+      <Select variant="primary">
         <option>primary</option>
       </Select>
-      <Select color="info">
+      <Select variant="info">
         <option>info</option>
       </Select>
-      <Select color="success">
+      <Select variant="success">
         <option>success</option>
       </Select>
-      <Select color="warning">
+      <Select variant="warning">
         <option>warning</option>
       </Select>
-      <Select color="danger">
+      <Select variant="danger">
         <option>danger</option>
       </Select>
     </div>
@@ -56,7 +56,7 @@ storiesOf('Select', module)
         <option>focused</option>
         <option>loading</option>
       </Select>
-      <Select state="focused" color="primary">
+      <Select state="focused" variant="primary">
         <option>focused</option>
         <option>hovered</option>
         <option>loading</option>

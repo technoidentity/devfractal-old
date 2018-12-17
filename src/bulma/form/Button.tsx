@@ -7,7 +7,7 @@ import {
   commonHelpersClasses,
 } from '../modifiers/commonHelpers'
 
-type ButtonColor =
+type ButtonVariant =
   | 'white'
   | 'light'
   | 'dark'
@@ -72,7 +72,7 @@ export const Buttons: React.SFC<ButtonsProps> = ({
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     CommonHelpers {
-  readonly color?: ButtonColor
+  readonly variant?: ButtonVariant
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier
   readonly state?: ButtonState
@@ -81,7 +81,7 @@ interface ButtonProps
 }
 
 export const Button: React.SFC<ButtonProps> = ({
-  color,
+  variant,
   size,
   modifier,
   state,
@@ -97,7 +97,7 @@ export const Button: React.SFC<ButtonProps> = ({
   const classes: string = classNames(
     'button',
     {
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
       [`is-${modifier}`]: modifier,
       [`is-${size}`]: size,
       [`is-${state}`]: state,

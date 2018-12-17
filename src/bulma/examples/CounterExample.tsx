@@ -23,7 +23,7 @@ export const CounterView: React.SFC<CounterViewProps> = ({
       <Section>
         <Box>
           <Button
-            color="primary"
+            variant="primary"
             size="large"
             buttonStyle="rounded"
             onClick={onIncrement}
@@ -32,7 +32,7 @@ export const CounterView: React.SFC<CounterViewProps> = ({
           </Button>
           <Text size="1">{count}</Text>
           <Button
-            color="danger"
+            variant="danger"
             size="large"
             buttonStyle="rounded"
             onClick={onDecrement}

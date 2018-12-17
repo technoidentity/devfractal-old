@@ -42,10 +42,10 @@ export const LoginFormInner: React.SFC<FormikProps<LoginValues>> = props => (
     <ErrorMessage name="password" className="field-error" />
     <br />
     <BulmaField groupModifier="grouped-right">
-      <Button type="submit" color="info">
+      <Button type="submit" variant="info">
         Submit
       </Button>
-      <Button color="info" onClick={props.handleReset}>
+      <Button variant="info" type="button" onClick={props.handleReset}>
         Reset
       </Button>
     </BulmaField>

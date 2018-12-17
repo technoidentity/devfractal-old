@@ -27,7 +27,7 @@ type TextResponsiveAlignment =
   | 'widescreen'
   | 'fullhd'
 
-type TextColor =
+type TextVariant =
   | 'white'
   | 'black'
   | 'light'
@@ -55,7 +55,7 @@ type TextTransformation = 'capitalized' | 'lowercase' | 'uppercase' | 'italic'
 interface TextProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     CommonHelpers {
-  readonly color?: TextColor
+  readonly variant?: TextVariant
   readonly size?: TextSize
   readonly alignment?: TextAlignment
   readonly transformation?: TextTransformation
@@ -65,7 +65,7 @@ interface TextProps
 }
 
 export const Text: React.SFC<TextProps> = ({
-  color,
+  variant,
   size,
   alignment,
   transformation,
@@ -91,7 +91,7 @@ export const Text: React.SFC<TextProps> = ({
     cnSize,
     cnAlignment,
     {
-      [`has-text-${color}`]: color,
+      [`has-text-${variant}`]: variant,
       [`has-text-${weight}`]: weight,
       [`is-${transformation}`]: transformation,
       [`has-text-${alignment}`]: alignment,

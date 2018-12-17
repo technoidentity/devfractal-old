@@ -7,7 +7,7 @@ import {
   commonHelpersClasses,
 } from '../modifiers/commonHelpers'
 
-type TextAreaColor = 'primary' | 'info' | 'warning' | 'success' | 'danger'
+type TextAreaVariant = 'primary' | 'info' | 'warning' | 'success' | 'danger'
 
 type TextAreaSize = 'small' | 'large' | 'normal' | 'medium'
 
@@ -16,14 +16,14 @@ type TextAreaState = 'normal' | 'hovered' | 'focused'
 interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     CommonHelpers {
-  readonly color?: TextAreaColor
+  readonly variant?: TextAreaVariant
   readonly size?: TextAreaSize
   readonly state?: TextAreaState
   readonly rows?: number
 }
 
 export const TextArea: React.SFC<TextAreaProps> = ({
-  color,
+  variant,
   size,
   state,
   rows,
@@ -36,7 +36,7 @@ export const TextArea: React.SFC<TextAreaProps> = ({
   const classes: string = classNames(
     'textarea',
     {
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
       [`is-${size}`]: size,
       [`is-${state}`]: state,
     },

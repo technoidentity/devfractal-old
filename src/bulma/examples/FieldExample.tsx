@@ -20,7 +20,7 @@ export const FieldExample: React.SFC = () => (
         </Field>
         <Field>
           <Input
-            color="success"
+            variant="success"
             type="email"
             placeholder="Email"
             value="alex@smith.com"
@@ -85,7 +85,7 @@ export const FieldExample: React.SFC = () => (
         <Field>
           <div className="control">
             <Input
-              color="danger"
+              variant="danger"
               type="text"
               placeholder="e.g. Partnership opportunity"
             />
@@ -114,7 +114,7 @@ export const FieldExample: React.SFC = () => (
       <FieldBody>
         <Field>
           <div className="control">
-            <Button color="primary">Send message</Button>
+            <Button variant="primary">Send message</Button>
           </div>
         </Field>
       </FieldBody>
@@ -133,7 +133,7 @@ export const FieldExample: React.SFC = () => (
           <Input type="text" placeholder="Amount of money" />
         </p>
         <p className="control">
-          <Button color="primary">Transfer</Button>
+          <Button variant="primary">Transfer</Button>
         </p>
       </Field>
     </Section>
@@ -141,10 +141,10 @@ export const FieldExample: React.SFC = () => (
     <Section>
       <Field groupModifier="grouped-centered">
         <p className="control">
-          <Button color="primary">Submit</Button>
+          <Button variant="primary">Submit</Button>
         </p>
         <p className="control">
-          <Button color="light">Cancel</Button>
+          <Button variant="light">Cancel</Button>
         </p>
       </Field>
     </Section>

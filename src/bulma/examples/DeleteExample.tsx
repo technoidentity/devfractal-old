@@ -7,12 +7,12 @@ import { logger } from './common'
 
 export const DeleteExample: React.SFC = () => (
   <Section>
-    <Notification color="danger">
+    <Notification variant="danger">
       <Delete className="is-large" onClick={() => logger('clicked')} />
       Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor
       sit amet, consectetur adipiscing elit
     </Notification>
-    <Message color="info">
+    <Message variant="info">
       <MessageHeader>
         Info
         <Delete size="medium" />

@@ -7,7 +7,7 @@ import {
   commonHelpersClasses,
 } from '../modifiers/commonHelpers'
 
-type NotificationColor =
+type NotificationVariant =
   | 'primary'
   | 'link'
   | 'info'
@@ -18,11 +18,11 @@ type NotificationColor =
 interface NotificationProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
-  readonly color?: NotificationColor
+  readonly variant?: NotificationVariant
 }
 
 export const Notification: React.SFC<NotificationProps> = ({
-  color,
+  variant,
   children,
   className,
   ...props
@@ -33,7 +33,7 @@ export const Notification: React.SFC<NotificationProps> = ({
   const classes: string = classNames(
     'notification',
     {
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
     },
     className,
     commonHelpersClasses(props),

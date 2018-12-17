@@ -7,7 +7,7 @@ import {
   commonHelpersClasses,
 } from '../modifiers/commonHelpers'
 
-type NavbarColor =
+type NavbarVariant =
   | 'primary'
   | 'link'
   | 'info'
@@ -24,12 +24,12 @@ type NavbarModifier = 'transparent' | 'fixed-top' | 'fixed-bottom'
 interface NavbarProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
-  readonly color?: NavbarColor
+  readonly variant?: NavbarVariant
   readonly modifier?: NavbarModifier
 }
 
 export const Navbar: React.SFC<NavbarProps> = ({
-  color,
+  variant,
   modifier,
   children,
   className,
@@ -41,7 +41,7 @@ export const Navbar: React.SFC<NavbarProps> = ({
   const classes: string = classNames(
     'navbar',
     {
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
       [`is-${modifier}`]: modifier,
     },
     className,

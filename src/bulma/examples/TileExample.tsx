@@ -16,14 +16,14 @@ export const TileExample: React.SFC = () => (
               <Title>Vertical...</Title>
               <SubTitle>Top tile</SubTitle>
             </Tile>
-            <Tile tileType="child" notification color="warning">
+            <Tile tileType="child" notification variant="warning">
               <Title>...tiles</Title>
               <SubTitle>Bottom tile</SubTitle>
             </Tile>
           </Tile>
 
           <Tile tileType="parent">
-            <Tile tileType="child" notification color="info">
+            <Tile tileType="child" notification variant="info">
               <Title>Middle tile</Title>
               <SubTitle>With an image</SubTitle>
               <Image responsiveImageRatio="5by3">
@@ -34,7 +34,7 @@ export const TileExample: React.SFC = () => (
         </Tile>
 
         <Tile tileType="parent">
-          <Tile tileType="child" notification color="danger">
+          <Tile tileType="child" notification variant="danger">
             <Title>Wide tile</Title>
             <SubTitle>Aligned with the right tile</SubTitle>
             <Content>
@@ -49,7 +49,7 @@ export const TileExample: React.SFC = () => (
         </Tile>
       </Tile>
       <Tile tileType="parent">
-        <Tile tileType="child" notification color="success">
+        <Tile tileType="child" notification variant="success">
           <Content>
             <Title>Tall tile</Title>
             <SubTitle>With even more content</SubTitle>

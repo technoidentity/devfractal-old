@@ -7,7 +7,7 @@ import {
   commonHelpersClasses,
 } from '../modifiers/commonHelpers'
 
-type TagColor =
+type TagVariant =
   | 'black'
   | 'dark'
   | 'light'
@@ -24,13 +24,13 @@ interface TagProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     CommonHelpers {
   readonly size?: TagSize
-  readonly color?: TagColor
+  readonly variant?: TagVariant
   readonly modifier?: TagModifier
 }
 
 export const Tag: React.SFC<TagProps> = ({
   size,
-  color,
+  variant,
   modifier,
   children,
   className,
@@ -45,7 +45,7 @@ export const Tag: React.SFC<TagProps> = ({
     {
       [`is-${size}`]: size,
       [`is-${modifier}`]: modifier,
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
     },
     className,
     commonHelpersClasses(props),

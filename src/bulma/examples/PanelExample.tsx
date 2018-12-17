@@ -34,7 +34,7 @@ export const PanelExample: React.SFC = () => (
       <CheckBox>Remember me</CheckBox>
     </PanelBlock>
     <PanelBlock>
-      <Button color="primary" className="is-link is-outlined is-fullwidth">
+      <Button variant="primary" className="is-link is-outlined is-fullwidth">
         reset all filters
       </Button>
     </PanelBlock>

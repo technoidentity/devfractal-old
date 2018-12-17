@@ -8,7 +8,7 @@ import {
   removeCommonHelpers,
 } from '../modifiers/commonHelpers'
 
-type HeroColor =
+type HeroVariant =
   | 'primary'
   | 'info'
   | 'success'
@@ -20,14 +20,14 @@ type HeroColor =
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar'
 
 interface HeroProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {
-  readonly color?: HeroColor
+  readonly variant?: HeroVariant
   readonly bold?: boolean
   readonly size?: HeroSize
 }
 
 export const Hero: React.SFC<HeroProps> = ({
   children,
-  color,
+  variant,
   bold,
   size,
   className,
@@ -39,7 +39,7 @@ export const Hero: React.SFC<HeroProps> = ({
   const classes: string = classNames(
     'hero',
     {
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
       [`is-bold`]: bold,
       [`is-${size}`]: size,
     },

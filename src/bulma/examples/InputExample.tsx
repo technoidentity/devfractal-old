@@ -5,7 +5,7 @@ import { logger } from './common'
 export const InputExample: React.SFC = () => (
   <Input
     type="password"
-    color="primary"
+    variant="primary"
     state="focused"
     rounded
     placeholder="Input Text"

@@ -6,21 +6,21 @@ import { action } from '@storybook/addon-actions'
 import { Button } from '../bulma/form/Button'
 
 storiesOf('Button ', module)
-  .add('with color', () => (
+  .add('with variant', () => (
     <div>
-      <Button color="primary" onClick={action('onClick')}>
+      <Button variant="primary" onClick={action('onClick')}>
         OK
       </Button>
-      <Button color="link">OK</Button>
-      <Button color="white">OK</Button>
-      <Button color="dark">OK</Button>
-      <Button color="success">OK</Button>
-      <Button color="warning">OK</Button>
-      <Button color="danger">OK</Button>
-      <Button color="link">OK</Button>
-      <Button color="light">OK</Button>
-      <Button color="text">OK</Button>
-      <Button color="black">OK</Button>
+      <Button variant="link">OK</Button>
+      <Button variant="white">OK</Button>
+      <Button variant="dark">OK</Button>
+      <Button variant="success">OK</Button>
+      <Button variant="warning">OK</Button>
+      <Button variant="danger">OK</Button>
+      <Button variant="link">OK</Button>
+      <Button variant="light">OK</Button>
+      <Button variant="text">OK</Button>
+      <Button variant="black">OK</Button>
     </div>
   ))
   .add('with size', () => (
@@ -35,7 +35,7 @@ storiesOf('Button ', module)
     <div>
       <Button buttonStyle="rounded">rounded</Button>
       <Button buttonStyle="inverted">inverted</Button>
-      <Button color="primary" buttonStyle="outlined">
+      <Button variant="primary" buttonStyle="outlined">
         outlined
       </Button>
     </div>

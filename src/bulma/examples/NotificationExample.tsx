@@ -10,7 +10,7 @@ export const NotificationExample: React.SFC = () => (
       blocks, to alert your users of something
       <Delete />
     </Notification>
-    <Notification color="primary">
+    <Notification variant="primary">
       Bold notification blocks, to alert your users of something Bold
       notification blocks, to alert your users of something Bold notification
       blocks, to alert your users of something

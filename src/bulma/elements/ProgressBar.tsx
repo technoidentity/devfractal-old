@@ -7,7 +7,7 @@ import {
   commonHelpersClasses,
 } from '../modifiers/commonHelpers'
 
-type ProgressBarColor =
+type ProgressBarVariant =
   | 'primary'
   | 'link'
   | 'info'
@@ -21,14 +21,14 @@ interface ProgressBarProps
   extends React.HTMLAttributes<HTMLProgressElement>,
     CommonHelpers {
   readonly size?: ProgressBarSize
-  readonly color?: ProgressBarColor
+  readonly variant?: ProgressBarVariant
   readonly value?: string
   readonly max: string
 }
 
 export const ProgressBar: React.SFC<ProgressBarProps> = ({
   size,
-  color,
+  variant,
   children,
   max,
   value,
@@ -42,7 +42,7 @@ export const ProgressBar: React.SFC<ProgressBarProps> = ({
     'progress',
     {
       [`is-${size}`]: size,
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
     },
     className,
     commonHelpersClasses(props),

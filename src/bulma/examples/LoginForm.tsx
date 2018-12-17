@@ -28,10 +28,10 @@ export const LoginForm: React.SFC = () => {
           <Input name="password" type="password" onChange={logger} />
         </Field>
         <Field className="is-grouped" groupModifier="grouped-centered">
-          <Button onClick={logger} color="info">
+          <Button onClick={logger} variant="info">
             Submit
           </Button>
-          <Button onClick={logger} color="danger">
+          <Button onClick={logger} variant="danger">
             Reset
           </Button>
         </Field>

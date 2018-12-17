@@ -8,7 +8,7 @@ import { Input } from '../bulma/elements/Input'
 storiesOf('Input', module).add('rounded and focused', () => (
   <Input
     type="password"
-    color="primary"
+    variant="primary"
     state="focused"
     rounded
     placeholder="Input Text"

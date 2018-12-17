@@ -9,16 +9,16 @@ export const TextAreaExample: React.SFC = () => (
       <TextArea
         className="is-large"
         state="focused"
-        color="primary"
+        variant="primary"
         placeholder="large text area"
         onChange={() => logger('changed')}
       />
     </Field>
     <Field>
-      <TextArea color="info" disabled />
+      <TextArea variant="info" disabled />
     </Field>
     <Field>
-      <TextArea color="danger" />
+      <TextArea variant="danger" />
     </Field>
     <Field>
       <TextArea />

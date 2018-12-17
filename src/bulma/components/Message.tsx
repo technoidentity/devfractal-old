@@ -6,7 +6,7 @@ import {
   removeCommonHelpers,
   commonHelpersClasses,
 } from '../modifiers/commonHelpers'
-type MessageColor =
+type MessageVariant =
   | 'dark'
   | 'primary'
   | 'link'
@@ -20,13 +20,13 @@ type MessageSize = 'normal' | 'small' | 'medium' | 'large'
 interface MessageProps
   extends React.HTMLAttributes<HTMLElement>,
     CommonHelpers {
-  readonly color?: MessageColor
+  readonly variant?: MessageVariant
   readonly size?: MessageSize
 }
 
 export const Message: React.SFC<MessageProps> = ({
   size,
-  color,
+  variant,
   children,
   className,
   ...props
@@ -38,7 +38,7 @@ export const Message: React.SFC<MessageProps> = ({
     'message',
     {
       [`is-${size}`]: size,
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
     },
     className,
     commonHelpersClasses(props),

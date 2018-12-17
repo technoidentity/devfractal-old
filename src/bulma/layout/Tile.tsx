@@ -10,7 +10,7 @@ import {
 
 type TileType = 'ancestor' | 'parent' | 'child'
 
-type TileColor = 'primary' | 'info' | 'success' | 'warning' | 'danger'
+type TileVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
 type TileSize =
   | '1'
@@ -32,7 +32,7 @@ interface TileProps
   readonly tileType?: TileType
   readonly size?: TileSize
   readonly vertical?: boolean
-  readonly color?: TileColor
+  readonly variant?: TileVariant
   readonly notification?: boolean
   readonly box?: boolean
 }
@@ -42,7 +42,7 @@ export const Tile: React.SFC<TileProps> = ({
   children,
   size,
   vertical,
-  color,
+  variant,
   notification,
   box,
   className,
@@ -57,7 +57,7 @@ export const Tile: React.SFC<TileProps> = ({
       [`is-${tileType}`]: tileType,
       [`is-${size}`]: size,
       [`is-vertical`]: vertical,
-      [`is-${color}`]: color,
+      [`is-${variant}`]: variant,
       [`notification`]: notification,
       [`box`]: box,
     },

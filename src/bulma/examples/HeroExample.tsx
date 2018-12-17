@@ -17,7 +17,7 @@ import { Tabs } from '../components/Tabs'
 
 export const HeroExample: React.SFC = () => (
   <Section>
-    <Hero color="primary" size="medium">
+    <Hero variant="primary" size="medium">
       <HeroHead>
         <Navbar>
           <Container>
@@ -40,7 +40,7 @@ export const HeroExample: React.SFC = () => (
                 <NavbarItem>Examples</NavbarItem>
                 <NavbarItem>Documentation</NavbarItem>
                 <NavbarItem>
-                  <Button color="primary" buttonStyle="inverted">
+                  <Button variant="primary" buttonStyle="inverted">
                     <span>Download</span>
                   </Button>
                 </NavbarItem>
