@@ -12,10 +12,16 @@ it('helper classes', () => {
 })
 
 it('responsiveClass', () => {
-  expect(responsiveClass('inline-flex') === 'is-inline-flex')
-  expect(responsiveClass('flex', 'tablet-only') === 'is-flex-tablet-only')
+  expect(responsiveClass({ display: 'inline-flex' }) === 'is-inline-flex')
   expect(
-    responsiveClass('flex', 'tablet-only', true) ===
-      'is-hidden-flex-tablet-only',
+    responsiveClass({ display: 'flex', breakpoint: 'tablet-only' }) ===
+      'is-flex-tablet-only',
+  )
+  expect(
+    responsiveClass({
+      display: 'flex',
+      breakpoint: 'tablet-only',
+      hidden: true,
+    }) === 'is-hidden-flex-tablet-only',
   )
 })

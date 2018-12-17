@@ -41,7 +41,6 @@ import {
   TabsExample,
   TagExample,
   TextAreaExample,
-  TextExample,
   TileExample,
   TitleExample,
   TodoListApp,
@@ -188,9 +187,6 @@ class App extends React.Component {
                       <Link to="/textarea-example">Textarea Example</Link>
                     </li>
                     <li>
-                      <Link to="/text-example">Text Example</Link>
-                    </li>
-                    <li>
                       <Link to="/signup-form">SignUp Example</Link>
                     </li>
                     <li>
@@ -308,7 +304,6 @@ class App extends React.Component {
                     exact
                     component={TextAreaExample}
                   />
-                  <Route path="/text-example" exact component={TextExample} />
                   <Route
                     path="/signup-form"
                     exact
