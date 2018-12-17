@@ -1,5 +1,7 @@
 import classNames from 'classnames'
 
+import { Omit } from './commonHelpers'
+
 export type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
 export type TextAlignment = 'centered' | 'justified' | 'left' | 'right'
@@ -88,7 +90,7 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
   })
 }
 
-export type TextHelpersRemoved<T> = Pick<T, Exclude<keyof T, keyof TextHelpers>>
+export type TextHelpersRemoved<T> = Omit<T, keyof TextHelpers>
 
 export function removeTextHelpers<T extends TextHelpers>(
   props: T,

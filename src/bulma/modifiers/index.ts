@@ -4,21 +4,27 @@ import {
   commonHelpersClasses,
   removeCommonHelpers,
   CommonHelpers,
+  CommonHelpersRemoved,
 } from './commonHelpers'
 
 import {
   responsiveClass,
   removeResponsiveHelpers,
   ResponsiveHelpers,
+  ResponsiveHelpersRemoved,
 } from './responsiveHelpers'
 
 import {
   textHelpersClasses,
   removeTextHelpers,
   TextHelpers,
+  TextHelpersRemoved,
 } from './textHelpers'
 
-interface Helpers extends CommonHelpers, ResponsiveHelpers, TextHelpers {}
+export interface Helpers
+  extends CommonHelpers,
+    ResponsiveHelpers,
+    TextHelpers {}
 
 export const helpersClasses: (helpers: Helpers) => string = helpers =>
   classNames(
@@ -27,9 +33,10 @@ export const helpersClasses: (helpers: Helpers) => string = helpers =>
     textHelpersClasses(helpers),
   )
 
-// tslint:disable-next-line:typedef
-export function removeHelpers<T extends Helpers>(props: T) {
+export type HelpersRemoved<T> = CommonHelpersRemoved<
+  ResponsiveHelpersRemoved<TextHelpersRemoved<T>>
+>
+
+export function removeHelpers<T extends Helpers>(props: T): HelpersRemoved<T> {
   return removeCommonHelpers(removeResponsiveHelpers(removeTextHelpers(props)))
 }
-
-export type HelpersRemoved = ReturnType<typeof removeHelpers>

@@ -1,3 +1,5 @@
+import { Omit } from './commonHelpers'
+
 export type Display =
   | 'block'
   | 'flex'
@@ -33,10 +35,7 @@ export const responsiveClass: (helpers: ResponsiveHelpers) => string = ({
   return `${display}${hiddenClass}${breakpointClass}`
 }
 
-export type ResponsiveHelpersRemoved<T> = Pick<
-  T,
-  Exclude<keyof T, keyof ResponsiveHelpers>
->
+export type ResponsiveHelpersRemoved<T> = Omit<T, keyof ResponsiveHelpers>
 
 export function removeResponsiveHelpers<T extends ResponsiveHelpers>(
   props: T,

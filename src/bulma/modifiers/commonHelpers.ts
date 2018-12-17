@@ -1,5 +1,7 @@
 import classNames from 'classnames'
 
+export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
+
 export interface CommonHelpers {
   readonly floating?: 'clearfix' | 'pulled-left' | 'pulled-right'
   readonly marginLess?: boolean
@@ -38,10 +40,7 @@ export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
     [`is-sr-only}`]: srOnly,
   })
 
-export type CommonHelpersRemoved<T> = Pick<
-  T,
-  Exclude<keyof T, keyof CommonHelpers>
->
+export type CommonHelpersRemoved<T> = Omit<T, keyof CommonHelpers>
 
 export function removeCommonHelpers<T extends CommonHelpers>(
   props: T,
