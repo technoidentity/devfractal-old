@@ -1,25 +1,36 @@
 import tcomb from 'tcomb'
-// tslint:disable
 
-export const classNames = (...args: any[]) => {
-  let result: string[] = []
+type ClassNameArg =
+  | string
+  | ReadonlyArray<string>
+  | { readonly [index: string]: any }
+  | undefined
+  | null
 
-  for (const arg of args) {
-    if (arg === '' || arg === null || arg === undefined) {
-    } else if (tcomb.String.is(arg)) {
-      result.push(arg)
-    } else if (tcomb.Object.is(arg)) {
-      for (const key of Object.keys(arg)) {
-        if (arg[key]) {
-          result.push(key)
-        }
+export const classNames: (...args: ClassNameArg[]) => string = (...args) => {
+  // tslint:disable-next-line:readonly-array
+  const result: string[] = []
+
+  args.forEach(arg => {
+    if (tcomb.String.is(arg)) {
+      if (arg !== '') {
+        result.push(arg)
       }
     } else if (tcomb.Array.is(arg)) {
-      const res = classNames(...arg)
+      const res: string = classNames(...(arg as any))
       if (res !== '') {
         result.push(res)
       }
+    } else if (tcomb.Object.is(arg)) {
+      Object.keys(arg).forEach(key => {
+        if (arg[key]) {
+          result.push(key)
+        }
+      })
+    } else if (arg !== null && arg !== undefined) {
+      throw new Error(`classNames cannot handle ${arg}`)
     }
-  }
+  })
+
   return result.join(' ')
 }

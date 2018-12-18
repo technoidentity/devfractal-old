@@ -43,3 +43,8 @@ it('classNames for complex args', () => {
     ),
   ).toEqual('foo bar x abc def w a c')
 })
+
+it('classNames throws for wrong arguments', () => {
+  expect(() => classNames(100 as any)).toThrow()
+  expect(() => classNames(false as any)).toThrow()
+})
