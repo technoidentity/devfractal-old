@@ -1,29 +1,26 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "target": "es5",
     "allowJs": true,
+    "checkJs": true,
+    "sourceMap": true,
     "skipLibCheck": true,
     "lib": ["dom", "es2018"],
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "preserve",
-    // "strictFunctionTypes": false,
-    "sourceMap": true,
-    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "noUnusedParameters": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "suppressImplicitAnyIndexErrors": true
   },
 
   "include": ["src"]
