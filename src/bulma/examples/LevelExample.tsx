@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Level, LevelItem } from '../layout/Level'
 import { SubTitle, Title } from '../elements/Title'
 import { Field } from '../form/Field'
-import { Input } from '../elements/Input'
+import { Input } from '../form/Input'
 import { Button } from '../form/Button'
 import { Section } from '../layout/Section'
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Input } from '../elements/Input'
+import { Input } from '../form/Input'
 import { Field } from '../form/Field'
 import { Label } from '../form/Label'
 import { Button } from '../form/Button'

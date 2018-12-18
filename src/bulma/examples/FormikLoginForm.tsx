@@ -12,7 +12,7 @@ import { logger } from './common'
 import { Label } from '../form/Label'
 import { Button } from '../form/Button'
 import { Field as BulmaField } from '../form/Field'
-import { Input } from '../elements/Input'
+import { Input } from '../form/Input'
 // import { Form, Field, FormikProps, Formik } from 'formik'
 
 interface LoginValues {

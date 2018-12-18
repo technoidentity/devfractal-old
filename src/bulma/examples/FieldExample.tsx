@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Field, FieldLabel, FieldBody } from '../form/Field'
-import { Input } from '../elements/Input'
+import { Input } from '../form/Input'
 import { Button } from '../form/Button'
 import { TextArea } from '../form/TextArea'
 import { Label } from '../form/Label'

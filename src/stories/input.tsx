@@ -3,7 +3,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import { Input } from '../bulma/elements/Input'
+import { Input } from '../bulma/form/Input'
 
 storiesOf('Input', module).add('rounded and focused', () => (
   <Input

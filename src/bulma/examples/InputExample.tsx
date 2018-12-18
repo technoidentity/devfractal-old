@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Input } from '../elements/Input'
+import { Input } from '../form/Input'
 import { logger } from './common'
 
 export const InputExample: React.SFC = () => (

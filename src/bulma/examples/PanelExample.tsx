@@ -8,7 +8,7 @@ import {
 } from '../components/Panel'
 
 import { Button } from '../form/Button'
-import { Input } from '../elements/Input'
+import { Input } from '../form/Input'
 import { CheckBox } from '../form/CheckBox'
 
 export const PanelExample: React.SFC = () => (
