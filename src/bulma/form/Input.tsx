@@ -1,12 +1,8 @@
 import * as React from 'react'
 
 import classNames from 'classnames'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  removeCommonHelpers,
-  CommonHelpersRemoved,
-} from '../modifiers/commonHelpers'
+
+import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -30,14 +26,14 @@ type InputType =
 
 type InputState = 'hovered' | 'focused'
 
-interface InputProps
+export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    CommonHelpers {
+    Helpers {
   readonly variant?: InputVariant
   readonly inputSize?: InputSize
   readonly rounded?: boolean
   readonly state?: InputState
-  readonly type: InputType
+  readonly type?: InputType
 }
 
 export const Input: React.SFC<InputProps> = ({
@@ -48,25 +44,21 @@ export const Input: React.SFC<InputProps> = ({
   className,
   ...props
 }) => {
-  const propsRemoveHelpers: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-
   const classes: string = classNames(
-    className,
     'input',
-    commonHelpersClasses(props),
-
     {
       [`is-${variant}`]: variant,
       [`is-${inputSize}`]: inputSize,
       [`is-rounded`]: rounded,
       [`is-${state}`]: state,
     },
+    helpersClasses(props),
+    className,
   )
+
   return (
     <div className="control">
-      <input {...propsRemoveHelpers} className={classes} />
+      <input {...removeHelpers(props)} className={classes} />
     </div>
   )
 }
