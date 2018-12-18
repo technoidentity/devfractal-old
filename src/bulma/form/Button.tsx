@@ -1,11 +1,8 @@
 import * as React from 'react'
+
 import classNames from 'classnames'
-import {
-  CommonHelpers,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-  commonHelpersClasses,
-} from '../modifiers/commonHelpers'
+
+import { Helpers, removeHelpers, helpersClasses } from '../modifiers'
 
 type ButtonVariant =
   | 'white'
@@ -34,9 +31,9 @@ type ButtonState =
   | 'loading'
   | 'static'
 
-interface ButtonsProps
+export interface ButtonsProps
   extends React.ButtonHTMLAttributes<HTMLElement>,
-    CommonHelpers {
+    Helpers {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
 }
@@ -48,10 +45,6 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   className,
   ...props
 }) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-
   const classes: string = classNames(
     'buttons',
     {
@@ -59,19 +52,21 @@ export const Buttons: React.SFC<ButtonsProps> = ({
       [`has-${addons}`]: addons,
     },
     className,
-    commonHelpersClasses(props),
+    helpersClasses(props),
   )
 
   return (
-    <div {...propsHelpersRemoved} {...props} className={classes}>
-      {children}
+    <div className="control">
+      <button {...removeHelpers(props)} className={classes}>
+        {children}
+      </button>
     </div>
   )
 }
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    CommonHelpers {
+    Helpers {
   readonly variant?: ButtonVariant
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier
@@ -91,9 +86,6 @@ export const Button: React.SFC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'button',
     {
@@ -104,12 +96,12 @@ export const Button: React.SFC<ButtonProps> = ({
       [`is-${buttonStyle}`]: buttonStyle,
       [`is-fullwidth`]: fullWidth,
     },
+    helpersClasses(props),
     className,
-    commonHelpersClasses(props),
   )
   return (
     <div className="control">
-      <button {...propsCommonHelpersRemoved} className={classes}>
+      <button {...removeHelpers(props)} className={classes}>
         {children}
       </button>
     </div>
