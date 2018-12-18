@@ -8,7 +8,7 @@ type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
 type InputSize = 'small' | 'medium' | 'large'
 
-type InputType =
+export type InputType =
   | 'text'
   | 'password'
   | 'email'

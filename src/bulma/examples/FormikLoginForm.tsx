@@ -1,61 +1,34 @@
 import * as React from 'react'
-import {
-  Formik,
-  Form,
-  Field,
-  FormikProps,
-  FieldProps,
-  ErrorMessage,
-} from 'formik'
-import * as Yup from 'yup'
+
+import * as yup from 'yup'
+
+import { FormikProps, Form, Formik } from 'formik'
+
 import { logger } from './common'
-import { Label } from '../form/Label'
-import { Button } from '../form/Button'
-import { Field as BulmaField } from '../form/Field'
-import { Input } from '../form/Input'
-// import { Form, Field, FormikProps, Formik } from 'formik'
+
+import { SimpleInput, SimpleFormButtons } from '../formik'
 
 interface LoginValues {
   readonly username: string
   readonly password: string
 }
 
-export const FormikInput: React.SFC<FieldProps> = ({
-  form,
-  field,
-  ...props
-}) => <Input type="text" {...field} {...props} />
-
 export const LoginFormInner: React.SFC<FormikProps<LoginValues>> = props => (
-  <Form>
-    <Label>Username:</Label>
-    <Field id="username" name="username" type="text" component={FormikInput} />
-    <ErrorMessage name="username" className="field-error" />
-    <br />
-    <Label>Password:</Label>
-    <Field
-      id="password"
-      name="password"
-      type="password"
-      component={FormikInput}
-    />
-    <ErrorMessage name="password" className="field-error" />
-    <br />
-    <BulmaField groupModifier="grouped-right">
-      <Button type="submit" variant="info">
-        Submit
-      </Button>
-      <Button variant="info" type="button" onClick={props.handleReset}>
-        Reset
-      </Button>
-    </BulmaField>
+  <>
+    <Form>
+      <SimpleInput label="Username:" name="username" type="text" />
+      <br />
+      <SimpleInput label="Password:" name="password" type="password" />
+      <br />
+      <SimpleFormButtons handleReset={props.handleReset} />
+    </Form>
     <code>{JSON.stringify(props.values)}</code>
-  </Form>
+  </>
 )
 
-const validationSchema: Yup.ObjectSchema<{}> = Yup.object().shape({
-  username: Yup.string().required('This field is required'),
-  password: Yup.string().required('This Field is Required'),
+const validationSchema: yup.ObjectSchema<LoginValues> = yup.object({
+  username: yup.string().required('This field is required'),
+  password: yup.string().required('This Field is Required'),
 })
 
 interface FormikLoginFormProps {
@@ -65,7 +38,7 @@ interface FormikLoginFormProps {
 export const FormikLoginForm: React.SFC<FormikLoginFormProps> = ({
   onLogin,
 }) => (
-  <Formik
+  <Formik<LoginValues>
     initialValues={{
       username: '',
       password: '',
