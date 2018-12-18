@@ -1,11 +1,8 @@
 import * as React from 'react'
+
 import classNames from 'classnames'
-import {
-  CommonHelpers,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-  commonHelpersClasses,
-} from '../modifiers/commonHelpers'
+
+import { Helpers, removeHelpers, helpersClasses } from '../modifiers'
 
 type TextAreaVariant = 'primary' | 'info' | 'warning' | 'success' | 'danger'
 
@@ -13,9 +10,9 @@ type TextAreaSize = 'small' | 'large' | 'normal' | 'medium'
 
 type TextAreaState = 'normal' | 'hovered' | 'focused'
 
-interface TextAreaProps
+export interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    CommonHelpers {
+    Helpers {
   readonly variant?: TextAreaVariant
   readonly size?: TextAreaSize
   readonly state?: TextAreaState
@@ -30,9 +27,6 @@ export const TextArea: React.SFC<TextAreaProps> = ({
   className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
   const classes: string = classNames(
     'textarea',
     {
@@ -40,12 +34,13 @@ export const TextArea: React.SFC<TextAreaProps> = ({
       [`is-${size}`]: size,
       [`is-${state}`]: state,
     },
+    helpersClasses(props),
     className,
-    commonHelpersClasses(props),
   )
+
   return (
     <div className="control">
-      <textarea {...propsCommonHelpersRemoved} className={classes} />
+      <textarea {...removeHelpers(props)} className={classes} />
     </div>
   )
 }
