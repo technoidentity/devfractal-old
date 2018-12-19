@@ -1,55 +1,59 @@
 import { FormikActions, FormikErrors } from 'formik'
 import axios from 'axios'
 
-// Shouldn't be usually handling returned Promise, may be return void?
-export async function consoleSubmit<Values>(
-  values: Values,
-  formikArgs: FormikActions<Values>,
-): Promise<void> {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      // tslint:disable-next-line:no-console
-      console.log(JSON.stringify(values, null, 2))
-      formikArgs.setSubmitting(false)
-      resolve()
-    }, 0)
-  })
+export function consoleSubmit<Values>(
+  milliSeconds: number,
+): (values: Values, formikArgs: FormikActions<Values>) => Promise<void> {
+  return async (values, { setSubmitting }) =>
+    new Promise(resolve =>
+      setTimeout(() => {
+        // tslint:disable-next-line:no-console
+        console.log(JSON.stringify(values, null, 2))
+        setSubmitting(false)
+        resolve()
+      }, milliSeconds),
+    )
 }
 
-// @TODO: use ky, handle asynchronous validation in form here?
-
-interface APISubmitArgs<Values> {
+interface APISubmitArgs<Values, Result extends Values> {
   readonly url: string
+  readonly noReset?: boolean
   errorsTransformer?(errors: unknown): FormikErrors<Values>
-  responseTransformer?(response: unknown): Values
-  valuesTransformer?(values: Values): object
+  responseTransformer?(response: unknown): Result
+  valuesTransformer?(values: Values): unknown
 }
 
-const id: (x: any) => any = x => x
+const id: (x: unknown) => any = x => x
 
-type APISubmitResult<Values extends {}> = (
+type APISubmitResult<Values extends {}, Result extends Values> = (
   values: Values,
   formikArgs: FormikActions<Values>,
-) => Promise<any>
+) => Promise<Result>
 
 // Need to create Either and AsynchronousEither
-// Shouldn't be usually handling returned Promise, may be return void?
-export function apiSubmit<Values extends {}>({
+export function apiSubmit<Values extends {}, Result extends Values = Values>({
   url,
+  noReset,
   valuesTransformer = id,
   responseTransformer = id,
   errorsTransformer = id,
-}: APISubmitArgs<Values>): APISubmitResult<Values> {
-  return async (values, formikArgs) => {
+}: APISubmitArgs<Values, Result>): APISubmitResult<Values, Result> {
+  return async (values, { setValues, setErrors, setSubmitting, resetForm }) => {
     try {
-      const response: Values = responseTransformer(
-        await axios.post(url, valuesTransformer(values)),
+      // Should handle the erroneous scenario, output keys aren't a subset of input
+      const response: Result = responseTransformer(
+        (await axios.post(url, valuesTransformer(values))).data,
       )
-      formikArgs.setValues(response)
+      setValues(response)
+      setSubmitting(false)
+      if (!noReset) {
+        resetForm()
+      }
       return response
     } catch (errors) {
       const err: FormikErrors<Values> = errorsTransformer(errors)
-      formikArgs.setErrors(err)
+      setErrors(err)
+      setSubmitting(false)
       return Promise.reject(err)
     }
   }

@@ -12,4 +12,4 @@ export {
   SimpleValues,
 } from './simple'
 
-export { consoleSubmit as submitToConsole } from './submitHandlers'
+export { consoleSubmit, apiSubmit } from './submitHandlers'
