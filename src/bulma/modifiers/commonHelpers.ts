@@ -42,21 +42,18 @@ export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
 
 export type CommonHelpersRemoved<T> = Omit<T, keyof CommonHelpers>
 
-export function removeCommonHelpers<T extends CommonHelpers>(
+export const removeCommonHelpers: <T extends CommonHelpers>(
   props: T,
-): CommonHelpersRemoved<T> {
-  const {
-    floating,
-    marginLess,
-    paddingLess,
-    overlay,
-    clipped,
-    radiusLess,
-    shadowLess,
-    unSelectable,
-    invisible,
-    srOnly,
-    ...result
-  } = props
-  return result
-}
+) => CommonHelpersRemoved<T> = ({
+  floating,
+  marginLess,
+  paddingLess,
+  overlay,
+  clipped,
+  radiusLess,
+  shadowLess,
+  unSelectable,
+  invisible,
+  srOnly,
+  ...result
+}) => result

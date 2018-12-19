@@ -18,7 +18,7 @@ import {
   DropDownExample,
   FieldExample,
   FooterExample,
-  FormikLoginFormExample,
+  SimpleLoginForm,
   HeroExample,
   ImageExample,
   InputExample,
@@ -81,9 +81,7 @@ class App extends React.Component {
                       <Link to="/counter-example">Counter Example</Link>
                     </li>
                     <li>
-                      <Link to="/formik-login-form-example">
-                        Formik LoginForm Example
-                      </Link>
+                      <Link to="/simple-login-form">Simple Login Form</Link>
                     </li>
                     <li>
                       <Link to="/input-example">InputExample</Link>
@@ -239,9 +237,9 @@ class App extends React.Component {
                   <Route path="/tabs-example" exact component={TabsExample} />
                   <Route path="/panel-example" exact component={PanelExample} />
                   <Route
-                    path="/formik-login-form-example"
+                    path="/simple-login-form"
                     exact
-                    component={FormikLoginFormExample}
+                    component={SimpleLoginForm}
                   />
                   <Route path="/modal-example" exact component={ModalExample} />
                   <Route

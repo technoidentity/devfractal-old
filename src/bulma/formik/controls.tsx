@@ -4,10 +4,8 @@ import { FieldProps } from 'formik'
 
 import { Input } from '../form'
 
-export function FormikInput<V = any>({
+export const FormikInput: <V = any>(props: FieldProps<V>) => JSX.Element = ({
   form,
   field,
   ...props
-}: FieldProps<V>): JSX.Element {
-  return <Input type="text" {...field} {...props} />
-}
+}) => <Input type="text" {...field} {...props} />

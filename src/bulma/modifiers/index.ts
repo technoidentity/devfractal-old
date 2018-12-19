@@ -37,6 +37,7 @@ export type HelpersRemoved<T> = CommonHelpersRemoved<
   ResponsiveHelpersRemoved<TextHelpersRemoved<T>>
 >
 
-export function removeHelpers<T extends Helpers>(props: T): HelpersRemoved<T> {
-  return removeCommonHelpers(removeResponsiveHelpers(removeTextHelpers(props)))
-}
+export const removeHelpers: <T extends Helpers>(
+  props: T,
+) => HelpersRemoved<T> = props =>
+  removeCommonHelpers(removeResponsiveHelpers(removeTextHelpers(props)))

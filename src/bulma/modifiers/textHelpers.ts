@@ -92,19 +92,16 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
 
 export type TextHelpersRemoved<T> = Omit<T, keyof TextHelpers>
 
-export function removeTextHelpers<T extends TextHelpers>(
+export const removeTextHelpers: <T extends TextHelpers>(
   props: T,
-): TextHelpersRemoved<T> {
-  const {
-    textColor,
-    textBackgroundColor,
-    textSize,
-    textAlignment,
-    textTransformation,
-    textWeight,
-    textResponsiveSize: responsiveSize,
-    textResponsiveAlignment: responsiveAlignment,
-    ...result
-  } = props
-  return result
-}
+) => TextHelpersRemoved<T> = ({
+  textColor,
+  textBackgroundColor,
+  textSize,
+  textAlignment,
+  textTransformation,
+  textWeight,
+  textResponsiveSize: responsiveSize,
+  textResponsiveAlignment: responsiveAlignment,
+  ...result
+}) => result
