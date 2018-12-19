@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { string, object, ObjectSchema } from 'yup'
 
-import { submitToConsole, Simple, SimpleValues } from '../formik'
+import { apiSubmit, Simple, SimpleValues } from '../formik'
 
 interface LoginValues {
   readonly username: string
@@ -14,11 +14,15 @@ const loginSchema: ObjectSchema<LoginValues> = object({
   password: string().required('Password is required'),
 })
 
+const url: string = 'http://localhost:3000/users'
+const initialLoginValues: LoginValues = { username: '', password: '' }
+
 export const SimpleLoginForm: React.SFC = () => (
   <Simple.Form
-    initialValues={{ username: '', password: '' }}
+    persist="simple-login-form"
+    initialValues={initialLoginValues}
     validationSchema={loginSchema}
-    onSubmit={submitToConsole}
+    onSubmit={apiSubmit({ url })}
   >
     <Simple.Text label="Username:" name="username" />
     <Simple.Password label="Password:" name="password" />
