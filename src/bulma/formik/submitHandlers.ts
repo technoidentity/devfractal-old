@@ -2,7 +2,7 @@ import { FormikActions, FormikErrors } from 'formik'
 import axios from 'axios'
 
 export function consoleSubmit<Values>(
-  milliSeconds: number,
+  millis: number = 0,
 ): (values: Values, formikArgs: FormikActions<Values>) => Promise<void> {
   return async (values, { setSubmitting }) =>
     new Promise(resolve =>
@@ -11,7 +11,7 @@ export function consoleSubmit<Values>(
         console.log(JSON.stringify(values, null, 2))
         setSubmitting(false)
         resolve()
-      }, milliSeconds),
+      }, millis),
     )
 }
 
