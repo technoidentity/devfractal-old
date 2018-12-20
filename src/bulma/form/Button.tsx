@@ -31,11 +31,14 @@ type ButtonState =
   | 'loading'
   | 'static'
 
+type ButtonType = 'button' | 'reset' | 'submit'
+
 export interface ButtonsProps
   extends React.ButtonHTMLAttributes<HTMLElement>,
     Helpers {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
+  readonly type?: ButtonType
 }
 
 export const Buttons: React.SFC<ButtonsProps> = ({
@@ -43,6 +46,7 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   alignment,
   children,
   className,
+  type = 'button',
   ...props
 }) => {
   const classes: string = classNames(
@@ -51,13 +55,13 @@ export const Buttons: React.SFC<ButtonsProps> = ({
       [`is-${alignment}`]: alignment,
       [`has-${addons}`]: addons,
     },
-    className,
     helpersClasses(props),
+    className,
   )
 
   return (
     <div className="control">
-      <button {...removeHelpers(props)} className={classes}>
+      <button type={type} {...removeHelpers(props)} className={classes}>
         {children}
       </button>
     </div>
