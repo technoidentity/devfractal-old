@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import { Omit } from '../modifiers/commonHelpers'
-
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { Icon } from './Icon'
+
+import { Omit } from '../modifiers/commonHelpers'
 
 export interface ControlHelpers {
   readonly loading?: boolean

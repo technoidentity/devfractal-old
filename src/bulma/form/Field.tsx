@@ -14,6 +14,18 @@ type FieldSize = 'narrow' | 'expanded'
 
 // @TODO: All of these are supported?
 type HelpType = 'primary' | 'info' | 'success' | 'warning' | 'danger'
+
+export const Help: React.SFC<{ readonly variant?: HelpType }> = ({
+  variant,
+  children,
+}) => {
+  const classes: string = classNames('help', {
+    [`is-${variant}`]: variant,
+  })
+
+  return <p className={classes}>{children}</p>
+}
+
 export interface FieldProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
@@ -61,15 +73,11 @@ export const Field: React.SFC<FieldProps> = ({
     className,
   )
 
-  const helpClasses: string = classNames('help', {
-    [`is-${helpType}`]: helpType,
-  })
-
   return (
     <div {...removeHelpers(props)} className={classes}>
       {label && <Label size={labelSize}>{label}</Label>}
       {children}
-      <p className={helpClasses}>{helpText}</p>
+      {helpText && <Help variant={helpType}>{helpText}</Help>}
     </div>
   )
 }
