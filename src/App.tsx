@@ -44,6 +44,7 @@ import {
   TileExample,
   TitleExample,
   TodoListApp,
+  SimpleExamples,
 } from './bulma/examples'
 import { Section } from './bulma/layout/Section'
 import { FormikSignUpForm } from './bulma/examples/SignupFormExample'
@@ -79,6 +80,9 @@ class App extends React.Component {
                     </li>
                     <li>
                       <Link to="/counter-example">Counter Example</Link>
+                    </li>
+                    <li>
+                      <Link to="/simple-examples">Simple Examples</Link>
                     </li>
                     <li>
                       <Link to="/simple-login-form">Simple Login Form</Link>
@@ -200,6 +204,11 @@ class App extends React.Component {
                   <Route path="/sample-form" exact component={SampleForm} />
                   <Route path="/login-form" exact component={LoginForm} />
                   <Route path="/todo-example" exact component={TodoListApp} />
+                  <Route
+                    path="/simple-examples"
+                    exact
+                    component={SimpleExamples}
+                  />
                   <Route path="/input-example" exact component={InputExample} />
                   <Route
                     path="/select-example"
