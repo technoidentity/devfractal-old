@@ -20,6 +20,8 @@
   "prettier.eslintIntegration": false,
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
-    "formik"
+    "fontawesome",
+    "formik",
+    "fortawesome"
   ]
 }
