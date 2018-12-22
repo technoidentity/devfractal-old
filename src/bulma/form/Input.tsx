@@ -81,5 +81,5 @@ export const Input: React.SFC<InputProps> = ({
     )
   }
 
-  return noControl ? input : <Control {...props} />
+  return noControl ? input : <Control {...props}>{input}</Control>
 }
