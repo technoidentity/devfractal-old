@@ -1,5 +1,7 @@
 import * as React from 'react'
+
 import classNames from 'classnames'
+
 import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
 export type LabelSize = 'small' | 'medium' | 'large'
