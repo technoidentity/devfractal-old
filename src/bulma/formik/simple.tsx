@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import * as yup from 'yup'
+import { ObjectSchema } from 'yup'
 
 import {
   ErrorMessage,
@@ -20,7 +20,9 @@ export interface SimpleInputProps extends InputFieldProps {
   readonly name: string
 }
 
-export const SimpleInput: React.SFC<SimpleInputProps> = ({
+type SpecificInputProps = Exclude<SimpleInputProps, 'type'>
+
+export const SimpleInput: React.SFC<SpecificInputProps> = ({
   label,
   ...props
 }) => (
@@ -31,7 +33,7 @@ export const SimpleInput: React.SFC<SimpleInputProps> = ({
   </>
 )
 
-export const SimpleText: React.SFC<SimpleInputProps> = props => (
+export const SimpleText: React.SFC<SpecificInputProps> = props => (
   <SimpleInput {...props} type="text" />
 )
 export const SimplePassword: React.SFC<SimpleInputProps> = props => (
@@ -71,7 +73,7 @@ export const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
 
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values
-  readonly validationSchema: yup.ObjectSchema<Values>
+  readonly validationSchema: ObjectSchema<Values>
   readonly persist?: string
   onSubmit(values: Values, actions: FormikActions<Values>): void
 }
@@ -110,6 +112,7 @@ export const SimpleValues: React.SFC = () => (
     )}
   </FormikConsumer>
 )
+
 // tslint:disable-next-line:typedef
 export const Simple = {
   Form: SimpleForm,
