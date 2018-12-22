@@ -20,7 +20,6 @@ interface IconProps extends FontAwesomeIconProps, Helpers {
 }
 
 export const Icon: React.SFC<IconProps> = ({
-  icon,
   iconSize,
   direction,
   children,
@@ -38,8 +37,8 @@ export const Icon: React.SFC<IconProps> = ({
   )
 
   return (
-    <span {...removeHelpers(props)} className={classes}>
-      <FontAwesomeIcon icon={icon}>{children}</FontAwesomeIcon>
+    <span className={classes}>
+      <FontAwesomeIcon {...removeHelpers(props)}>{children}</FontAwesomeIcon>
     </span>
   )
 }

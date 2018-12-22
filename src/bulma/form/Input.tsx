@@ -1,16 +1,12 @@
 import * as React from 'react'
 
+import * as t from 'tcomb'
+
 import classNames from 'classnames'
 
 import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
-import {
-  ControlHelpers,
-  controlClasses,
-  removeControlHelpers,
-} from './ControlHelpers'
-
-import { Icon } from './Icon'
+import { ControlHelpers, removeControlHelpers, Control } from './ControlHelpers'
 
 import { IconHelpers, removeIconHelpers } from './iconHelpers'
 
@@ -43,9 +39,11 @@ export interface InputProps
   readonly rounded?: boolean
   readonly state?: InputState
   readonly type?: InputType
+  readonly noControl?: true
 }
 
 export const Input: React.SFC<InputProps> = ({
+  noControl,
   variant,
   rounded,
   state,
@@ -64,26 +62,24 @@ export const Input: React.SFC<InputProps> = ({
     className,
   )
 
-  return (
-    <div className={controlClasses(props)}>
-      <input
-        {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
-        className={classes}
-      />
-      {props.leftIcon && (
-        <Icon
-          icon={props.leftIcon}
-          direction="left"
-          iconSize={props.iconSize}
-        />
-      )}
-      {props.rightIcon && (
-        <Icon
-          icon={props.rightIcon}
-          direction="right"
-          iconSize={props.iconSize}
-        />
-      )}
-    </div>
+  const input: JSX.Element = (
+    <input
+      {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
+      className={classes}
+    />
   )
+  if (noControl) {
+    t.assert(
+      !(
+        props.iconSize ||
+        props.leftIcon ||
+        props.rightIcon ||
+        props.loading ||
+        props.expanded ||
+        props.controlSize
+      ),
+    )
+  }
+
+  return noControl ? input : <Control {...props} />
 }
