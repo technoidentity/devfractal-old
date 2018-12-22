@@ -18,6 +18,10 @@ import {
   InputFieldProps,
   CheckboxFieldProps,
   CheckboxField,
+  SelectFieldProps,
+  SelectField,
+  TextAreaFieldProps,
+  TextAreaField,
 } from './fields'
 
 export interface SimpleInputProps extends InputFieldProps {
@@ -61,6 +65,36 @@ export const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
 }) => (
   <>
     <CheckboxField {...props}>{children}</CheckboxField>
+    <ErrorMessage name={props.name} className="field-error" />
+  </>
+)
+
+export interface SimpleSelectProps extends SelectFieldProps {
+  readonly name: string
+}
+
+export const SimpleSelect: React.SFC<SimpleSelectProps> = ({
+  children,
+  ...props
+}) => (
+  <>
+    <SelectField {...props}>{children}</SelectField>
+    <ErrorMessage name={props.name} className="field-error" />
+  </>
+)
+
+export interface SimpleTextAreaProps extends TextAreaFieldProps {
+  readonly name: string
+  readonly label: string
+}
+
+export const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
+  label,
+  ...props
+}) => (
+  <>
+    <Label>{label}</Label>
+    <TextAreaField {...props} />
     <ErrorMessage name={props.name} className="field-error" />
   </>
 )
@@ -178,6 +212,8 @@ export const Simple = {
   Email: SimpleEmail,
   Telephone: SimpleTelephone,
   Checkbox: SimpleCheckbox,
+  Select: SimpleSelect,
+  TextArea: SimpleTextArea,
   // Color: SimpleColor,
   // Date: SimpleDate,
   // DateTimeLocal: SimpleDateTimeLocal,
