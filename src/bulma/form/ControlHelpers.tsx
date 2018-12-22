@@ -10,6 +10,7 @@ import { Icon } from './Icon'
 export interface ControlHelpers {
   readonly loading?: boolean
   readonly expanded?: boolean
+  readonly fullWidth?: boolean
   readonly controlSize?: ControlSize
   readonly leftIcon?: IconDefinition
   readonly rightIcon?: IconDefinition
@@ -22,6 +23,7 @@ type ControlClassesArgs = ControlHelpers
 export const controlClasses: (props: ControlClassesArgs) => string = ({
   loading,
   expanded,
+  fullWidth,
   controlSize,
   leftIcon,
   rightIcon,
@@ -29,6 +31,7 @@ export const controlClasses: (props: ControlClassesArgs) => string = ({
   classNames('control', {
     [`is-loading`]: loading,
     [`is-expanded`]: expanded,
+    [`is-fullwidth`]: fullWidth,
     [`is-${controlSize}`]: controlSize,
     [`has-icons-left`]: leftIcon,
     [`has-icons-right`]: rightIcon,
@@ -41,6 +44,7 @@ export const removeControlHelpers: <T extends ControlHelpers>(
 ) => ControlHelpersRemoved<T> = ({
   loading,
   expanded,
+  fullWidth,
   controlSize,
   leftIcon,
   rightIcon,
