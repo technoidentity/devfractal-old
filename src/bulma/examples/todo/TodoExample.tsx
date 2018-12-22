@@ -26,7 +26,7 @@ export const TodoItem: React.SFC<Todo> = ({
     <Td>{title}</Td>
     <Td>{description}</Td>
     <Td>
-      <Input type="date" value={format(time, 'YYYY-MM-DD')} />
+      <Input type="date" value={format(time, 'YYYY-MM-DD')} readOnly />
     </Td>
     <Td>
       <CheckBox readOnly checked={done} />
@@ -52,6 +52,7 @@ export const TodoListView: React.SFC<TodoListViewProps> = ({ todoList }) => (
     <TableBody>
       {todoList.map(item => (
         <TodoItem
+          key={item.id}
           id={item.id}
           title={item.title}
           description={item.description}
@@ -72,14 +73,14 @@ const todos: ReadonlyArray<Todo> = [
     done: true,
   },
   {
-    id: 1,
+    id: 2,
     title: 'helo',
     description: 'djfh',
     time: new Date(),
     done: true,
   },
   {
-    id: 1,
+    id: 3,
     title: 'helo',
     description: 'djfh',
     time: new Date(),
