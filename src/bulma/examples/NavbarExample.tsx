@@ -12,7 +12,6 @@ import {
   NavbarEnd,
 } from '../components/Navbar'
 import { Buttons, Button } from '../form/Button'
-import { logger } from './common'
 
 export const NavbarExample: React.SFC = () => (
   <Navbar>
@@ -34,12 +33,9 @@ export const NavbarExample: React.SFC = () => (
     <NavbarMenu>
       <NavbarStart>
         <NavbarItem>Home</NavbarItem>
-
         <NavbarItem modifier="active">Documentation</NavbarItem>
-
-        <NavbarItem dropdown className="is-hoverable">
+        <NavbarItem dropdown modifier="hoverable">
           <NavbarLink>More</NavbarLink>
-
           <NavbarDropdown>
             <NavbarItem>About</NavbarItem>
             <NavbarItem>Jobs</NavbarItem>
@@ -49,16 +45,11 @@ export const NavbarExample: React.SFC = () => (
           </NavbarDropdown>
         </NavbarItem>
       </NavbarStart>
-
       <NavbarEnd>
         <NavbarItem>
           <Buttons>
-            <Button variant="primary" onClick={() => logger('signup')}>
-              Sign up
-            </Button>
-            <Button variant="light" onClick={() => logger('login')}>
-              Log in
-            </Button>
+            <Button variant="primary">Sign up</Button>
+            <Button variant="light">Log in</Button>
           </Buttons>
         </NavbarItem>
       </NavbarEnd>

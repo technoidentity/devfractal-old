@@ -6,19 +6,12 @@ import {
   ModalClose,
 } from '../components/Modal'
 import { Image } from '../elements/Image'
-import { logger } from './common'
 export const ModalExample: React.SFC = () => (
   <Modal active>
     <ModalBackground />
     <ModalContent>
-      <Image>
-        <img src="https://bulma.io/images/placeholders/1280x960.png" />
-      </Image>
+      <Image src="https://bulma.io/images/placeholders/1280x960.png" />
     </ModalContent>
-    <ModalClose
-      className="is-large"
-      aria-label="close"
-      onClick={() => logger('closed')}
-    />
+    <ModalClose />
   </Modal>
 )

@@ -3,17 +3,17 @@ import { File } from '../form/File'
 export const FileExample: React.SFC = () => (
   <div>
     <File
-      className="is-primary"
+      variant="primary"
       alignment="centered"
       modifier="boxed"
       fileLabel="choose file"
     >
       Screen Shot 2017-07-29 at 15.54.25.png
     </File>
-    <File className="is-info" alignment="right" fileLabel="choose file">
+    <File variant="primary" alignment="right" fileLabel="choose file">
       Screen Shot 2017-07-29 at 15.54.25.png
     </File>
-    <File className="is-info" fileLabel="choose file">
+    <File variant="info" fileLabel="choose file">
       Screen Shot 2017-07-29 at 15.54.25.png
     </File>
     <File
@@ -26,7 +26,7 @@ export const FileExample: React.SFC = () => (
       Screen Shot 2017-07-29 at 15.54.25.png
     </File>
     <File
-      className="is-primary"
+      variant="primary"
       size="medium"
       alignment="centered"
       modifier="boxed"
@@ -35,7 +35,7 @@ export const FileExample: React.SFC = () => (
       Screen Shot 2017-07-29 at 15.54.25.png
     </File>
     <File
-      className="is-primary"
+      variant="primary"
       size="large"
       alignment="centered"
       modifier="boxed"

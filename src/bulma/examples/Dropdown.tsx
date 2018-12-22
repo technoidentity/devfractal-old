@@ -13,13 +13,7 @@ export const DropDownExample: React.SFC = () => (
   <div>
     <DropDown modifier="active">
       <DropDownTrigger>
-        <Button
-          className="is-primary"
-          aria-haspopup="true"
-          aria-controls="dropdown-menu"
-        >
-          Dropdown button
-        </Button>
+        <Button variant="primary">Dropdown button</Button>
       </DropDownTrigger>
       <DropDownMenu id="dropdown-menu" role="menu">
         <DropDownContent>
@@ -34,17 +28,14 @@ export const DropDownExample: React.SFC = () => (
     </DropDown>
     <DropDown modifier="hoverable">
       <DropDownTrigger>
-        <Button aria-haspopup="true" aria-controls="dropdown-menu4">
-          Hover me
-        </Button>
+        <Button>Hover me</Button>
       </DropDownTrigger>
       <DropDownMenu id="dropdown-menu4" role="menu">
         <DropDownContent>
           <DropDownItem>
-            <p>
-              You can insert <strong>any type of content</strong> within the
-              dropdown menu.
-            </p>
+            <div>
+              You can insert any type of contentwithin the dropdown menu.
+            </div>
           </DropDownItem>
         </DropDownContent>
       </DropDownMenu>

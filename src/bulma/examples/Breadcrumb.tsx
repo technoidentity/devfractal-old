@@ -4,21 +4,17 @@ import { Breadcrumb, BreadcrumbItem } from '../components/Breadcrumb'
 
 export const BreadcrumbExample: React.SFC = () => (
   <div>
-    <Breadcrumb className="has-arrow-separator" size="medium">
+    <Breadcrumb separator="arrow-separator" size="medium">
       <BreadcrumbItem>Bulma</BreadcrumbItem>
-      <BreadcrumbItem className="is-active">Documentation</BreadcrumbItem>
-      <BreadcrumbItem>Components</BreadcrumbItem>
+      <BreadcrumbItem>Documentation</BreadcrumbItem>
+      <BreadcrumbItem active>Components</BreadcrumbItem>
       <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
     </Breadcrumb>
-    <Breadcrumb
-      className="is-centered is-large"
-      separator="succeeds-separator"
-      aria-label="breadcrumbs"
-    >
+    <Breadcrumb className="is-centered is-large" separator="succeeds-separator">
       <BreadcrumbItem>Bulma</BreadcrumbItem>
       <BreadcrumbItem>Documentation</BreadcrumbItem>
       <BreadcrumbItem>Components</BreadcrumbItem>
-      <BreadcrumbItem className="is-active">Breadcrumb</BreadcrumbItem>
+      <BreadcrumbItem active>Breadcrumb</BreadcrumbItem>
     </Breadcrumb>
   </div>
 )
