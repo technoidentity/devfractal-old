@@ -49,6 +49,7 @@ import {
 import { Section } from './bulma/layout/Section'
 import { FormikSignUpForm } from './bulma/examples/SignupFormExample'
 import { FileExample } from './bulma/examples/FileExample'
+import { AllFieldExamples } from './bulma/examples/AllFieldExamples'
 
 setConfig({
   ignoreSFC: true,
@@ -236,6 +237,9 @@ export const ComponentsRoutes: React.SFC = () => (
 export const OtherLinks: React.SFC = () => (
   <>
     <li>
+      <Link to="/field-examples">AllFieldExamples</Link>
+    </li>
+    <li>
       <Link to="/todo-example">Todo Example</Link>
     </li>
     <li>
@@ -261,6 +265,7 @@ export const OtherLinks: React.SFC = () => (
 
 export const OtherRoutes: React.SFC = () => (
   <>
+    <Route path="/field-examples" exact component={AllFieldExamples} />
     <Route path="/sample-form" exact component={SampleForm} />
     <Route path="/login-form" exact component={LoginForm} />
     <Route path="/simple-login-form" exact component={SimpleLoginForm} />
@@ -305,7 +310,9 @@ class App extends React.Component {
         <Router>
           <Columns>
             <Column>
-              <Links />
+              <Content>
+                <Links />
+              </Content>
             </Column>
             <Column>
               <Section>
