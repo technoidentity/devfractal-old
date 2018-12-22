@@ -36,14 +36,11 @@ export const FieldExample: React.SFC = () => (
     <Field horizontal>
       <FieldLabel />
       <FieldBody>
-        <Field fieldSize="expanded">
+        <Field fieldSize="expanded" helpText="Do not enter the first zero">
           <Field addons addonsModifier="addons-centered">
             <Button state="static">+44</Button>
-            <div className="control is-expanded">
-              <Input type="tel" placeholder="Your phone number" />
-            </div>
+            <Input type="tel" placeholder="Your phone number" expanded />
           </Field>
-          <div className="help">Do not enter the first zero</div>
         </Field>
       </FieldBody>
     </Field>
@@ -74,13 +71,12 @@ export const FieldExample: React.SFC = () => (
     <Field horizontal>
       <FieldLabel fieldLabelSize="normal">Subject</FieldLabel>
       <FieldBody>
-        <Field>
+        <Field helpText="This field is required" helpType="danger">
           <Input
             variant="danger"
             type="text"
             placeholder="e.g. Partnership opportunity"
           />
-          <p className="help is-danger">This field is required</p>
         </Field>
       </FieldBody>
     </Field>
