@@ -23,7 +23,6 @@ type ControlClassesArgs = ControlHelpers
 export const controlClasses: (props: ControlClassesArgs) => string = ({
   loading,
   expanded,
-  fullWidth,
   controlSize,
   leftIcon,
   rightIcon,
@@ -31,7 +30,6 @@ export const controlClasses: (props: ControlClassesArgs) => string = ({
   classNames('control', {
     [`is-loading`]: loading,
     [`is-expanded`]: expanded,
-    [`is-fullwidth`]: fullWidth,
     [`is-${controlSize}`]: controlSize,
     [`has-icons-left`]: leftIcon,
     [`has-icons-right`]: rightIcon,

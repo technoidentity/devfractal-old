@@ -26,6 +26,7 @@ export interface SelectProps
 }
 
 export const Select: React.SFC<SelectProps> = ({
+  fullWidth,
   noControl,
   variant,
   selectSize,
@@ -41,6 +42,7 @@ export const Select: React.SFC<SelectProps> = ({
     [`is-rounded`]: rounded,
     [`is-${selectSize}`]: selectSize,
     ['is-loading']: loading,
+    ['is-fullwidth']: fullWidth,
   })
 
   const classes: string = classNames(
