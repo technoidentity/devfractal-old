@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import { Label } from './Label'
+import { Label, LabelSize } from './Label'
 
 import { Helpers, removeHelpers, helpersClasses } from '../modifiers'
 
@@ -12,9 +12,15 @@ type FieldAddonModifier = 'addons-centered' | 'addons-right'
 
 type FieldSize = 'narrow' | 'expanded'
 
+// @TODO: All of these are supported?
+type HelpType = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 export interface FieldProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  readonly label?: string
+  readonly labelSize?: LabelSize
+  readonly helpType?: HelpType
+  readonly helpText?: string
   readonly grouped?: boolean
   readonly addons?: boolean
   readonly horizontal?: boolean
@@ -25,7 +31,10 @@ export interface FieldProps
 }
 
 export const Field: React.SFC<FieldProps> = ({
-  children,
+  label,
+  labelSize,
+  helpType,
+  helpText,
   grouped,
   addons,
   horizontal,
@@ -34,6 +43,7 @@ export const Field: React.SFC<FieldProps> = ({
   fieldSize,
   addonsModifier,
   className,
+  children,
   ...props
 }) => {
   const classes: string = classNames(
@@ -51,9 +61,15 @@ export const Field: React.SFC<FieldProps> = ({
     className,
   )
 
+  const helpClasses: string = classNames('help', {
+    [`is-${helpType}`]: helpType,
+  })
+
   return (
     <div {...removeHelpers(props)} className={classes}>
+      {label && <Label size={labelSize}>{label}</Label>}
       {children}
+      <p className={helpClasses}>{helpText}</p>
     </div>
   )
 }
