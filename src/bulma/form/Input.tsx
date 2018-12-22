@@ -1,13 +1,10 @@
 import * as React from 'react'
 
-import * as t from 'tcomb'
-
 import classNames from 'classnames'
 
 import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
 import { ControlHelpers, removeControlHelpers, Control } from './ControlHelpers'
-
 import { IconHelpers, removeIconHelpers } from './iconHelpers'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
@@ -68,18 +65,6 @@ export const Input: React.SFC<InputProps> = ({
       className={classes}
     />
   )
-  if (noControl) {
-    t.assert(
-      !(
-        props.iconSize ||
-        props.leftIcon ||
-        props.rightIcon ||
-        props.loading ||
-        props.expanded ||
-        props.controlSize
-      ),
-    )
-  }
 
   return noControl ? input : <Control {...props}>{input}</Control>
 }
