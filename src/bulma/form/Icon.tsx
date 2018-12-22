@@ -5,14 +5,15 @@ import classNames from 'classnames'
 import { ControlSize } from './ControlHelpers'
 import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  FontAwesomeIcon,
+  Props as FontAwesomeIconProps,
+} from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 type IconDirection = 'left' | 'right'
 
-interface IconProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    Helpers {
+interface IconProps extends FontAwesomeIconProps, Helpers {
   readonly icon: IconDefinition
   readonly iconSize?: ControlSize
   readonly direction?: IconDirection
