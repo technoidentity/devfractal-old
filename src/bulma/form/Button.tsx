@@ -34,7 +34,7 @@ type ButtonState =
 type ButtonType = 'button' | 'reset' | 'submit'
 
 export interface ButtonsProps
-  extends React.ButtonHTMLAttributes<HTMLElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     Helpers {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
@@ -60,10 +60,8 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   )
 
   return (
-    <div className="control">
-      <button type={type} {...removeHelpers(props)} className={classes}>
-        {children}
-      </button>
+    <div {...removeHelpers(props)} className={classes}>
+      {children}
     </div>
   )
 }
