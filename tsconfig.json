@@ -19,7 +19,6 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true
   },
 
