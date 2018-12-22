@@ -3,13 +3,15 @@ import * as React from 'react'
 import classNames from 'classnames'
 
 import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
+
 import {
   ControlHelpers,
   controlClasses,
   removeControlHelpers,
   ControlSize,
 } from './ControlHelpers'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { Icon } from './Icon'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -67,8 +69,8 @@ export const Input: React.SFC<InputProps> = ({
         {...removeControlHelpers(removeHelpers(props))}
         className={classes}
       />
-      {props.leftIcon && <FontAwesomeIcon icon={props.leftIcon} />}
-      {props.rightIcon && <FontAwesomeIcon icon={props.rightIcon} />}
+      {props.leftIcon && <Icon icon={props.leftIcon} direction="left" />}
+      {props.rightIcon && <Icon icon={props.rightIcon} direction="right" />}
     </div>
   )
 }
