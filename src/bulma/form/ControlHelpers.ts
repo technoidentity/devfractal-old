@@ -1,31 +1,33 @@
 import classNames from 'classnames'
+
 import { Omit } from '../modifiers/commonHelpers'
+
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 export interface ControlHelpers {
   readonly loading?: boolean
   readonly expanded?: boolean
-  readonly leftIcon?: IconDefinition
-  readonly rightIcon?: IconDefinition
+  readonly controlSize?: ControlSize
 }
 
 export type ControlSize = 'small' | 'medium' | 'large'
 
 type ControlClassesArgs = ControlHelpers & {
-  readonly controlSize?: ControlSize
+  readonly leftIcon?: IconDefinition
+  readonly rightIcon?: IconDefinition
 }
 
 export const controlClasses: (props: ControlClassesArgs) => string = ({
   loading,
   expanded,
-  controlSize: size,
+  controlSize,
   leftIcon,
   rightIcon,
 }) =>
   classNames('control', {
     [`is-loading`]: loading,
     [`is-expanded`]: expanded,
-    [`is-${size}`]: size,
+    [`is-${controlSize}`]: controlSize,
     [`has-icons-left`]: leftIcon,
     [`has-icons-right`]: rightIcon,
   })
@@ -37,7 +39,6 @@ export const removeControlHelpers: <T extends ControlHelpers>(
 ) => ControlHelpersRemoved<T> = ({
   loading,
   expanded,
-  leftIcon,
-  rightIcon,
+  controlSize,
   ...props
 }) => props

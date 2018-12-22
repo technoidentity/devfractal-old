@@ -8,10 +8,11 @@ import {
   ControlHelpers,
   controlClasses,
   removeControlHelpers,
-  ControlSize,
 } from './ControlHelpers'
 
 import { Icon } from './Icon'
+
+import { IconHelpers, removeIconHelpers } from './iconHelpers'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -36,9 +37,9 @@ type InputState = 'hovered' | 'focused'
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     ControlHelpers,
-    Helpers {
+    Helpers,
+    IconHelpers {
   readonly variant?: InputVariant
-  readonly controlSize?: ControlSize
   readonly rounded?: boolean
   readonly state?: InputState
   readonly type?: InputType
@@ -66,11 +67,23 @@ export const Input: React.SFC<InputProps> = ({
   return (
     <div className={controlClasses(props)}>
       <input
-        {...removeControlHelpers(removeHelpers(props))}
+        {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
         className={classes}
       />
-      {props.leftIcon && <Icon icon={props.leftIcon} direction="left" />}
-      {props.rightIcon && <Icon icon={props.rightIcon} direction="right" />}
+      {props.leftIcon && (
+        <Icon
+          icon={props.leftIcon}
+          direction="left"
+          iconSize={props.iconSize}
+        />
+      )}
+      {props.rightIcon && (
+        <Icon
+          icon={props.rightIcon}
+          direction="right"
+          iconSize={props.iconSize}
+        />
+      )}
     </div>
   )
 }
