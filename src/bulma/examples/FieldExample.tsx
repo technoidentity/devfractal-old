@@ -1,19 +1,22 @@
 import * as React from 'react'
-import { Field, FieldLabel, FieldBody } from '../form/Field'
-import { Input } from '../form/Input'
-import { Button } from '../form/Button'
-import { TextArea } from '../form/TextArea'
-import { Label } from '../form/Label'
-import { Select } from '../form/Select'
-import { RadioButton } from '../form/RadioButton'
-import { Section } from '../layout/Section'
+
+import {
+  Button,
+  Input,
+  RadioButton,
+  Select,
+  TextArea,
+  Field,
+  FieldBody,
+  FieldLabel,
+} from '../form'
+
+import { Section } from '../layout'
 
 export const FieldExample: React.SFC = () => (
   <div>
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>From</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">From</FieldLabel>
       <FieldBody>
         <Field>
           <Input type="text" placeholder="Name" />
@@ -24,6 +27,7 @@ export const FieldExample: React.SFC = () => (
             type="email"
             placeholder="Email"
             value="alex@smith.com"
+            readOnly
           />
         </Field>
       </FieldBody>
@@ -34,118 +38,87 @@ export const FieldExample: React.SFC = () => (
       <FieldBody>
         <Field fieldSize="expanded">
           <Field addons addonsModifier="addons-centered">
-            <p className="control">
-              <Button state="static">+44</Button>
-            </p>
-            <p className="control is-expanded">
+            <Button state="static">+44</Button>
+            <div className="control is-expanded">
               <Input type="tel" placeholder="Your phone number" />
-            </p>
+            </div>
           </Field>
-          <p className="help">Do not enter the first zero</p>
+          <div className="help">Do not enter the first zero</div>
         </Field>
       </FieldBody>
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Department</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Department</FieldLabel>
       <FieldBody>
         <Field fieldSize="narrow">
-          <div className="control">
-            <Select className="is-fullwidth">
-              <option>Business development</option>
-              <option>Marketing</option>
-              <option>Sales</option>
-            </Select>
-          </div>
+          <Select>
+            <option>Business development</option>
+            <option>Marketing</option>
+            <option>Sales</option>
+          </Select>
         </Field>
       </FieldBody>
     </Field>
 
     <Field horizontal>
-      <FieldLabel>
-        <Label>Already a member?</Label>
-      </FieldLabel>
+      <FieldLabel>Already a member</FieldLabel>
       <FieldBody>
         <Field>
-          <div className="control">
-            <RadioButton>Yes</RadioButton>
-            <RadioButton>No</RadioButton>
-          </div>
+          <RadioButton>Yes</RadioButton>
+          <RadioButton>No</RadioButton>
         </Field>
       </FieldBody>
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Subject</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Subject</FieldLabel>
       <FieldBody>
         <Field>
-          <div className="control">
-            <Input
-              variant="danger"
-              type="text"
-              placeholder="e.g. Partnership opportunity"
-            />
-          </div>
+          <Input
+            variant="danger"
+            type="text"
+            placeholder="e.g. Partnership opportunity"
+          />
           <p className="help is-danger">This field is required</p>
         </Field>
       </FieldBody>
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Question</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Question</FieldLabel>
       <FieldBody>
         <Field>
-          <div className="control">
-            <TextArea placeholder="Explain how we can help you" />
-          </div>
+          <TextArea placeholder="Explain how we can help you" />
         </Field>
       </FieldBody>
     </Field>
 
     <Field horizontal>
       <FieldLabel />
-
       <FieldBody>
         <Field>
-          <div className="control">
-            <Button variant="primary">Send message</Button>
-          </div>
+          <Button variant="primary">Send message</Button>
         </Field>
       </FieldBody>
     </Field>
 
     <Section>
       <Field addonsModifier="addons-centered">
-        <p className="control">
-          <Select>
-            <option>$</option>
-            <option>£</option>
-            <option>€</option>
-          </Select>
-        </p>
-        <p className="control">
-          <Input type="text" placeholder="Amount of money" />
-        </p>
-        <p className="control">
-          <Button variant="primary">Transfer</Button>
-        </p>
+        <Select>
+          <option>$</option>
+          <option>£</option>
+          <option>€</option>
+        </Select>
+        <Input type="text" placeholder="Amount of money" />
+        <Button variant="primary">Transfer</Button>
       </Field>
     </Section>
 
     <Section>
       <Field groupModifier="grouped-centered">
-        <p className="control">
-          <Button variant="primary">Submit</Button>
-        </p>
-        <p className="control">
-          <Button variant="light">Cancel</Button>
-        </p>
+        <Button variant="primary">Submit</Button>
+        <Button variant="light">Cancel</Button>
       </Field>
     </Section>
   </div>
