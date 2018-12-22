@@ -51,19 +51,17 @@ export const Image: React.SFC<ImageProps> = ({
   const propsCommonHelpersRemoved: CommonHelpersRemoved<
     typeof props
   > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'image',
-    {
-      [`is-${size}`]: size,
-      [`is-${responsiveImageRatio}`]: responsiveImageRatio,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+
+  const classes: string = classNames('image', {
+    [`is-${size}`]: size,
+    [`is-${responsiveImageRatio}`]: responsiveImageRatio,
+  })
+
+  const imgClasses: string = classNames(className, commonHelpersClasses(props))
 
   return (
-    <figure {...propsCommonHelpersRemoved} className={classes}>
-      {children}
+    <figure className={classes}>
+      <img {...propsCommonHelpersRemoved} className={imgClasses} />
     </figure>
   )
 }
