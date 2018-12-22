@@ -54,6 +54,9 @@ export const SimpleEmail: React.SFC<SimpleInputProps> = props => (
 export const SimpleTelephone: React.SFC<SimpleInputProps> = props => (
   <SimpleInput {...props} type="tel" />
 )
+export const SimpleUrl: React.SFC<SimpleInputProps> = props => (
+  <SimpleInput {...props} type="url" />
+)
 
 export interface SimpleCheckboxProps extends CheckboxFieldProps {
   readonly name: string
@@ -122,9 +125,7 @@ export const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
 // export const SimpleTime: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="time" />
 // )
-// export const SimpleUrl: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="url" />
-// )
+
 // export const SimpleWeek: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="week" />
 // )
@@ -222,7 +223,7 @@ export const Simple = {
   // Range: SimpleRange,
   // Search: SimpleSearch,
   // Time: SimpleTime,
-  // Url: SimpleUrl,
+  Url: SimpleUrl,
   // Week: SimpleWeek,
   Values: SimpleValues,
 }

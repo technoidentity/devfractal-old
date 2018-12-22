@@ -1,11 +1,12 @@
 import * as React from 'react'
 
-import { hot, setConfig } from 'react-hot-loader'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import { Column } from './bulma/columns/Column'
 import { Columns } from './bulma/columns/Columns'
 import { Container } from './bulma/layout/Container'
 import { Content } from './bulma/elements/Content'
+import { Section } from './bulma/layout/Section'
+
 import {
   BreadcrumbExample,
   BoxExample,
@@ -45,17 +46,11 @@ import {
   TitleExample,
   TodoListApp,
   SimpleExamples,
+  UserForm,
+  FileExample,
+  FormikSignUpForm,
+  AllFieldExamples,
 } from './bulma/examples'
-import { Section } from './bulma/layout/Section'
-import { FormikSignUpForm } from './bulma/examples/SignupFormExample'
-import { FileExample } from './bulma/examples/FileExample'
-import { AllFieldExamples } from './bulma/examples/AllFieldExamples'
-
-setConfig({
-  ignoreSFC: true,
-  pureSFC: true,
-  pureRender: true,
-})
 
 export const FormLinks: React.SFC = () => (
   <>
@@ -252,6 +247,9 @@ export const OtherLinks: React.SFC = () => (
       <Link to="/sample-form">Sample Form</Link>
     </li>
     <li>
+      <Link to="/user-form">User Form</Link>
+    </li>
+    <li>
       <Link to="/login-form">Login Form</Link>
     </li>
     <li>
@@ -270,6 +268,7 @@ export const OtherRoutes: React.SFC = () => (
     <Route path="/login-form" exact component={LoginForm} />
     <Route path="/simple-login-form" exact component={SimpleLoginForm} />
     <Route path="/input-example" exact component={InputExample} />
+    <Route path="/user-form" exact component={UserForm} />
     <Route path="/signup-form" exact component={FormikSignUpForm} />
     <Route path="/todo-example" exact component={TodoListApp} />
     <Route path="/simple-examples" exact component={SimpleExamples} />
@@ -329,4 +328,4 @@ class App extends React.Component {
 }
 
 // tslint:disable-next-line:no-default-export
-export default hot(module)(App)
+export default App

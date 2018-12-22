@@ -34,7 +34,7 @@ export const responsiveClass: (helpers: ResponsiveHelpers) => string = ({
     : ''
   const breakpointClass: string = breakpoint ? `-${breakpoint}` : ''
 
-  return `${display}${hiddenClass}${breakpointClass}`
+  return display ? `${display}${hiddenClass}${breakpointClass}` : ''
 }
 
 export type ResponsiveHelpersRemoved<T> = Omit<T, keyof ResponsiveHelpers>
