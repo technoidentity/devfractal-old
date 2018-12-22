@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 import {
   Field,
   Label,
@@ -9,15 +10,20 @@ import {
   RadioButton,
   Button,
 } from '../form'
+
 import {
   faUser,
   faCheck,
   faExclamationTriangle,
   faEnvelope,
   faLock,
+  faGlobe,
 } from '@fortawesome/free-solid-svg-icons'
+
 import { FieldLabel, FieldBody } from '../form/Field'
+
 import { Section } from '../layout'
+
 export const AllFieldExamples: React.SFC = () => (
   <>
     <Field>
@@ -101,6 +107,13 @@ export const AllFieldExamples: React.SFC = () => (
     </Field>
     <Field>
       <Button color="success">Login</Button>
+    </Field>
+    <Field>
+      <Select leftIcon={faGlobe} iconSize="small">
+        <option>Country</option>
+        <option>Select dropdown</option>
+        <option>With options</option>
+      </Select>
     </Field>
     <Field>
       <Label size="small">Small input</Label>
@@ -200,7 +213,7 @@ export const AllFieldExamples: React.SFC = () => (
       />
     </Field>
     <Field addons>
-      <Input type="text" placeholder="Find a repository" />
+      <Input type="text" placeholder="Find a repository" expanded />
       <Button variant="info"> Search</Button>
     </Field>
     <Field addons>
@@ -227,7 +240,7 @@ export const AllFieldExamples: React.SFC = () => (
       <Button>Transfer</Button>
     </Field>
     <Field addons>
-      <Select name="country">
+      <Select name="country" fullWidth expanded>
         <option value="Argentina">Argentina</option>
         <option value="Bolivia">Bolivia</option>
         <option value="Brazil">Brazil</option>
