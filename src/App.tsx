@@ -45,6 +45,7 @@ import {
   TitleExample,
   TodoListApp,
   SimpleExamples,
+  UserForm,
 } from './bulma/examples'
 import { Section } from './bulma/layout/Section'
 import { FormikSignUpForm } from './bulma/examples/SignupFormExample'
@@ -248,6 +249,9 @@ export const OtherLinks: React.SFC = () => (
       <Link to="/sample-form">Sample Form</Link>
     </li>
     <li>
+      <Link to="/user-form">User Form</Link>
+    </li>
+    <li>
       <Link to="/login-form">Login Form</Link>
     </li>
     <li>
@@ -265,6 +269,7 @@ export const OtherRoutes: React.SFC = () => (
     <Route path="/login-form" exact component={LoginForm} />
     <Route path="/simple-login-form" exact component={SimpleLoginForm} />
     <Route path="/input-example" exact component={InputExample} />
+    <Route path="/user-form" exact component={UserForm} />
     <Route path="/signup-form" exact component={FormikSignUpForm} />
     <Route path="/todo-example" exact component={TodoListApp} />
     <Route path="/simple-examples" exact component={SimpleExamples} />
