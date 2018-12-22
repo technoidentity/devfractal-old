@@ -17,7 +17,7 @@ export function consoleSubmit<Values>(
 
 interface APISubmitArgs<Values, Result extends Values> {
   readonly url: string
-  readonly noReset?: boolean
+  readonly noResetOnSubmit?: boolean
   errorsTransformer?(errors: unknown): FormikErrors<Values>
   responseTransformer?(response: unknown): Result
   valuesTransformer?(values: Values): unknown
@@ -33,7 +33,7 @@ type APISubmitResult<Values extends {}, Result extends Values> = (
 // Need to create Either and AsynchronousEither
 export function apiSubmit<Values extends {}, Result extends Values = Values>({
   url,
-  noReset,
+  noResetOnSubmit,
   valuesTransformer = id,
   responseTransformer = id,
   errorsTransformer = id,
@@ -46,7 +46,7 @@ export function apiSubmit<Values extends {}, Result extends Values = Values>({
       )
       setValues(response)
       setSubmitting(false)
-      if (!noReset) {
+      if (!noResetOnSubmit) {
         resetForm()
       }
       return response
