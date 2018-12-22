@@ -10,7 +10,7 @@ type SelectSize = 'small' | 'medium' | 'large'
 
 type SelectState = 'hovered' | 'focused'
 
-interface SelectProps
+export interface SelectProps
   extends React.SelectHTMLAttributes<HTMLSelectElement>,
     Helpers {
   readonly variant?: SelectVariant

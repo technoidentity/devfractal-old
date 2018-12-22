@@ -69,16 +69,16 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
   textAlignment,
   textTransformation,
   textWeight,
-  textResponsiveSize: responsiveSize,
-  textResponsiveAlignment: responsiveAlignment,
+  textResponsiveSize,
+  textResponsiveAlignment,
 }) => {
-  const cnSize: string = responsiveSize
-    ? `is-size-${textSize}-${responsiveSize}`
+  const cnSize: string = textResponsiveSize
+    ? `is-size-${textSize}-${textResponsiveSize}`
     : `is-size-${textSize}`
 
-  const cnAlignment: string = responsiveAlignment
-    ? `has-text-${responsiveAlignment}-${responsiveAlignment}`
-    : `has-text-${responsiveAlignment}`
+  const cnAlignment: string = textResponsiveAlignment
+    ? `has-text-${textResponsiveAlignment}-${textResponsiveAlignment}`
+    : `has-text-${textResponsiveAlignment}`
 
   return classNames(cnSize, cnAlignment, {
     [`has-text-${textColor}`]: textColor,
@@ -86,7 +86,7 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
     [`has-background-${textBackgroundColor}`]: textColor,
     [`has-text-${textWeight}`]: textWeight,
     [`is-${textTransformation}`]: textTransformation,
-    [`has-text-${responsiveAlignment}`]: responsiveAlignment,
+    [`has-text-${textResponsiveAlignment}`]: textResponsiveAlignment,
   })
 }
 
@@ -101,7 +101,7 @@ export const removeTextHelpers: <T extends TextHelpers>(
   textAlignment,
   textTransformation,
   textWeight,
-  textResponsiveSize: responsiveSize,
-  textResponsiveAlignment: responsiveAlignment,
+  textResponsiveSize,
+  textResponsiveAlignment,
   ...result
 }) => result

@@ -3,6 +3,7 @@ import * as React from 'react'
 import { string, object, ObjectSchema, number } from 'yup'
 
 import { consoleSubmit, Simple, SimpleValues } from '../formik'
+import { Section } from '../layout'
 
 interface SimpleValues {
   readonly text: string
@@ -26,17 +27,24 @@ const simpleSchema: ObjectSchema<SimpleValues> = object({
 })
 
 export const SimpleExamples: React.SFC = () => (
-  <Simple.Form
-    initialValues={initialValues}
-    validationSchema={simpleSchema}
-    onSubmit={consoleSubmit(0)}
-  >
-    <Simple.Text label="Text" name="text" />
-    <Simple.Password label="Password:" name="password" />
-    <Simple.Email label="Email:" name="email" />
-    <Simple.Telephone label="Telephone:" name="tel" />
-    <Simple.Checkbox name="remember">yes</Simple.Checkbox>
-    <Simple.FormButtons />
-    <SimpleValues />
-  </Simple.Form>
+  <Section>
+    <Simple.Form
+      initialValues={initialValues}
+      validationSchema={simpleSchema}
+      onSubmit={consoleSubmit(0)}
+    >
+      <Simple.Text label="Text" name="text" />
+      <Simple.Password label="Password:" name="password" />
+      <Simple.Email label="Email:" name="email" />
+      <Simple.Telephone label="Telephone:" name="tel" />
+      <Simple.Checkbox name="remember">yes</Simple.Checkbox>
+      <Simple.Select name="select">
+        <option>associate</option>
+        <option>assistant</option>
+      </Simple.Select>
+      <Simple.TextArea label="TextArea" name="input" />
+      <Simple.FormButtons />
+      <SimpleValues />
+    </Simple.Form>
+  </Section>
 )
