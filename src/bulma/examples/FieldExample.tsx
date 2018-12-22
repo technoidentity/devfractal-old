@@ -1,19 +1,22 @@
 import * as React from 'react'
-import { Field, FieldLabel, FieldBody } from '../form/Field'
-import { Input } from '../form/Input'
-import { Button } from '../form/Button'
-import { TextArea } from '../form/TextArea'
-import { Label } from '../form/Label'
-import { Select } from '../form/Select'
-import { RadioButton } from '../form/RadioButton'
-import { Section } from '../layout/Section'
+
+import {
+  Button,
+  Input,
+  RadioButton,
+  Select,
+  TextArea,
+  Field,
+  FieldBody,
+  FieldLabel,
+} from '../form'
+
+import { Section } from '../layout'
 
 export const FieldExample: React.SFC = () => (
   <div>
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>From</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">From</FieldLabel>
       <FieldBody>
         <Field>
           <Input type="text" placeholder="Name" />
@@ -46,9 +49,7 @@ export const FieldExample: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Department</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Department</FieldLabel>
       <FieldBody>
         <Field fieldSize="narrow">
           <Select>
@@ -61,9 +62,7 @@ export const FieldExample: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel>
-        <Label>Already a member?</Label>
-      </FieldLabel>
+      <FieldLabel>Already a member</FieldLabel>
       <FieldBody>
         <Field>
           <RadioButton>Yes</RadioButton>
@@ -73,9 +72,7 @@ export const FieldExample: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Subject</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Subject</FieldLabel>
       <FieldBody>
         <Field>
           <Input
@@ -89,9 +86,7 @@ export const FieldExample: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Question</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Question</FieldLabel>
       <FieldBody>
         <Field>
           <TextArea placeholder="Explain how we can help you" />
@@ -101,12 +96,9 @@ export const FieldExample: React.SFC = () => (
 
     <Field horizontal>
       <FieldLabel />
-
       <FieldBody>
         <Field>
-          <div className="control">
-            <Button variant="primary">Send message</Button>
-          </div>
+          <Button variant="primary">Send message</Button>
         </Field>
       </FieldBody>
     </Field>

@@ -1,7 +1,7 @@
 export { Button } from './Button'
 export { Input } from './Input'
 export { CheckBox } from './CheckBox'
-export { Field } from './Field'
+export { Field, FieldLabel, FieldBody } from './Field'
 export { File } from './File'
 export { Label } from './Label'
 export { RadioButton } from './RadioButton'
