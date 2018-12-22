@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import classNames from 'classnames'
 
 import { Omit } from '../modifiers/commonHelpers'
