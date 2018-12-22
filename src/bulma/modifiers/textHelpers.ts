@@ -74,15 +74,18 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
 }) => {
   const cnSize: string = textResponsiveSize
     ? `is-size-${textSize}-${textResponsiveSize}`
-    : `is-size-${textSize}`
+    : textSize
+    ? `is-size-${textSize}`
+    : ''
 
   const cnAlignment: string = textResponsiveAlignment
-    ? `has-text-${textResponsiveAlignment}-${textResponsiveAlignment}`
-    : `has-text-${textResponsiveAlignment}`
+    ? `has-text-${textAlignment}-${textResponsiveAlignment}`
+    : textAlignment
+    ? `has-text-${textAlignment}`
+    : ''
 
   return classNames(cnSize, cnAlignment, {
     [`has-text-${textColor}`]: textColor,
-    [`has-text-${textAlignment}`]: textAlignment,
     [`has-background-${textBackgroundColor}`]: textColor,
     [`has-text-${textWeight}`]: textWeight,
     [`is-${textTransformation}`]: textTransformation,
