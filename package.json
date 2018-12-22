@@ -36,13 +36,10 @@
     "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
     "react": "^16.7.0",
-    "react-app-rewire-hot-loader": "^1.0.3",
-    "react-app-rewired": "^1.6.2",
     "react-dnd": "^7.0.2",
     "react-dnd-html5-backend": "^7.0.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.7.0",
-    "react-hot-loader": "^4.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-select": "^2.1.2",
@@ -58,17 +55,17 @@
     "yup": "^0.26.6"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "test:single": "CI=true react-app-rewired test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:single": "CI=true react-scripts test",
     "check-types": "tsc --noEmit -p tsconfig.commit.json",
     "lint": "tslint -p tsconfig.commit.json -c tslint.commit.json 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "check-all": "yarn lint && yarn check-types && yarn test:single",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "eject": "react-app-rewired eject"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

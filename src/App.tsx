@@ -1,11 +1,12 @@
 import * as React from 'react'
 
-import { hot, setConfig } from 'react-hot-loader'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import { Column } from './bulma/columns/Column'
 import { Columns } from './bulma/columns/Columns'
 import { Container } from './bulma/layout/Container'
 import { Content } from './bulma/elements/Content'
+import { Section } from './bulma/layout/Section'
+
 import {
   BreadcrumbExample,
   BoxExample,
@@ -46,16 +47,9 @@ import {
   TodoListApp,
   SimpleExamples,
   UserForm,
+  FileExample,
+  FormikSignUpForm,
 } from './bulma/examples'
-import { Section } from './bulma/layout/Section'
-import { FormikSignUpForm } from './bulma/examples/SignupFormExample'
-import { FileExample } from './bulma/examples/FileExample'
-
-setConfig({
-  ignoreSFC: true,
-  pureSFC: true,
-  pureRender: true,
-})
 
 export const FormLinks: React.SFC = () => (
   <>
@@ -327,4 +321,4 @@ class App extends React.Component {
 }
 
 // tslint:disable-next-line:no-default-export
-export default hot(module)(App)
+export default App
