@@ -13,7 +13,12 @@ import {
 import { Persist } from 'formik-persist'
 
 import { Label, Button, Field } from '../form'
-import { InputField, InputFieldProps } from './fields'
+import {
+  InputField,
+  InputFieldProps,
+  CheckboxFieldProps,
+  CheckboxField,
+} from './fields'
 
 export interface SimpleInputProps extends InputFieldProps {
   readonly label: string
@@ -39,6 +44,56 @@ export const SimpleText: React.SFC<SpecificInputProps> = props => (
 export const SimplePassword: React.SFC<SimpleInputProps> = props => (
   <SimpleInput {...props} type="password" />
 )
+export const SimpleEmail: React.SFC<SimpleInputProps> = props => (
+  <SimpleInput {...props} type="email" />
+)
+export const SimpleTelephone: React.SFC<SimpleInputProps> = props => (
+  <SimpleInput {...props} type="tel" />
+)
+
+export interface SimpleCheckboxProps extends CheckboxFieldProps {
+  readonly name: string
+}
+
+export const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
+  children,
+  ...props
+}) => (
+  <>
+    <CheckboxField {...props}>{children}</CheckboxField>
+    <ErrorMessage name={props.name} className="field-error" />
+  </>
+)
+// export const SimpleColor: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="color" />
+// )
+// export const SimpleDate: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="date" />
+// )
+// export const SimpleDateTimeLocal: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="datetime-local" />
+// )
+// export const SimpleMonth: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="month" />
+// )
+// export const SimpleNumber: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="number" />
+// )
+// export const SimpleRange: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="range" />
+// )
+// export const SimpleSearch: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="search" />
+// )
+// export const SimpleTime: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="time" />
+// )
+// export const SimpleUrl: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="url" />
+// )
+// export const SimpleWeek: React.SFC<SimpleInputProps> = props => (
+//   <SimpleInput {...props} type="week" />
+// )
 export interface SimpleFormButtonsProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
@@ -60,7 +115,7 @@ export const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
           <Button
             disabled={!dirty || isSubmitting}
             variant="danger"
-            type="button"
+            type="reset"
             onClick={handleReset}
           >
             {reset}
@@ -120,5 +175,18 @@ export const Simple = {
   Input: SimpleInput,
   Text: SimpleText,
   Password: SimplePassword,
+  Email: SimpleEmail,
+  Telephone: SimpleTelephone,
+  Checkbox: SimpleCheckbox,
+  // Color: SimpleColor,
+  // Date: SimpleDate,
+  // DateTimeLocal: SimpleDateTimeLocal,
+  // Month: SimpleMonth,
+  // Number: SimpleNumber,
+  // Range: SimpleRange,
+  // Search: SimpleSearch,
+  // Time: SimpleTime,
+  // Url: SimpleUrl,
+  // Week: SimpleWeek,
   Values: SimpleValues,
 }
