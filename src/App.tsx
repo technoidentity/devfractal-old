@@ -31,6 +31,7 @@ import {
   MessageExample,
   ModalExample,
   NavbarExample,
+  RadioButtonExample,
   NotificationExample,
   PaginationExample,
   PanelExample,
@@ -66,6 +67,9 @@ export const FormLinks: React.SFC = () => (
     <li>
       <Link to="/field-example"> Field Example</Link>
     </li>
+    <li>
+      <Link to="/Radiobutton-example"> Radiobutton Example</Link>
+    </li>
 
     <li>
       <Link to="/textarea-example">Textarea Example</Link>
@@ -82,6 +86,7 @@ export const FormRoutes: React.SFC = () => (
     <Route path="/select-example" exact component={SelectExample} />
     <Route path="/checkbox-example" exact component={CheckBoxExample} />
     <Route path="/field-example" exact component={FieldExample} />
+    <Route path="/Radiobutton-example" exact component={RadioButtonExample} />
     <Route path="/textarea-example" exact component={TextAreaExample} />
     <Route path="/file-example" exact component={FileExample} />
   </>
