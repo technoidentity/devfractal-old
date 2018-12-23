@@ -9,6 +9,7 @@ import {
   CheckBox,
   RadioButton,
   Button,
+  FieldHelp,
 } from '../form'
 
 import {
@@ -39,7 +40,7 @@ export const AllFieldExamples: React.SFC = () => (
         type="text"
         placeholder="Text input"
       />
-      <p className="help is-success">This username is available</p>
+      <FieldHelp variant="success">This username is available</FieldHelp>
     </Field>
     <Field>
       <Label>Email</Label>
@@ -50,8 +51,9 @@ export const AllFieldExamples: React.SFC = () => (
         type="email"
         placeholder="Email input"
         value="hello@"
+        readOnly
       />
-      <p className="help is-danger">This email is invalid</p>
+      <FieldHelp variant="danger">This email is invalid</FieldHelp>
     </Field>
     <Field>
       <Label>Subject</Label>
@@ -80,7 +82,7 @@ export const AllFieldExamples: React.SFC = () => (
     <Field>
       <Label>Label</Label>
       <Input type="text" placeholder="Text input" />
-      <p className="help">This is a help text</p>
+      <FieldHelp>This is a help text</FieldHelp>
     </Field>
     <Field>
       <Select>
@@ -241,18 +243,18 @@ export const AllFieldExamples: React.SFC = () => (
     </Field>
     <Field addons>
       <Select name="country" fullWidth expanded>
-        <option value="Argentina">Argentina</option>
-        <option value="Bolivia">Bolivia</option>
-        <option value="Brazil">Brazil</option>
-        <option value="Chile">Chile</option>
-        <option value="Colombia">Colombia</option>
-        <option value="Ecuador">Ecuador</option>
-        <option value="Guyana">Guyana</option>
-        <option value="Paraguay">Paraguay</option>
-        <option value="Peru">Peru</option>
-        <option value="Suriname">Suriname</option>
-        <option value="Uruguay">Uruguay</option>
-        <option value="Venezuela">Venezuela</option>
+        <option>Argentina</option>
+        <option>Bolivia</option>
+        <option>Brazil</option>
+        <option>Chile</option>
+        <option>Colombia</option>
+        <option>Ecuador</option>
+        <option>Guyana</option>
+        <option>Paraguay</option>
+        <option>Peru</option>
+        <option>Suriname</option>
+        <option>Uruguay</option>
+        <option>Venezuela</option>
       </Select>
       <Button type="submit" variant="primary">
         Choose
@@ -328,7 +330,6 @@ export const AllFieldExamples: React.SFC = () => (
             variant="success"
             type="email"
             placeholder="Email"
-            value="alex@smith.com"
           />
         </Field>
       </FieldBody>
@@ -342,7 +343,7 @@ export const AllFieldExamples: React.SFC = () => (
             <Button state="static">+44</Button>
             <Input type="tel" placeholder="Your phone number" />
           </Field>
-          <p className="help">Do not enter the first zero</p>
+          <FieldHelp>Do not enter the first zero</FieldHelp>
         </Field>
       </FieldBody>
     </Field>
