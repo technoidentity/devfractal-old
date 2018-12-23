@@ -310,9 +310,7 @@ export const AllFieldExamples: React.SFC = () => (
       <Button>thirteen</Button>
     </Field>
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>From</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">From </FieldLabel>
       <FieldBody>
         <Field>
           <Input
@@ -349,9 +347,7 @@ export const AllFieldExamples: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Department</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Department</FieldLabel>
       <FieldBody>
         <Field size="narrow">
           <Select className="is-fullwidth">
@@ -364,9 +360,7 @@ export const AllFieldExamples: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel>
-        <Label>Already a member?</Label>
-      </FieldLabel>
+      <FieldLabel>Already a member? </FieldLabel>
       <FieldBody>
         <Field>
           <RadioButton>Yes</RadioButton>
@@ -376,9 +370,7 @@ export const AllFieldExamples: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Subject</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Subject</FieldLabel>
       <FieldBody>
         <Field>
           <Input
@@ -392,9 +384,7 @@ export const AllFieldExamples: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Question</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Question </FieldLabel>
       <FieldBody>
         <Field>
           <TextArea placeholder="Explain how we can help you" />
@@ -429,9 +419,7 @@ export const AllFieldExamples: React.SFC = () => (
       </Field>
     </Section>
     <Field horizontal>
-      <FieldLabel>
-        <Label>No padding</Label>
-      </FieldLabel>
+      <FieldLabel>No padding </FieldLabel>
       <FieldBody>
         <Field>
           <CheckBox> Checkbox</CheckBox>
@@ -440,9 +428,7 @@ export const AllFieldExamples: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="small">
-        <Label>Small padding</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="small">Small padding</FieldLabel>
       <FieldBody>
         <Field>
           <Input
@@ -454,9 +440,7 @@ export const AllFieldExamples: React.SFC = () => (
       </FieldBody>
     </Field>
     <Field horizontal>
-      <FieldLabel fieldLabelSize="normal">
-        <Label>Normal label</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="normal">Normal label </FieldLabel>
       <FieldBody>
         <Field>
           <Input type="text" placeholder="Normal sized input" />
@@ -464,9 +448,7 @@ export const AllFieldExamples: React.SFC = () => (
       </FieldBody>
     </Field>
     <Field horizontal>
-      <FieldLabel fieldLabelSize="medium">
-        <Label>Medium label</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="medium">Medium label</FieldLabel>
       <FieldBody>
         <Field>
           <Input
@@ -479,9 +461,7 @@ export const AllFieldExamples: React.SFC = () => (
     </Field>
 
     <Field horizontal>
-      <FieldLabel fieldLabelSize="large">
-        <Label>Large label</Label>
-      </FieldLabel>
+      <FieldLabel fieldLabelSize="large">Large label </FieldLabel>
       <FieldBody>
         <Field>
           <Input
