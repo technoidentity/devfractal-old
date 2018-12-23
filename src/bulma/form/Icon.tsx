@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import { ControlSize } from './ControlHelpers'
 import { Helpers, removeHelpers, classNamesHelper, Div } from '../modifiers'
 
 import {
@@ -13,18 +12,15 @@ type IconDirection = 'left' | 'right'
 
 interface IconProps extends FontAwesomeIconProps, Helpers {
   readonly icon: IconDefinition
-  readonly iconSize?: ControlSize
   readonly direction?: IconDirection
 }
 
 export const Icon: React.SFC<IconProps> = ({
-  iconSize,
   direction,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'icon', {
-    [`is-${iconSize}`]: iconSize,
     [`is-${direction}`]: direction,
   })
 

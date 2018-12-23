@@ -65,19 +65,7 @@ export const ControlWrapper: React.SFC<ControlWrapperProps> = ({
   ) : (
     <div className={controlClasses(props)}>
       {children}
-      {props.leftIcon && (
-        <Icon
-          icon={props.leftIcon}
-          direction="left"
-          iconSize={props.controlSize}
-        />
-      )}
-      {props.rightIcon && (
-        <Icon
-          icon={props.rightIcon}
-          direction="right"
-          iconSize={props.controlSize}
-        />
-      )}
+      {props.leftIcon && <Icon icon={props.leftIcon} direction="left" />}
+      {props.rightIcon && <Icon icon={props.rightIcon} direction="right" />}
     </div>
   )
