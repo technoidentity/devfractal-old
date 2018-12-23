@@ -2,9 +2,10 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import { Helpers, removeHelpers, helpersClasses } from '../modifiers'
-import { ControlHelpers, removeControlHelpers, Control } from './ControlHelpers'
-import { IconHelpers, removeIconHelpers } from './iconHelpers'
+import { Helpers, helpersClasses } from '../modifiers'
+import { ControlHelpers, ControlWrapper } from './ControlHelpers'
+import { IconHelpers } from './iconHelpers'
+import { ControlDiv } from './ControlDiv'
 
 type SelectVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -50,15 +51,14 @@ export const Select: React.SFC<SelectProps> = ({
     helpersClasses(props),
     className,
   )
-  const select: JSX.Element = (
-    <div className={divClasses}>
-      <select
-        {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
-        className={classes}
-      >
-        {children}
-      </select>
-    </div>
+
+  return (
+    <ControlWrapper {...props}>
+      <div className={divClasses}>
+        <ControlDiv as="select" className={classes}>
+          {children}
+        </ControlDiv>
+      </div>
+    </ControlWrapper>
   )
-  return noControl ? select : <Control {...props}>{select}</Control>
 }
