@@ -2,10 +2,9 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import { Helpers, helpersClasses } from '../modifiers'
-import { ControlHelpers, ControlWrapper } from './ControlHelpers'
-import { IconHelpers } from './iconHelpers'
-import { ControlDiv } from './ControlDiv'
+import { classNamesHelper } from '../modifiers'
+import { ControlWrapper } from './ControlHelpers'
+import { ControlDiv, AllControlHelpers } from './ControlDiv'
 
 type SelectVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -15,9 +14,7 @@ type SelectState = 'hovered' | 'focused'
 
 export interface SelectProps
   extends React.SelectHTMLAttributes<HTMLSelectElement>,
-    Helpers,
-    ControlHelpers,
-    IconHelpers {
+    AllControlHelpers {
   readonly variant?: SelectVariant
   readonly rounded?: boolean
   readonly selectSize?: SelectSize
@@ -35,7 +32,6 @@ export const Select: React.SFC<SelectProps> = ({
   children,
   rounded,
   loading,
-  className,
   ...props
 }) => {
   const divClasses: string = classNames('select', {
@@ -46,11 +42,7 @@ export const Select: React.SFC<SelectProps> = ({
     ['is-fullwidth']: fullWidth,
   })
 
-  const classes: string = classNames(
-    { [`is-${state}`]: state },
-    helpersClasses(props),
-    className,
-  )
+  const classes: string = classNamesHelper({ [`is-${state}`]: state })
 
   return (
     <ControlWrapper {...props}>
