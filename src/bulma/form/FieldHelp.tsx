@@ -1,7 +1,6 @@
 import * as React from 'react'
 
-import classNames from 'classnames'
-import { Helpers, helpersClasses } from '../modifiers'
+import { Helpers, classNamesHelper, Div } from '../modifiers'
 
 // @TODO: All of these are supported?
 export type HelpType = 'primary' | 'info' | 'success' | 'warning' | 'danger'
@@ -14,18 +13,16 @@ export interface FieldHelpProps
 
 export const FieldHelp: React.SFC<FieldHelpProps> = ({
   variant,
-  className,
   children,
   ...props
 }) => {
-  const classes: string = classNames(
-    'help',
-    {
-      [`is-${variant}`]: variant,
-    },
-    helpersClasses(props),
-    className,
-  )
+  const classes: string = classNamesHelper(props, 'help', {
+    [`is-${variant}`]: variant,
+  })
 
-  return <p className={classes}>{children}</p>
+  return (
+    <Div as="p" {...props} className={classes}>
+      {children}
+    </Div>
+  )
 }
