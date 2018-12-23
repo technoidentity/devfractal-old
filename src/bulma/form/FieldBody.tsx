@@ -1,8 +1,6 @@
 import * as React from 'react'
 
-import classNames from 'classnames'
-
-import { Helpers, removeHelpers, helpersClasses } from '../modifiers'
+import { Helpers, classNamesHelper, Div } from '../modifiers'
 
 export interface FieldBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -10,18 +8,13 @@ export interface FieldBodyProps
 
 export const FieldBody: React.SFC<FieldBodyProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const classes: string = classNames(
-    'field-body',
-    className,
-    helpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'field-body')
 
   return (
-    <div {...removeHelpers(props)} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
