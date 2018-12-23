@@ -1,8 +1,6 @@
 import * as React from 'react'
 
-import classNames from 'classnames'
-
-import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
+import { Helpers, removeHelpers, classNamesHelper } from '../modifiers'
 
 import { ControlHelpers, removeControlHelpers, Control } from './ControlHelpers'
 import { IconHelpers, removeIconHelpers } from './iconHelpers'
@@ -44,20 +42,14 @@ export const Input: React.SFC<InputProps> = ({
   variant,
   rounded,
   state,
-  className,
   ...props
 }) => {
-  const classes: string = classNames(
-    'input',
-    {
-      [`is-${variant}`]: variant,
-      [`is-${props.controlSize}`]: props.controlSize,
-      [`is-rounded`]: rounded,
-      [`is-${state}`]: state,
-    },
-    helpersClasses(props),
-    className,
-  )
+  const classes: string = classNamesHelper(props, 'input', {
+    [`is-${variant}`]: variant,
+    [`is-${props.controlSize}`]: props.controlSize,
+    [`is-rounded`]: rounded,
+    [`is-${state}`]: state,
+  })
 
   const input: JSX.Element = (
     <input
