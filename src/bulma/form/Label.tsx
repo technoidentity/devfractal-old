@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Helpers, removeHelpers, classNamesHelper, Div } from '../modifiers'
+import { Helpers, classNamesHelper, Div } from '../modifiers'
 
 export type LabelSize = 'small' | 'medium' | 'large'
 
@@ -16,7 +16,7 @@ export const Label: React.SFC<LabelProps> = ({ size, children, ...props }) => {
   })
 
   return (
-    <Div as="label" {...removeHelpers(props)} className={classes}>
+    <Div as="label" {...props} className={classes}>
       {children}
     </Div>
   )
