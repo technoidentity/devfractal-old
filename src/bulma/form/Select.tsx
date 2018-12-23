@@ -47,7 +47,7 @@ export const Select: React.SFC<SelectProps> = ({
   return (
     <ControlWrapper {...props}>
       <div className={divClasses}>
-        <ControlDiv as="select" className={classes}>
+        <ControlDiv as="select" {...props} className={classes}>
           {children}
         </ControlDiv>
       </div>
