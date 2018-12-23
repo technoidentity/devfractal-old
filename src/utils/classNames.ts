@@ -1,6 +1,6 @@
 import tcomb from 'tcomb'
 
-type ClassNameArg =
+export type ClassNameArg =
   | string
   | ReadonlyArray<string>
   | { readonly [index: string]: any }

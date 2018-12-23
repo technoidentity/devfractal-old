@@ -20,6 +20,7 @@ import {
   TextHelpers,
   TextHelpersRemoved,
 } from './textHelpers'
+import { ClassNameArg } from '../../utils/classNames'
 
 export interface Helpers
   extends CommonHelpers,
@@ -41,3 +42,15 @@ export const removeHelpers: <T extends Helpers>(
   props: T,
 ) => HelpersRemoved<T> = props =>
   removeCommonHelpers(removeResponsiveHelpers(removeTextHelpers(props)))
+
+interface ClassNamesHelperPropsArg extends Helpers {
+  readonly className?: string
+}
+
+export const classNamesHelper: (
+  props: ClassNamesHelperPropsArg,
+  ...args: ClassNameArg[]
+) => string = ({ className, ...props }, ...args) =>
+  classNames(...args, helpersClasses(props), className)
+
+export { Div } from './Div'
