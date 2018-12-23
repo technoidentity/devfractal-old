@@ -1,14 +1,6 @@
 import * as React from 'react'
 
-import classNames from 'classnames'
-
-import {
-  Helpers,
-  removeHelpers,
-  helpersClasses,
-  classNamesHelper,
-  Div,
-} from '../modifiers'
+import { Helpers, removeHelpers, classNamesHelper, Div } from '../modifiers'
 
 type ButtonVariant =
   | 'white'
@@ -51,24 +43,18 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   addons,
   alignment,
   children,
-  className,
   type = 'button',
   ...props
 }) => {
-  const classes: string = classNames(
-    'buttons',
-    {
-      [`is-${alignment}`]: alignment,
-      [`has-${addons}`]: addons,
-    },
-    helpersClasses(props),
-    className,
-  )
+  const classes: string = classNamesHelper(props, 'buttons', {
+    [`is-${alignment}`]: alignment,
+    [`has-${addons}`]: addons,
+  })
 
   return (
-    <div {...removeHelpers(props)} className={classes}>
+    <Div {...removeHelpers(props)} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
