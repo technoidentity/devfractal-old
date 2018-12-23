@@ -3,6 +3,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+
 import { Icon } from './Icon'
 
 import { Omit } from '../modifiers/commonHelpers'
@@ -14,6 +15,7 @@ export interface ControlHelpers {
   readonly controlSize?: ControlSize
   readonly leftIcon?: IconDefinition
   readonly rightIcon?: IconDefinition
+  readonly noControl?: true
 }
 
 export type ControlSize = 'small' | 'medium' | 'large'
@@ -46,29 +48,37 @@ export const removeControlHelpers: <T extends ControlHelpers>(
   controlSize,
   leftIcon,
   rightIcon,
+  noControl,
   ...props
 }) => props
 
-export interface ControlProps
+export interface ControlWrapperProps
   extends React.HTMLAttributes<HTMLElement>,
     ControlHelpers {}
 
-export const Control: React.SFC<ControlProps> = ({ children, ...props }) => (
-  <div className={controlClasses(props)}>
-    {children}
-    {props.leftIcon && (
-      <Icon
-        icon={props.leftIcon}
-        direction="left"
-        iconSize={props.controlSize}
-      />
-    )}
-    {props.rightIcon && (
-      <Icon
-        icon={props.rightIcon}
-        direction="right"
-        iconSize={props.controlSize}
-      />
-    )}
-  </div>
-)
+export const ControlWrapper: React.SFC<ControlWrapperProps> = ({
+  noControl,
+  children,
+  ...props
+}) =>
+  noControl ? (
+    <>{children}</>
+  ) : (
+    <div className={controlClasses(props)}>
+      {children}
+      {props.leftIcon && (
+        <Icon
+          icon={props.leftIcon}
+          direction="left"
+          iconSize={props.controlSize}
+        />
+      )}
+      {props.rightIcon && (
+        <Icon
+          icon={props.rightIcon}
+          direction="right"
+          iconSize={props.controlSize}
+        />
+      )}
+    </div>
+  )

@@ -1,9 +1,10 @@
 import * as React from 'react'
 
-import { Helpers, removeHelpers, classNamesHelper } from '../modifiers'
+import { classNamesHelper } from '../modifiers'
 
-import { ControlHelpers, removeControlHelpers, Control } from './ControlHelpers'
-import { IconHelpers, removeIconHelpers } from './iconHelpers'
+import { ControlWrapper } from './ControlHelpers'
+
+import { ControlDiv, AllControlHelpers } from './ControlDiv'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -27,14 +28,11 @@ type InputState = 'hovered' | 'focused'
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    ControlHelpers,
-    Helpers,
-    IconHelpers {
+    AllControlHelpers {
   readonly variant?: InputVariant
   readonly rounded?: boolean
   readonly state?: InputState
   readonly type?: InputType
-  readonly noControl?: true
 }
 
 export const Input: React.SFC<InputProps> = ({
@@ -51,12 +49,9 @@ export const Input: React.SFC<InputProps> = ({
     [`is-${state}`]: state,
   })
 
-  const input: JSX.Element = (
-    <input
-      {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
-      className={classes}
-    />
+  return (
+    <ControlWrapper {...props}>
+      <ControlDiv {...props} className={classes} />
+    </ControlWrapper>
   )
-
-  return noControl ? input : <Control {...props}>{input}</Control>
 }
