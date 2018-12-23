@@ -20,7 +20,7 @@ import {
   faGlobe,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { FieldLabel, FieldBody } from '../form/Field'
+import { FieldLabel, FieldBody } from '../form'
 
 import { Section } from '../layout'
 
@@ -337,7 +337,7 @@ export const AllFieldExamples: React.SFC = () => (
     <Field horizontal>
       <FieldLabel />
       <FieldBody>
-        <Field fieldSize="expanded">
+        <Field size="expanded">
           <Field addons>
             <Button state="static">+44</Button>
             <Input type="tel" placeholder="Your phone number" />
@@ -352,7 +352,7 @@ export const AllFieldExamples: React.SFC = () => (
         <Label>Department</Label>
       </FieldLabel>
       <FieldBody>
-        <Field fieldSize="narrow">
+        <Field size="narrow">
           <Select className="is-fullwidth">
             <option>Business development</option>
             <option>Marketing</option>

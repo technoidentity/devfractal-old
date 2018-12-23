@@ -9,6 +9,7 @@ import {
   Field,
   FieldBody,
   FieldLabel,
+  FieldHelp,
 } from '../form'
 
 import { Section } from '../layout'
@@ -36,11 +37,12 @@ export const FieldExample: React.SFC = () => (
     <Field horizontal>
       <FieldLabel />
       <FieldBody>
-        <Field fieldSize="expanded" helpText="Do not enter the first zero">
+        <Field size="expanded">
           <Field addons addonsModifier="addons-centered">
             <Button state="static">+44</Button>
             <Input type="tel" placeholder="Your phone number" expanded />
           </Field>
+          <FieldHelp>Do not enter the first zero</FieldHelp>
         </Field>
       </FieldBody>
     </Field>
@@ -48,7 +50,7 @@ export const FieldExample: React.SFC = () => (
     <Field horizontal>
       <FieldLabel fieldLabelSize="normal">Department</FieldLabel>
       <FieldBody>
-        <Field fieldSize="narrow">
+        <Field size="narrow">
           <Select>
             <option>Business development</option>
             <option>Marketing</option>
@@ -71,12 +73,13 @@ export const FieldExample: React.SFC = () => (
     <Field horizontal>
       <FieldLabel fieldLabelSize="normal">Subject</FieldLabel>
       <FieldBody>
-        <Field helpText="This field is required" helpType="danger">
+        <Field>
           <Input
             variant="danger"
             type="text"
             placeholder="e.g. Partnership opportunity"
           />
+          <FieldHelp variant="danger">This field is required</FieldHelp>
         </Field>
       </FieldBody>
     </Field>

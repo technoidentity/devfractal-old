@@ -1,10 +1,6 @@
 import * as React from 'react'
 
-import classNames from 'classnames'
-
-import { Label, LabelSize } from './Label'
-
-import { Helpers, removeHelpers, helpersClasses } from '../modifiers'
+import { Helpers, classNamesHelper, Div } from '../modifiers'
 
 type FieldGroupModifier = 'grouped-centered' | 'grouped-right'
 
@@ -12,138 +8,42 @@ type FieldAddonModifier = 'addons-centered' | 'addons-right'
 
 type FieldSize = 'narrow' | 'expanded'
 
-// @TODO: All of these are supported?
-type HelpType = 'primary' | 'info' | 'success' | 'warning' | 'danger'
-
-export const Help: React.SFC<{ readonly variant?: HelpType }> = ({
-  variant,
-  children,
-}) => {
-  const classes: string = classNames('help', {
-    [`is-${variant}`]: variant,
-  })
-
-  return <p className={classes}>{children}</p>
-}
-
 export interface FieldProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
-  readonly label?: string
-  readonly labelSize?: LabelSize
-  readonly helpType?: HelpType
-  readonly helpText?: string
   readonly grouped?: boolean
   readonly addons?: boolean
   readonly horizontal?: boolean
   readonly groupedMultiline?: boolean
-  readonly fieldSize?: FieldSize
+  readonly size?: FieldSize
   readonly groupModifier?: FieldGroupModifier
   readonly addonsModifier?: FieldAddonModifier
 }
 
 export const Field: React.SFC<FieldProps> = ({
-  label,
-  labelSize,
-  helpType,
-  helpText,
   grouped,
   addons,
   horizontal,
   groupedMultiline,
   groupModifier,
-  fieldSize,
+  size,
   addonsModifier,
-  className,
   children,
   ...props
 }) => {
-  const classes: string = classNames(
-    'field',
-    {
-      [`is-grouped`]: grouped || groupedMultiline || groupModifier,
-      [`is-horizontal`]: horizontal,
-      [`has-addons`]: addons || addonsModifier,
-      [`is-${fieldSize}`]: fieldSize,
-      [`is-grouped-multiline`]: groupedMultiline,
-      [`is-${groupModifier}`]: groupModifier,
-      [`has-${addonsModifier}`]: addonsModifier,
-    },
-    helpersClasses(props),
-    className,
-  )
+  const classes: string = classNamesHelper(props, 'field', {
+    [`is-grouped`]: grouped || groupedMultiline || groupModifier,
+    [`is-horizontal`]: horizontal,
+    [`has-addons`]: addons || addonsModifier,
+    [`is-${size}`]: size,
+    [`is-grouped-multiline`]: groupedMultiline,
+    [`is-${groupModifier}`]: groupModifier,
+    [`has-${addonsModifier}`]: addonsModifier,
+  })
 
   return (
-    <div {...removeHelpers(props)} className={classes}>
-      {label && <Label size={labelSize}>{label}</Label>}
+    <Div {...props} className={classes}>
       {children}
-      {helpText && <Help variant={helpType}>{helpText}</Help>}
-    </div>
-  )
-}
-
-type FieldLabelSize = 'small' | 'normal' | 'medium' | 'large'
-
-export interface FieldLabelProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {
-  readonly fieldLabelSize?: FieldLabelSize
-}
-
-export const FieldLabel: React.SFC<FieldLabelProps> = ({
-  children,
-  fieldLabelSize,
-  className,
-  ...props
-}) => {
-  const classes: string = classNames(
-    'field-label',
-    [`is-${fieldLabelSize}`],
-    helpersClasses(props),
-    className,
-  )
-  return (
-    <div {...removeHelpers(props)} className={classes}>
-      <Label>{children}</Label>
-    </div>
-  )
-}
-
-export interface FieldBodyProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {}
-
-export const FieldBody: React.SFC<FieldBodyProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const classes: string = classNames(
-    'field-body',
-    className,
-    helpersClasses(props),
-  )
-
-  return (
-    <div {...removeHelpers(props)} className={classes}>
-      {children}
-    </div>
-  )
-}
-
-export interface FieldSetProps
-  extends React.FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    Helpers {}
-
-export const FieldSet: React.SFC<FieldSetProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const classes: string = classNames(className, helpersClasses(props))
-  return (
-    <fieldset {...removeHelpers(props)} className={classes}>
-      <div className="field">{children}</div>
-    </fieldset>
+    </Div>
   )
 }
