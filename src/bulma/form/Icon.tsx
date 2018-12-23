@@ -1,15 +1,7 @@
 import * as React from 'react'
 
-import classNames from 'classnames'
-
 import { ControlSize } from './ControlHelpers'
-import {
-  Helpers,
-  helpersClasses,
-  removeHelpers,
-  classNamesHelper,
-  Div,
-} from '../modifiers'
+import { Helpers, removeHelpers, classNamesHelper, Div } from '../modifiers'
 
 import {
   FontAwesomeIcon,
