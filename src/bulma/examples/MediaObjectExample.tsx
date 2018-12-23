@@ -10,9 +10,10 @@ import { TextArea } from '../form/TextArea'
 export const MediaObjectExample: React.SFC = () => (
   <Media>
     <MediaLeft>
-      <Image size="64x64">
-        <img src="https://bulma.io/images/placeholders/128x128.png" />
-      </Image>
+      <Image
+        size="64x64"
+        src="https://bulma.io/images/placeholders/128x128.png"
+      />
     </MediaLeft>
     <MediaContent>
       <Content>
@@ -23,13 +24,14 @@ export const MediaObjectExample: React.SFC = () => (
 
       <Media>
         <MediaLeft>
-          <Image size="32x32">
-            <img src="https://bulma.io/images/placeholders/128x128.png" />
-          </Image>
+          <Image
+            size="32x32"
+            src="https://bulma.io/images/placeholders/128x128.png"
+          />
         </MediaLeft>
         <MediaContent>
-          <Content className="is-medium">
-            <strong>Barbara Middleton</strong>
+          <Content size="medium">
+            <div>Barbara Middleton</div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta
             eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque
             mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
@@ -47,13 +49,14 @@ export const MediaObjectExample: React.SFC = () => (
           </Media>
           <Media>
             <MediaLeft>
-              <Image size="64x64">
-                <img src="https://bulma.io/images/placeholders/128x128.png" />
-              </Image>
+              <Image
+                size="64x64"
+                src="https://bulma.io/images/placeholders/128x128.png"
+              />
             </MediaLeft>
             <MediaContent>
               <Content>
-                <strong>Barbara Middleton</strong>
+                <div>Barbara Middleton</div>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
                 porta eros lacus, nec ultricies elit blandit non. Suspendisse
                 pellentesque mauris sit amet dolor blandit rutrum. Nunc in
@@ -63,16 +66,17 @@ export const MediaObjectExample: React.SFC = () => (
           </Media>
           <Media>
             <MediaLeft>
-              <Image className="is-48x48">
-                <img src="https://bulma.io/images/placeholders/128x128.png" />
-              </Image>
+              <Image
+                size="48x48"
+                src="https://bulma.io/images/placeholders/128x128.png"
+              />
             </MediaLeft>
             <MediaContent>
               <Field>
                 <TextArea variant="primary" />
               </Field>
               <Field>
-                <Button className="is-primary">Post comment</Button>
+                <Button variant="primary">Post comment</Button>
               </Field>
             </MediaContent>
           </Media>

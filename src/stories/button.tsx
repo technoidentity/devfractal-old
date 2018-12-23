@@ -31,15 +31,6 @@ storiesOf('Button ', module)
       <Button size="medium">medium</Button>
     </div>
   ))
-  .add('with style', () => (
-    <div>
-      <Button buttonStyle="rounded">rounded</Button>
-      <Button buttonStyle="inverted">inverted</Button>
-      <Button variant="primary" buttonStyle="outlined">
-        outlined
-      </Button>
-    </div>
-  ))
   .add('with state', () => (
     <div>
       <Button state="active">active</Button>
@@ -50,3 +41,6 @@ storiesOf('Button ', module)
     </div>
   ))
   .add('with fullWidth', () => <Button fullWidth={Boolean(true)}>OK</Button>)
+  .add('with rounded', () => <Button rounded={Boolean(true)}>OK</Button>)
+  .add('with inverted', () => <Button inverted={Boolean(true)}>OK</Button>)
+  .add('with outlined', () => <Button outlined={Boolean(true)}>OK</Button>)

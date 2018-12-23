@@ -16,6 +16,7 @@
     "jsx-no-multiline-js": false,
     "jsx-boolean-value": false,
     "label-position": true,
+    "no-unused-variable": true,
     "member-ordering": [
       true,
       {

@@ -21,25 +21,21 @@ export const CardExample: React.SFC = () => (
       </CardHeaderTitle>
     </CardHeader>
     <CardImage>
-      <Image responsiveImageRatio="2by3">
-        <img
-          src="https://bulma.io/images/placeholders/1280x960.png"
-          alt="Placeholder image"
-        />
-      </Image>
+      <Image
+        responsiveImageRatio="2by3"
+        src="https://bulma.io/images/placeholders/1280x960.png"
+      />
     </CardImage>
     <CardContent>
       <Media>
         <MediaLeft>
-          <Image size="48x48">
-            <img
-              src="https://bulma.io/images/placeholders/96x96.png"
-              alt="Placeholder image"
-            />
-          </Image>
+          <Image
+            size="48x48"
+            src="https://bulma.io/images/placeholders/96x96.png"
+          />
         </MediaLeft>
         <MediaContent>
-          <Title className="is-size-1">John Smith</Title>
+          <Title size="1">John Smith</Title>
           <SubTitle size="6">@johnsmith</SubTitle>
         </MediaContent>
       </Media>

@@ -29,14 +29,12 @@ export const PanelExample: React.SFC = () => (
     <PanelBlock>miniresetcss</PanelBlock>
     <PanelBlock>jgthms.github.io</PanelBlock>
     <PanelBlock>marksheet</PanelBlock>
-    <PanelBlock className="is-active">miniresetcss</PanelBlock>
+    <PanelBlock active>miniresetcss</PanelBlock>
     <PanelBlock>
       <CheckBox>Remember me</CheckBox>
     </PanelBlock>
     <PanelBlock>
-      <Button variant="primary" className="is-link is-outlined is-fullwidth">
-        reset all filters
-      </Button>
+      <Button variant="primary">reset all filters</Button>
     </PanelBlock>
   </Panel>
 )
