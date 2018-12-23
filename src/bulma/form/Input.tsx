@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import { Helpers, classNamesHelper } from '../modifiers'
+import { classNamesHelper } from '../modifiers'
 
-import { ControlHelpers, ControlWrapper } from './ControlHelpers'
-import { IconHelpers } from './iconHelpers'
-import { ControlDiv } from './ControlDiv'
+import { ControlWrapper } from './ControlHelpers'
+
+import { ControlDiv, AllControlHelpers } from './ControlDiv'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -28,9 +28,7 @@ type InputState = 'hovered' | 'focused'
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    ControlHelpers,
-    Helpers,
-    IconHelpers {
+    AllControlHelpers {
   readonly variant?: InputVariant
   readonly rounded?: boolean
   readonly state?: InputState
