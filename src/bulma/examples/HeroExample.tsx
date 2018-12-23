@@ -40,7 +40,7 @@ export const HeroExample: React.SFC = () => (
                 <NavbarItem>Examples</NavbarItem>
                 <NavbarItem>Documentation</NavbarItem>
                 <NavbarItem>
-                  <Button variant="primary" buttonStyle="inverted">
+                  <Button variant="primary" inverted>
                     <span>Download</span>
                   </Button>
                 </NavbarItem>
