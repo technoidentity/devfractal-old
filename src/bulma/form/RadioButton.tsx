@@ -1,32 +1,19 @@
 import React from 'react'
+import { Helpers, classNamesHelper, Div } from '../modifiers'
 
-interface RadioProps {
-  readonly name?: string
-  readonly value?: string
-  readonly onChange?: React.ChangeEventHandler<HTMLInputElement>
-  readonly checked?: boolean
-  readonly disabled?: boolean
-}
+export interface RadiobuttonProps
+  extends React.InputHTMLAttributes<HTMLInputElement>,
+    Helpers {}
 
-export const RadioButton: React.SFC<RadioProps> = ({
-  name,
-  value,
-  onChange,
-  checked,
-  disabled,
+export const RadioButton: React.SFC<RadiobuttonProps> = ({
   children,
-}) => (
-  <div className="control">
-    <label className="radio">
-      <input
-        type="radio"
-        name={name}
-        value={value}
-        onChange={onChange}
-        checked={checked}
-        disabled={disabled}
-      />
+  ...props
+}) => {
+  const classes: string = classNamesHelper(props, 'radio')
+  return (
+    <label className={classes}>
+      <Div as="input" {...props} type="radio" />
       {children}
     </label>
-  </div>
-)
+  )
+}
