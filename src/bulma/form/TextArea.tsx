@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import classNames from 'classnames'
-
-import { Helpers, removeHelpers, helpersClasses } from '../modifiers'
+import { classNamesHelper } from '../modifiers'
+import { ControlWrapper } from './ControlHelpers'
+import { ControlDiv, AllControlHelpers } from './ControlDiv'
 
 type TextAreaVariant = 'primary' | 'info' | 'warning' | 'success' | 'danger'
 
@@ -12,7 +12,7 @@ type TextAreaState = 'normal' | 'hovered' | 'focused'
 
 export interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    Helpers {
+    AllControlHelpers {
   readonly variant?: TextAreaVariant
   readonly size?: TextAreaSize
   readonly state?: TextAreaState
@@ -24,23 +24,17 @@ export const TextArea: React.SFC<TextAreaProps> = ({
   size,
   state,
   rows,
-  className,
   ...props
 }) => {
-  const classes: string = classNames(
-    'textarea',
-    {
-      [`is-${variant}`]: variant,
-      [`is-${size}`]: size,
-      [`is-${state}`]: state,
-    },
-    helpersClasses(props),
-    className,
-  )
+  const classes: string = classNamesHelper(props, 'textarea', {
+    [`is-${variant}`]: variant,
+    [`is-${size}`]: size,
+    [`is-${state}`]: state,
+  })
 
   return (
-    <div className="control">
-      <textarea {...removeHelpers(props)} className={classes} />
-    </div>
+    <ControlWrapper {...props}>
+      <ControlDiv as="textarea" {...props} className={classes} />
+    </ControlWrapper>
   )
 }
