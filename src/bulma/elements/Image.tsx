@@ -39,12 +39,14 @@ interface ImageProps
     CommonHelpers {
   readonly size?: FixedSquaredImageSize
   readonly responsiveImageRatio?: ResponsiveImageRatio
+  readonly rounded?: boolean
 }
 
 export const Image: React.SFC<ImageProps> = ({
   size,
   children,
   responsiveImageRatio,
+  rounded,
   className,
   ...props
 }) => {
@@ -57,7 +59,11 @@ export const Image: React.SFC<ImageProps> = ({
     [`is-${responsiveImageRatio}`]: responsiveImageRatio,
   })
 
-  const imgClasses: string = classNames(className, commonHelpersClasses(props))
+  const imgClasses: string = classNames(
+    { [`is-rounded`]: rounded },
+    className,
+    commonHelpersClasses(props),
+  )
 
   return (
     <figure className={classes}>
