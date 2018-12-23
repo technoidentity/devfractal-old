@@ -21,8 +21,6 @@ type ButtonSize = 'small' | 'normal' | 'medium' | 'large'
 
 type ButtonModifier = 'selected'
 
-type ButtonStyle = 'rounded' | 'inverted' | 'outlined'
-
 type ButtonState =
   | 'normal'
   | 'hovered'
@@ -30,6 +28,7 @@ type ButtonState =
   | 'active'
   | 'loading'
   | 'static'
+  | 'selected'
 
 type ButtonType = 'button' | 'reset' | 'submit'
 
@@ -74,7 +73,9 @@ interface ButtonProps
   readonly modifier?: ButtonModifier
   readonly state?: ButtonState
   readonly fullWidth?: boolean
-  readonly buttonStyle?: ButtonStyle
+  readonly rounded?: boolean
+  readonly inverted?: boolean
+  readonly outlined?: boolean
 }
 
 export const Button: React.SFC<ButtonProps> = ({
@@ -83,7 +84,9 @@ export const Button: React.SFC<ButtonProps> = ({
   modifier,
   state,
   fullWidth,
-  buttonStyle,
+  rounded,
+  inverted,
+  outlined,
   children,
   className,
   ...props
@@ -95,8 +98,10 @@ export const Button: React.SFC<ButtonProps> = ({
       [`is-${modifier}`]: modifier,
       [`is-${size}`]: size,
       [`is-${state}`]: state,
-      [`is-${buttonStyle}`]: buttonStyle,
       [`is-fullwidth`]: fullWidth,
+      [`is-rounded`]: rounded,
+      [`is-inverted`]: inverted,
+      [`is-outlined`]: outlined,
     },
     helpersClasses(props),
     className,
