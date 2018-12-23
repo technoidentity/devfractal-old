@@ -5,8 +5,7 @@ import classNames from 'classnames'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 import { Icon } from './Icon'
-
-import { Omit } from '../modifiers/commonHelpers'
+import { Omit } from '../../types'
 
 export interface ControlHelpers {
   readonly loading?: boolean

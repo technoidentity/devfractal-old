@@ -1,8 +1,5 @@
 import classNames from 'classnames'
-
-export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
-
-export type Only<T, U> = Pick<T, Extract<keyof T, U>>
+import { Omit } from '../../types'
 
 export interface CommonHelpers {
   readonly floating?: 'clearfix' | 'pulled-left' | 'pulled-right'

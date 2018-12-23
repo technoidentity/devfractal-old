@@ -1,4 +1,4 @@
-import { Omit } from './commonHelpers'
+import { Omit } from '../../types'
 
 export type Display =
   | 'block'

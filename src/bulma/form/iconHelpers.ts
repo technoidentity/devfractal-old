@@ -1,8 +1,7 @@
 import { ControlSize } from './ControlHelpers'
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-
-import { Omit } from '../modifiers/commonHelpers'
+import { Omit } from '../../types'
 
 export interface IconHelpers {
   readonly leftIcon?: IconDefinition

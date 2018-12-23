@@ -1,6 +1,5 @@
 import classNames from 'classnames'
-
-import { Omit } from './commonHelpers'
+import { Omit } from '../../types'
 
 export type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 

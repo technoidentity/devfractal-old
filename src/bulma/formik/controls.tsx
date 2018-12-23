@@ -5,10 +5,10 @@ import { FieldProps } from 'formik'
 import { Input } from '../form'
 import { CheckBox } from '../form'
 import { InputProps } from '../form/Input'
-import { Omit } from '../modifiers/commonHelpers'
 import { CheckBoxProps } from '../form/CheckBox'
 import { SelectProps, Select } from '../form/Select'
 import { TextAreaProps, TextArea } from '../form/TextArea'
+import { Omit } from '../../types'
 
 interface FormikInputProps<V> extends FieldProps<V>, Omit<InputProps, 'form'> {}
 
