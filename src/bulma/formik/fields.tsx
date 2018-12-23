@@ -8,10 +8,12 @@ import {
   FormikCheckbox,
   FormikSelect,
   FormikTextArea,
+  FormikRadioButton,
 } from './controls'
 import { CheckBoxProps } from '../form/CheckBox'
 import { SelectProps } from '../form/Select'
 import { TextAreaProps } from '../form/TextArea'
+import { RadiobuttonProps } from '../form/RadioButton'
 
 export type FormikFieldConfig = Pick<
   FieldConfig,
@@ -21,7 +23,7 @@ export type FormikFieldConfig = Pick<
 export type InputFieldProps = InputProps & FormikFieldConfig
 
 export const InputField: React.SFC<InputFieldProps> = props => (
-  <Field name={props.name} type={props.type} component={FormikInput} />
+  <Field {...props} component={FormikInput} />
 )
 
 export type CheckboxFieldProps = CheckBoxProps & FormikFieldConfig
@@ -29,7 +31,18 @@ export const CheckboxField: React.SFC<CheckboxFieldProps> = ({
   children,
   ...props
 }) => (
-  <Field name={props.name} component={FormikCheckbox}>
+  <Field {...props} component={FormikCheckbox}>
+    {children}
+  </Field>
+)
+
+export type RadioButtonFieldProps = RadiobuttonProps & FormikFieldConfig
+
+export const RadioButtonField: React.SFC<RadioButtonFieldProps> = ({
+  children,
+  ...props
+}) => (
+  <Field {...props} component={FormikRadioButton}>
     {children}
   </Field>
 )
@@ -40,7 +53,7 @@ export const SelectField: React.SFC<SelectFieldProps> = ({
   children,
   ...props
 }) => (
-  <Field name={props.name} component={FormikSelect}>
+  <Field {...props} component={FormikSelect}>
     {children}
   </Field>
 )
@@ -48,5 +61,5 @@ export const SelectField: React.SFC<SelectFieldProps> = ({
 export type TextAreaFieldProps = TextAreaProps & FormikFieldConfig
 
 export const TextAreaField: React.SFC<TextAreaFieldProps> = props => (
-  <Field name={props.name} component={FormikTextArea} />
+  <Field {...props} component={FormikTextArea} />
 )

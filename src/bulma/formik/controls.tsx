@@ -8,6 +8,7 @@ import { InputProps } from '../form/Input'
 import { CheckBoxProps } from '../form/CheckBox'
 import { SelectProps, Select } from '../form/Select'
 import { TextAreaProps, TextArea } from '../form/TextArea'
+import { RadioButton, RadiobuttonProps } from '../form/RadioButton'
 import { Omit } from '../../types'
 
 interface FormikInputProps<V> extends FieldProps<V>, Omit<InputProps, 'form'> {}
@@ -29,6 +30,20 @@ export const FormikCheckbox: <V = any>(
     {children}
   </CheckBox>
 )
+
+interface FormikRadioButtonProps<V>
+  extends FieldProps<V>,
+    Omit<RadiobuttonProps, 'form'> {}
+
+export const FormikRadioButton: <V = any>(
+  props: FormikRadioButtonProps<V>,
+) => JSX.Element = ({ form, field, children, ...props }) => {
+  return (
+    <RadioButton {...field} {...props}>
+      {children}
+    </RadioButton>
+  )
+}
 
 interface FormikSelectProps<V>
   extends FieldProps<V>,
