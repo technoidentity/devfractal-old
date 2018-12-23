@@ -1,30 +1,22 @@
 import * as React from 'react'
 
-import classNames from 'classnames'
-
-import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
+import { classNamesHelper } from '../modifiers'
+import { AllControlHelpers, ControlDiv } from './ControlDiv'
+import { ControlWrapper } from './ControlHelpers'
 
 export interface CheckBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    Helpers {}
+    AllControlHelpers {}
 
-export const CheckBox: React.SFC<CheckBoxProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const classes: string = classNames(
-    'checkbox',
-    helpersClasses(props),
-    className,
-  )
+export const CheckBox: React.SFC<CheckBoxProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'checkbox')
 
   return (
-    <div className="control">
+    <ControlWrapper {...props}>
       <label className="checkbox">
-        <input {...removeHelpers(props)} type="checkbox" className={classes} />
+        <ControlDiv {...props} type="checkbox" className={classes} />
         {children}
       </label>
-    </div>
+    </ControlWrapper>
   )
 }
