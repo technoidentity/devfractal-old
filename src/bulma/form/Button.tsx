@@ -1,6 +1,8 @@
 import * as React from 'react'
 
-import { Helpers, removeHelpers, classNamesHelper, Div } from '../modifiers'
+import { Helpers, classNamesHelper, Div } from '../modifiers'
+import { AllControlHelpers, ControlDiv } from './ControlDiv'
+import { ControlWrapper } from './ControlHelpers'
 
 type ButtonVariant =
   | 'white'
@@ -52,7 +54,7 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   })
 
   return (
-    <Div {...removeHelpers(props)} className={classes}>
+    <Div {...props} className={classes}>
       {children}
     </Div>
   )
@@ -60,7 +62,7 @@ export const Buttons: React.SFC<ButtonsProps> = ({
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    Helpers {
+    AllControlHelpers {
   readonly variant?: ButtonVariant
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier
@@ -89,10 +91,10 @@ export const Button: React.SFC<ButtonProps> = ({
   })
 
   return (
-    <div className="control">
-      <Div as="button" className={classes}>
+    <ControlWrapper {...props}>
+      <ControlDiv as="button" {...props} className={classes}>
         {children}
-      </Div>
-    </div>
+      </ControlDiv>
+    </ControlWrapper>
   )
 }
