@@ -1580,7 +1580,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.7.17":
+"@types/react@*", "@types/react@^16.7.18":
   version "16.7.18"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.7.18.tgz#f4ce0d539a893dd61e36cd11ae3a5e54f5a48337"
   integrity sha512-Tx4uu3ppK53/iHk6VpamMP3f3ahfDLEVt3ZQc8TFm30a1H3v9lMsCntBREswZIW/SKrvJjkb3Hq8UwO6GREBng==
@@ -1640,7 +1640,7 @@
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.13.6.tgz#128d1685a7c34d31ed17010fc87d6a12c1de6976"
   integrity sha512-5Th3OsZ4gTRdr9Mho83BQ23cex4sRhOR4XTG+m+cJc0FhtUBK9Vn62hBJ+pnQYnSxoPOsKoAPOx6FcphxBC8ng==
 
-"@types/yup@^0.26.2":
+"@types/yup@^0.26.3":
   version "0.26.3"
   resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.3.tgz#7991240645fc8171481838b01a19e355dfdb17fc"
   integrity sha512-Df1N/EAMOvz9qlt5JbNX8ZvkMTcZcHWQU1nJ6jdz5aTx/oRnn1cmtOTtd+1AEVYDZshqJR3t7nRGPutADiVa/g==
@@ -4196,10 +4196,10 @@ cssesc@^2.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-2.0.0.tgz#3b13bd1bb1cb36e1bcb5a4dcd27f54c5dcb35703"
   integrity sha512-MsCAG1z9lPdoO/IUMLSBWBSVxVtJ1395VGIQ+Fc2gNdkQ1hNDnQdw3YhA71WJCBW1vdwA0cAnk/DnW6bqoEUYg==
 
-cssnano-preset-default@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-4.0.5.tgz#d1756c0259d98ad311e601ba76e95c60f6771ac1"
-  integrity sha512-f1uhya0ZAjPYtDD58QkBB0R+uYdzHPei7cDxJyQQIHt5acdhyGXaSXl2nDLzWHLwGFbZcHxQtkJS8mmNwnxTvw==
+cssnano-preset-default@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-4.0.6.tgz#92379e2a6db4a91c0ea727f5f556eeac693eab6a"
+  integrity sha512-UPboYbFaJFtDUhJ4fqctThWbbyF4q01/7UhsZbLzp35l+nUxtzh1SifoVlEfyLM3n3Z0htd8B1YlCxy9i+bQvg==
   dependencies:
     css-declaration-sorter "^4.0.1"
     cssnano-util-raw-cache "^4.0.1"
@@ -4211,7 +4211,7 @@ cssnano-preset-default@^4.0.5:
     postcss-discard-duplicates "^4.0.2"
     postcss-discard-empty "^4.0.1"
     postcss-discard-overridden "^4.0.1"
-    postcss-merge-longhand "^4.0.9"
+    postcss-merge-longhand "^4.0.10"
     postcss-merge-rules "^4.0.2"
     postcss-minify-font-values "^4.0.2"
     postcss-minify-gradients "^4.0.1"
@@ -4255,12 +4255,12 @@ cssnano-util-same-parent@^4.0.0:
   integrity sha512-WcKx5OY+KoSIAxBW6UBBRay1U6vkYheCdjyVNDm85zt5K9mHoGOfsOsqIszfAqrQQFIIKgjh2+FDgIj/zsl21Q==
 
 cssnano@^4.1.0:
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.7.tgz#0bf112294bec103ab5f68d3f805732c8325a0b1b"
-  integrity sha512-AiXL90l+MDuQmRNyypG2P7ux7K4XklxYzNNUd5HXZCNcH8/N9bHPcpN97v8tXgRVeFL/Ed8iP8mVmAAu0ZpT7A==
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.8.tgz#8014989679d5fd42491e4499a521dbfb85c95fd1"
+  integrity sha512-5GIY0VzAHORpbKiL3rMXp4w4M1Ki+XlXgEXyuWXVd3h6hlASb+9Vo76dNP56/elLMVBBsUfusCo1q56uW0UWig==
   dependencies:
     cosmiconfig "^5.0.0"
-    cssnano-preset-default "^4.0.5"
+    cssnano-preset-default "^4.0.6"
     is-resolvable "^1.0.0"
     postcss "^7.0.0"
 
@@ -4346,13 +4346,13 @@ debug@^3.1.0:
     ms "^2.1.1"
 
 debug@^4.0.1, debug@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
-  integrity sha512-heNPJUJIqC+xB6ayLAMHaIrmN9HKa7aQO8MGqKpvCA+uJYVcvR6l5kgdrhRuwPFHU7P5/A1w0BjByPHwpfTDKg==
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
+  integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
   dependencies:
     ms "^2.1.1"
 
-debuglog@^1.0.1:
+debuglog@*, debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
@@ -4721,7 +4721,7 @@ dotenv@^6.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
-downshift@^3.1.7:
+downshift@^3.1.8:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/downshift/-/downshift-3.1.8.tgz#0f4c64efeffae1fb978139522035a2e640cb2a01"
   integrity sha512-giO9makvijAxDmG60XpVk84v8ovI4ex11/im4H354kq9kjxDP7SlylF6Gua2V6hRPrz7FtQM/c6rrOkXyO1Q+Q==
@@ -6511,9 +6511,9 @@ humps@^2.0.1:
   integrity sha1-3QLqYIG9BWjcXQcxhEY5V7qe+ao=
 
 husky@^1.2.1:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-1.3.0.tgz#fbb97b5e52739d945fd86c3bf92def0ea60175c4"
-  integrity sha512-0Yfh4PkWr8Nrume/lEMgSgK5zg8Q19jGM7jDmN7H92VrqgcYSbn+CM1iLGmAvQSNWuaPx9iq/rq/4Y8LPX6dLA==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-1.2.1.tgz#33628f7013e345c1790a4dbe4642ad047f772dee"
+  integrity sha512-4Ylal3HWhnDvIszuiyLoVrSGI7QLg/ogkNCoHE34c+yZYzb9kBZNrlTOsdw92cGi3cJT8pPb6CdVfxFkLnc8Dg==
   dependencies:
     cosmiconfig "^5.0.7"
     execa "^1.0.0"
@@ -6525,11 +6525,6 @@ husky@^1.2.1:
     read-pkg "^4.0.1"
     run-node "^1.0.0"
     slash "^2.0.0"
-
-i@^0.3.6:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/i/-/i-0.3.6.tgz#d96c92732076f072711b6b10fd7d4f65ad8ee23d"
-  integrity sha1-2WyScyB28HJxG2sQ/X1PZa2O4j0=
 
 iconv-lite@0.4.23:
   version "0.4.23"
@@ -6654,7 +6649,7 @@ import-local@^2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
-imurmurhash@^0.1.4:
+imurmurhash@*, imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -8137,6 +8132,11 @@ lodash-es@^4.17.11:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
   integrity sha512-DHb1ub+rMjjrxqlB3H56/6MXtm1lSksDp2rA2cNWjG8mlDUYFhUj3Di2Zn5IwSU87xLv8tNIQ7sSwE/YOX/D/Q==
 
+lodash._baseindexof@*:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/lodash._baseindexof/-/lodash._baseindexof-3.1.0.tgz#fe52b53a1c6761e42618d654e4a25789ed61822c"
+  integrity sha1-/lK1OhxnYeQmGNZU5KJXie1hgiw=
+
 lodash._baseuniq@~4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash._baseuniq/-/lodash._baseuniq-4.6.0.tgz#0ebb44e456814af7905c6212fa2c9b2d51b841e8"
@@ -8145,10 +8145,32 @@ lodash._baseuniq@~4.6.0:
     lodash._createset "~4.0.0"
     lodash._root "~3.0.0"
 
+lodash._bindcallback@*:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
+  integrity sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
+
+lodash._cacheindexof@*:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/lodash._cacheindexof/-/lodash._cacheindexof-3.0.2.tgz#3dc69ac82498d2ee5e3ce56091bafd2adc7bde92"
+  integrity sha1-PcaayCSY0u5ePOVgkbr9Ktx73pI=
+
+lodash._createcache@*:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/lodash._createcache/-/lodash._createcache-3.1.2.tgz#56d6a064017625e79ebca6b8018e17440bdcf093"
+  integrity sha1-VtagZAF2JeeevKa4AY4XRAvc8JM=
+  dependencies:
+    lodash._getnative "^3.0.0"
+
 lodash._createset@~4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
   integrity sha1-D0ZZ+7CddRlPqeK4imZE02PJ/iY=
+
+lodash._getnative@*, lodash._getnative@^3.0.0:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
+  integrity sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
 
 lodash._reinterpolate@~3.0.0:
   version "3.0.0"
@@ -8184,6 +8206,11 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
+
+lodash.restparam@*:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
+  integrity sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
 
 lodash.some@^4.6.0:
   version "4.6.0"
@@ -10072,10 +10099,10 @@ postcss-media-minmax@^4.0.0:
   dependencies:
     postcss "^7.0.2"
 
-postcss-merge-longhand@^4.0.9:
-  version "4.0.9"
-  resolved "https://registry.yarnpkg.com/postcss-merge-longhand/-/postcss-merge-longhand-4.0.9.tgz#c2428b994833ffb2a072f290ca642e75ceabcd6f"
-  integrity sha512-UVMXrXF5K/kIwUbK/crPFCytpWbNX2Q3dZSc8+nQUgfOHrCT4+MHncpdxVphUlQeZxlLXUJbDyXc5NBhTnS2tA==
+postcss-merge-longhand@^4.0.10:
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/postcss-merge-longhand/-/postcss-merge-longhand-4.0.10.tgz#c4d63ab57bdc054ab4067ab075d488c8c2978380"
+  integrity sha512-hME10s6CSjm9nlVIcO1ukR7Jr5RisTaaC1y83jWCivpuBtPohA3pZE7cGTIVSYjXvLnXozHTiVOkG4dnnl756g==
   dependencies:
     css-color-names "0.0.4"
     postcss "^7.0.0"
@@ -10390,9 +10417,9 @@ postcss-selector-parser@^3.0.0:
     uniq "^1.0.1"
 
 postcss-selector-parser@^5.0.0-rc.3, postcss-selector-parser@^5.0.0-rc.4:
-  version "5.0.0-rc.4"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-5.0.0-rc.4.tgz#ca5e77238bf152966378c13e91ad6d611568ea87"
-  integrity sha512-0XvfYuShrKlTk1ooUrVzMCFQRcypsdEIsGqh5IxC5rdtBi4/M/tDAJeSONwC2MTqEFsmPZYAV7Dd4X8rgAfV0A==
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-5.0.0.tgz#249044356697b33b64f1a8f7c80922dddee7195c"
+  integrity sha512-w+zLE5Jhg6Liz8+rQOWEAwtwkyqpfnmsinXjXg6cY7YIONZZtgvE0v2O0uhQBs0peNomOJwWRKt6JBfTdTd3OQ==
   dependencies:
     cssesc "^2.0.0"
     indexes-of "^1.0.1"
@@ -11070,10 +11097,10 @@ react-split-pane@^0.1.84:
     react-lifecycles-compat "^3.0.4"
     react-style-proptype "^3.0.0"
 
-react-spring@^7.2.1:
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-7.2.3.tgz#7801d59378b62cdbbd52a117c5cf7af7ec23f9b9"
-  integrity sha512-TGHzN60iMRGhKXujriTwVifZ/NidpnyiC7n8ogs9HAC1n6NmLcvZ+mjctqCB2+gfPodKAG0h5ezr1a/4vFFuyQ==
+react-spring@^7.2.4:
+  version "7.2.4"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-7.2.4.tgz#88d2d97f018a3684528dc0cbf7c4511aab15a407"
+  integrity sha512-+h5CXhxpoeA5phIzNFLKjWq8rfViN52SEjGpflwgbGOF7EO9mPyvCUOEx9EcNbf2vOacbwezIYaPtacnJAW6lw==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
@@ -11252,7 +11279,7 @@ readable-stream@~1.1.10:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readdir-scoped-modules@^1.0.0:
+readdir-scoped-modules@*, readdir-scoped-modules@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/readdir-scoped-modules/-/readdir-scoped-modules-1.0.2.tgz#9fafa37d286be5d92cbaebdee030dc9b5f406747"
   integrity sha1-n6+jfShr5dksuuve4DDcm19AZ0c=
@@ -12696,10 +12723,24 @@ term-size@^1.2.0:
   dependencies:
     execa "^0.7.0"
 
-terser-webpack-plugin@1.1.0, terser-webpack-plugin@^1.1.0:
+terser-webpack-plugin@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.1.0.tgz#cf7c25a1eee25bf121f4a587bb9e004e3f80e528"
   integrity sha512-61lV0DSxMAZ8AyZG7/A4a3UPlrbOBo8NIQ4tJzLPAdGOQ+yoNC7l5ijEow27lBAL2humer01KLS6bGIMYQxKoA==
+  dependencies:
+    cacache "^11.0.2"
+    find-cache-dir "^2.0.0"
+    schema-utils "^1.0.0"
+    serialize-javascript "^1.4.0"
+    source-map "^0.6.1"
+    terser "^3.8.1"
+    webpack-sources "^1.1.0"
+    worker-farm "^1.5.2"
+
+terser-webpack-plugin@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.2.0.tgz#24697213f2128009080f39f081c18cb2221d91ff"
+  integrity sha512-QW7RACLS89RalHtLDb0s8+Iqcs/IAEw1rnVrV+mS7Gx1kgPG8o1g33JhAGDgc/CQ84hLsTW5WrAMdVysh692yg==
   dependencies:
     cacache "^11.0.2"
     find-cache-dir "^2.0.0"
@@ -13560,9 +13601,9 @@ webpack@4.19.1:
     webpack-sources "^1.2.0"
 
 webpack@^4.23.1:
-  version "4.28.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.28.1.tgz#d0e2856e75d1224b170bf16c30b6ca9b75f0d958"
-  integrity sha512-qAS7BFyS5iuOZzGJxyDXmEI289h7tVNtJ5XMxf6Tz55J2riOyH42uaEsWF0F32TRaI+54SmI6qRgHM3GzsZ+sQ==
+  version "4.28.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.28.2.tgz#6b534a8bc91a45787ed631dc2e87aec94e9e4db7"
+  integrity sha512-PK3uVg3/NuNVOjPfYleFI6JF7khO7c2kIlksH7mivQm+QDcwiqV1x6+q89dDeOioh5FNxJHr3LKbDu3oSAhl9g==
   dependencies:
     "@webassemblyjs/ast" "1.7.11"
     "@webassemblyjs/helper-module-context" "1.7.11"
