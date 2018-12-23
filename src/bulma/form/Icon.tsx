@@ -3,7 +3,13 @@ import * as React from 'react'
 import classNames from 'classnames'
 
 import { ControlSize } from './ControlHelpers'
-import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
+import {
+  Helpers,
+  helpersClasses,
+  removeHelpers,
+  classNamesHelper,
+  Div,
+} from '../modifiers'
 
 import {
   FontAwesomeIcon,
@@ -23,22 +29,16 @@ export const Icon: React.SFC<IconProps> = ({
   iconSize,
   direction,
   children,
-  className,
   ...props
 }) => {
-  const classes: string = classNames(
-    'icon',
-    {
-      [`is-${iconSize}`]: iconSize,
-      [`is-${direction}`]: direction,
-    },
-    helpersClasses(props),
-    className,
-  )
+  const classes: string = classNamesHelper(props, 'icon', {
+    [`is-${iconSize}`]: iconSize,
+    [`is-${direction}`]: direction,
+  })
 
   return (
-    <span className={classes}>
+    <Div as="span" className={classes}>
       <FontAwesomeIcon {...removeHelpers(props)}>{children}</FontAwesomeIcon>
-    </span>
+    </Div>
   )
 }
