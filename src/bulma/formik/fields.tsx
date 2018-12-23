@@ -2,16 +2,14 @@ import * as React from 'react'
 
 import { Field, FieldConfig } from 'formik'
 
-import { InputProps } from '../form/Input'
+import { CheckBoxProps, SelectProps, TextAreaProps, InputProps } from '../form'
+
 import {
   FormikInput,
   FormikCheckbox,
   FormikSelect,
   FormikTextArea,
 } from './controls'
-import { CheckBoxProps } from '../form/CheckBox'
-import { SelectProps } from '../form/Select'
-import { TextAreaProps } from '../form/TextArea'
 
 export type FormikFieldConfig = Pick<
   FieldConfig,

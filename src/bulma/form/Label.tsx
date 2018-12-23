@@ -4,7 +4,7 @@ import { Helpers, classNamesHelper, Div } from '../modifiers'
 
 export type LabelSize = 'small' | 'medium' | 'large'
 
-interface LabelProps
+export interface LabelProps
   extends React.LabelHTMLAttributes<HTMLLabelElement>,
     Helpers {
   readonly size?: LabelSize

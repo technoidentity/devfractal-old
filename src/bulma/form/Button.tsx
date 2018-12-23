@@ -59,7 +59,7 @@ export const Buttons: React.SFC<ButtonsProps> = ({
   )
 }
 
-interface ButtonProps
+export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     AllControlHelpers {
   readonly variant?: ButtonVariant

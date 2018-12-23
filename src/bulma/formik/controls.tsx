@@ -2,12 +2,17 @@ import * as React from 'react'
 
 import { FieldProps } from 'formik'
 
-import { Input } from '../form'
-import { CheckBox } from '../form'
-import { InputProps } from '../form/Input'
-import { CheckBoxProps } from '../form/CheckBox'
-import { SelectProps, Select } from '../form/Select'
-import { TextAreaProps, TextArea } from '../form/TextArea'
+import {
+  InputProps,
+  CheckBoxProps,
+  SelectProps,
+  TextAreaProps,
+  Input,
+  CheckBox,
+  Select,
+  TextArea,
+} from '../form'
+
 import { Omit } from '../../types'
 
 interface FormikInputProps<V> extends FieldProps<V>, Omit<InputProps, 'form'> {}
