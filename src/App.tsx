@@ -302,33 +302,29 @@ export const Routes: React.SFC = () => (
     <OtherRoutes />
   </>
 )
-class App extends React.Component {
-  render(): JSX.Element {
-    return (
-      <div>
-        <div className="title has-text-centered">
-          Examples using Bulma components in devfractal
-        </div>
-        <Router>
-          <Columns>
-            <Column>
-              <Content>
-                <Links />
-              </Content>
-            </Column>
-            <Column>
-              <Section>
-                <Container>
-                  <Routes />
-                </Container>
-              </Section>
-            </Column>
-          </Columns>
-        </Router>
-      </div>
-    )
-  }
-}
+const App: React.SFC = () => (
+  <div>
+    <div className="title has-text-centered">
+      Examples using Bulma components in devfractal
+    </div>
+    <Router>
+      <Columns>
+        <Column>
+          <Content>
+            <Links />
+          </Content>
+        </Column>
+        <Column>
+          <Section>
+            <Container>
+              <Routes />
+            </Container>
+          </Section>
+        </Column>
+      </Columns>
+    </Router>
+  </div>
+)
 
 // tslint:disable-next-line:no-default-export
 export default App

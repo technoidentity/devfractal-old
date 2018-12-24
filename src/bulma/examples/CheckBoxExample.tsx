@@ -2,8 +2,6 @@ import React from 'react'
 import { CheckBox } from '../form/CheckBox'
 import { logger } from './common'
 
-// import { logger } from './common'
-
 export const CheckBoxExample: React.SFC = () => (
   <div>
     <CheckBox readOnly checked>
