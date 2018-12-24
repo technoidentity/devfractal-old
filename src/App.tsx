@@ -1,10 +1,7 @@
 import * as React from 'react'
 
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
-import { Column } from './bulma/columns/Column'
-import { Columns } from './bulma/columns/Columns'
 import { Container } from './bulma/layout/Container'
-import { Content } from './bulma/elements/Content'
 import { Section } from './bulma/layout/Section'
 
 import {
@@ -50,8 +47,15 @@ import {
   UserForm,
   FileExample,
   FormikSignUpForm,
-  AllFieldExamples,
 } from './bulma/examples'
+import { FrontPage } from './bulma/examples/FrontPage'
+import { Form } from './bulma/front-page-tabs/Form'
+import { Elements } from './bulma/front-page-tabs/Elements'
+import { Modifiers } from './bulma/front-page-tabs/Modifiers'
+import { Layout } from './bulma/front-page-tabs/Layout'
+import { Columns } from './bulma/front-page-tabs/Columns'
+import { Components } from './bulma/front-page-tabs/Components'
+import { Content } from './bulma/elements'
 
 export const FormLinks: React.SFC = () => (
   <>
@@ -237,7 +241,25 @@ export const ComponentsRoutes: React.SFC = () => (
 export const OtherLinks: React.SFC = () => (
   <>
     <li>
-      <Link to="/field-examples">AllFieldExamples</Link>
+      <Link to="/front-page">Front Page</Link>
+    </li>
+    <li>
+      <Link to="/form">Form</Link>
+    </li>
+    <li>
+      <Link to="/layout">Layout</Link>
+    </li>
+    <li>
+      <Link to="/modifiers">Modifiers</Link>
+    </li>
+    <li>
+      <Link to="/columns">Columns</Link>
+    </li>
+    <li>
+      <Link to="/components">Components</Link>
+    </li>
+    <li>
+      <Link to="/elements">Elements</Link>
     </li>
     <li>
       <Link to="/todo-example">Todo Example</Link>
@@ -268,7 +290,13 @@ export const OtherLinks: React.SFC = () => (
 
 export const OtherRoutes: React.SFC = () => (
   <>
-    <Route path="/field-examples" exact component={AllFieldExamples} />
+    <Route path="/front-page" exact component={FrontPage} />
+    <Route path="/form" exact component={Form} />
+    <Route path="/components" exact component={Components} />
+    <Route path="/elements" exact component={Elements} />
+    <Route path="/modifiers" exact component={Modifiers} />
+    <Route path="/layout" exact component={Layout} />
+    <Route path="/columns" exact component={Columns} />
     <Route path="/sample-form" exact component={SampleForm} />
     <Route path="/login-form" exact component={LoginForm} />
     <Route path="/simple-login-form" exact component={SimpleLoginForm} />
@@ -285,11 +313,11 @@ export const Links: React.SFC = () => (
   <Content>
     <ul>
       <nav>
+        <OtherLinks />
         <FormLinks />
         <LayoutLinks />
         <ComponentsLinks />
         <ElementsLinks />
-        <OtherLinks />
       </nav>
     </ul>
   </Content>
@@ -297,35 +325,22 @@ export const Links: React.SFC = () => (
 
 export const Routes: React.SFC = () => (
   <>
+    <Route path="/" exact component={FrontPage} />
+    <OtherRoutes />
     <FormRoutes />
     <ElementsRoutes />
     <ComponentsRoutes />
     <LayoutRoutes />
-    <OtherRoutes />
   </>
 )
 class App extends React.Component {
   render(): JSX.Element {
     return (
       <div>
-        <div className="title has-text-centered">
-          Examples using Bulma components in devfractal
-        </div>
         <Router>
-          <Columns>
-            <Column>
-              <Content>
-                <Links />
-              </Content>
-            </Column>
-            <Column>
-              <Section>
-                <Container>
-                  <Routes />
-                </Container>
-              </Section>
-            </Column>
-          </Columns>
+          <Section>
+            <Routes />
+          </Section>
         </Router>
       </div>
     )
