@@ -1,7 +1,6 @@
-import * as React from 'react'
-
-import { string, object, ObjectSchema, number } from 'yup'
-
+import React from 'react'
+import { boolean, number, object, ObjectSchema, string } from 'yup'
+import { RadioButtonGroup } from '../form'
 import { consoleSubmit, Simple, SimpleValues } from '../formik'
 import { Section } from '../layout'
 
@@ -10,6 +9,9 @@ interface SimpleValues {
   readonly password: string
   readonly email: string
   readonly tel: number
+  readonly remember: boolean
+  readonly answer: string
+  readonly select: string
 }
 
 const initialValues: SimpleValues = {
@@ -17,6 +19,9 @@ const initialValues: SimpleValues = {
   password: '',
   email: '',
   tel: 0,
+  remember: true,
+  answer: '',
+  select: '',
 }
 
 const simpleSchema: ObjectSchema<SimpleValues> = object({
@@ -24,6 +29,9 @@ const simpleSchema: ObjectSchema<SimpleValues> = object({
   password: string().required('This field is required'),
   email: string().required('This field is required'),
   tel: number().required('This field is required'),
+  answer: string().required('This field is required'),
+  select: string().required('This field is required'),
+  remember: boolean().required('This field is required'),
 })
 
 export const SimpleExamples: React.SFC = () => (
@@ -37,10 +45,18 @@ export const SimpleExamples: React.SFC = () => (
       <Simple.Password label="Password:" name="password" />
       <Simple.Email label="Email:" name="email" />
       <Simple.Telephone label="Telephone:" name="tel" />
-      <Simple.Checkbox name="remember">yes</Simple.Checkbox>
+      <Simple.Checkbox name="remember">Remember Me</Simple.Checkbox>
+      <RadioButtonGroup>
+        <Simple.RadioButton name="answer" value="yes">
+          Female
+        </Simple.RadioButton>
+        <Simple.RadioButton name="answer" value="no">
+          Male
+        </Simple.RadioButton>
+      </RadioButtonGroup>
       <Simple.Select name="select">
-        <option>associate</option>
-        <option>assistant</option>
+        <option value="associate">associate</option>
+        <option value="assistant">assistant</option>
       </Simple.Select>
       <Simple.TextArea label="TextArea" name="input" />
       <Simple.FormButtons />

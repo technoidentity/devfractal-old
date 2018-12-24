@@ -1,10 +1,8 @@
-import * as React from 'react'
-
 import classNames from 'classnames'
-
+import React from 'react'
 import { classNamesHelper } from '../modifiers'
+import { AllControlHelpers, ControlDiv } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
-import { ControlDiv, AllControlHelpers } from './ControlDiv'
 
 type SelectVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -47,7 +45,7 @@ export const Select: React.SFC<SelectProps> = ({
   return (
     <ControlWrapper {...props}>
       <div className={divClasses}>
-        <ControlDiv as="select" className={classes}>
+        <ControlDiv as="select" {...props} className={classes}>
           {children}
         </ControlDiv>
       </div>

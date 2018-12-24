@@ -1,10 +1,10 @@
-import * as React from 'react'
 import classNames from 'classnames'
+import React from 'react'
 import {
   CommonHelpers,
+  commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
-  commonHelpersClasses,
 } from '../modifiers/commonHelpers'
 
 interface ModalProps

@@ -1,15 +1,15 @@
-// tslint:disable
-
-export const camelCaseToPhrase = (arg: string) => {
+export const camelCaseToPhrase: (arg: string) => string = arg => {
+  // tslint:disable-next-line:no-let
   let result: string = ''
   if (arg.length === 0) {
     return ''
   }
   result += arg[0].toUpperCase()
 
+  // tslint:disable-next-line:no-loop-statement typedef no-let
   for (let j = 1; j < arg.length; j += 1) {
     if (arg[j] === arg[j].toUpperCase()) {
-      result += ' ' + arg[j].toLowerCase()
+      result += ` ${arg[j].toLowerCase()}`
     } else {
       result += arg[j]
     }

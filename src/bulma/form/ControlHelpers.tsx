@@ -1,17 +1,14 @@
-import * as React from 'react'
-
-import classNames from 'classnames'
-
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-
-import { Icon } from './Icon'
+import classNames from 'classnames'
+import React from 'react'
 import { Omit } from '../../types'
+import { Icon } from './Icon'
 
 export interface ControlHelpers {
   readonly loading?: boolean
   readonly expanded?: boolean
   readonly fullWidth?: boolean
-  readonly controlSize?: ControlSize
+  readonly ctrlSize?: ControlSize
   readonly leftIcon?: IconDefinition
   readonly rightIcon?: IconDefinition
   readonly noControl?: true
@@ -24,7 +21,7 @@ type ControlClassesArgs = ControlHelpers
 export const controlClasses: (props: ControlClassesArgs) => string = ({
   loading,
   expanded,
-  controlSize,
+  ctrlSize: controlSize,
   leftIcon,
   rightIcon,
 }) =>
@@ -44,7 +41,7 @@ export const removeControlHelpers: <T extends ControlHelpers>(
   loading,
   expanded,
   fullWidth,
-  controlSize,
+  ctrlSize: controlSize,
   leftIcon,
   rightIcon,
   noControl,

@@ -1,26 +1,23 @@
 import classNames from 'classnames'
-
+import { ClassNameArg } from '../../utils/classNames'
 import {
-  commonHelpersClasses,
-  removeCommonHelpers,
   CommonHelpers,
+  commonHelpersClasses,
   CommonHelpersRemoved,
+  removeCommonHelpers,
 } from './commonHelpers'
-
 import {
-  responsiveClass,
   removeResponsiveHelpers,
+  responsiveClass,
   ResponsiveHelpers,
   ResponsiveHelpersRemoved,
 } from './responsiveHelpers'
-
 import {
-  textHelpersClasses,
   removeTextHelpers,
   TextHelpers,
+  textHelpersClasses,
   TextHelpersRemoved,
 } from './textHelpers'
-import { ClassNameArg } from '../../utils/classNames'
 
 export interface Helpers
   extends CommonHelpers,

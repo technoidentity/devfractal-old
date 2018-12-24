@@ -1,10 +1,7 @@
-import * as React from 'react'
-
+import React from 'react'
 import { classNamesHelper } from '../modifiers'
-
+import { AllControlHelpers, ControlDiv } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
-
-import { ControlDiv, AllControlHelpers } from './ControlDiv'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
@@ -44,7 +41,7 @@ export const Input: React.SFC<InputProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'input', {
     [`is-${variant}`]: variant,
-    [`is-${props.controlSize}`]: props.controlSize,
+    [`is-${props.ctrlSize}`]: props.ctrlSize,
     [`is-rounded`]: rounded,
     [`is-${state}`]: state,
   })

@@ -1,19 +1,18 @@
-import * as React from 'react'
-
 import { FieldProps } from 'formik'
-
-import {
-  InputProps,
-  CheckBoxProps,
-  SelectProps,
-  TextAreaProps,
-  Input,
-  CheckBox,
-  Select,
-  TextArea,
-} from '../form'
-
+import React from 'react'
 import { Omit } from '../../types'
+import {
+  CheckBox,
+  CheckBoxProps,
+  Input,
+  InputProps,
+  RadioButton,
+  RadioButtonProps,
+  Select,
+  SelectProps,
+  TextArea,
+  TextAreaProps,
+} from '../form'
 
 interface FormikInputProps<V> extends FieldProps<V>, Omit<InputProps, 'form'> {}
 
@@ -34,6 +33,20 @@ export const FormikCheckbox: <V = any>(
     {children}
   </CheckBox>
 )
+
+interface FormikRadioButtonProps<V>
+  extends FieldProps<V>,
+    Omit<RadioButtonProps, 'form'> {}
+
+export const FormikRadioButton: <V = any>(
+  props: FormikRadioButtonProps<V>,
+) => JSX.Element = ({ form, field, children, ...props }) => {
+  return (
+    <RadioButton {...field} {...props}>
+      {children}
+    </RadioButton>
+  )
+}
 
 interface FormikSelectProps<V>
   extends FieldProps<V>,

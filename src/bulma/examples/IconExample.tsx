@@ -1,12 +1,11 @@
-import * as React from 'react'
-
 import {
-  faUser,
+  faBan,
   faCheck,
   faExclamationTriangle,
-  faBan,
   faHome,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import { Icon } from '../form/Icon'
 
 export const IconExample: React.SFC = () => (

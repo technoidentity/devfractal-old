@@ -1,7 +1,5 @@
-import * as React from 'react'
-
-import { Form, Field, Formik, FormikProps, ErrorMessage } from 'formik'
-
+import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
+import React from 'react'
 import * as Yup from 'yup'
 import { logger } from './common'
 
@@ -91,5 +89,9 @@ export const SignUpForm: React.SFC<SignUpFormProps> = ({ onSignUp }) => (
 )
 
 export const FormikSignUpForm: React.SFC = () => (
-  <SignUpForm onSignUp={() => logger('hello')} />
+  <SignUpForm
+    onSignUp={() => {
+      logger('SignUpForm onSignUp')
+    }}
+  />
 )

@@ -1,11 +1,10 @@
-import * as React from 'react'
-
 import classNames from 'classnames'
+import React from 'react'
 import {
   CommonHelpers,
-  removeCommonHelpers,
   commonHelpersClasses,
   CommonHelpersRemoved,
+  removeCommonHelpers,
 } from '../modifiers/commonHelpers'
 
 interface BoxProps

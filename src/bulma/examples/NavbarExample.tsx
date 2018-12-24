@@ -1,17 +1,17 @@
-import * as React from 'react'
+import React from 'react'
 import {
   Navbar,
   NavbarBrand,
-  NavbarItem,
   NavbarBurger,
+  NavbarDivider,
+  NavbarDropdown,
+  NavbarEnd,
+  NavbarItem,
+  NavbarLink,
   NavbarMenu,
   NavbarStart,
-  NavbarLink,
-  NavbarDropdown,
-  NavbarDivider,
-  NavbarEnd,
 } from '../components/Navbar'
-import { Buttons, Button } from '../form/Button'
+import { Button, Buttons } from '../form/Button'
 
 export const NavbarExample: React.SFC = () => (
   <Navbar>

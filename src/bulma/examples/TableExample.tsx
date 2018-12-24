@@ -1,13 +1,12 @@
-import * as React from 'react'
-
+import React from 'react'
 import {
   Table,
-  TableHead,
   TableBody,
   TableFoot,
-  Tr,
-  Th,
+  TableHead,
   Td,
+  Th,
+  Tr,
 } from '../elements/Table'
 import { logger } from './common'
 
@@ -195,7 +194,11 @@ export const TableExample: React.SFC = () => (
       </Tr>
       <Tr>
         <Th>5</Th>
-        <Td onClick={() => logger('helo world')}>
+        <Td
+          onClick={() => {
+            logger('Td onClick')
+          }}
+        >
           <a
             href="https://en.wikipedia.org/wiki/Manchester_United_F.C."
             title="Manchester United F.C."

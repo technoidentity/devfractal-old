@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Field } from '../form/Field'
 import { TextArea } from '../form/TextArea'
 import { logger } from './common'
@@ -11,7 +11,9 @@ export const TextAreaExample: React.SFC = () => (
         state="focused"
         variant="primary"
         placeholder="large text area"
-        onChange={() => logger('changed')}
+        onChange={() => {
+          logger('TextAreaExample onChange')
+        }}
       />
     </Field>
     <Field>

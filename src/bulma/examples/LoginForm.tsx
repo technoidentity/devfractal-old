@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { Input } from '../form/Input'
-import { Field } from '../form/Field'
-import { Label } from '../form/Label'
+import React from 'react'
 import { Button } from '../form/Button'
-import { Section } from '../layout/Section'
+import { Field } from '../form/Field'
+import { Input } from '../form/Input'
+import { Label } from '../form/Label'
 import { Container } from '../layout/Container'
+import { Section } from '../layout/Section'
 
-const logger: (evt: any) => void = evt => {
+const eventLogger: (evt: any) => void = evt => {
   // tslint:disable no-console
   console.log('log! ')
   if (evt && evt.target) {
@@ -21,17 +21,17 @@ export const LoginForm: React.SFC = () => {
       <Container>
         <Field>
           <Label>User Name</Label>
-          <Input name="username" type="text" onChange={logger} />
+          <Input name="username" type="text" onChange={eventLogger} />
         </Field>
         <Field>
           <Label>Password</Label>
-          <Input name="password" type="password" onChange={logger} />
+          <Input name="password" type="password" onChange={eventLogger} />
         </Field>
         <Field className="is-grouped" groupModifier="grouped-centered">
-          <Button onClick={logger} variant="info">
+          <Button onClick={eventLogger} variant="info">
             Submit
           </Button>
-          <Button onClick={logger} variant="danger">
+          <Button onClick={eventLogger} variant="danger">
             Reset
           </Button>
         </Field>

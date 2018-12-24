@@ -1,7 +1,6 @@
-import * as React from 'react'
-
-import { Select } from '../form/Select'
+import React from 'react'
 import { Field } from '../form/Field'
+import { Select } from '../form/Select'
 import { logger } from './common'
 
 export const SelectExample: React.SFC = () => (
@@ -13,7 +12,13 @@ export const SelectExample: React.SFC = () => (
       </Select>
     </Field>
     <Field>
-      <Select state="focused" rounded onChange={() => logger('hello world')}>
+      <Select
+        state="focused"
+        rounded
+        onChange={() => {
+          logger('SelectExample onChange')
+        }}
+      >
         <option>Select dropdown</option>
         <option>With options</option>
       </Select>

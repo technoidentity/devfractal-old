@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { removeHelpers, Helpers } from '.'
+import React from 'react'
+import { Helpers, removeHelpers } from '.'
 
 interface DivProps extends React.AllHTMLAttributes<HTMLElement>, Helpers {
   readonly as?: keyof React.ReactHTML

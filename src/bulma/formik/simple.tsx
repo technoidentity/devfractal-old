@@ -1,27 +1,26 @@
-import * as React from 'react'
-
-import { ObjectSchema } from 'yup'
-
 import {
   ErrorMessage,
-  FormikConsumer,
   Form,
   Formik,
   FormikActions,
+  FormikConsumer,
 } from 'formik'
-
 import { Persist } from 'formik-persist'
-
-import { Label, Button, Field } from '../form'
+import React from 'react'
+import { ObjectSchema } from 'yup'
+import { jsonStringify } from '../../utils'
+import { Button, Field, Label } from '../form'
 import {
+  CheckboxField,
+  CheckboxFieldProps,
   InputField,
   InputFieldProps,
-  CheckboxFieldProps,
-  CheckboxField,
-  SelectFieldProps,
+  RadioButtonField,
+  RadioButtonFieldProps,
   SelectField,
-  TextAreaFieldProps,
+  SelectFieldProps,
   TextAreaField,
+  TextAreaFieldProps,
 } from './fields'
 
 export interface SimpleInputProps extends InputFieldProps {
@@ -68,6 +67,20 @@ export const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
 }) => (
   <>
     <CheckboxField {...props}>{children}</CheckboxField>
+    <ErrorMessage name={props.name} className="field-error" />
+  </>
+)
+
+export interface SimpleRadioButtonProps extends RadioButtonFieldProps {
+  readonly name: string
+}
+
+export const SimpleRadioButton: React.SFC<SimpleRadioButtonProps> = ({
+  children,
+  ...props
+}) => (
+  <>
+    <RadioButtonField {...props}>{children}</RadioButtonField>
     <ErrorMessage name={props.name} className="field-error" />
   </>
 )
@@ -196,9 +209,7 @@ export const SimpleForm: <Values>(
 export const SimpleValues: React.SFC = () => (
   <FormikConsumer>
     {({ values }) => (
-      <code style={{ background: '#f6f8fa' }}>
-        {JSON.stringify(values, null, 2)}
-      </code>
+      <code style={{ background: '#f6f8fa' }}>{jsonStringify(values)}</code>
     )}
   </FormikConsumer>
 )
@@ -215,6 +226,7 @@ export const Simple = {
   Checkbox: SimpleCheckbox,
   Select: SimpleSelect,
   TextArea: SimpleTextArea,
+  RadioButton: SimpleRadioButton,
   // Color: SimpleColor,
   // Date: SimpleDate,
   // DateTimeLocal: SimpleDateTimeLocal,

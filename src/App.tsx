@@ -1,12 +1,8 @@
-import * as React from 'react'
-
+import React from 'react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
-import { Container } from './bulma/layout/Container'
-import { Section } from './bulma/layout/Section'
-
 import {
-  BreadcrumbExample,
   BoxExample,
+  BreadcrumbExample,
   ButtonExample,
   CardExample,
   CheckBoxExample,
@@ -15,8 +11,9 @@ import {
   DeleteExample,
   DropDownExample,
   FieldExample,
+  FileExample,
   FooterExample,
-  SimpleLoginForm,
+  FormikSignUpForm,
   HeroExample,
   ImageExample,
   InputExample,
@@ -28,14 +25,16 @@ import {
   MessageExample,
   ModalExample,
   NavbarExample,
-  RadioButtonExample,
   NotificationExample,
   PaginationExample,
   PanelExample,
   ProgressBarExample,
+  RadioButtonExample,
   SampleForm,
   SectionExample,
   SelectExample,
+  SimpleExamples,
+  SimpleLoginForm,
   TableExample,
   TabsExample,
   TagExample,
@@ -43,19 +42,17 @@ import {
   TileExample,
   TitleExample,
   TodoListApp,
-  SimpleExamples,
   UserForm,
-  FileExample,
-  FormikSignUpForm,
 } from './bulma/examples'
 import { FrontPage } from './bulma/examples/FrontPage'
-import { Form } from './bulma/front-page-tabs/Form'
-import { Elements } from './bulma/front-page-tabs/Elements'
-import { Modifiers } from './bulma/front-page-tabs/Modifiers'
-import { Layout } from './bulma/front-page-tabs/Layout'
 import { Columns } from './bulma/front-page-tabs/Columns'
 import { Components } from './bulma/front-page-tabs/Components'
-import { Content } from './bulma/elements'
+import { Elements } from './bulma/front-page-tabs/Elements'
+import { Form } from './bulma/front-page-tabs/Form'
+import { Layout } from './bulma/front-page-tabs/Layout'
+import { Modifiers } from './bulma/front-page-tabs/Modifiers'
+import { Container } from './bulma/layout/Container'
+import { Section } from './bulma/layout/Section'
 
 export const FormLinks: React.SFC = () => (
   <>
@@ -310,7 +307,7 @@ export const OtherRoutes: React.SFC = () => (
 )
 
 export const Links: React.SFC = () => (
-  <Content>
+  <>
     <ul>
       <nav>
         <OtherLinks />
@@ -320,7 +317,7 @@ export const Links: React.SFC = () => (
         <ElementsLinks />
       </nav>
     </ul>
-  </Content>
+  </>
 )
 
 export const Routes: React.SFC = () => (
@@ -333,19 +330,15 @@ export const Routes: React.SFC = () => (
     <LayoutRoutes />
   </>
 )
-class App extends React.Component {
-  render(): JSX.Element {
-    return (
-      <div>
-        <Router>
-          <Section>
-            <Routes />
-          </Section>
-        </Router>
-      </div>
-    )
-  }
-}
+export const App: React.SFC = () => (
+  <div>
+    <Router>
+      <Section>
+        <Routes />
+      </Section>
+    </Router>
+  </div>
+)
 
 // tslint:disable-next-line:no-default-export
 export default App

@@ -1,14 +1,15 @@
-import { FormikActions, FormikErrors } from 'formik'
 import axios from 'axios'
+import { FormikActions, FormikErrors } from 'formik'
+import { jsonStringify } from '../../utils'
 
-export function consoleSubmit<Values>(
+export function consoleSubmit<Values extends object>(
   millis: number = 0,
 ): (values: Values, formikArgs: FormikActions<Values>) => Promise<void> {
   return async (values, { setSubmitting }) =>
     new Promise(resolve =>
       setTimeout(() => {
         // tslint:disable-next-line:no-console
-        console.log(JSON.stringify(values, null, 2))
+        console.log(jsonStringify(values))
         setSubmitting(false)
         resolve()
       }, millis),

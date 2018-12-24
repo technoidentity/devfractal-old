@@ -1,6 +1,5 @@
-import * as React from 'react'
-
-import { Helpers, classNamesHelper, Div } from '../modifiers'
+import React from 'react'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type FieldGroupModifier = 'grouped-centered' | 'grouped-right'
 

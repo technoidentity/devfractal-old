@@ -1,20 +1,20 @@
+import { faWpforms } from '@fortawesome/free-brands-svg-icons'
+import {
+  faCogs,
+  faColumns,
+  faCube,
+  faCubes,
+  faWarehouse,
+} from '@fortawesome/free-solid-svg-icons'
 import * as React from 'react'
-import { Section, Container, Media, Hero } from '../layout'
-import { Columns, Column } from '../columns'
-import { MediaLeft, MediaContent } from '../layout/Media'
+import { Link } from 'react-router-dom'
+import { Column, Columns } from '../columns'
 import { Title } from '../elements'
 import { SubTitle } from '../elements/Title'
 import { Icon } from '../form/Icon'
-import { faWpforms } from '@fortawesome/free-brands-svg-icons'
-import {
-  faColumns,
-  faCube,
-  faWarehouse,
-  faCubes,
-  faCogs,
-} from '@fortawesome/free-solid-svg-icons'
+import { Container, Hero, Media, Section } from '../layout'
 import { HeroBody } from '../layout/Hero'
-import { Link } from 'react-router-dom'
+import { MediaContent, MediaLeft } from '../layout/Media'
 export const FrontPage: React.SFC = () => (
   <>
     <Hero variant="light">

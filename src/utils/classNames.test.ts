@@ -1,5 +1,7 @@
 import { classNames } from './classNames'
 
+// tslint:disable:no-null-keyword
+
 it('classNames works with strings', () => {
   expect(classNames('', [''], '')).toBe('')
   expect(classNames('foo', 'bar', 'baz')).toBe('foo bar baz')

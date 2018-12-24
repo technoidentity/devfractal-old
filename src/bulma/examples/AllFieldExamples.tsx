@@ -1,28 +1,25 @@
-import * as React from 'react'
-
 import {
+  faCheck,
+  faEnvelope,
+  faExclamationTriangle,
+  faGlobe,
+  faLock,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
+import {
+  Button,
+  CheckBox,
   Field,
-  Label,
+  FieldBody,
+  FieldHelp,
+  FieldLabel,
   Input,
+  Label,
+  RadioButton,
   Select,
   TextArea,
-  CheckBox,
-  RadioButton,
-  Button,
-  FieldHelp,
 } from '../form'
-
-import {
-  faUser,
-  faCheck,
-  faExclamationTriangle,
-  faEnvelope,
-  faLock,
-  faGlobe,
-} from '@fortawesome/free-solid-svg-icons'
-
-import { FieldLabel, FieldBody } from '../form'
-
 import { Section } from '../layout'
 
 export const AllFieldExamples: React.SFC = () => (
@@ -149,7 +146,7 @@ export const AllFieldExamples: React.SFC = () => (
       <Input
         leftIcon={faEnvelope}
         rightIcon={faCheck}
-        controlSize="medium"
+        ctrlSize="medium"
         iconSize="small"
         type="email"
         placeholder="Extra small"
@@ -159,7 +156,7 @@ export const AllFieldExamples: React.SFC = () => (
       <Input
         leftIcon={faEnvelope}
         rightIcon={faCheck}
-        controlSize="medium"
+        ctrlSize="medium"
         iconSize="small"
         type="email"
         placeholder="Small"
@@ -169,7 +166,7 @@ export const AllFieldExamples: React.SFC = () => (
       <Input
         leftIcon={faEnvelope}
         rightIcon={faCheck}
-        controlSize="medium"
+        ctrlSize="medium"
         type="email"
         placeholder="Normal"
       />
@@ -177,7 +174,7 @@ export const AllFieldExamples: React.SFC = () => (
     <Field>
       <Label size="large">Large input</Label>
       <Input
-        controlSize="large"
+        ctrlSize="large"
         leftIcon={faEnvelope}
         rightIcon={faCheck}
         iconSize="small"
@@ -190,7 +187,7 @@ export const AllFieldExamples: React.SFC = () => (
         leftIcon={faEnvelope}
         rightIcon={faCheck}
         iconSize="small"
-        controlSize="large"
+        ctrlSize="large"
         type="email"
         placeholder="Small"
       />
@@ -200,14 +197,14 @@ export const AllFieldExamples: React.SFC = () => (
         leftIcon={faEnvelope}
         rightIcon={faCheck}
         iconSize="small"
-        controlSize="large"
+        ctrlSize="large"
         type="email"
         placeholder="Normal"
       />
     </Field>
     <Field>
       <Input
-        controlSize="large"
+        ctrlSize="large"
         leftIcon={faEnvelope}
         rightIcon={faCheck}
         type="email"
@@ -431,11 +428,7 @@ export const AllFieldExamples: React.SFC = () => (
       <FieldLabel fieldLabelSize="small">Small padding</FieldLabel>
       <FieldBody>
         <Field>
-          <Input
-            controlSize="small"
-            type="text"
-            placeholder="Small sized input"
-          />
+          <Input ctrlSize="small" type="text" placeholder="Small sized input" />
         </Field>
       </FieldBody>
     </Field>
@@ -452,7 +445,7 @@ export const AllFieldExamples: React.SFC = () => (
       <FieldBody>
         <Field>
           <Input
-            controlSize="medium"
+            ctrlSize="medium"
             type="text"
             placeholder="Medium sized input"
           />
@@ -464,11 +457,7 @@ export const AllFieldExamples: React.SFC = () => (
       <FieldLabel fieldLabelSize="large">Large label </FieldLabel>
       <FieldBody>
         <Field>
-          <Input
-            controlSize="large"
-            type="text"
-            placeholder="Large sized input"
-          />
+          <Input ctrlSize="large" type="text" placeholder="Large sized input" />
         </Field>
       </FieldBody>
     </Field>
