@@ -33,7 +33,9 @@ export const CounterView: React.SFC<CounterViewProps> = ({
   </Columns>
 )
 
-type CounterProps = { readonly count: number }
+interface CounterProps {
+  readonly count: number
+}
 
 export class Counter extends React.Component {
   readonly state: CounterProps = { count: 0 }
