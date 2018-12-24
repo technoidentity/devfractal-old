@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Input } from '../form/Input'
 import { Field } from '../form/Field'
 import { Label } from '../form/Label'

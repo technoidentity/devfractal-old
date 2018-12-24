@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import { Helpers, classNamesHelper, Div } from '../modifiers'
 import { AllControlHelpers, ControlDiv } from './ControlDiv'

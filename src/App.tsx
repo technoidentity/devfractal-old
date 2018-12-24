@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import { Column } from './bulma/columns/Column'

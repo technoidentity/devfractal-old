@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Input } from '../form/Input'
 import { TextArea } from '../form/TextArea'
 import { CheckBox } from '../form/CheckBox'

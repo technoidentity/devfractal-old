@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Delete } from '../elements/Delete'
 import { Message, MessageHeader, MessageBody } from '../components/Message'
 import { Notification } from '../elements/Notification'

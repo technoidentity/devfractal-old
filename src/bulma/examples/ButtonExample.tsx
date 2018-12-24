@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import { Button, Buttons } from '../form/Button'
 import { Field } from '../form/Field'

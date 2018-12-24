@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Level, LevelItem } from '../layout/Level'
 import { SubTitle, Title } from '../elements/Title'
 import { Field } from '../form/Field'

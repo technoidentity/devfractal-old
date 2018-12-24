@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import { Media, MediaLeft, MediaContent } from '../layout/Media'
 import { Image } from '../elements/Image'

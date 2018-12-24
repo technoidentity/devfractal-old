@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Table, TableHead, Tr, TableBody, Td } from '../../elements/Table'
 import { CheckBox } from '../../form/CheckBox'
 import { Input } from '../../form/Input'

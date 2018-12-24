@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import { FieldProps, Field } from './Field'
 import { LabelSize, Label } from './Label'

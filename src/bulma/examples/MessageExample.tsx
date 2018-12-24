@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Message, MessageHeader, MessageBody } from '../components/Message'
 export const MessageExample: React.SFC = () => (
   <Message className="is-primary" size="large">

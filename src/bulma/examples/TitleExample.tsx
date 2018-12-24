@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { SubTitle, Title } from '../elements/Title'
 import { Section } from '../layout/Section'
 

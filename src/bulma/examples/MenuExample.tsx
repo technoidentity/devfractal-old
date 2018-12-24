@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Menu, MenuLabel, MenuList, MenuItem } from '../components/Menu'
 
 export const MenuExample: React.SFC = () => (

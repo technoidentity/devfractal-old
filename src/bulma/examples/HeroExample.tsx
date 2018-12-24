@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import { HeroBody, HeroHead, HeroFoot, Hero } from '../layout/Hero'
 import { Title, SubTitle } from '../elements/Title'
