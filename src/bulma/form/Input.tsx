@@ -1,10 +1,7 @@
 import React from 'react'
-
 import { classNamesHelper } from '../modifiers'
-
-import { ControlWrapper } from './ControlHelpers'
-
 import { AllControlHelpers, ControlDiv } from './ControlDiv'
+import { ControlWrapper } from './ControlHelpers'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 

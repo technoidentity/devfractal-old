@@ -1,7 +1,3 @@
-import React from 'react'
-
-import { ObjectSchema } from 'yup'
-
 import {
   ErrorMessage,
   Form,
@@ -9,9 +5,9 @@ import {
   FormikActions,
   FormikConsumer,
 } from 'formik'
-
 import { Persist } from 'formik-persist'
-
+import React from 'react'
+import { ObjectSchema } from 'yup'
 import { Button, Field, Label } from '../form'
 import {
   CheckboxField,

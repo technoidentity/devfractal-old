@@ -1,7 +1,5 @@
-import React from 'react'
-
 import classNames from 'classnames'
-
+import React from 'react'
 import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
 type ColumnsResponsive =

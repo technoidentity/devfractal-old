@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   Button,
   Field,
@@ -11,7 +10,6 @@ import {
   Select,
   TextArea,
 } from '../form'
-
 import { Section } from '../layout'
 
 export const FieldExample: React.SFC = () => (

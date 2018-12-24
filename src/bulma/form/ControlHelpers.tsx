@@ -1,9 +1,6 @@
-import React from 'react'
-
-import classNames from 'classnames'
-
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-
+import classNames from 'classnames'
+import React from 'react'
 import { Omit } from '../../types'
 import { Icon } from './Icon'
 

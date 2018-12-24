@@ -1,5 +1,3 @@
-import React from 'react'
-
 import {
   faBan,
   faCheck,
@@ -7,6 +5,7 @@ import {
   faHome,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import { Icon } from '../form/Icon'
 
 export const IconExample: React.SFC = () => (

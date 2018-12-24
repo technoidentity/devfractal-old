@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Column } from '../columns/Column'
 import { Columns } from '../columns/Columns'
 import { Box } from '../elements/Box'

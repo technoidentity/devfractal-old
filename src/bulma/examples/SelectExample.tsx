@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Field } from '../form/Field'
 import { Select } from '../form/Select'
 import { logger } from './common'

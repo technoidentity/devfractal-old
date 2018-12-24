@@ -1,12 +1,8 @@
 import React from 'react'
-
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import { Column } from './bulma/columns/Column'
 import { Columns } from './bulma/columns/Columns'
 import { Content } from './bulma/elements/Content'
-import { Container } from './bulma/layout/Container'
-import { Section } from './bulma/layout/Section'
-
 import {
   AllFieldExamples,
   BoxExample,
@@ -52,6 +48,8 @@ import {
   TodoListApp,
   UserForm,
 } from './bulma/examples'
+import { Container } from './bulma/layout/Container'
+import { Section } from './bulma/layout/Section'
 
 export const FormLinks: React.SFC = () => (
   <>

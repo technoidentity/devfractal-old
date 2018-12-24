@@ -6,7 +6,6 @@ import {
   PanelTabs,
   PanelTabsItem,
 } from '../components/Panel'
-
 import { Button } from '../form/Button'
 import { CheckBox } from '../form/CheckBox'
 import { Input } from '../form/Input'

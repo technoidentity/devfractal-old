@@ -1,12 +1,10 @@
-import React from 'react'
-
-import { classNamesHelper, Div, Helpers, removeHelpers } from '../modifiers'
-
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import {
   FontAwesomeIcon,
   Props as FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
+import React from 'react'
+import { classNamesHelper, Div, Helpers, removeHelpers } from '../modifiers'
 
 type IconDirection = 'left' | 'right'
 

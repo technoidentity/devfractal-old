@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Breadcrumb, BreadcrumbItem } from '../components/Breadcrumb'
 
 export const BreadcrumbExample: React.SFC = () => (

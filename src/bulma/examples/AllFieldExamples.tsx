@@ -1,17 +1,3 @@
-import React from 'react'
-
-import {
-  Button,
-  CheckBox,
-  Field,
-  FieldHelp,
-  Input,
-  Label,
-  RadioButton,
-  Select,
-  TextArea,
-} from '../form'
-
 import {
   faCheck,
   faEnvelope,
@@ -20,9 +6,20 @@ import {
   faLock,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
-
-import { FieldBody, FieldLabel } from '../form'
-
+import React from 'react'
+import {
+  Button,
+  CheckBox,
+  Field,
+  FieldBody,
+  FieldHelp,
+  FieldLabel,
+  Input,
+  Label,
+  RadioButton,
+  Select,
+  TextArea,
+} from '../form'
 import { Section } from '../layout'
 
 export const AllFieldExamples: React.SFC = () => (

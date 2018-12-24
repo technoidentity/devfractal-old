@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export type LabelSize = 'small' | 'medium' | 'large'

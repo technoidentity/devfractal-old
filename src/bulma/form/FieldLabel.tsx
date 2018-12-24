@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 import { Label } from './Label'
+
 type FieldLabelSize = 'small' | 'normal' | 'medium' | 'large'
 
 export interface FieldLabelProps

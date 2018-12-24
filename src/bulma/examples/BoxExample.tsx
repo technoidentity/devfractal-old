@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Box } from '../elements/Box'
 import { Content } from '../elements/Content'
 import { Media, MediaContent, MediaLeft } from '../layout/Media'

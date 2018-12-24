@@ -1,20 +1,17 @@
 import classNames from 'classnames'
-
+import { ClassNameArg } from '../../utils/classNames'
 import {
   CommonHelpers,
   commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
 } from './commonHelpers'
-
 import {
   removeResponsiveHelpers,
   responsiveClass,
   ResponsiveHelpers,
   ResponsiveHelpersRemoved,
 } from './responsiveHelpers'
-
-import { ClassNameArg } from '../../utils/classNames'
 import {
   removeTextHelpers,
   TextHelpers,

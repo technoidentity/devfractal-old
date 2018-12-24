@@ -1,7 +1,5 @@
 import React from 'react'
-
 import { object, ObjectSchema, string } from 'yup'
-
 import { consoleSubmit, Simple, SimpleValues } from '../formik'
 
 interface LoginValues {
