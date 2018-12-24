@@ -16,7 +16,6 @@
     "jsx-no-multiline-js": false,
     "jsx-boolean-value": false,
     "label-position": true,
-    "no-unused-variable": true,
     "member-ordering": [
       true,
       {
@@ -122,8 +121,7 @@
     "prefer-object-spread": true,
     "prefer-template": true,
     "type-literal-delimiter": false,
-    "trailing-comma": true,
-    "ordered-imports": false
+    "trailing-comma": true
   },
 
   "defaultSeverity": "warn"

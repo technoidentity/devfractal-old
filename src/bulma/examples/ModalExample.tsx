@@ -2,8 +2,8 @@ import React from 'react'
 import {
   Modal,
   ModalBackground,
-  ModalContent,
   ModalClose,
+  ModalContent,
 } from '../components/Modal'
 import { Image } from '../elements/Image'
 export const ModalExample: React.SFC = () => (

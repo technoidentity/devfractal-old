@@ -1,17 +1,17 @@
 import React from 'react'
 import {
   Card,
-  CardHeader,
-  CardHeaderTitle,
-  CardImage,
   CardContent,
   CardFooter,
   CardFooterItem,
+  CardHeader,
+  CardHeaderTitle,
+  CardImage,
 } from '../components/Card'
-import { Image } from '../elements/Image'
-import { Title, SubTitle } from '../elements/Title'
 import { Content } from '../elements/Content'
-import { MediaContent, MediaLeft, Media } from '../layout/Media'
+import { Image } from '../elements/Image'
+import { SubTitle, Title } from '../elements/Title'
+import { Media, MediaContent, MediaLeft } from '../layout/Media'
 
 export const CardExample: React.SFC = () => (
   <Card>

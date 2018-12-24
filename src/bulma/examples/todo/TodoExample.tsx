@@ -1,8 +1,7 @@
-import React from 'react'
-import { Table, TableHead, Tr, TableBody, Td } from '../../elements/Table'
-import { CheckBox } from '../../form/CheckBox'
-import { Input } from '../../form/Input'
 import { format } from 'date-fns'
+import React from 'react'
+import { Table, TableBody, TableHead, Td, Tr } from '../../elements/Table'
+import { CheckBox, Input } from '../../form'
 
 interface Todo {
   readonly id: number

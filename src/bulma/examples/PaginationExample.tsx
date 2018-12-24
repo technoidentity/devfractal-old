@@ -1,11 +1,11 @@
 import React from 'react'
 import {
-  PaginationPrevious,
   Pagination,
-  PaginationNext,
-  PaginationList,
-  PaginationLink,
   PaginationEllipsis,
+  PaginationLink,
+  PaginationList,
+  PaginationNext,
+  PaginationPrevious,
 } from '../components/Pagination'
 
 export const PaginationExample: React.SFC = () => (

@@ -1,27 +1,27 @@
 import React from 'react'
 
 import {
+  Button,
+  CheckBox,
   Field,
-  Label,
+  FieldHelp,
   Input,
+  Label,
+  RadioButton,
   Select,
   TextArea,
-  CheckBox,
-  RadioButton,
-  Button,
-  FieldHelp,
 } from '../form'
 
 import {
-  faUser,
   faCheck,
-  faExclamationTriangle,
   faEnvelope,
-  faLock,
+  faExclamationTriangle,
   faGlobe,
+  faLock,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { FieldLabel, FieldBody } from '../form'
+import { FieldBody, FieldLabel } from '../form'
 
 import { Section } from '../layout'
 

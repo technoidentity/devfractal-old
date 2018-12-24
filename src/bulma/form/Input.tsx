@@ -4,7 +4,7 @@ import { classNamesHelper } from '../modifiers'
 
 import { ControlWrapper } from './ControlHelpers'
 
-import { ControlDiv, AllControlHelpers } from './ControlDiv'
+import { AllControlHelpers, ControlDiv } from './ControlDiv'
 
 type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 

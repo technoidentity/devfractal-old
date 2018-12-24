@@ -4,8 +4,8 @@ import classNames from 'classnames'
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
-import { Icon } from './Icon'
 import { Omit } from '../../types'
+import { Icon } from './Icon'
 
 export interface ControlHelpers {
   readonly loading?: boolean

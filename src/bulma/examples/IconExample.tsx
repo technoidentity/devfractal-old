@@ -1,11 +1,11 @@
 import React from 'react'
 
 import {
-  faUser,
+  faBan,
   faCheck,
   faExclamationTriangle,
-  faBan,
   faHome,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import { Icon } from '../form/Icon'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helpers, classNamesHelper, Div } from '../modifiers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export interface RadioButtonProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

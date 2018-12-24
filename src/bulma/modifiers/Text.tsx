@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helpers, classNamesHelper } from '.'
+import { classNamesHelper, Helpers } from '.'
 import { Div } from './Div'
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement>, Helpers {}

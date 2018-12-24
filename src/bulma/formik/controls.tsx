@@ -3,14 +3,14 @@ import React from 'react'
 import { FieldProps } from 'formik'
 
 import {
-  InputProps,
-  CheckBoxProps,
-  SelectProps,
-  TextAreaProps,
-  Input,
   CheckBox,
+  CheckBoxProps,
+  Input,
+  InputProps,
   Select,
+  SelectProps,
   TextArea,
+  TextAreaProps,
 } from '../form'
 
 import { Omit } from '../../types'

@@ -3,8 +3,8 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { classNamesHelper } from '../modifiers'
+import { AllControlHelpers, ControlDiv } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
-import { ControlDiv, AllControlHelpers } from './ControlDiv'
 
 type SelectVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 

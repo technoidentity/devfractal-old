@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Box } from '../elements/Box'
-import { Media, MediaLeft, MediaContent } from '../layout/Media'
 import { Content } from '../elements/Content'
+import { Media, MediaContent, MediaLeft } from '../layout/Media'
 
 export const BoxExample: React.SFC = () => (
   <Box shadowLess>

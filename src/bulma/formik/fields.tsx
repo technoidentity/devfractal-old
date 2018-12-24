@@ -2,11 +2,11 @@ import React from 'react'
 
 import { Field, FieldConfig } from 'formik'
 
-import { CheckBoxProps, SelectProps, TextAreaProps, InputProps } from '../form'
+import { CheckBoxProps, InputProps, SelectProps, TextAreaProps } from '../form'
 
 import {
-  FormikInput,
   FormikCheckbox,
+  FormikInput,
   FormikSelect,
   FormikTextArea,
 } from './controls'

@@ -3,13 +3,14 @@ import React from 'react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import { Column } from './bulma/columns/Column'
 import { Columns } from './bulma/columns/Columns'
-import { Container } from './bulma/layout/Container'
 import { Content } from './bulma/elements/Content'
+import { Container } from './bulma/layout/Container'
 import { Section } from './bulma/layout/Section'
 
 import {
-  BreadcrumbExample,
+  AllFieldExamples,
   BoxExample,
+  BreadcrumbExample,
   ButtonExample,
   CardExample,
   CheckBoxExample,
@@ -18,8 +19,9 @@ import {
   DeleteExample,
   DropDownExample,
   FieldExample,
+  FileExample,
   FooterExample,
-  SimpleLoginForm,
+  FormikSignUpForm,
   HeroExample,
   ImageExample,
   InputExample,
@@ -31,14 +33,16 @@ import {
   MessageExample,
   ModalExample,
   NavbarExample,
-  RadioButtonExample,
   NotificationExample,
   PaginationExample,
   PanelExample,
   ProgressBarExample,
+  RadioButtonExample,
   SampleForm,
   SectionExample,
   SelectExample,
+  SimpleExamples,
+  SimpleLoginForm,
   TableExample,
   TabsExample,
   TagExample,
@@ -46,11 +50,7 @@ import {
   TileExample,
   TitleExample,
   TodoListApp,
-  SimpleExamples,
   UserForm,
-  FileExample,
-  FormikSignUpForm,
-  AllFieldExamples,
 } from './bulma/examples'
 
 export const FormLinks: React.SFC = () => (

@@ -3,9 +3,9 @@ import React from 'react'
 import classNames from 'classnames'
 import {
   CommonHelpers,
-  removeCommonHelpers,
   commonHelpersClasses,
   CommonHelpersRemoved,
+  removeCommonHelpers,
 } from '../modifiers/commonHelpers'
 
 interface BoxProps

@@ -1,19 +1,19 @@
 import React from 'react'
 
-import { HeroBody, HeroHead, HeroFoot, Hero } from '../layout/Hero'
-import { Title, SubTitle } from '../elements/Title'
-import { Container } from '../layout/Container'
-import { Section } from '../layout/Section'
 import {
   Navbar,
   NavbarBrand,
-  NavbarItem,
-  NavbarEnd,
-  NavbarMenu,
   NavbarBurger,
+  NavbarEnd,
+  NavbarItem,
+  NavbarMenu,
 } from '../components/Navbar'
-import { Button } from '../form/Button'
 import { Tabs } from '../components/Tabs'
+import { SubTitle, Title } from '../elements/Title'
+import { Button } from '../form/Button'
+import { Container } from '../layout/Container'
+import { Hero, HeroBody, HeroFoot, HeroHead } from '../layout/Hero'
+import { Section } from '../layout/Section'
 
 export const HeroExample: React.SFC = () => (
   <Section>

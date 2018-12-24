@@ -2,7 +2,7 @@ import React from 'react'
 
 import classNames from 'classnames'
 
-import { removeHelpers, helpersClasses, Helpers } from '../modifiers'
+import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
 type ColumnSize =
   | 'three-quarters'

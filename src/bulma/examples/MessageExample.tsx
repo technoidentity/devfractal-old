@@ -1,5 +1,5 @@
 import React from 'react'
-import { Message, MessageHeader, MessageBody } from '../components/Message'
+import { Message, MessageBody, MessageHeader } from '../components/Message'
 export const MessageExample: React.SFC = () => (
   <Message className="is-primary" size="large">
     <MessageHeader>Hello World</MessageHeader>

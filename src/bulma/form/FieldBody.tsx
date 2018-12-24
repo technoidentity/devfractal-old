@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Helpers, classNamesHelper, Div } from '../modifiers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export interface FieldBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,

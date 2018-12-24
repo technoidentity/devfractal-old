@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, MenuLabel, MenuList, MenuItem } from '../components/Menu'
+import { Menu, MenuItem, MenuLabel, MenuList } from '../components/Menu'
 
 export const MenuExample: React.SFC = () => (
   <Menu>
