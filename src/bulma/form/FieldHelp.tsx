@@ -1,6 +1,5 @@
-import * as React from 'react'
-
-import { Helpers, classNamesHelper, Div } from '../modifiers'
+import React from 'react'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 // @TODO: All of these are supported?
 export type HelpType = 'primary' | 'info' | 'success' | 'warning' | 'danger'

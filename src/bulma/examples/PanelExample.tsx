@@ -1,15 +1,14 @@
-import * as React from 'react'
+import React from 'react'
 import {
   Panel,
-  PanelHeading,
   PanelBlock,
+  PanelHeading,
   PanelTabs,
   PanelTabsItem,
 } from '../components/Panel'
-
 import { Button } from '../form/Button'
-import { Input } from '../form/Input'
 import { CheckBox } from '../form/CheckBox'
+import { Input } from '../form/Input'
 
 export const PanelExample: React.SFC = () => (
   <Panel>

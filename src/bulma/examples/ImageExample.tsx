@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Image } from '../elements/Image'
 
 export const ImageExample: React.SFC = () => (

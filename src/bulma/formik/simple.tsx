@@ -1,29 +1,25 @@
-import * as React from 'react'
-
-import { ObjectSchema } from 'yup'
-
 import {
   ErrorMessage,
-  FormikConsumer,
   Form,
   Formik,
   FormikActions,
+  FormikConsumer,
 } from 'formik'
-
 import { Persist } from 'formik-persist'
-
-import { Label, Button, Field } from '../form'
+import React from 'react'
+import { ObjectSchema } from 'yup'
+import { Button, Field, Label } from '../form'
 import {
+  CheckboxField,
+  CheckboxFieldProps,
   InputField,
   InputFieldProps,
-  CheckboxFieldProps,
-  CheckboxField,
-  SelectFieldProps,
-  SelectField,
-  TextAreaFieldProps,
-  TextAreaField,
-  RadioButtonFieldProps,
   RadioButtonField,
+  RadioButtonFieldProps,
+  SelectField,
+  SelectFieldProps,
+  TextAreaField,
+  TextAreaFieldProps,
 } from './fields'
 
 export interface SimpleInputProps extends InputFieldProps {

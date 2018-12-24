@@ -1,13 +1,12 @@
-import * as React from 'react'
-
+import React from 'react'
 import {
   Table,
-  TableHead,
   TableBody,
   TableFoot,
-  Tr,
-  Th,
+  TableHead,
   Td,
+  Th,
+  Tr,
 } from '../elements/Table'
 import { logger } from './common'
 

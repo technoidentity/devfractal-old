@@ -1,14 +1,14 @@
-import * as React from 'react'
-import { Input } from '../form/Input'
-import { TextArea } from '../form/TextArea'
-import { CheckBox } from '../form/CheckBox'
-import { Label } from '../form/Label'
-import { Field } from '../form/Field'
-import { Select } from '../form/Select'
-import { RadioButton } from '../form/RadioButton'
+import React from 'react'
 import { Button } from '../form/Button'
-import { Section } from '../layout/Section'
+import { CheckBox } from '../form/CheckBox'
+import { Field } from '../form/Field'
+import { Input } from '../form/Input'
+import { Label } from '../form/Label'
+import { RadioButton } from '../form/RadioButton'
+import { Select } from '../form/Select'
+import { TextArea } from '../form/TextArea'
 import { Container } from '../layout/Container'
+import { Section } from '../layout/Section'
 
 export const SampleForm: React.SFC = () => {
   return (

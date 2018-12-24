@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { Button } from '../form/Button'
+import React from 'react'
 import {
   DropDown,
-  DropDownTrigger,
-  DropDownMenu,
   DropDownContent,
-  DropDownItem,
   DropDownDivider,
+  DropDownItem,
+  DropDownMenu,
+  DropDownTrigger,
 } from '../components/Dropdown'
+import { Button } from '../form/Button'
 
 export const DropDownExample: React.SFC = () => (
   <div>

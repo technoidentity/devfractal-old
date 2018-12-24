@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { Input } from '../form/Input'
-import { Field } from '../form/Field'
-import { Label } from '../form/Label'
+import React from 'react'
 import { Button } from '../form/Button'
-import { Section } from '../layout/Section'
+import { Field } from '../form/Field'
+import { Input } from '../form/Input'
+import { Label } from '../form/Label'
 import { Container } from '../layout/Container'
+import { Section } from '../layout/Section'
 
 const logger: (evt: any) => void = evt => {
   // tslint:disable no-console

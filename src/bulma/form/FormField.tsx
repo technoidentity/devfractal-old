@@ -1,8 +1,7 @@
-import * as React from 'react'
-
-import { FieldProps, Field } from './Field'
-import { LabelSize, Label } from './Label'
-import { HelpType, FieldHelp } from './FieldHelp'
+import React from 'react'
+import { Field, FieldProps } from './Field'
+import { FieldHelp, HelpType } from './FieldHelp'
+import { Label, LabelSize } from './Label'
 
 export interface FormFieldProps extends FieldProps {
   readonly label?: string

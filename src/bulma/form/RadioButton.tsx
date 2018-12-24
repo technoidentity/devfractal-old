@@ -1,11 +1,11 @@
 import React from 'react'
-import { Helpers, classNamesHelper, Div } from '../modifiers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-export interface RadiobuttonProps
+export interface RadioButtonProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     Helpers {}
 
-export const RadioButton: React.SFC<RadiobuttonProps> = ({
+export const RadioButton: React.SFC<RadioButtonProps> = ({
   children,
   ...props
 }) => {

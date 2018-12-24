@@ -1,8 +1,6 @@
-import * as React from 'react'
-
 import classNames from 'classnames'
-
-import { removeHelpers, helpersClasses, Helpers } from '../modifiers'
+import React from 'react'
+import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
 type ColumnSize =
   | 'three-quarters'

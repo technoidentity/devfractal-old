@@ -1,17 +1,15 @@
-import * as React from 'react'
-
+import React from 'react'
 import {
   Button,
+  Field,
+  FieldBody,
+  FieldHelp,
+  FieldLabel,
   Input,
   RadioButton,
   Select,
   TextArea,
-  Field,
-  FieldBody,
-  FieldLabel,
-  FieldHelp,
 } from '../form'
-
 import { Section } from '../layout'
 
 export const FieldExample: React.SFC = () => (

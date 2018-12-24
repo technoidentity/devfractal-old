@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { Level, LevelItem } from '../layout/Level'
+import React from 'react'
 import { SubTitle, Title } from '../elements/Title'
+import { Button } from '../form/Button'
 import { Field } from '../form/Field'
 import { Input } from '../form/Input'
-import { Button } from '../form/Button'
+import { Level, LevelItem } from '../layout/Level'
 import { Section } from '../layout/Section'
 
 export const LevelExample: React.SFC = () => (

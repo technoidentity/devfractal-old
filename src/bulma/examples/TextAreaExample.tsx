@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Field } from '../form/Field'
 import { TextArea } from '../form/TextArea'
 import { logger } from './common'

@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React from 'react'
+import { Message, MessageBody, MessageHeader } from '../components/Message'
 import { Delete } from '../elements/Delete'
-import { Message, MessageHeader, MessageBody } from '../components/Message'
 import { Notification } from '../elements/Notification'
 import { Section } from '../layout/Section'
 import { logger } from './common'

@@ -1,19 +1,19 @@
-import * as React from 'react'
-
 import { Field, FieldConfig } from 'formik'
-
-import { InputProps } from '../form/Input'
+import React from 'react'
 import {
-  FormikInput,
+  CheckBoxProps,
+  InputProps,
+  RadioButtonProps,
+  SelectProps,
+  TextAreaProps,
+} from '../form'
+import {
   FormikCheckbox,
+  FormikInput,
+  FormikRadioButton,
   FormikSelect,
   FormikTextArea,
-  FormikRadioButton,
 } from './controls'
-import { CheckBoxProps } from '../form/CheckBox'
-import { SelectProps } from '../form/Select'
-import { TextAreaProps } from '../form/TextArea'
-import { RadiobuttonProps } from '../form/RadioButton'
 
 export type FormikFieldConfig = Pick<
   FieldConfig,
@@ -36,7 +36,7 @@ export const CheckboxField: React.SFC<CheckboxFieldProps> = ({
   </Field>
 )
 
-export type RadioButtonFieldProps = RadiobuttonProps & FormikFieldConfig
+export type RadioButtonFieldProps = RadioButtonProps & FormikFieldConfig
 
 export const RadioButtonField: React.SFC<RadioButtonFieldProps> = ({
   children,

@@ -1,15 +1,12 @@
-import * as React from 'react'
-
+import React from 'react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import { Column } from './bulma/columns/Column'
 import { Columns } from './bulma/columns/Columns'
-import { Container } from './bulma/layout/Container'
 import { Content } from './bulma/elements/Content'
-import { Section } from './bulma/layout/Section'
-
 import {
-  BreadcrumbExample,
+  AllFieldExamples,
   BoxExample,
+  BreadcrumbExample,
   ButtonExample,
   CardExample,
   CheckBoxExample,
@@ -18,8 +15,9 @@ import {
   DeleteExample,
   DropDownExample,
   FieldExample,
+  FileExample,
   FooterExample,
-  SimpleLoginForm,
+  FormikSignUpForm,
   HeroExample,
   ImageExample,
   InputExample,
@@ -31,14 +29,16 @@ import {
   MessageExample,
   ModalExample,
   NavbarExample,
-  RadioButtonExample,
   NotificationExample,
   PaginationExample,
   PanelExample,
   ProgressBarExample,
+  RadioButtonExample,
   SampleForm,
   SectionExample,
   SelectExample,
+  SimpleExamples,
+  SimpleLoginForm,
   TableExample,
   TabsExample,
   TagExample,
@@ -46,12 +46,10 @@ import {
   TileExample,
   TitleExample,
   TodoListApp,
-  SimpleExamples,
   UserForm,
-  FileExample,
-  FormikSignUpForm,
-  AllFieldExamples,
 } from './bulma/examples'
+import { Container } from './bulma/layout/Container'
+import { Section } from './bulma/layout/Section'
 
 export const FormLinks: React.SFC = () => (
   <>
@@ -304,33 +302,29 @@ export const Routes: React.SFC = () => (
     <OtherRoutes />
   </>
 )
-class App extends React.Component {
-  render(): JSX.Element {
-    return (
-      <div>
-        <div className="title has-text-centered">
-          Examples using Bulma components in devfractal
-        </div>
-        <Router>
-          <Columns>
-            <Column>
-              <Content>
-                <Links />
-              </Content>
-            </Column>
-            <Column>
-              <Section>
-                <Container>
-                  <Routes />
-                </Container>
-              </Section>
-            </Column>
-          </Columns>
-        </Router>
-      </div>
-    )
-  }
-}
+const App: React.SFC = () => (
+  <div>
+    <div className="title has-text-centered">
+      Examples using Bulma components in devfractal
+    </div>
+    <Router>
+      <Columns>
+        <Column>
+          <Content>
+            <Links />
+          </Content>
+        </Column>
+        <Column>
+          <Section>
+            <Container>
+              <Routes />
+            </Container>
+          </Section>
+        </Column>
+      </Columns>
+    </Router>
+  </div>
+)
 
 // tslint:disable-next-line:no-default-export
 export default App

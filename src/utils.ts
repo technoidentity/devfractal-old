@@ -1,4 +1,4 @@
-import { produce, Draft } from 'immer'
+import { Draft, produce } from 'immer'
 
 type Mutable<T> = { -readonly [P in keyof T]: Mutable<T[P]> } // Remove readonly
 

@@ -1,6 +1,5 @@
-import * as React from 'react'
-
 import classNames from 'classnames'
+import React from 'react'
 
 type FileVariant =
   | 'white'
@@ -20,7 +19,7 @@ type FileAlignment = 'centered' | 'right'
 
 type FileModifier = 'fullWidth' | 'boxed'
 
-interface FileProps extends React.HTMLAttributes<HTMLElement> {
+export interface FileProps extends React.HTMLAttributes<HTMLElement> {
   readonly variant?: FileVariant
   readonly size?: FileSize
   readonly alignment?: FileAlignment
