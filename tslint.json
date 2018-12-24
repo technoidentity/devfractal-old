@@ -96,9 +96,6 @@
     "no-misused-new": true,
     "interface-over-type-literal": true,
     "array-type": [true, "array-simple"],
-    // "comment-format": [true, "check-lowercase", {"ignore-words": ["TODO", "HACK"]}],
-    // "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case"}]
-    // "no-null-keyword": true,
     "no-inferred-empty-object-type": true,
     "no-dynamic-delete": true,
     "no-duplicate-super": true,
@@ -106,16 +103,10 @@
     "no-unbound-method": true,
     "no-unnecessary-class": true,
     "no-parameter-properties": true,
-    // "no-unsafe-any": true,
-    "no-unsafe-finally": true,
-    // "no-this": true,
-    // "no-class": true,
     "prefer-function-over-method": true,
     "prefer-switch": true,
     "prefer-while": true,
     "number-literal-format": true,
-    // "strict-boolean-expressions": true,
-    // "no-void-expression": true,
     "no-loop-statement": true,
     "promise-function-async": true,
     "await-promise": true,
@@ -145,7 +136,15 @@
     "prefer-object-spread": true,
     "prefer-template": true,
     "type-literal-delimiter": false,
-    "trailing-comma": true
+    "trailing-comma": true,
+    "no-null-keyword": true,
+    "no-void-expression": true,
+    "no-unsafe-finally": true
+    // "strict-boolean-expressions": true,
+    // "no-unsafe-any": true,
+    // "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
+    // "no-this": true,
+    // "no-class": true,
   },
 
   "defaultSeverity": "warn"

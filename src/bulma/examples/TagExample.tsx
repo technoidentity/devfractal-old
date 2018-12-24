@@ -8,7 +8,12 @@ export const TagExample: React.SFC = () => (
     <Tag>all</Tag>
     <Tag>medium</Tag>
     <Tag>size</Tag>
-    <Tag variant="primary" onClick={() => logger('hello from tag')}>
+    <Tag
+      variant="primary"
+      onClick={() => {
+        logger('TagExample onClick')
+      }}
+    >
       all
     </Tag>
     <Tag variant="info">medium</Tag>

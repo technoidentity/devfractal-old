@@ -11,7 +11,9 @@ export const TextAreaExample: React.SFC = () => (
         state="focused"
         variant="primary"
         placeholder="large text area"
-        onChange={() => logger('changed')}
+        onChange={() => {
+          logger('TextAreaExample onChange')
+        }}
       />
     </Field>
     <Field>

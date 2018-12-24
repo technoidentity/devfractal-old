@@ -8,6 +8,7 @@ import {
 import { Persist } from 'formik-persist'
 import React from 'react'
 import { ObjectSchema } from 'yup'
+import { jsonStringify } from '../../utils'
 import { Button, Field, Label } from '../form'
 import {
   CheckboxField,
@@ -208,9 +209,7 @@ export const SimpleForm: <Values>(
 export const SimpleValues: React.SFC = () => (
   <FormikConsumer>
     {({ values }) => (
-      <code style={{ background: '#f6f8fa' }}>
-        {JSON.stringify(values, null, 2)}
-      </code>
+      <code style={{ background: '#f6f8fa' }}>{jsonStringify(values)}</code>
     )}
   </FormikConsumer>
 )

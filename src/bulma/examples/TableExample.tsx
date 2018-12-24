@@ -194,7 +194,11 @@ export const TableExample: React.SFC = () => (
       </Tr>
       <Tr>
         <Th>5</Th>
-        <Td onClick={() => logger('helo world')}>
+        <Td
+          onClick={() => {
+            logger('Td onClick')
+          }}
+        >
           <a
             href="https://en.wikipedia.org/wiki/Manchester_United_F.C."
             title="Manchester United F.C."

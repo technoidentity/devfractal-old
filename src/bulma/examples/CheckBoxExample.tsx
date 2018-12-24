@@ -7,7 +7,11 @@ export const CheckBoxExample: React.SFC = () => (
     <CheckBox readOnly checked>
       Remember me
     </CheckBox>
-    <CheckBox onChange={() => logger('hello world')}>
+    <CheckBox
+      onChange={() => {
+        logger('CheckboxExample onChange')
+      }}
+    >
       i agree <a href="#">terms and conditions</a>
     </CheckBox>
     <CheckBox disabled>Save my Changes</CheckBox>

@@ -8,7 +8,12 @@ import { logger } from './common'
 export const DeleteExample: React.SFC = () => (
   <Section>
     <Notification variant="danger">
-      <Delete className="is-large" onClick={() => logger('clicked')} />
+      <Delete
+        className="is-large"
+        onClick={() => {
+          logger('DeleteExample onClick')
+        }}
+      />
       Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor
       sit amet, consectetur adipiscing elit
     </Notification>

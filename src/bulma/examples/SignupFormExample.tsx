@@ -89,5 +89,9 @@ export const SignUpForm: React.SFC<SignUpFormProps> = ({ onSignUp }) => (
 )
 
 export const FormikSignUpForm: React.SFC = () => (
-  <SignUpForm onSignUp={() => logger('hello')} />
+  <SignUpForm
+    onSignUp={() => {
+      logger('SignUpForm onSignUp')
+    }}
+  />
 )

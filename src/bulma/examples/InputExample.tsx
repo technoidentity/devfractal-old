@@ -9,6 +9,8 @@ export const InputExample: React.SFC = () => (
     state="focused"
     rounded
     placeholder="Input Text"
-    onKeyDown={() => logger('hello from input')}
+    onKeyDown={() => {
+      logger('InputExample onKeyDown')
+    }}
   />
 )
