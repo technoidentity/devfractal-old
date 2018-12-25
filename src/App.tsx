@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import {
+  AllFieldExamples,
   BoxExample,
   BreadcrumbExample,
   ButtonExample,
@@ -15,7 +16,6 @@ import {
   HeroExample,
   ImageExample,
   InputExample,
-  LayoutExample,
   LevelExample,
   MediaObjectExample,
   MenuExample,
@@ -36,6 +36,8 @@ import {
   TileExample,
   TitleExample,
 } from './bulma/examples'
+import { BasicColumn } from './bulma/examples/column-examples/Basics'
+import { IconExample } from './bulma/examples/IconExample'
 import {
   Columns,
   Components,
@@ -49,55 +51,66 @@ import { Container, Section } from './bulma/layout'
 
 export const FormRoutes: React.SFC = () => (
   <>
+    <Route path="/form-general" exact component={AllFieldExamples} />
     <Route path="/form-input" exact component={InputExample} />
     <Route path="/form-select" exact component={SelectExample} />
     <Route path="/form-checkbox" exact component={CheckBoxExample} />
     <Route path="/form-field" exact component={FieldExample} />
+    <Route path="/form-button" exact component={ButtonExample} />
     <Route path="/form-radio-button" exact component={RadioButtonExample} />
     <Route path="/form-textarea" exact component={TextAreaExample} />
     <Route path="/form-file" exact component={FileExample} />
   </>
 )
 
+export const ColumnsRoutes: React.SFC = () => (
+  <>
+    <Route path="/columns-basics" exact component={BasicColumn} />
+  </>
+)
+
 export const LayoutRoutes: React.SFC = () => (
   <Container>
-    <Route path="/container-example" exact component={ContainerExample} />
-    <Route path="/hero-example" exact component={HeroExample} />
-    <Route path="/footer-example" exact component={FooterExample} />
-    <Route path="/layout-example" exact component={LayoutExample} />
-    <Route path="/level-example" exact component={LevelExample} />{' '}
-    <Route path="/media-object-example" exact component={MediaObjectExample} />
-    <Route path="/section-example" exact component={SectionExample} />
-    <Route path="/tile-example" exact component={TileExample} />
+    <Route path="/layout-container" exact component={ContainerExample} />
+    <Route path="/layout-hero" exact component={HeroExample} />
+    <Route path="/layout-footer" exact component={FooterExample} />
+    <Route path="/layout-level" exact component={LevelExample} />
+    <Route path="/layout-object" exact component={MediaObjectExample} />
+    <Route path="/layout-section" exact component={SectionExample} />
+    <Route path="/layout-tiles" exact component={TileExample} />
   </Container>
 )
 
 export const ElementsRoutes: React.SFC = () => (
   <>
-    <Route path="/notification-example" exact component={NotificationExample} />
-    <Route path="/title-example" exact component={TitleExample} />
-    <Route path="/delete-example" exact component={DeleteExample} />
-    <Route path="/image-example" exact component={ImageExample} />
-    <Route path="/progress-bar-example" exact component={ProgressBarExample} />
-    <Route path="/tag-example" exact component={TagExample} />
-    <Route path="/box-example" exact component={BoxExample} />
-    <Route path="/button-example" exact component={ButtonExample} />
-    <Route path="/table-example" exact component={TableExample} />
+    <Route
+      path="/elements-notification"
+      exact
+      component={NotificationExample}
+    />
+    <Route path="/elements-title" exact component={TitleExample} />
+    <Route path="/elements-delete" exact component={DeleteExample} />
+    <Route path="/elements-icon" exact component={IconExample} />
+    <Route path="/elements-image" exact component={ImageExample} />
+    <Route path="/elements-bars" exact component={ProgressBarExample} />
+    <Route path="/elements-tag" exact component={TagExample} />
+    <Route path="/elements-box" exact component={BoxExample} />
+    <Route path="/elements-table" exact component={TableExample} />
   </>
 )
 
 export const ComponentsRoutes: React.SFC = () => (
   <>
-    <Route path="/dropdown" exact component={DropDownExample} />
-    <Route path="/breadcrumb-example" exact component={BreadcrumbExample} />
-    <Route path="/message-example" exact component={MessageExample} />
-    <Route path="/tabs-example" exact component={TabsExample} />
-    <Route path="/panel-example" exact component={PanelExample} />
-    <Route path="/modal-example" exact component={ModalExample} />
-    <Route path="/card-example" exact component={CardExample} />
-    <Route path="/navbar-example" exact component={NavbarExample} />
-    <Route path="/menu-example" exact component={MenuExample} />
-    <Route path="/pagination-example" exact component={PaginationExample} />
+    <Route path="/components-dropdown" exact component={DropDownExample} />
+    <Route path="/components-breadcrumb" exact component={BreadcrumbExample} />
+    <Route path="/components-message" exact component={MessageExample} />
+    <Route path="/components-tabs" exact component={TabsExample} />
+    <Route path="/components-panel" exact component={PanelExample} />
+    <Route path="/components-modal" exact component={ModalExample} />
+    <Route path="/components-card" exact component={CardExample} />
+    <Route path="/components-navbar" exact component={NavbarExample} />
+    <Route path="/components-menu" exact component={MenuExample} />
+    <Route path="/components-pagination" exact component={PaginationExample} />
   </>
 )
 
@@ -129,6 +142,7 @@ export const Routes: React.SFC = () => (
     <ElementsRoutes />
     <ComponentsRoutes />
     <LayoutRoutes />
+    <ColumnsRoutes />
   </>
 )
 
