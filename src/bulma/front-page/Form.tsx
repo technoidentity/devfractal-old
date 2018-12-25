@@ -8,6 +8,7 @@ export const Form: React.SFC = () => (
       General
     </TabsItem>
     <TabsItem name="input">Input</TabsItem>
+    <TabsItem name="button">Button</TabsItem>
     <TabsItem name="textarea">Textarea</TabsItem>
     <TabsItem name="select">Select</TabsItem>
     <TabsItem name="checkbox">Checkbox</TabsItem>
