@@ -11,7 +11,7 @@ export const Form: React.SFC = () => (
     <TabsItem name="textarea">Textarea</TabsItem>
     <TabsItem name="select">Select</TabsItem>
     <TabsItem name="checkbox">Checkbox</TabsItem>
-    <TabsItem name="radio">Radio</TabsItem>
+    <TabsItem name="radio-button">Radio</TabsItem>
     <TabsItem name="file">File</TabsItem>
   </Tabs>
 )
