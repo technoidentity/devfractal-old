@@ -39,6 +39,7 @@ import {
 import { BasicColumn } from './bulma/examples/column-examples/Basics'
 import { GapColumn } from './bulma/examples/column-examples/Gap'
 import { NestingColumn } from './bulma/examples/column-examples/Nesting'
+import { OptionsColumn } from './bulma/examples/column-examples/Option'
 import { ResponsiveColumn } from './bulma/examples/column-examples/Responsiveness'
 import { SizesColumn } from './bulma/examples/column-examples/Sizes'
 import { IconExample } from './bulma/examples/IconExample'
@@ -74,6 +75,7 @@ export const ColumnsRoutes: React.SFC = () => (
     <Route path="/columns-responsiveness" exact component={ResponsiveColumn} />
     <Route path="/columns-nesting" exact component={NestingColumn} />
     <Route path="/columns-gap" exact component={GapColumn} />
+    <Route path="/columns-options" exact component={OptionsColumn} />
   </>
 )
 
