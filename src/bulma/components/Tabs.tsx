@@ -1,11 +1,20 @@
 import classNames from 'classnames'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import {
   CommonHelpers,
   commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
 } from '../modifiers/commonHelpers'
+
+interface TabsContext {
+  readonly url: string | undefined
+}
+
+const TabsContext: React.Context<TabsContext> = React.createContext<
+  TabsContext
+>({ url: undefined })
 
 type TabsSize = 'small' | 'medium' | 'large'
 
@@ -16,6 +25,7 @@ interface TabsItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
     CommonHelpers {
   readonly active?: boolean
+  readonly name: string
 }
 
 export const TabsItem: React.SFC<TabsItemProps> = ({
@@ -35,9 +45,15 @@ export const TabsItem: React.SFC<TabsItemProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <li {...propsCommonHelpersRemoved} className={classes}>
-      <a>{children}</a>
-    </li>
+    <TabsContext.Consumer>
+      {({ url }) => (
+        <li {...propsCommonHelpersRemoved} className={classes}>
+          <NavLink to={url === undefined ? '' : `${url}/${name}`}>
+            {children}
+          </NavLink>
+        </li>
+      )}
+    </TabsContext.Consumer>
   )
 }
 
@@ -48,9 +64,11 @@ interface TabsProps
   readonly alignment?: TabsAlignment
   readonly fullwidth?: boolean
   readonly tabsStyle?: TabsStyle
+  readonly to?: string
 }
 
 export const Tabs: React.SFC<TabsProps> = ({
+  to,
   size,
   alignment,
   fullwidth,
@@ -74,8 +92,10 @@ export const Tabs: React.SFC<TabsProps> = ({
     commonHelpersClasses(props),
   )
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
-      <ul>{children}</ul>
-    </div>
+    <TabsContext.Provider value={{ url: to }}>
+      <div {...propsCommonHelpersRemoved} className={classes}>
+        <ul>{children}</ul>
+      </div>
+    </TabsContext.Provider>
   )
 }

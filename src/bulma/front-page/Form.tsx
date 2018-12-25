@@ -3,15 +3,15 @@ import { Tabs } from '../components'
 import { TabsItem } from '../components/Tabs'
 
 export const Form: React.SFC = () => (
-  <>
-    <Tabs size="medium">
-      <TabsItem active>General</TabsItem>
-      <TabsItem>Input</TabsItem>
-      <TabsItem>Textarea</TabsItem>
-      <TabsItem>Select</TabsItem>
-      <TabsItem>Checkbox</TabsItem>
-      <TabsItem>Radio</TabsItem>
-      <TabsItem>File</TabsItem>
-    </Tabs>
-  </>
+  <Tabs to="/form" size="medium">
+    <TabsItem name="general" active>
+      General
+    </TabsItem>
+    <TabsItem name="input">Input</TabsItem>
+    <TabsItem name="textarea">Textarea</TabsItem>
+    <TabsItem name="select">Select</TabsItem>
+    <TabsItem name="checkbox">Checkbox</TabsItem>
+    <TabsItem name="radio">Radio</TabsItem>
+    <TabsItem name="file">File</TabsItem>
+  </Tabs>
 )

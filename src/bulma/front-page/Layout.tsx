@@ -3,13 +3,15 @@ import { Tabs } from '../components'
 import { TabsItem } from '../components/Tabs'
 
 export const Layout: React.SFC = () => (
-  <Tabs size="medium">
-    <TabsItem active>Container</TabsItem>
-    <TabsItem>Level</TabsItem>
-    <TabsItem>Media Object</TabsItem>
-    <TabsItem>Hero</TabsItem>
-    <TabsItem>Section</TabsItem>
-    <TabsItem>Footer</TabsItem>
-    <TabsItem>Tiles</TabsItem>
+  <Tabs to="layouts" size="medium">
+    <TabsItem name="container" active>
+      Container
+    </TabsItem>
+    <TabsItem name="level">Level</TabsItem>
+    <TabsItem name="object">Media Object</TabsItem>
+    <TabsItem name="hero">Hero</TabsItem>
+    <TabsItem name="section">Section</TabsItem>
+    <TabsItem name="footer">Footer</TabsItem>
+    <TabsItem name="tiles">Tiles</TabsItem>
   </Tabs>
 )

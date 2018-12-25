@@ -28,7 +28,7 @@ export const FrontPage: React.SFC = () => (
       <Container>
         <Columns multiline>
           <Column>
-            <Link to="/Form">
+            <Link to="/form">
               <Media className="notification is-light">
                 <MediaLeft>
                   <Icon icon={faWpforms} size="2x" textColor="link" />
@@ -43,7 +43,7 @@ export const FrontPage: React.SFC = () => (
             </Link>
           </Column>
           <Column size="one-third">
-            <Link to="/Columns">
+            <Link to="/columns">
               <Media className="notification is-light">
                 <MediaLeft>
                   <Icon icon={faColumns} size="2x" textColor="warning" />
@@ -58,7 +58,7 @@ export const FrontPage: React.SFC = () => (
             </Link>
           </Column>
           <Column>
-            <Link to="/Layout">
+            <Link to="/layout">
               <Media className="notification is-light">
                 <MediaLeft>
                   <Icon icon={faWarehouse} size="2x" textColor="success" />
@@ -75,7 +75,7 @@ export const FrontPage: React.SFC = () => (
         </Columns>
         <Columns multiline>
           <Column>
-            <Link to="/Elements">
+            <Link to="/elements">
               <Media className="notification is-light">
                 <MediaLeft>
                   <Icon icon={faCube} size="2x" textColor="danger" />
@@ -91,7 +91,7 @@ export const FrontPage: React.SFC = () => (
             </Link>
           </Column>
           <Column>
-            <Link to="/Components">
+            <Link to="/components">
               <Media className="notification is-light">
                 <MediaLeft>
                   <Icon icon={faCubes} size="2x" textColor="danger" />
@@ -106,7 +106,7 @@ export const FrontPage: React.SFC = () => (
             </Link>
           </Column>
           <Column>
-            <Link to="/Modifiers">
+            <Link to="/modifiers">
               <Media className="notification is-light">
                 <MediaLeft>
                   <Icon icon={faCogs} size="2x" textColor="grey" />

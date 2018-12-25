@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import {
   BoxExample,
   BreadcrumbExample,
@@ -85,12 +85,12 @@ export const FormLinks: React.SFC = () => (
 
 export const FormRoutes: React.SFC = () => (
   <>
-    <Route path="/select-example" exact component={SelectExample} />
-    <Route path="/checkbox-example" exact component={CheckBoxExample} />
-    <Route path="/field-example" exact component={FieldExample} />
-    <Route path="/Radiobutton-example" exact component={RadioButtonExample} />
-    <Route path="/textarea-example" exact component={TextAreaExample} />
-    <Route path="/file-example" exact component={FileExample} />
+    <Route path="/form/select" exact component={SelectExample} />
+    <Route path="/form/checkbox" exact component={CheckBoxExample} />
+    <Route path="/form/field" exact component={FieldExample} />
+    <Route path="/form/radio-button" exact component={RadioButtonExample} />
+    <Route path="/form/textarea" exact component={TextAreaExample} />
+    <Route path="/form/file" exact component={FileExample} />
   </>
 )
 
@@ -308,29 +308,29 @@ export const OtherRoutes: React.SFC = () => (
 )
 
 export const Links: React.SFC = () => (
-  <>
-    <ul>
-      <nav>
-        <OtherLinks />
-        <FormLinks />
-        <LayoutLinks />
-        <ComponentsLinks />
-        <ElementsLinks />
-      </nav>
-    </ul>
-  </>
+  <ul>
+    <nav>
+      <OtherLinks />
+      <FormLinks />
+      <LayoutLinks />
+      <ComponentsLinks />
+      <ElementsLinks />
+    </nav>
+  </ul>
 )
 
 export const Routes: React.SFC = () => (
-  <>
+  <Switch>
     <Route path="/" exact component={FrontPage} />
     <OtherRoutes />
     <FormRoutes />
     <ElementsRoutes />
     <ComponentsRoutes />
     <LayoutRoutes />
-  </>
+    <Route component={() => <h1>Not Found!</h1>} />
+  </Switch>
 )
+
 export const App: React.SFC = () => (
   <div>
     <Router>
