@@ -3,7 +3,7 @@ import { Tabs } from '../components'
 import { TabsItem } from '../components/Tabs'
 
 export const Layout: React.SFC = () => (
-  <Tabs to="layouts" size="medium">
+  <Tabs to="layout" urlSeparator="-" size="medium">
     <TabsItem name="container" active>
       Container
     </TabsItem>
