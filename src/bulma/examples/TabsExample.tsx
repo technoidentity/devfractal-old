@@ -1,28 +1,26 @@
 import React from 'react'
-import { Tabs, TabsItem } from '../components/Tabs'
+import { Tabs, TabsItem } from '../components/StatefulTabs'
 
 export const TabsExample: React.SFC = () => (
   <div>
     <Tabs
-      to="/tabs-1"
-      urlSeparator="-"
+      name="firstTab"
+      defaultValue="Pictures"
       className="is-centered  is-toggle is-toggle-rounded"
       size="medium"
     >
-      <TabsItem name="Pictures">Pictures</TabsItem>
-      <TabsItem name="Music" className="is-active">
-        Music
-      </TabsItem>
-      <TabsItem name="Videos">Videos</TabsItem>
-      <TabsItem name="Documents">Documents</TabsItem>
+      <TabsItem value="Pictures">Pictures</TabsItem>
+      <TabsItem value="Music">Music</TabsItem>
+      <TabsItem value="Videos">Videos</TabsItem>
+      <TabsItem value="Documents">Documents</TabsItem>
     </Tabs>
-    <Tabs to="/tabs-2" size="medium">
-      <TabsItem name="Pictures">Pictures</TabsItem>
-      <TabsItem name="Music">Music</TabsItem>
-      <TabsItem name="Videos" active>
+    <Tabs defaultValue="Pictures" name="secondTab" size="medium">
+      <TabsItem value="Pictures">Pictures</TabsItem>
+      <TabsItem value="Music">Music</TabsItem>
+      <TabsItem value="Videos" active>
         Videos
       </TabsItem>
-      <TabsItem name="Documents">Documents</TabsItem>
+      <TabsItem value="Documents">Documents</TabsItem>
     </Tabs>
   </div>
 )
