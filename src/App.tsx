@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import {
   BoxExample,
   BreadcrumbExample,
@@ -7,19 +7,16 @@ import {
   CardExample,
   CheckBoxExample,
   ContainerExample,
-  Counter,
   DeleteExample,
   DropDownExample,
   FieldExample,
   FileExample,
   FooterExample,
-  FormikSignUpForm,
   HeroExample,
   ImageExample,
   InputExample,
   LayoutExample,
   LevelExample,
-  LoginForm,
   MediaObjectExample,
   MenuExample,
   MessageExample,
@@ -30,19 +27,14 @@ import {
   PanelExample,
   ProgressBarExample,
   RadioButtonExample,
-  SampleForm,
   SectionExample,
   SelectExample,
-  SimpleExamples,
-  SimpleLoginForm,
   TableExample,
   TabsExample,
   TagExample,
   TextAreaExample,
   TileExample,
   TitleExample,
-  TodoListApp,
-  UserForm,
 } from './bulma/examples'
 import {
   Columns,
@@ -55,71 +47,15 @@ import {
 } from './bulma/front-page'
 import { Container, Section } from './bulma/layout'
 
-export const FormLinks: React.SFC = () => (
-  <>
-    <li>
-      <Link to="/input-example">InputExample</Link>
-    </li>
-    <li>
-      <Link to="/select-example">SelectExample</Link>
-    </li>
-    <li>
-      <Link to="/checkbox-example">CheckBoxExample</Link>
-    </li>
-    <li>
-      <Link to="/field-example"> Field Example</Link>
-    </li>
-    <li>
-      <Link to="/Radiobutton-example"> Radiobutton Example</Link>
-    </li>
-
-    <li>
-      <Link to="/textarea-example">Textarea Example</Link>
-    </li>
-
-    <li>
-      <Link to="/file-example">File Example</Link>
-    </li>
-  </>
-)
-
 export const FormRoutes: React.SFC = () => (
   <>
-    <Route path="/form/select" exact component={SelectExample} />
-    <Route path="/form/checkbox" exact component={CheckBoxExample} />
-    <Route path="/form/field" exact component={FieldExample} />
-    <Route path="/form/radio-button" exact component={RadioButtonExample} />
-    <Route path="/form/textarea" exact component={TextAreaExample} />
-    <Route path="/form/file" exact component={FileExample} />
-  </>
-)
-
-export const LayoutLinks: React.SFC = () => (
-  <>
-    <li>
-      <Link to="/layout-example">Layout Example</Link>
-    </li>
-    <li>
-      <Link to="/container-example"> Container Example</Link>
-    </li>
-    <li>
-      <Link to="/level-example">Level Example</Link>
-    </li>
-    <li>
-      <Link to="/hero-example">HeroExample</Link>
-    </li>
-    <li>
-      <Link to="/section-example"> Section Example</Link>
-    </li>
-    <li>
-      <Link to="/footer-example">FooterExample</Link>
-    </li>
-    <li>
-      <Link to="/media-object-example">Media Object Example</Link>
-    </li>
-    <li>
-      <Link to="/tile-example">Tile Example</Link>
-    </li>
+    <Route path="/form-input" exact component={InputExample} />
+    <Route path="/form-select" exact component={SelectExample} />
+    <Route path="/form-checkbox" exact component={CheckBoxExample} />
+    <Route path="/form-field" exact component={FieldExample} />
+    <Route path="/form-radio-button" exact component={RadioButtonExample} />
+    <Route path="/form-textarea" exact component={TextAreaExample} />
+    <Route path="/form-file" exact component={FileExample} />
   </>
 )
 
@@ -136,38 +72,6 @@ export const LayoutRoutes: React.SFC = () => (
   </Container>
 )
 
-export const ElementsLinks: React.SFC = () => (
-  <>
-    <li>
-      <Link to="/button-example">Button Example</Link>
-    </li>
-    <li>
-      <Link to="/box-example">BoxExample</Link>
-    </li>
-    <li>
-      <Link to="/delete-example">delete Example</Link>
-    </li>
-    <li>
-      <Link to="/image-example">Image Example</Link>
-    </li>
-    <li>
-      <Link to="/progress-bar-example">ProgressBar Example</Link>
-    </li>
-    <li>
-      <Link to="/notification-example">Notification Example</Link>
-    </li>
-    <li>
-      <Link to="/table-example">Table Example</Link>
-    </li>
-    <li>
-      <Link to="/tag-example">Tag Example</Link>
-    </li>
-    <li>
-      <Link to="/title-example">Title Example</Link>
-    </li>
-  </>
-)
-
 export const ElementsRoutes: React.SFC = () => (
   <>
     <Route path="/notification-example" exact component={NotificationExample} />
@@ -179,45 +83,6 @@ export const ElementsRoutes: React.SFC = () => (
     <Route path="/box-example" exact component={BoxExample} />
     <Route path="/button-example" exact component={ButtonExample} />
     <Route path="/table-example" exact component={TableExample} />
-  </>
-)
-
-export const ComponentsLinks: React.SFC = () => (
-  <>
-    <li>
-      <Link to="/dropdown">DropDownExample</Link>
-    </li>
-
-    <li>
-      <Link to="/breadcrumb-example">Breadcrumb Example</Link>
-    </li>
-    <li>
-      <Link to="/message-example">Message Example</Link>
-    </li>
-    <li>
-      <Link to="/tabs-example">Tabs Example</Link>
-    </li>
-    <li>
-      <Link to="/panel-example">Panel Example</Link>
-    </li>
-    <li>
-      <Link to="/modal-example">Modal Example</Link>
-    </li>
-
-    <li>
-      <Link to="/card-example">Card Example</Link>
-    </li>
-    <li>
-      <Link to="/navbar-example">Navbar Example</Link>
-    </li>
-
-    <li>
-      <Link to="/menu-example">Menu Example</Link>
-    </li>
-
-    <li>
-      <Link to="/pagination-example">Pagination Example</Link>
-    </li>
   </>
 )
 
@@ -236,66 +101,15 @@ export const ComponentsRoutes: React.SFC = () => (
   </>
 )
 
-export const OtherLinks: React.SFC = () => (
+export const FrontPageRoutes: React.SFC = () => (
   <>
-    <li>
-      <Link to="/front-page">Front Page</Link>
-    </li>
-    <li>
-      <Link to="/form">Form</Link>
-    </li>
-    <li>
-      <Link to="/layout">Layout</Link>
-    </li>
-    <li>
-      <Link to="/modifiers">Modifiers</Link>
-    </li>
-    <li>
-      <Link to="/columns">Columns</Link>
-    </li>
-    <li>
-      <Link to="/components">Components</Link>
-    </li>
-    <li>
-      <Link to="/elements">Elements</Link>
-    </li>
-    <li>
-      <Link to="/todo-example">Todo Example</Link>
-    </li>
-    <li>
-      <Link to="/counter-example">Counter Example</Link>
-    </li>
-    <li>
-      <Link to="/simple-examples">Simple Examples</Link>
-    </li>
-    <li>
-      <Link to="/sample-form">Sample Form</Link>
-    </li>
-    <li>
-      <Link to="/user-form">User Form</Link>
-    </li>
-    <li>
-      <Link to="/login-form">Login Form</Link>
-    </li>
-    <li>
-      <Link to="/simple-login-form">Simple Login Form</Link>
-    </li>
-    <li>
-      <Link to="/signup-form">SignUp Example</Link>
-    </li>
-  </>
-)
-
-export const OtherRoutes: React.SFC = () => (
-  <>
-    <Route path="/front-page" exact component={FrontPage} />
     <Route path="/form" exact component={Form} />
     <Route path="/components" exact component={Components} />
     <Route path="/elements" exact component={Elements} />
     <Route path="/modifiers" exact component={Modifiers} />
     <Route path="/layout" exact component={Layout} />
     <Route path="/columns" exact component={Columns} />
-    <Route path="/sample-form" exact component={SampleForm} />
+    {/* <Route path="/sample-form" exact component={SampleForm} />
     <Route path="/login-form" exact component={LoginForm} />
     <Route path="/simple-login-form" exact component={SimpleLoginForm} />
     <Route path="/input-example" exact component={InputExample} />
@@ -303,32 +117,19 @@ export const OtherRoutes: React.SFC = () => (
     <Route path="/signup-form" exact component={FormikSignUpForm} />
     <Route path="/todo-example" exact component={TodoListApp} />
     <Route path="/simple-examples" exact component={SimpleExamples} />
-    <Route path="/counter-example" exact component={Counter} />
+    <Route path="/counter-example" exact component={Counter} /> */}
   </>
 )
 
-export const Links: React.SFC = () => (
-  <ul>
-    <nav>
-      <OtherLinks />
-      <FormLinks />
-      <LayoutLinks />
-      <ComponentsLinks />
-      <ElementsLinks />
-    </nav>
-  </ul>
-)
-
 export const Routes: React.SFC = () => (
-  <Switch>
+  <>
     <Route path="/" exact component={FrontPage} />
-    <OtherRoutes />
     <FormRoutes />
+    <FrontPageRoutes />
     <ElementsRoutes />
     <ComponentsRoutes />
     <LayoutRoutes />
-    <Route component={() => <h1>Not Found!</h1>} />
-  </Switch>
+  </>
 )
 
 export const App: React.SFC = () => (
