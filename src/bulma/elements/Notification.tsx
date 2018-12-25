@@ -14,6 +14,7 @@ type NotificationVariant =
   | 'success'
   | 'warning'
   | 'danger'
+  | 'light'
 
 interface NotificationProps
   extends React.HTMLAttributes<HTMLDivElement>,
