@@ -3,7 +3,7 @@ import { Tabs } from '../components'
 import { TabsItem } from '../components/Tabs'
 
 export const Components: React.SFC = () => (
-  <Tabs to="/components" size="medium">
+  <Tabs to="/components" urlSeparator="-" size="medium">
     <TabsItem name="breadcrumb" active>
       Breadcrumb
     </TabsItem>
