@@ -37,6 +37,7 @@ import {
   TitleExample,
 } from './bulma/examples'
 import { BasicColumn } from './bulma/examples/column-examples/Basics'
+import { ResponsiveColumn } from './bulma/examples/column-examples/Responsiveness'
 import { SizesColumn } from './bulma/examples/column-examples/Sizes'
 import { IconExample } from './bulma/examples/IconExample'
 import {
@@ -68,6 +69,7 @@ export const ColumnsRoutes: React.SFC = () => (
   <>
     <Route path="/columns-basics" exact component={BasicColumn} />
     <Route path="/columns-size" exact component={SizesColumn} />
+    <Route path="/columns-responsiveness" exact component={ResponsiveColumn} />
   </>
 )
 
