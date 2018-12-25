@@ -3,7 +3,16 @@ import { classNamesHelper } from '../modifiers'
 import { AllControlHelpers, ControlDiv } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
 
-type InputVariant = 'primary' | 'info' | 'success' | 'warning' | 'danger'
+type InputVariant =
+  | 'primary'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'white'
+  | 'dark'
+  | 'light'
+  | 'black'
 
 export type InputType =
   | 'text'
@@ -19,15 +28,18 @@ export type InputType =
   | 'search'
   | 'time'
   | 'url'
+  | 'link'
   | 'week'
 
-type InputState = 'hovered' | 'focused'
+type InputState = 'hovered' | 'focused' | 'static' | 'active'
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     AllControlHelpers {
   readonly variant?: InputVariant
   readonly rounded?: boolean
+  readonly fullWidth?: boolean
+  readonly inline?: boolean
   readonly state?: InputState
   readonly type?: InputType
 }
@@ -35,12 +47,16 @@ export interface InputProps
 export const Input: React.SFC<InputProps> = ({
   noControl,
   variant,
+  fullWidth,
+  inline,
   rounded,
   state,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'input', {
     [`is-${variant}`]: variant,
+    [`is-fullwidth`]: fullWidth,
+    [`is-inline`]: inline,
     [`is-${props.ctrlSize}`]: props.ctrlSize,
     [`is-rounded`]: rounded,
     [`is-${state}`]: state,

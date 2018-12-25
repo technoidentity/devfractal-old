@@ -9,12 +9,13 @@ import {
 } from '../modifiers/commonHelpers'
 
 interface TabsContext {
-  readonly url: string | undefined
+  readonly url?: string
+  readonly separator?: string
 }
 
 const TabsContext: React.Context<TabsContext> = React.createContext<
   TabsContext
->({ url: undefined })
+>({})
 
 type TabsSize = 'small' | 'medium' | 'large'
 
@@ -29,6 +30,7 @@ interface TabsItemProps
 }
 
 export const TabsItem: React.SFC<TabsItemProps> = ({
+  name,
   active,
   children,
   className,
@@ -46,9 +48,9 @@ export const TabsItem: React.SFC<TabsItemProps> = ({
   )
   return (
     <TabsContext.Consumer>
-      {({ url }) => (
+      {({ url, separator }) => (
         <li {...propsCommonHelpersRemoved} className={classes}>
-          <NavLink to={url === undefined ? '' : `${url}/${name}`}>
+          <NavLink to={url === undefined ? '' : `${url}${separator}${name}`}>
             {children}
           </NavLink>
         </li>
@@ -62,16 +64,18 @@ interface TabsProps
     CommonHelpers {
   readonly size?: TabsSize
   readonly alignment?: TabsAlignment
-  readonly fullwidth?: boolean
+  readonly fullWidth?: boolean
   readonly tabsStyle?: TabsStyle
   readonly to?: string
+  readonly urlSeparator?: string
 }
 
 export const Tabs: React.SFC<TabsProps> = ({
   to,
+  urlSeparator = '/',
   size,
   alignment,
-  fullwidth,
+  fullWidth,
   tabsStyle,
   children,
   className,
@@ -86,13 +90,13 @@ export const Tabs: React.SFC<TabsProps> = ({
       [`is-${size}`]: size,
       [`is-${alignment}`]: alignment,
       [`is-${tabsStyle}`]: tabsStyle,
-      [`is-fullwidth`]: fullwidth,
+      [`is-fullwidth`]: fullWidth,
     },
     className,
     commonHelpersClasses(props),
   )
   return (
-    <TabsContext.Provider value={{ url: to }}>
+    <TabsContext.Provider value={{ url: to, separator: urlSeparator }}>
       <div {...propsCommonHelpersRemoved} className={classes}>
         <ul>{children}</ul>
       </div>
