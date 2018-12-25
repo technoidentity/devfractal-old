@@ -7,7 +7,7 @@ import {
   NavbarItem,
   NavbarMenu,
 } from '../components/Navbar'
-import { Tabs } from '../components/Tabs'
+import { Tabs } from '../components/StatefulTabs'
 import { SubTitle, Title } from '../elements/Title'
 import { Button } from '../form/Button'
 import { Container } from '../layout/Container'
