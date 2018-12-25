@@ -1,12 +1,6 @@
-import classNames from 'classnames'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 interface TabsContext {
   readonly url?: string
@@ -22,9 +16,7 @@ type TabsSize = 'small' | 'medium' | 'large'
 type TabsAlignment = 'centered' | 'right'
 
 type TabsStyle = 'boxed' | 'toggle' | 'toggle-rounded'
-interface TabsItemProps
-  extends React.LiHTMLAttributes<HTMLLIElement>,
-    CommonHelpers {
+interface TabsItemProps extends React.LiHTMLAttributes<HTMLLIElement>, Helpers {
   readonly active?: boolean
   readonly name: string
 }
@@ -33,35 +25,25 @@ export const TabsItem: React.SFC<TabsItemProps> = ({
   name,
   active,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    {
-      [`is-active`]: active,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, {
+    [`is-active`]: active,
+  })
   return (
     <TabsContext.Consumer>
       {({ url, separator }) => (
-        <li {...propsCommonHelpersRemoved} className={classes}>
+        <Div as="li" {...props} className={classes}>
           <NavLink to={url === undefined ? '' : `${url}${separator}${name}`}>
             {children}
           </NavLink>
-        </li>
+        </Div>
       )}
     </TabsContext.Consumer>
   )
 }
 
-interface TabsProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+interface TabsProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly size?: TabsSize
   readonly alignment?: TabsAlignment
   readonly fullWidth?: boolean
@@ -78,28 +60,19 @@ export const Tabs: React.SFC<TabsProps> = ({
   fullWidth,
   tabsStyle,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'tabs',
-    {
-      [`is-${size}`]: size,
-      [`is-${alignment}`]: alignment,
-      [`is-${tabsStyle}`]: tabsStyle,
-      [`is-fullwidth`]: fullWidth,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'tabs', {
+    [`is-${size}`]: size,
+    [`is-${alignment}`]: alignment,
+    [`is-${tabsStyle}`]: tabsStyle,
+    [`is-fullwidth`]: fullWidth,
+  })
   return (
     <TabsContext.Provider value={{ url: to, separator: urlSeparator }}>
-      <div {...propsCommonHelpersRemoved} className={classes}>
+      <Div {...props} className={classes}>
         <ul>{children}</ul>
-      </div>
+      </Div>
     </TabsContext.Provider>
   )
 }

@@ -8,7 +8,7 @@ export const RadioButtonExample: React.SFC = () => (
       {' '}
       yes
     </RadioButton>
-    <RadioButton disabled> No</RadioButton>
+    <RadioButton> No</RadioButton>
     <RadioButton disabled> No</RadioButton>
   </RadioButtonGroup>
 )
