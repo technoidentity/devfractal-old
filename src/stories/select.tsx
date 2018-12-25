@@ -1,26 +1,37 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Select } from '../bulma/form/Select'
+import { Column, Columns } from '../bulma/columns'
+import { Select } from '../bulma/form'
 
 storiesOf('Select', module)
   .add('with size', () => (
     <div>
-      <Select selectSize="small" onChange={action('onChange')}>
+      <Select ctrlSize="small" onChange={action('onChange')}>
         <option>small</option>
         <option>medium</option>
         <option>large</option>
       </Select>
-      <Select selectSize="medium">
+      <Select ctrlSize="medium">
         <option>medium</option>
         <option>large</option>
         <option>small</option>
       </Select>
-      <Select selectSize="large">
+      <Select ctrlSize="large">
         <option>large</option>
         <option>medium</option>
         <option>small</option>
       </Select>
+      <Columns>
+        <Column>
+          <Select fullWidth>
+            <option>fullwidth</option>
+            <option>medium</option>
+            <option>small</option>
+            <option>large</option>
+          </Select>
+        </Column>
+      </Columns>
     </div>
   ))
   .add('with variant', () => (
@@ -34,11 +45,23 @@ storiesOf('Select', module)
       <Select variant="success">
         <option>success</option>
       </Select>
-      <Select variant="warning">
+      <Select variant="white">
         <option>warning</option>
       </Select>
       <Select variant="danger">
         <option>danger</option>
+      </Select>
+      <Select variant="dark">
+        <option>dark</option>
+      </Select>
+      <Select variant="light">
+        <option>light</option>
+      </Select>
+      <Select variant="black">
+        <option>black</option>
+      </Select>
+      <Select variant="warning">
+        <option>warning</option>
       </Select>
     </div>
   ))
@@ -64,5 +87,13 @@ storiesOf('Select', module)
         <option>focused</option>
         <option>hovered</option>
       </Select>
+      <Select state="active">
+        <option>loading</option>
+        <option>focused</option>
+        <option>hovered</option>
+      </Select>
     </div>
+  ))
+  .add('Disabled select', () => (
+    <Select disabled placeholder="disable select" />
   ))

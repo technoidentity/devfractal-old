@@ -16,6 +16,7 @@ export const TextAreaExample: React.SFC = () => (
         }}
       />
     </Field>
+    \
     <Field>
       <TextArea variant="info" disabled />
     </Field>

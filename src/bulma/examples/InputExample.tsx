@@ -1,16 +1,27 @@
 import React from 'react'
 import { Input } from '../form/Input'
-import { logger } from './common'
+import { Section } from '../layout'
 
 export const InputExample: React.SFC = () => (
-  <Input
-    type="password"
-    variant="primary"
-    state="focused"
-    rounded
-    placeholder="Input Text"
-    onKeyDown={() => {
-      logger('InputExample onKeyDown')
-    }}
-  />
+  <div>
+    <Section>
+      <Input
+        variant="primary"
+        ctrlSize="large"
+        state="focused"
+        placeholder="primary and focused"
+      />
+    </Section>
+    <Section>
+      <Input
+        variant="info"
+        rounded
+        state="active"
+        loading
+        ctrlSize="medium"
+        placeholder="loading and rounded"
+      />
+    </Section>
+    <Input disabled placeholder="disabled input" />
+  </div>
 )
