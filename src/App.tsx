@@ -37,6 +37,7 @@ import {
   TitleExample,
 } from './bulma/examples'
 import { BasicColumn } from './bulma/examples/column-examples/Basics'
+import { SizesColumn } from './bulma/examples/column-examples/Sizes'
 import { IconExample } from './bulma/examples/IconExample'
 import {
   Columns,
@@ -66,6 +67,7 @@ export const FormRoutes: React.SFC = () => (
 export const ColumnsRoutes: React.SFC = () => (
   <>
     <Route path="/columns-basics" exact component={BasicColumn} />
+    <Route path="/columns-size" exact component={SizesColumn} />
   </>
 )
 
