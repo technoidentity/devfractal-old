@@ -44,15 +44,16 @@ import {
   TodoListApp,
   UserForm,
 } from './bulma/examples'
-import { FrontPage } from './bulma/examples/FrontPage'
-import { Columns } from './bulma/front-page-tabs/Columns'
-import { Components } from './bulma/front-page-tabs/Components'
-import { Elements } from './bulma/front-page-tabs/Elements'
-import { Form } from './bulma/front-page-tabs/Form'
-import { Layout } from './bulma/front-page-tabs/Layout'
-import { Modifiers } from './bulma/front-page-tabs/Modifiers'
-import { Container } from './bulma/layout/Container'
-import { Section } from './bulma/layout/Section'
+import {
+  Columns,
+  Components,
+  Elements,
+  Form,
+  FrontPage,
+  Layout,
+  Modifiers,
+} from './bulma/front-page'
+import { Container, Section } from './bulma/layout'
 
 export const FormLinks: React.SFC = () => (
   <>
