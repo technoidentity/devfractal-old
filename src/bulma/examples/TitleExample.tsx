@@ -1,6 +1,6 @@
 import React from 'react'
 import { SubTitle, Title } from '../elements/Title'
-import { Section } from '../layout/Section'
+import { Section } from '../layout'
 
 export const TitleExample: React.SFC = () => (
   <Section>
