@@ -1,11 +1,5 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type NavbarVariant =
   | 'primary'
@@ -21,9 +15,7 @@ type NavbarVariant =
 
 type NavbarModifier = 'transparent' | 'fixed-top' | 'fixed-bottom'
 
-interface NavbarProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+interface NavbarProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly variant?: NavbarVariant
   readonly modifier?: NavbarModifier
 }
@@ -32,85 +24,55 @@ export const Navbar: React.SFC<NavbarProps> = ({
   variant,
   modifier,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar',
-    {
-      [`is-${variant}`]: variant,
-      [`is-${modifier}`]: modifier,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar', {
+    [`is-${variant}`]: variant,
+    [`is-${modifier}`]: modifier,
+  })
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface NavbarBrandProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const NavbarBrand: React.SFC<NavbarBrandProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-brand',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-brand')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface NavbarBurgerProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const NavbarBurger: React.SFC<NavbarBurgerProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-burger',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-burger')
   return (
-    <a
-      {...propsCommonHelpersRemoved}
-      className={classes}
-      aria-label="menu"
-      aria-expanded="false"
-    >
+    <Div as="a" {...props} className={classes}>
       {children}
-    </a>
+    </Div>
   )
 }
 
 type NavbarItemModifier = 'expanded' | 'tab' | 'active' | 'hoverable'
 interface NavBarItemsProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+    Helpers {
   readonly dropdown?: boolean
   readonly dropdownup?: boolean
   readonly href?: string
@@ -123,195 +85,135 @@ export const NavbarItem: React.SFC<NavBarItemsProps> = ({
   dropdownup,
   modifier,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-item',
-    {
-      href: { href },
-      [`has-dropdown-up`]: dropdownup,
-      [`has-dropdown`]: dropdown,
-      [`is-${modifier}`]: modifier,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-item', {
+    href: { href },
+    [`has-dropdown-up`]: dropdownup,
+    [`has-dropdown`]: dropdown,
+    [`is-${modifier}`]: modifier,
+  })
   return (
-    <div
-      {...propsCommonHelpersRemoved}
+    <Div
+      {...props}
       className={classes}
       role="navigation"
       aria-label="main navigation"
     >
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface NavBarMenuProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+    Helpers {
   readonly active?: boolean
 }
 
 export const NavbarMenu: React.SFC<NavBarMenuProps> = ({
   active,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-menu',
-    {
-      [`is-active`]: active,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-menu', {
+    [`is-active`]: active,
+  })
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 type NavbarDropdownModifier = 'boxed'
 interface NavbarDropdownprops
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+    Helpers {
   readonly modifier?: NavbarDropdownModifier
 }
 
 export const NavbarDropdown: React.SFC<NavbarDropdownprops> = ({
   modifier,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-dropdown',
-    {
-      [`is-${modifier}`]: modifier,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-dropdown', {
+    [`is-${modifier}`]: modifier,
+  })
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 type NavbarLinkModifier = 'arrowless'
 interface NavBarLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    CommonHelpers {
+    Helpers {
   readonly modifier?: NavbarLinkModifier
 }
 
 export const NavbarLink: React.SFC<NavBarLinkProps> = ({
   modifier,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-link',
-    {
-      [`is-${modifier}`]: modifier,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-link', {
+    [`is-${modifier}`]: modifier,
+  })
   return (
-    <a {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="a" {...props} className={classes}>
       {children}
-    </a>
+    </Div>
   )
 }
 
 interface NavbarStartProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const NavbarStart: React.SFC<NavbarStartProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-start',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-start')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface NavbarEndProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const NavbarEnd: React.SFC<NavbarEndProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-end',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-end')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface NavbarDividerProps
   extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const NavbarDivider: React.SFC<NavbarDividerProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'navbar-divider',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'navbar-divider')
   return (
-    <hr {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="hr" {...props} className={classes}>
       {children}
-    </hr>
+    </Div>
   )
 }
