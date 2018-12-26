@@ -9,7 +9,9 @@ type ColumnsResponsive =
   | 'widescreen'
   | 'fullhd'
 
-interface ColumnsProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+export interface ColumnsProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
   readonly responsiveness?: ColumnsResponsive
   readonly gapless?: boolean
   readonly verticallyCentered?: boolean
