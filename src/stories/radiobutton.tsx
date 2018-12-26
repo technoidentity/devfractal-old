@@ -3,10 +3,9 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { RadioButton } from '../bulma/form/RadioButton'
 
-storiesOf('RadioButton', module).add('with action', () => (
-  <div>
-    <RadioButton onChange={action('onChange')}>Male</RadioButton>
-    <RadioButton checked>Female</RadioButton>
-    <RadioButton disabled>other</RadioButton>
-  </div>
-))
+storiesOf('RadioButton', module)
+  .add('with action', () => (
+    <RadioButton onChange={action('onChange')}>Gender</RadioButton>
+  ))
+  .add('with checked', () => <RadioButton checked>Male</RadioButton>)
+  .add('with disabled', () => <RadioButton disabled>Female</RadioButton>)
