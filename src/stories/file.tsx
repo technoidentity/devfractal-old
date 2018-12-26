@@ -8,48 +8,46 @@ storiesOf('File', module)
     <div>
       <File
         variant="primary"
-        fileLabel="choose file"
+        fileLabel="primary"
         onClick={action('selected')}
       />
-      <File variant="black" fileLabel="choose file" />
-      <File variant="white" fileLabel="choose file" />
-      <File variant="link" fileLabel="choose file" />
-      <File variant="info" fileLabel="choose file" />
-      <File variant="success" fileLabel="choose file" />
-      <File variant="warning" fileLabel="choose file" />
-      <File variant="danger" fileLabel="choose file" />
+      <File variant="black" fileLabel="black" />
+      <File variant="white" fileLabel="white" />
+      <File variant="link" fileLabel="link" />
+      <File variant="info" fileLabel="info" />
+      <File variant="success" fileLabel="success" />
+      <File variant="warning" fileLabel="warning" />
+      <File variant="danger" fileLabel="danger" />
     </div>
   ))
   .add('with sizes', () => (
     <div>
-      <File fileLabel="choose file" size="small" />
-      <File fileLabel="choose file" size="large" />
-      <File fileLabel="choose file" size="medium" />
+      <File fileLabel="small file" size="small" />
+      <File fileLabel="large file" size="large" />
+      <File fileLabel="medium file" size="medium" />
+      <File fileLabel="normal file" />
     </div>
   ))
   .add('with name', () => (
     <div>
       <File fileLabel="choose file" fileName>
-        screenshot1
+        Screen Shot 2017-07-29 at 15.54.25.png
       </File>
     </div>
   ))
-  .add('with alignment', () => (
+  .add('file-cta alignment', () => (
     <div>
-      <File fileLabel="choose file" fileName alignment="centered">
-        screenshot 1
+      <File fileLabel="centered choose file" fileName alignment="centered">
+        Screen Shot 2017-07-29 at 15.54.25.png
       </File>
-      <File fileLabel="choose file" fileName alignment="right">
-        screenshot 2
+      <File fileLabel=" right choose file" fileName alignment="right">
+        Screen Shot 2017-07-29 at 15.54.25.png
       </File>
     </div>
   ))
-  .add('with boxed', () => (
-    <File fileLabel="choose file" boxed={Boolean(true)} />
-  ))
-  .add('with fullWidth', () => (
-    <File fileLabel="choose file" fileName fullWidth={Boolean(true)}>
-      {' '}
+  .add('boxed', () => <File fileLabel="boxed choose file" boxed />)
+  .add('fullWidth', () => (
+    <File fileLabel="fullWidth choose file" fileName fullWidth>
       Screen Shot 2017-07-29 at 15.54.25.png
     </File>
   ))
