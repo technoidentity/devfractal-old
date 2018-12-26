@@ -86,7 +86,7 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
   return classNames(cnSize, cnAlignment, {
     [`has-text-${textColor}`]: textColor,
     [`has-background-${textBackgroundColor}`]: textBackgroundColor,
-    [`has-text-${textWeight}`]: textWeight,
+    [`has-text-weight-${textWeight}`]: textWeight,
     [`is-${textTransformation}`]: textTransformation,
     [`has-text-${textResponsiveAlignment}`]: textResponsiveAlignment,
   })
