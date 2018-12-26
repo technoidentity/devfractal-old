@@ -7,7 +7,7 @@ import {
   removeCommonHelpers,
 } from '../modifiers/commonHelpers'
 
-interface SectionProps
+export interface SectionProps
   extends React.HTMLAttributes<HTMLElement>,
     CommonHelpers {
   readonly modifier?: 'medium' | 'large'

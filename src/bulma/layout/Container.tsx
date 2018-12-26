@@ -7,7 +7,7 @@ import {
   removeCommonHelpers,
 } from '../modifiers/commonHelpers'
 
-interface ContainerProps
+export interface ContainerProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
   readonly breakpoint?: 'widescreen' | 'fullhd'

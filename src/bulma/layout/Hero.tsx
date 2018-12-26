@@ -18,7 +18,9 @@ type HeroVariant =
 
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar'
 
-interface HeroProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {
+export interface HeroProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {
   readonly variant?: HeroVariant
   readonly bold?: boolean
   readonly size?: HeroSize
@@ -52,7 +54,7 @@ export const Hero: React.SFC<HeroProps> = ({
   )
 }
 
-interface HeroHeadProps
+export interface HeroHeadProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {}
 
@@ -77,7 +79,7 @@ export const HeroHead: React.SFC<HeroHeadProps> = ({
   )
 }
 
-interface HeroBodyProps
+export interface HeroBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {}
 
@@ -102,7 +104,7 @@ export const HeroBody: React.SFC<HeroBodyProps> = ({
   )
 }
 
-interface HeroFootProps
+export interface HeroFootProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {}
 

@@ -7,7 +7,7 @@ import {
   removeCommonHelpers,
 } from '../modifiers/commonHelpers'
 
-interface FooterProps
+export interface FooterProps
   extends React.HTMLAttributes<HTMLElement>,
     CommonHelpers {}
 

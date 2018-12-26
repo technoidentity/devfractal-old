@@ -7,7 +7,9 @@ import {
   removeCommonHelpers,
 } from '../modifiers/commonHelpers'
 
-interface MediaProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {}
+export interface MediaProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const Media: React.SFC<MediaProps> = ({
   children,
@@ -28,7 +30,7 @@ export const Media: React.SFC<MediaProps> = ({
     </article>
   )
 }
-interface MediaLeftProps
+export interface MediaLeftProps
   extends React.HTMLAttributes<HTMLElement>,
     CommonHelpers {}
 
@@ -52,7 +54,7 @@ export const MediaLeft: React.SFC<MediaLeftProps> = ({
   )
 }
 
-interface MediaRightProps
+export interface MediaRightProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {}
 
@@ -76,7 +78,7 @@ export const MediaRight: React.SFC<MediaRightProps> = ({
   )
 }
 
-interface MediaContentProps
+export interface MediaContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {}
 

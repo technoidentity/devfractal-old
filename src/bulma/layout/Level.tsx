@@ -9,7 +9,9 @@ import {
 
 type LevelItemType = 'left' | 'right'
 
-interface LevelProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {}
+export interface LevelProps
+  extends React.HTMLAttributes<HTMLElement>,
+    CommonHelpers {}
 
 export const Level: React.SFC<LevelProps> = ({
   children,
@@ -31,7 +33,7 @@ export const Level: React.SFC<LevelProps> = ({
   )
 }
 
-interface LevelItemProps
+export interface LevelItemProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CommonHelpers {
   readonly levelItemType?: LevelItemType
