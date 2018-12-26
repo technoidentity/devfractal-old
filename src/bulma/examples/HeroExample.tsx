@@ -7,7 +7,7 @@ import {
   NavbarItem,
   NavbarMenu,
 } from '../components/Navbar'
-import { Tabs } from '../components/Tabs'
+import { Tabs, TabsItem } from '../components/Tabs'
 import { SubTitle, Title } from '../elements/Title'
 import { Button } from '../form/Button'
 import { Container } from '../layout/Container'
@@ -59,26 +59,23 @@ export const HeroExample: React.SFC = () => (
       <HeroFoot>
         <Tabs>
           <Container>
-            <ul>
-              <li className="is-active">
-                <a>Overview</a>
-              </li>
-              <li>
-                <a>Modifiers</a>
-              </li>
-              <li className="is-active">
-                <a>Grid</a>
-              </li>
-              <li>
-                <a>Elements</a>
-              </li>
-              <li>
-                <a>Components</a>
-              </li>
-              <li>
-                <a>Layout</a>
-              </li>
-            </ul>
+            <Tabs>
+              <TabsItem active name="overview">
+                Overview
+              </TabsItem>
+
+              <TabsItem name="modifiers">Modifiers</TabsItem>
+
+              <TabsItem active name="grid">
+                Grid
+              </TabsItem>
+
+              <TabsItem name="elements">Elements</TabsItem>
+
+              <TabsItem name="components">Components</TabsItem>
+
+              <TabsItem name="layout">Layout</TabsItem>
+            </Tabs>
           </Container>
         </Tabs>
       </HeroFoot>
