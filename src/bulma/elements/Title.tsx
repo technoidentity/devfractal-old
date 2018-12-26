@@ -1,19 +1,11 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type TitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 
 type SubTitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 
-interface TitleProps
-  extends React.HTMLAttributes<HTMLHeadingElement>,
-    CommonHelpers {
+interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement>, Helpers {
   readonly size?: TitleSize
   readonly spaced?: boolean
 }
@@ -22,54 +14,36 @@ export const Title: React.SFC<TitleProps> = ({
   size,
   spaced,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'title',
-    {
-      [`is-${size}`]: size,
-      [`is-${spaced}`]: spaced,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'title', {
+    [`is-${size}`]: size,
+    [`is-${spaced}`]: spaced,
+  })
   return (
-    <h1 {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="h1" {...props} className={classes}>
       {children}
-    </h1>
+    </Div>
   )
 }
 
 interface SubTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
-    CommonHelpers {
+    Helpers {
   readonly size?: SubTitleSize
 }
 
 export const SubTitle: React.SFC<SubTitleProps> = ({
   size,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'subtitle',
-    {
-      [`is-${size}`]: size,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'subtitle', {
+    [`is-${size}`]: size,
+  })
   return (
-    <h1 {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="h1" {...props} className={classes}>
       {children}
-    </h1>
+    </Div>
   )
 }

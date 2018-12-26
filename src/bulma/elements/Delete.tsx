@@ -1,35 +1,17 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type DeleteSize = 'small' | 'medium' | 'large'
 
 interface DeleteProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    CommonHelpers {
+    Helpers {
   readonly size?: DeleteSize
 }
 
-export const Delete: React.SFC<DeleteProps> = ({
-  size,
-  className,
-  ...props
-}) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'delete',
-    {
-      [`is-${size}`]: size,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
-  return <a {...propsCommonHelpersRemoved} className={classes} />
+export const Delete: React.SFC<DeleteProps> = ({ size, ...props }) => {
+  const classes: string = classNamesHelper(props, 'delete', {
+    [`is-${size}`]: size,
+  })
+  return <Div as="a" {...props} className={classes} />
 }

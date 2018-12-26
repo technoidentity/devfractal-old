@@ -1,11 +1,5 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type ProgressBarVariant =
   | 'primary'
@@ -19,7 +13,7 @@ type ProgressBarSize = 'small' | 'medium' | 'large'
 
 interface ProgressBarProps
   extends React.HTMLAttributes<HTMLProgressElement>,
-    CommonHelpers {
+    Helpers {
   readonly size?: ProgressBarSize
   readonly variant?: ProgressBarVariant
   readonly value?: string
@@ -32,30 +26,16 @@ export const ProgressBar: React.SFC<ProgressBarProps> = ({
   children,
   max,
   value,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'progress',
-    {
-      [`is-${size}`]: size,
-      [`is-${variant}`]: variant,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'progress', {
+    [`is-${size}`]: size,
+    [`is-${variant}`]: variant,
+  })
 
   return (
-    <progress
-      {...propsCommonHelpersRemoved}
-      className={classes}
-      value={value}
-      max={max}
-    >
+    <Div as="progress" {...props} className={classes} value={value} max={max}>
       {children}
-    </progress>
+    </Div>
   )
 }
