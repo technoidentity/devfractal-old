@@ -1,28 +1,13 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface BoxProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+interface BoxProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {}
 
-export const Box: React.SFC<BoxProps> = ({ children, className, ...props }) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'box',
-    commonHelpersClasses(props),
-    className,
-  )
+export const Box: React.SFC<BoxProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'box')
   return (
-    <div {...propsHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
