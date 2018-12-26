@@ -12,6 +12,7 @@ type ColumnsResponsive =
 interface ColumnsProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly responsiveness?: ColumnsResponsive
   readonly gapless?: boolean
+  readonly verticallyCentered?: boolean
   readonly multiline?: boolean
   readonly columnCentered?: boolean
 }
@@ -21,6 +22,7 @@ export const Columns: React.SFC<ColumnsProps> = ({
   responsiveness,
   gapless,
   multiline,
+  verticallyCentered,
   columnCentered,
   className,
   ...props
@@ -30,6 +32,7 @@ export const Columns: React.SFC<ColumnsProps> = ({
     {
       [`is-${responsiveness}`]: responsiveness,
       [`is-gapless`]: gapless,
+      [`is-vcentered`]: verticallyCentered,
       [`is-multiline`]: multiline,
       [`is-centered`]: columnCentered,
     },

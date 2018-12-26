@@ -9,7 +9,6 @@ export const Columns: React.SFC = () => (
     <TabsItem name="size">Size</TabsItem>
     <TabsItem name="responsiveness">Responsiveness</TabsItem>
     <TabsItem name="nesting">Nesting</TabsItem>
-    <TabsItem name="message">Message</TabsItem>
     <TabsItem name="gap">Gap</TabsItem>
     <TabsItem name="options">Options</TabsItem>
   </Tabs>
