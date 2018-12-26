@@ -1,18 +1,17 @@
 import React from 'react'
+import { Image } from '../elements'
 import { Box } from '../elements/Box'
 import { Content } from '../elements/Content'
 import { Media, MediaContent, MediaLeft } from '../layout/Media'
 
 export const BoxExample: React.SFC = () => (
-  <Box shadowLess>
+  <Box>
     <Media>
       <MediaLeft>
-        <figure className="image is-64x64">
-          <img
-            src="https://bulma.io/images/placeholders/128x128.png"
-            alt="Image"
-          />
-        </figure>
+        <Image
+          size="64x64"
+          src="https://bulma.io/images/placeholders/128x128.png"
+        />
       </MediaLeft>
       <MediaContent>
         <Content>
