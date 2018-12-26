@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Tabs, TabsItem } from '../components'
+import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Components: React.SFC = () => (
   <Tabs to="/components" urlSeparator="-" size="medium">
