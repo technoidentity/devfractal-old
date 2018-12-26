@@ -1,11 +1,5 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type MessageVariant =
   | 'dark'
@@ -18,9 +12,7 @@ type MessageVariant =
 
 type MessageSize = 'normal' | 'small' | 'medium' | 'large'
 
-interface MessageProps
-  extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {
+interface MessageProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly variant?: MessageVariant
   readonly size?: MessageSize
 }
@@ -29,72 +21,47 @@ export const Message: React.SFC<MessageProps> = ({
   size,
   variant,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'message',
-    {
-      [`is-${size}`]: size,
-      [`is-${variant}`]: variant,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'message', {
+    [`is-${size}`]: size,
+    [`is-${variant}`]: variant,
+  })
   return (
-    <article {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="article" {...props} className={classes}>
       {children}
-    </article>
+    </Div>
   )
 }
 
 interface MessageHeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const MessageHeader: React.SFC<MessageHeaderProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'message-header',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'message-header')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface MessageBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const MessageBody: React.SFC<MessageBodyProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'message-body',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'message-body')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }

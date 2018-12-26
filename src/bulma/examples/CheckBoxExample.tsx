@@ -1,5 +1,5 @@
 import React from 'react'
-import { CheckBox } from '../form/CheckBox'
+import { CheckBox } from '../form'
 import { logger } from './common'
 
 export const CheckBoxExample: React.SFC = () => (

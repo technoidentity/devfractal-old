@@ -1,4 +1,5 @@
 import React from 'react'
+import { TabsItem } from '../components'
 import {
   Navbar,
   NavbarBrand,
@@ -7,12 +8,11 @@ import {
   NavbarItem,
   NavbarMenu,
 } from '../components/Navbar'
-import { Tabs, TabsItem } from '../components/Tabs'
+import { Tabs } from '../components/StatefulTabs'
 import { SubTitle, Title } from '../elements/Title'
-import { Button } from '../form/Button'
-import { Container } from '../layout/Container'
+import { Button } from '../form'
+import { Container, Section } from '../layout'
 import { Hero, HeroBody, HeroFoot, HeroHead } from '../layout/Hero'
-import { Section } from '../layout/Section'
 
 export const HeroExample: React.SFC = () => (
   <Section>

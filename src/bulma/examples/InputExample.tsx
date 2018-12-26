@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input } from '../form/Input'
+import { Input } from '../form'
 import { Section } from '../layout'
 
 export const InputExample: React.SFC = () => (

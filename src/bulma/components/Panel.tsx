@@ -1,136 +1,84 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface PanelProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {}
+interface PanelProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
-export const Panel: React.SFC<PanelProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'panel',
-    className,
-    commonHelpersClasses(props),
-  )
+export const Panel: React.SFC<PanelProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'panel')
   return (
-    <nav {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="nav" {...props} className={classes}>
       {children}
-    </nav>
+    </Div>
   )
 }
 
 interface PanelHeadingProps
   extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const PanelHeading: React.SFC<PanelHeadingProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'panel-heading',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'panel-heading')
   return (
-    <p {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="p" {...props} className={classes}>
       {children}
-    </p>
+    </Div>
   )
 }
 
 interface PanelBlockProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+    Helpers {
   readonly active?: boolean
 }
 
 export const PanelBlock: React.SFC<PanelBlockProps> = ({
   children,
   active,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'panel-block',
-    {
-      [`is-active`]: active,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'panel-block', {
+    [`is-active`]: active,
+  })
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 interface PanelTabsItemProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    CommonHelpers {
+    Helpers {
   readonly active?: boolean
 }
 
 export const PanelTabsItem: React.SFC<PanelTabsItemProps> = ({
   active,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    {
-      [`is-active`]: active,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, {
+    [`is-active`]: active,
+  })
   return (
-    <a {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="a" {...props} className={classes}>
       {children}
-    </a>
+    </Div>
   )
 }
 
-interface PanelTabsProps
-  extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+interface PanelTabsProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
 export const PanelTabs: React.SFC<PanelTabsProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'panel-tabs',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'panel-tabs')
   return (
-    <p {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="p" {...props} className={classes}>
       {children}
-    </p>
+    </Div>
   )
 }

@@ -5,92 +5,124 @@ import { Text } from '../bulma/modifiers/Text'
 storiesOf('Text', module)
   .add('with size', () => (
     <div>
-      <Text textSize="1">Hello</Text>
-      <Text textSize="2">Hello</Text>
-      <Text textSize="3">Hello</Text>
-      <Text textSize="4">Hello</Text>
-      <Text textSize="5">Hello</Text>
-      <Text textSize="6">Hello</Text>
-      <Text textSize="7">Hello</Text>
+      <Text textSize="1">size 1</Text>
+      <Text textSize="2">size 2</Text>
+      <Text textSize="3">size 3</Text>
+      <Text textSize="4">size 4</Text>
+      <Text textSize="5">size 5</Text>
+      <Text textSize="6">size 6</Text>
+      <Text textSize="7">size 7</Text>
     </div>
   ))
   .add('with alignment', () => (
     <div>
-      <Text textAlignment="centered">Hello</Text>
-      <Text textAlignment="left">Hello</Text>
-      <Text textAlignment="right">Hello</Text>
-      <Text textAlignment="justified">Hello</Text>
+      <Text textAlignment="centered">text centered</Text>
+      <Text textAlignment="left"> text left</Text>
+      <Text textAlignment="right">text right</Text>
+      <Text textAlignment="justified">text justified</Text>
     </div>
   ))
   .add('with color', () => (
     <div>
-      <Text textColor="black">Hello</Text>
-      <Text textColor="grey">Hello</Text>
-      <Text textColor="primary">Hello</Text>
-      <Text textColor="success">Hello</Text>
-      <Text textColor="warning">Hello</Text>
-      <Text textColor="link">Hello</Text>
-      <Text textColor="info">Hello</Text>
-      <Text textColor="danger">Hello</Text>
+      <Text textColor="black">black</Text>
+      <Text textColor="grey">grey</Text>
+      <Text textColor="primary">primary</Text>
+      <Text textColor="success">success</Text>
+      <Text textColor="warning">warning</Text>
+      <Text textColor="link">link</Text>
+      <Text textColor="info">info</Text>
+      <Text textColor="white">white</Text>
+      <Text textColor="black-bis">black-bis</Text>
+      <Text textColor="black-ter">black-ter</Text>
+      <Text textColor="grey-darker">grey-darker</Text>
+      <Text textColor="grey-dark">grey-dark</Text>
+      <Text textColor="grey-light">grey-light</Text>
+      <Text textColor="white-ter">white-ter</Text>
+    </div>
+  ))
+  .add('with background color', () => (
+    <div>
+      <Text textBackgroundColor="black">black</Text>
+      <Text textBackgroundColor="grey">grey</Text>
+      <Text textBackgroundColor="primary">primary</Text>
+      <Text textBackgroundColor="success">success</Text>
+      <Text textBackgroundColor="warning">warning</Text>
+      <Text textBackgroundColor="link">link</Text>
+      <Text textBackgroundColor="info">info</Text>
+      <Text textBackgroundColor="white">white</Text>
+      <Text textBackgroundColor="black-bis">black-bis</Text>
+      <Text textBackgroundColor="black-ter">black-ter</Text>
+      <Text textBackgroundColor="grey-darker">grey-darker</Text>
+      <Text textBackgroundColor="grey-dark">grey-dark</Text>
+      <Text textBackgroundColor="grey-light">grey-light</Text>
+      <Text textBackgroundColor="white-ter">white-ter</Text>
     </div>
   ))
   .add('text weight', () => (
     <div>
-      <Text textWeight="normal">Hello</Text>
-      <Text textWeight="light">Hello</Text>
-      <Text textWeight="semiBold">Hello</Text>
-      <Text textWeight="bold">Hello</Text>
+      <Text textWeight="normal">normal</Text>
+      <Text textWeight="light">light</Text>
+      <Text textWeight="semiBold">semiBold</Text>
+      <Text textWeight="bold">Bold</Text>
     </div>
   ))
   .add('text transformation', () => (
     <div>
-      <Text textTransformation="lowercase">HELLO</Text>
-      <Text textTransformation="uppercase">hello</Text>
-      <Text textTransformation="capitalized">hello</Text>
-      <Text textTransformation="italic">hello</Text>
+      <Text textTransformation="lowercase">all characters to lowercase</Text>
+      <Text textTransformation="uppercase">all characters to uppercase</Text>
+      <Text textTransformation="capitalized">
+        first character of each word to uppercase
+      </Text>
+      <Text textTransformation="italic">all characters to italic</Text>
     </div>
   ))
   .add('text with responsive size', () => (
     <div>
       <Text textSize="6" textResponsiveSize="mobile">
-        Hello
+        mobile responsive size
       </Text>
       <Text textSize="4" textResponsiveSize="tablet">
-        Hello
+        tablet responsive size
       </Text>
       <Text textSize="3" textResponsiveSize="touch">
-        Hello
+        touch responsive size
       </Text>
       <Text textSize="1" textResponsiveSize="desktop">
-        Hello
+        desktop responsive size
       </Text>
       <Text textSize="2" textResponsiveSize="widescreen">
-        Hello
+        widescreen responsive size
       </Text>
       <Text textSize="1" textResponsiveSize="fullhd">
-        Hello
+        fullhd responsive size
       </Text>
     </div>
   ))
   .add('text with responsive alignment', () => (
     <div>
       <Text textAlignment="centered" textResponsiveAlignment="desktop">
-        Hello
+        desktop
       </Text>
       <Text textAlignment="left" textResponsiveAlignment="mobile">
-        Hello
+        mobile
       </Text>
       <Text textAlignment="right" textResponsiveAlignment="tablet">
-        Hello
+        tablet
       </Text>
       <Text textAlignment="centered" textResponsiveAlignment="fullhd">
-        Hello
+        fullhd
       </Text>
       <Text textAlignment="right" textResponsiveAlignment="touch">
-        Hello
+        touch
       </Text>
       <Text textAlignment="centered" textResponsiveAlignment="widescreen">
-        Hello
+        widescreen
       </Text>
+    </div>
+  ))
+  .add('unselected text', () => (
+    <div>
+      <Text unSelectable>Unselectable text</Text>
+      <Text>Selectable text</Text>
     </div>
   ))
