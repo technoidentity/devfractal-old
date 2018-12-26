@@ -9,7 +9,8 @@ interface TabsChangeEvent {
 
 interface TabsContext {
   readonly name?: string
-  setValue?(newValue: string): void
+  readonly selectedTab?: string
+  setSelectedTab?(event: TabsChangeEvent): void
 }
 
 const TabsContext: React.Context<TabsContext> = React.createContext<
@@ -22,7 +23,6 @@ type TabsAlignment = 'centered' | 'right'
 
 type TabsStyle = 'boxed' | 'toggle' | 'toggle-rounded'
 interface TabsItemProps extends React.LiHTMLAttributes<HTMLLIElement>, Helpers {
-  readonly active?: boolean
   readonly value: string
 }
 
@@ -32,18 +32,18 @@ export const TabsItem: React.SFC<TabsItemProps> = ({
   ...props
 }) => (
   <TabsContext.Consumer>
-    {({ name, setValue }) => (
+    {({ name, selectedTab, setSelectedTab }) => (
       <Div
         as="li"
         {...props}
         className={classNamesHelper(props, {
-          [`is-active`]: name === value,
+          [`is-active`]: !!value && selectedTab === value,
         })}
       >
         <a
           onClick={() => {
-            if (setValue) {
-              setValue(value)
+            if (setSelectedTab) {
+              setSelectedTab({ name, value })
             }
           }}
         >
@@ -60,7 +60,7 @@ interface TabsProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly fullWidth?: boolean
   readonly tabsStyle?: TabsStyle
   readonly name?: string
-  readonly value?: string
+  readonly selectedTab?: string
   readonly defaultValue?: string
   readonly readOnly?: boolean
   onTabChange?(evt: TabsChangeEvent): void
@@ -91,34 +91,29 @@ export const TabsView: React.SFC<TabsProps> = ({
 export const Tabs: React.SFC<TabsProps> = ({
   defaultValue,
   children,
-  value,
+  onTabChange,
+  selectedTab,
   ...props
 }: TabsProps) => {
-  const isUncontrolled: boolean = props.onTabChange === undefined
-
-  if (isUncontrolled && value && !props.readOnly) {
+  if (selectedTab && !onTabChange && !props.readOnly) {
     // tslint:disable-next-line: no-console
     console.warn(
-      'onTabChange not provided but value provided, make this component readOnly.',
+      'onTabChange not provided but selectedTab provided, make this component readOnly.',
     )
   }
 
-  if (props.readOnly && props.onTabChange) {
-    // tslint:disable-next-line: no-console
-    console.warn(
-      'onTabChange provided, but the component is readOnly, readOnly will be ignored.',
-    )
-  }
+  const isUncontrolled: boolean =
+    selectedTab === undefined && onTabChange === undefined
 
   return isUncontrolled ? (
     <Value
-      initial={{ value: defaultValue }}
-      render={({ value: { value }, set }) => (
+      initial={selectedTab || defaultValue}
+      render={({ value, set }) => (
         <TabsContext.Provider
           value={{
-            name: value,
-            setValue: value => {
-              set({ value })
+            selectedTab: value,
+            setSelectedTab: ({ value }) => {
+              set(value)
             },
           }}
         >
@@ -127,6 +122,8 @@ export const Tabs: React.SFC<TabsProps> = ({
       )}
     />
   ) : (
-    <TabsView {...props} />
+    <TabsContext.Provider value={{ selectedTab, setSelectedTab: onTabChange }}>
+      <TabsView {...props}>{children}</TabsView>
+    </TabsContext.Provider>
   )
 }
