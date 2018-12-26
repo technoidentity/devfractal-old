@@ -347,7 +347,7 @@ export const AllFieldExamples: React.SFC = () => (
       <FieldLabel fieldLabelSize="normal">Department</FieldLabel>
       <FieldBody>
         <Field size="narrow">
-          <Select className="is-fullwidth">
+          <Select fullWidth>
             <option>Business development</option>
             <option>Marketing</option>
             <option>Sales</option>
@@ -375,7 +375,7 @@ export const AllFieldExamples: React.SFC = () => (
             type="text"
             placeholder="e.g. Partnership opportunity"
           />
-          <p className="help is-danger">This field is required</p>
+          <FieldHelp variant="danger">This field is required</FieldHelp>
         </Field>
       </FieldBody>
     </Field>
