@@ -1,85 +1,43 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface MenuProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {}
+interface MenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
-export const Menu: React.SFC<MenuProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'menu',
-    className,
-    commonHelpersClasses(props),
-  )
+export const Menu: React.SFC<MenuProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'menu')
   return (
-    <aside {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="aside" {...props} className={classes}>
       {children}
-    </aside>
+    </Div>
   )
 }
 
-interface MenuLabelProps
-  extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+interface MenuLabelProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
 export const MenuLabel: React.SFC<MenuLabelProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'menu-label',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'menu-label')
   return (
-    <p {...propsCommonHelpersRemoved} className={classes}>
+    <p {...props} className={classes}>
       {children}
     </p>
   )
 }
 
-interface MenuListProps
-  extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+interface MenuListProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
-export const MenuList: React.SFC<MenuListProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'menu-list',
-    className,
-    commonHelpersClasses(props),
-  )
+export const MenuList: React.SFC<MenuListProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'menu-list')
   return (
-    <ul {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="ul" {...props} className={classes}>
       {children}
-    </ul>
+    </Div>
   )
 }
 
-interface MenuItemProps
-  extends React.LiHTMLAttributes<HTMLLIElement>,
-    CommonHelpers {
+interface MenuItemProps extends React.LiHTMLAttributes<HTMLLIElement>, Helpers {
   readonly href?: string
   readonly active?: boolean
 }
@@ -88,22 +46,14 @@ export const MenuItem: React.SFC<MenuItemProps> = ({
   active,
   href,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    {
-      [`is-active`]: active,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, {
+    [`is-active`]: active,
+  })
   return (
-    <li {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="li" {...props} className={classes}>
       {children}
-    </li>
+    </Div>
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Container } from '../layout/Container'
-import { Footer } from '../layout/Footer'
+import { Container, Footer } from '../layout'
 
 export const FooterExample: React.SFC = () => (
   <Footer className="has-text-primary">

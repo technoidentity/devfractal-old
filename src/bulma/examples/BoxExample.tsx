@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box } from '../elements/Box'
-import { Content } from '../elements/Content'
+import { Box, Content } from '../elements'
 import { Media, MediaContent, MediaLeft } from '../layout/Media'
 
 export const BoxExample: React.SFC = () => (

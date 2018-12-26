@@ -1,14 +1,15 @@
 import React from 'react'
-import { Button } from '../form/Button'
-import { CheckBox } from '../form/CheckBox'
-import { Field } from '../form/Field'
-import { Input } from '../form/Input'
-import { Label } from '../form/Label'
-import { RadioButton } from '../form/RadioButton'
-import { Select } from '../form/Select'
-import { TextArea } from '../form/TextArea'
-import { Container } from '../layout/Container'
-import { Section } from '../layout/Section'
+import {
+  Button,
+  CheckBox,
+  Field,
+  Input,
+  Label,
+  RadioButton,
+  Select,
+  TextArea,
+} from '../form'
+import { Container, Section } from '../layout'
 
 export const SampleForm: React.SFC = () => {
   return (

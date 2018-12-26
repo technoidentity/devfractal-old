@@ -1,219 +1,137 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface ModalProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+interface ModalProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly active?: boolean
 }
 
 export const Modal: React.SFC<ModalProps> = ({
   active,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'modal',
-    {
-      [`is-active`]: active,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'modal', {
+    [`is-active`]: active,
+  })
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface ModalCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const ModalCard: React.SFC<ModalCardProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'modal-card',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'modal-card')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface ModalHeadProps
   extends React.HTMLAttributes<HTMLHeadElement>,
-    CommonHelpers {}
+    Helpers {}
+
 export const ModalCardHead: React.SFC<ModalHeadProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'modal-card-head',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'modal-card-head')
   return (
-    <header {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="header" {...props} className={classes}>
       {children}
-    </header>
+    </Div>
   )
 }
 
 interface ModalCardTitleProps
   extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const ModalCardTitle: React.SFC<ModalCardTitleProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'message-card-title',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'message-card-title')
   return (
-    <p {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="p" {...props} className={classes}>
       {children}
-    </p>
+    </Div>
   )
 }
 
 interface ModalCardBodyProps
   extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const ModalCardBody: React.SFC<ModalCardBodyProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'message-card-body',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'message-card-body')
   return (
-    <section {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="section" {...props} className={classes}>
       {children}
-    </section>
+    </Div>
   )
 }
 
 interface ModalCardFootProps
   extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const ModalCardFoot: React.SFC<ModalCardFootProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'message-card-foot',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'message-card-foot')
   return (
-    <footer {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="footer" {...props} className={classes}>
       {children}
-    </footer>
+    </Div>
   )
 }
 
 interface ModalBackgroundProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const ModalBackground: React.SFC<ModalBackgroundProps> = ({
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'modal-background',
-    className,
-    commonHelpersClasses(props),
-  )
-  return <div {...propsCommonHelpersRemoved} className={classes} />
+  const classes: string = classNamesHelper(props, 'modal-background')
+  return <Div {...props} className={classes} />
 }
 
 interface ModalContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const ModalContent: React.SFC<ModalContentProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'message-content',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'message-content')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface ModalCloseProps
   extends React.HTMLAttributes<HTMLButtonElement>,
-    CommonHelpers {}
+    Helpers {}
 
-export const ModalClose: React.SFC<ModalCloseProps> = ({
-  className,
-  ...props
-}) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'modal-close',
-    className,
-    commonHelpersClasses(props),
-  )
-  return <button {...propsCommonHelpersRemoved} className={classes} />
+export const ModalClose: React.SFC<ModalCloseProps> = ({ ...props }) => {
+  const classes: string = classNamesHelper(props, 'modal-close')
+  return <Div as="button" {...props} className={classes} />
 }

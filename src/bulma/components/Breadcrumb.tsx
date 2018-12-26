@@ -1,11 +1,5 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 
@@ -19,7 +13,7 @@ type BreadcrumbSeparator =
 
 interface BreadcrumbItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
-    CommonHelpers {
+    Helpers {
   readonly href?: string
   readonly active?: boolean
 }
@@ -28,29 +22,19 @@ export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
   active,
   href,
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    {
-      [`is-active`]: active,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, {
+    [`is-active`]: active,
+  })
   return (
-    <li {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="li" {...props} className={classes}>
       <a href={href}>{children}</a>
-    </li>
+    </Div>
   )
 }
 
-interface BreadcrumbProps
-  extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {
+interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly size?: BreadcrumbSize
   readonly alignment?: BreadcrumbAlignment
   readonly separator?: BreadcrumbSeparator
@@ -61,29 +45,16 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
   alignment,
   size,
   separator,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'breadcrumb',
-    {
-      [`is-${alignment}`]: alignment,
-      [`is-${size}`]: size,
-      [`has-${separator}`]: separator,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'breadcrumb', {
+    [`is-${alignment}`]: alignment,
+    [`is-${size}`]: size,
+    [`has-${separator}`]: separator,
+  })
   return (
-    <nav
-      {...propsCommonHelpersRemoved}
-      className={classes}
-      aria-label="breadcrumbs"
-    >
+    <Div as="nav" {...props} className={classes}>
       <ul>{children}</ul>
-    </nav>
+    </Div>
   )
 }

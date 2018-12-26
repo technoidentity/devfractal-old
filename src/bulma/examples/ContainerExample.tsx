@@ -1,7 +1,6 @@
 import React from 'react'
-import { Notification } from '../elements/Notification'
-import { Container } from '../layout/Container'
-import { Section } from '../layout/Section'
+import { Notification } from '../elements'
+import { Container, Section } from '../layout'
 
 export const ContainerExample: React.SFC = () => (
   <div>

@@ -1,9 +1,7 @@
 import React from 'react'
-import { Column } from '../columns/Column'
-import { Columns } from '../columns/Columns'
-import { Notification } from '../elements/Notification'
-import { Container } from '../layout/Container'
-import { Section } from '../layout/Section'
+import { Column, Columns } from '../columns'
+import { Notification } from '../elements'
+import { Container, Section } from '../layout'
 
 export const LayoutExample: React.SFC = () => (
   <div>
