@@ -14,7 +14,9 @@ type TagSize = 'normal' | 'medium' | 'large'
 
 type TagModifier = 'rounded' | 'delete'
 
-interface TagProps extends React.HTMLAttributes<HTMLSpanElement>, Helpers {
+export interface TagProps
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    Helpers {
   readonly size?: TagSize
   readonly variant?: TagVariant
   readonly modifier?: TagModifier

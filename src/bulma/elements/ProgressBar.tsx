@@ -11,7 +11,7 @@ type ProgressBarVariant =
 
 type ProgressBarSize = 'small' | 'medium' | 'large'
 
-interface ProgressBarProps
+export interface ProgressBarProps
   extends React.HTMLAttributes<HTMLProgressElement>,
     Helpers {
   readonly size?: ProgressBarSize

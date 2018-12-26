@@ -10,7 +10,7 @@ type NotificationVariant =
   | 'danger'
   | 'light'
 
-interface NotificationProps
+export interface NotificationProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly variant?: NotificationVariant

@@ -3,7 +3,9 @@ import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type ContentSize = 'small' | 'medium' | 'large'
 
-interface ContentProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+export interface ContentProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
   readonly size?: ContentSize
 }
 
