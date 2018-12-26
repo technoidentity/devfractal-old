@@ -44,7 +44,7 @@ export const Select: React.SFC<SelectProps> = ({
     [`is-${props.ctrlSize}`]: props.ctrlSize,
   })
 
-  const classes: string = classNamesHelper({ [`is-${state}`]: state })
+  const classes: string = classNamesHelper(props, { [`is-${state}`]: state })
 
   return (
     <ControlWrapper {...props}>
