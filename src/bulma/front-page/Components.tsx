@@ -2,10 +2,8 @@ import * as React from 'react'
 import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Components: React.SFC = () => (
-  <Tabs to="/components" urlSeparator="-" size="medium">
-    <TabsItem value="breadcrumb" active>
-      Breadcrumb
-    </TabsItem>
+  <Tabs to="/components" size="medium">
+    <TabsItem value="breadcrumb">Breadcrumb</TabsItem>
     <TabsItem value="card">Card</TabsItem>
     <TabsItem value="dropdown">Dropdown</TabsItem>
     <TabsItem value="menu">Menu</TabsItem>

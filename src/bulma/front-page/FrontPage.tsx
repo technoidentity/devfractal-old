@@ -119,7 +119,7 @@ export const MainPageBody: React.SFC = () => (
 )
 
 export const MainPageHeader: React.SFC = () => (
-  <Hero variant="light">
+  <Hero variant="dark">
     <HeroBody>
       <Container className="has-text-centered">
         <Title>Devfractal</Title>

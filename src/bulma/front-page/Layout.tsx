@@ -2,10 +2,8 @@ import * as React from 'react'
 import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Layout: React.SFC = () => (
-  <Tabs to="layout" urlSeparator="-" size="medium">
-    <TabsItem value="container" active>
-      Container
-    </TabsItem>
+  <Tabs to="/layout" size="medium">
+    <TabsItem value="container">Container</TabsItem>
     <TabsItem value="level">Level</TabsItem>
     <TabsItem value="object">Media Object</TabsItem>
     <TabsItem value="hero">Hero</TabsItem>

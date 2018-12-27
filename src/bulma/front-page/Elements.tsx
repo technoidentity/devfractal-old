@@ -2,10 +2,8 @@ import * as React from 'react'
 import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Elements: React.SFC = () => (
-  <Tabs to="/elements" urlSeparator="-" size="medium">
-    <TabsItem value="box" active>
-      Box
-    </TabsItem>
+  <Tabs to="/elements" size="medium">
+    <TabsItem value="box">Box</TabsItem>
     <TabsItem value="delete">Delete</TabsItem>
     <TabsItem value="icon">Icon</TabsItem>
     <TabsItem value="image">Image</TabsItem>

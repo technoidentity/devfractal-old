@@ -71,57 +71,61 @@ export const FormRoutes: React.SFC = () => (
 
 export const ColumnsRoutes: React.SFC = () => (
   <>
-    <Route path="/columns-basics" exact component={BasicColumn} />
-    <Route path="/columns-size" exact component={SizesColumn} />
-    <Route path="/columns-responsiveness" exact component={ResponsiveColumn} />
-    <Route path="/columns-nesting" exact component={NestingColumn} />
-    <Route path="/columns-gap" exact component={GapColumn} />
-    <Route path="/columns-options" exact component={OptionsColumn} />
+    <Route path="/columns" exact component={BasicColumn} />
+    <Route path="/columns/basics" exact component={BasicColumn} />
+    <Route path="/columns/size" exact component={SizesColumn} />
+    <Route path="/columns/responsiveness" exact component={ResponsiveColumn} />
+    <Route path="/columns/nesting" exact component={NestingColumn} />
+    <Route path="/columns/gap" exact component={GapColumn} />
+    <Route path="/columns/options" exact component={OptionsColumn} />
   </>
 )
 
 export const LayoutRoutes: React.SFC = () => (
   <Container>
-    <Route path="/layout-container" exact component={ContainerExample} />
-    <Route path="/layout-hero" exact component={HeroExample} />
-    <Route path="/layout-footer" exact component={FooterExample} />
-    <Route path="/layout-level" exact component={LevelExample} />
-    <Route path="/layout-object" exact component={MediaObjectExample} />
-    <Route path="/layout-section" exact component={SectionExample} />
-    <Route path="/layout-tiles" exact component={TileExample} />
+    <Route path="/layout" exact component={ContainerExample} />
+    <Route path="/layout/container" exact component={ContainerExample} />
+    <Route path="/layout/hero" exact component={HeroExample} />
+    <Route path="/layout/footer" exact component={FooterExample} />
+    <Route path="/layout/level" exact component={LevelExample} />
+    <Route path="/layout/object" exact component={MediaObjectExample} />
+    <Route path="/layout/section" exact component={SectionExample} />
+    <Route path="/layout/tiles" exact component={TileExample} />
   </Container>
 )
 
 export const ElementsRoutes: React.SFC = () => (
   <>
+    <Route path="/elements" exact component={BoxExample} />
     <Route
-      path="/elements-notification"
+      path="/elements/notification"
       exact
       component={NotificationExample}
     />
-    <Route path="/elements-title" exact component={TitleExample} />
-    <Route path="/elements-delete" exact component={DeleteExample} />
-    <Route path="/elements-icon" exact component={IconExample} />
-    <Route path="/elements-image" exact component={ImageExample} />
-    <Route path="/elements-bars" exact component={ProgressBarExample} />
-    <Route path="/elements-tag" exact component={TagExample} />
-    <Route path="/elements-box" exact component={BoxExample} />
-    <Route path="/elements-table" exact component={TableExample} />
+    <Route path="/elements/title" exact component={TitleExample} />
+    <Route path="/elements/delete" exact component={DeleteExample} />
+    <Route path="/elements/icon" exact component={IconExample} />
+    <Route path="/elements/image" exact component={ImageExample} />
+    <Route path="/elements/bars" exact component={ProgressBarExample} />
+    <Route path="/elements/tag" exact component={TagExample} />
+    <Route path="/elements/box" exact component={BoxExample} />
+    <Route path="/elements/table" exact component={TableExample} />
   </>
 )
 
 export const ComponentsRoutes: React.SFC = () => (
   <>
-    <Route path="/components-dropdown" exact component={DropDownExample} />
-    <Route path="/components-breadcrumb" exact component={BreadcrumbExample} />
-    <Route path="/components-message" exact component={MessageExample} />
-    <Route path="/components-tabs" exact component={TabsExample} />
-    <Route path="/components-panel" exact component={PanelExample} />
-    <Route path="/components-modal" exact component={ModalExample} />
-    <Route path="/components-card" exact component={CardExample} />
-    <Route path="/components-navbar" exact component={NavbarExample} />
-    <Route path="/components-menu" exact component={MenuExample} />
-    <Route path="/components-pagination" exact component={PaginationExample} />
+    <Route path="/components" exact component={BreadcrumbExample} />
+    <Route path="/components/dropdown" exact component={DropDownExample} />
+    <Route path="/components/breadcrumb" exact component={BreadcrumbExample} />
+    <Route path="/components/message" exact component={MessageExample} />
+    <Route path="/components/tabs" exact component={TabsExample} />
+    <Route path="/components/panel" exact component={PanelExample} />
+    <Route path="/components/modal" exact component={ModalExample} />
+    <Route path="/components/card" exact component={CardExample} />
+    <Route path="/components/navbar" exact component={NavbarExample} />
+    <Route path="/components/menu" exact component={MenuExample} />
+    <Route path="/components/pagination" exact component={PaginationExample} />
   </>
 )
 
