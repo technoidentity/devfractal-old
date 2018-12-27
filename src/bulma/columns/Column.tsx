@@ -1,6 +1,5 @@
 import React from 'react'
-import { classNames } from '../../utils/classNames'
-import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type ColumnSize =
   | 'three-quarters'
@@ -66,11 +65,11 @@ export const Column: React.SFC<ColumnProps> = ({
   offsetSize,
   narrow,
   responsive,
-  className,
   children,
   ...props
 }) => {
-  const classes: string = classNames(
+  const classes: string = classNamesHelper(
+    props,
     'column',
     getSizeResponsive(size, responsive),
     {
@@ -79,13 +78,11 @@ export const Column: React.SFC<ColumnProps> = ({
       [`is-offset-${offsetSize}`]: offsetSize,
       [`is-narrow`]: narrow,
     },
-    helpersClasses(props),
-    className,
   )
 
   return (
-    <div {...removeHelpers(props)} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
