@@ -1,4 +1,4 @@
-import { faWpforms } from '@fortawesome/free-brands-svg-icons'
+import { faAccusoft, faWpforms } from '@fortawesome/free-brands-svg-icons'
 import {
   faCogs,
   faColumns,
@@ -108,6 +108,21 @@ export const MainPageBody: React.SFC = () => (
                 <Title>Modifiers</Title>
                 <SubTitle size="6">
                   An easy-to-read naming system designed for humans
+                </SubTitle>
+              </MediaContent>
+            </Media>
+          </Link>
+        </Column>
+        <Column>
+          <Link to="/composites">
+            <Media className="notification is-light">
+              <MediaLeft>
+                <Icon icon={faAccusoft} size="2x" textColor="black-bis" />
+              </MediaLeft>
+              <MediaContent>
+                <Title>Composites</Title>
+                <SubTitle size="6">
+                  More complex examples using multiple components
                 </SubTitle>
               </MediaContent>
             </Media>

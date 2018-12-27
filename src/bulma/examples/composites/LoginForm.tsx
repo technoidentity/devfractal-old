@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Field, Input, Label } from '../../form'
-import { Container, Section } from '../../layout'
+import { Container } from '../../layout'
 
 const eventLogger: (evt: any) => void = evt => {
   // tslint:disable no-console
@@ -13,25 +13,23 @@ const eventLogger: (evt: any) => void = evt => {
 
 export const LoginForm: React.SFC = () => {
   return (
-    <Section>
-      <Container>
-        <Field>
-          <Label>User Name</Label>
-          <Input name="username" type="text" onChange={eventLogger} />
-        </Field>
-        <Field>
-          <Label>Password</Label>
-          <Input name="password" type="password" onChange={eventLogger} />
-        </Field>
-        <Field className="is-grouped" groupModifier="grouped-centered">
-          <Button onClick={eventLogger} variant="info">
-            Submit
-          </Button>
-          <Button onClick={eventLogger} variant="danger">
-            Reset
-          </Button>
-        </Field>
-      </Container>
-    </Section>
+    <Container>
+      <Field>
+        <Label>User Name</Label>
+        <Input name="username" type="text" onChange={eventLogger} />
+      </Field>
+      <Field>
+        <Label>Password</Label>
+        <Input name="password" type="password" onChange={eventLogger} />
+      </Field>
+      <Field className="is-grouped" groupModifier="grouped-centered">
+        <Button onClick={eventLogger} variant="info">
+          Submit
+        </Button>
+        <Button onClick={eventLogger} variant="danger">
+          Reset
+        </Button>
+      </Field>
+    </Container>
   )
 }

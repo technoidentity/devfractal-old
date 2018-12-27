@@ -8,6 +8,7 @@ import {
   CardExample,
   CheckBoxExample,
   ContainerExample,
+  Counter,
   DeleteExample,
   DropDownExample,
   FileExample,
@@ -19,6 +20,7 @@ import {
   ImageExample,
   InputExample,
   LevelExample,
+  LoginForm,
   MediaObjectExample,
   MenuExample,
   MessageExample,
@@ -32,8 +34,11 @@ import {
   ProgressBarExample,
   RadioButtonExample,
   ResponsiveColumnExample,
+  SampleForm,
   SectionExample,
   SelectExample,
+  SimpleExamples as SimpleExample,
+  SimpleLoginForm,
   SizesColumnExample,
   TableExample,
   TabsExample,
@@ -41,10 +46,12 @@ import {
   TextAreaExample,
   TileExample,
   TitleExample,
+  Todo,
 } from './bulma/examples'
 import {
   Columns,
   Components,
+  Composites,
   Elements,
   Form,
   Layout,
@@ -67,6 +74,25 @@ export const FormRoutes: React.SFC = () => (
   </>
 )
 
+export const CompositesRoutes: React.SFC = () => (
+  <>
+    <Route
+      exact
+      path="/composites"
+      render={() => <Redirect to="/composites/simple" />}
+    />
+    <Route path="/composites/simple" exact component={SimpleExample} />
+    <Route
+      path="/composites/simple-login-form"
+      exact
+      component={SimpleLoginForm}
+    />
+    <Route path="/composites/counter" exact component={Counter} />
+    <Route path="/composites/login-form" exact component={LoginForm} />
+    <Route path="/composites/sample-form" exact component={SampleForm} />
+    <Route path="/composites/todo" exact component={Todo} />
+  </>
+)
 export const ColumnsRoutes: React.SFC = () => (
   <>
     <Route
@@ -150,6 +176,7 @@ export const ComponentsRoutes: React.SFC = () => (
 export const FrontPageRoutes: React.SFC = () => (
   <>
     <Route path="/form" component={Form} />
+    <Route path="/composites" component={Composites} />
     <Route path="/components" component={Components} />
     <Route path="/elements" component={Elements} />
     <Route path="/modifiers" component={Modifiers} />
@@ -172,6 +199,7 @@ export const Routes: React.SFC = () => (
     <MainPageRoutes />
     <FrontPageRoutes />
     <FormRoutes />
+    <CompositesRoutes />
     <ElementsRoutes />
     <ComponentsRoutes />
     <LayoutRoutes />

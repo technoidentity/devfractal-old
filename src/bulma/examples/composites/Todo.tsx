@@ -87,4 +87,4 @@ const todos: ReadonlyArray<Todo> = [
   },
 ]
 
-export const TodoListApp: React.SFC = () => <TodoListView todoList={todos} />
+export const Todo: React.SFC = () => <TodoListView todoList={todos} />
