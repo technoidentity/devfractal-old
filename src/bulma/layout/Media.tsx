@@ -1,101 +1,59 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface MediaProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {}
+interface MediaProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
-export const Media: React.SFC<MediaProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'media',
-    className,
-    commonHelpersClasses(props),
-  )
+export const Media: React.SFC<MediaProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'media')
   return (
-    <article {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="article" {...props} className={classes}>
       {children}
-    </article>
+    </Div>
   )
 }
-interface MediaLeftProps
-  extends React.HTMLAttributes<HTMLElement>,
-    CommonHelpers {}
+
+interface MediaLeftProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
 export const MediaLeft: React.SFC<MediaLeftProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'media-left',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'media-left')
   return (
-    <figure {...propsCommonHelpersRemoved} className={classes}>
+    <Div as="figure" {...props} className={classes}>
       {children}
-    </figure>
+    </Div>
   )
 }
 
 interface MediaRightProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const MediaRight: React.SFC<MediaRightProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'media-right',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'media-right')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
 interface MediaContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+    Helpers {}
 
 export const MediaContent: React.SFC<MediaContentProps> = ({
   children,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'media-content',
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'media-content')
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
