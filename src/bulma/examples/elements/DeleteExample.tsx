@@ -1,8 +1,8 @@
 import React from 'react'
-import { Message, MessageBody, MessageHeader } from '../components/Message'
-import { Delete, Notification } from '../elements'
-import { Section } from '../layout'
-import { logger } from './common'
+import { Message, MessageBody, MessageHeader } from '../../components/Message'
+import { Delete, Notification } from '../../elements'
+import { Section } from '../../layout'
+import { logger } from '../common'
 
 export const DeleteExample: React.SFC = () => (
   <Section>

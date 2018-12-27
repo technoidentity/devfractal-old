@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from '../elements'
+import { Image } from '../../elements'
 
 export const ImageExample: React.SFC = () => (
   <>

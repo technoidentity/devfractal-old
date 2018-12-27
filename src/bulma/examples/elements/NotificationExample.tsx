@@ -1,5 +1,5 @@
 import React from 'react'
-import { Delete, Notification } from '../elements'
+import { Delete, Notification } from '../../elements'
 
 export const NotificationExample: React.SFC = () => (
   <div>

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Tag } from '../elements/Tag'
-import { Tags } from '../elements/Tags'
-import { logger } from './common'
+import { Tag } from '../../elements/Tag'
+import { Tags } from '../../elements/Tags'
+import { logger } from '../common'
 
 export const TagExample: React.SFC = () => (
   <Tags>

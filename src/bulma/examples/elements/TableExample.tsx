@@ -7,8 +7,8 @@ import {
   Td,
   Th,
   Tr,
-} from '../elements/Table'
-import { logger } from './common'
+} from '../../elements/Table'
+import { logger } from '../common'
 
 export const TableExample: React.SFC = () => (
   <Table bordered className="is-striped" hoverable>
