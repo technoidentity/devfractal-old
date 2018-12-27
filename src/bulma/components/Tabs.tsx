@@ -20,11 +20,11 @@ type TabsStyle = 'boxed' | 'toggle' | 'toggle-rounded'
 
 interface TabsItemProps extends React.LiHTMLAttributes<HTMLLIElement>, Helpers {
   readonly active?: boolean
-  readonly name: string
+  readonly value: string
 }
 
 export const TabsItem: React.SFC<TabsItemProps> = ({
-  name,
+  value,
   active,
   children,
   ...props
@@ -32,7 +32,7 @@ export const TabsItem: React.SFC<TabsItemProps> = ({
   <TabsContext.Consumer>
     {({ url, separator, currentLocation }) => {
       const tabItemUrl: string =
-        url === undefined ? '' : `${url}${separator}${name}`
+        url === undefined ? '' : `${url}${separator}${value}`
       return (
         <Div
           as="li"

@@ -60,21 +60,21 @@ export const HeroExample: React.SFC = () => (
         <Tabs>
           <Container>
             <Tabs>
-              <TabsItem active name="overview">
+              <TabsItem active value="overview">
                 Overview
               </TabsItem>
 
-              <TabsItem name="modifiers">Modifiers</TabsItem>
+              <TabsItem value="modifiers">Modifiers</TabsItem>
 
-              <TabsItem active name="grid">
+              <TabsItem active value="grid">
                 Grid
               </TabsItem>
 
-              <TabsItem name="elements">Elements</TabsItem>
+              <TabsItem value="elements">Elements</TabsItem>
 
-              <TabsItem name="components">Components</TabsItem>
+              <TabsItem value="components">Components</TabsItem>
 
-              <TabsItem name="layout">Layout</TabsItem>
+              <TabsItem value="layout">Layout</TabsItem>
             </Tabs>
           </Container>
         </Tabs>

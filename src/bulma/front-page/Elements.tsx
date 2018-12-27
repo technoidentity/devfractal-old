@@ -3,16 +3,16 @@ import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Elements: React.SFC = () => (
   <Tabs to="/elements" urlSeparator="-" size="medium">
-    <TabsItem name="box" active>
+    <TabsItem value="box" active>
       Box
     </TabsItem>
-    <TabsItem name="delete">Delete</TabsItem>
-    <TabsItem name="icon">Icon</TabsItem>
-    <TabsItem name="image">Image</TabsItem>
-    <TabsItem name="notification">Notification</TabsItem>
-    <TabsItem name="bars">Progress bars</TabsItem>
-    <TabsItem name="table">Table</TabsItem>
-    <TabsItem name="tag">Tag</TabsItem>
-    <TabsItem name="title">Title</TabsItem>
+    <TabsItem value="delete">Delete</TabsItem>
+    <TabsItem value="icon">Icon</TabsItem>
+    <TabsItem value="image">Image</TabsItem>
+    <TabsItem value="notification">Notification</TabsItem>
+    <TabsItem value="bars">Progress bars</TabsItem>
+    <TabsItem value="table">Table</TabsItem>
+    <TabsItem value="tag">Tag</TabsItem>
+    <TabsItem value="title">Title</TabsItem>
   </Tabs>
 )

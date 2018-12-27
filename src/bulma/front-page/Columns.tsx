@@ -3,13 +3,13 @@ import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Columns: React.SFC = () => (
   <Tabs to="/columns" urlSeparator="-" size="medium">
-    <TabsItem name="basics" active>
+    <TabsItem value="basics" active>
       Basics
     </TabsItem>
-    <TabsItem name="size">Size</TabsItem>
-    <TabsItem name="responsiveness">Responsiveness</TabsItem>
-    <TabsItem name="nesting">Nesting</TabsItem>
-    <TabsItem name="gap">Gap</TabsItem>
-    <TabsItem name="options">Options</TabsItem>
+    <TabsItem value="size">Size</TabsItem>
+    <TabsItem value="responsiveness">Responsiveness</TabsItem>
+    <TabsItem value="nesting">Nesting</TabsItem>
+    <TabsItem value="gap">Gap</TabsItem>
+    <TabsItem value="options">Options</TabsItem>
   </Tabs>
 )
