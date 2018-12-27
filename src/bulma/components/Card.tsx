@@ -1,7 +1,9 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {}
+export interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {}
 
 export const Card: React.SFC<CardProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'card')
@@ -12,7 +14,7 @@ export const Card: React.SFC<CardProps> = ({ children, ...props }) => {
   )
 }
 
-interface CardHeaderProps
+export interface CardHeaderProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {}
 
@@ -28,7 +30,7 @@ export const CardHeader: React.SFC<CardHeaderProps> = ({
   )
 }
 
-interface CardHeaderTitleProps
+export interface CardHeaderTitleProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {
   readonly alignment?: 'centered'
@@ -49,7 +51,7 @@ export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
   )
 }
 
-interface CardContentProps
+export interface CardContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -65,7 +67,9 @@ export const CardContent: React.SFC<CardContentProps> = ({
   )
 }
 
-interface CardFooterProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface CardFooterProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const CardFooter: React.SFC<CardFooterProps> = ({
   children,
@@ -78,7 +82,7 @@ export const CardFooter: React.SFC<CardFooterProps> = ({
     </Div>
   )
 }
-interface CardFooterItemProps
+export interface CardFooterItemProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {}
 
@@ -94,7 +98,9 @@ export const CardFooterItem: React.SFC<CardFooterItemProps> = ({
   )
 }
 
-interface CardImageProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface CardImageProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const CardImage: React.SFC<CardImageProps> = ({
   children,

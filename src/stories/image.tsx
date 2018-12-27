@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Image } from '../bulma/elements/Image'
 import { Field } from '../bulma/form'
+
 storiesOf('Image ', module)
   .add('fixed square images', () => (
     <div>
@@ -51,5 +52,9 @@ storiesOf('Image ', module)
   ))
 
   .add('rounded image', () => (
-    <Image src="https://bulma.io/images/placeholders/128x128.png" rounded />
+    <Image
+      src="https://bulma.io/images/placeholders/128x128.png"
+      size="96x96"
+      rounded
+    />
   ))

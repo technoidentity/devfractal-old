@@ -1,44 +1,115 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Button } from '../bulma/form/Button'
+import { Button, Field } from '../bulma/form'
 
 storiesOf('Button ', module)
   .add('with variant', () => (
-    <div>
+    <Field grouped>
       <Button variant="primary" onClick={action('onClick')}>
-        OK
+        primary
       </Button>
-      <Button variant="link">OK</Button>
-      <Button variant="white">OK</Button>
-      <Button variant="dark">OK</Button>
-      <Button variant="success">OK</Button>
-      <Button variant="warning">OK</Button>
-      <Button variant="danger">OK</Button>
-      <Button variant="link">OK</Button>
-      <Button variant="light">OK</Button>
-      <Button variant="text">OK</Button>
-      <Button variant="black">OK</Button>
-    </div>
+      <Button variant="link">link</Button>
+      <Button variant="white">white</Button>
+      <Button variant="dark">dark</Button>
+      <Button variant="success">success</Button>
+      <Button variant="warning">warning</Button>
+      <Button variant="danger">danger</Button>
+      <Button variant="light">light</Button>
+      <Button variant="text">text</Button>
+      <Button variant="black">black</Button>
+      <Button variant="info">info</Button>
+    </Field>
   ))
   .add('with size', () => (
-    <div>
+    <Field grouped>
       <Button size="large">large</Button>
       <Button size="small">small</Button>
       <Button size="normal">normal</Button>
       <Button size="medium">medium</Button>
-    </div>
+    </Field>
   ))
   .add('with state', () => (
-    <div>
+    <Field grouped>
       <Button state="active">active</Button>
       <Button state="focused">focus</Button>
       <Button state="hovered">hover</Button>
       <Button state="loading">loading</Button>
-      <Button state="static">active</Button>
+      <Button state="static">static</Button>
+    </Field>
+  ))
+  .add('disabled button', () => <Button disabled>disabled</Button>)
+  .add('fullWidth button', () => <Button fullWidth>fullwidth</Button>)
+  .add('rounded button', () => <Button rounded>rounded</Button>)
+  .add('inverted button', () => (
+    <Button variant="primary" inverted>
+      inverted
+    </Button>
+  ))
+  .add('outlined button', () => (
+    <Button variant="primary" outlined>
+      outlined
+    </Button>
+  ))
+  .add('button addons', () => (
+    <Field addons>
+      <Button>1</Button>
+      <Button>2</Button>
+    </Field>
+  ))
+  .add('button addons alignment centered', () => (
+    <Field addons addonsModifier="addons-centered">
+      <Button>1</Button>
+      <Button>2</Button>
+    </Field>
+  ))
+  .add('button addons alignment right', () => (
+    <Field addons addonsModifier="addons-right">
+      <Button>1</Button>
+      <Button>2</Button>
+    </Field>
+  ))
+
+  .add('with paddingLess', () => (
+    <Field grouped>
+      <Button paddingLess>paddingLess</Button>
+      <Button>padding</Button>
+    </Field>
+  ))
+
+  .add('invisible', () => (
+    <div>
+      <Button invisible>invisible</Button>
+      <Button>visible</Button>
     </div>
   ))
-  .add('with fullWidth', () => <Button fullWidth={Boolean(true)}>OK</Button>)
-  .add('with rounded', () => <Button rounded={Boolean(true)}>OK</Button>)
-  .add('with inverted', () => <Button inverted={Boolean(true)}>OK</Button>)
-  .add('with outlined', () => <Button outlined={Boolean(true)}>OK</Button>)
+  .add('shadowless', () => (
+    <Field grouped>
+      <Button shadowLess>shadowless</Button>
+      <Button>shadow</Button>
+    </Field>
+  ))
+  .add('radiusless', () => (
+    <Field grouped>
+      <Button radiusLess>radiusLess</Button>
+      <Button>with radius</Button>
+    </Field>
+  ))
+  .add('floating pulled-left', () => (
+    <div>
+      <Button noControl>Button1</Button>
+      <Button noControl floating="pulled-left">
+        pulled left button 2
+      </Button>
+      <Button noControl>Button3</Button>
+    </div>
+  ))
+  .add('floating pulled-right', () => (
+    <div>
+      <Button noControl>Button 1</Button>
+      <Button noControl floating="pulled-right">
+        pulled right button 2
+      </Button>
+      <Button noControl>Button 3</Button>
+    </div>
+  ))

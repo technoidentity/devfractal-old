@@ -1,7 +1,7 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface MenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface MenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
 export const Menu: React.SFC<MenuProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'menu')
@@ -12,7 +12,9 @@ export const Menu: React.SFC<MenuProps> = ({ children, ...props }) => {
   )
 }
 
-interface MenuLabelProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface MenuLabelProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const MenuLabel: React.SFC<MenuLabelProps> = ({
   children,
@@ -20,13 +22,15 @@ export const MenuLabel: React.SFC<MenuLabelProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'menu-label')
   return (
-    <p {...props} className={classes}>
+    <Div as="p" {...props} className={classes}>
       {children}
-    </p>
+    </Div>
   )
 }
 
-interface MenuListProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface MenuListProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const MenuList: React.SFC<MenuListProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'menu-list')
@@ -37,7 +41,9 @@ export const MenuList: React.SFC<MenuListProps> = ({ children, ...props }) => {
   )
 }
 
-interface MenuItemProps extends React.LiHTMLAttributes<HTMLLIElement>, Helpers {
+export interface MenuItemProps
+  extends React.LiHTMLAttributes<HTMLLIElement>,
+    Helpers {
   readonly href?: string
   readonly active?: boolean
 }

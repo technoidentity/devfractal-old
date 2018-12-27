@@ -15,7 +15,9 @@ type NavbarVariant =
 
 type NavbarModifier = 'transparent' | 'fixed-top' | 'fixed-bottom'
 
-interface NavbarProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+export interface NavbarProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
   readonly variant?: NavbarVariant
   readonly modifier?: NavbarModifier
 }
@@ -37,7 +39,7 @@ export const Navbar: React.SFC<NavbarProps> = ({
   )
 }
 
-interface NavbarBrandProps
+export interface NavbarBrandProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -53,7 +55,7 @@ export const NavbarBrand: React.SFC<NavbarBrandProps> = ({
   )
 }
 
-interface NavbarBurgerProps
+export interface NavbarBurgerProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {}
 
@@ -70,7 +72,7 @@ export const NavbarBurger: React.SFC<NavbarBurgerProps> = ({
 }
 
 type NavbarItemModifier = 'expanded' | 'tab' | 'active' | 'hoverable'
-interface NavBarItemsProps
+export interface NavbarItemsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly dropdown?: boolean
@@ -79,7 +81,7 @@ interface NavBarItemsProps
   readonly modifier?: NavbarItemModifier
 }
 
-export const NavbarItem: React.SFC<NavBarItemsProps> = ({
+export const NavbarItem: React.SFC<NavbarItemsProps> = ({
   href,
   dropdown,
   dropdownup,
@@ -105,13 +107,13 @@ export const NavbarItem: React.SFC<NavBarItemsProps> = ({
   )
 }
 
-interface NavBarMenuProps
+export interface NavbarMenuProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly active?: boolean
 }
 
-export const NavbarMenu: React.SFC<NavBarMenuProps> = ({
+export const NavbarMenu: React.SFC<NavbarMenuProps> = ({
   active,
   children,
   ...props
@@ -127,13 +129,13 @@ export const NavbarMenu: React.SFC<NavBarMenuProps> = ({
 }
 
 type NavbarDropdownModifier = 'boxed'
-interface NavbarDropdownprops
+export interface NavbarDropdownProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly modifier?: NavbarDropdownModifier
 }
 
-export const NavbarDropdown: React.SFC<NavbarDropdownprops> = ({
+export const NavbarDropdown: React.SFC<NavbarDropdownProps> = ({
   modifier,
   children,
   ...props
@@ -149,13 +151,13 @@ export const NavbarDropdown: React.SFC<NavbarDropdownprops> = ({
 }
 
 type NavbarLinkModifier = 'arrowless'
-interface NavBarLinkProps
+export interface NavbarLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
   readonly modifier?: NavbarLinkModifier
 }
 
-export const NavbarLink: React.SFC<NavBarLinkProps> = ({
+export const NavbarLink: React.SFC<NavbarLinkProps> = ({
   modifier,
   children,
   ...props
@@ -170,7 +172,7 @@ export const NavbarLink: React.SFC<NavBarLinkProps> = ({
   )
 }
 
-interface NavbarStartProps
+export interface NavbarStartProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -186,7 +188,7 @@ export const NavbarStart: React.SFC<NavbarStartProps> = ({
   )
 }
 
-interface NavbarEndProps
+export interface NavbarEndProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -202,7 +204,7 @@ export const NavbarEnd: React.SFC<NavbarEndProps> = ({
   )
 }
 
-interface NavbarDividerProps
+export interface NavbarDividerProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 

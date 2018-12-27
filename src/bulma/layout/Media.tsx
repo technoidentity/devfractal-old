@@ -1,7 +1,9 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface MediaProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface MediaProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const Media: React.SFC<MediaProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'media')
@@ -12,7 +14,9 @@ export const Media: React.SFC<MediaProps> = ({ children, ...props }) => {
   )
 }
 
-interface MediaLeftProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface MediaLeftProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const MediaLeft: React.SFC<MediaLeftProps> = ({
   children,
@@ -26,7 +30,7 @@ export const MediaLeft: React.SFC<MediaLeftProps> = ({
   )
 }
 
-interface MediaRightProps
+export interface MediaRightProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -42,7 +46,7 @@ export const MediaRight: React.SFC<MediaRightProps> = ({
   )
 }
 
-interface MediaContentProps
+export interface MediaContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 

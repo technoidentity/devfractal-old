@@ -11,7 +11,7 @@ type BreadcrumbSeparator =
   | 'dot-separator'
   | 'succeeds-separator'
 
-interface BreadcrumbItemProps
+export interface BreadcrumbItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
     Helpers {
   readonly href?: string
@@ -34,7 +34,9 @@ export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
   )
 }
 
-interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+export interface BreadcrumbProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {
   readonly size?: BreadcrumbSize
   readonly alignment?: BreadcrumbAlignment
   readonly separator?: BreadcrumbSeparator

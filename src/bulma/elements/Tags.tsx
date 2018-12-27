@@ -3,7 +3,9 @@ import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type TagsSize = 'medium' | 'large'
 
-interface TagsProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+export interface TagsProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
   readonly size?: TagsSize
   readonly addons?: boolean
 }

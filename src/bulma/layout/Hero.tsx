@@ -12,7 +12,7 @@ type HeroVariant =
 
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar'
 
-interface HeroProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+export interface HeroProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly variant?: HeroVariant
   readonly bold?: boolean
   readonly size?: HeroSize
@@ -37,7 +37,9 @@ export const Hero: React.SFC<HeroProps> = ({
   )
 }
 
-interface HeroHeadProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {}
+export interface HeroHeadProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {}
 
 export const HeroHead: React.SFC<HeroHeadProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'hero-head')
@@ -48,7 +50,9 @@ export const HeroHead: React.SFC<HeroHeadProps> = ({ children, ...props }) => {
   )
 }
 
-interface HeroBodyProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {}
+export interface HeroBodyProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {}
 
 export const HeroBody: React.SFC<HeroBodyProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'hero-body')
@@ -59,7 +63,9 @@ export const HeroBody: React.SFC<HeroBodyProps> = ({ children, ...props }) => {
   )
 }
 
-interface HeroFootProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {}
+export interface HeroFootProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {}
 
 export const HeroFoot: React.SFC<HeroFootProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'hero-foot')

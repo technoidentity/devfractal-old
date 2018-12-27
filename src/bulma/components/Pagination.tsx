@@ -1,7 +1,9 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface PaginationProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+export interface PaginationProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {
   readonly rounded?: boolean
   readonly size?: 'small' | 'medium' | 'large'
 }
@@ -29,7 +31,7 @@ export const Pagination: React.SFC<PaginationProps> = ({
   )
 }
 
-interface PaginationLinkProps
+export interface PaginationLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
   readonly current?: boolean
@@ -52,7 +54,7 @@ export const PaginationLink: React.SFC<PaginationLinkProps> = ({
   )
 }
 
-interface PaginationListProps
+export interface PaginationListProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
@@ -67,7 +69,7 @@ export const PaginationList: React.SFC<PaginationListProps> = ({
     </Div>
   )
 }
-interface PaginationEllipsisProps
+export interface PaginationEllipsisProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     Helpers {}
 
@@ -83,7 +85,7 @@ export const PaginationEllipsis: React.SFC<PaginationEllipsisProps> = ({
     </li>
   )
 }
-interface PaginationPreviousProps
+export interface PaginationPreviousProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {}
 
@@ -99,7 +101,7 @@ export const PaginationPrevious: React.SFC<PaginationPreviousProps> = ({
   )
 }
 
-interface PaginationNextProps
+export interface PaginationNextProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {}
 

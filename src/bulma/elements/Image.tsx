@@ -29,7 +29,7 @@ type ResponsiveImageRatio =
   | '1by2'
   | '1by3'
 
-interface ImageProps
+export interface ImageProps
   extends React.ImgHTMLAttributes<HTMLImageElement>,
     Helpers {
   readonly size?: FixedSquaredImageSize

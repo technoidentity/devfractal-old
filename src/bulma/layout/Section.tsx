@@ -1,7 +1,9 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+export interface SectionProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {
   readonly modifier?: 'medium' | 'large'
 }
 

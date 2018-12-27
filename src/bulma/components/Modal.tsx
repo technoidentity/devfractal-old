@@ -1,7 +1,9 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface ModalProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+export interface ModalProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
   readonly active?: boolean
 }
 
@@ -20,7 +22,7 @@ export const Modal: React.SFC<ModalProps> = ({
   )
 }
 
-interface ModalCardProps
+export interface ModalCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -36,7 +38,7 @@ export const ModalCard: React.SFC<ModalCardProps> = ({
   )
 }
 
-interface ModalHeadProps
+export interface ModalHeadProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {}
 
@@ -52,7 +54,7 @@ export const ModalCardHead: React.SFC<ModalHeadProps> = ({
   )
 }
 
-interface ModalCardTitleProps
+export interface ModalCardTitleProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
@@ -68,7 +70,7 @@ export const ModalCardTitle: React.SFC<ModalCardTitleProps> = ({
   )
 }
 
-interface ModalCardBodyProps
+export interface ModalCardBodyProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
@@ -84,7 +86,7 @@ export const ModalCardBody: React.SFC<ModalCardBodyProps> = ({
   )
 }
 
-interface ModalCardFootProps
+export interface ModalCardFootProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
@@ -100,7 +102,7 @@ export const ModalCardFoot: React.SFC<ModalCardFootProps> = ({
   )
 }
 
-interface ModalBackgroundProps
+export interface ModalBackgroundProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -111,7 +113,7 @@ export const ModalBackground: React.SFC<ModalBackgroundProps> = ({
   return <Div {...props} className={classes} />
 }
 
-interface ModalContentProps
+export interface ModalContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -127,7 +129,7 @@ export const ModalContent: React.SFC<ModalContentProps> = ({
   )
 }
 
-interface ModalCloseProps
+export interface ModalCloseProps
   extends React.HTMLAttributes<HTMLButtonElement>,
     Helpers {}
 

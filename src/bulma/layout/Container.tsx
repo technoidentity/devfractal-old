@@ -1,7 +1,9 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface ContainerProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+export interface ContainerProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
   readonly breakpoint?: 'widescreen' | 'fullhd'
   readonly fluid?: boolean
 }

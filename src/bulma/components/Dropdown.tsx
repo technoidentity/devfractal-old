@@ -5,7 +5,9 @@ type DropDownModifier = 'hoverable' | 'active'
 
 type DropDownAlignment = 'right' | 'up'
 
-interface DropDownProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+export interface DropDownProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
   readonly modifier?: DropDownModifier
   readonly alignment?: DropDownAlignment
 }
@@ -26,7 +28,9 @@ export const DropDown: React.SFC<DropDownProps> = ({
     </Div>
   )
 }
-interface DropDownMenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+export interface DropDownMenuProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {
   readonly id?: string
   readonly role?: string
 }
@@ -44,7 +48,7 @@ export const DropDownMenu: React.SFC<DropDownMenuProps> = ({
     </Div>
   )
 }
-interface DropDownItemProps
+export interface DropDownItemProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
   readonly active?: boolean
@@ -65,7 +69,7 @@ export const DropDownItem: React.SFC<DropDownItemProps> = ({
   )
 }
 
-interface DropDownTriggerProps
+export interface DropDownTriggerProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -81,7 +85,7 @@ export const DropDownTrigger: React.SFC<DropDownTriggerProps> = ({
   )
 }
 
-interface DropDownContentProps
+export interface DropDownContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -97,7 +101,7 @@ export const DropDownContent: React.SFC<DropDownContentProps> = ({
   )
 }
 
-interface DropDownDividerProps
+export interface DropDownDividerProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 

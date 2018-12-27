@@ -12,7 +12,9 @@ type MessageVariant =
 
 type MessageSize = 'normal' | 'small' | 'medium' | 'large'
 
-interface MessageProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+export interface MessageProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {
   readonly variant?: MessageVariant
   readonly size?: MessageSize
 }
@@ -34,7 +36,7 @@ export const Message: React.SFC<MessageProps> = ({
   )
 }
 
-interface MessageHeaderProps
+export interface MessageHeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
@@ -50,7 +52,7 @@ export const MessageHeader: React.SFC<MessageHeaderProps> = ({
   )
 }
 
-interface MessageBodyProps
+export interface MessageBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 

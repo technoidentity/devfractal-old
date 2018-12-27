@@ -5,7 +5,9 @@ type TitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 
 type SubTitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 
-interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement>, Helpers {
+export interface TitleProps
+  extends React.HTMLAttributes<HTMLHeadingElement>,
+    Helpers {
   readonly size?: TitleSize
   readonly spaced?: boolean
 }
@@ -27,7 +29,7 @@ export const Title: React.SFC<TitleProps> = ({
   )
 }
 
-interface SubTitleProps
+export interface SubTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     Helpers {
   readonly size?: SubTitleSize

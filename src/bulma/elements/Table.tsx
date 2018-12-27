@@ -1,7 +1,7 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface TableProps
+export interface TableProps
   extends React.TableHTMLAttributes<HTMLTableElement>,
     Helpers {
   readonly bordered?: boolean
@@ -34,7 +34,9 @@ export const Table: React.SFC<TableProps> = ({
   )
 }
 
-interface TableHeadProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface TableHeadProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const TableHead: React.SFC<TableHeadProps> = ({
   children,
@@ -48,7 +50,9 @@ export const TableHead: React.SFC<TableHeadProps> = ({
   )
 }
 
-interface TableBodyProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface TableBodyProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const TableBody: React.SFC<TableBodyProps> = ({
   children,
@@ -62,7 +66,9 @@ export const TableBody: React.SFC<TableBodyProps> = ({
   )
 }
 
-interface TableFootProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface TableFootProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const TableFoot: React.SFC<TableFootProps> = ({
   children,
@@ -75,7 +81,9 @@ export const TableFoot: React.SFC<TableFootProps> = ({
     </Div>
   )
 }
-interface TrProps extends React.HTMLAttributes<HTMLTableRowElement>, Helpers {
+export interface TrProps
+  extends React.HTMLAttributes<HTMLTableRowElement>,
+    Helpers {
   readonly selected?: boolean
 }
 
@@ -91,7 +99,7 @@ export const Tr: React.SFC<TrProps> = ({ children, selected, ...props }) => {
   )
 }
 
-interface ThProps
+export interface ThProps
   extends React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
     Helpers {}
 
@@ -105,7 +113,7 @@ export const Th: React.SFC<ThProps> = ({ children, className, ...props }) => {
   )
 }
 
-interface TdProps
+export interface TdProps
   extends React.TdHTMLAttributes<HTMLTableDataCellElement>,
     Helpers {}
 

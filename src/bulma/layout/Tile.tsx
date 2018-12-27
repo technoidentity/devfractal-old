@@ -19,7 +19,9 @@ type TileSize =
   | '11'
   | '12'
 
-interface TileProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+export interface TileProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
   readonly tileType?: TileType
   readonly size?: TileSize
   readonly vertical?: boolean
