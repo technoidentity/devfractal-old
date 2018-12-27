@@ -8,8 +8,8 @@ import {
   RadioButton,
   Select,
   TextArea,
-} from '../form'
-import { Container, Section } from '../layout'
+} from '../../form'
+import { Container, Section } from '../../layout'
 
 export const SampleForm: React.SFC = () => {
   return (

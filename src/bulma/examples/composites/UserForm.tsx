@@ -1,6 +1,6 @@
 import React from 'react'
 import { number, object, ObjectSchema, string } from 'yup'
-import { consoleSubmit, Simple, SimpleValues } from '../formik'
+import { consoleSubmit, Simple, SimpleValues } from '../../formik'
 
 interface LoginValues {
   readonly name: string

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Column, Columns } from '../columns'
-import { Box } from '../elements'
-import { Button } from '../form'
-import { Section } from '../layout'
+import { Column, Columns } from '../../columns'
+import { Box } from '../../elements'
+import { Button } from '../../form'
+import { Section } from '../../layout'
 
 interface CounterViewProps {
   readonly count: number

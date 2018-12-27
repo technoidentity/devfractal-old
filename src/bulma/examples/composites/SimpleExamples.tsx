@@ -1,8 +1,8 @@
 import React from 'react'
 import { boolean, number, object, ObjectSchema, string } from 'yup'
-import { RadioButtonGroup } from '../form'
-import { consoleSubmit, Simple, SimpleValues } from '../formik'
-import { Section } from '../layout'
+import { RadioButtonGroup } from '../../form'
+import { consoleSubmit, Simple, SimpleValues } from '../../formik'
+import { Section } from '../../layout'
 
 interface SimpleValues {
   readonly text: string

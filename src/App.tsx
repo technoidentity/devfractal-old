@@ -10,7 +10,6 @@ import {
   ContainerExample,
   DeleteExample,
   DropDownExample,
-  FieldExample,
   FileExample,
   FooterExample,
   GapColumnExample,
@@ -61,7 +60,6 @@ export const FormRoutes: React.SFC = () => (
     <Route path="/form/input" exact component={InputExample} />
     <Route path="/form/select" exact component={SelectExample} />
     <Route path="/form/checkbox" exact component={CheckBoxExample} />
-    <Route path="/form/field" exact component={FieldExample} />
     <Route path="/form/button" exact component={ButtonExample} />
     <Route path="/form/radio-button" exact component={RadioButtonExample} />
     <Route path="/form/textarea" exact component={TextAreaExample} />

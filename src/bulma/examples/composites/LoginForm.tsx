@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Field, Input, Label } from '../form'
-import { Container, Section } from '../layout/'
+import { Button, Field, Input, Label } from '../../form'
+import { Container, Section } from '../../layout'
 
 const eventLogger: (evt: any) => void = evt => {
   // tslint:disable no-console
