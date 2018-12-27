@@ -3,7 +3,7 @@ import tcomb from 'tcomb'
 export type ClassNameArg =
   | string
   | ReadonlyArray<string>
-  | { readonly [index: string]: any }
+  | { readonly [index: string]: unknown }
   | undefined
   | null
 
