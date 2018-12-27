@@ -48,23 +48,24 @@ import {
   Components,
   Elements,
   Form,
-  FrontPage,
   Layout,
   Modifiers,
 } from './bulma/front-page'
+import { MainPageRoutes } from './bulma/front-page/FrontPage'
 import { Container, Section } from './bulma/layout'
 
 export const FormRoutes: React.SFC = () => (
   <>
-    <Route path="/form-general" exact component={AllFieldExamples} />
-    <Route path="/form-input" exact component={InputExample} />
-    <Route path="/form-select" exact component={SelectExample} />
-    <Route path="/form-checkbox" exact component={CheckBoxExample} />
-    <Route path="/form-field" exact component={FieldExample} />
-    <Route path="/form-button" exact component={ButtonExample} />
-    <Route path="/form-radio-button" exact component={RadioButtonExample} />
-    <Route path="/form-textarea" exact component={TextAreaExample} />
-    <Route path="/form-file" exact component={FileExample} />
+    <Route path="/form" exact component={AllFieldExamples} />
+    <Route path="/form/general" exact component={AllFieldExamples} />
+    <Route path="/form/input" exact component={InputExample} />
+    <Route path="/form/select" exact component={SelectExample} />
+    <Route path="/form/checkbox" exact component={CheckBoxExample} />
+    <Route path="/form/field" exact component={FieldExample} />
+    <Route path="/form/button" exact component={ButtonExample} />
+    <Route path="/form/radio-button" exact component={RadioButtonExample} />
+    <Route path="/form/textarea" exact component={TextAreaExample} />
+    <Route path="/form/file" exact component={FileExample} />
   </>
 )
 
@@ -126,12 +127,12 @@ export const ComponentsRoutes: React.SFC = () => (
 
 export const FrontPageRoutes: React.SFC = () => (
   <>
-    <Route path="/form" exact component={Form} />
-    <Route path="/components" exact component={Components} />
-    <Route path="/elements" exact component={Elements} />
-    <Route path="/modifiers" exact component={Modifiers} />
-    <Route path="/layout" exact component={Layout} />
-    <Route path="/columns" exact component={Columns} />
+    <Route path="/form" component={Form} />
+    <Route path="/components" component={Components} />
+    <Route path="/elements" component={Elements} />
+    <Route path="/modifiers" component={Modifiers} />
+    <Route path="/layout" component={Layout} />
+    <Route path="/columns" component={Columns} />
     {/* <Route path="/sample-form" exact component={SampleForm} />
     <Route path="/login-form" exact component={LoginForm} />
     <Route path="/simple-login-form" exact component={SimpleLoginForm} />
@@ -146,9 +147,9 @@ export const FrontPageRoutes: React.SFC = () => (
 
 export const Routes: React.SFC = () => (
   <>
-    <Route path="/" exact component={FrontPage} />
-    <FormRoutes />
+    <MainPageRoutes />
     <FrontPageRoutes />
+    <FormRoutes />
     <ElementsRoutes />
     <ComponentsRoutes />
     <LayoutRoutes />

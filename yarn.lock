@@ -4699,17 +4699,18 @@ dot-prop@^4.1.0, dot-prop@^4.1.1:
   dependencies:
     is-obj "^1.0.0"
 
-dotenv-expand@4.2.0, dotenv-expand@^4.2.0:
+dotenv-expand@4.2.0, dotenv-expand@^4.0.1, dotenv-expand@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-4.2.0.tgz#def1f1ca5d6059d24a766e587942c21106ce1275"
   integrity sha1-3vHxyl1gWdJKdm5YeULCEQbOEnU=
 
 dotenv-webpack@^1.5.7:
-  version "1.5.7"
-  resolved "https://registry.yarnpkg.com/dotenv-webpack/-/dotenv-webpack-1.5.7.tgz#c44395ab21d1fd28d79a90942a7b14b1debd145f"
-  integrity sha1-xEOVqyHR/SjXmpCUKnsUsd69FF8=
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/dotenv-webpack/-/dotenv-webpack-1.6.0.tgz#ea5758ce4da1e0c3574ef777a32ee20beb61b3a5"
+  integrity sha512-jTbHXmcVw3KMVhTdgthYNLWWHRGtucrADpZWwVCdiP+pCvuWvxLcUadwEnmz8Wqv/d2UAJxJhp1jrxGlMYCetg==
   dependencies:
     dotenv "^5.0.1"
+    dotenv-expand "^4.0.1"
 
 dotenv@6.0.0:
   version "6.0.0"
@@ -9513,11 +9514,11 @@ os-locale@^2.0.0:
     mem "^1.1.0"
 
 os-locale@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/os-locale/-/os-locale-3.0.1.tgz#3b014fbf01d87f60a1e5348d80fe870dc82c4620"
-  integrity sha512-7g5e7dmXPtzcP4bgsZ8ixDVqA7oWYuEz4lOSujeWyliPai4gfVDiFIcwBg3aGCPnmSGfzOKTK3ccPn0CKv3DBw==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/os-locale/-/os-locale-3.1.0.tgz#a802a6ee17f24c10483ab9935719cef4ed16bf1a"
+  integrity sha512-Z8l3R4wYWM40/52Z+S265okfFj8Kt2cC2MKY+xNi3kFs+XGI7WXu/I309QQQYbRW4ijiZ+yxs9pqEhJh0DqW3Q==
   dependencies:
-    execa "^0.10.0"
+    execa "^1.0.0"
     lcid "^2.0.0"
     mem "^4.0.0"
 
