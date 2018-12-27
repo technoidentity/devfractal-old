@@ -1,15 +1,7 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface ContainerProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+interface ContainerProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly breakpoint?: 'widescreen' | 'fullhd'
   readonly fluid?: boolean
 }
@@ -18,25 +10,16 @@ export const Container: React.SFC<ContainerProps> = ({
   children,
   fluid,
   breakpoint,
-  className,
   ...props
 }) => {
-  const propsCommonHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'container',
-    {
-      ['is-fluid']: fluid,
-      [`is-${breakpoint}`]: breakpoint,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'container', {
+    ['is-fluid']: fluid,
+    [`is-${breakpoint}`]: breakpoint,
+  })
 
   return (
-    <div {...propsCommonHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
