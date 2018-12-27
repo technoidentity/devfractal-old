@@ -1,63 +1,35 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type LevelItemType = 'left' | 'right'
 
-interface LevelProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {}
+interface LevelProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
 
-export const Level: React.SFC<LevelProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'level',
-    className,
-    commonHelpersClasses(props),
-  )
+export const Level: React.SFC<LevelProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'level')
   return (
-    <nav {...propsHelpersRemoved} className={classes}>
+    <Div as="nav" {...props} className={classes}>
       {children}
-    </nav>
+    </Div>
   )
 }
 
-interface LevelItemProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+interface LevelItemProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly levelItemType?: LevelItemType
 }
 
 export const LevelItem: React.SFC<LevelItemProps> = ({
   children,
   levelItemType,
-  className,
   ...props
 }) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'level-item',
-    {
-      'level-item': !levelItemType,
-      [`level-${levelItemType}`]: levelItemType,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'level-item', {
+    'level-item': !levelItemType,
+    [`level-${levelItemType}`]: levelItemType,
+  })
   return (
-    <div {...propsHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
