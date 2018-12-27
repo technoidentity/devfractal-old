@@ -1,11 +1,5 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type HeroVariant =
   | 'primary'
@@ -18,7 +12,7 @@ type HeroVariant =
 
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar'
 
-interface HeroProps extends React.HTMLAttributes<HTMLElement>, CommonHelpers {
+interface HeroProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly variant?: HeroVariant
   readonly bold?: boolean
   readonly size?: HeroSize
@@ -29,99 +23,49 @@ export const Hero: React.SFC<HeroProps> = ({
   variant,
   bold,
   size,
-  className,
   ...props
 }) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'hero',
-    {
-      [`is-${variant}`]: variant,
-      [`is-bold`]: bold,
-      [`is-${size}`]: size,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'hero', {
+    [`is-${variant}`]: variant,
+    [`is-bold`]: bold,
+    [`is-${size}`]: size,
+  })
   return (
-    <section {...propsHelpersRemoved} className={classes}>
+    <Div as="section" {...props} className={classes}>
       {children}
-    </section>
+    </Div>
   )
 }
 
-interface HeroHeadProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+interface HeroHeadProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {}
 
-export const HeroHead: React.SFC<HeroHeadProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'hero-head',
-    {},
-    className,
-    commonHelpersClasses(props),
-  )
+export const HeroHead: React.SFC<HeroHeadProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'hero-head')
   return (
-    <div {...propsHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
-interface HeroBodyProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+interface HeroBodyProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {}
 
-export const HeroBody: React.SFC<HeroBodyProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'hero-body',
-    {},
-    className,
-    commonHelpersClasses(props),
-  )
+export const HeroBody: React.SFC<HeroBodyProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'hero-body')
   return (
-    <div {...propsHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
 
-interface HeroFootProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {}
+interface HeroFootProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {}
 
-export const HeroFoot: React.SFC<HeroFootProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'hero-foot',
-    className,
-    commonHelpersClasses(props),
-  )
+export const HeroFoot: React.SFC<HeroFootProps> = ({ children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'hero-foot')
   return (
-    <div {...propsHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
