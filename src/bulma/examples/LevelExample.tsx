@@ -3,6 +3,7 @@ import { SubTitle, Title } from '../elements/Title'
 import { Button, Field, Input } from '../form'
 import { Level, LevelItem } from '../layout/Level'
 import { Section } from '../layout/Section'
+import { Text } from '../modifiers/Text'
 
 export const LevelExample: React.SFC = () => (
   <div>
@@ -42,29 +43,29 @@ export const LevelExample: React.SFC = () => (
 
     <Section>
       <Level>
-        <LevelItem className="has-text-centered">
-          <div>
-            <p className="heading">Tweets</p>
+        <LevelItem>
+          <Section>
+            <Text textAlignment="centered">Tweets</Text>
             <Title>3,456</Title>
-          </div>
+          </Section>
         </LevelItem>
-        <LevelItem className="has-text-centered">
-          <div>
-            <p className="heading">Following</p>
+        <LevelItem>
+          <Section>
+            <Text textAlignment="centered">Following</Text>
             <Title>123</Title>
-          </div>
+          </Section>
         </LevelItem>
-        <LevelItem className="has-text-centered">
-          <div>
-            <p className="heading">Followers</p>
+        <LevelItem>
+          <Section>
+            <Text textAlignment="centered">Followers</Text>
             <Title>456K</Title>
-          </div>
+          </Section>
         </LevelItem>
-        <LevelItem className="has-text-centered">
-          <div>
-            <p className="heading">Likes</p>
+        <LevelItem>
+          <Section>
+            <Text textAlignment="centered">Likes</Text>
             <Title>789</Title>
-          </div>
+          </Section>
         </LevelItem>
       </Level>
     </Section>
