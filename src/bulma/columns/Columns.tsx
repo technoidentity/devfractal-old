@@ -1,6 +1,5 @@
 import React from 'react'
-import { classNames } from '../../utils/classNames'
-import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type ColumnsResponsive =
   | 'mobile'
@@ -26,25 +25,19 @@ export const Columns: React.SFC<ColumnsProps> = ({
   multiline,
   verticallyCentered,
   columnCentered,
-  className,
   ...props
 }) => {
-  const classes: string = classNames(
-    'columns',
-    {
-      [`is-${responsiveness}`]: responsiveness,
-      [`is-gapless`]: gapless,
-      [`is-vcentered`]: verticallyCentered,
-      [`is-multiline`]: multiline,
-      [`is-centered`]: columnCentered,
-    },
-    helpersClasses(props),
-    className,
-  )
+  const classes: string = classNamesHelper(props, 'columns', {
+    [`is-${responsiveness}`]: responsiveness,
+    [`is-gapless`]: gapless,
+    [`is-vcentered`]: verticallyCentered,
+    [`is-multiline`]: multiline,
+    [`is-centered`]: columnCentered,
+  })
 
   return (
-    <div {...removeHelpers(props)} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
