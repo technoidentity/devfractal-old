@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Form: React.SFC = () => (
-  <Tabs to="/form" urlSeparator="-" size="medium">
+  <Tabs to="/form" size="medium">
     <TabsItem name="general" active>
       General
     </TabsItem>
