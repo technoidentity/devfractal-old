@@ -6,8 +6,8 @@ import {
   DropDownItem,
   DropDownMenu,
   DropDownTrigger,
-} from '../components/Dropdown'
-import { Button } from '../form'
+} from '../../components/Dropdown'
+import { Button } from '../../form'
 
 export const DropDownExample: React.SFC = () => (
   <div>

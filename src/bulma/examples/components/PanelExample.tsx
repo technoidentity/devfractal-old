@@ -5,8 +5,8 @@ import {
   PanelHeading,
   PanelTabs,
   PanelTabsItem,
-} from '../components/Panel'
-import { Button, CheckBox, Input } from '../form'
+} from '../../components/Panel'
+import { Button, CheckBox, Input } from '../../form'
 
 export const PanelExample: React.SFC = () => (
   <Panel>

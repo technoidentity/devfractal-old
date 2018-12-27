@@ -10,8 +10,8 @@ import {
   NavbarLink,
   NavbarMenu,
   NavbarStart,
-} from '../components/Navbar'
-import { Button, Buttons } from '../form/Button'
+} from '../../components/Navbar'
+import { Button, Buttons } from '../../form/Button'
 
 export const NavbarExample: React.SFC = () => (
   <Navbar>

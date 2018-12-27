@@ -6,7 +6,7 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from '../components/Pagination'
+} from '../../components/Pagination'
 
 export const PaginationExample: React.SFC = () => (
   <div>
