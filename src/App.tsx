@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 import {
+  BasicColumnExample,
   BoxExample,
   BreadcrumbExample,
   ButtonExample,
@@ -12,8 +13,10 @@ import {
   FieldExample,
   FileExample,
   FooterExample,
+  GapColumnExample,
   GeneralExample,
   HeroExample,
+  IconExample,
   ImageExample,
   InputExample,
   LevelExample,
@@ -22,13 +25,17 @@ import {
   MessageExample,
   ModalExample,
   NavbarExample,
+  NestingColumnExample,
   NotificationExample,
+  OptionsColumnExample,
   PaginationExample,
   PanelExample,
   ProgressBarExample,
   RadioButtonExample,
+  ResponsiveColumnExample,
   SectionExample,
   SelectExample,
+  SizesColumnExample,
   TableExample,
   TabsExample,
   TagExample,
@@ -36,13 +43,6 @@ import {
   TileExample,
   TitleExample,
 } from './bulma/examples'
-import { BasicColumnExample } from './bulma/examples/columns/BasicsExample'
-import { GapColumnExample } from './bulma/examples/columns/GapExample'
-import { NestingColumnExample } from './bulma/examples/columns/NestingExample'
-import { OptionsColumnExample } from './bulma/examples/columns/OptionExample'
-import { ResponsiveColumnExample } from './bulma/examples/columns/ResponsiveExample'
-import { SizesColumnExample } from './bulma/examples/columns/SizesExample'
-import { IconExample } from './bulma/examples/IconExample'
 import {
   Columns,
   Components,

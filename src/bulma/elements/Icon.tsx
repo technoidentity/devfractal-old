@@ -8,7 +8,7 @@ import { classNamesHelper, Div, Helpers, removeHelpers } from '../modifiers'
 
 type IconDirection = 'left' | 'right'
 
-interface IconProps extends FontAwesomeIconProps, Helpers {
+export interface IconProps extends FontAwesomeIconProps, Helpers {
   readonly icon: IconDefinition
   readonly direction?: IconDirection
 }

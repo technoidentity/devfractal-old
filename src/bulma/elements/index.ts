@@ -1,6 +1,7 @@
 export { Box } from './Box'
 export { Content } from './Content'
 export { Delete } from './Delete'
+export { Icon } from './Icon'
 export { Image } from './Image'
 export { Notification } from './Notification'
 export { ProgressBar } from './ProgressBar'

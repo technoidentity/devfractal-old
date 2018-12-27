@@ -6,7 +6,7 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Icon } from '../form/Icon'
+import { Icon } from '../../elements/Icon'
 
 export const IconExample: React.SFC = () => (
   <div>
