@@ -1,11 +1,5 @@
-import classNames from 'classnames'
 import React from 'react'
-import {
-  CommonHelpers,
-  commonHelpersClasses,
-  CommonHelpersRemoved,
-  removeCommonHelpers,
-} from '../modifiers/commonHelpers'
+import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type TileType = 'ancestor' | 'parent' | 'child'
 
@@ -25,9 +19,7 @@ type TileSize =
   | '11'
   | '12'
 
-interface TileProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    CommonHelpers {
+interface TileProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly tileType?: TileType
   readonly size?: TileSize
   readonly vertical?: boolean
@@ -44,28 +36,19 @@ export const Tile: React.SFC<TileProps> = ({
   variant,
   notification,
   box,
-  className,
   ...props
 }) => {
-  const propsHelpersRemoved: CommonHelpersRemoved<
-    typeof props
-  > = removeCommonHelpers(props)
-  const classes: string = classNames(
-    'tile',
-    {
-      [`is-${tileType}`]: tileType,
-      [`is-${size}`]: size,
-      [`is-vertical`]: vertical,
-      [`is-${variant}`]: variant,
-      [`notification`]: notification,
-      [`box`]: box,
-    },
-    className,
-    commonHelpersClasses(props),
-  )
+  const classes: string = classNamesHelper(props, 'tile', {
+    [`is-${tileType}`]: tileType,
+    [`is-${size}`]: size,
+    [`is-vertical`]: vertical,
+    [`is-${variant}`]: variant,
+    [`notification`]: notification,
+    [`box`]: box,
+  })
   return (
-    <div {...propsHelpersRemoved} className={classes}>
+    <Div {...props} className={classes}>
       {children}
-    </div>
+    </Div>
   )
 }
