@@ -23,9 +23,10 @@ export const TileExample: React.SFC = () => (
             <Tile tileType="child" notification variant="info">
               <Title>Middle tile</Title>
               <SubTitle>With an image</SubTitle>
-              <Image responsiveImageRatio="5by3">
-                <img src="https://bulma.io/images/placeholders/640x480.png" />
-              </Image>
+              <Image
+                responsiveImageRatio="5by3"
+                src="https://bulma.io/images/placeholders/640x480.png"
+              />
             </Tile>
           </Tile>
         </Tile>
