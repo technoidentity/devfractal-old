@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Column, Columns } from '../../columns'
 import { Notification } from '../../elements'
 
-export const BasicColumn: React.SFC = () => (
+export const BasicColumnExample: React.SFC = () => (
   <Columns>
     <Column>
       <Notification variant="primary">First column</Notification>

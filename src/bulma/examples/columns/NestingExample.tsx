@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Column, Columns } from '../../columns'
 import { Notification } from '../../elements'
 
-export const NestingColumn: React.SFC = () => (
+export const NestingColumnExample: React.SFC = () => (
   <div>
     <Columns>
       <Column>

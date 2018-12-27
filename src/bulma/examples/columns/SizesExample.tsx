@@ -4,7 +4,7 @@ import { Box, Notification, Title } from '../../elements'
 import { SubTitle } from '../../elements/Title'
 import { Section } from '../../layout'
 
-export const SizesColumn: React.SFC = () => (
+export const SizesColumnExample: React.SFC = () => (
   <div>
     <Columns>
       <Column size="four-fifths">

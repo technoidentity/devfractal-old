@@ -3,7 +3,7 @@ import { Column, Columns } from '../../columns'
 import { Notification } from '../../elements'
 import { Section } from '../../layout'
 
-export const ResponsiveColumn: React.SFC = () => (
+export const ResponsiveColumnExample: React.SFC = () => (
   <div>
     <Section>
       <Columns className="is-mobile-only">

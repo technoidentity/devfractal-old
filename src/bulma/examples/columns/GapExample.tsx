@@ -3,7 +3,7 @@ import { Column, Columns } from '../../columns'
 import { Notification } from '../../elements'
 import { Section } from '../../layout'
 
-export const GapColumn: React.SFC = () => (
+export const GapColumnExample: React.SFC = () => (
   <div>
     <Columns gapless>
       <Column>

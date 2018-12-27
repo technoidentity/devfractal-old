@@ -3,7 +3,7 @@ import { Column, Columns } from '../../columns'
 import { Notification } from '../../elements'
 import { Section } from '../../layout'
 
-export const OptionsColumn: React.SFC = () => (
+export const OptionsColumnExample: React.SFC = () => (
   <div>
     <Columns verticallyCentered>
       <Column gridSize="8">

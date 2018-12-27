@@ -36,12 +36,12 @@ import {
   TileExample,
   TitleExample,
 } from './bulma/examples'
-import { BasicColumn } from './bulma/examples/column-examples/Basics'
-import { GapColumn } from './bulma/examples/column-examples/Gap'
-import { NestingColumn } from './bulma/examples/column-examples/Nesting'
-import { OptionsColumn } from './bulma/examples/column-examples/Option'
-import { ResponsiveColumn } from './bulma/examples/column-examples/Responsiveness'
-import { SizesColumn } from './bulma/examples/column-examples/Sizes'
+import { BasicColumnExample } from './bulma/examples/columns/BasicsExample'
+import { GapColumnExample } from './bulma/examples/columns/GapExample'
+import { NestingColumnExample } from './bulma/examples/columns/NestingExample'
+import { OptionsColumnExample } from './bulma/examples/columns/OptionExample'
+import { ResponsiveColumnExample } from './bulma/examples/columns/ResponsiveExample'
+import { SizesColumnExample } from './bulma/examples/columns/SizesExample'
 import { IconExample } from './bulma/examples/IconExample'
 import {
   Columns,
@@ -72,18 +72,22 @@ export const FormRoutes: React.SFC = () => (
 
 export const ColumnsRoutes: React.SFC = () => (
   <>
-    <Route path="/columns" exact component={BasicColumn} />
+    <Route path="/columns" exact component={BasicColumnExample} />
     <Route
       exact
       path="/columns"
       render={() => <Redirect to="/columns/basics" />}
     />
-    <Route path="/columns/basics" exact component={BasicColumn} />
-    <Route path="/columns/size" exact component={SizesColumn} />
-    <Route path="/columns/responsiveness" exact component={ResponsiveColumn} />
-    <Route path="/columns/nesting" exact component={NestingColumn} />
-    <Route path="/columns/gap" exact component={GapColumn} />
-    <Route path="/columns/options" exact component={OptionsColumn} />
+    <Route path="/columns/basics" exact component={BasicColumnExample} />
+    <Route path="/columns/size" exact component={SizesColumnExample} />
+    <Route
+      path="/columns/responsiveness"
+      exact
+      component={ResponsiveColumnExample}
+    />
+    <Route path="/columns/nesting" exact component={NestingColumnExample} />
+    <Route path="/columns/gap" exact component={GapColumnExample} />
+    <Route path="/columns/options" exact component={OptionsColumnExample} />
   </>
 )
 
