@@ -1,4 +1,3 @@
-export { Input } from '../form/Input'
 export { Box } from './Box'
 export { Content } from './Content'
 export { Delete } from './Delete'
