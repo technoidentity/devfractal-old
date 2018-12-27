@@ -1,7 +1,7 @@
 export { GeneralExample } from './forms/GeneralExample'
 export { BoxExample } from './BoxExample'
 export { BreadcrumbExample } from './Breadcrumb'
-export { ButtonExample } from './ButtonExample'
+export { ButtonExample } from './forms/ButtonExample'
 export { CardExample } from './CardExample'
 export { CheckBoxExample } from './forms/CheckBoxExample'
 export { ContainerExample } from './ContainerExample'
