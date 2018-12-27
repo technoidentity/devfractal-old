@@ -5,7 +5,6 @@ export interface CommonHelpers {
   readonly floating?: 'clearfix' | 'pulled-left' | 'pulled-right'
   readonly marginLess?: boolean
   readonly paddingLess?: boolean
-  readonly overlay?: boolean
   readonly clipped?: boolean
   readonly radiusLess?: boolean
   readonly shadowLess?: boolean
@@ -18,7 +17,6 @@ export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
   floating,
   marginLess,
   paddingLess,
-  overlay,
   clipped,
   radiusLess,
   shadowLess,
@@ -30,7 +28,6 @@ export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
     [`is-${floating}`]: floating,
     [`is-marginless`]: marginLess,
     [`is-paddingless`]: paddingLess,
-    [`is-overlay`]: overlay,
     [`is-clipped`]: clipped,
     [`is-radiusless`]: radiusLess,
     [`is-shadowless`]: shadowLess,
@@ -47,7 +44,6 @@ export const removeCommonHelpers: <T extends CommonHelpers>(
   floating,
   marginLess,
   paddingLess,
-  overlay,
   clipped,
   radiusLess,
   shadowLess,
