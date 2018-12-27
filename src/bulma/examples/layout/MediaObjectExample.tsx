@@ -1,7 +1,7 @@
 import React from 'react'
-import { Content, Image } from '../elements'
-import { Button, Field, TextArea } from '../form'
-import { Media, MediaContent, MediaLeft } from '../layout/Media'
+import { Content, Image } from '../../elements'
+import { Button, Field, TextArea } from '../../form'
+import { Media, MediaContent, MediaLeft } from '../../layout/Media'
 
 export const MediaObjectExample: React.SFC = () => (
   <Media>
