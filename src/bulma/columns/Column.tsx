@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import React from 'react'
+import { classNames } from '../../utils/classNames'
 import { Helpers, helpersClasses, removeHelpers } from '../modifiers'
 
 type ColumnSize =

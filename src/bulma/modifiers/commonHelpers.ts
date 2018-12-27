@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import { Omit } from '../../types'
+import { classNames } from '../../utils/classNames'
 
 export interface CommonHelpers {
   readonly floating?: 'clearfix' | 'pulled-left' | 'pulled-right'
