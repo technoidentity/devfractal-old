@@ -95,5 +95,7 @@ storiesOf('Select', module)
     </div>
   ))
   .add('Disabled select', () => (
-    <Select disabled placeholder="disable select" />
+    <Select disabled>
+      <option>disabled select</option>
+    </Select>
   ))
