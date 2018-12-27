@@ -1,4 +1,4 @@
-export { AllFieldExamples } from './AllFieldExamples'
+export { GeneralExample } from './GeneralExample'
 export { SelectExample } from './SelectExample'
 export { InputExample } from './InputExample'
 export { RadioButtonExample } from './RadioButtonExample'

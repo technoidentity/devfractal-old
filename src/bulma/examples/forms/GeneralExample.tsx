@@ -22,7 +22,7 @@ import {
 } from '../../form'
 import { Section } from '../../layout'
 
-export const AllFieldExamples: React.SFC = () => (
+export const GeneralExample: React.SFC = () => (
   <>
     <Field>
       <Label>Name</Label>

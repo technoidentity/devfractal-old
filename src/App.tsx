@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 import {
-  AllFieldExamples,
   BoxExample,
   BreadcrumbExample,
   ButtonExample,
@@ -13,6 +12,7 @@ import {
   FieldExample,
   FileExample,
   FooterExample,
+  GeneralExample,
   HeroExample,
   ImageExample,
   InputExample,
@@ -56,9 +56,9 @@ import { Container, Section } from './bulma/layout'
 
 export const FormRoutes: React.SFC = () => (
   <>
-    <Route path="/form" exact component={AllFieldExamples} />
+    <Route path="/form" exact component={GeneralExample} />
     <Route exact path="/form" render={() => <Redirect to="/form/general" />} />
-    <Route path="/form/general" exact component={AllFieldExamples} />
+    <Route path="/form/general" exact component={GeneralExample} />
     <Route path="/form/input" exact component={InputExample} />
     <Route path="/form/select" exact component={SelectExample} />
     <Route path="/form/checkbox" exact component={CheckBoxExample} />
@@ -135,7 +135,7 @@ export const ComponentsRoutes: React.SFC = () => (
     <Route
       exact
       path="/components"
-      render={() => <Redirect to="/components/breadcrumb" />}
+      render={() => <Redirect to="/components/basics" />}
     />
     <Route path="/components/dropdown" exact component={DropDownExample} />
     <Route path="/components/breadcrumb" exact component={BreadcrumbExample} />
