@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Field } from '../form'
-import { Buttons } from '../form/Button'
+import { Button, Field } from '../../form'
+import { Buttons } from '../../form/Button'
 
 export const ButtonExample: React.SFC = () => (
   <>
