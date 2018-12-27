@@ -122,7 +122,9 @@ export const MainPageHeader: React.SFC = () => (
   <Hero variant="dark">
     <HeroBody>
       <Container className="has-text-centered">
-        <Title>Devfractal</Title>
+        <Title>
+          <Link to="/">Devfractal</Link>
+        </Title>
         <SubTitle>React, as simple as Angular!</SubTitle>
       </Container>
     </HeroBody>
