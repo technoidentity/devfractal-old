@@ -3,9 +3,7 @@ import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Form: React.SFC = () => (
   <Tabs to="/form" size="medium">
-    <TabsItem name="general" active>
-      General
-    </TabsItem>
+    <TabsItem name="general">General</TabsItem>
     <TabsItem name="input">Input</TabsItem>
     <TabsItem name="button">Button</TabsItem>
     <TabsItem name="textarea">Textarea</TabsItem>
