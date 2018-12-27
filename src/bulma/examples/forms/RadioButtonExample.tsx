@@ -1,5 +1,5 @@
 import React from 'react'
-import { RadioButton, RadioButtonGroup } from '../form'
+import { RadioButton, RadioButtonGroup } from '../../form'
 
 export const RadioButtonExample: React.SFC = () => (
   <RadioButtonGroup>

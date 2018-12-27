@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field, File } from '../form'
+import { Field, File } from '../../form'
 
 export const FileExample: React.SFC = () => (
   <div>

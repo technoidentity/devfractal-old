@@ -19,8 +19,8 @@ import {
   RadioButton,
   Select,
   TextArea,
-} from '../form'
-import { Section } from '../layout'
+} from '../../form'
+import { Section } from '../../layout'
 
 export const AllFieldExamples: React.SFC = () => (
   <>

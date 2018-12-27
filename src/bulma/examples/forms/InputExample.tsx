@@ -1,12 +1,12 @@
 import { faCheck, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Column, Columns } from '../columns'
-import { Title } from '../elements'
-import { SubTitle } from '../elements/Title'
-import { FieldBody, FieldLabel, Input } from '../form'
-import { FormField } from '../form/FormField'
-import { Container, Section } from '../layout'
-import { Text } from '../modifiers/Text'
+import { Column, Columns } from '../../columns'
+import { Title } from '../../elements'
+import { SubTitle } from '../../elements/Title'
+import { FieldBody, FieldLabel, Input } from '../../form'
+import { FormField } from '../../form/FormField'
+import { Container, Section } from '../../layout'
+import { Text } from '../../modifiers/Text'
 
 export const InputExample: React.SFC = () => (
   <div>
