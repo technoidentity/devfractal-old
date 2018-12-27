@@ -1,29 +1,20 @@
 import React from 'react'
-import { Field, TextArea } from '../form'
+import { TextArea } from '../form'
 import { logger } from './common'
 
 export const TextAreaExample: React.SFC = () => (
   <div>
-    <Field>
-      <TextArea
-        className="is-large"
-        state="focused"
-        variant="primary"
-        placeholder="large text area"
-        onChange={() => {
-          logger('TextAreaExample onChange')
-        }}
-      />
-    </Field>
-    \
-    <Field>
-      <TextArea variant="info" disabled />
-    </Field>
-    <Field>
-      <TextArea variant="danger" />
-    </Field>
-    <Field>
-      <TextArea />
-    </Field>
+    <TextArea placeholder="Default TextArea" />
+    <TextArea
+      className="is-large"
+      state="focused"
+      variant="primary"
+      placeholder="Large TextArea"
+      onChange={() => {
+        logger('TextAreaExample onChange')
+      }}
+    />
+    <TextArea variant="info" disabled placeholder="Disabled TextArea" />
+    <TextArea variant="danger" placeholder="TextArea 'danger' variant" />
   </div>
 )
