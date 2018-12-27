@@ -1,7 +1,9 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-interface PanelProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface PanelProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const Panel: React.SFC<PanelProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'panel')
@@ -12,7 +14,7 @@ export const Panel: React.SFC<PanelProps> = ({ children, ...props }) => {
   )
 }
 
-interface PanelHeadingProps
+export interface PanelHeadingProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
@@ -28,7 +30,7 @@ export const PanelHeading: React.SFC<PanelHeadingProps> = ({
   )
 }
 
-interface PanelBlockProps
+export interface PanelBlockProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly active?: boolean
@@ -48,7 +50,7 @@ export const PanelBlock: React.SFC<PanelBlockProps> = ({
     </Div>
   )
 }
-interface PanelTabsItemProps
+export interface PanelTabsItemProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
   readonly active?: boolean
@@ -69,7 +71,9 @@ export const PanelTabsItem: React.SFC<PanelTabsItemProps> = ({
   )
 }
 
-interface PanelTabsProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+export interface PanelTabsProps
+  extends React.HTMLAttributes<HTMLElement>,
+    Helpers {}
 
 export const PanelTabs: React.SFC<PanelTabsProps> = ({
   children,
