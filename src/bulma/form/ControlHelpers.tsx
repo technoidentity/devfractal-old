@@ -1,7 +1,7 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import classNames from 'classnames'
 import React from 'react'
 import { Omit } from '../../types'
+import { classNames } from '../../utils/classNames'
 import { Icon } from './Icon'
 
 export interface ControlHelpers {

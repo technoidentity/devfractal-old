@@ -13,7 +13,7 @@ import {
   FormikRadioButton,
   FormikSelect,
   FormikTextArea,
-} from './controls'
+} from './Controls'
 
 export type FormikFieldConfig = Pick<
   FieldConfig,
