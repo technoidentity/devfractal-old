@@ -1,5 +1,5 @@
-export { FormikInput } from './controls'
-export { InputField } from './fields'
+export { FormikInput } from './Controls'
+export { InputField } from './Fields'
 export {
   Simple,
   SimpleForm,
@@ -8,5 +8,5 @@ export {
   SimplePassword,
   SimpleText,
   SimpleValues,
-} from './simple'
+} from './Simple'
 export { apiSubmit, consoleSubmit } from './submitHandlers'

@@ -21,7 +21,7 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from './fields'
+} from './Fields'
 
 export interface SimpleInputProps extends InputFieldProps {
   readonly label: string
