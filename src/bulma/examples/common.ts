@@ -1,4 +1,4 @@
-export const logger: (v: unknown) => void = v => {
+export const logger: (...args: any[]) => void = (...args) => {
   // tslint:disable no-console
-  console.log(v)
+  console.log(...args)
 }
