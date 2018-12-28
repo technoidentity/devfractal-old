@@ -34,7 +34,7 @@ const simpleSchema: ObjectSchema<SimpleValues> = object({
   remember: boolean().required('This field is required'),
 })
 
-export const SimpleExamples: React.SFC = () => (
+export const SimpleExample: React.SFC = () => (
   <Section>
     <Simple.Form
       initialValues={initialValues}
