@@ -8,13 +8,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
-import { Column, Columns } from '../columns'
-import { Title } from '../elements'
-import { Icon } from '../elements/Icon'
-import { SubTitle } from '../elements/Title'
-import { Container, Hero, Media, Section } from '../layout'
-import { HeroBody } from '../layout/Hero'
-import { MediaContent, MediaLeft } from '../layout/Media'
+import { Column, Columns } from './bulma/columns'
+import { Title } from './bulma/elements'
+import { Icon } from './bulma/elements/Icon'
+import { SubTitle } from './bulma/elements/Title'
+import { Container, Hero, Media, Section } from './bulma/layout'
+import { HeroBody } from './bulma/layout/Hero'
+import { MediaContent, MediaLeft } from './bulma/layout/Media'
 
 export const MainPageBody: React.SFC = () => (
   <Section>
