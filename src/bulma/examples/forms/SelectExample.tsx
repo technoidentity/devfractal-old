@@ -8,8 +8,8 @@ import { Text } from '../../modifiers/Text'
 
 export const SelectExample: React.SFC = () => (
   <div>
-    <Columns>
-      <Column size="two-thirds">
+    <Columns columnCentered>
+      <Column size="half">
         <Section>
           <Field>
             <Title size="4">Colors</Title>

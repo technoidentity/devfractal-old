@@ -45,12 +45,14 @@ export const SimpleExample: React.SFC = () => (
       <Simple.Password label="Password:" name="password" />
       <Simple.Email label="Email:" name="email" />
       <Simple.Telephone label="Telephone:" name="tel" />
-      <Simple.Checkbox name="remember">Remember Me</Simple.Checkbox>
+      <Simple.Checkbox name="remember"> Remember Me</Simple.Checkbox>
       <RadioButtonGroup>
         <Simple.RadioButton name="answer" value="yes">
+          {' '}
           Female
         </Simple.RadioButton>
         <Simple.RadioButton name="answer" value="no">
+          {' '}
           Male
         </Simple.RadioButton>
       </RadioButtonGroup>

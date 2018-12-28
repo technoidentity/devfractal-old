@@ -3,7 +3,6 @@ import { Column, Columns } from '../../columns'
 import { Title } from '../../elements'
 import { TextArea } from '../../form'
 import { Section } from '../../layout'
-import { Text } from '../../modifiers/Text'
 
 export const TextAreaExample: React.SFC = () => (
   <div>
@@ -33,17 +32,11 @@ export const TextAreaExample: React.SFC = () => (
         </Section>
         <Section>
           <Title size="4">States</Title>
-          <Text>Normal</Text>
           <TextArea placeholder="Normal textarea" />
-          <Text>Active</Text>
           <TextArea state="active" placeholder="Active textarea" />
-          <Text>Hover</Text>
           <TextArea state="hovered" placeholder="Hovered textarea" />
-          <Text>Focus</Text>
           <TextArea state="focused" placeholder="Focused textarea" />
-          <Text>Loading</Text>
           <TextArea loading placeholder="Loading textarea" />
-          <Text>Disabled</Text>
           <TextArea disabled placeholder="Disabled textarea" />
         </Section>
         <Section>
