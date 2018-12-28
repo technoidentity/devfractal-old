@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "msjsdiag.debugger-for-chrome",
+    "streetsidesoftware.code-spell-checker",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "coenraads.bracket-pair-colorizer",
+    "vincaslt.highlight-matching-tag",
+    "dracula-theme.theme-dracula",
+    "dsznajder.es7-react-js-snippets",
+    "letrieu.expand-region",
+    "axosoft.gitkraken-glo",
+    "eamodio.gitlens",
+    "qezhu.gitlink",
+    "wayou.vscode-todo-highlight",
+    "orta.vscode-jest",
+    "ms-vsliveshare.vsliveshare",
+    "ms-vsliveshare.vsliveshare-audio",
+    "karigari.chat"
+  ]
+}
