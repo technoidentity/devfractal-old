@@ -41,7 +41,7 @@ export { TitleExample } from './elements'
 
 export { Counter } from './composites'
 export { Todo } from './composites'
-export { SampleForm } from './composites'
+export { FieldsGeneralForm } from './composites'
 export { UserForm } from './composites'
 export { LoginForm } from './composites'
 export { SimpleExample } from './composites'

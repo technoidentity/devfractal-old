@@ -1,6 +1,6 @@
 export { Counter } from './Counter'
 export { LoginForm } from './login-form-variants/SimpleLoginForm'
-export { SampleForm } from './SampleForm'
+export { FieldsGeneralForm } from './FieldsGeneralForm'
 export { SimpleExample } from './SimpleExample'
 export { Todo } from './Todo'
 export { UserForm } from './UserForm'
