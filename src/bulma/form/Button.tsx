@@ -36,14 +36,12 @@ export interface ButtonsProps
     Helpers {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
-  readonly type?: ButtonType
 }
 
 export const Buttons: React.SFC<ButtonsProps> = ({
   addons,
   alignment,
   children,
-  type = 'button',
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'buttons', {
@@ -69,6 +67,7 @@ export interface ButtonProps
   readonly rounded?: boolean
   readonly inverted?: boolean
   readonly outlined?: boolean
+  readonly type?: ButtonType
 }
 
 export const Button: React.SFC<ButtonProps> = ({
