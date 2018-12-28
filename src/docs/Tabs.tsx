@@ -1,6 +1,5 @@
 import React from 'react'
-import { Tabs } from '../bulma/components'
-import { TabsItem } from '../bulma/components/StatefulTabs'
+import { Tabs, TabsItem } from '../bulma/components'
 
 export const ColumnsTab: React.SFC = () => (
   <Tabs to="/columns" size="medium">
