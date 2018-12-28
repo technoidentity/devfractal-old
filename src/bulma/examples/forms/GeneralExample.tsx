@@ -69,12 +69,13 @@ export const GeneralExample: React.SFC = () => (
           </Field>
           <Field>
             <CheckBox>
+              {' '}
               I agree to the <a href="#">terms and conditions</a>
             </CheckBox>
           </Field>
           <Field grouped>
-            <RadioButton>Yes</RadioButton>
-            <RadioButton>No</RadioButton>
+            <RadioButton> Yes</RadioButton>
+            <RadioButton> No</RadioButton>
           </Field>
           <Field grouped>
             <Button variant="success">Submit</Button>
@@ -378,8 +379,8 @@ export const GeneralExample: React.SFC = () => (
             <FieldLabel>Already a member? </FieldLabel>
             <FieldBody>
               <Field>
-                <RadioButton>Yes</RadioButton>
-                <RadioButton>No</RadioButton>
+                <RadioButton> Yes</RadioButton>
+                <RadioButton> No</RadioButton>
               </Field>
             </FieldBody>
           </Field>

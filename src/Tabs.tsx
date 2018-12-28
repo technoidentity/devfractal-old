@@ -84,7 +84,3 @@ export const ElementsTab: React.SFC = () => (
     <TabsItem value="title">Title</TabsItem>
   </Tabs>
 )
-
-export { MainPageRoutes as FrontPage } from './FrontPage'
-
-export { MainPageRoutes } from './FrontPage'

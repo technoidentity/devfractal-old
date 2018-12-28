@@ -23,7 +23,7 @@ export const CheckBoxExample: React.SFC = () => (
                 logger('CheckboxExample onChange')
               }}
             >
-              i agree <a href="#">terms and conditions</a>
+              I agree <a href="#">terms and conditions</a>
             </CheckBox>
           </Section>
           <Section>

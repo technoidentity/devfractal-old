@@ -47,6 +47,7 @@ import {
   TitleExample,
   Todo,
 } from './bulma/examples'
+import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
   ColumnsTab,
   ComponentsTab,
@@ -54,7 +55,6 @@ import {
   ElementsTab,
   FormTab,
   LayoutTab,
-  MainPageRoutes,
   ModifiersTab,
 } from './Tabs'
 
@@ -166,7 +166,7 @@ export const ComponentsRoutes: React.SFC = () => (
   </>
 )
 
-export const FrontPageRoutes: React.SFC = () => (
+export const TabsRoutes: React.SFC = () => (
   <>
     <Route path="/form" component={FormTab} />
     <Route path="/composites" component={CompositesTab} />
@@ -178,10 +178,17 @@ export const FrontPageRoutes: React.SFC = () => (
   </>
 )
 
+export const IndexRoutes: React.SFC = () => (
+  <>
+    <Route path="/" component={IndexPageHeader} />
+    <Route exact path="/" component={IndexPageBody} />
+  </>
+)
+
 export const Routes: React.SFC = () => (
   <>
-    <MainPageRoutes />
-    <FrontPageRoutes />
+    <IndexRoutes />
+    <TabsRoutes />
     <FormRoutes />
     <CompositesRoutes />
     <ElementsRoutes />

@@ -36,7 +36,10 @@ export const RadioButtonExample: React.SFC = () => (
           </Section>
           <Section>
             <Label>Checked radiobutton</Label>
-            <RadioButton checked> Foo</RadioButton>
+            <RadioButton checked readOnly>
+              {' '}
+              Foo
+            </RadioButton>
             <RadioButton> Bar</RadioButton>
           </Section>
 
