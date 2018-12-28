@@ -1,4 +1,6 @@
+import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { Icon } from '../elements'
 import { classNamesHelper, Helpers } from '../modifiers'
 
 type FileVariant =
@@ -36,7 +38,6 @@ export const File: React.SFC<FileProps> = ({
   children,
   fileLabel,
   fileName,
-  className,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'file', {
@@ -52,6 +53,9 @@ export const File: React.SFC<FileProps> = ({
       <label className="file-label">
         <input className="file-input" type="file" />
         <span className="file-cta">
+          <span className="file-icon">
+            <Icon icon={faUpload} />
+          </span>
           <span className="file-label">{fileLabel}</span>
         </span>
         {fileName && <span className="file-name">{children}</span>}
