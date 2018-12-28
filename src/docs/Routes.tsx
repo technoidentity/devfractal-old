@@ -46,7 +46,7 @@ import {
   TileExample,
   TitleExample,
   Todo,
-} from './bulma/examples'
+} from '../bulma/examples'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
   ColumnsTab,

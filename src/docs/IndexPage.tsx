@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Column, Columns } from './bulma/columns'
-import { Title } from './bulma/elements'
-import { SubTitle } from './bulma/elements/Title'
-import { Container, Hero, Section } from './bulma/layout'
-import { HeroBody } from './bulma/layout/Hero'
+import { Column, Columns } from '../bulma/columns'
+import { Title } from '../bulma/elements'
+import { SubTitle } from '../bulma/elements/Title'
+import { Container, Hero, Section } from '../bulma/layout'
+import { HeroBody } from '../bulma/layout/Hero'
 import logo from './logo.png'
 import {
   ColumnsMedia,

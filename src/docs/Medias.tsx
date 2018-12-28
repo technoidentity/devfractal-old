@@ -7,10 +7,10 @@ import {
   faWarehouse,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Icon, Title } from './bulma/elements'
-import { SubTitle } from './bulma/elements/Title'
-import { Media } from './bulma/layout'
-import { MediaContent, MediaLeft } from './bulma/layout/Media'
+import { Icon, Title } from '../bulma/elements'
+import { SubTitle } from '../bulma/elements/Title'
+import { Media } from '../bulma/layout'
+import { MediaContent, MediaLeft } from '../bulma/layout/Media'
 
 export const FormMedia: React.SFC = () => (
   <Media className="notification is-light" style={{ display: 'flex' }}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Section } from './bulma/layout'
-import { Routes } from './Routes'
+import { Routes } from './docs/Routes'
 
 export const App: React.SFC = () => (
   <BrowserRouter>
