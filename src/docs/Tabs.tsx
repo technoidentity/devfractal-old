@@ -1,3 +1,4 @@
+import React from 'react'
 import { Tabs } from '../bulma/components'
 import { TabsItem } from '../bulma/components/StatefulTabs'
 
