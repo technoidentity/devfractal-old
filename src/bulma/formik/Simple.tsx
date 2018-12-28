@@ -9,7 +9,9 @@ import { Persist } from 'formik-persist'
 import React from 'react'
 import { ObjectSchema } from 'yup'
 import { jsonStringify } from '../../utils'
-import { Button, Field, Label } from '../form'
+import { Button, Field, FieldProps } from '../form'
+import { Label } from '../form'
+import { Container } from '../layout'
 import {
   CheckboxField,
   CheckboxFieldProps,
@@ -23,37 +25,43 @@ import {
   TextAreaFieldProps,
 } from './Fields'
 
+// export interface ValidationProps {
+//   readonly validations: ReadonlyArray<Validations>
+// }
+
 export interface SimpleInputProps extends InputFieldProps {
   readonly label: string
   readonly name: string
 }
 
-type SpecificInputProps = Exclude<SimpleInputProps, 'type'>
+type GenericInputProps = FieldProps & Exclude<SimpleInputProps, 'type'>
+// & ValidationProps
 
-export const SimpleInput: React.SFC<SpecificInputProps> = ({
+export const SimpleInput: React.SFC<GenericInputProps> = ({
+  // validations,
   label,
   ...props
 }) => (
-  <>
+  <Field>
     <Label>{label}</Label>
     <InputField {...props} />
     <ErrorMessage name={props.name} className="field-error" />
-  </>
+  </Field>
 )
 
-export const SimpleText: React.SFC<SpecificInputProps> = props => (
+export const SimpleText: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="text" />
 )
-export const SimplePassword: React.SFC<SimpleInputProps> = props => (
+export const SimplePassword: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="password" />
 )
-export const SimpleEmail: React.SFC<SimpleInputProps> = props => (
+export const SimpleEmail: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="email" />
 )
-export const SimpleTelephone: React.SFC<SimpleInputProps> = props => (
+export const SimpleTelephone: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="tel" />
 )
-export const SimpleUrl: React.SFC<SimpleInputProps> = props => (
+export const SimpleUrl: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="url" />
 )
 
@@ -65,10 +73,10 @@ export const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
   children,
   ...props
 }) => (
-  <>
+  <Field>
     <CheckboxField {...props}>{children}</CheckboxField>
     <ErrorMessage name={props.name} className="field-error" />
-  </>
+  </Field>
 )
 
 export interface SimpleRadioButtonProps extends RadioButtonFieldProps {
@@ -79,10 +87,10 @@ export const SimpleRadioButton: React.SFC<SimpleRadioButtonProps> = ({
   children,
   ...props
 }) => (
-  <>
+  <Field>
     <RadioButtonField {...props}>{children}</RadioButtonField>
     <ErrorMessage name={props.name} className="field-error" />
-  </>
+  </Field>
 )
 
 export interface SimpleSelectProps extends SelectFieldProps {
@@ -93,10 +101,10 @@ export const SimpleSelect: React.SFC<SimpleSelectProps> = ({
   children,
   ...props
 }) => (
-  <>
+  <Field>
     <SelectField {...props}>{children}</SelectField>
     <ErrorMessage name={props.name} className="field-error" />
-  </>
+  </Field>
 )
 
 export interface SimpleTextAreaProps extends TextAreaFieldProps {
@@ -108,12 +116,13 @@ export const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
   label,
   ...props
 }) => (
-  <>
+  <Field>
     <Label>{label}</Label>
     <TextAreaField {...props} />
     <ErrorMessage name={props.name} className="field-error" />
-  </>
+  </Field>
 )
+
 // export const SimpleColor: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="color" />
 // )
@@ -153,7 +162,7 @@ export const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
 }) => (
   <FormikConsumer>
     {({ dirty, isSubmitting, handleReset }) => (
-      <Field groupModifier="grouped-right">
+      <Field groupModifier="grouped-centered">
         {submit !== false && (
           <Button type="submit" variant="info" disabled={isSubmitting}>
             {submit}
@@ -191,18 +200,20 @@ export const SimpleForm: <Values>(
   children,
 }) => {
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {
-        <Form>
-          {children}
-          {persist && <Persist name={persist} />}
-        </Form>
-      }
-    </Formik>
+    <Container>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {
+          <Form>
+            {children}
+            {persist && <Persist name={persist} />}
+          </Form>
+        }
+      </Formik>
+    </Container>
   )
 }
 

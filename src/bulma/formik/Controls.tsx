@@ -4,6 +4,7 @@ import { Omit } from '../../types'
 import {
   CheckBox,
   CheckBoxProps,
+  FieldHelpProps,
   Input,
   InputProps,
   RadioButton,
@@ -13,6 +14,7 @@ import {
   TextArea,
   TextAreaProps,
 } from '../form'
+import { FieldHelp } from '../form/FieldHelp'
 
 interface FormikInputProps<V> extends FieldProps<V>, Omit<InputProps, 'form'> {}
 
@@ -68,4 +70,15 @@ export const FormikTextArea: <V = unknown>(
   props: FormikTextAreaProps<V>,
 ) => JSX.Element = ({ form, field, ...props }) => (
   <TextArea {...field} {...props} />
+)
+
+export type FormikErrorProps = Omit<FieldHelpProps, 'variant'>
+
+export const FormikError: React.SFC<FormikErrorProps> = ({
+  children,
+  ...props
+}) => (
+  <FieldHelp variant="danger" {...props}>
+    {children}
+  </FieldHelp>
 )

@@ -1,4 +1,4 @@
-import { Field, FieldConfig } from 'formik'
+import { ErrorMessage, ErrorMessageProps, Field, FieldConfig } from 'formik'
 import React from 'react'
 import {
   CheckBoxProps,
@@ -7,8 +7,11 @@ import {
   SelectProps,
   TextAreaProps,
 } from '../form'
+
 import {
   FormikCheckbox,
+  FormikError,
+  FormikErrorProps,
   FormikInput,
   FormikRadioButton,
   FormikSelect,
@@ -62,4 +65,10 @@ export type TextAreaFieldProps = TextAreaProps & FormikFieldConfig
 
 export const TextAreaField: React.SFC<TextAreaFieldProps> = props => (
   <Field {...props} component={FormikTextArea} />
+)
+
+export type ErrorMessageProps = FormikErrorProps
+
+export const ErrorField: React.SFC<ErrorMessageProps> = props => (
+  <ErrorMessage {...props} component={FormikError} />
 )
