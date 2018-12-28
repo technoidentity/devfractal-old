@@ -37,8 +37,7 @@ import {
   SampleForm,
   SectionExample,
   SelectExample,
-  SimpleExamples as SimpleExample,
-  SimpleLoginForm,
+  SimpleExample,
   SizesColumnExample,
   TableExample,
   TabsExample,
@@ -82,13 +81,8 @@ export const CompositesRoutes: React.SFC = () => (
       render={() => <Redirect to="/composites/simple" />}
     />
     <Route path="/composites/simple" exact component={SimpleExample} />
-    <Route
-      path="/composites/simple-login-form"
-      exact
-      component={SimpleLoginForm}
-    />
-    <Route path="/composites/counter" exact component={Counter} />
     <Route path="/composites/login-form" exact component={LoginForm} />
+    <Route path="/composites/counter" exact component={Counter} />
     <Route path="/composites/sample-form" exact component={SampleForm} />
     <Route path="/composites/todo" exact component={Todo} />
   </>
