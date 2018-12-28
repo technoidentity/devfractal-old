@@ -9,6 +9,7 @@ type HeroVariant =
   | 'danger'
   | 'light'
   | 'dark'
+  | 'link'
 
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar'
 
