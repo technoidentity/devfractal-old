@@ -9,8 +9,11 @@ type MessageVariant =
   | 'success'
   | 'warning'
   | 'danger'
+  | 'light'
+  | 'white'
+  | 'black'
 
-type MessageSize = 'normal' | 'small' | 'medium' | 'large'
+type MessageSize = 'small' | 'medium' | 'large'
 
 export interface MessageProps
   extends React.HTMLAttributes<HTMLElement>,
