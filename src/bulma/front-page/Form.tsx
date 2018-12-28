@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Tabs, TabsItem } from '../components/Tabs'
 
 export const Form: React.SFC = () => (

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Column, Columns } from '../../columns'
 import { Box, Notification, Title } from '../../elements'
 import { SubTitle } from '../../elements/Title'

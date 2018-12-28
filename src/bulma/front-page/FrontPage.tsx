@@ -6,7 +6,7 @@ import {
   faCubes,
   faWarehouse,
 } from '@fortawesome/free-solid-svg-icons'
-import * as React from 'react'
+import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import { Column, Columns } from '../columns'
 import { Title } from '../elements'
