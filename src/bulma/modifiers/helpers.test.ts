@@ -1,5 +1,4 @@
-import { commonHelpersClasses } from './commonHelpers'
-import { responsiveClass } from './responsiveHelpers'
+import { commonHelpersClasses, responsiveClass } from './helpers'
 
 it('helper classes', () => {
   expect(

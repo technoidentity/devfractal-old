@@ -1,23 +1,16 @@
-import { classNames } from '../../utils/classNames'
-import { ClassNameArg } from '../../utils/classNames'
+import { ClassNameArg, classNames } from '../../utils/classNames'
 import {
-  CommonHelpers,
   commonHelpersClasses,
   CommonHelpersRemoved,
   removeCommonHelpers,
-} from './commonHelpers'
-import {
   removeResponsiveHelpers,
-  responsiveClass,
-  ResponsiveHelpers,
-  ResponsiveHelpersRemoved,
-} from './responsiveHelpers'
-import {
   removeTextHelpers,
-  TextHelpers,
+  responsiveClass,
+  ResponsiveHelpersRemoved,
   textHelpersClasses,
   TextHelpersRemoved,
-} from './textHelpers'
+} from './helpers'
+import { CommonHelpers, ResponsiveHelpers, TextHelpers } from './types'
 
 export interface Helpers
   extends CommonHelpers,
@@ -50,4 +43,4 @@ export const classNamesHelper: (
 ) => string = ({ className, ...props }, ...args) =>
   classNames(...args, helpersClasses(props), className)
 
-export { Div } from './Div'
+export { Div } from './div'
