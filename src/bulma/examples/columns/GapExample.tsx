@@ -1,55 +1,82 @@
 import React from 'react'
 import { Column, Columns } from '../../columns'
-import { Notification } from '../../elements'
-import { Section } from '../../layout'
+import { Notification, Title } from '../../elements'
+import { Container, Section } from '../../layout'
 
 export const GapColumnExample: React.SFC = () => (
   <div>
-    <Columns gapless>
-      <Column>
-        <Notification variant="primary">No Gap</Notification>
-      </Column>
-      <Column>
-        <Notification variant="primary">No Gap</Notification>
-      </Column>
-      <Column>
-        <Notification variant="primary">No Gap</Notification>
-      </Column>
-      <Column>
-        <Notification variant="primary">No Gap</Notification>
-      </Column>
-    </Columns>
+    <Section>
+      <Container>
+        <Title size="4">Default gap</Title>
+        <Columns>
+          <Column>
+            <Notification variant="primary">Default gap</Notification>
+          </Column>
+          <Column>
+            <Notification variant="primary">Default gap</Notification>
+          </Column>
+          <Column>
+            <Notification variant="primary">Default gap</Notification>
+          </Column>
+          <Column>
+            <Notification variant="primary">Default gap</Notification>
+          </Column>
+        </Columns>
+      </Container>
+    </Section>
 
     <Section>
-      <Columns gapless multiline responsiveness="mobile">
-        <Column size="one-quarter">
-          <Notification variant="primary">is-one-quarter</Notification>
-        </Column>
-        <Column size="one-quarter">
-          <Notification variant="primary">is-one-quarter</Notification>
-        </Column>
-        <Column size="one-quarter">
-          <Notification variant="primary">is-one-quarter</Notification>
-        </Column>
-        <Column className="is-one-quarter">
-          <Notification variant="primary">is-one-quarter</Notification>
-        </Column>
-        <Column size="half">
-          <Notification variant="primary">is-half</Notification>
-        </Column>
-        <Column size="one-quarter">
-          <Notification variant="primary">is-one-quarter</Notification>
-        </Column>
-        <Column size="one-quarter">
-          <Notification variant="primary">is-one-quarter</Notification>
-        </Column>
-        <Column size="one-quarter">
-          <Notification variant="primary">is-one-quarter</Notification>
-        </Column>
-        <Column>
-          <Notification variant="primary">Auto</Notification>
-        </Column>
-      </Columns>
+      <Container>
+        <Title size="4">Gapless</Title>
+        <Columns gapless>
+          <Column>
+            <Notification variant="primary">No Gap</Notification>
+          </Column>
+          <Column>
+            <Notification variant="primary">No Gap</Notification>
+          </Column>
+          <Column>
+            <Notification variant="primary">No Gap</Notification>
+          </Column>
+          <Column>
+            <Notification variant="primary">No Gap</Notification>
+          </Column>
+        </Columns>
+      </Container>
+    </Section>
+
+    <Section>
+      <Container>
+        <Columns gapless multiline responsiveness="mobile">
+          <Column size="one-quarter">
+            <Notification variant="primary">is-one-quarter</Notification>
+          </Column>
+          <Column size="one-quarter">
+            <Notification variant="primary">is-one-quarter</Notification>
+          </Column>
+          <Column size="one-quarter">
+            <Notification variant="primary">is-one-quarter</Notification>
+          </Column>
+          <Column className="is-one-quarter">
+            <Notification variant="primary">is-one-quarter</Notification>
+          </Column>
+          <Column size="half">
+            <Notification variant="primary">is-half</Notification>
+          </Column>
+          <Column size="one-quarter">
+            <Notification variant="primary">is-one-quarter</Notification>
+          </Column>
+          <Column size="one-quarter">
+            <Notification variant="primary">is-one-quarter</Notification>
+          </Column>
+          <Column size="one-quarter">
+            <Notification variant="primary">is-one-quarter</Notification>
+          </Column>
+          <Column>
+            <Notification variant="primary">Auto</Notification>
+          </Column>
+        </Columns>
+      </Container>
     </Section>
   </div>
 )
