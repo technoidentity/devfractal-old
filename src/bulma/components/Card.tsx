@@ -51,6 +51,22 @@ export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
   )
 }
 
+export interface CardHeaderIconProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    Helpers {}
+
+export const CardHeaderIcon: React.SFC<CardHeaderIconProps> = ({
+  children,
+  ...props
+}) => {
+  const classes: string = classNamesHelper(props, 'card-header-icon')
+  return (
+    <Div as="a" {...props} className={classes}>
+      {children}
+    </Div>
+  )
+}
+
 export interface CardContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
