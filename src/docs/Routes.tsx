@@ -11,6 +11,7 @@ import {
   Counter,
   DeleteExample,
   DropDownExample,
+  FieldsGeneralForm,
   FileExample,
   FooterExample,
   GapColumnExample,
@@ -46,7 +47,6 @@ import {
   TitleExample,
   Todo,
 } from '../bulma/examples'
-import { FieldsGeneralForm } from '../bulma/examples/composites/FieldsGeneralForm'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
   ColumnsTab,

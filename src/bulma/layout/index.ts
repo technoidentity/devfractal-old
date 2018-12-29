@@ -1,8 +1,8 @@
 export { Container } from './Container'
 export { Footer } from './Footer'
-export { Hero } from './Hero'
+export { Hero, HeroBody, HeroFoot, HeroHead } from './Hero'
 export { Level } from './Level'
-export { Media } from './Media'
+export { Media, MediaContent, MediaLeft, MediaRight } from './Media'
 export { Section } from './Section'
 export { Tile } from './Tile'
 

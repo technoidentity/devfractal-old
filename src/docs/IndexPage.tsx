@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Column, Columns } from '../bulma/columns'
-import { Title } from '../bulma/elements'
-import { SubTitle } from '../bulma/elements/Title'
-import { Container, Hero, Section } from '../bulma/layout'
-import { HeroBody } from '../bulma/layout/Hero'
+import { SubTitle, Title } from '../bulma/elements'
+import { Container, Hero, HeroBody, Section } from '../bulma/layout'
 import logo from './logo.png'
 import {
   ColumnsMedia,
@@ -53,7 +51,7 @@ export const IndexPageBody: React.SFC = () => (
           </Link>
         </Column>
       </Columns>
-      <Columns>
+      <Columns multiline>
         <Column>
           <Link to="/composites">
             <CompositesMedia />
@@ -72,6 +70,7 @@ export const IndexPageHeader: React.SFC = () => (
       <Container className="has-text-centered">
         <Title>
           <Link to="/">
+            {/* @TODO: change this to Image and drop 'style' } */}
             <img src={logo} style={{ width: '512px' }} />
           </Link>
         </Title>

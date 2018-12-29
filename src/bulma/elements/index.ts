@@ -8,7 +8,7 @@ export { ProgressBar } from './ProgressBar'
 export { Table } from './Table'
 export { Tag } from './Tag'
 export { Tags } from './Tags'
-export { Title } from './Title'
+export { Title, SubTitle } from './Title'
 
 import { BoxProps as BoxProps_ } from './Box'
 import { ContentProps as ContentProps_ } from './Content'
