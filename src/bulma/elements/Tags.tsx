@@ -1,14 +1,22 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
+type TagsAlignment = 'centered' | 'right'
 export interface TagsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  readonly alignment?: TagsAlignment
   readonly addons?: boolean
 }
 
-export const Tags: React.SFC<TagsProps> = ({ addons, children, ...props }) => {
+export const Tags: React.SFC<TagsProps> = ({
+  alignment,
+  addons,
+  children,
+  ...props
+}) => {
   const classes: string = classNamesHelper(props, 'tags', {
+    [`is-${alignment}`]: alignment,
     [`has-addons`]: addons,
   })
   return (
