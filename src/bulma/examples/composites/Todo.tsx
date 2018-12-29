@@ -13,13 +13,7 @@ interface Todo {
 
 type TodoList = ReadonlyArray<Todo>
 
-export const TodoItem: React.SFC<Todo> = ({
-  id,
-  title,
-  description,
-  time,
-  done,
-}) => (
+const TodoItem: React.SFC<Todo> = ({ id, title, description, time, done }) => (
   <Tr>
     <Td>{id}</Td>
     <Td>{title}</Td>
@@ -37,7 +31,7 @@ interface TodoListViewProps {
   readonly todoList: TodoList
 }
 
-export const TodoListView: React.SFC<TodoListViewProps> = ({ todoList }) => (
+const TodoListView: React.SFC<TodoListViewProps> = ({ todoList }) => (
   <Table>
     <TableHead>
       <Tr>
@@ -63,28 +57,28 @@ export const TodoListView: React.SFC<TodoListViewProps> = ({ todoList }) => (
   </Table>
 )
 
-const todos: ReadonlyArray<Todo> = [
+const todoList: ReadonlyArray<Todo> = [
   {
     id: 1,
-    title: 'helo',
-    description: 'djfh',
+    title: 'bring milk',
+    description: 'I love tea!',
     time: new Date(),
     done: true,
   },
   {
     id: 2,
-    title: 'helo',
-    description: 'djfh',
+    title: 'go for a walk',
+    description: 'need to keep fit',
     time: new Date(),
-    done: true,
+    done: false,
   },
   {
     id: 3,
-    title: 'helo',
-    description: 'djfh',
+    title: 'read news',
+    description: 'I really lack general knowledge',
     time: new Date(),
-    done: true,
+    done: false,
   },
 ]
 
-export const Todo: React.SFC = () => <TodoListView todoList={todos} />
+export const Todo: React.SFC = () => <TodoListView todoList={todoList} />

@@ -21,7 +21,6 @@ import {
   ImageExample,
   InputExample,
   LevelExample,
-  LoginForm,
   MediaObjectExample,
   MenuExample,
   MessageExample,
@@ -38,6 +37,7 @@ import {
   SectionExample,
   SelectExample,
   SimpleExample,
+  SimpleLoginForm,
   SizesColumnExample,
   TableExample,
   TabsExample,
@@ -85,7 +85,7 @@ export const CompositesRoutes: React.SFC = () => (
       exact
       component={FieldsGeneralForm}
     />
-    <Route path="/composites/login-form" exact component={LoginForm} />
+    <Route path="/composites/login-form" exact component={SimpleLoginForm} />
     <Route path="/composites/counter" exact component={Counter} />
     <Route path="/composites/todo" exact component={Todo} />
   </>

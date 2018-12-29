@@ -2,12 +2,12 @@ import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { Button, Field as FieldGroup, Label } from '../../../form'
 import { InputField } from '../../../formik'
-import { ErrorField } from '../../../formik/Fields'
+import { ErrorField } from '../../../formik'
 import { Container } from '../../../layout'
 import { logger } from '../../common'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
-export const LoginFormInner: React.SFC<FormikProps<LoginValues>> = () => (
+const LoginFormInner: React.SFC<FormikProps<LoginValues>> = () => (
   <Container>
     <Form>
       <FieldGroup>
@@ -34,7 +34,7 @@ export const LoginFormInner: React.SFC<FormikProps<LoginValues>> = () => (
   </Container>
 )
 
-export const LoginForm: React.SFC = () => (
+export const FieldsLoginForm: React.SFC = () => (
   <Formik
     initialValues={initialLoginValues}
     validationSchema={loginSchema}
