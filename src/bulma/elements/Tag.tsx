@@ -9,6 +9,9 @@ type TagVariant =
   | 'link'
   | 'info'
   | 'success'
+  | 'warning'
+  | 'white'
+  | 'danger'
 
 type TagSize = 'normal' | 'medium' | 'large'
 
