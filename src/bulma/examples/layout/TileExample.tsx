@@ -1,6 +1,5 @@
 import React from 'react'
-import { Content, Image, Title } from '../../elements'
-import { SubTitle } from '../../elements/Title'
+import { Content, Image, SubTitle, Title } from '../../elements'
 import { Section, Tile } from '../../layout'
 
 export const TileExample: React.SFC = () => (

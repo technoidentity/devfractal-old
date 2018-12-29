@@ -1,9 +1,8 @@
 import React from 'react'
-import { SubTitle, Title } from '../../elements/Title'
+import { SubTitle, Title } from '../../elements'
 import { Button, Field, Input } from '../../form'
-import { Level, LevelItem } from '../../layout/Level'
-import { Section } from '../../layout/Section'
-import { Text } from '../../modifiers/Text'
+import { Level, LevelItem, Section } from '../../layout'
+import { Text } from '../../modifiers'
 
 export const LevelExample: React.SFC = () => (
   <>
