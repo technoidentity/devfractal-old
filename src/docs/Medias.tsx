@@ -11,7 +11,7 @@ import { Icon, SubTitle, Title } from '../bulma/elements'
 import { Media, MediaContent, MediaLeft } from '../bulma/layout'
 
 export const FormMedia: React.SFC = () => (
-  <Media className="notification is-light" style={{ display: 'flex' }}>
+  <Media className="notification is-light">
     <MediaLeft>
       <Icon icon={faWpforms} size="2x" textColor="link" />
     </MediaLeft>
