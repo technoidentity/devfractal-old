@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { Routes } from './docs/Routes'
+import { Docs } from './docs'
 
 export const App: React.SFC = () => (
   <BrowserRouter>
-    <Routes />
+    <Docs />
   </BrowserRouter>
 )
 
