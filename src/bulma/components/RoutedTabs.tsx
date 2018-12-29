@@ -56,16 +56,16 @@ interface RoutedTabsProps
   readonly size?: RoutedTabsSize
   readonly alignment?: RoutedTabsAlignment
   readonly fullWidth?: boolean
-  readonly RoutedTabsStyle?: RoutedTabsStyle
+  readonly tabsStyle?: RoutedTabsStyle
   readonly to?: string
   readonly urlSeparator?: string
 }
 
 // tslint:disable-next-line: typedef
-export const RoutedTabsWithRouter = withRouter<
-  RoutedTabsProps & RouteComponentProps
->(
+const RoutedTabsWithRouter = withRouter<RoutedTabsProps & RouteComponentProps>(
   ({
+    match,
+    history,
     location,
     staticContext,
     to,
@@ -73,14 +73,14 @@ export const RoutedTabsWithRouter = withRouter<
     size,
     alignment,
     fullWidth,
-    RoutedTabsStyle,
+    tabsStyle,
     children,
     ...props
   }) => {
-    const classes: string = classNamesHelper(props, 'RoutedTabs', {
+    const classes: string = classNamesHelper(props, 'tabs', {
       [`is-${size}`]: size,
       [`is-${alignment}`]: alignment,
-      [`is-${RoutedTabsStyle}`]: RoutedTabsStyle,
+      [`is-${tabsStyle}`]: tabsStyle,
       [`is-fullwidth`]: fullWidth,
     })
 
