@@ -1,5 +1,5 @@
 import { Omit } from '../../types'
-import { classNames } from '../../utils/classNames'
+import { ClassNameArg, classNames } from '../../utils'
 import { CommonHelpers, ResponsiveHelpers, TextHelpers } from './types'
 
 export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
@@ -110,3 +110,34 @@ export const removeTextHelpers: <T extends TextHelpers>(
   textResponsiveAlignment,
   ...result
 }) => result
+
+export interface Helpers
+  extends CommonHelpers,
+    ResponsiveHelpers,
+    TextHelpers {}
+
+export const helpersClasses: (helpers: Helpers) => string = helpers =>
+  classNames(
+    commonHelpersClasses(helpers),
+    responsiveClass(helpers),
+    textHelpersClasses(helpers),
+  )
+
+export type HelpersRemoved<T> = CommonHelpersRemoved<
+  ResponsiveHelpersRemoved<TextHelpersRemoved<T>>
+>
+
+export const removeHelpers: <T extends Helpers>(
+  props: T,
+) => HelpersRemoved<T> = props =>
+  removeCommonHelpers(removeResponsiveHelpers(removeTextHelpers(props)))
+
+interface ClassNamesHelperPropsArg extends Helpers {
+  readonly className?: string
+}
+
+export const classNamesHelper: (
+  props: ClassNamesHelperPropsArg,
+  ...args: ClassNameArg[]
+) => string = ({ className, ...props }, ...args) =>
+  classNames(...args, helpersClasses(props), className)
