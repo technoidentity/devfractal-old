@@ -1,9 +1,9 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-type TitleSize = '1' | '2' | '3' | '4' | '5' | '6'
+type TitleSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
-type SubTitleSize = '1' | '2' | '3' | '4' | '5' | '6'
+type SubTitleSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
 export interface TitleProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
@@ -20,7 +20,7 @@ export const Title: React.SFC<TitleProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'title', {
     [`is-${size}`]: size,
-    [`is-${spaced}`]: spaced,
+    [`is-spaced`]: spaced,
   })
   return (
     <Div as="h1" {...props} className={classes}>
