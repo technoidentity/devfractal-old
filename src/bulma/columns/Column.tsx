@@ -36,16 +36,6 @@ type ColumnResponsive =
   | 'widescreen'
   | 'fullhd'
 
-export interface ColumnProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {
-  readonly size?: ColumnSize
-  readonly gridSize?: ColumnGridSize
-  readonly offsetSize?: ColumnOffsetSize
-  readonly narrow?: boolean
-  readonly responsive?: ColumnResponsive
-}
-
 const getSizeResponsive: (
   size?: ColumnSize,
   responsive?: ColumnResponsive,
@@ -57,6 +47,16 @@ const getSizeResponsive: (
     return `is-${size}`
   }
   return `is-${size}-${responsive}`
+}
+
+export interface ColumnProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers {
+  readonly size?: ColumnSize
+  readonly gridSize?: ColumnGridSize
+  readonly offsetSize?: ColumnOffsetSize
+  readonly narrow?: boolean
+  readonly responsive?: ColumnResponsive
 }
 
 export const Column: React.SFC<ColumnProps> = ({
