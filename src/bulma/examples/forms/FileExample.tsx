@@ -1,6 +1,6 @@
 import React from 'react'
 import { Column, Columns } from '../../columns'
-import { Title } from '../../elements'
+import { Box, Title } from '../../elements'
 import { Field, File } from '../../form'
 import { Section } from '../../layout'
 
@@ -9,6 +9,7 @@ export const FileExample: React.SFC = () => (
     <Columns columnCentered>
       <Column size="half">
         <Section>
+          <Title size="4">File</Title>
           <Field>
             <File fileLabel="choose file" />
           </Field>
@@ -16,31 +17,33 @@ export const FileExample: React.SFC = () => (
 
         <Section>
           <Title size="4">Modifiers</Title>
-          <Field>
-            <File fileLabel="choose file" fileName>
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </File>
-          </Field>
+          <Box>
+            <Field>
+              <File fileLabel="choose file" fileName>
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </File>
+            </Field>
 
-          <Field>
-            <File fileLabel="choose file" fileName alignment="right">
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </File>
-          </Field>
+            <Field>
+              <File fileLabel="Rightside file" fileName alignment="right">
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </File>
+            </Field>
 
-          <Field>
-            <File fileLabel="choose file" fileName fullWidth>
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </File>
-          </Field>
-          <Field>
-            <File alignment="right" fileLabel="choose file" boxed />
-          </Field>
-          <Field>
-            <File alignment="centered" boxed fileLabel="choose file" fileName>
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </File>
-          </Field>
+            <Field>
+              <File fileLabel="Fullwidth file" fileName fullWidth>
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </File>
+            </Field>
+            <Field>
+              <File fileLabel="choose file" boxed />
+            </Field>
+            <Field>
+              <File boxed fileLabel="choose file" fileName>
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </File>
+            </Field>
+          </Box>
         </Section>
 
         <Section>
@@ -113,41 +116,68 @@ export const FileExample: React.SFC = () => (
         </Section>
         <Section>
           <Field>
-            <File alignment="right" fileLabel="choose file" boxed />
+            <File size="small" fileLabel="Small file" boxed />
+          </Field>
+          <Field>
+            <File fileLabel="Normal file" boxed />
+          </Field>
+          <Field>
+            <File size="medium" fileLabel="Medium file" boxed />
+          </Field>
+          <Field>
+            <File size="large" fileLabel="Large file" boxed />
           </Field>
         </Section>
 
-        <Field>
-          <File
-            size="small"
-            alignment="right"
-            fullWidth
-            fileLabel="small file"
-            fileName
-          >
-            Screen Shot 2017-07-29 at 15.54.25.png
-          </File>
-        </Field>
-        <Field>
-          <File
-            variant="primary"
-            size="medium"
-            alignment="centered"
-            boxed
-            fileLabel="mediumFile"
-          />
-        </Field>
-        <Field>
-          <File
-            variant="primary"
-            size="large"
-            alignment="centered"
-            fileLabel="largeFile"
-            fileName
-          >
-            Screen Shot 2017-07-29 at 15.54.25.png
-          </File>
-        </Field>
+        <Section>
+          <Field>
+            <File boxed size="small" fileLabel="small file" fileName>
+              Screen Shot 2017-07-29 at 15.54.25.png
+            </File>
+          </Field>
+          <Field>
+            <File boxed fileLabel="Normal file" fileName>
+              Screen Shot 2017-07-29 at 15.54.25.png
+            </File>
+          </Field>
+          <Field>
+            <File boxed size="medium" fileLabel="Medium file" fileName>
+              Screen Shot 2017-07-29 at 15.54.25.png
+            </File>
+          </Field>
+          <Field>
+            <File boxed size="large" fileLabel="Large file" fileName>
+              Screen Shot 2017-07-29 at 15.54.25.png
+            </File>
+          </Field>
+        </Section>
+
+        <Section>
+          <Title size="4">Alignment</Title>
+          <Box>
+            <Field>
+              <File
+                boxed
+                variant="success"
+                alignment="centered"
+                fileLabel="Centered file"
+                fileName
+              >
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </File>
+            </Field>
+            <Field>
+              <File
+                variant="info"
+                alignment="right"
+                fileLabel="Right file"
+                fileName
+              >
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </File>
+            </Field>
+          </Box>
+        </Section>
       </Column>
     </Columns>
   </div>
