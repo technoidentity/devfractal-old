@@ -31,14 +31,14 @@ type ButtonState =
 
 type ButtonType = 'button' | 'reset' | 'submit'
 
-export interface ButtonsProps
+export interface ButtonsGroupProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {
   readonly alignment?: 'centered' | 'right'
   readonly addons?: boolean
 }
 
-export const Buttons: React.SFC<ButtonsProps> = ({
+export const ButtonsGroup: React.SFC<ButtonsGroupProps> = ({
   addons,
   alignment,
   children,

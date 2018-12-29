@@ -4,6 +4,7 @@ import { Omit } from '../../types'
 import {
   CheckBox,
   CheckBoxProps,
+  FieldHelp,
   FieldHelpProps,
   Input,
   InputProps,
@@ -14,7 +15,6 @@ import {
   TextArea,
   TextAreaProps,
 } from '../form'
-import { FieldHelp } from '../form/FieldHelp'
 
 interface FormikInputProps<V> extends FieldProps<V>, Omit<InputProps, 'form'> {}
 

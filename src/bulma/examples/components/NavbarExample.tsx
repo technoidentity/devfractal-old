@@ -11,7 +11,7 @@ import {
   NavbarMenu,
   NavbarStart,
 } from '../../components/Navbar'
-import { Button, Buttons } from '../../form/Button'
+import { Button, ButtonsGroup } from '../../form/Button'
 
 export const NavbarExample: React.SFC = () => (
   <Navbar>
@@ -47,10 +47,10 @@ export const NavbarExample: React.SFC = () => (
       </NavbarStart>
       <NavbarEnd>
         <NavbarItem>
-          <Buttons>
+          <ButtonsGroup>
             <Button variant="primary">Sign up</Button>
             <Button variant="light">Log in</Button>
-          </Buttons>
+          </ButtonsGroup>
         </NavbarItem>
       </NavbarEnd>
     </NavbarMenu>

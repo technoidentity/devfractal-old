@@ -1,5 +1,7 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
+import { AllControlHelpers } from './ControlDiv'
+import { ControlWrapper } from './ControlHelpers'
 
 export interface RadioButtonProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
@@ -16,4 +18,15 @@ export const RadioButton: React.SFC<RadioButtonProps> = ({
       {children}
     </label>
   )
+}
+
+export interface RadioButtonGroupProps
+  extends React.HTMLAttributes<HTMLElement>,
+    AllControlHelpers {}
+
+export const RadioButtonGroup: React.SFC<RadioButtonGroupProps> = ({
+  children,
+  ...props
+}) => {
+  return <ControlWrapper {...props}>{children}</ControlWrapper>
 }

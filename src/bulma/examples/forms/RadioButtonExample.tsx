@@ -4,10 +4,10 @@ import { Title } from '../../elements'
 import {
   FieldBody,
   FieldLabel,
+  FormField,
   RadioButton,
   RadioButtonGroup,
 } from '../../form'
-import { FormField } from '../../form/FormField'
 import { Section } from '../../layout'
 import { logger } from '../common'
 

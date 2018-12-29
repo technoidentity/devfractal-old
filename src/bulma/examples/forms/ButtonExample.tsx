@@ -13,7 +13,7 @@ import React from 'react'
 import { Column, Columns } from '../../columns'
 import { Box, Icon, Title } from '../../elements'
 import { Button, Field, Label } from '../../form'
-import { Buttons } from '../../form/Button'
+import { ButtonsGroup } from '../../form/Button'
 import { Section } from '../../layout'
 import { Text } from '../../modifiers/Text'
 
@@ -396,15 +396,15 @@ export const ButtonExample: React.SFC = () => (
 
         <Section>
           <Title size="4">List of buttons</Title>
-          <Buttons>
+          <ButtonsGroup>
             <Button variant="success">Save changes</Button>
             <Button variant="info">Save and continue</Button>
             <Button variant="danger">Cancel</Button>
-          </Buttons>
+          </ButtonsGroup>
         </Section>
 
         <Section>
-          <Buttons>
+          <ButtonsGroup>
             <Button>One</Button>
             <Button>Two</Button>
             <Button>Three</Button>
@@ -425,56 +425,56 @@ export const ButtonExample: React.SFC = () => (
             <Button>Eighteen</Button>
             <Button>Nineteen</Button>
             <Button>Twenty</Button>
-          </Buttons>
+          </ButtonsGroup>
         </Section>
 
         <Section>
           <Box>
             <Label>Addons</Label>
-            <Buttons addons>
+            <ButtonsGroup addons>
               <Button>Yes</Button>
               <Button>Maybe</Button>
               <Button>No</Button>
-            </Buttons>
+            </ButtonsGroup>
             <Label>Addons centered</Label>
-            <Buttons addons alignment="centered">
+            <ButtonsGroup addons alignment="centered">
               <Button>Yes</Button>
               <Button>Maybe</Button>
               <Button>No</Button>
-            </Buttons>
+            </ButtonsGroup>
             <Label>Addons right</Label>
-            <Buttons addons alignment="right">
+            <ButtonsGroup addons alignment="right">
               <Button>Yes</Button>
               <Button>Maybe</Button>
               <Button>No</Button>
-            </Buttons>
+            </ButtonsGroup>
           </Box>
         </Section>
 
         <Section>
-          <Buttons addons>
+          <ButtonsGroup addons>
             <Button variant="success" state="selected">
               Yes
             </Button>
             <Button>Maybe</Button>
             <Button>No</Button>
-          </Buttons>
+          </ButtonsGroup>
 
-          <Buttons addons>
+          <ButtonsGroup addons>
             <Button>Yes</Button>
             <Button variant="info" state="selected">
               Maybe
             </Button>
             <Button>No</Button>
-          </Buttons>
+          </ButtonsGroup>
 
-          <Buttons addons>
+          <ButtonsGroup addons>
             <Button>Yes</Button>
             <Button>Maybe</Button>
             <Button variant="danger" state="selected">
               No
             </Button>
-          </Buttons>
+          </ButtonsGroup>
         </Section>
       </Column>
     </Columns>
