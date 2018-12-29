@@ -1,35 +1,41 @@
 import React from 'react'
 import { Column, Columns } from '../../columns'
-import { Notification } from '../../elements'
+import { Notification, Title } from '../../elements'
+import { Container, Section } from '../../layout'
 
 export const NestingColumnExample: React.SFC = () => (
   <div>
-    <Columns>
-      <Column>
-        <Notification variant="info">First column</Notification>
+    <Section>
+      <Container>
+        <Title size="4">Nesting</Title>
         <Columns>
           <Column>
-            <Notification variant="info">First nested column</Notification>
+            <Notification variant="info">First column</Notification>
+            <Columns>
+              <Column>
+                <Notification variant="info">First nested column</Notification>
+              </Column>
+              <Column>
+                <Notification variant="info">Second nested column</Notification>
+              </Column>
+            </Columns>
           </Column>
           <Column>
-            <Notification variant="info">Second nested column</Notification>
+            <Notification className="is-danger">Second column</Notification>
+            <Columns>
+              <Column>
+                <Notification variant="danger">50%</Notification>
+              </Column>
+              <Column>
+                <Notification variant="danger">Auto</Notification>
+              </Column>
+              <Column>
+                <Notification variant="danger">Auto</Notification>
+              </Column>
+            </Columns>
           </Column>
         </Columns>
-      </Column>
-      <Column>
-        <Notification className="is-danger">Second column</Notification>
-        <Columns>
-          <Column>
-            <Notification variant="danger">50%</Notification>
-          </Column>
-          <Column>
-            <Notification variant="danger">Auto</Notification>
-          </Column>
-          <Column>
-            <Notification variant="danger">Auto</Notification>
-          </Column>
-        </Columns>
-      </Column>
-    </Columns>
+      </Container>
+    </Section>
   </div>
 )
