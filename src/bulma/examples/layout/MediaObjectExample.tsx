@@ -2,9 +2,15 @@ import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Content, Delete, Icon, Image, Title } from '../../elements'
 import { Button, CheckBox, Field, TextArea } from '../../form'
-import { Section } from '../../layout'
-import { Level, LevelItem } from '../../layout/Level'
-import { Media, MediaContent, MediaLeft, MediaRight } from '../../layout/Media'
+import {
+  Level,
+  LevelItem,
+  Media,
+  MediaContent,
+  MediaLeft,
+  MediaRight,
+  Section,
+} from '../../layout'
 
 export const MediaObjectExample: React.SFC = () => (
   <>
