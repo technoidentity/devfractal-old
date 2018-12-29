@@ -1,6 +1,6 @@
 import React from 'react'
 import { Value } from 'react-powerplug'
-import { Tabs, TabsItem } from '../../components/StatefulTabs'
+import { Tabs, TabsItem } from '../../components/Tabs'
 import { Text } from '../../modifiers/Text'
 
 export const TabsExample: React.SFC = () => (

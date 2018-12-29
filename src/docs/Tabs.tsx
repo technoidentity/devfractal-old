@@ -1,86 +1,86 @@
 import React from 'react'
-import { Tabs, TabsItem } from '../bulma/components'
+import { RoutedTabs, RoutedTabsItem } from '../bulma/components'
 
 export const ColumnsTab: React.SFC = () => (
-  <Tabs to="/columns" size="medium">
-    <TabsItem value="basics">Basics</TabsItem>
-    <TabsItem value="size">Size</TabsItem>
-    <TabsItem value="responsive">Responsive</TabsItem>
-    <TabsItem value="nesting">Nesting</TabsItem>
-    <TabsItem value="gap">Gap</TabsItem>
-    <TabsItem value="options">Options</TabsItem>
-  </Tabs>
+  <RoutedTabs to="/columns" size="medium">
+    <RoutedTabsItem value="basics">Basics</RoutedTabsItem>
+    <RoutedTabsItem value="size">Size</RoutedTabsItem>
+    <RoutedTabsItem value="responsive">Responsive</RoutedTabsItem>
+    <RoutedTabsItem value="nesting">Nesting</RoutedTabsItem>
+    <RoutedTabsItem value="gap">Gap</RoutedTabsItem>
+    <RoutedTabsItem value="options">Options</RoutedTabsItem>
+  </RoutedTabs>
 )
 
 export const ComponentsTab: React.SFC = () => (
-  <Tabs to="/components" size="medium">
-    <TabsItem value="breadcrumb">Breadcrumb</TabsItem>
-    <TabsItem value="card">Card</TabsItem>
-    <TabsItem value="dropdown">Dropdown</TabsItem>
-    <TabsItem value="menu">Menu</TabsItem>
-    <TabsItem value="message">Message</TabsItem>
-    <TabsItem value="modal">Modal</TabsItem>
-    <TabsItem value="navbar">Navbar</TabsItem>
-    <TabsItem value="pagination">Pagination</TabsItem>
-    <TabsItem value="panel">Panel</TabsItem>
-    <TabsItem value="tabs">Tabs</TabsItem>
-  </Tabs>
+  <RoutedTabs to="/components" size="medium">
+    <RoutedTabsItem value="breadcrumb">Breadcrumb</RoutedTabsItem>
+    <RoutedTabsItem value="card">Card</RoutedTabsItem>
+    <RoutedTabsItem value="dropdown">Dropdown</RoutedTabsItem>
+    <RoutedTabsItem value="menu">Menu</RoutedTabsItem>
+    <RoutedTabsItem value="message">Message</RoutedTabsItem>
+    <RoutedTabsItem value="modal">Modal</RoutedTabsItem>
+    <RoutedTabsItem value="navbar">Navbar</RoutedTabsItem>
+    <RoutedTabsItem value="pagination">Pagination</RoutedTabsItem>
+    <RoutedTabsItem value="panel">Panel</RoutedTabsItem>
+    <RoutedTabsItem value="tabs">RoutedTabs</RoutedTabsItem>
+  </RoutedTabs>
 )
 
 export const FormTab: React.SFC = () => (
-  <Tabs to="/form" size="medium">
-    <TabsItem value="general">General</TabsItem>
-    <TabsItem value="input">Input</TabsItem>
-    <TabsItem value="button">Button</TabsItem>
-    <TabsItem value="textarea">Textarea</TabsItem>
-    <TabsItem value="select">Select</TabsItem>
-    <TabsItem value="checkbox">Checkbox</TabsItem>
-    <TabsItem value="radio-button">Radio</TabsItem>
-    <TabsItem value="file">File</TabsItem>
-  </Tabs>
+  <RoutedTabs to="/form" size="medium">
+    <RoutedTabsItem value="general">General</RoutedTabsItem>
+    <RoutedTabsItem value="input">Input</RoutedTabsItem>
+    <RoutedTabsItem value="button">Button</RoutedTabsItem>
+    <RoutedTabsItem value="textarea">Textarea</RoutedTabsItem>
+    <RoutedTabsItem value="select">Select</RoutedTabsItem>
+    <RoutedTabsItem value="checkbox">Checkbox</RoutedTabsItem>
+    <RoutedTabsItem value="radio-button">Radio</RoutedTabsItem>
+    <RoutedTabsItem value="file">File</RoutedTabsItem>
+  </RoutedTabs>
 )
 
 export const CompositesTab: React.SFC = () => (
-  <Tabs to="/composites" size="medium">
-    <TabsItem value="simple">Simple</TabsItem>
-    <TabsItem value="general-form">General form</TabsItem>
-    <TabsItem value="login-form">Login form</TabsItem>
-    <TabsItem value="counter">Counter</TabsItem>
-    <TabsItem value="todo">Todo</TabsItem>
-  </Tabs>
+  <RoutedTabs to="/composites" size="medium">
+    <RoutedTabsItem value="simple">Simple</RoutedTabsItem>
+    <RoutedTabsItem value="general-form">General form</RoutedTabsItem>
+    <RoutedTabsItem value="login-form">Login form</RoutedTabsItem>
+    <RoutedTabsItem value="counter">Counter</RoutedTabsItem>
+    <RoutedTabsItem value="todo">Todo</RoutedTabsItem>
+  </RoutedTabs>
 )
 
 export const LayoutTab: React.SFC = () => (
-  <Tabs to="/layout" size="medium">
-    <TabsItem value="container">Container</TabsItem>
-    <TabsItem value="level">Level</TabsItem>
-    <TabsItem value="object">Media Object</TabsItem>
-    <TabsItem value="hero">Hero</TabsItem>
-    <TabsItem value="section">Section</TabsItem>
-    <TabsItem value="footer">Footer</TabsItem>
-    <TabsItem value="tiles">Tiles</TabsItem>
-  </Tabs>
+  <RoutedTabs to="/layout" size="medium">
+    <RoutedTabsItem value="container">Container</RoutedTabsItem>
+    <RoutedTabsItem value="level">Level</RoutedTabsItem>
+    <RoutedTabsItem value="object">Media Object</RoutedTabsItem>
+    <RoutedTabsItem value="hero">Hero</RoutedTabsItem>
+    <RoutedTabsItem value="section">Section</RoutedTabsItem>
+    <RoutedTabsItem value="footer">Footer</RoutedTabsItem>
+    <RoutedTabsItem value="tiles">Tiles</RoutedTabsItem>
+  </RoutedTabs>
 )
 
 export const ModifiersTab: React.SFC = () => (
-  <Tabs to="modifiers" size="medium">
-    <TabsItem value="helpers">Helpers</TabsItem>
-    <TabsItem value="helpers">Responsive Helpers</TabsItem>
-    <TabsItem value="colors">Color Helpers</TabsItem>
-    <TabsItem value="typography">Typography helpers</TabsItem>
-  </Tabs>
+  <RoutedTabs to="modifiers" size="medium">
+    <RoutedTabsItem value="helpers">Helpers</RoutedTabsItem>
+    <RoutedTabsItem value="helpers">Responsive Helpers</RoutedTabsItem>
+    <RoutedTabsItem value="colors">Color Helpers</RoutedTabsItem>
+    <RoutedTabsItem value="typography">Typography helpers</RoutedTabsItem>
+  </RoutedTabs>
 )
 
 export const ElementsTab: React.SFC = () => (
-  <Tabs to="/elements" size="medium">
-    <TabsItem value="box">Box</TabsItem>
-    <TabsItem value="delete">Delete</TabsItem>
-    <TabsItem value="icon">Icon</TabsItem>
-    <TabsItem value="image">Image</TabsItem>
-    <TabsItem value="notification">Notification</TabsItem>
-    <TabsItem value="bars">Progress bars</TabsItem>
-    <TabsItem value="table">Table</TabsItem>
-    <TabsItem value="tag">Tag</TabsItem>
-    <TabsItem value="title">Title</TabsItem>
-  </Tabs>
+  <RoutedTabs to="/elements" size="medium">
+    <RoutedTabsItem value="box">Box</RoutedTabsItem>
+    <RoutedTabsItem value="delete">Delete</RoutedTabsItem>
+    <RoutedTabsItem value="icon">Icon</RoutedTabsItem>
+    <RoutedTabsItem value="image">Image</RoutedTabsItem>
+    <RoutedTabsItem value="notification">Notification</RoutedTabsItem>
+    <RoutedTabsItem value="bars">Progress bars</RoutedTabsItem>
+    <RoutedTabsItem value="table">Table</RoutedTabsItem>
+    <RoutedTabsItem value="tag">Tag</RoutedTabsItem>
+    <RoutedTabsItem value="title">Title</RoutedTabsItem>
+  </RoutedTabs>
 )

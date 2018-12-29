@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabsItem } from '../../components'
+import { Tabs, TabsItem } from '../../components'
 import {
   Navbar,
   NavbarBrand,
@@ -8,7 +8,6 @@ import {
   NavbarItem,
   NavbarMenu,
 } from '../../components/Navbar'
-import { Tabs } from '../../components/StatefulTabs'
 import { Box } from '../../elements'
 import { SubTitle, Title } from '../../elements/Title'
 import { Button } from '../../form'
@@ -236,20 +235,11 @@ export const HeroExample: React.SFC = () => (
               <Tabs>
                 <Container>
                   <Tabs>
-                    <TabsItem active value="overview">
-                      Overview
-                    </TabsItem>
-
+                    <TabsItem value="overview">Overview</TabsItem>
                     <TabsItem value="modifiers">Modifiers</TabsItem>
-
-                    <TabsItem active value="grid">
-                      Grid
-                    </TabsItem>
-
+                    <TabsItem value="grid">Grid</TabsItem>
                     <TabsItem value="elements">Elements</TabsItem>
-
                     <TabsItem value="components">Components</TabsItem>
-
                     <TabsItem value="layout">Layout</TabsItem>
                   </Tabs>
                 </Container>
@@ -301,14 +291,10 @@ export const HeroExample: React.SFC = () => (
             </HeroBody>
             <HeroFoot>
               <Container>
-                <Tabs>
-                  <TabsItem active value="overview">
-                    Overview
-                  </TabsItem>
+                <Tabs selectedTab="elements" readOnly>
+                  <TabsItem value="overview">Overview</TabsItem>
                   <TabsItem value="modifiers">Modifiers</TabsItem>
-                  <TabsItem active value="grid">
-                    Grid
-                  </TabsItem>
+                  <TabsItem value="grid">Grid</TabsItem>
                   <TabsItem value="elements">Elements</TabsItem>
                   <TabsItem value="components">Components</TabsItem>
                   <TabsItem value="layout">Layout</TabsItem>
@@ -361,14 +347,10 @@ export const HeroExample: React.SFC = () => (
             </HeroBody>
             <HeroFoot>
               <Container>
-                <Tabs>
-                  <TabsItem active value="overview">
-                    Overview
-                  </TabsItem>
+                <Tabs selectedTab="overview" readOnly>
+                  <TabsItem value="overview">Overview</TabsItem>
                   <TabsItem value="modifiers">Modifiers</TabsItem>
-                  <TabsItem active value="grid">
-                    Grid
-                  </TabsItem>
+                  <TabsItem value="grid">Grid</TabsItem>
                   <TabsItem value="elements">Elements</TabsItem>
                   <TabsItem value="components">Components</TabsItem>
                   <TabsItem value="layout">Layout</TabsItem>
