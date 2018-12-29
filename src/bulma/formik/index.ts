@@ -1,12 +1,6 @@
-export { FormikInput } from './Controls'
-export { InputField } from './Fields'
-export {
-  Simple,
-  SimpleForm,
-  SimpleFormButtons,
-  SimpleInput,
-  SimplePassword,
-  SimpleText,
-  SimpleValues,
-} from './Simple'
+export * from './Fields'
+export * from './Simple'
 export { apiSubmit, consoleSubmit } from './submitHandlers'
+
+// @TODO: Temporary export for an example for presentation. Remove it later
+export * from './Controls'

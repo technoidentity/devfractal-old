@@ -8,8 +8,3 @@ export function mutative<T>(obj: T, f: (draft: Mutable<T>) => void): T {
     draftState: Draft<T>,
   ) => void | T)
 }
-
-export const jsonStringify: (obj: object) => string = obj => {
-  // tslint:disable-next-line:no-null-keyword
-  return JSON.stringify(obj, null, 2)
-}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames } from '../../utils/classNames'
+import { classNames } from '../../utils'
 import { classNamesHelper } from '../modifiers'
 import { AllControlHelpers, ControlDiv } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
