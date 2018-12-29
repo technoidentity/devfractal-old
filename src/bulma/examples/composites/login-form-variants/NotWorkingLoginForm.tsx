@@ -12,7 +12,7 @@ import { logger } from '../../common'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
 // DEMONSTRATING THAT THIS DOES NOT WORK!!!
-export const LoginFormInner: React.SFC<FormikProps<LoginValues>> = () => (
+const LoginFormInner: React.SFC<FormikProps<LoginValues>> = () => (
   <Container>
     <Form>
       <FieldGroup>
@@ -57,7 +57,7 @@ export const LoginFormInner: React.SFC<FormikProps<LoginValues>> = () => (
   </Container>
 )
 
-export const LoginForm: React.SFC = () => (
+export const NotWorkingLoginForm: React.SFC = () => (
   <Formik
     initialValues={initialLoginValues}
     validationSchema={loginSchema}

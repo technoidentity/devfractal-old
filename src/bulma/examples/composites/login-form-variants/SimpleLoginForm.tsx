@@ -2,7 +2,7 @@ import React from 'react'
 import { consoleSubmit, Simple, SimpleValues } from '../../../formik'
 import { initialLoginValues, loginSchema } from './common'
 
-export const LoginForm: React.SFC = () => (
+export const SimpleLoginForm: React.SFC = () => (
   <Simple.Form
     initialValues={initialLoginValues}
     validationSchema={loginSchema}

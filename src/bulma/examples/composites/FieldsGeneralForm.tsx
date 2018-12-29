@@ -13,7 +13,7 @@ import {
 import { Container, Section } from '../../layout'
 import { logger } from '../common'
 
-export interface GeneralFormProps {
+interface GeneralFormProps {
   readonly name: string
   readonly username: string
   readonly email: string
