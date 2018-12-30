@@ -1,10 +1,10 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { Value } from 'react-powerplug'
 import { Icon } from '../../elements'
 import { Button } from '../../form'
 import { Section } from '../../layout'
 import { Text } from '../../modifiers'
-import { logger } from '../common'
 
 interface CounterViewProps {
   readonly count: number
@@ -32,9 +32,15 @@ export const CounterView: React.SFC<CounterViewProps> = ({
 )
 
 export const Counter: React.SFC = () => (
-  <CounterView
-    count={0}
-    onIncrement={() => logger('increment')}
-    onDecrement={() => logger('decrement')}
-  />
+  <Value initial={{ count: 0 }}>
+    {({ value, set }) => (
+      <CounterView
+        count={value.count}
+        // tslint bug with no-unused-variable
+        // tslint:disable restrict-plus-operands
+        onIncrement={() => set({ count: value.count + 1 })}
+        onDecrement={() => set({ count: value.count - 1 })}
+      />
+    )}
+  </Value>
 )
