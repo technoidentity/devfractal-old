@@ -1,15 +1,43 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { Value } from 'react-powerplug'
 import { Column, Columns } from '../../columns'
 import { Title } from '../../elements'
 import { Field, Select } from '../../form'
 import { Section } from '../../layout'
-import { Text } from '../../modifiers/Text'
+import { Text } from '../../modifiers'
+
+export const DynamicSelect: React.SFC = () => (
+  <Value initial={{ color: 'red' }}>
+    {({ value, set }) => (
+      <>
+        <Title size="4">Dynamic Select({value.color})</Title>
+        <Select
+          name="color"
+          value={value.color}
+          onChange={evt => {
+            set({ color: evt.target.value })
+          }}
+        >
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="violet">Violet</option>
+        </Select>
+      </>
+    )}
+  </Value>
+)
 
 export const SelectExample: React.SFC = () => (
   <div>
     <Columns columnCentered>
       <Column size="half">
+        <Section>
+          <Field>
+            <DynamicSelect />
+          </Field>
+        </Section>
         <Section>
           <Field>
             <Title size="4">Colors</Title>
