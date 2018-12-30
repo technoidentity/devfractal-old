@@ -62,6 +62,14 @@ export const TextAreaExample: React.SFC = () => (
           <Title size="4">Fixed Size</Title>
           <TextArea fixedSize />
         </Section>
+        <Section>
+          <Title size="4">Height</Title>
+          <TextArea rows={10} />
+        </Section>
+        <Section>
+          <Title size="4">Readonly</Title>
+          <TextArea readOnly />
+        </Section>
       </Column>
     </Columns>
   </div>
