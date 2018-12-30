@@ -1,8 +1,10 @@
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Column, Columns } from '../../columns'
-import { Box } from '../../elements'
+import { Box, Icon } from '../../elements'
 import { Button } from '../../form'
 import { Section } from '../../layout'
+import { Text } from '../../modifiers'
 
 interface CounterViewProps {
   readonly count: number
@@ -19,12 +21,15 @@ export const CounterView: React.SFC<CounterViewProps> = ({
     <Column narrow>
       <Section>
         <Box>
-          <Button variant="primary" size="large" rounded onClick={onIncrement}>
-            +
+          <Button variant="primary" size="medium" onClick={onIncrement}>
+            <Icon icon={faPlus} />
           </Button>
-          <h1>{count}</h1>
-          <Button variant="danger" size="large" rounded onClick={onDecrement}>
-            -
+
+          <Text textAlignment="centered" textSize="2">
+            {count}
+          </Text>
+          <Button variant="danger" size="medium" onClick={onDecrement}>
+            <Icon icon={faMinus} />
           </Button>
         </Box>
       </Section>
