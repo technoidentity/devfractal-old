@@ -1,13 +1,30 @@
 import React from 'react'
+import { Value } from 'react-powerplug'
 import { Column, Columns } from '../../columns'
 import { Title } from '../../elements'
 import { TextArea } from '../../form'
 import { Section } from '../../layout'
 
+export const DynamicTextarea: React.SFC = () => (
+  <Value initial={{ message: '' }}>
+    {({ value, set }) => (
+      <TextArea
+        value={value.message}
+        onChange={evt => set({ message: evt.target.value.toUpperCase() })}
+        placeholder="Dynamic textArea"
+      />
+    )}
+  </Value>
+)
+
 export const TextAreaExample: React.SFC = () => (
   <div>
     <Columns columnCentered>
       <Column size="three-quarters">
+        <Section>
+          <Title size="4">Dynamic Textarea(Upper case)</Title>
+          <DynamicTextarea />
+        </Section>
         <Section>
           <Title size="4">Default Textarea</Title>
           <TextArea placeholder="Default textArea" />
