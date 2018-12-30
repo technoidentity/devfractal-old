@@ -3,24 +3,27 @@ import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type DropDownModifier = 'hoverable' | 'active'
 
-type DropDownAlignment = 'right' | 'up'
+type DropDownAlignment = 'right'
 
 export interface DropDownProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly modifier?: DropDownModifier
   readonly alignment?: DropDownAlignment
+  readonly dropUp?: boolean
 }
 
 export const DropDown: React.SFC<DropDownProps> = ({
   modifier,
   alignment,
+  dropUp,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'dropdown', {
     [`is-${modifier}`]: modifier,
     [`is-${alignment}`]: alignment,
+    [`is-up`]: dropUp,
   })
   return (
     <Div {...props} className={classes}>
