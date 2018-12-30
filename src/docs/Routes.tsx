@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import {
   BasicColumnExample,
   BoxExample,
@@ -47,6 +47,7 @@ import {
   TitleExample,
   Todo,
 } from '../bulma/examples'
+import { SimpleRedirect } from '../utils/SimpleRedirect'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
   ColumnsTab,
@@ -60,7 +61,7 @@ import {
 
 export const FormRoutes: React.SFC = () => (
   <>
-    <Route exact path="/form" render={() => <Redirect to="/form/general" />} />
+    <SimpleRedirect exact from="/form" to="/form/general" />
     <Route path="/form/general" exact component={GeneralExample} />
     <Route path="/form/input" exact component={InputExample} />
     <Route path="/form/select" exact component={SelectExample} />
@@ -74,11 +75,7 @@ export const FormRoutes: React.SFC = () => (
 
 export const CompositesRoutes: React.SFC = () => (
   <>
-    <Route
-      exact
-      path="/composites"
-      render={() => <Redirect to="/composites/simple" />}
-    />
+    <SimpleRedirect exact from="/composites" to="/composites/simple" />
     <Route path="/composites/simple" exact component={SimpleExample} />
     <Route
       path="/composites/general-form"
@@ -92,11 +89,7 @@ export const CompositesRoutes: React.SFC = () => (
 )
 export const ColumnsRoutes: React.SFC = () => (
   <>
-    <Route
-      exact
-      path="/columns"
-      render={() => <Redirect to="/columns/basics" />}
-    />
+    <SimpleRedirect exact from="/columns" to="/columns/basics" />
     <Route path="/columns/basics" exact component={BasicColumnExample} />
     <Route path="/columns/size" exact component={SizesColumnExample} />
     <Route
@@ -112,11 +105,7 @@ export const ColumnsRoutes: React.SFC = () => (
 
 export const LayoutRoutes: React.SFC = () => (
   <>
-    <Route
-      exact
-      path="/layout"
-      render={() => <Redirect to="/layout/container" />}
-    />
+    <SimpleRedirect exact from="/layout" to="/layout/container" />
     <Route path="/layout/container" exact component={ContainerExample} />
     <Route path="/layout/hero" exact component={HeroExample} />
     <Route path="/layout/footer" exact component={FooterExample} />
@@ -129,11 +118,7 @@ export const LayoutRoutes: React.SFC = () => (
 
 export const ElementsRoutes: React.SFC = () => (
   <>
-    <Route
-      exact
-      path="/elements"
-      render={() => <Redirect to="elements/box" />}
-    />
+    <SimpleRedirect exact from="/elements" to="elements/box" />
     <Route path="/elements/box" exact component={BoxExample} />
     <Route
       path="/elements/notification"
@@ -152,11 +137,7 @@ export const ElementsRoutes: React.SFC = () => (
 
 export const ComponentsRoutes: React.SFC = () => (
   <>
-    <Route
-      exact
-      path="/components"
-      render={() => <Redirect to="/components/breadcrumb" />}
-    />
+    <SimpleRedirect exact from="/components" to="/components/breadcrumb" />
     <Route path="/components/breadcrumb" exact component={BreadcrumbExample} />
     <Route path="/components/dropdown" exact component={DropDownExample} />
     <Route path="/components/message" exact component={MessageExample} />
