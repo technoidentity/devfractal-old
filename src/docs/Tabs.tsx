@@ -23,7 +23,7 @@ export const ComponentsTab: React.SFC = () => (
     <RoutedTabsItem value="navbar">Navbar</RoutedTabsItem>
     <RoutedTabsItem value="pagination">Pagination</RoutedTabsItem>
     <RoutedTabsItem value="panel">Panel</RoutedTabsItem>
-    <RoutedTabsItem value="tabs">RoutedTabs</RoutedTabsItem>
+    <RoutedTabsItem value="tabs">Tabs</RoutedTabsItem>
   </RoutedTabs>
 )
 

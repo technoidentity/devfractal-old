@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom'
+import { NavLink, RouteComponentProps } from 'react-router-dom'
+import { WithRouter } from '../../utils/WithRouter'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 interface RoutedTabsContext {
@@ -62,44 +63,44 @@ interface RoutedTabsProps
 }
 
 // tslint:disable-next-line: typedef
-const RoutedTabsWithRouter = withRouter<RoutedTabsProps & RouteComponentProps>(
-  ({
-    match,
-    history,
-    location,
-    staticContext,
-    to,
-    urlSeparator = '/',
-    size,
-    alignment,
-    fullWidth,
-    tabsStyle,
-    children,
-    ...props
-  }) => {
-    const classes: string = classNamesHelper(props, 'tabs', {
-      [`is-${size}`]: size,
-      [`is-${alignment}`]: alignment,
-      [`is-${tabsStyle}`]: tabsStyle,
-      [`is-fullwidth`]: fullWidth,
-    })
+const RoutedTabsWithRouter: React.SFC<
+  RoutedTabsProps & RouteComponentProps
+> = ({
+  match,
+  history,
+  location,
+  staticContext,
+  to,
+  urlSeparator = '/',
+  size,
+  alignment,
+  fullWidth,
+  tabsStyle,
+  children,
+  ...props
+}) => {
+  const classes: string = classNamesHelper(props, 'tabs', {
+    [`is-${size}`]: size,
+    [`is-${alignment}`]: alignment,
+    [`is-${tabsStyle}`]: tabsStyle,
+    [`is-fullwidth`]: fullWidth,
+  })
 
-    return (
-      <RoutedTabsContext.Provider
-        value={{
-          url: to,
-          separator: urlSeparator,
-          currentLocation: location.pathname,
-        }}
-      >
-        <Div {...props} className={classes}>
-          <ul>{children}</ul>
-        </Div>
-      </RoutedTabsContext.Provider>
-    )
-  },
-)
+  return (
+    <RoutedTabsContext.Provider
+      value={{
+        url: to,
+        separator: urlSeparator,
+        currentLocation: location.pathname,
+      }}
+    >
+      <Div {...props} className={classes}>
+        <ul>{children}</ul>
+      </Div>
+    </RoutedTabsContext.Provider>
+  )
+}
 
 export const RoutedTabs: React.SFC<RoutedTabsProps> = props => (
-  <RoutedTabsWithRouter {...props} />
+  <WithRouter<RoutedTabsProps> {...props} component={RoutedTabsWithRouter} />
 )
