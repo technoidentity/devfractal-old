@@ -23,23 +23,25 @@ export const TabsExample: React.SFC = () => (
       <TabsItem value="documents">Documents</TabsItem>
     </Tabs>
 
-    <Title>Controlled Tab</Title>
     <Value
       initial={'music'}
       render={({ value, set }) => (
-        <Tabs
-          selectedTab={value}
-          onTabChange={({ value }) => {
-            set(value || 'music')
-          }}
-          name="secondTab"
-          size="medium"
-        >
-          <TabsItem value="pictures">Pictures</TabsItem>
-          <TabsItem value="music">Music</TabsItem>
-          <TabsItem value="videos">Videos</TabsItem>
-          <TabsItem value="documents">Documents</TabsItem>
-        </Tabs>
+        <>
+          <Title>Controlled Tab({value})</Title>
+          <Tabs
+            selectedTab={value}
+            onTabChange={({ value }) => {
+              set(value || 'music')
+            }}
+            name="secondTab"
+            size="medium"
+          >
+            <TabsItem value="pictures">Pictures</TabsItem>
+            <TabsItem value="music">Music</TabsItem>
+            <TabsItem value="videos">Videos</TabsItem>
+            <TabsItem value="documents">Documents</TabsItem>
+          </Tabs>
+        </>
       )}
     />
   </div>
