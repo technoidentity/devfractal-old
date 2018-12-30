@@ -24,6 +24,7 @@ export interface TextAreaProps
   readonly fullWidth?: boolean
   readonly inline?: boolean
   readonly state?: TextAreaState
+  readonly rows?: number
 }
 
 export const TextArea: React.SFC<TextAreaProps> = ({
@@ -31,6 +32,7 @@ export const TextArea: React.SFC<TextAreaProps> = ({
   fixedSize,
   fullWidth,
   inline,
+  rows,
   state,
   ...props
 }) => {
@@ -45,7 +47,7 @@ export const TextArea: React.SFC<TextAreaProps> = ({
 
   return (
     <ControlWrapper {...props}>
-      <ControlDiv as="textarea" {...props} className={classes} />
+      <ControlDiv as="textarea" {...props} className={classes} rows={rows} />
     </ControlWrapper>
   )
 }
