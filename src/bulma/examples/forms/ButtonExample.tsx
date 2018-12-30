@@ -10,17 +10,31 @@ import {
   faUnderline,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { Value } from 'react-powerplug'
 import { Column, Columns } from '../../columns'
 import { Box, Icon, Title } from '../../elements'
-import { Button, Field, Label } from '../../form'
-import { ButtonsGroup } from '../../form/Button'
+import { Button, ButtonsGroup, Field, Label } from '../../form'
 import { Section } from '../../layout'
-import { Text } from '../../modifiers/Text'
+import { Text } from '../../modifiers'
+
+export const DynamicButton: React.SFC = () => (
+  <Value initial={{ clicked: false }}>
+    {({ value, set }) => (
+      <Button onClick={() => set({ clicked: true })}>
+        {value.clicked ? 'Done' : 'Click Me'}
+      </Button>
+    )}
+  </Value>
+)
 
 export const ButtonExample: React.SFC = () => (
   <>
     <Columns columnCentered>
       <Column size="half">
+        <Section>
+          <Title size="4">Dynamic button</Title>
+          <DynamicButton />
+        </Section>
         <Section>
           <Title size="4">Normal button</Title>
           <Button>Button</Button>
