@@ -1,20 +1,14 @@
-import {
-  ErrorMessage,
-  Form,
-  Formik,
-  FormikActions,
-  FormikConsumer,
-} from 'formik'
+import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import { Persist } from 'formik-persist'
 import React from 'react'
 import { ObjectSchema } from 'yup'
 import { jsonStringify } from '../../utils'
-import { Button, Field, FieldProps } from '../form'
-import { Label } from '../form'
+import { Button, Field, FieldProps, Label } from '../form'
 import { Container } from '../layout'
 import {
   CheckboxField,
   CheckboxFieldProps,
+  ErrorField,
   InputField,
   InputFieldProps,
   RadioButtonField,
@@ -45,7 +39,7 @@ export const SimpleInput: React.SFC<GenericInputProps> = ({
   <Field>
     <Label>{label}</Label>
     <InputField {...props} />
-    <ErrorMessage name={props.name} className="field-error" />
+    <ErrorField name={props.name} />
   </Field>
 )
 
@@ -75,7 +69,7 @@ export const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
 }) => (
   <Field>
     <CheckboxField {...props}>{children}</CheckboxField>
-    <ErrorMessage name={props.name} className="field-error" />
+    <ErrorField name={props.name} />
   </Field>
 )
 
@@ -89,7 +83,7 @@ export const SimpleRadioButton: React.SFC<SimpleRadioButtonProps> = ({
 }) => (
   <Field>
     <RadioButtonField {...props}>{children}</RadioButtonField>
-    <ErrorMessage name={props.name} className="field-error" />
+    <ErrorField name={props.name} />
   </Field>
 )
 
@@ -103,7 +97,7 @@ export const SimpleSelect: React.SFC<SimpleSelectProps> = ({
 }) => (
   <Field>
     <SelectField {...props}>{children}</SelectField>
-    <ErrorMessage name={props.name} className="field-error" />
+    <ErrorField name={props.name} />
   </Field>
 )
 
@@ -119,7 +113,7 @@ export const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
   <Field>
     <Label>{label}</Label>
     <TextAreaField {...props} />
-    <ErrorMessage name={props.name} className="field-error" />
+    <ErrorField name={props.name} />
   </Field>
 )
 
