@@ -1,11 +1,11 @@
 import React from 'react'
-import { boolean, number, object, ObjectSchema, string } from 'yup'
+import { number, object, ObjectSchema, string } from 'yup'
 import { RadioButtonGroup } from '../../form'
 import { consoleSubmit, Simple, SimpleValues } from '../../formik'
 import { Section } from '../../layout'
 
 interface SimpleValues {
-  readonly text: string
+  readonly username: string
   readonly password: string
   readonly email: string
   readonly tel: number
@@ -15,7 +15,7 @@ interface SimpleValues {
 }
 
 const initialValues: SimpleValues = {
-  text: '',
+  username: '',
   password: '',
   email: '',
   tel: 0,
@@ -24,14 +24,13 @@ const initialValues: SimpleValues = {
   select: '',
 }
 
-const simpleSchema: ObjectSchema<SimpleValues> = object({
-  text: string().required('This field is required'),
-  password: string().required('This field is required'),
-  email: string().required('This field is required'),
-  tel: number().required('This field is required'),
-  answer: string().required('This field is required'),
-  select: string().required('This field is required'),
-  remember: boolean().required('This field is required'),
+const simpleSchema: ObjectSchema<Partial<SimpleValues>> = object({
+  username: string().required(),
+  password: string().required(),
+  email: string()
+    .email()
+    .required(),
+  tel: number().required(),
 })
 
 export const SimpleExample: React.SFC = () => (
@@ -41,10 +40,10 @@ export const SimpleExample: React.SFC = () => (
       validationSchema={simpleSchema}
       onSubmit={consoleSubmit(0)}
     >
-      <Simple.Text label="Text" name="text" />
-      <Simple.Password label="Password:" name="password" />
-      <Simple.Email label="Email:" name="email" />
-      <Simple.Telephone label="Telephone:" name="tel" />
+      <Simple.Text label="Username" name="username" />
+      <Simple.Password label="Password" name="password" />
+      <Simple.Email label="Email" name="email" />
+      <Simple.Telephone label="Telephone" name="tel" />
       <Simple.Checkbox name="remember"> Remember Me</Simple.Checkbox>
       <RadioButtonGroup>
         <Simple.RadioButton name="answer" value="yes">
