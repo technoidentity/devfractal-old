@@ -2,10 +2,15 @@ import React from 'react'
 import { Div } from './div'
 import { classNamesHelper, Helpers } from './helpers'
 
-export interface TextProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+type HeaderTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
-export const Text: React.SFC<TextProps> = ({ children, ...props }) => (
-  <Div as="span" {...props} className={classNamesHelper(props)}>
+type TextTags = HeaderTags | 'span' | 'div'
+export interface TextProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+  readonly as?: TextTags
+}
+
+export const Text: React.SFC<TextProps> = ({ as, children, ...props }) => (
+  <Div as={as} {...props} className={classNamesHelper(props)}>
     {children}
   </Div>
 )
