@@ -47,6 +47,7 @@ import {
   TitleExample,
   Todo,
 } from '../bulma/examples'
+import { DropDownExampleRoutes } from '../bulma/examples/components/DropDownExample'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
   ColumnsTab,
@@ -199,5 +200,6 @@ export const Routes: React.SFC = () => (
     <ComponentsRoutes />
     <LayoutRoutes />
     <ColumnsRoutes />
+    <DropDownExampleRoutes />
   </>
 )
