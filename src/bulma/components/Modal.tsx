@@ -121,7 +121,7 @@ export const ModalContent: React.SFC<ModalContentProps> = ({
   children,
   ...props
 }) => {
-  const classes: string = classNamesHelper(props, 'message-content')
+  const classes: string = classNamesHelper(props, 'modal-content')
   return (
     <Div {...props} className={classes}>
       {children}
