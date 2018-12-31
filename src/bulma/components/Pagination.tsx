@@ -6,15 +6,18 @@ export interface PaginationProps
     Helpers {
   readonly rounded?: boolean
   readonly size?: 'small' | 'medium' | 'large'
+  readonly alignment?: 'centered' | 'right'
 }
 
 export const Pagination: React.SFC<PaginationProps> = ({
   rounded,
   size,
+  alignment,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'pagination', {
+    [`is-${alignment}`]: alignment,
     [`is-${size}`]: size,
     [`is-rounded`]: rounded,
   })
