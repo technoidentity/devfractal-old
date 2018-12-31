@@ -1,9 +1,9 @@
-import React from 'react'
-import { classNamesHelper, Div } from '../../modifiers'
+import React, { OlHTMLAttributes } from 'react'
+import { classNamesHelper, Div, Helpers } from '../../modifiers'
 
 type OlModifier = 'lower-alpha' | 'lower-roman' | 'upper-alpha' | 'upper-roman'
 
-export interface OlProps {
+export interface OlProps extends OlHTMLAttributes<HTMLOListElement>, Helpers {
   readonly modifier?: OlModifier
 }
 
