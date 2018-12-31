@@ -1,4 +1,5 @@
 import React from 'react'
+import { Value } from 'react-powerplug'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
@@ -18,6 +19,15 @@ export interface BreadcrumbItemProps
   readonly active?: boolean
 }
 
+interface BreadcrumbContext {
+  readonly selectedBreadcrumb?: string
+  setSelectedBreadcrumb?(event: BreadcrumbChangeEvent): void
+}
+
+const BreadcrumbContext: React.Context<BreadcrumbContext> = React.createContext<
+  BreadcrumbContext
+>({})
+
 export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
   active,
   href,
@@ -28,10 +38,19 @@ export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
     [`is-active`]: active,
   })
   return (
-    <Div as="li" {...props} className={classes}>
-      <a href={href}>{children}</a>
-    </Div>
+    <BreadcrumbContext.Consumer>
+      {() => (
+        <Div as="li" {...props} className={classes}>
+          <a href={href}>{children}</a>
+        </Div>
+      )}
+    </BreadcrumbContext.Consumer>
   )
+}
+
+export interface BreadcrumbChangeEvent {
+  readonly name?: string
+  readonly value?: string
 }
 
 export interface BreadcrumbProps
@@ -40,9 +59,14 @@ export interface BreadcrumbProps
   readonly size?: BreadcrumbSize
   readonly alignment?: BreadcrumbAlignment
   readonly separator?: BreadcrumbSeparator
+  readonly name?: string
+  readonly selectedBreadcrumb?: string
+  readonly defaultValue?: string
+  readonly readOnly?: boolean
+  onSelectedBreadcrumbChange?(evt: BreadcrumbChangeEvent): void
 }
 
-export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
+export const BreadcrumbView: React.SFC<BreadcrumbProps> = ({
   children,
   alignment,
   size,
@@ -58,5 +82,43 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
     <Div as="nav" {...props} className={classes}>
       <ul>{children}</ul>
     </Div>
+  )
+}
+
+export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
+  selectedBreadcrumb,
+  onSelectedBreadcrumbChange,
+  defaultValue,
+  children,
+  ...props
+}) => {
+  if (selectedBreadcrumb && !onSelectedBreadcrumbChange && !props.readOnly) {
+    // tslint:disable-next-line: no-console
+    console.warn(
+      'onTabChange not provided but selectedBreadcrumb provided, make this component readOnly.',
+    )
+  }
+
+  const isUncontrolled: boolean =
+    selectedBreadcrumb === undefined && onSelectedBreadcrumbChange === undefined
+
+  return isUncontrolled ? (
+    <Value
+      initial={selectedBreadcrumb || defaultValue}
+      render={({ value, set }) => (
+        <BreadcrumbContext.Provider
+          value={{
+            selectedBreadcrumb: value,
+            setSelectedBreadcrumb: ({ value }) => set(value),
+          }}
+        >
+          <BreadcrumbView {...props}>{children}</BreadcrumbView>
+        </BreadcrumbContext.Provider>
+      )}
+    />
+  ) : (
+    <BreadcrumbContext.Provider value={{}}>
+      <BreadcrumbView {...props}>{children}</BreadcrumbView>
+    </BreadcrumbContext.Provider>
   )
 }

@@ -17,7 +17,8 @@ import {
   FieldLabel,
   Input,
   Label,
-  RadioButton,
+  Radio,
+  RadioGroup,
   Select,
   TextArea,
 } from '../../form'
@@ -74,8 +75,10 @@ export const GeneralExample: React.SFC = () => (
             </CheckBox>
           </Field>
           <Field grouped>
-            <RadioButton> Yes</RadioButton>
-            <RadioButton> No</RadioButton>
+            <RadioGroup>
+              <Radio> Yes</Radio>
+              <Radio> No</Radio>
+            </RadioGroup>
           </Field>
           <Field grouped>
             <Button variant="success">Submit</Button>
@@ -379,8 +382,10 @@ export const GeneralExample: React.SFC = () => (
             <FieldLabel>Already a member? </FieldLabel>
             <FieldBody>
               <Field>
-                <RadioButton> Yes</RadioButton>
-                <RadioButton> No</RadioButton>
+                <RadioGroup>
+                  <Radio> Yes</Radio>
+                  <Radio> No</Radio>
+                </RadioGroup>
               </Field>
             </FieldBody>
           </Field>

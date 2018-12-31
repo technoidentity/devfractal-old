@@ -11,8 +11,8 @@ import {
   ErrorField,
   InputField,
   InputFieldProps,
-  RadioButtonField,
-  RadioButtonFieldProps,
+  RadioFieldProps,
+  RadioGroupField,
   SelectField,
   SelectFieldProps,
   TextAreaField,
@@ -73,16 +73,16 @@ export const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
   </Field>
 )
 
-export interface SimpleRadioButtonProps extends RadioButtonFieldProps {
+export interface SimpleRadioGroupProps extends RadioFieldProps {
   readonly name: string
 }
 
-export const SimpleRadioButton: React.SFC<SimpleRadioButtonProps> = ({
+export const SimpleRadioGroup: React.SFC<SimpleRadioGroupProps> = ({
   children,
   ...props
 }) => (
   <Field>
-    <RadioButtonField {...props}>{children}</RadioButtonField>
+    <RadioGroupField {...props}>{children}</RadioGroupField>
     <ErrorField name={props.name} />
   </Field>
 )
@@ -231,7 +231,7 @@ export const Simple = {
   Checkbox: SimpleCheckbox,
   Select: SimpleSelect,
   TextArea: SimpleTextArea,
-  RadioButton: SimpleRadioButton,
+  RadioGroup: SimpleRadioGroup,
   // Color: SimpleColor,
   // Date: SimpleDate,
   // DateTimeLocal: SimpleDateTimeLocal,

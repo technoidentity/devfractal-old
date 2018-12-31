@@ -1,12 +1,12 @@
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { boolean, object, ObjectSchema, string } from 'yup'
-import { Button, Field, Label } from '../../form'
+import { Button, Field, Label, Radio } from '../../form'
 import { InputField, SimpleValues } from '../../formik'
 import {
   CheckboxField,
   ErrorField,
-  RadioButtonField,
+  RadioGroupField,
   SelectField,
   TextAreaField,
 } from '../../formik/Fields'
@@ -69,14 +69,10 @@ const InnerFieldsGeneralForm: React.SFC<FormikProps<GeneralFormProps>> = () => {
           </Field>
 
           <Field grouped>
-            <RadioButtonField name="radio" value="yes">
-              {' '}
-              Yes
-            </RadioButtonField>
-            <RadioButtonField name="radio" value="no">
-              {' '}
-              No
-            </RadioButtonField>
+            <RadioGroupField name="radio" defaultValue="yes">
+              <Radio value="yes"> Yes</Radio>
+              <Radio value="no"> No </Radio>
+            </RadioGroupField>
           </Field>
 
           <Field groupModifier="grouped-centered">

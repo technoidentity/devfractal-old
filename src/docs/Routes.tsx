@@ -34,7 +34,7 @@ import {
   PaginationExample,
   PanelExample,
   ProgressBarExample,
-  RadioButtonExample,
+  RadioExample,
   ResponsiveColumnExample,
   SectionExample,
   SelectExample,
@@ -71,7 +71,7 @@ export const FormRoutes: React.SFC = () => (
     <Route path="/form/select" exact component={SelectExample} />
     <Route path="/form/checkbox" exact component={CheckBoxExample} />
     <Route path="/form/button" exact component={ButtonExample} />
-    <Route path="/form/radio-button" exact component={RadioButtonExample} />
+    <Route path="/form/radio" exact component={RadioExample} />
     <Route path="/form/textarea" exact component={TextAreaExample} />
     <Route path="/form/file" exact component={FileExample} />
   </>

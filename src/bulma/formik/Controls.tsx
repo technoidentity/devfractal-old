@@ -8,8 +8,8 @@ import {
   FieldHelpProps,
   Input,
   InputProps,
-  RadioButton,
-  RadioButtonProps,
+  RadioGroup,
+  RadioGroupProps,
   Select,
   SelectProps,
   TextArea,
@@ -36,17 +36,23 @@ export const FormikCheckbox: <V = unknown>(
   </CheckBox>
 )
 
-interface FormikRadioButtonProps<V>
+interface FormikRadioGroupProps<V>
   extends FieldProps<V>,
-    Omit<RadioButtonProps, 'form'> {}
+    Omit<RadioGroupProps, 'form'> {}
 
-export const FormikRadioButton: <V = unknown>(
-  props: FormikRadioButtonProps<V>,
-) => JSX.Element = ({ form, field, children, ...props }) => {
+export const FormikRadioGroup: <V = unknown>(
+  props: FormikRadioGroupProps<V>,
+) => JSX.Element = ({ form, field, type, children, ...props }) => {
   return (
-    <RadioButton {...field} {...props}>
+    <RadioGroup
+      {...props}
+      name={field.name}
+      onBlur={field.onBlur}
+      selected={field.value}
+      onChange={evt => form.setFieldValue(field.name, evt.target.value)}
+    >
       {children}
-    </RadioButton>
+    </RadioGroup>
   )
 }
 

@@ -3,17 +3,16 @@ import React from 'react'
 import {
   CheckBoxProps,
   InputProps,
-  RadioButtonProps,
+  RadioGroupProps,
   SelectProps,
   TextAreaProps,
 } from '../form'
-
 import {
   FormikCheckbox,
   FormikError,
   FormikErrorProps,
   FormikInput,
-  FormikRadioButton,
+  FormikRadioGroup,
   FormikSelect,
   FormikTextArea,
 } from './Controls'
@@ -39,13 +38,13 @@ export const CheckboxField: React.SFC<CheckboxFieldProps> = ({
   </Field>
 )
 
-export type RadioButtonFieldProps = RadioButtonProps & FormikFieldConfig
+export type RadioFieldProps = RadioGroupProps & FormikFieldConfig
 
-export const RadioButtonField: React.SFC<RadioButtonFieldProps> = ({
+export const RadioGroupField: React.SFC<RadioFieldProps> = ({
   children,
   ...props
 }) => (
-  <Field {...props} component={FormikRadioButton}>
+  <Field {...props} component={FormikRadioGroup}>
     {children}
   </Field>
 )

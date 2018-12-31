@@ -35,7 +35,7 @@ export const FormTab: React.SFC = () => (
     <RoutedTabsItem value="textarea">Textarea</RoutedTabsItem>
     <RoutedTabsItem value="select">Select</RoutedTabsItem>
     <RoutedTabsItem value="checkbox">Checkbox</RoutedTabsItem>
-    <RoutedTabsItem value="radio-button">Radio</RoutedTabsItem>
+    <RoutedTabsItem value="radio">Radio</RoutedTabsItem>
     <RoutedTabsItem value="file">File</RoutedTabsItem>
   </RoutedTabs>
 )
