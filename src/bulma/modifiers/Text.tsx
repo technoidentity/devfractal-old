@@ -4,7 +4,7 @@ import { classNamesHelper, Helpers } from './helpers'
 
 type HeaderTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
-type TextTags = HeaderTags | 'span' | 'div'
+type TextTags = HeaderTags | 'span' | 'div' | 'p'
 export interface TextProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly as?: TextTags
 }
