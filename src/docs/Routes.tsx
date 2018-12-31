@@ -7,6 +7,7 @@ import {
   ButtonExample,
   CardExample,
   CheckBoxExample,
+  ColorHelpersExample,
   ContainerExample,
   Counter,
   DeleteExample,
@@ -16,6 +17,7 @@ import {
   FooterExample,
   GapColumnExample,
   GeneralExample,
+  HelpersExample,
   HeroExample,
   IconExample,
   ImageExample,
@@ -46,6 +48,7 @@ import {
   TileExample,
   TitleExample,
   Todo,
+  TypographyHelpersExample,
 } from '../bulma/examples'
 import { DropDownExampleRoutes } from '../bulma/examples/components/DropDownExample'
 import { SimpleRedirect } from '../utils/SimpleRedirect'
@@ -151,7 +154,18 @@ export const ComponentsRoutes: React.SFC = () => (
     <Route path="/components/pagination" exact component={PaginationExample} />
   </>
 )
-
+export const ModifiersRoutes: React.SFC = () => (
+  <>
+    <SimpleRedirect exact from="/modifiers" to="/modifiers/helpers" />
+    <Route path="/modifiers/helpers" exact component={HelpersExample} />
+    <Route path="/modifiers/colors" exact component={ColorHelpersExample} />
+    <Route
+      path="/modifiers/typography"
+      exact
+      component={TypographyHelpersExample}
+    />
+  </>
+)
 export const TabsRoutes: React.SFC = () => (
   <>
     <Route path="/form" component={FormTab} />
@@ -181,6 +195,7 @@ export const Routes: React.SFC = () => (
     <ComponentsRoutes />
     <LayoutRoutes />
     <ColumnsRoutes />
+    <ModifiersRoutes />
     <DropDownExampleRoutes />
   </>
 )
