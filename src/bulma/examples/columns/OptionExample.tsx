@@ -74,31 +74,31 @@ export const OptionsColumnExample: React.SFC = () => (
           <Column narrow>
             <Notification variant="primary">
               <code className="html">is-narrow</code>
-              First Column
+              <p>First Column</p>
             </Notification>
           </Column>
           <Column narrow>
             <Notification variant="primary">
               <code className="html">is-narrow</code>
-              Our Second Column
+              <p>Our Second Column</p>
             </Notification>
           </Column>
           <Column narrow>
             <Notification variant="primary">
               <code className="html">is-narrow</code>
-              Third Column
+              <p>Third Column</p>
             </Notification>
           </Column>
           <Column narrow>
             <Notification variant="primary">
               <code className="html">is-narrow</code>
-              The Fourth Column
+              <p>The Fourth Column</p>
             </Notification>
           </Column>
           <Column narrow>
             <Notification variant="primary">
               <code className="html">is-narrow</code>
-              Fifth Column
+              <p>Fifth Column</p>
             </Notification>
           </Column>
         </Columns>
