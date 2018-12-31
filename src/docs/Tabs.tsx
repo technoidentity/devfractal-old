@@ -63,9 +63,9 @@ export const LayoutTab: React.SFC = () => (
 )
 
 export const ModifiersTab: React.SFC = () => (
-  <RoutedTabs to="modifiers" size="medium">
+  <RoutedTabs to="/modifiers" size="medium">
     <RoutedTabsItem value="helpers">Helpers</RoutedTabsItem>
-    <RoutedTabsItem value="helpers">Responsive Helpers</RoutedTabsItem>
+    <RoutedTabsItem value="responsive">Responsive Helpers</RoutedTabsItem>
     <RoutedTabsItem value="colors">Color Helpers</RoutedTabsItem>
     <RoutedTabsItem value="typography">Typography helpers</RoutedTabsItem>
   </RoutedTabs>
