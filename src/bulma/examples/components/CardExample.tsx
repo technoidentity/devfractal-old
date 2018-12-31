@@ -13,6 +13,7 @@ import {
 } from '../../components/Card'
 import { Content, Icon, Image, SubTitle, Title } from '../../elements'
 import { Media, MediaContent, MediaLeft, Section } from '../../layout'
+import { Text } from '../../modifiers'
 
 export const CardExample: React.SFC = () => (
   <Columns columnCentered>
@@ -90,19 +91,10 @@ export const CardExample: React.SFC = () => (
             <SubTitle>Jeff Atwood</SubTitle>
           </CardContent>
           <CardFooter>
-            <CardFooterItem>
-              <span>
-                View on{' '}
-                <a href="https://twitter.com/codinghorror/status/506010907021828096">
-                  Twitter
-                </a>
-              </span>
+            <CardFooterItem href="https://twitter.com/codinghorror/status/506010907021828096">
+              <Text>View on</Text> Twitter
             </CardFooterItem>
-            <CardFooterItem>
-              <span>
-                Share on <a href="#">Facebook</a>
-              </span>
-            </CardFooterItem>
+            <CardFooterItem href="#">Facebook</CardFooterItem>
           </CardFooter>
         </Card>
       </Section>
