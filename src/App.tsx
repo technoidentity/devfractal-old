@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { Docs } from './docs'
 
 export const App: React.SFC = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Docs />
-  </BrowserRouter>
+  </HashRouter>
 )
 
 // tslint:disable-next-line:no-default-export
