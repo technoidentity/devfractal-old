@@ -1,5 +1,6 @@
 import React from 'react'
 import { SimpleTable, SimpleViewer } from '../../../devfractal/simple'
+import { delay } from '../../../utils'
 
 interface Todo {
   readonly id: number
@@ -25,9 +26,21 @@ const todoList: ReadonlyArray<Todo> = [
   },
 ]
 
+const asyncTodoList: () => Promise<ReadonlyArray<Todo>> = async () => {
+  // tslint:disable-next-line: no-empty
+  await delay(3000, () => {})
+  return Promise.resolve(todoList)
+}
+
+// const rejectedTodoList: () => Promise<never> = async () => {
+//   // tslint:disable-next-line: no-empty
+//   await delay(3000, () => {})
+//   return Promise.reject(new Error('no todos available right now!'))
+// }
+
 export const SimpleTodo: React.SFC = () => (
   <>
     <SimpleViewer object={todoList[0]} />
-    <SimpleTable headers={['id', 'title', 'done']} values={todoList} />
+    <SimpleTable headers={['id', 'title', 'done']} values={asyncTodoList} />
   </>
 )
