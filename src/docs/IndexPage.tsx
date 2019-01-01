@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Column, Columns } from '../devfractal/columns'
-import { SubTitle, Title } from '../devfractal/elements'
-import { Container, Hero, HeroBody, Section } from '../devfractal/layout'
+import {
+  Column,
+  Columns,
+  Container,
+  Hero,
+  HeroBody,
+  Section,
+  SubTitle,
+  Title,
+} from '../devfractal'
 import logo from './logo.png'
 import {
   ColumnsMedia,
