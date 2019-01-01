@@ -19,10 +19,6 @@ import {
   TextAreaFieldProps,
 } from './Fields'
 
-// export interface ValidationProps {
-//   readonly validations: ReadonlyArray<Validations>
-// }
-
 export interface SimpleInputProps extends InputFieldProps {
   readonly label: string
   readonly name: string
@@ -31,7 +27,7 @@ export interface SimpleInputProps extends InputFieldProps {
 type GenericInputProps = FieldProps & Exclude<SimpleInputProps, 'type'>
 // & ValidationProps
 
-export const SimpleInput: React.SFC<GenericInputProps> = ({
+const SimpleInput: React.SFC<GenericInputProps> = ({
   // validations,
   label,
   ...props
@@ -43,19 +39,19 @@ export const SimpleInput: React.SFC<GenericInputProps> = ({
   </Field>
 )
 
-export const SimpleText: React.SFC<GenericInputProps> = props => (
+const SimpleText: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="text" />
 )
-export const SimplePassword: React.SFC<GenericInputProps> = props => (
+const SimplePassword: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="password" />
 )
-export const SimpleEmail: React.SFC<GenericInputProps> = props => (
+const SimpleEmail: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="email" />
 )
-export const SimpleTelephone: React.SFC<GenericInputProps> = props => (
+const SimpleTelephone: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="tel" />
 )
-export const SimpleUrl: React.SFC<GenericInputProps> = props => (
+const SimpleUrl: React.SFC<GenericInputProps> = props => (
   <SimpleInput {...props} type="url" />
 )
 
@@ -63,7 +59,7 @@ export interface SimpleCheckboxProps extends CheckboxFieldProps {
   readonly name: string
 }
 
-export const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
+const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
   children,
   ...props
 }) => (
@@ -77,7 +73,7 @@ export interface SimpleRadioGroupProps extends RadioFieldProps {
   readonly name: string
 }
 
-export const SimpleRadioGroup: React.SFC<SimpleRadioGroupProps> = ({
+const SimpleRadioGroup: React.SFC<SimpleRadioGroupProps> = ({
   children,
   ...props
 }) => (
@@ -91,10 +87,7 @@ export interface SimpleSelectProps extends SelectFieldProps {
   readonly name: string
 }
 
-export const SimpleSelect: React.SFC<SimpleSelectProps> = ({
-  children,
-  ...props
-}) => (
+const SimpleSelect: React.SFC<SimpleSelectProps> = ({ children, ...props }) => (
   <Field>
     <SelectField {...props}>{children}</SelectField>
     <ErrorField name={props.name} />
@@ -106,7 +99,7 @@ export interface SimpleTextAreaProps extends TextAreaFieldProps {
   readonly label: string
 }
 
-export const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
+const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
   label,
   ...props
 }) => (
@@ -117,32 +110,32 @@ export const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
   </Field>
 )
 
-// export const SimpleColor: React.SFC<SimpleInputProps> = props => (
+//  const SimpleColor: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="color" />
 // )
-// export const SimpleDate: React.SFC<SimpleInputProps> = props => (
+//  const SimpleDate: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="date" />
 // )
-// export const SimpleDateTimeLocal: React.SFC<SimpleInputProps> = props => (
+//  const SimpleDateTimeLocal: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="datetime-local" />
 // )
-// export const SimpleMonth: React.SFC<SimpleInputProps> = props => (
+//  const SimpleMonth: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="month" />
 // )
-// export const SimpleNumber: React.SFC<SimpleInputProps> = props => (
+//  const SimpleNumber: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="number" />
 // )
-// export const SimpleRange: React.SFC<SimpleInputProps> = props => (
+//  const SimpleRange: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="range" />
 // )
-// export const SimpleSearch: React.SFC<SimpleInputProps> = props => (
+//  const SimpleSearch: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="search" />
 // )
-// export const SimpleTime: React.SFC<SimpleInputProps> = props => (
+//  const SimpleTime: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="time" />
 // )
 
-// export const SimpleWeek: React.SFC<SimpleInputProps> = props => (
+//  const SimpleWeek: React.SFC<SimpleInputProps> = props => (
 //   <SimpleInput {...props} type="week" />
 // )
 export interface SimpleFormButtonsProps {
@@ -150,7 +143,7 @@ export interface SimpleFormButtonsProps {
   readonly reset?: boolean | string
 }
 
-export const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
+const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
 }) => (
@@ -184,7 +177,7 @@ export interface SimpleFormProps<Values> {
   onSubmit(values: Values, actions: FormikActions<Values>): void
 }
 
-export const SimpleForm: <Values>(
+const SimpleForm: <Values>(
   props: SimpleFormProps<Values> & { readonly children: React.ReactNode },
 ) => JSX.Element = ({
   initialValues,
@@ -211,7 +204,7 @@ export const SimpleForm: <Values>(
   )
 }
 
-export const SimpleValues: React.SFC = () => (
+const SimpleValues: React.SFC = () => (
   <FormikConsumer>
     {({ values }) => (
       <code style={{ background: '#f6f8fa' }}>{jsonStringify(values)}</code>
@@ -232,15 +225,6 @@ export const Simple = {
   Select: SimpleSelect,
   TextArea: SimpleTextArea,
   RadioGroup: SimpleRadioGroup,
-  // Color: SimpleColor,
-  // Date: SimpleDate,
-  // DateTimeLocal: SimpleDateTimeLocal,
-  // Month: SimpleMonth,
-  // Number: SimpleNumber,
-  // Range: SimpleRange,
-  // Search: SimpleSearch,
-  // Time: SimpleTime,
   Url: SimpleUrl,
-  // Week: SimpleWeek,
   Values: SimpleValues,
 }

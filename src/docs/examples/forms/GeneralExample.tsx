@@ -7,10 +7,11 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Column, Columns } from '../../../devfractal/columns'
 import {
   Button,
   CheckBox,
+  Column,
+  Columns,
   Field,
   FieldBody,
   FieldHelp,
@@ -19,10 +20,10 @@ import {
   Label,
   Radio,
   RadioGroup,
+  Section,
   Select,
   TextArea,
-} from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
+} from '../devfractal'
 
 export const GeneralExample: React.SFC = () => (
   <>

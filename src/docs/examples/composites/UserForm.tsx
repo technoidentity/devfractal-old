@@ -1,6 +1,6 @@
 import React from 'react'
 import { number, object, ObjectSchema, string } from 'yup'
-import { consoleSubmit, Simple, SimpleValues } from '../../../devfractal/formik'
+import { consoleSubmit, Simple } from '../devfractal'
 
 interface LoginValues {
   readonly name: string
@@ -39,6 +39,6 @@ export const UserForm: React.SFC = () => (
     <Simple.Url label="Website:" name="website" />
     <Simple.FormButtons />
 
-    <SimpleValues />
+    <Simple.Values />
   </Simple.Form>
 )

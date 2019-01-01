@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  consoleSubmit,
-  Simple,
-  SimpleValues,
-} from '../../../../devfractal/formik'
+import { consoleSubmit, Simple } from '../../devfractal'
 import { initialLoginValues, loginSchema } from './common'
 
 export const SimpleLoginForm: React.SFC = () => (
@@ -16,6 +12,6 @@ export const SimpleLoginForm: React.SFC = () => (
     <Simple.Password label="Password:" name="password" />
     <Simple.FormButtons />
 
-    <SimpleValues />
+    <Simple.Values />
   </Simple.Form>
 )

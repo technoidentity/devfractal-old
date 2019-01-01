@@ -19,5 +19,11 @@
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": false,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["fontawesome", "formik", "fortawesome", "powerplug"]
+  "cSpell.words": [
+    "devfractal",
+    "fontawesome",
+    "formik",
+    "fortawesome",
+    "powerplug"
+  ]
 }

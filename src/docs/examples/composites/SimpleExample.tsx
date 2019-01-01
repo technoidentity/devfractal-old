@@ -1,7 +1,7 @@
 import React from 'react'
 import { number, object, ObjectSchema, string } from 'yup'
 import { Radio } from '../../../devfractal/form'
-import { consoleSubmit, Simple, SimpleValues } from '../../../devfractal/formik'
+import { consoleSubmit, Simple } from '../../../devfractal/formik'
 import { Section } from '../../../devfractal/layout'
 
 interface SimpleValues {
@@ -55,7 +55,7 @@ export const SimpleExample: React.SFC = () => (
       </Simple.Select>
       <Simple.TextArea label="TextArea" name="input" />
       <Simple.FormButtons />
-      <SimpleValues />
+      <Simple.Values />
     </Simple.Form>
   </Section>
 )

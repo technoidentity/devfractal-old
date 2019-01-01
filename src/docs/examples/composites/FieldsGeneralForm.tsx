@@ -1,17 +1,22 @@
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { boolean, object, ObjectSchema, string } from 'yup'
-import { Button, Field, Label, Radio } from '../../../devfractal/form'
-import { InputField, SimpleValues } from '../../../devfractal/formik'
-import {
-  CheckboxField,
-  ErrorField,
-  RadioGroupField,
-  SelectField,
-  TextAreaField,
-} from '../../../devfractal/formik/Fields'
-import { Container, Section } from '../../../devfractal/layout'
 import { logger } from '../common'
+import {
+  Button,
+  CheckboxField,
+  Container,
+  ErrorField,
+  Field,
+  InputField,
+  Label,
+  Radio,
+  RadioGroupField,
+  Section,
+  SelectField,
+  Simple,
+  TextAreaField,
+} from '../devfractal'
 
 interface GeneralFormProps {
   readonly name: string
@@ -84,7 +89,7 @@ const InnerFieldsGeneralForm: React.SFC<FormikProps<GeneralFormProps>> = () => {
               Reset
             </Button>
           </Field>
-          <SimpleValues />
+          <Simple.Values />
         </Form>
       </Container>
     </Section>
