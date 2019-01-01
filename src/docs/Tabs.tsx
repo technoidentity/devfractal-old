@@ -1,5 +1,5 @@
 import React from 'react'
-import { RoutedTabs, RoutedTabsItem } from '../devfractal/components'
+import { RoutedTabs, RoutedTabsItem } from '../devfractal'
 
 export const ColumnsTab: React.SFC = () => (
   <RoutedTabs to="/columns" size="medium">
@@ -75,6 +75,7 @@ export const ModifiersTab: React.SFC = () => (
 export const ElementsTab: React.SFC = () => (
   <RoutedTabs to="/elements" size="medium">
     <RoutedTabsItem value="box">Box</RoutedTabsItem>
+    <RoutedTabsItem value="content">Content</RoutedTabsItem>
     <RoutedTabsItem value="delete">Delete</RoutedTabsItem>
     <RoutedTabsItem value="icon">Icon</RoutedTabsItem>
     <RoutedTabsItem value="image">Image</RoutedTabsItem>
