@@ -51,6 +51,7 @@ import {
   TypographyHelpersExample,
 } from '../bulma/examples'
 import { DropDownExampleRoutes } from '../bulma/examples/components/DropDownExample'
+import { SimpleTodo } from '../bulma/examples/composites/SimpleTodo'
 import { SimpleRedirect } from '../utils/SimpleRedirect'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
@@ -89,6 +90,7 @@ export const CompositesRoutes: React.SFC = () => (
     <Route path="/composites/login-form" exact component={SimpleLoginForm} />
     <Route path="/composites/counter" exact component={Counter} />
     <Route path="/composites/todo" exact component={Todo} />
+    <Route path="/composites/simple-todo" exact component={SimpleTodo} />
   </>
 )
 export const ColumnsRoutes: React.SFC = () => (

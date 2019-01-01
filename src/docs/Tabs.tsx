@@ -47,6 +47,7 @@ export const CompositesTab: React.SFC = () => (
     <RoutedTabsItem value="login-form">Login form</RoutedTabsItem>
     <RoutedTabsItem value="counter">Counter</RoutedTabsItem>
     <RoutedTabsItem value="todo">Todo</RoutedTabsItem>
+    <RoutedTabsItem value="simple-todo">Simple todo</RoutedTabsItem>
   </RoutedTabs>
 )
 
