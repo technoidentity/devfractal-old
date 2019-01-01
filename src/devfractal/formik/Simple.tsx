@@ -172,7 +172,7 @@ const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
 
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values
-  readonly validationSchema: ObjectSchema<Values>
+  readonly validationSchema: ObjectSchema<Partial<Values>>
   readonly persist?: string
   onSubmit(values: Values, actions: FormikActions<Values>): void
 }
