@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box, Title } from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+import { Box, Title } from '../devfractal'
+import { Section } from '../devfractal'
+import { Text } from '../devfractal'
 
 export const TypographyHelpersExample: React.SFC = () => (
   <>

@@ -1,13 +1,7 @@
 import { format } from 'date-fns'
 import React from 'react'
-import {
-  Table,
-  TableBody,
-  TableHead,
-  Td,
-  Tr,
-} from '../../../devfractal/elements/Table'
-import { CheckBox, Input } from '../../../devfractal/form'
+import { Table, TableBody, TableHead, Td, Tr } from '../devfractal'
+import { CheckBox, Input } from '../devfractal'
 
 interface Todo {
   readonly id: number

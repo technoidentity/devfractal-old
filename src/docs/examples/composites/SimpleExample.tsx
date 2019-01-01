@@ -1,8 +1,8 @@
 import React from 'react'
 import { number, object, ObjectSchema, string } from 'yup'
-import { Radio } from '../../../devfractal/form'
-import { consoleSubmit, Simple } from '../../../devfractal/formik'
-import { Section } from '../../../devfractal/layout'
+import { Radio } from '../devfractal'
+import { consoleSubmit, Simple } from '../devfractal'
+import { Section } from '../devfractal'
 
 interface SimpleValues {
   readonly username: string

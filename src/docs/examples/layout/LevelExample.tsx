@@ -1,8 +1,8 @@
 import React from 'react'
-import { SubTitle, Title } from '../../../devfractal/elements'
-import { Button, Field, Input } from '../../../devfractal/form'
-import { Level, LevelItem, Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+import { SubTitle, Title } from '../devfractal'
+import { Button, Field, Input } from '../devfractal'
+import { Level, LevelItem, Section } from '../devfractal'
+import { Text } from '../devfractal'
 
 export const LevelExample: React.SFC = () => (
   <>

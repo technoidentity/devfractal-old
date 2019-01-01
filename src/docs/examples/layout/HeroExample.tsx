@@ -8,9 +8,9 @@ import {
   NavbarMenu,
   Tabs,
   TabsItem,
-} from '../../../devfractal/components'
-import { SubTitle, Title } from '../../../devfractal/elements'
-import { Button } from '../../../devfractal/form'
+} from '../devfractal'
+import { SubTitle, Title } from '../devfractal'
+import { Button } from '../devfractal'
 import {
   Container,
   Hero,
@@ -18,7 +18,7 @@ import {
   HeroFoot,
   HeroHead,
   Section,
-} from '../../../devfractal/layout'
+} from '../devfractal'
 
 export const HeroExample: React.SFC = () => (
   <Section>

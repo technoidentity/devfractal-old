@@ -1,6 +1,6 @@
 import React from 'react'
-import { SubTitle, Title } from '../../../devfractal/elements'
-import { Container, Section } from '../../../devfractal/layout'
+import { SubTitle, Title } from '../devfractal'
+import { Container, Section } from '../devfractal'
 
 export const SectionExample: React.SFC = () => (
   <Section>

@@ -7,8 +7,8 @@ import {
   faWarehouse,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Icon, SubTitle, Title } from '../devfractal/elements'
-import { Media, MediaContent, MediaLeft } from '../devfractal/layout'
+import { Icon, SubTitle, Title } from '../devfractal'
+import { Media, MediaContent, MediaLeft } from '../devfractal'
 
 export const FormMedia: React.SFC = () => (
   <Media className="notification is-light">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Footer, Section } from '../../../devfractal/layout'
+import { Container, Footer, Section } from '../devfractal'
 
 export const FooterExample: React.SFC = () => (
   <Section>

@@ -1,10 +1,10 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Value } from 'react-powerplug'
-import { Icon } from '../../../devfractal/elements'
-import { Button } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+import { Icon } from '../devfractal'
+import { Button } from '../devfractal'
+import { Section } from '../devfractal'
+import { Text } from '../devfractal'
 
 interface CounterViewProps {
   readonly count: number

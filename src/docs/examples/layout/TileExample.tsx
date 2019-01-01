@@ -1,6 +1,6 @@
 import React from 'react'
-import { Content, Image, SubTitle, Title } from '../../../devfractal/elements'
-import { Section, Tile } from '../../../devfractal/layout'
+import { Content, Image, SubTitle, Title } from '../devfractal'
+import { Section, Tile } from '../devfractal'
 
 export const TileExample: React.SFC = () => (
   <>

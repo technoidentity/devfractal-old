@@ -1,8 +1,8 @@
 import React from 'react'
-import { Box, Title } from '../../../devfractal/elements'
-import { Button } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+import { Box, Title } from '../devfractal'
+import { Button } from '../devfractal'
+import { Section } from '../devfractal'
+import { Text } from '../devfractal'
 
 export const HelpersExample: React.SFC = () => (
   <>

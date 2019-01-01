@@ -1,5 +1,6 @@
 import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
+import { logger } from '../../common'
 import {
   Button,
   Container,
@@ -7,8 +8,7 @@ import {
   FormikError,
   FormikInput,
   Label,
-} from '../../../../devfractal'
-import { logger } from '../../common'
+} from '../../devfractal'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
 const LoginFormInner: React.SFC<FormikProps<LoginValues>> = () => (
