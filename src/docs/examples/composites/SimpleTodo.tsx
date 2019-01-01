@@ -1,6 +1,7 @@
 import React from 'react'
 import { SimpleTable, SimpleViewer } from '../../../devfractal/simple'
 import { delay } from '../../../utils'
+import { SimpleAddTodo } from './AddTodo'
 
 interface Todo {
   readonly id: number
@@ -40,6 +41,7 @@ const asyncTodoList: () => Promise<ReadonlyArray<Todo>> = async () => {
 
 export const SimpleTodo: React.SFC = () => (
   <>
+    <SimpleAddTodo />
     <SimpleViewer object={todoList[0]} />
     <SimpleTable headers={['id', 'title', 'done']} values={asyncTodoList} />
   </>
