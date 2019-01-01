@@ -21,7 +21,7 @@ interface FormikInputProps<V> extends FieldProps<V>, Omit<InputProps, 'form'> {}
 export const FormikInput: <V = unknown>(
   props: FormikInputProps<V>,
 ) => JSX.Element = ({ form, field, ...props }) => (
-  <Input type="text" {...field} {...props} />
+  <Input {...props} type="text" {...field} />
 )
 
 interface FormikCheckboxProps<V>
@@ -31,7 +31,7 @@ interface FormikCheckboxProps<V>
 export const FormikCheckbox: <V = unknown>(
   props: FormikCheckboxProps<V>,
 ) => JSX.Element = ({ form, field, children, ...props }) => (
-  <CheckBox {...field} {...props}>
+  <CheckBox {...props} {...field}>
     {children}
   </CheckBox>
 )
@@ -63,7 +63,7 @@ interface FormikSelectProps<V>
 export const FormikSelect: <V = unknown>(
   props: FormikSelectProps<V>,
 ) => JSX.Element = ({ form, field, children, ...props }) => (
-  <Select {...field} {...props}>
+  <Select {...props} {...field}>
     {children}
   </Select>
 )
@@ -75,7 +75,7 @@ interface FormikTextAreaProps<V>
 export const FormikTextArea: <V = unknown>(
   props: FormikTextAreaProps<V>,
 ) => JSX.Element = ({ form, field, ...props }) => (
-  <TextArea {...field} {...props} />
+  <TextArea {...props} {...field} />
 )
 
 export type FormikErrorProps = Omit<FieldHelpProps, 'variant'>
@@ -84,7 +84,7 @@ export const FormikError: React.SFC<FormikErrorProps> = ({
   children,
   ...props
 }) => (
-  <FieldHelp variant="danger" {...props}>
+  <FieldHelp {...props} variant="danger">
     {children}
   </FieldHelp>
 )
