@@ -1,4 +1,4 @@
-import 'bulma/css/bulma.css'
+import 'devfractal/css/devfractal.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'

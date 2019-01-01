@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Text } from '../bulma/modifiers/Text'
+import { Text } from '../devfractal/modifiers/Text'
 
 storiesOf('Text', module)
   .add('with size', () => (

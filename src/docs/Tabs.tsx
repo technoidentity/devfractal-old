@@ -1,5 +1,5 @@
 import React from 'react'
-import { RoutedTabs, RoutedTabsItem } from '../bulma/components'
+import { RoutedTabs, RoutedTabsItem } from '../devfractal/components'
 
 export const ColumnsTab: React.SFC = () => (
   <RoutedTabs to="/columns" size="medium">

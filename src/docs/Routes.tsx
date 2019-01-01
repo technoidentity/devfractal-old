@@ -49,9 +49,9 @@ import {
   TitleExample,
   Todo,
   TypographyHelpersExample,
-} from '../bulma/examples'
-import { DropDownExampleRoutes } from '../bulma/examples/components/DropDownExample'
-import { SimpleTodo } from '../bulma/examples/composites/SimpleTodo'
+} from '../devfractal/examples'
+import { DropDownExampleRoutes } from '../devfractal/examples/components/DropDownExample'
+import { SimpleTodo } from '../devfractal/examples/composites/SimpleTodo'
 import { SimpleRedirect } from '../utils/SimpleRedirect'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {

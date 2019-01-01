@@ -35,7 +35,7 @@ export const PanelExample: React.SFC = () => (
       </PanelTabs>
       <PanelBlock>
         <PanelIcon icon={faBook} />
-        bulma
+        devfractal
       </PanelBlock>
 
       <PanelBlock>

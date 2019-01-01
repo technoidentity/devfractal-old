@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Column, Columns } from '../bulma/columns'
-import { SubTitle, Title } from '../bulma/elements'
-import { Container, Hero, HeroBody, Section } from '../bulma/layout'
+import { Column, Columns } from '../devfractal/columns'
+import { SubTitle, Title } from '../devfractal/elements'
+import { Container, Hero, HeroBody, Section } from '../devfractal/layout'
 import logo from './logo.png'
 import {
   ColumnsMedia,

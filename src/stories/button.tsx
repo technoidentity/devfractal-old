@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Button, Field } from '../bulma/form'
+import { Button, Field } from '../devfractal/form'
 
 storiesOf('Button ', module)
   .add('with variant', () => (

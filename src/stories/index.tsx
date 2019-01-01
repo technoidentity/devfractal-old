@@ -1,4 +1,4 @@
-import 'bulma/css/bulma.css'
+import 'devfractal/css/devfractal.css'
 import './button'
 import './checkbox'
 import './file'
