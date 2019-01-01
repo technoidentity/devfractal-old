@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import { SimpleRedirect } from '../utils/SimpleRedirect'
 import {
   BasicColumnExample,
   BoxExample,
@@ -49,10 +50,9 @@ import {
   TitleExample,
   Todo,
   TypographyHelpersExample,
-} from '../devfractal/examples'
-import { DropDownExampleRoutes } from '../devfractal/examples/components/DropDownExample'
-import { SimpleTodo } from '../devfractal/examples/composites/SimpleTodo'
-import { SimpleRedirect } from '../utils/SimpleRedirect'
+} from './examples'
+import { DropDownExampleRoutes } from './examples/components/DropDownExample'
+import { SimpleTodo } from './examples/composites/SimpleTodo'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
   ColumnsTab,
