@@ -1,6 +1,5 @@
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Column, Columns } from '../../../devfractal/columns'
 import {
   Card,
   CardContent,
@@ -10,21 +9,19 @@ import {
   CardHeaderIcon,
   CardHeaderTitle,
   CardImage,
-} from '../../../devfractal/components/Card'
-import {
+  Column,
+  Columns,
   Content,
   Icon,
   Image,
-  SubTitle,
-  Title,
-} from '../../../devfractal/elements'
-import {
   Media,
   MediaContent,
   MediaLeft,
   Section,
-} from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+  SubTitle,
+  Text,
+  Title,
+} from '../devfractal'
 
 export const CardExample: React.SFC = () => (
   <Columns columnCentered>

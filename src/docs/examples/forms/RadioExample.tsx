@@ -1,15 +1,16 @@
 import React from 'react'
 import { Value } from 'react-powerplug'
-import { Column, Columns } from '../../../devfractal/columns'
-import { Title } from '../../../devfractal/elements'
 import {
+  Column,
+  Columns,
   FieldBody,
   FieldLabel,
   FormField,
   Radio,
   RadioGroup,
-} from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
+  Section,
+  Title,
+} from '../devfractal'
 
 export const RadioExample: React.SFC = () => (
   <Columns>

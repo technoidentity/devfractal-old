@@ -5,15 +5,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import {
+  Button,
+  CheckBox,
+  Input,
   Panel,
   PanelBlock,
   PanelHeading,
   PanelIcon,
   PanelTabs,
   PanelTabsItem,
-} from '../../../devfractal/components/Panel'
-import { Button, CheckBox, Input } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
+  Section,
+} from '../devfractal'
 
 export const PanelExample: React.SFC = () => (
   <Section>

@@ -1,11 +1,15 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Value } from 'react-powerplug'
-import { Column, Columns } from '../../../devfractal/columns'
-import { Title } from '../../../devfractal/elements'
-import { Field, Select } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+import {
+  Column,
+  Columns,
+  Field,
+  Section,
+  Select,
+  Text,
+  Title,
+} from '../devfractal'
 
 export const DynamicSelect: React.SFC = () => (
   <Value initial={{ color: 'red' }}>

@@ -1,19 +1,17 @@
 import React from 'react'
-import {
-  Message,
-  MessageBody,
-  MessageHeader,
-} from '../../../devfractal/components'
+import { logger } from '../common'
 import {
   Box,
   Delete,
+  Message,
+  MessageBody,
+  MessageHeader,
   Notification,
+  Section,
   Tag,
   Tags,
   Title,
-} from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
-import { logger } from '../common'
+} from '../devfractal'
 
 export const DeleteExample: React.SFC = () => (
   <>

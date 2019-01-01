@@ -1,28 +1,24 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import {
-  Modal,
-  ModalBackground,
-  ModalClose,
-  ModalContent,
-} from '../../../devfractal/components/Modal'
-import {
   Box,
   Content,
   Delete,
   Icon,
   Image,
-  Title,
-} from '../../../devfractal/elements'
-import {
   Level,
   LevelItem,
   Media,
   MediaContent,
   MediaLeft,
   MediaRight,
+  Modal,
+  ModalBackground,
+  ModalClose,
+  ModalContent,
   Section,
-} from '../../../devfractal/layout'
+  Title,
+} from '../devfractal'
 
 export const ModalExample: React.SFC = () => (
   <>

@@ -1,11 +1,13 @@
 import React from 'react'
 import {
+  Box,
+  Delete,
   Message,
   MessageBody,
   MessageHeader,
-} from '../../../devfractal/components/Message'
-import { Box, Delete, Title } from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
+  Section,
+  Title,
+} from '../devfractal'
 
 export const MessageExample: React.SFC = () => (
   <div>

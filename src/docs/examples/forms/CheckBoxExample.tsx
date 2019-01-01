@@ -1,10 +1,7 @@
 import React from 'react'
 import { Value } from 'react-powerplug'
-import { Column, Columns } from '../../../devfractal/columns'
-import { Title } from '../../../devfractal/elements'
-import { CheckBox, Field } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
 import { logger } from '../common'
+import { CheckBox, Column, Columns, Field, Section, Title } from '../devfractal'
 
 export const DynamicCheckBox: React.SFC = () => (
   <Value initial={{ checked: false }}>

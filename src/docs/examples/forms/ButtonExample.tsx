@@ -11,11 +11,19 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Value } from 'react-powerplug'
-import { Column, Columns } from '../../../devfractal/columns'
-import { Box, Icon, Title } from '../../../devfractal/elements'
-import { Button, ButtonsGroup, Field, Label } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+import {
+  Box,
+  Button,
+  ButtonsGroup,
+  Column,
+  Columns,
+  Field,
+  Icon,
+  Label,
+  Section,
+  Text,
+  Title,
+} from '../devfractal'
 
 export const DynamicButton: React.SFC = () => (
   <Value initial={{ clicked: false }}>

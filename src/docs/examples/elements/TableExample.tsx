@@ -1,5 +1,7 @@
 import React from 'react'
+import { logger } from '../common'
 import {
+  Section,
   Table,
   TableBody,
   TableFoot,
@@ -8,9 +10,7 @@ import {
   Th,
   Title,
   Tr,
-} from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
-import { logger } from '../common'
+} from '../devfractal'
 
 export const TableExample: React.SFC = () => (
   <>

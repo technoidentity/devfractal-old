@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box, Delete, Notification, Title } from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
+import { Box, Delete, Notification, Section, Title } from '../devfractal'
 
 export const NotificationExample: React.SFC = () => (
   <>

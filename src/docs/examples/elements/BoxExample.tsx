@@ -1,11 +1,13 @@
 import React from 'react'
-import { Box, Content, Image } from '../../../devfractal/elements'
 import {
+  Box,
+  Content,
+  Image,
   Media,
   MediaContent,
   MediaLeft,
   Section,
-} from '../../../devfractal/layout'
+} from '../devfractal'
 
 export const BoxExample: React.SFC = () => (
   <Section>

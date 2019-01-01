@@ -5,10 +5,15 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Breadcrumb, BreadcrumbItem } from '../../../devfractal/components'
-import { Icon, Title } from '../../../devfractal/elements'
-import { Field } from '../../../devfractal/form'
-import { Container, Section } from '../../../devfractal/layout'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  Container,
+  Field,
+  Icon,
+  Section,
+  Title,
+} from '../devfractal'
 
 export const BreadcrumbExample: React.SFC = () => (
   <div>

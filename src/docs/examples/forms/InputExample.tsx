@@ -1,16 +1,19 @@
 import { faCheck, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Value } from 'react-powerplug'
-import { Column, Columns } from '../../../devfractal/columns'
-import { SubTitle, Title } from '../../../devfractal/elements'
 import {
+  Column,
+  Columns,
+  Container,
   FieldBody,
   FieldLabel,
   FormField,
   Input,
-} from '../../../devfractal/form'
-import { Container, Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+  Section,
+  SubTitle,
+  Text,
+  Title,
+} from '../devfractal'
 
 export const UppercaseInput: React.SFC = () => (
   <Value initial={{ text: '' }}>

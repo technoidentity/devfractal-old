@@ -2,6 +2,12 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import {
+  Button,
+  ButtonsGroup,
+  Field,
+  Hero,
+  HeroBody,
+  Icon,
   Navbar,
   NavbarBrand,
   NavbarBurger,
@@ -12,11 +18,10 @@ import {
   NavbarLink,
   NavbarMenu,
   NavbarStart,
-} from '../../../devfractal/components/Navbar'
-import { Icon, SubTitle, Title } from '../../../devfractal/elements'
-import { Field } from '../../../devfractal/form'
-import { Button, ButtonsGroup } from '../../../devfractal/form/Button'
-import { Hero, HeroBody, Section } from '../../../devfractal/layout'
+  Section,
+  SubTitle,
+  Title,
+} from '../devfractal'
 
 export const NavbarExample: React.SFC = () => (
   <>

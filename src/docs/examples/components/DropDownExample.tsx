@@ -2,18 +2,22 @@ import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Redirect, Route } from 'react-router'
 import {
+  Button,
   DropDown,
   DropDownContent,
   DropDownDivider,
   DropDownItem,
   DropDownMenu,
   DropDownTrigger,
+  Field,
+  Icon,
+  Level,
+  LevelItem,
   RoutedTabs,
   RoutedTabsItem,
-} from '../../../devfractal/components'
-import { Icon, Title } from '../../../devfractal/elements'
-import { Button, Field } from '../../../devfractal/form'
-import { Level, LevelItem, Section } from '../../../devfractal/layout'
+  Section,
+  Title,
+} from '../devfractal'
 
 const DropDownExampleTab: React.SFC = () => (
   <>

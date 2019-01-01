@@ -1,9 +1,6 @@
 import React from 'react'
 import { Value } from 'react-powerplug'
-import { Column, Columns } from '../../../devfractal/columns'
-import { Title } from '../../../devfractal/elements'
-import { TextArea } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
+import { Column, Columns, Section, TextArea, Title } from '../devfractal'
 
 export const DynamicTextarea: React.SFC = () => (
   <Value initial={{ message: '' }}>

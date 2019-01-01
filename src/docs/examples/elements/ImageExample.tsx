@@ -1,6 +1,5 @@
 import React from 'react'
-import { Image, Title } from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
+import { Image, Section, Title } from '../devfractal'
 
 export const ImageExample: React.SFC = () => (
   <>

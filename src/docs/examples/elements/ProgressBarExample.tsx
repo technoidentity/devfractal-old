@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box, ProgressBar, Title } from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
+import { Box, ProgressBar, Section, Title } from '../devfractal'
 
 export const ProgressBarExample: React.SFC = () => (
   <>

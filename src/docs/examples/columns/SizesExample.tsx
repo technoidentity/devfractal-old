@@ -1,8 +1,14 @@
 import React from 'react'
-import { Column, Columns } from '../../../devfractal/columns'
-import { Box, Notification, Title } from '../../../devfractal/elements'
-import { SubTitle } from '../../../devfractal/elements/Title'
-import { Container, Section } from '../../../devfractal/layout'
+import {
+  Box,
+  Column,
+  Columns,
+  Container,
+  Notification,
+  Section,
+  SubTitle,
+  Title,
+} from '../devfractal'
 
 export const SizesColumnExample: React.SFC = () => (
   <div>

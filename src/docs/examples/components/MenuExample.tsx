@@ -1,12 +1,12 @@
 import React from 'react'
 import {
+  Box,
   Menu,
   MenuItem,
   MenuLabel,
   MenuList,
-} from '../../../devfractal/components'
-import { Box } from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
+  Section,
+} from '../devfractal'
 
 export const MenuExample: React.SFC = () => (
   <Section>

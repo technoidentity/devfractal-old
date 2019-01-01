@@ -6,10 +6,10 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from '../../../devfractal/components'
-import { Title } from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+  Section,
+  Text,
+  Title,
+} from '../devfractal'
 
 export const PaginationExample: React.SFC = () => (
   <>

@@ -1,8 +1,14 @@
 import React from 'react'
-import { Box, Delete, Tag, Tags, Title } from '../../../devfractal/elements'
-import { Field } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
-import { Text } from '../../../devfractal/modifiers'
+import {
+  Box,
+  Delete,
+  Field,
+  Section,
+  Tag,
+  Tags,
+  Text,
+  Title,
+} from '../devfractal'
 
 export const TagExample: React.SFC = () => (
   <>

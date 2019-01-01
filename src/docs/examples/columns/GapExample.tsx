@@ -1,7 +1,12 @@
 import React from 'react'
-import { Column, Columns } from '../../../devfractal/columns'
-import { Notification, Title } from '../../../devfractal/elements'
-import { Container, Section } from '../../../devfractal/layout'
+import {
+  Column,
+  Columns,
+  Container,
+  Notification,
+  Section,
+  Title,
+} from '../devfractal'
 
 export const GapColumnExample: React.SFC = () => (
   <div>

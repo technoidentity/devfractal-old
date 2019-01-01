@@ -7,8 +7,7 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Icon, Title } from '../../../devfractal/elements'
-import { Section } from '../../../devfractal/layout'
+import { Icon, Section, Title } from '../devfractal'
 
 export const IconExample: React.SFC = () => (
   <>

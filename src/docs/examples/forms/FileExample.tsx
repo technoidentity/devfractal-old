@@ -1,8 +1,13 @@
 import React from 'react'
-import { Column, Columns } from '../../../devfractal/columns'
-import { Box, Title } from '../../../devfractal/elements'
-import { Field, File } from '../../../devfractal/form'
-import { Section } from '../../../devfractal/layout'
+import {
+  Box,
+  Column,
+  Columns,
+  Field,
+  File,
+  Section,
+  Title,
+} from '../devfractal'
 
 export const FileExample: React.SFC = () => (
   <div>

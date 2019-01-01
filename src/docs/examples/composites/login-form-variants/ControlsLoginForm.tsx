@@ -1,8 +1,13 @@
 import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { Button, Field as FieldGroup, Label } from '../../../../devfractal/form'
-import { FormikError, FormikInput } from '../../../../devfractal/formik'
-import { Container } from '../../../../devfractal/layout'
+import {
+  Button,
+  Container,
+  Field as FieldGroup,
+  FormikError,
+  FormikInput,
+  Label,
+} from '../../../../devfractal'
 import { logger } from '../../common'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
