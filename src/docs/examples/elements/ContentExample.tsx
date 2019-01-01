@@ -1,8 +1,5 @@
 import React from 'react'
-import { Box, Content, Title } from '../devfractal'
-import { Section } from '../devfractal'
-import { Text } from '../devfractal'
-import { Ol } from '../modifiers/Ol'
+import { Box, Content, Ol, Section, Text, Title } from '../devfractal'
 
 export const ContentExample: React.SFC = () => (
   <Section>
