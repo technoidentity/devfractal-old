@@ -1,5 +1,6 @@
 import React from 'react'
-import { camelCaseToPhrase } from '../../utils'
+import { Boolean, Function } from 'tcomb'
+import { Async, camelCaseToPhrase } from '../../utils'
 import {
   Table,
   TableBody,
@@ -9,41 +10,79 @@ import {
   Th,
   Tr,
 } from '../elements'
+import { CheckBox } from '../form'
 
-export interface SimpleTableProps<T> extends TableProps {
+export interface SimpleTableProps extends TableProps {
   readonly headers: ReadonlyArray<string>
-  readonly values: ReadonlyArray<T>
+  readonly values:
+    | ReadonlyArray<{ readonly [index: string]: any }>
+    | (() => Promise<{ readonly [index: string]: any }>)
 }
 
-export const SimpleTable: <T>(props: SimpleTableProps<T>) => JSX.Element = ({
+export interface RowsProps {
+  readonly headers: ReadonlyArray<string>
+  readonly values: ReadonlyArray<{ readonly [index: string]: any }>
+}
+
+const Rows: React.SFC<RowsProps> = ({ values, headers }) => {
+  return (
+    <>
+      {values.map((value, i) => (
+        <Tr key={i}>
+          {headers.map(key => (
+            <Td key={key}>
+              {Boolean.is(value[key]) ? (
+                <CheckBox readOnly checked={value[key]} />
+              ) : (
+                value[key]
+              )}
+            </Td>
+          ))}
+        </Tr>
+      ))}
+    </>
+  )
+}
+export const SimpleTable: React.SFC<SimpleTableProps> = ({
   headers,
   values,
   ...props
 }) => {
-  const headerItems: JSX.Element[] = headers.map(h => (
-    <Th>{camelCaseToPhrase(h)}</Th>
-  ))
-
   const header: JSX.Element = (
     <TableHead>
-      <Tr>{headerItems}</Tr>
+      <Tr>
+        {headers.map(h => (
+          <Th key={h}>{camelCaseToPhrase(h)}</Th>
+        ))}
+      </Tr>
     </TableHead>
   )
 
-  const rows: JSX.Element[] = values.map(value => (
-    <Tr>
-      {headers.map(key => (
-        <Td>{value[key]}</Td>
-      ))}
-    </Tr>
-  ))
-
-  const body: JSX.Element = <TableBody>{rows}</TableBody>
-
-  return (
+  return Function.is(values) ? (
+    <Async asyncFn={values}>
+      {({ error, data }) => {
+        if (error) {
+          return <div>Error</div>
+        } else if (data) {
+          return (
+            <Table {...props}>
+              {header}
+              <TableBody>
+                <Rows values={data} headers={headers} />
+              </TableBody>
+            </Table>
+          )
+        } else {
+          return <div>Loading...</div>
+        }
+      }}
+    </Async>
+  ) : (
     <Table {...props}>
       {header}
-      {body}
+      <TableBody>
+        <Rows values={values} headers={headers} />
+      </TableBody>
     </Table>
   )
 }
