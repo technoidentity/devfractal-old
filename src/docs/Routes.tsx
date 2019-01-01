@@ -10,6 +10,7 @@ import {
   CheckBoxExample,
   ColorHelpersExample,
   ContainerExample,
+  ContentExample,
   Counter,
   DeleteExample,
   DropDownExample,
@@ -131,6 +132,7 @@ export const ElementsRoutes: React.SFC = () => (
       exact
       component={NotificationExample}
     />
+    <Route path="/elements/content" exact component={ContentExample} />
     <Route path="/elements/title" exact component={TitleExample} />
     <Route path="/elements/delete" exact component={DeleteExample} />
     <Route path="/elements/icon" exact component={IconExample} />
