@@ -1,23 +1,22 @@
 import React from 'react'
 import {
+  Button,
+  Container,
+  Hero,
+  HeroBody,
+  HeroFoot,
+  HeroHead,
   Navbar,
   NavbarBrand,
   NavbarBurger,
   NavbarEnd,
   NavbarItem,
   NavbarMenu,
+  Section,
+  SubTitle,
   Tabs,
   TabsItem,
-} from '../devfractal'
-import { SubTitle, Title } from '../devfractal'
-import { Button } from '../devfractal'
-import {
-  Container,
-  Hero,
-  HeroBody,
-  HeroFoot,
-  HeroHead,
-  Section,
+  Title,
 } from '../devfractal'
 
 export const HeroExample: React.SFC = () => (

@@ -1,8 +1,13 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Content, Delete, Icon, Image, Title } from '../devfractal'
-import { Button, CheckBox, Field, TextArea } from '../devfractal'
 import {
+  Button,
+  CheckBox,
+  Content,
+  Delete,
+  Field,
+  Icon,
+  Image,
   Level,
   LevelItem,
   Media,
@@ -10,6 +15,8 @@ import {
   MediaLeft,
   MediaRight,
   Section,
+  TextArea,
+  Title,
 } from '../devfractal'
 
 export const MediaObjectExample: React.SFC = () => (

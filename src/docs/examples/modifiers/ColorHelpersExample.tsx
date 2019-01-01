@@ -1,7 +1,5 @@
 import React from 'react'
-import { Box, Title } from '../devfractal'
-import { Section } from '../devfractal'
-import { Text } from '../devfractal'
+import { Box, Section, Text, Title } from '../devfractal'
 
 export const ColorHelpersExample: React.SFC = () => (
   <>
