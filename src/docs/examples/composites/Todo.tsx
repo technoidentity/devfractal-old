@@ -1,7 +1,15 @@
 import { format } from 'date-fns'
 import React from 'react'
-import { Table, TableBody, TableHead, Td, Tr } from '../devfractal'
-import { CheckBox, Input } from '../devfractal'
+import {
+  CheckBox,
+  Input,
+  Section,
+  Table,
+  TableBody,
+  TableHead,
+  Td,
+  Tr,
+} from '../devfractal'
 
 interface Todo {
   readonly id: number
@@ -81,4 +89,8 @@ const todoList: ReadonlyArray<Todo> = [
   },
 ]
 
-export const Todo: React.SFC = () => <TodoListView todoList={todoList} />
+export const Todo: React.SFC = () => (
+  <Section>
+    <TodoListView todoList={todoList} />
+  </Section>
+)
