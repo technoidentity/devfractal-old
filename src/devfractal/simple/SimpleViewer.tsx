@@ -28,7 +28,7 @@ export const SimpleViewer: React.SFC<SimpleViewerProps> = ({ object }) => {
     <Section>
       <Box>
         {Object.keys(object).map(key => (
-          <Columns>
+          <Columns key={key}>
             <Column>
               <SimpleHeader objectKey={key} />
             </Column>
