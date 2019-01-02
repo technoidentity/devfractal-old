@@ -39,6 +39,6 @@ export const UserForm: React.SFC = () => (
     <Simple.Url label="Website:" name="website" />
     <Simple.FormButtons />
 
-    <Simple.Values />
+    <Simple.Debug />
   </Simple.Form>
 )

@@ -13,7 +13,7 @@ export const SimpleLoginForm: React.SFC = () => (
       <Simple.Password label="Password:" name="password" />
       <Simple.FormButtons />
 
-      <Simple.Values />
+      <Simple.Debug />
     </Simple.Form>
   </Section>
 )

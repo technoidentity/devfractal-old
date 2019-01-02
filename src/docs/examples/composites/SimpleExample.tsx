@@ -55,7 +55,7 @@ export const SimpleExample: React.SFC = () => (
       </Simple.Select>
       <Simple.TextArea label="TextArea" name="input" />
       <Simple.FormButtons />
-      <Simple.Values />
+      <Simple.Debug />
     </Simple.Form>
   </Section>
 )

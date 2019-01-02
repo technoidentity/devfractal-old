@@ -89,7 +89,7 @@ const InnerFieldsGeneralForm: React.SFC<FormikProps<GeneralFormProps>> = () => {
               Reset
             </Button>
           </Field>
-          <Simple.Values />
+          <Simple.Debug />
         </Form>
       </Container>
     </Section>

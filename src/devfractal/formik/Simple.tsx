@@ -2,12 +2,12 @@ import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import { Persist } from 'formik-persist'
 import React from 'react'
 import { ObjectSchema } from 'yup'
-import { jsonStringify } from '../../utils'
 import { Button, Field, FieldProps, Label } from '../form'
 import { Container } from '../layout'
 import {
   CheckboxField,
   CheckboxFieldProps,
+  DebugField,
   ErrorField,
   InputField,
   InputFieldProps,
@@ -204,14 +204,6 @@ const SimpleForm: <Values>(
   )
 }
 
-const SimpleValues: React.SFC = () => (
-  <FormikConsumer>
-    {({ values }) => (
-      <code style={{ background: '#f6f8fa' }}>{jsonStringify(values)}</code>
-    )}
-  </FormikConsumer>
-)
-
 // tslint:disable-next-line:typedef
 export const Simple = {
   Form: SimpleForm,
@@ -226,5 +218,5 @@ export const Simple = {
   TextArea: SimpleTextArea,
   RadioGroup: SimpleRadioGroup,
   Url: SimpleUrl,
-  Values: SimpleValues,
+  Debug: DebugField,
 }

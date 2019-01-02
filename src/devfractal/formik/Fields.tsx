@@ -1,5 +1,13 @@
-import { ErrorMessage, ErrorMessageProps, Field, FieldConfig } from 'formik'
+import {
+  ErrorMessage,
+  ErrorMessageProps,
+  Field,
+  FieldConfig,
+  FormikConsumer,
+} from 'formik'
 import React from 'react'
+import { Omit } from '../../types'
+import { jsonStringify } from '../../utils'
 import {
   CheckBoxProps,
   InputProps,
@@ -17,10 +25,7 @@ import {
   FormikTextArea,
 } from './Controls'
 
-export type FormikFieldConfig = Pick<
-  FieldConfig,
-  Extract<FieldConfig, 'validate' | 'innerRef'>
->
+export type FormikFieldConfig = Omit<FieldConfig, 'validate' | 'innerRef'>
 
 export type InputFieldProps = InputProps & FormikFieldConfig
 
@@ -70,4 +75,10 @@ export type ErrorMessageProps = FormikErrorProps
 
 export const ErrorField: React.SFC<ErrorMessageProps> = props => (
   <ErrorMessage {...props} component={FormikError} />
+)
+
+export const DebugField: React.SFC = () => (
+  <FormikConsumer>
+    {({ values }) => <pre>{jsonStringify(values)}</pre>}
+  </FormikConsumer>
 )

@@ -31,7 +31,7 @@ export const SimpleAddTodo: React.SFC = () => (
       <Simple.TextArea label="Description:" name="description" />
       <Simple.Checkbox name="done"> Done </Simple.Checkbox>
       <Simple.FormButtons />
-      <Simple.Values />
+      <Simple.Debug />
     </Simple.Form>
   </Section>
 )
