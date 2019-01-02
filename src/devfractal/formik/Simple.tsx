@@ -2,6 +2,7 @@ import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import { Persist } from 'formik-persist'
 import React from 'react'
 import { ObjectSchema } from 'yup'
+import { camelCaseToPhrase } from '../../utils'
 import { Button, Field, FieldProps, Label } from '../form'
 import { Container } from '../layout'
 import {
@@ -18,9 +19,10 @@ import {
   TextAreaField,
   TextAreaFieldProps,
 } from './Fields'
+import { consoleSubmit } from './submitHandlers'
 
 export interface SimpleInputProps extends InputFieldProps {
-  readonly label: string
+  readonly label?: string
   readonly name: string
 }
 
@@ -33,7 +35,7 @@ const SimpleInput: React.SFC<GenericInputProps> = ({
   ...props
 }) => (
   <Field>
-    <Label>{label}</Label>
+    <Label>{label || camelCaseToPhrase(props.name)}</Label>
     <InputField {...props} />
     <ErrorField name={props.name} />
   </Field>
@@ -172,9 +174,9 @@ const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
 
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values
-  readonly validationSchema: ObjectSchema<Partial<Values>>
+  readonly validationSchema?: ObjectSchema<Partial<Values>>
   readonly persist?: string
-  onSubmit(values: Values, actions: FormikActions<Values>): void
+  onSubmit?(values: Values, actions: FormikActions<Values>): void
 }
 
 const SimpleForm: <Values>(
@@ -182,7 +184,7 @@ const SimpleForm: <Values>(
 ) => JSX.Element = ({
   initialValues,
   validationSchema,
-  onSubmit,
+  onSubmit = consoleSubmit(0),
   persist,
   children,
 }) => {
