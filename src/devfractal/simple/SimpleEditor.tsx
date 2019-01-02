@@ -1,31 +1,27 @@
 import React from 'react'
 import { Boolean, Number } from 'tcomb'
 import { camelCaseToPhrase } from '../../utils'
-import { Column, Columns } from '../columns'
-import { Box, Title } from '../elements'
+import { Box } from '../elements'
+import { Label } from '../form'
 import { Simple } from '../formik'
 import { Section } from '../layout'
 
-const SimpleHeader: React.SFC<{ readonly objectKey: string }> = ({
-  objectKey,
-}) => <Title size="4">{camelCaseToPhrase(objectKey)}</Title>
-
-export interface SimpleViewerProps extends React.HTMLAttributes<HTMLElement> {
+export interface SimpleEditorProps extends React.HTMLAttributes<HTMLElement> {
   readonly object: { readonly [index: string]: any }
 }
 
-export const SimpleEditor: React.SFC<SimpleViewerProps> = ({ object }) => {
+export const SimpleEditor: React.SFC<SimpleEditorProps> = ({ object }) => {
   return (
     <Section>
       <Box>
-        {Object.keys(object).map(key => (
-          <Columns>
-            <Column>
-              <SimpleHeader objectKey={key} />
-            </Column>
-            <Column>
+        <Simple.Form initialValues={object}>
+          {Object.keys(object).map(key => (
+            <React.Fragment key={key}>
               {Boolean.is(object[key]) ? (
-                <Simple.Checkbox name={key} checked={object[key]} readOnly />
+                <>
+                  <Label>{camelCaseToPhrase(key)}</Label>
+                  <Simple.Checkbox name={key} checked={object[key]} readOnly />
+                </>
               ) : Number.is(object[key]) ? (
                 <Simple.Input
                   label={camelCaseToPhrase(key)}
@@ -39,9 +35,10 @@ export const SimpleEditor: React.SFC<SimpleViewerProps> = ({ object }) => {
                   name={key}
                 />
               )}
-            </Column>
-          </Columns>
-        ))}
+            </React.Fragment>
+          ))}
+          <Simple.FormButtons />
+        </Simple.Form>
       </Box>
     </Section>
   )
