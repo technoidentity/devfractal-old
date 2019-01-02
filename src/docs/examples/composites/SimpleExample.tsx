@@ -19,7 +19,7 @@ const initialValues: SimpleValues = {
   password: '',
   email: '',
   tel: 0,
-  remember: true,
+  remember: false,
   gender: 'male',
   select: '',
 }

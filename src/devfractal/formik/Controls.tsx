@@ -31,7 +31,7 @@ interface FormikCheckboxProps<V>
 export const FormikCheckbox: <V = unknown>(
   props: FormikCheckboxProps<V>,
 ) => JSX.Element = ({ form, field, children, ...props }) => (
-  <CheckBox {...props} {...field}>
+  <CheckBox {...props} {...field} checked={field.value}>
     {children}
   </CheckBox>
 )
