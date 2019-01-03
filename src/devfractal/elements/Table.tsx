@@ -8,7 +8,7 @@ export interface TableProps
   readonly striped?: boolean
   readonly narrow?: boolean
   readonly hoverable?: boolean
-  readonly fullwidth?: boolean
+  readonly fullWidth?: boolean
 }
 
 export const Table: React.SFC<TableProps> = ({
@@ -17,7 +17,7 @@ export const Table: React.SFC<TableProps> = ({
   striped,
   narrow,
   hoverable,
-  fullwidth,
+  fullWidth,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'table', {
@@ -25,7 +25,7 @@ export const Table: React.SFC<TableProps> = ({
     [`is-striped`]: striped,
     [`is-narrow`]: narrow,
     [`is-hoverable`]: hoverable,
-    [`is-fullwidth`]: fullwidth,
+    [`is-fullwidth`]: fullWidth,
   })
   return (
     <Div as="table" {...props} className={classes}>
