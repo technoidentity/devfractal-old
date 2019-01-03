@@ -34,31 +34,49 @@ export const OptionsColumnExample: React.SFC = () => (
         <Title size="4">Multiline</Title>
         <Columns multiline responsiveness="mobile">
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column className="is-one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="half">
-            <Notification variant="primary">is-half</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-half
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="primary">Auto</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
       </Container>

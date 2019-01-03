@@ -15,16 +15,24 @@ export const GapColumnExample: React.SFC = () => (
         <Title size="4">Default gap</Title>
         <Columns>
           <Column>
-            <Notification variant="primary">Default gap</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              Default gap
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="primary">Default gap</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              Default gap
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="primary">Default gap</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              Default gap
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="primary">Default gap</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              Default gap
+            </Notification>
           </Column>
         </Columns>
       </Container>
@@ -35,16 +43,24 @@ export const GapColumnExample: React.SFC = () => (
         <Title size="4">Gapless</Title>
         <Columns gapless>
           <Column>
-            <Notification variant="primary">No Gap</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              No Gap
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="primary">No Gap</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              No Gap
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="primary">No Gap</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              No Gap
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="primary">No Gap</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              No Gap
+            </Notification>
           </Column>
         </Columns>
       </Container>
@@ -54,31 +70,49 @@ export const GapColumnExample: React.SFC = () => (
       <Container>
         <Columns gapless multiline responsiveness="mobile">
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column className="is-one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="half">
-            <Notification variant="primary">is-half</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-half
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column size="one-quarter">
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="primary">Auto</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
       </Container>

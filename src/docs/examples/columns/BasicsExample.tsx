@@ -14,16 +14,24 @@ export const BasicColumnExample: React.SFC = () => (
       <Title size="4">Basic columns</Title>
       <Columns>
         <Column>
-          <Notification variant="primary">First column</Notification>
+          <Notification variant="primary" textAlignment="centered">
+            First column
+          </Notification>
         </Column>
         <Column>
-          <Notification variant="primary">Second column</Notification>
+          <Notification variant="primary" textAlignment="centered">
+            Second column
+          </Notification>
         </Column>
         <Column>
-          <Notification variant="primary">Third column</Notification>
+          <Notification variant="primary" textAlignment="centered">
+            Third column
+          </Notification>
         </Column>
         <Column>
-          <Notification variant="primary">Fourth column</Notification>
+          <Notification variant="primary" textAlignment="centered">
+            Fourth column
+          </Notification>
         </Column>
       </Columns>
     </Container>

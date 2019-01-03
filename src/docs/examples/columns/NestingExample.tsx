@@ -15,27 +15,41 @@ export const NestingColumnExample: React.SFC = () => (
         <Title size="4">Nesting</Title>
         <Columns>
           <Column>
-            <Notification variant="info">First column</Notification>
+            <Notification variant="info" textAlignment="centered">
+              First column
+            </Notification>
             <Columns>
               <Column>
-                <Notification variant="info">First nested column</Notification>
+                <Notification variant="info" textAlignment="centered">
+                  First nested column
+                </Notification>
               </Column>
               <Column>
-                <Notification variant="info">Second nested column</Notification>
+                <Notification variant="info" textAlignment="centered">
+                  Second nested column
+                </Notification>
               </Column>
             </Columns>
           </Column>
           <Column>
-            <Notification className="is-danger">Second column</Notification>
+            <Notification className="is-danger" textAlignment="centered">
+              Second column
+            </Notification>
             <Columns>
               <Column>
-                <Notification variant="danger">50%</Notification>
+                <Notification variant="danger" textAlignment="centered">
+                  50%
+                </Notification>
               </Column>
               <Column>
-                <Notification variant="danger">Auto</Notification>
+                <Notification variant="danger" textAlignment="centered">
+                  Auto
+                </Notification>
               </Column>
               <Column>
-                <Notification variant="danger">Auto</Notification>
+                <Notification variant="danger" textAlignment="centered">
+                  Auto
+                </Notification>
               </Column>
             </Columns>
           </Column>

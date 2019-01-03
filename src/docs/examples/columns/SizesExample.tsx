@@ -17,117 +17,171 @@ export const SizesColumnExample: React.SFC = () => (
         <Title size="4">Different sizes</Title>
         <Columns>
           <Column size="four-fifths">
-            <Notification variant="primary">is-four-fifths</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-four-fifths
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
 
         <Columns>
           <Column size="three-quarters">
             {' '}
-            <Notification variant="primary">is-three-quarters</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-three-quarters
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
 
         <Columns>
           <Column size="two-thirds">
             {' '}
-            <Notification variant="primary">is-two-thirds</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-two-thirds
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
 
         <Columns>
           <Column size="three-fifths">
             {' '}
-            <Notification variant="primary">is-three-fifths</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-three-fifths
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
 
         <Columns>
           <Column size="half">
             {' '}
-            <Notification variant="primary">is-half</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-half
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
 
         <Columns>
           <Column size="two-fifths">
             {' '}
-            <Notification variant="primary">is-two-fifths</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-two-fifths
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
 
         <Columns>
           <Column size="one-third">
             {' '}
-            <Notification variant="primary">is-one-third</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-third
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
 
         <Columns>
           <Column size="one-quarter">
             {' '}
-            <Notification variant="primary">is-one-quarter</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-quarter
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
 
         <Columns>
           <Column size="one-fifth">
             {' '}
-            <Notification variant="primary">is-one-fifth</Notification>
+            <Notification variant="primary" textAlignment="centered">
+              is-one-fifth
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
           <Column>
-            <Notification variant="light">Auto</Notification>
+            <Notification variant="light" textAlignment="centered">
+              Auto
+            </Notification>
           </Column>
         </Columns>
       </Container>
@@ -139,7 +193,7 @@ export const SizesColumnExample: React.SFC = () => (
         <Columns>
           <Column size="half" offsetSize="one-quarter">
             <div>
-              <Notification variant="primary">
+              <Notification variant="primary" textAlignment="centered">
                 <code>is-half is-offset-one-quarter</code>
               </Notification>
             </div>
@@ -149,7 +203,7 @@ export const SizesColumnExample: React.SFC = () => (
         <Columns>
           <Column size="three-fifths" offsetSize="one-fifth">
             <div>
-              <Notification variant="primary">
+              <Notification variant="primary" textAlignment="centered">
                 <code>is-three-fifths is-offset-one-fifth</code>
               </Notification>
             </div>
@@ -159,7 +213,7 @@ export const SizesColumnExample: React.SFC = () => (
         <Columns>
           <Column gridSize="4" offsetSize="8">
             <div>
-              <Notification className="is-primary">
+              <Notification className="is-primary" textAlignment="centered">
                 <code>is-4 is-offset-8</code>
               </Notification>
             </div>
@@ -169,7 +223,7 @@ export const SizesColumnExample: React.SFC = () => (
         <Columns>
           <Column className="is-11 is-offset-1">
             <div>
-              <Notification variant="primary">
+              <Notification variant="primary" textAlignment="centered">
                 <code>is-11 is-offset-1</code>
               </Notification>
             </div>
