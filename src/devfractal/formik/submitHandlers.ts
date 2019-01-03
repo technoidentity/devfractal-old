@@ -34,7 +34,7 @@ type APISubmitResult<Values extends {}, Result extends Values> = (
 // Need to create Either and AsynchronousEither
 export function apiSubmit<Values extends {}, Result extends Values = Values>({
   url,
-  noResetOnSubmit,
+  noResetOnSubmit = false,
   valuesTransformer = id,
   responseTransformer = id,
   errorsTransformer = id,
