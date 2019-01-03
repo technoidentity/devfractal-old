@@ -41,7 +41,6 @@ import {
   SectionExample,
   SelectExample,
   SimpleExample,
-  SimpleLoginForm,
   SizesColumnExample,
   TableExample,
   TabsExample,
@@ -53,6 +52,10 @@ import {
   TypographyHelpersExample,
 } from './examples'
 import { DropDownExampleRoutes } from './examples/components/DropDownExample'
+import {
+  LoginFormVariants,
+  LoginFormVariantsRoutes,
+} from './examples/composites/LoginFormVariants'
 import { SimpleTodo } from './examples/composites/SimpleTodo'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
@@ -88,10 +91,14 @@ export const CompositesRoutes: React.SFC = () => (
       exact
       component={FieldsGeneralForm}
     />
-    <Route path="/composites/login-form" exact component={SimpleLoginForm} />
     <Route path="/composites/counter" exact component={Counter} />
     <Route path="/composites/todo" exact component={Todo} />
     <Route path="/composites/simple-todo" exact component={SimpleTodo} />
+    <Route
+      path="/composites/login-form-variants"
+      exact
+      component={LoginFormVariants}
+    />
   </>
 )
 export const ColumnsRoutes: React.SFC = () => (
@@ -201,5 +208,6 @@ export const Routes: React.SFC = () => (
     <ColumnsRoutes />
     <ModifiersRoutes />
     <DropDownExampleRoutes />
+    <LoginFormVariantsRoutes />
   </>
 )
