@@ -132,7 +132,7 @@ export const TableExample: React.SFC = () => (
     </Section>
     <Section>
       <Title>FullWidth Table</Title>
-      <Table fullwidth>
+      <Table fullWidth>
         <TableHead>
           <Tr>
             <Th>one</Th>
@@ -165,7 +165,7 @@ export const TableExample: React.SFC = () => (
     </Section>
     <Section>
       <Title>Combine All Modifiers</Title>
-      <Table bordered striped narrow hoverable fullwidth>
+      <Table bordered striped narrow hoverable fullWidth>
         <TableHead>
           <Tr>
             <Th>one</Th>
