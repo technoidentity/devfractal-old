@@ -8,43 +8,43 @@ storiesOf('Image ', module)
     <div>
       <Field>
         <Image
-          src="https://devfractal.io/images/placeholders/128x128.png"
+          src="https://bulma.io/images/placeholders/128x128.png"
           size="16x16"
         />
       </Field>
       <Field>
         <Image
-          src="https://devfractal.io/images/placeholders/128x128.png"
+          src="https://bulma.io/images/placeholders/128x128.png"
           size="24x24"
         />
       </Field>
       <Field>
         <Image
-          src="https://devfractal.io/images/placeholders/128x128.png"
+          src="https://bulma.io/images/placeholders/128x128.png"
           size="32x32"
         />
       </Field>
       <Field>
         <Image
-          src="https://devfractal.io/images/placeholders/128x128.png"
+          src="https://bulma.io/images/placeholders/128x128.png"
           size="48x48"
         />
       </Field>
       <Field>
         <Image
-          src="https://devfractal.io/images/placeholders/128x128.png"
+          src="https://bulma.io/images/placeholders/128x128.png"
           size="64x64"
         />
       </Field>
       <Field>
         <Image
-          src="https://devfractal.io/images/placeholders/128x128.png"
+          src="https://bulma.io/images/placeholders/128x128.png"
           size="96x96"
         />
       </Field>
       <Field>
         <Image
-          src="https://devfractal.io/images/placeholders/128x128.png"
+          src="https://bulma.io/images/placeholders/128x128.png"
           size="128x128"
         />
       </Field>
@@ -53,7 +53,7 @@ storiesOf('Image ', module)
 
   .add('rounded image', () => (
     <Image
-      src="https://devfractal.io/images/placeholders/128x128.png"
+      src="https://bulma.io/images/placeholders/128x128.png"
       size="96x96"
       rounded
     />
