@@ -87,7 +87,7 @@ export const OptionsColumnExample: React.SFC = () => (
         <Title size="4">Centering columns</Title>
         <Columns responsiveness="mobile" columnCentered>
           <Column size="half">
-            <Notification variant="primary">
+            <Notification variant="primary" textAlignment="centered">
               <code className="html">is-half</code>
             </Notification>
           </Column>
@@ -95,31 +95,31 @@ export const OptionsColumnExample: React.SFC = () => (
 
         <Columns multiline columnCentered responsiveness="mobile">
           <Column narrow>
-            <Notification variant="primary">
+            <Notification variant="primary" textAlignment="centered">
               <code className="html">is-narrow</code>
               <p>First Column</p>
             </Notification>
           </Column>
           <Column narrow>
-            <Notification variant="primary">
+            <Notification variant="primary" textAlignment="centered">
               <code className="html">is-narrow</code>
               <p>Our Second Column</p>
             </Notification>
           </Column>
           <Column narrow>
-            <Notification variant="primary">
+            <Notification variant="primary" textAlignment="centered">
               <code className="html">is-narrow</code>
               <p>Third Column</p>
             </Notification>
           </Column>
           <Column narrow>
-            <Notification variant="primary">
+            <Notification variant="primary" textAlignment="centered">
               <code className="html">is-narrow</code>
               <p>The Fourth Column</p>
             </Notification>
           </Column>
           <Column narrow>
-            <Notification variant="primary">
+            <Notification variant="primary" textAlignment="centered">
               <code className="html">is-narrow</code>
               <p>Fifth Column</p>
             </Notification>
