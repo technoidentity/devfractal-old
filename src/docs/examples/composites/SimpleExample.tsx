@@ -12,6 +12,7 @@ interface SimpleValues {
   readonly remember: boolean
   readonly gender: string
   readonly select: string
+  readonly message: string
 }
 
 const initialValues: SimpleValues = {
@@ -22,15 +23,21 @@ const initialValues: SimpleValues = {
   remember: false,
   gender: 'male',
   select: '',
+  message: '',
 }
 
 const simpleSchema: ObjectSchema<Partial<SimpleValues>> = object({
-  username: string().required(),
-  password: string().required(),
+  username: string()
+    .required()
+    .min(6),
+  password: string()
+    .required()
+    .min(6),
   email: string()
     .email()
     .required(),
   tel: number().required(),
+  message: string().required(),
 })
 
 export const SimpleExample: React.SFC = () => (
@@ -53,7 +60,7 @@ export const SimpleExample: React.SFC = () => (
         <option value="associate">associate</option>
         <option value="assistant">assistant</option>
       </Simple.Select>
-      <Simple.TextArea label="TextArea" name="input" />
+      <Simple.TextArea label="TextArea" name="message" />
       <Simple.FormButtons />
       <Simple.Debug />
     </Simple.Form>
