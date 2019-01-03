@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import TableContentLoader from '../devfractal/elements/TableContentLoader'
 import { SimpleRedirect } from '../utils/SimpleRedirect'
 import {
   BasicColumnExample,
@@ -147,6 +148,11 @@ export const ElementsRoutes: React.SFC = () => (
     <Route path="/elements/bars" exact component={ProgressBarExample} />
     <Route path="/elements/tag" exact component={TagExample} />
     <Route path="/elements/table" exact component={TableExample} />
+    <Route
+      path="/elements/table-content"
+      exact
+      component={TableContentLoader}
+    />
   </>
 )
 
