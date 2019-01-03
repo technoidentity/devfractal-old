@@ -1,21 +1,33 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { SimpleRedirect } from '../../../utils/SimpleRedirect'
-import { RoutedTabs, RoutedTabsItem } from '../devfractal'
+import { RoutedTabs, RoutedTabsItem, Section, Title } from '../devfractal'
 import { FieldsLoginForm } from './login-form-variants/FieldsLoginForm'
 import { FormikLoginForm } from './login-form-variants/FormikLoginForm'
 import { NotWorkingLoginForm } from './login-form-variants/NotWorkingLoginForm'
 import { SimpleLoginForm } from './login-form-variants/SimpleLoginForm'
 
 export const LoginFormVariantsTab: React.SFC = () => (
-  <RoutedTabs to="/composites/login-form-variants" size="medium">
-    <RoutedTabsItem value="formik-form">Formik login form</RoutedTabsItem>
-    <RoutedTabsItem value="not-working-form">
-      Not working login form
-    </RoutedTabsItem>
-    <RoutedTabsItem value="fields-form">Fields login form</RoutedTabsItem>
-    <RoutedTabsItem value="simple-form">Simple login form</RoutedTabsItem>
-  </RoutedTabs>
+  <>
+    <Section>
+      <Title size="4" textAlignment="centered">
+        Login form variants
+      </Title>
+    </Section>
+    <RoutedTabs
+      tabsStyle="boxed"
+      to="/composites/login-form-variants"
+      size="medium"
+    >
+      <RoutedTabsItem value="formik-form">Formik login form</RoutedTabsItem>
+      <RoutedTabsItem value="not-working-form">
+        Not working login form
+      </RoutedTabsItem>
+      <RoutedTabsItem value="fields-form">Fields login form</RoutedTabsItem>
+
+      <RoutedTabsItem value="simple-form">Simple login form</RoutedTabsItem>
+    </RoutedTabs>
+  </>
 )
 
 export const LoginFormVariants: React.SFC = () => <LoginFormVariantsTab />
