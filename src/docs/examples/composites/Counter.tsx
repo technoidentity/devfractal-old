@@ -1,12 +1,12 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
-import React, { MouseEvent } from 'react'
+import React from 'react'
 import { Value } from '../../../utils/Value'
 import { Box, Button, Column, Columns, Icon, Text } from '../devfractal'
 
 interface CounterViewProps {
   readonly count: number
-  onIncrement(event: unknown): void
-  onDecrement(event: unknown): void
+  onIncrement(): void
+  onDecrement(): void
   onReset(): void
 }
 
@@ -40,17 +40,13 @@ export const CounterView: React.SFC<CounterViewProps> = ({
 
 export const Counter: React.SFC = () => (
   <Value initial={0}>
-    {({ value, set, reset }) => (
+    {({ value, eset, reset }) => (
       <CounterView
         count={value}
         // tslint bug with no-unused-variable
         // tslint:disable restrict-plus-operands
-        onIncrement={set<MouseEvent>((value, event) => {
-          // tslint:disable-next-line: no-console
-          console.log(event.nativeEvent)
-          return value + 1
-        })}
-        onDecrement={set(value - 1)}
+        onIncrement={eset(value + 1)}
+        onDecrement={eset(value - 1)}
         onReset={reset}
       />
     )}

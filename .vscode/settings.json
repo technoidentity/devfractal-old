@@ -21,6 +21,7 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
     "devfractal",
+    "eset",
     "fontawesome",
     "formik",
     "fortawesome",
