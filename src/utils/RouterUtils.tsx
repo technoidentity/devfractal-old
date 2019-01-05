@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteComponentProps, withRouter } from 'react-router'
+import { Redirect, Route, RouteComponentProps, withRouter } from 'react-router'
 
 export type WithRouterProps<T> = T & {
   readonly children?: React.ReactNode
@@ -11,3 +11,15 @@ export function WithRouter<T>(props: WithRouterProps<T>): JSX.Element {
   const Component: any = withRouter(component as any)
   return <Component {...rest}>{children}</Component>
 }
+
+export interface SimpleRedirectProps {
+  readonly from: string
+  readonly to: string
+  readonly exact?: boolean
+}
+
+export const SimpleRedirect: React.SFC<SimpleRedirectProps> = ({
+  from,
+  to,
+  exact,
+}) => <Route exact={exact} path={from} render={() => <Redirect to={to} />} />

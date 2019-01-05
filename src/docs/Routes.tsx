@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import TableContentLoader from '../devfractal/elements/TableContentLoader'
-import { SimpleRedirect } from '../utils/SimpleRedirect'
+import { SimpleRedirect } from '../utils'
 import {
   BasicColumnExample,
   BoxExample,
@@ -56,7 +56,7 @@ import { DropDownExampleRoutes } from './examples/components/DropDownExample'
 import {
   LoginFormVariants,
   LoginFormVariantsRoutes,
-} from './examples/composites/LoginFormVariants'
+} from './examples/composites/LoginFormVariantsTab'
 import { SimpleTodo } from './examples/composites/SimpleTodo'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {

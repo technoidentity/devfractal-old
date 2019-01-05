@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
-import { WithRouter } from '../../utils/WithRouter'
+import { WithRouter } from '../../utils/RouterUtils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 interface RoutedTabsContext {
