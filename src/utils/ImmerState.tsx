@@ -1,38 +1,40 @@
 import React from 'react'
 import { Function } from 'tcomb'
-import { freeze } from './common'
+import { freeze, Mutable, mutative } from './common'
 
-type SetArgs<T> = T | ((value: T) => T)
+type SetArgs<T> = T | ((value: Mutable<T>) => void)
 
-export interface StateRenderProps<T> {
+interface StateRenderProps<T> {
   readonly value: T
   set(updater: SetArgs<T>): void
   eset<Event>(update: SetArgs<T>): (event?: Event) => void
   reset(): void
 }
 
-export interface StateProps<T> {
+export interface ImmerStateProps<T> {
   readonly initial: T
   readonly render?: React.ComponentType<StateRenderProps<T>>
   children?(args: StateRenderProps<T>): JSX.Element | null
   onChange?(v: T): void
 }
 
-export class Value<T> extends React.Component<
-  StateProps<T>,
-  { readonly value: T }
+export class ImmerState<T> extends React.Component<
+  ImmerStateProps<T>,
+  {
+    readonly value: T
+  }
 > {
   readonly initialValue: T
 
-  constructor(props: StateProps<T>) {
-    super(props)
+  constructor(props: ImmerStateProps<T>, context: any) {
+    super(props, context)
 
     this.initialValue = freeze(props.initial)
     this.state = { value: this.initialValue }
   }
 
-  readonly _set: (fv: SetArgs<T>) => void = fv => {
-    const value: T = Function.is(fv) ? fv(this.state.value) : fv
+  readonly _set: (ƒv: SetArgs<T>) => void = fv => {
+    const value: T = Function.is(fv) ? mutative(this.state.value, fv) : fv
 
     this.setState(
       { value },
@@ -51,12 +53,11 @@ export class Value<T> extends React.Component<
       eset: (f: SetArgs<T>) => () => this._set(f),
       reset: () => this._set(this.initialValue),
     }
-
     if (children) {
-      return children({ ...renderProps, ...rest })
+      return children({ ...renderProps })
     }
     if (render) {
-      const Component: StateProps<T>['render'] = render
+      const Component: ImmerStateProps<T>['render'] = render
 
       return <Component {...renderProps} {...rest} />
     }

@@ -1,11 +1,13 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { SimpleRedirect } from '../../../utils/SimpleRedirect'
+import { SimpleRedirect } from '../../../utils'
 import { RoutedTabs, RoutedTabsItem, Section, Title } from '../devfractal'
-import { FieldsLoginForm } from './login-form-variants/FieldsLoginForm'
-import { FormikLoginForm } from './login-form-variants/FormikLoginForm'
-import { NotWorkingLoginForm } from './login-form-variants/NotWorkingLoginForm'
-import { SimpleLoginForm } from './login-form-variants/SimpleLoginForm'
+import {
+  FieldsLoginForm,
+  FormikLoginForm,
+  NotWorkingLoginForm,
+  SimpleLoginForm,
+} from './login-form-variants'
 
 export const LoginFormVariantsTab: React.SFC = () => (
   <>
