@@ -1,47 +1,57 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
-import { Value } from 'react-powerplug'
-import { Column, Columns } from '../devfractal'
-import { Box, Button, Icon, Text } from '../devfractal'
+import React, { MouseEvent } from 'react'
+import { Value } from '../../../utils/Value'
+import { Box, Button, Column, Columns, Icon, Text } from '../devfractal'
 
 interface CounterViewProps {
   readonly count: number
-  onIncrement(): void
-  onDecrement(): void
+  onIncrement(event: unknown): void
+  onDecrement(event: unknown): void
+  onReset(): void
 }
 
 export const CounterView: React.SFC<CounterViewProps> = ({
   count,
   onIncrement,
   onDecrement,
+  onReset,
 }) => (
   <Columns>
     <Column narrow>
       <Box textAlignment="centered">
-        <Button variant="primary" size="medium" onClick={onIncrement} noControl>
+        <Button variant="info" size="medium" onClick={onIncrement} noControl>
           <Icon icon={faPlus} />
         </Button>
-
         <Text as="h1" textSize="2">
           {count}
         </Text>
-        <Button variant="danger" size="medium" onClick={onDecrement} noControl>
+        <Button variant="success" size="medium" onClick={onDecrement} noControl>
           <Icon icon={faMinus} />
         </Button>
       </Box>
+    </Column>
+    <Column textAlignment="centered">
+      <Button noControl variant="danger" size="medium" onClick={onReset}>
+        Reset
+      </Button>
     </Column>
   </Columns>
 )
 
 export const Counter: React.SFC = () => (
-  <Value initial={{ count: 0 }}>
-    {({ value, set }) => (
+  <Value initial={0}>
+    {({ value, set, reset }) => (
       <CounterView
-        count={value.count}
+        count={value}
         // tslint bug with no-unused-variable
         // tslint:disable restrict-plus-operands
-        onIncrement={() => set({ count: value.count + 1 })}
-        onDecrement={() => set({ count: value.count - 1 })}
+        onIncrement={set<MouseEvent>((value, event) => {
+          // tslint:disable-next-line: no-console
+          console.log(event.nativeEvent)
+          return value + 1
+        })}
+        onDecrement={set(value - 1)}
+        onReset={reset}
       />
     )}
   </Value>
