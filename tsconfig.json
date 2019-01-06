@@ -3,7 +3,7 @@
     "noEmit": true,
     "target": "es5",
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "sourceMap": true,
     "skipLibCheck": true,
     "lib": ["dom", "es2018"],
