@@ -27,7 +27,6 @@
     "@types/storybook__react": "^4.0.0",
     "@types/yup": "^0.26.3",
     "axios": "^0.18.0",
-    "babel-loader": "^8.0.4",
     "bulma": "^0.7.2",
     "chance": "^1.0.18",
     "date-fns": "^1.30.1",
