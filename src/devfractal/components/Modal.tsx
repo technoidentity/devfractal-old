@@ -1,25 +1,37 @@
 import React from 'react'
+import { classNames } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export interface ModalProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly active?: boolean
+  onModalClosed?(): void
 }
 
 export const Modal: React.SFC<ModalProps> = ({
   active,
   children,
+  onModalClosed,
   ...props
 }) => {
-  const classes: string = classNamesHelper(props, 'modal', {
-    [`is-active`]: active,
-  })
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
+  const classes: string = classNamesHelper(props, 'modal', 'is-active')
+
+  if (active) {
+    return (
+      <Div {...props} className={classes}>
+        {children}
+        <Div
+          as="button"
+          onClick={onModalClosed}
+          {...props}
+          className={classNames('modal-close')}
+        />
+      </Div>
+    )
+  }
+  // tslint:disable-next-line: no-null-keyword
+  return null
 }
 
 export interface ModalCardProps
@@ -127,13 +139,4 @@ export const ModalContent: React.SFC<ModalContentProps> = ({
       {children}
     </Div>
   )
-}
-
-export interface ModalCloseProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
-    Helpers {}
-
-export const ModalClose: React.SFC<ModalCloseProps> = ({ ...props }) => {
-  const classes: string = classNamesHelper(props, 'modal-close')
-  return <Div as="button" {...props} className={classes} />
 }

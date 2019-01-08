@@ -1,5 +1,6 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
+import React, { useState } from 'react'
+import { Button } from '../../../devfractal'
 import {
   Box,
   Content,
@@ -14,17 +15,39 @@ import {
   MediaRight,
   Modal,
   ModalBackground,
-  ModalClose,
   ModalContent,
   Section,
-  Title,
 } from '../devfractal'
 
-export const ModalExample: React.SFC = () => (
-  <>
+export const ImageModalExample: React.SFC = () => {
+  const [modal, setModal] = useState(false)
+  return (
     <Section>
-      <Title size="4">Launch example modal</Title>
-      <Modal active>
+      <Button onClick={() => setModal(true)} variant="primary" size="large">
+        Launch Image Modal
+      </Button>
+      <Modal active={modal} onModalClosed={() => setModal(false)}>
+        <ModalBackground />
+        <ModalContent>
+          <Image
+            src="https://bulma.io/images/placeholders/640x480.png"
+            size="128x128"
+          />
+        </ModalContent>
+      </Modal>
+    </Section>
+  )
+}
+
+export const MediaModalExample: React.SFC = () => {
+  const [modal, setModal] = useState(false)
+  return (
+    <Section>
+      <Button onClick={() => setModal(true)} variant="primary" size="large">
+        Launch Media Modal
+      </Button>
+
+      <Modal active={modal} onModalClosed={() => setModal(false)}>
         <ModalBackground />
         <ModalContent>
           <Box textBackgroundColor="white">
@@ -61,44 +84,13 @@ export const ModalExample: React.SFC = () => (
             </Media>
           </Box>
         </ModalContent>
-        <ModalClose />
       </Modal>
     </Section>
-    {/* <Section>
-      <Title size="4">Image modal</Title>
-      <Modal active>
-        <ModalBackground />
-        <ModalContent>
-          <Image
-            src="https://bulma.io/images/placeholders/1280x960.png"
-            size="48x48"
-          />
-        </ModalContent>
-        <ModalClose />
-      </Modal>
-    </Section> */}
-
-    {/* <Section>
-      <Title size="4"> Modal card</Title>
-      <Modal>
-        <ModalBackground />
-        <ModalCard>
-          <ModalCardHead>
-            <ModalCardTitle>Modal title</ModalCardTitle>
-            <Delete />
-          </ModalCardHead>
-          <ModalCardBody>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident
-            eum ratione ipsum itaque cumque, delectus quia perspiciatis nemo
-            mollitia ducimus vero praesentium, pariatur reiciendis ullam amet
-            numquam! Enim, quia nesciunt
-          </ModalCardBody>
-          <ModalCardFoot>
-            <Button variant="success">Save changes</Button>
-            <Button>Cancel</Button>
-          </ModalCardFoot>
-        </ModalCard>
-      </Modal>
-    </Section> */}
+  )
+}
+export const ModalExample: React.SFC = () => (
+  <>
+    <MediaModalExample />
+    <ImageModalExample />
   </>
 )
