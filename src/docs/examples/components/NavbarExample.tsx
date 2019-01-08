@@ -139,10 +139,10 @@ export const NavbarExample: React.SFC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <Icon icon={faTwitter} /> Twitter
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <Icon icon={faDownload} /> Download
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -417,10 +417,10 @@ export const NavbarExample: React.SFC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <Icon icon={faTwitter} /> Twitter
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <Icon icon={faDownload} /> Download
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -467,10 +467,10 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} /> <span>Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
@@ -517,10 +517,10 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} /> <span>Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
@@ -567,10 +567,11 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} />
+                    <span> Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
@@ -617,10 +618,10 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} /> <span>Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
@@ -667,10 +668,10 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} /> <span>Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
@@ -717,10 +718,10 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} /> <span>Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
@@ -767,10 +768,10 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} /> <span>Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
@@ -817,10 +818,10 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} /> <span>Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
@@ -867,10 +868,10 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>
                 <Field grouped>
                   <Button variant="info">
-                    <Icon icon={faTwitter} /> Twitter
+                    <Icon icon={faTwitter} /> <span>Twitter</span>
                   </Button>
                   <Button variant="primary">
-                    <Icon icon={faDownload} /> Download
+                    <Icon icon={faDownload} /> <span>Download</span>
                   </Button>
                 </Field>
               </NavbarItem>
