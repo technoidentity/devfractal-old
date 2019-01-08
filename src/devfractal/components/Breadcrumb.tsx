@@ -6,11 +6,7 @@ type BreadcrumbSize = 'small' | 'medium' | 'large'
 
 type BreadcrumbAlignment = 'centered' | 'right'
 
-type BreadcrumbSeparator =
-  | 'arrow-separator'
-  | 'bullet-separator'
-  | 'dot-separator'
-  | 'succeeds-separator'
+type BreadcrumbSeparator = 'arrow' | 'bullet' | 'dot' | 'succeeds'
 
 export interface BreadcrumbItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
@@ -76,7 +72,7 @@ export const BreadcrumbView: React.SFC<BreadcrumbProps> = ({
   const classes: string = classNamesHelper(props, 'breadcrumb', {
     [`is-${alignment}`]: alignment,
     [`is-${size}`]: size,
-    [`has-${separator}`]: separator,
+    [`has-${separator}-separator`]: separator,
   })
   return (
     <Div as="nav" {...props} className={classes}>

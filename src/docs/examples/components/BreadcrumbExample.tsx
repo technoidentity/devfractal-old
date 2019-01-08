@@ -79,7 +79,7 @@ export const BreadcrumbExample: React.SFC = () => (
       <Container>
         <Title size="4">Alternative separators</Title>
         <Field>
-          <Breadcrumb separator="arrow-separator">
+          <Breadcrumb separator="arrow">
             <BreadcrumbItem>Bulma</BreadcrumbItem>
             <BreadcrumbItem>Documentation</BreadcrumbItem>
             <BreadcrumbItem>Components</BreadcrumbItem>
@@ -87,7 +87,7 @@ export const BreadcrumbExample: React.SFC = () => (
           </Breadcrumb>
         </Field>
         <Field>
-          <Breadcrumb separator="bullet-separator">
+          <Breadcrumb separator="bullet">
             <BreadcrumbItem>Bulma</BreadcrumbItem>
             <BreadcrumbItem>Documentation</BreadcrumbItem>
             <BreadcrumbItem>Components</BreadcrumbItem>
@@ -95,7 +95,7 @@ export const BreadcrumbExample: React.SFC = () => (
           </Breadcrumb>
         </Field>
         <Field>
-          <Breadcrumb separator="dot-separator">
+          <Breadcrumb separator="dot">
             <BreadcrumbItem>Bulma</BreadcrumbItem>
             <BreadcrumbItem>Documentation</BreadcrumbItem>
             <BreadcrumbItem>Components</BreadcrumbItem>
@@ -103,7 +103,7 @@ export const BreadcrumbExample: React.SFC = () => (
           </Breadcrumb>
         </Field>
         <Field>
-          <Breadcrumb separator="succeeds-separator">
+          <Breadcrumb separator="succeeds">
             <BreadcrumbItem>Bulma</BreadcrumbItem>
             <BreadcrumbItem>Documentation</BreadcrumbItem>
             <BreadcrumbItem>Components</BreadcrumbItem>
