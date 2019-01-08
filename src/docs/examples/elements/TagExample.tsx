@@ -1,4 +1,5 @@
 import React from 'react'
+import { Control } from '../../../devfractal/form/Control'
 import {
   Box,
   Delete,
@@ -117,18 +118,18 @@ export const TagExample: React.SFC = () => (
           </Tags>
           <Section>
             <Field groupedMultiline>
-              <div className="control">
+              <Control>
                 <Tags addons>
                   <Tag variant="dark">npm</Tag>
                   <Tag variant="success">0.5.0</Tag>
                 </Tags>
-              </div>
-              <div className="control">
+              </Control>
+              <Control>
                 <Tags addons>
                   <Tag variant="dark">Technology</Tag>
                   <Tag modifier="delete" />
                 </Tags>
-              </div>
+              </Control>
             </Field>
           </Section>
         </Section>
