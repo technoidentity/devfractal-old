@@ -1,17 +1,39 @@
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { Icon } from '../elements'
+import { Button } from '../form'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type DropDownModifier = 'hoverable' | 'active'
 
+export interface DropDownChangeEvent {
+  readonly name?: string
+  readonly value?: string
+}
+
+interface DropDownContext {
+  readonly name?: string
+  readonly selectedTab?: string
+  setSelectedTab?(event: DropDownChangeEvent): void
+}
+
+const DropDownContext: React.Context<DropDownContext> = React.createContext<
+  DropDownContext
+>({})
+
 export interface DropDownProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  readonly label?: string
+  readonly name?: string
   readonly modifier?: DropDownModifier
   readonly rightAligned?: boolean
   readonly dropUp?: boolean
+  onDropDownChange?(event: DropDownChangeEvent): void
 }
 
 export const DropDown: React.SFC<DropDownProps> = ({
+  label,
   modifier,
   rightAligned,
   dropUp,
@@ -25,29 +47,21 @@ export const DropDown: React.SFC<DropDownProps> = ({
   })
   return (
     <Div {...props} className={classes}>
-      {children}
+      <Div className="dropdown-trigger">
+        <Button>
+          <span>{label}</span>
+          <Icon icon={dropUp ? faAngleUp : faAngleDown} />
+        </Button>
+      </Div>
+      <Div className="dropdown-menu" role="menu">
+        <Div {...props} className="dropdown-content">
+          {children}
+        </Div>
+      </Div>
     </Div>
   )
-}
-export interface DropDownMenuProps
-  extends React.HTMLAttributes<HTMLElement>,
-    Helpers {
-  readonly id?: string
-  readonly role?: string
 }
 
-export const DropDownMenu: React.SFC<DropDownMenuProps> = ({
-  role,
-  children,
-  ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'dropdown-menu')
-  return (
-    <Div {...props} className={classes} role={role}>
-      {children}
-    </Div>
-  )
-}
 export interface DropDownItemProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
@@ -64,38 +78,6 @@ export const DropDownItem: React.SFC<DropDownItemProps> = ({
   })
   return (
     <Div as="a" {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
-
-export interface DropDownTriggerProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {}
-
-export const DropDownTrigger: React.SFC<DropDownTriggerProps> = ({
-  children,
-  ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'dropdown-trigger')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
-
-export interface DropDownContentProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {}
-
-export const DropDownContent: React.SFC<DropDownContentProps> = ({
-  children,
-  ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'dropdown-content')
-  return (
-    <Div {...props} className={classes}>
       {children}
     </Div>
   )
