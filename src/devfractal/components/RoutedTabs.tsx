@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
-import { WithRouter } from '../../utils/RouterUtils'
+import { WithRouter } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 interface RoutedTabsContext {
-  readonly url?: string
+  readonly baseURL?: string
   readonly separator?: string
   readonly currentLocation?: string
 }
@@ -22,32 +22,48 @@ type RoutedTabsStyle = 'boxed' | 'toggle' | 'toggle-rounded'
 interface RoutedTabsItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
     Helpers {
-  readonly active?: boolean
   readonly value: string
+}
+
+function matches(
+  tab: string,
+  separator?: string,
+  baseURL?: string,
+  currentLocation?: string,
+): boolean {
+  if (!(baseURL && currentLocation && separator)) {
+    return false
+  }
+
+  return (
+    currentLocation.startsWith(baseURL) &&
+    tab ===
+      currentLocation.slice(
+        baseURL.length + separator.length,
+        baseURL.length + separator.length + tab.length,
+      )
+  )
 }
 
 export const RoutedTabsItem: React.SFC<RoutedTabsItemProps> = ({
   value,
-  active,
   children,
   ...props
 }) => (
   <RoutedTabsContext.Consumer>
-    {({ url, separator, currentLocation }) => {
-      const tabItemUrl: string =
-        url === undefined ? '' : `${url}${separator}${value}`
-      return (
-        <Div
-          as="li"
-          {...props}
-          className={classNamesHelper(props, {
-            [`is-active`]: tabItemUrl === currentLocation,
-          })}
-        >
-          <NavLink to={tabItemUrl}>{children}</NavLink>
-        </Div>
-      )
-    }}
+    {({ baseURL, separator, currentLocation }) => (
+      <Div
+        as="li"
+        {...props}
+        className={classNamesHelper(props, {
+          [`is-active`]: matches(value, separator, baseURL, currentLocation),
+        })}
+      >
+        <NavLink to={baseURL ? `${baseURL}${separator}${value}` : ''}>
+          {children}
+        </NavLink>
+      </Div>
+    )}
   </RoutedTabsContext.Consumer>
 )
 
@@ -89,7 +105,7 @@ const RoutedTabsWithRouter: React.SFC<
   return (
     <RoutedTabsContext.Provider
       value={{
-        url: to,
+        baseURL: to,
         separator: urlSeparator,
         currentLocation: location.pathname,
       }}
