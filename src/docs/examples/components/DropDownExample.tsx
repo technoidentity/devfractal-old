@@ -136,7 +136,7 @@ const RightAlignableDropdownExampleTab: React.SFC = () => (
       <Level>
         <Title size="4">Right aligned</Title>
         <LevelItem levelItemType="right">
-          <DropDown modifier="active" alignment="right">
+          <DropDown modifier="active" rightAligned>
             <DropDownTrigger>
               <Button>
                 <span>Right aligned</span>
