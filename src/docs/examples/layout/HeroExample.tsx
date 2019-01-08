@@ -214,7 +214,12 @@ export const HeroExample: React.SFC = () => (
             </Container>
           </Navbar>
         </HeroHead>
-
+        <HeroBody>
+          <Container textAlignment="centered">
+            <Title>Title</Title>
+            <SubTitle>Subtitle</SubTitle>
+          </Container>
+        </HeroBody>
         <HeroFoot>
           <Tabs>
             <Container>
@@ -228,62 +233,6 @@ export const HeroExample: React.SFC = () => (
               </Tabs>
             </Container>
           </Tabs>
-        </HeroFoot>
-      </Hero>
-    </Section>
-    <Section>
-      <Title>Large Hero</Title>
-      <Hero variant="info" size="large">
-        <HeroHead>
-          <Navbar>
-            <Container>
-              <NavbarBrand>
-                <NavbarItem>
-                  <img
-                    src="https://bulma.io/images/bulma-type-white.png"
-                    alt="Logo"
-                  />
-                </NavbarItem>
-                <NavbarBurger data-target="navbarMenuHeroA">
-                  <span />
-                  <span />
-                  <span />
-                </NavbarBurger>
-              </NavbarBrand>
-              <NavbarMenu>
-                <NavbarEnd>
-                  <NavbarItem>Home</NavbarItem>
-                  <NavbarItem>Examples</NavbarItem>
-                  <NavbarItem>Documentation</NavbarItem>
-                  <NavbarItem>
-                    <Button variant="primary" inverted>
-                      <span>Download</span>
-                    </Button>
-                  </NavbarItem>
-                </NavbarEnd>
-              </NavbarMenu>
-            </Container>
-          </Navbar>
-        </HeroHead>
-        <HeroBody>
-          <Container textAlignment="centered">
-            <Title>Title</Title>
-            <SubTitle>Subtitle</SubTitle>
-          </Container>
-        </HeroBody>
-        <HeroFoot>
-          <Container>
-            <Tabs selectedTab="elements" readOnly>
-              <TabsItem value="overview">Overview</TabsItem>
-              <TabsItem value="modifiers">Modifiers</TabsItem>
-              <TabsItem value="grid">Grid</TabsItem>
-              <TabsItem value="elements">Elements</TabsItem>
-
-              <TabsItem value="components">Components</TabsItem>
-
-              <TabsItem value="layout">Layout</TabsItem>
-            </Tabs>
-          </Container>
         </HeroFoot>
       </Hero>
     </Section>
