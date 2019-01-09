@@ -5,7 +5,7 @@ import { Tabs, TabsItem, Title } from '../devfractal'
 export const TabsExample: React.SFC = () => (
   <div>
     <Title>Uncontrolled Tab components</Title>
-    <Tabs name="secondTab" defaultValue="documents" size="medium">
+    <Tabs name="firstTab" defaultValue="documents" size="medium">
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
@@ -29,10 +29,8 @@ export const TabsExample: React.SFC = () => (
           <Title>Controlled Tab({value})</Title>
           <Tabs
             selectedTab={value}
-            onTabChange={({ value }) => {
-              set(value || 'music')
-            }}
-            name="secondTab"
+            onTabChange={({ value }) => value && set(value)}
+            name="thirdTab"
             size="medium"
           >
             <TabsItem value="pictures">Pictures</TabsItem>

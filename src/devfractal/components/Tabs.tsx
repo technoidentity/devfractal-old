@@ -1,4 +1,5 @@
 import React from 'react'
+import warning from 'tiny-warning'
 import { State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
@@ -9,8 +10,8 @@ export interface TabsChangeEvent {
 
 interface TabsContext {
   readonly name?: string
-  readonly selectedTab?: string
-  setSelectedTab?(event: TabsChangeEvent): void
+  readonly selected?: string
+  setSelected?(event: TabsChangeEvent): void
 }
 
 const TabsContext: React.Context<TabsContext> = React.createContext<
@@ -25,7 +26,7 @@ type TabsStyle = 'boxed' | 'toggle' | 'toggle-rounded'
 export interface TabsItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
     Helpers {
-  readonly value: string
+  readonly value?: string
 }
 
 export const TabsItem: React.SFC<TabsItemProps> = ({
@@ -34,18 +35,18 @@ export const TabsItem: React.SFC<TabsItemProps> = ({
   ...props
 }) => (
   <TabsContext.Consumer>
-    {({ name, selectedTab, setSelectedTab }) => (
+    {({ name, selected, setSelected }) => (
       <Div
         as="li"
         {...props}
         className={classNamesHelper(props, {
-          [`is-active`]: !!value && selectedTab === value,
+          'is-active': !!value && selected === value,
         })}
       >
         <a
           onClick={() => {
-            if (setSelectedTab) {
-              setSelectedTab({ name, value })
+            if (setSelected) {
+              setSelected({ name, value })
             }
           }}
         >
@@ -56,9 +57,7 @@ export const TabsItem: React.SFC<TabsItemProps> = ({
   </TabsContext.Consumer>
 )
 
-export interface TabsProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {
+interface TabsViewProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly size?: TabsSize
   readonly alignment?: TabsAlignment
   readonly fullWidth?: boolean
@@ -70,11 +69,17 @@ export interface TabsProps
   onTabChange?(evt: TabsChangeEvent): void
 }
 
+export type TabsProps = TabsViewProps
+
 const TabsView: React.SFC<TabsProps> = ({
   size,
   alignment,
   fullWidth,
   tabsStyle,
+  name,
+  selectedTab,
+  onTabChange,
+  defaultValue,
   children,
   ...props
 }) => {
@@ -82,52 +87,47 @@ const TabsView: React.SFC<TabsProps> = ({
     [`is-${size}`]: size,
     [`is-${alignment}`]: alignment,
     [`is-${tabsStyle}`]: tabsStyle,
-    [`is-fullwidth`]: fullWidth,
+    'is-fullwidth': fullWidth,
   })
 
   return (
-    <Div {...props} className={classes}>
-      <ul>{children}</ul>
-    </Div>
+    <TabsContext.Provider
+      value={{
+        selected: selectedTab,
+        setSelected: ({ value }) => onTabChange && onTabChange({ name, value }),
+      }}
+    >
+      <Div {...props} className={classes}>
+        <ul>{children}</ul>
+      </Div>
+    </TabsContext.Provider>
   )
 }
 
 export const Tabs: React.SFC<TabsProps> = ({
   defaultValue,
   children,
-  onTabChange,
-  selectedTab,
   ...props
-}: TabsProps) => {
-  if (selectedTab && !onTabChange && !props.readOnly) {
-    // tslint:disable-next-line: no-console
-    console.warn(
-      'onTabChange not provided but selectedTab provided, make this component readOnly.',
-    )
-  }
+}) => {
+  warning(
+    !(props.selectedTab && !props.onTabChange && !props.readOnly),
+    "'selectedTab' provided, but not 'onTabChange', make this component readOnly.",
+  )
 
-  const isUncontrolled: boolean =
-    selectedTab === undefined && onTabChange === undefined
-
-  return isUncontrolled ? (
+  return props.selectedTab !== undefined ? (
+    <TabsView {...props}>{children}</TabsView>
+  ) : (
     <State
-      initial={selectedTab || defaultValue}
+      initial={props.selectedTab || defaultValue}
       render={({ value, set }) => (
-        <TabsContext.Provider
-          value={{
-            selectedTab: value,
-            setSelectedTab: ({ value }) => {
-              set(value)
-            },
-          }}
+        <TabsView
+          {...props}
+          selectedTab={value}
+          onTabChange={({ value }) => set(value)}
         >
-          <TabsView {...props}>{children}</TabsView>
-        </TabsContext.Provider>
+          {children}
+        </TabsView>
       )}
     />
-  ) : (
-    <TabsContext.Provider value={{ selectedTab, setSelectedTab: onTabChange }}>
-      <TabsView {...props}>{children}</TabsView>
-    </TabsContext.Provider>
   )
 }
