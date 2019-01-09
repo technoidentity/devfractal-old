@@ -1,11 +1,8 @@
 import React from 'react'
 import { Boolean, Number } from 'tcomb'
-import { camelCaseToPhrase } from '../../utils'
-import { Box } from '../elements'
-import { Label } from '../form'
-import { Simple } from '../formik'
-import { Section } from '../layout'
-
+import { Box, Label, Section } from '../devfractal'
+import { camelCaseToPhrase } from '../utils'
+import { Simple } from './SimpleForm'
 export interface SimpleEditorProps extends React.HTMLAttributes<HTMLElement> {
   readonly object: { readonly [index: string]: any }
 }

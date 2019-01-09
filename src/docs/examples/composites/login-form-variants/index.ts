@@ -1,4 +1,3 @@
-export * from './ControlsLoginForm'
 export * from './FieldsLoginForm'
 export * from './FormikLoginForm'
 export * from './NotWorkingLoginForm'

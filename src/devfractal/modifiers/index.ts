@@ -1,5 +1,5 @@
 export * from './div'
-export * from './Text'
 export * from './helpers'
-export * from './types'
 export * from './Ol'
+export * from './Text'
+export * from './types'

@@ -1,6 +1,5 @@
 import React from 'react'
-import { SimpleTable, SimpleViewer } from '../../../devfractal/simple'
-// import { delay } from '../../../utils'
+import { SimpleTable, SimpleViewer } from '../devfractal'
 import { SimpleAddTodo } from './AddTodo'
 
 interface Todo {
@@ -26,19 +25,6 @@ const todoList: ReadonlyArray<Todo> = [
     done: false,
   },
 ]
-
-// const asyncTodoList: () => Promise<ReadonlyArray<Todo>> = async () => {
-//   // tslint:disable-next-line: no-empty
-//   // Route shouldn't change while delay, fix after presentation
-//   // await delay(3000, () => {})
-//   return Promise.resolve(todoList)
-// }
-
-// const rejectedTodoList: () => Promise<never> = async () => {
-//   // tslint:disable-next-line: no-empty
-//   await delay(3000, () => {})
-//   return Promise.reject(new Error('no todos available right now!'))
-// }
 
 export const SimpleTodo: React.SFC = () => (
   <>

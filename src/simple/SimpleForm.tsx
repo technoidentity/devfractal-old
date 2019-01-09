@@ -2,24 +2,27 @@ import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import { Persist } from 'formik-persist'
 import React from 'react'
 import { ObjectSchema } from 'yup'
-import { camelCaseToPhrase } from '../../utils'
-import { Button, Field, FieldProps, Label } from '../form'
-import { Container } from '../layout'
 import {
+  Button,
   CheckboxField,
   CheckboxFieldProps,
+  consoleSubmit,
+  Container,
   DebugField,
   ErrorField,
+  Field,
+  FieldProps,
   InputField,
   InputFieldProps,
+  Label,
   RadioFieldProps,
   RadioGroupField,
   SelectField,
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from './Fields'
-import { consoleSubmit } from './submitHandlers'
+} from '../devfractal'
+import { camelCaseToPhrase } from '../utils'
 
 export interface SimpleInputProps extends InputFieldProps {
   readonly label?: string
@@ -112,34 +115,6 @@ const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
   </Field>
 )
 
-//  const SimpleColor: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="color" />
-// )
-//  const SimpleDate: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="date" />
-// )
-//  const SimpleDateTimeLocal: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="datetime-local" />
-// )
-//  const SimpleMonth: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="month" />
-// )
-//  const SimpleNumber: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="number" />
-// )
-//  const SimpleRange: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="range" />
-// )
-//  const SimpleSearch: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="search" />
-// )
-//  const SimpleTime: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="time" />
-// )
-
-//  const SimpleWeek: React.SFC<SimpleInputProps> = props => (
-//   <SimpleInput {...props} type="week" />
-// )
 export interface SimpleFormButtonsProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
