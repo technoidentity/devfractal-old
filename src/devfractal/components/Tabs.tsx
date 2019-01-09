@@ -88,7 +88,7 @@ const TabsView: React.SFC<Omit<TabsProps, 'defaultValue'>> = ({
     'is-fullwidth': fullWidth,
   })
   const selected: string =
-    selectedTab || ((children && children[0].props.value) || '0')
+    selectedTab || ((children && children[0] && children[0].props.value) || '0')
   return (
     <Div {...props} className={classes}>
       <ul>
