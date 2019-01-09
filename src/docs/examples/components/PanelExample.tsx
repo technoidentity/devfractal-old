@@ -32,10 +32,11 @@ export const PanelExample: React.SFC = () => (
       <PanelTabs>
         <PanelTabsItem active>all</PanelTabsItem>
         <PanelTabsItem>public</PanelTabsItem>
+        <PanelTabsItem>private</PanelTabsItem>
         <PanelTabsItem>sources</PanelTabsItem>
-        <PanelTabsItem className="active">forks</PanelTabsItem>
+        <PanelTabsItem>forks</PanelTabsItem>
       </PanelTabs>
-      <PanelBlock>
+      <PanelBlock active>
         <PanelIcon icon={faBook} />
         devfractal
       </PanelBlock>
@@ -58,7 +59,7 @@ export const PanelExample: React.SFC = () => (
         <PanelIcon icon={faCodeBranch} />
         daniellowtw/infboard
       </PanelBlock>
-      <PanelBlock active>
+      <PanelBlock>
         {' '}
         <PanelIcon icon={faCodeBranch} />
         mojs
