@@ -1,10 +1,16 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-export interface MenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {}
+type MenuSize = 'small' | 'medium' | 'large'
 
-export const Menu: React.SFC<MenuProps> = ({ children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'menu')
+export interface MenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+  readonly size?: MenuSize
+}
+
+export const Menu: React.SFC<MenuProps> = ({ size, children, ...props }) => {
+  const classes: string = classNamesHelper(props, 'menu', {
+    [`is-${size}`]: size,
+  })
   return (
     <Div as="aside" {...props} className={classes}>
       {children}
@@ -50,7 +56,6 @@ export interface MenuItemProps
 
 export const MenuItem: React.SFC<MenuItemProps> = ({
   active,
-  href,
   children,
   ...props
 }) => {
