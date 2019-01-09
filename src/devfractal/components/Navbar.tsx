@@ -71,32 +71,40 @@ export const NavbarBurger: React.SFC<NavbarBurgerProps> = ({
   )
 }
 
-type NavbarItemModifier = 'expanded' | 'tab' | 'active' | 'hoverable'
+type NavbarItemModifier = 'expanded' | 'tab' | 'hoverable'
+
+type NavbarItemTag = 'div' | 'a'
 export interface NavbarItemsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly dropdown?: boolean
-  readonly dropdownup?: boolean
+  readonly as?: NavbarItemTag
+  readonly active?: boolean
+  readonly dropUp?: boolean
   readonly href?: string
   readonly modifier?: NavbarItemModifier
 }
 
 export const NavbarItem: React.SFC<NavbarItemsProps> = ({
   href,
+  active,
+  as,
   dropdown,
-  dropdownup,
+  dropUp,
   modifier,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'navbar-item', {
     href: { href },
-    [`has-dropdown-up`]: dropdownup,
+    'is-active': active,
+    [`has-dropdown-up`]: dropUp,
     [`has-dropdown`]: dropdown,
     [`is-${modifier}`]: modifier,
   })
   return (
     <Div
+      as={as}
       {...props}
       className={classes}
       role="navigation"
