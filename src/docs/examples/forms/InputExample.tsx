@@ -1,6 +1,7 @@
 import { faCheck, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Value } from 'react-powerplug'
+import { Value } from '../../../utils'
+
 import {
   Column,
   Columns,

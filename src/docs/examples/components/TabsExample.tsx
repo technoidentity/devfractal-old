@@ -1,5 +1,5 @@
 import React from 'react'
-import { Value } from 'react-powerplug'
+import { Value } from '../../../utils'
 import { Tabs, TabsItem, Title } from '../devfractal'
 
 export const TabsExample: React.SFC = () => (

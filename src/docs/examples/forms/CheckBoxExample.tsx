@@ -1,5 +1,5 @@
 import React from 'react'
-import { Value } from 'react-powerplug'
+import { Value } from '../../../utils'
 import { logger } from '../common'
 import { CheckBox, Column, Columns, Field, Section, Title } from '../devfractal'
 

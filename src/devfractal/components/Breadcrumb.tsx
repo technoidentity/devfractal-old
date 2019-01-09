@@ -1,5 +1,5 @@
 import React from 'react'
-import { Value } from 'react-powerplug'
+import { Value } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
