@@ -1,9 +1,9 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router'
 import {
-  DropDown,
-  DropDownDivider,
-  DropDownItem,
+  Dropdown,
+  DropdownDivider,
+  DropdownItem,
   Field,
   Level,
   LevelItem,
@@ -17,14 +17,14 @@ const DropDownExampleTab: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Dropdown</Title>
-      <DropDown modifier="active" label="Dropdown button">
-        <DropDownItem href="#">Dropdown item</DropDownItem>
-        <DropDownItem active>Dropdown item</DropDownItem>
-        <DropDownItem>Dropdown item</DropDownItem>
-        <DropDownItem>Dropdown item</DropDownItem>
-        <DropDownDivider />
-        <DropDownItem>With a divider</DropDownItem>
-      </DropDown>
+      <Dropdown modifier="active" label="Dropdown button">
+        <DropdownItem href="#">Dropdown item</DropdownItem>
+        <DropdownItem active>Dropdown item</DropdownItem>
+        <DropdownItem>Dropdown item</DropdownItem>
+        <DropdownItem>Dropdown item</DropdownItem>
+        <DropdownDivider />
+        <DropdownItem>With a divider</DropdownItem>
+      </Dropdown>
     </Section>
   </>
 )
@@ -33,22 +33,22 @@ const DropDownContentExampleTab: React.SFC = () => (
   <>
     <Section>
       <Title size="4">DropDown Content</Title>
-      <DropDown modifier="hoverable" label="Content">
-        <DropDownItem>
+      <Dropdown modifier="hoverable" label="Content">
+        <DropdownItem>
           <p>
             You can insert <strong>any type of content</strong> within the
             dropdown menu.
           </p>
-        </DropDownItem>
-        <DropDownDivider />
-        <DropDownItem>
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem>
           <p>
             You simply need to use a <code>&lt;div&gt;</code> instead.
           </p>
-        </DropDownItem>
-        <DropDownDivider />
-        <DropDownItem>This is a link</DropDownItem>
-      </DropDown>
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem>This is a link</DropdownItem>
+      </Dropdown>
     </Section>
   </>
 )
@@ -57,11 +57,11 @@ const HoverableDropdownExampleTab: React.SFC = () => (
     <Section>
       <Title size="4">Hoverable </Title>
 
-      <DropDown modifier="hoverable" label="Hover me">
-        <DropDownItem>
+      <Dropdown modifier="hoverable" label="Hover me">
+        <DropdownItem>
           You can insert any type of contentwithin the dropdown menu.
-        </DropDownItem>
-      </DropDown>
+        </DropdownItem>
+      </Dropdown>
     </Section>
   </>
 )
@@ -70,17 +70,17 @@ const ToggableDropdownExampleTab: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Toggable</Title>
-      <DropDown modifier="active" label="Click me">
-        <DropDownItem>Overview</DropDownItem>
-        <DropDownItem>Modifiers</DropDownItem>
-        <DropDownItem>Grid</DropDownItem>
-        <DropDownItem>Form</DropDownItem>
-        <DropDownItem>Elements</DropDownItem>
-        <DropDownItem>Components</DropDownItem>
-        <DropDownItem>Layout</DropDownItem>
-        <DropDownDivider />
-        <DropDownItem>More</DropDownItem>
-      </DropDown>
+      <Dropdown modifier="active" label="Click me">
+        <DropdownItem>Overview</DropdownItem>
+        <DropdownItem>Modifiers</DropdownItem>
+        <DropdownItem>Grid</DropdownItem>
+        <DropdownItem>Form</DropdownItem>
+        <DropdownItem>Elements</DropdownItem>
+        <DropdownItem>Components</DropdownItem>
+        <DropdownItem>Layout</DropdownItem>
+        <DropdownDivider />
+        <DropdownItem>More</DropdownItem>
+      </Dropdown>
     </Section>
   </>
 )
@@ -90,14 +90,14 @@ const RightAlignableDropdownExampleTab: React.SFC = () => (
       <Level>
         <Title size="4">Right aligned</Title>
         <LevelItem levelItemType="right">
-          <DropDown modifier="active" rightAligned label="Right aligned">
-            <DropDownItem>
+          <Dropdown modifier="active" rightAligned label="Right aligned">
+            <DropdownItem>
               <p>
                 Add the <code>is-right</code> modifier for a{' '}
                 <strong>right-aligned</strong> dropdown.
               </p>
-            </DropDownItem>
-          </DropDown>
+            </DropdownItem>
+          </Dropdown>
         </LevelItem>
       </Level>
     </Section>
@@ -111,14 +111,14 @@ const LeftAlignableDropdownExampleTab: React.SFC = () => (
         <Section>
           <Field>
             <Title size="4">Left aligned</Title>
-            <DropDown modifier="active" label="Left aligned">
-              <DropDownItem>
+            <Dropdown modifier="active" label="Left aligned">
+              <DropdownItem>
                 <p>
                   Add the <code>is-left</code> modifier for a{' '}
                   <strong>left-aligned</strong> dropdown.
                 </p>
-              </DropDownItem>
-            </DropDown>
+              </DropdownItem>
+            </Dropdown>
           </Field>
         </Section>
       </LevelItem>
@@ -130,14 +130,14 @@ const DropUpExampleTab: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Dropup</Title>
-      <DropDown dropUp modifier="hoverable" label="Dropup button">
-        <DropDownItem>
+      <Dropdown dropUp modifier="hoverable" label="Dropup button">
+        <DropdownItem>
           <p>
             You can add the <code>is-up</code> modifier to have a dropdown menu
             that appears above the dropdown button.
           </p>
-        </DropDownItem>
-      </DropDown>
+        </DropdownItem>
+      </Dropdown>
     </Section>
   </>
 )

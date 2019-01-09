@@ -4,35 +4,35 @@ import { Icon } from '../elements'
 import { Button } from '../form'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-type DropDownModifier = 'hoverable' | 'active'
+type DropdownModifier = 'hoverable' | 'active'
 
-export interface DropDownChangeEvent {
+export interface DropdownChangeEvent {
   readonly name?: string
   readonly value?: string
 }
 
-interface DropDownContext {
+interface DropdownContext {
   readonly name?: string
   readonly selectedTab?: string
-  setSelectedTab?(event: DropDownChangeEvent): void
+  setSelectedTab?(event: DropdownChangeEvent): void
 }
 
-const DropDownContext: React.Context<DropDownContext> = React.createContext<
-  DropDownContext
+const DropdownContext: React.Context<DropdownContext> = React.createContext<
+  DropdownContext
 >({})
 
-export interface DropDownProps
+export interface DropdownProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly label?: string
   readonly name?: string
-  readonly modifier?: DropDownModifier
+  readonly modifier?: DropdownModifier
   readonly rightAligned?: boolean
   readonly dropUp?: boolean
-  onDropDownChange?(event: DropDownChangeEvent): void
+  onDropdownChange?(event: DropdownChangeEvent): void
 }
 
-export const DropDown: React.SFC<DropDownProps> = ({
+export const Dropdown: React.SFC<DropdownProps> = ({
   label,
   modifier,
   rightAligned,
@@ -62,13 +62,13 @@ export const DropDown: React.SFC<DropDownProps> = ({
   )
 }
 
-export interface DropDownItemProps
+export interface DropdownItemProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
   readonly active?: boolean
 }
 
-export const DropDownItem: React.SFC<DropDownItemProps> = ({
+export const DropdownItem: React.SFC<DropdownItemProps> = ({
   active,
   children,
   ...props
@@ -83,11 +83,11 @@ export const DropDownItem: React.SFC<DropDownItemProps> = ({
   )
 }
 
-export interface DropDownDividerProps
+export interface DropdownDividerProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const DropDownDivider: React.SFC<DropDownDividerProps> = ({
+export const DropdownDivider: React.SFC<DropdownDividerProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'dropdown-divider')
