@@ -1,6 +1,7 @@
 export * from './Counter'
 export * from './FieldsGeneralForm'
 export * from './login-form-variants'
+export * from './SimpleExamples'
 export * from './SimpleFormExample'
 export * from './Todo'
 export * from './UserForm'

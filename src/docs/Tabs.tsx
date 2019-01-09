@@ -42,7 +42,8 @@ export const FormTab: React.SFC = () => (
 
 export const CompositesTab: React.SFC = () => (
   <RoutedTabs to="/composites" size="medium">
-    <RoutedTabsItem value="simple">Simple Examples Form</RoutedTabsItem>
+    <RoutedTabsItem value="simple">Simple</RoutedTabsItem>
+    <RoutedTabsItem value="simple-form">Simple Form</RoutedTabsItem>
     <RoutedTabsItem value="general-form">General form</RoutedTabsItem>
     <RoutedTabsItem value="counter">Counter</RoutedTabsItem>
     <RoutedTabsItem value="todo">Todo</RoutedTabsItem>

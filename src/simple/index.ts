@@ -1,4 +1,5 @@
 export * from './SimpleEditor'
 export * from './SimpleForm'
 export * from './SimpleTable'
+export * from './SimpleTabs'
 export * from './SimpleViewer'

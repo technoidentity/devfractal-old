@@ -19,7 +19,7 @@ type RoutedTabsAlignment = 'centered' | 'right'
 
 type RoutedTabsStyle = 'boxed' | 'toggle' | 'toggle-rounded'
 
-interface RoutedTabsItemProps
+export interface RoutedTabsItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
     Helpers {
   readonly value: string
@@ -67,7 +67,7 @@ export const RoutedTabsItem: React.SFC<RoutedTabsItemProps> = ({
   </RoutedTabsContext.Consumer>
 )
 
-interface RoutedTabsProps
+export interface RoutedTabsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly size?: RoutedTabsSize
