@@ -1,8 +1,8 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
-import { Button } from '../../../devfractal'
 import {
   Box,
+  Button,
   Content,
   Delete,
   Icon,
