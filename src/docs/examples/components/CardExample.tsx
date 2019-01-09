@@ -19,7 +19,6 @@ import {
   MediaLeft,
   Section,
   SubTitle,
-  Text,
   Title,
 } from '../devfractal'
 
@@ -30,9 +29,7 @@ export const CardExample: React.SFC = () => (
         <CardFooter>
           <Card>
             <CardHeader>
-              <CardHeaderTitle className="is-large" alignment="centered">
-                Card
-              </CardHeaderTitle>
+              <CardHeaderTitle alignment="centered">Card</CardHeaderTitle>
             </CardHeader>
             <CardImage>
               <Image
@@ -49,19 +46,29 @@ export const CardExample: React.SFC = () => (
                   />
                 </MediaLeft>
                 <MediaContent>
-                  <Title size="1">John Smith</Title>
+                  <Title size="4">John Smith</Title>
                   <SubTitle size="6">@johnsmith</SubTitle>
                 </MediaContent>
               </Media>
               <Content>
-                Bulma is an open source CSS framework based on Flexbox and used
-                by more than 100,000 developers.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris.
+                <a href="#">@bulmaio</a>. <a href="#">#css</a>
+                <a href="#">#responsive</a>
+                <br />
+                <time dateTime="2016-1-1">11:09 PM - 1 Jan</time>
               </Content>
             </CardContent>
             <CardFooter>
-              <CardFooterItem href="#">save</CardFooterItem>
-              <CardFooterItem href="#">edit</CardFooterItem>
-              <CardFooterItem href="#">delete</CardFooterItem>
+              <CardFooterItem>
+                <a href="#">save</a>
+              </CardFooterItem>
+              <CardFooterItem>
+                <a href="#">edit</a>
+              </CardFooterItem>
+              <CardFooterItem>
+                <a href="#">delete</a>
+              </CardFooterItem>
             </CardFooter>
           </Card>
         </CardFooter>
@@ -76,16 +83,25 @@ export const CardExample: React.SFC = () => (
             </CardHeaderIcon>
           </CardHeader>
           <CardContent>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            nec iaculis mauris.
-            <a href="#">@bulmaio</a>. <a href="#">#css</a>{' '}
-            <a href="#">#responsive</a>
-            <span> 11:09 PM - 1 Jan 2016</span>
+            <Content>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              nec iaculis mauris.
+              <a href="#">@bulmaio</a>. <a href="#">#css</a>
+              <a href="#">#responsive</a>
+              <br />
+              <time dateTime="2016-1-1"> 11:09 PM - 1 Jan 2016</time>
+            </Content>
           </CardContent>
           <CardFooter>
-            <CardFooterItem>Save</CardFooterItem>
-            <CardFooterItem>Edit</CardFooterItem>
-            <CardFooterItem>Delete</CardFooterItem>
+            <CardFooterItem>
+              <a href="#">Save</a>
+            </CardFooterItem>
+            <CardFooterItem>
+              <a href="#">Edit</a>
+            </CardFooterItem>
+            <CardFooterItem>
+              <a href="#">Delete</a>
+            </CardFooterItem>
           </CardFooter>
         </Card>
       </Section>
@@ -99,10 +115,16 @@ export const CardExample: React.SFC = () => (
             <SubTitle>Jeff Atwood</SubTitle>
           </CardContent>
           <CardFooter>
-            <CardFooterItem href="https://twitter.com/codinghorror/status/506010907021828096">
-              <Text>View on</Text> Twitter
+            <CardFooterItem>
+              <span>
+                View on <a href="#"> Twitter</a>
+              </span>
             </CardFooterItem>
-            <CardFooterItem href="#">Facebook</CardFooterItem>
+            <CardFooterItem>
+              <span>
+                Share on <a href="#">Facebook</a>
+              </span>
+            </CardFooterItem>
           </CardFooter>
         </Card>
       </Section>

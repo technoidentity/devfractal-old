@@ -30,10 +30,11 @@ export const CardHeader: React.SFC<CardHeaderProps> = ({
   )
 }
 
+type HeaderTitleAlignment = 'centered'
 export interface CardHeaderTitleProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {
-  readonly alignment?: 'centered'
+  readonly alignment?: HeaderTitleAlignment
 }
 
 export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
@@ -52,7 +53,7 @@ export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
 }
 
 export interface CardHeaderIconProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
 export const CardHeaderIcon: React.SFC<CardHeaderIconProps> = ({
@@ -99,7 +100,7 @@ export const CardFooter: React.SFC<CardFooterProps> = ({
   )
 }
 export interface CardFooterItemProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
 export const CardFooterItem: React.SFC<CardFooterItemProps> = ({
@@ -108,7 +109,7 @@ export const CardFooterItem: React.SFC<CardFooterItemProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'card-footer-item')
   return (
-    <Div as="a" {...props} className={classes}>
+    <Div {...props} className={classes}>
       {children}
     </Div>
   )
@@ -124,7 +125,7 @@ export const CardImage: React.SFC<CardImageProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'card-image')
   return (
-    <Div as="figure" {...props} className={classes}>
+    <Div {...props} className={classes}>
       {children}
     </Div>
   )
