@@ -1,9 +1,9 @@
 import React from 'react'
-import { Value } from '../../../utils'
+import { State } from '../../../utils'
 import { Column, Columns, Section, TextArea, Title } from '../devfractal'
 
 export const DynamicTextarea: React.SFC = () => (
-  <Value initial={{ message: '' }}>
+  <State initial={{ message: '' }}>
     {({ value, set }) => (
       <TextArea
         value={value.message}
@@ -11,7 +11,7 @@ export const DynamicTextarea: React.SFC = () => (
         placeholder="Dynamic textArea"
       />
     )}
-  </Value>
+  </State>
 )
 
 export const TextAreaExample: React.SFC = () => (

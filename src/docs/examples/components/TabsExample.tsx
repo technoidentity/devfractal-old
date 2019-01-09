@@ -1,5 +1,5 @@
 import React from 'react'
-import { Value } from '../../../utils'
+import { State } from '../../../utils'
 import { Tabs, TabsItem, Title } from '../devfractal'
 
 export const TabsExample: React.SFC = () => (
@@ -22,7 +22,7 @@ export const TabsExample: React.SFC = () => (
       <TabsItem value="documents">Documents</TabsItem>
     </Tabs>
 
-    <Value
+    <State
       initial={'music'}
       render={({ value, set }) => (
         <>

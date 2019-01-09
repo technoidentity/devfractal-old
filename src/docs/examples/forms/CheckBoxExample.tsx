@@ -1,10 +1,10 @@
 import React from 'react'
-import { Value } from '../../../utils'
+import { State } from '../../../utils'
 import { logger } from '../common'
 import { CheckBox, Column, Columns, Field, Section, Title } from '../devfractal'
 
 export const DynamicCheckBox: React.SFC = () => (
-  <Value initial={{ checked: false }}>
+  <State initial={{ checked: false }}>
     {({ value, set }) => (
       <CheckBox
         checked={value.checked}
@@ -15,7 +15,7 @@ export const DynamicCheckBox: React.SFC = () => (
         {value.checked ? ' Checked' : ' UnChecked'}
       </CheckBox>
     )}
-  </Value>
+  </State>
 )
 export const CheckBoxExample: React.SFC = () => (
   <div>

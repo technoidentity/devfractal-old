@@ -1,5 +1,5 @@
 import React from 'react'
-import { Value } from '../../../utils'
+import { State } from '../../../utils'
 import {
   Column,
   Columns,
@@ -50,7 +50,7 @@ export const RadioExample: React.SFC = () => (
 
       <Section>
         <Title size="4">Controlled Radio</Title>
-        <Value initial={'red'}>
+        <State initial={'red'}>
           {({ value, set }) => (
             <RadioGroup
               name="color"
@@ -62,7 +62,7 @@ export const RadioExample: React.SFC = () => (
               <Radio value="blue"> Blue</Radio>
             </RadioGroup>
           )}
-        </Value>
+        </State>
         <hr />
       </Section>
 

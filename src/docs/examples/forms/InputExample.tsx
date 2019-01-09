@@ -1,6 +1,6 @@
 import { faCheck, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Value } from '../../../utils'
+import { State } from '../../../utils'
 
 import {
   Column,
@@ -17,7 +17,7 @@ import {
 } from '../devfractal'
 
 export const UppercaseInput: React.SFC = () => (
-  <Value initial={{ text: '' }}>
+  <State initial={{ text: '' }}>
     {({ value, set }) => (
       <Input
         type="text"
@@ -27,7 +27,7 @@ export const UppercaseInput: React.SFC = () => (
         onChange={evt => set({ text: evt.target.value.toUpperCase() })}
       />
     )}
-  </Value>
+  </State>
 )
 
 export const InputExample: React.SFC = () => (

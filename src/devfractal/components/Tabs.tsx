@@ -1,5 +1,5 @@
 import React from 'react'
-import { Value } from '../../utils'
+import { State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export interface TabsChangeEvent {
@@ -110,7 +110,7 @@ export const Tabs: React.SFC<TabsProps> = ({
     selectedTab === undefined && onTabChange === undefined
 
   return isUncontrolled ? (
-    <Value
+    <State
       initial={selectedTab || defaultValue}
       render={({ value, set }) => (
         <TabsContext.Provider

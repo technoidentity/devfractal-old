@@ -18,7 +18,7 @@ export interface StateProps<T> {
   onChange?(v: T): void
 }
 
-export class Value<T> extends React.Component<
+export class State<T> extends React.Component<
   StateProps<T>,
   { readonly value: T }
 > {

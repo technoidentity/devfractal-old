@@ -10,7 +10,7 @@ import {
   faUnderline,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Value } from '../../../utils'
+import { State } from '../../../utils'
 import {
   Box,
   Button,
@@ -26,13 +26,13 @@ import {
 } from '../devfractal'
 
 export const DynamicButton: React.SFC = () => (
-  <Value initial={{ clicked: false }}>
+  <State initial={{ clicked: false }}>
     {({ value, set }) => (
       <Button onClick={() => set({ clicked: true })}>
         {value.clicked ? 'Done' : 'Click Me'}
       </Button>
     )}
-  </Value>
+  </State>
 )
 
 export const ButtonExample: React.SFC = () => (

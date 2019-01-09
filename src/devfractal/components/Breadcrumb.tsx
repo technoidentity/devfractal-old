@@ -1,5 +1,5 @@
 import React from 'react'
-import { Value } from '../../utils'
+import { State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
@@ -99,7 +99,7 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
     selectedBreadcrumb === undefined && onSelectedBreadcrumbChange === undefined
 
   return isUncontrolled ? (
-    <Value
+    <State
       initial={selectedBreadcrumb || defaultValue}
       render={({ value, set }) => (
         <BreadcrumbContext.Provider

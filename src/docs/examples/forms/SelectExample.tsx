@@ -1,6 +1,6 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Value } from '../../../utils'
+import { State } from '../../../utils'
 import {
   Column,
   Columns,
@@ -12,7 +12,7 @@ import {
 } from '../devfractal'
 
 export const DynamicSelect: React.SFC = () => (
-  <Value initial={{ color: 'red' }}>
+  <State initial={{ color: 'red' }}>
     {({ value, set }) => (
       <>
         <Title size="4">Dynamic Select({value.color})</Title>
@@ -30,7 +30,7 @@ export const DynamicSelect: React.SFC = () => (
         </Select>
       </>
     )}
-  </Value>
+  </State>
 )
 
 export const SelectExample: React.SFC = () => (
