@@ -86,6 +86,6 @@ export const ElementsTab: React.SFC = () => (
     <RoutedTabsItem value="table">Table</RoutedTabsItem>
     <RoutedTabsItem value="tag">Tag</RoutedTabsItem>
     <RoutedTabsItem value="title">Title</RoutedTabsItem>
-    <RoutedTabsItem value="table-content">TableContentLoader</RoutedTabsItem>
+    <RoutedTabsItem value="table-content">Table Content Loader</RoutedTabsItem>
   </RoutedTabs>
 )
