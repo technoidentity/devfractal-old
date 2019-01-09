@@ -38,10 +38,12 @@ export interface PaginationLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
   readonly current?: boolean
+  readonly disabled?: boolean
 }
 
 export const PaginationLink: React.SFC<PaginationLinkProps> = ({
   current,
+  disabled,
   children,
   ...props
 }) => {
@@ -50,7 +52,7 @@ export const PaginationLink: React.SFC<PaginationLinkProps> = ({
   })
   return (
     <li>
-      <Div as="a" {...props} className={classes}>
+      <Div as="a" {...props} disabled={disabled} className={classes}>
         {children}
       </Div>
     </li>
@@ -90,15 +92,22 @@ export const PaginationEllipsis: React.SFC<PaginationEllipsisProps> = ({
 }
 export interface PaginationPreviousProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    Helpers {}
+    Helpers {
+  readonly disabled?: boolean
+}
 
 export const PaginationPrevious: React.SFC<PaginationPreviousProps> = ({
+  disabled,
   children,
   ...props
 }) => {
-  const classes: string = classNamesHelper(props, 'pagination-previous')
+  const classes: string = classNamesHelper(
+    props,
+
+    'pagination-previous',
+  )
   return (
-    <Div as="a" {...props} className={classes}>
+    <Div as="a" {...props} disabled={disabled} className={classes}>
       {children}
     </Div>
   )
@@ -106,15 +115,18 @@ export const PaginationPrevious: React.SFC<PaginationPreviousProps> = ({
 
 export interface PaginationNextProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    Helpers {}
+    Helpers {
+  readonly disabled?: boolean
+}
 
 export const PaginationNext: React.SFC<PaginationNextProps> = ({
   children,
+  disabled,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'pagination-next')
   return (
-    <Div as="a" {...props} className={classes}>
+    <Div as="a" {...props} disabled={disabled} className={classes}>
       {children}
     </Div>
   )
