@@ -39,15 +39,18 @@ export interface PanelBlockProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly active?: boolean
+  readonly wrapped?: boolean
 }
 
 export const PanelBlock: React.SFC<PanelBlockProps> = ({
   children,
   active,
+  wrapped,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'panel-block', {
     [`is-active`]: active,
+    [`is-wrapped`]: wrapped,
   })
   return (
     <Div {...props} className={classes}>
