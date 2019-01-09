@@ -42,8 +42,8 @@ export const Dropdown: React.SFC<DropdownProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'dropdown', {
     [`is-${modifier}`]: modifier,
-    [`is-right`]: rightAligned,
-    [`is-up`]: dropUp,
+    'is-right': rightAligned,
+    'is-up': dropUp,
   })
   return (
     <Div {...props} className={classes}>
@@ -62,22 +62,25 @@ export const Dropdown: React.SFC<DropdownProps> = ({
   )
 }
 
+type DropdownItemTag = 'div' | 'a'
 export interface DropdownItemProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     Helpers {
   readonly active?: boolean
+  readonly as?: DropdownItemTag
 }
 
 export const DropdownItem: React.SFC<DropdownItemProps> = ({
   active,
+  as,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'dropdown-item', {
-    [`is-active`]: active,
+    'is-active': active,
   })
   return (
-    <Div as="a" {...props} className={classes}>
+    <Div as={as} {...props} className={classes}>
       {children}
     </Div>
   )

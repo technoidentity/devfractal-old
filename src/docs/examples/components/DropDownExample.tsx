@@ -18,8 +18,10 @@ const DropDownExampleTab: React.SFC = () => (
     <Section>
       <Title size="4">Dropdown</Title>
       <Dropdown modifier="active" label="Dropdown button">
-        <DropdownItem href="#">Dropdown item</DropdownItem>
-        <DropdownItem active>Dropdown item</DropdownItem>
+        <DropdownItem>Dropdown item</DropdownItem>
+        <DropdownItem as="a" active>
+          Active Dropdown item
+        </DropdownItem>
         <DropdownItem>Dropdown item</DropdownItem>
         <DropdownItem>Dropdown item</DropdownItem>
         <DropdownDivider />
@@ -59,31 +61,13 @@ const HoverableDropdownExampleTab: React.SFC = () => (
 
       <Dropdown modifier="hoverable" label="Hover me">
         <DropdownItem>
-          You can insert any type of contentwithin the dropdown menu.
+          You can insert any type of content within the dropdown menu.
         </DropdownItem>
       </Dropdown>
     </Section>
   </>
 )
 
-const ToggableDropdownExampleTab: React.SFC = () => (
-  <>
-    <Section>
-      <Title size="4">Toggable</Title>
-      <Dropdown modifier="active" label="Click me">
-        <DropdownItem>Overview</DropdownItem>
-        <DropdownItem>Modifiers</DropdownItem>
-        <DropdownItem>Grid</DropdownItem>
-        <DropdownItem>Form</DropdownItem>
-        <DropdownItem>Elements</DropdownItem>
-        <DropdownItem>Components</DropdownItem>
-        <DropdownItem>Layout</DropdownItem>
-        <DropdownDivider />
-        <DropdownItem>More</DropdownItem>
-      </Dropdown>
-    </Section>
-  </>
-)
 const RightAlignableDropdownExampleTab: React.SFC = () => (
   <div>
     <Section>
@@ -147,7 +131,6 @@ export const DropdownExamplesTab: React.SFC = () => (
     <RoutedTabsItem value="dropdown">Dropdown</RoutedTabsItem>
     <RoutedTabsItem value="content">Content</RoutedTabsItem>
     <RoutedTabsItem value="hoverable">Hoverable </RoutedTabsItem>
-    <RoutedTabsItem value="toggable">Toggable </RoutedTabsItem>
     <RoutedTabsItem value="right">Right aligned</RoutedTabsItem>
     <RoutedTabsItem value="left">Left aligned</RoutedTabsItem>
     <RoutedTabsItem value="dropup">DropUp</RoutedTabsItem>
@@ -178,11 +161,6 @@ export const DropDownExampleRoutes: React.SFC = () => (
       path="/components/dropdown/hoverable"
       exact
       component={HoverableDropdownExampleTab}
-    />
-    <Route
-      path="/components/dropdown/toggable"
-      exact
-      component={ToggableDropdownExampleTab}
     />
     <Route
       path="/components/dropdown/right"
