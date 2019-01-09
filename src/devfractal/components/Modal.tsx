@@ -50,11 +50,11 @@ export const ModalCard: React.SFC<ModalCardProps> = ({
   )
 }
 
-export interface ModalHeadProps
+export interface ModalCardHeadProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {}
 
-export const ModalCardHead: React.SFC<ModalHeadProps> = ({
+export const ModalCardHead: React.SFC<ModalCardHeadProps> = ({
   children,
   ...props
 }) => {
@@ -74,7 +74,7 @@ export const ModalCardTitle: React.SFC<ModalCardTitleProps> = ({
   children,
   ...props
 }) => {
-  const classes: string = classNamesHelper(props, 'message-card-title')
+  const classes: string = classNamesHelper(props, 'modal-card-title')
   return (
     <Div as="p" {...props} className={classes}>
       {children}
@@ -90,7 +90,7 @@ export const ModalCardBody: React.SFC<ModalCardBodyProps> = ({
   children,
   ...props
 }) => {
-  const classes: string = classNamesHelper(props, 'message-card-body')
+  const classes: string = classNamesHelper(props, 'modal-card-body')
   return (
     <Div as="section" {...props} className={classes}>
       {children}
@@ -106,7 +106,7 @@ export const ModalCardFoot: React.SFC<ModalCardFootProps> = ({
   children,
   ...props
 }) => {
-  const classes: string = classNamesHelper(props, 'message-card-foot')
+  const classes: string = classNamesHelper(props, 'modal-card-foot')
   return (
     <Div as="footer" {...props} className={classes}>
       {children}
