@@ -221,18 +221,16 @@ export const HeroExample: React.SFC = () => (
           </Container>
         </HeroBody>
         <HeroFoot>
-          <Tabs>
-            <Container>
-              <Tabs>
-                <TabsItem value="overview">Overview</TabsItem>
-                <TabsItem value="modifiers">Modifiers</TabsItem>
-                <TabsItem value="grid">Grid</TabsItem>
-                <TabsItem value="elements">Elements</TabsItem>
-                <TabsItem value="components">Components</TabsItem>
-                <TabsItem value="layout">Layout</TabsItem>
-              </Tabs>
-            </Container>
-          </Tabs>
+          <Container>
+            <Tabs>
+              <TabsItem value="overview">Overview</TabsItem>
+              <TabsItem value="modifiers">Modifiers</TabsItem>
+              <TabsItem value="grid">Grid</TabsItem>
+              <TabsItem value="elements">Elements</TabsItem>
+              <TabsItem value="components">Components</TabsItem>
+              <TabsItem value="layout">Layout</TabsItem>
+            </Tabs>
+          </Container>
         </HeroFoot>
       </Hero>
     </Section>
