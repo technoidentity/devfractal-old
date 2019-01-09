@@ -83,6 +83,7 @@ const TabsView: React.SFC<Omit<TabsProps, 'defaultValue'>> = ({
   const classes: string = classNamesHelper(props, 'tabs', {
     [`is-${size}`]: size,
     [`is-${alignment}`]: alignment,
+    'is-toggle': tabsStyle === 'toggle' || tabsStyle === 'toggle-rounded',
     [`is-${tabsStyle}`]: tabsStyle,
     'is-fullwidth': fullWidth,
   })
