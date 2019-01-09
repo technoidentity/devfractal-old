@@ -1,5 +1,6 @@
 import React from 'react'
 import warning from 'tiny-warning'
+import { Omit } from '../../types'
 import { State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
@@ -7,16 +8,6 @@ export interface TabsChangeEvent {
   readonly name?: string
   readonly value?: string
 }
-
-interface TabsContext {
-  readonly name?: string
-  readonly selected?: string
-  setSelected?(event: TabsChangeEvent): void
-}
-
-const TabsContext: React.Context<TabsContext> = React.createContext<
-  TabsContext
->({})
 
 type TabsSize = 'small' | 'medium' | 'large'
 
@@ -29,33 +20,40 @@ export interface TabsItemProps
   readonly value?: string
 }
 
-export const TabsItem: React.SFC<TabsItemProps> = ({
-  value,
-  children,
-  ...props
-}) => (
-  <TabsContext.Consumer>
-    {({ name, selected, setSelected }) => (
-      <Div
-        as="li"
-        {...props}
-        className={classNamesHelper(props, {
-          'is-active': !!value && selected === value,
-        })}
+interface TabsItemInternalProps extends TabsItemProps {
+  readonly _name?: string
+  readonly _active?: boolean
+  _setSelectedTab?(event: TabsChangeEvent): void
+}
+
+export const TabsItem: React.SFC<TabsItemProps> = args => {
+  const {
+    value,
+    _name,
+    _active,
+    _setSelectedTab,
+    children,
+    ...props
+  } = args as TabsItemInternalProps
+
+  return (
+    <Div
+      as="li"
+      {...props}
+      className={classNamesHelper(props, { 'is-active': _active })}
+    >
+      <a
+        onClick={() => {
+          if (_setSelectedTab) {
+            _setSelectedTab({ name, value })
+          }
+        }}
       >
-        <a
-          onClick={() => {
-            if (setSelected) {
-              setSelected({ name, value })
-            }
-          }}
-        >
-          {children}
-        </a>
-      </Div>
-    )}
-  </TabsContext.Consumer>
-)
+        {children}
+      </a>
+    </Div>
+  )
+}
 
 interface TabsViewProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly size?: TabsSize
@@ -71,7 +69,7 @@ interface TabsViewProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
 
 export type TabsProps = TabsViewProps
 
-const TabsView: React.SFC<TabsProps> = ({
+const TabsView: React.SFC<Omit<TabsProps, 'defaultValue'>> = ({
   size,
   alignment,
   fullWidth,
@@ -79,7 +77,6 @@ const TabsView: React.SFC<TabsProps> = ({
   name,
   selectedTab,
   onTabChange,
-  defaultValue,
   children,
   ...props
 }) => {
@@ -89,18 +86,23 @@ const TabsView: React.SFC<TabsProps> = ({
     [`is-${tabsStyle}`]: tabsStyle,
     'is-fullwidth': fullWidth,
   })
-
+  const selected: string =
+    selectedTab || ((children && children[0].props.value) || '0')
   return (
-    <TabsContext.Provider
-      value={{
-        selected: selectedTab,
-        setSelected: ({ value }) => onTabChange && onTabChange({ name, value }),
-      }}
-    >
-      <Div {...props} className={classes}>
-        <ul>{children}</ul>
-      </Div>
-    </TabsContext.Provider>
+    <Div {...props} className={classes}>
+      <ul>
+        {React.Children.map(children, (child: any, i: number) => {
+          const value: string = child.props.value || i.toString()
+          return React.cloneElement(child, {
+            _name: name,
+            value,
+            _active: selected === value,
+            _setSelectedTab: ({ value }: TabsChangeEvent) =>
+              onTabChange && onTabChange({ name, value }),
+          })
+        })}
+      </ul>
+    </Div>
   )
 }
 
