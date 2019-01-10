@@ -37,7 +37,7 @@ function matches(
 
   const start: number = baseURL.length + separator.length
   const i: number = currentLocation.indexOf(separator, start)
-  const stop: number = i === -1 ? baseURL.length + tab.length : i - 1
+  const stop: number = i === -1 ? currentLocation.length : i - 1
 
   const segment: string = currentLocation.slice(start, stop + 1)
   return currentLocation.startsWith(baseURL) && tab === segment
