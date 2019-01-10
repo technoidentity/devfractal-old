@@ -16,7 +16,7 @@ type ControlType =
   | 'radio'
   | 'textarea'
   | 'file'
-interface ControlDivProps
+export interface ControlDivProps
   extends React.AllHTMLAttributes<HTMLElement>,
     AllControlHelpers {
   readonly as?: ControlType
