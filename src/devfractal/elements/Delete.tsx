@@ -2,6 +2,7 @@ import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type DeleteSize = 'small' | 'medium' | 'large'
+
 export interface DeleteProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
