@@ -266,7 +266,7 @@ export const TabsExample: React.SFC = () => (
       <Title textAlignment="centered">Dynamic Tabs</Title>
       <Box>
         <Title size="4">Uncontrolled Tab</Title>
-        <Tabs name="secondTab" defaultValue="documents" size="medium">
+        <Tabs name="secondTab" defaultValue="documents" size="medium" readOnly>
           <TabsItem value="pictures">Pictures</TabsItem>
           <TabsItem value="music">Music</TabsItem>
           <TabsItem value="videos">Videos</TabsItem>
