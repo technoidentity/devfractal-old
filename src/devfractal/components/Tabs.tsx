@@ -118,7 +118,7 @@ export const Tabs: React.SFC<TabsProps> = ({
   ...props
 }) => {
   warning(
-    props.selectedTab && !props.onTabChange && !props.readOnly,
+    !(props.selectedTab && !props.onTabChange && !props.readOnly),
     "'selectedTab' provided, but not 'onTabChange', make this component readOnly.",
   )
 
