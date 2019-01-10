@@ -49,8 +49,8 @@ export const PanelBlock: React.SFC<PanelBlockProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'panel-block', {
-    [`is-active`]: active,
-    [`is-wrapped`]: wrapped,
+    'is-active': active,
+    'is-wrapped': wrapped,
   })
   return (
     <Div {...props} className={classes}>
@@ -93,7 +93,7 @@ export const PanelTabsItem: React.SFC<PanelTabsItemProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, {
-    [`is-active`]: active,
+    'is-active': active,
   })
   return (
     <Div as="a" {...props} className={classes}>

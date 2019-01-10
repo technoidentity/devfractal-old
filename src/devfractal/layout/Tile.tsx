@@ -43,10 +43,10 @@ export const Tile: React.SFC<TileProps> = ({
   const classes: string = classNamesHelper(props, 'tile', {
     [`is-${tileType}`]: tileType,
     [`is-${size}`]: size,
-    [`is-vertical`]: vertical,
+    'is-vertical': vertical,
     [`is-${variant}`]: variant,
-    [`notification`]: notification,
-    [`box`]: box,
+    notification,
+    box,
   })
   return (
     <Div {...props} className={classes}>

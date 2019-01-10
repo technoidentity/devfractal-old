@@ -20,7 +20,7 @@ export const Title: React.SFC<TitleProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'title', {
     [`is-${size}`]: size,
-    [`is-spaced`]: spaced,
+    'is-spaced': spaced,
   })
   return (
     <Div as="h1" {...props} className={classes}>

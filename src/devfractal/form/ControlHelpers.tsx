@@ -27,12 +27,12 @@ export const controlClasses: (props: ControlClassesArgs) => string = ({
   rightIcon,
 }) =>
   classNames('control', {
-    [`is-loading`]: loading,
-    [`is-expanded`]: expanded,
-    [`is-fullwidth`]: fullWidth,
+    'is-loading': loading,
+    'is-expanded': expanded,
+    'is-fullwidth': fullWidth,
     [`is-${ctrlSize}`]: ctrlSize,
-    [`has-icons-left`]: leftIcon,
-    [`has-icons-right`]: rightIcon,
+    'has-icons-left': leftIcon,
+    'has-icons-right': rightIcon,
   })
 
 export type ControlHelpersRemoved<T> = Omit<T, keyof ControlHelpers>

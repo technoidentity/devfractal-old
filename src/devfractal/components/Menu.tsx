@@ -60,7 +60,7 @@ export const MenuItem: React.SFC<MenuItemProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, {
-    [`is-active`]: active,
+    'is-active': active,
   })
   return (
     <Div as="li" {...props} className={classes}>

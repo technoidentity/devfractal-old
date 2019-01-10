@@ -44,9 +44,9 @@ export const File: React.SFC<FileProps> = ({
     [`is-${variant}`]: variant,
     [`is-${size}`]: size,
     [`is-${alignment}`]: alignment,
-    [`is-fullwidth`]: fullWidth,
-    [`is-boxed`]: boxed,
-    [`has-name`]: fileName,
+    'is-fullwidth': fullWidth,
+    'is-boxed': boxed,
+    'has-name': fileName,
   })
   return (
     <div {...props} className={classes}>

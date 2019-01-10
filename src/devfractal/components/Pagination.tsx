@@ -19,7 +19,7 @@ export const Pagination: React.SFC<PaginationProps> = ({
   const classes: string = classNamesHelper(props, 'pagination', {
     [`is-${alignment}`]: alignment,
     [`is-${size}`]: size,
-    [`is-rounded`]: rounded,
+    'is-rounded': rounded,
   })
   return (
     <Div
@@ -48,7 +48,7 @@ export const PaginationLink: React.SFC<PaginationLinkProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'pagination-link', {
-    [`is-current`]: current,
+    'is-current': current,
   })
   return (
     <li>

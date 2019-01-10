@@ -15,14 +15,14 @@ export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
 }) =>
   classNames({
     [`is-${floating}`]: floating,
-    [`is-marginless`]: marginLess,
-    [`is-paddingless`]: paddingLess,
-    [`is-clipped`]: clipped,
-    [`is-radiusless`]: radiusLess,
-    [`is-shadowless`]: shadowLess,
-    [`is-unselectable`]: unSelectable,
-    [`is-invisible`]: invisible,
-    [`is-sr-only`]: srOnly,
+    'is-marginless': marginLess,
+    'is-paddingless': paddingLess,
+    'is-clipped': clipped,
+    'is-radiusless': radiusLess,
+    'is-shadowless': shadowLess,
+    'is-unselectable': unSelectable,
+    'is-invisible': invisible,
+    'is-sr-only': srOnly,
   })
 
 export type CommonHelpersRemoved<T> = Omit<T, keyof CommonHelpers>

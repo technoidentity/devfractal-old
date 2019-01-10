@@ -50,7 +50,7 @@ export const Image: React.SFC<ImageProps> = ({
   })
 
   const imgClasses: string = classNamesHelper(props, {
-    [`is-rounded`]: rounded,
+    'is-rounded': rounded,
   })
 
   return (

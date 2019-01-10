@@ -38,9 +38,9 @@ export const Select: React.SFC<SelectProps> = ({
 }) => {
   const divClasses: string = classNames('select', {
     [`is-${variant}`]: variant,
-    [`is-loading`]: loading,
-    [`is-fullwidth`]: fullWidth,
-    [`is-rounded`]: rounded,
+    'is-loading': loading,
+    'is-fullwidth': fullWidth,
+    'is-rounded': rounded,
     [`is-${props.ctrlSize}`]: props.ctrlSize,
   })
 

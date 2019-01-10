@@ -38,9 +38,9 @@ export const TextArea: React.SFC<TextAreaProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'textarea', {
     [`is-${variant}`]: variant,
-    [`has-fixed-size`]: fixedSize,
-    [`is-fullwidth`]: fullWidth,
-    [`is-inline`]: inline,
+    'has-fixed-size': fixedSize,
+    'is-fullwidth': fullWidth,
+    'is-inline': inline,
     [`is-${props.ctrlSize}`]: props.ctrlSize,
     [`is-${state}`]: state,
   })

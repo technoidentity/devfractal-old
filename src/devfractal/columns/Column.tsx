@@ -76,7 +76,7 @@ export const Column: React.SFC<ColumnProps> = ({
       [`is-${size}`]: size,
       [`is-${gridSize}`]: gridSize,
       [`is-offset-${offsetSize}`]: offsetSize,
-      [`is-narrow`]: narrow,
+      'is-narrow': narrow,
     },
   )
 
