@@ -54,11 +54,11 @@ export const Input: React.SFC<InputProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'input', {
+    'is-fullwidth': fullWidth,
+    'is-inline': inline,
+    'is-rounded': rounded,
     [`is-${variant}`]: variant,
-    [`is-fullwidth`]: fullWidth,
-    [`is-inline`]: inline,
     [`is-${props.ctrlSize}`]: props.ctrlSize,
-    [`is-rounded`]: rounded,
     [`is-${state}`]: state,
   })
 

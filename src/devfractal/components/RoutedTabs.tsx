@@ -56,7 +56,7 @@ export const RoutedTabsItem: React.SFC<RoutedTabsItemProps> = ({
         as="li"
         {...props}
         className={classNamesHelper(props, {
-          [`is-active`]: matches(value, separator, baseURL, currentLocation),
+          'is-active': matches(value, separator, baseURL, currentLocation),
         })}
       >
         <NavLink to={baseURL ? `${baseURL}${separator}${value}` : ''}>
@@ -99,7 +99,7 @@ const RoutedTabsWithRouter: React.SFC<
     [`is-${size}`]: size,
     [`is-${alignment}`]: alignment,
     [`is-${tabsStyle}`]: tabsStyle,
-    [`is-fullwidth`]: fullWidth,
+    'is-fullwidth': fullWidth,
   })
 
   return (

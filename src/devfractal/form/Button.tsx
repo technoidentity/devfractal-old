@@ -87,10 +87,10 @@ export const Button: React.SFC<ButtonProps> = ({
     [`is-${modifier}`]: modifier,
     [`is-${size}`]: size,
     [`is-${state}`]: state,
-    [`is-rounded`]: rounded,
-    [`is-inverted`]: inverted,
-    [`is-outlined`]: outlined,
-    [`is-fullwidth`]: fullWidth,
+    'is-rounded': rounded,
+    'is-inverted': inverted,
+    'is-outlined': outlined,
+    'is-fullwidth': fullWidth,
   })
 
   return (

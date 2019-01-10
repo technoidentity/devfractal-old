@@ -21,11 +21,11 @@ export const Table: React.SFC<TableProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'table', {
-    [`is-bordered`]: bordered,
-    [`is-striped`]: striped,
-    [`is-narrow`]: narrow,
-    [`is-hoverable`]: hoverable,
-    [`is-fullwidth`]: fullWidth,
+    'is-bordered': bordered,
+    'is-striped': striped,
+    'is-narrow': narrow,
+    'is-hoverable': hoverable,
+    'is-fullwidth': fullWidth,
   })
   return (
     <Div as="table" {...props} className={classes}>
@@ -89,7 +89,7 @@ export interface TrProps
 
 export const Tr: React.SFC<TrProps> = ({ children, selected, ...props }) => {
   const classes: string = classNamesHelper(props, 'tr', {
-    [`is-selected`]: selected,
+    'is-selected': selected,
   })
 
   return (

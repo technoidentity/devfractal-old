@@ -32,11 +32,11 @@ export const Field: React.SFC<FieldProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'field', {
-    [`is-grouped`]: grouped || groupedMultiline || groupModifier,
-    [`is-horizontal`]: horizontal,
-    [`has-addons`]: addons || addonsModifier,
+    'is-grouped': grouped || groupedMultiline || groupModifier,
+    'is-horizontal': horizontal,
+    'has-addons': addons || addonsModifier,
     [`is-${size}`]: size,
-    [`is-grouped-multiline`]: groupedMultiline,
+    'is-grouped-multiline': groupedMultiline,
     [`is-${groupModifier}`]: groupModifier,
     [`has-${addonsModifier}`]: addonsModifier,
   })

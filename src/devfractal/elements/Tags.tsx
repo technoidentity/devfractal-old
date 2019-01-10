@@ -17,7 +17,7 @@ export const Tags: React.SFC<TagsProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'tags', {
     [`is-${alignment}`]: alignment,
-    [`has-addons`]: addons,
+    'has-addons': addons,
   })
   return (
     <Div {...props} className={classes}>

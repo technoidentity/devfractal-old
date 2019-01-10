@@ -29,10 +29,10 @@ export const Columns: React.SFC<ColumnsProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'columns', {
     [`is-${responsiveness}`]: responsiveness,
-    [`is-gapless`]: gapless,
-    [`is-vcentered`]: verticallyCentered,
-    [`is-multiline`]: multiline,
-    [`is-centered`]: columnCentered,
+    'is-gapless': gapless,
+    'is-vcentered': verticallyCentered,
+    'is-multiline': multiline,
+    'is-centered': columnCentered,
   })
 
   return (

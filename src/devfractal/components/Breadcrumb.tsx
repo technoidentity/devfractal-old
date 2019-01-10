@@ -31,7 +31,7 @@ export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, {
-    [`is-active`]: active,
+    'is-active': active,
   })
   return (
     <BreadcrumbContext.Consumer>

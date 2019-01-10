@@ -28,7 +28,7 @@ export const Hero: React.SFC<HeroProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'hero', {
     [`is-${variant}`]: variant,
-    [`is-bold`]: bold,
+    'is-bold': bold,
     [`is-${size}`]: size,
   })
   return (

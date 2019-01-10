@@ -98,8 +98,8 @@ export const NavbarItem: React.SFC<NavbarItemsProps> = ({
   const classes: string = classNamesHelper(props, 'navbar-item', {
     href: { href },
     'is-active': active,
-    [`has-dropdown-up`]: dropUp,
-    [`has-dropdown`]: dropdown,
+    'has-dropdown-up': dropUp,
+    'has-dropdown': dropdown,
     [`is-${modifier}`]: modifier,
   })
   return (
@@ -127,7 +127,7 @@ export const NavbarMenu: React.SFC<NavbarMenuProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'navbar-menu', {
-    [`is-active`]: active,
+    'is-active': active,
   })
   return (
     <Div {...props} className={classes}>
