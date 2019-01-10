@@ -7,16 +7,16 @@ export const ContainerExample: React.SFC = () => (
     <Container>
       <Notification>This container is centered on desktop.</Notification>
     </Container>
-    <Section>
+    <div className="is-fullwidth">
       <Title>Fluid container</Title>
-      <Container className="is-fluid">
+      <Container fluid>
         <Notification>
           This container is <strong>fluid</strong>: it will have a 32px gap on
           either side, on any viewport size.
         </Notification>
       </Container>
-    </Section>
-    <Section>
+    </div>
+    <div className="is-fullwidth">
       <Title>Breakpoint containers</Title>
       <Container breakpoint="widescreen">
         <Notification>
@@ -24,7 +24,7 @@ export const ContainerExample: React.SFC = () => (
           <code>$widescreen</code> breakpoint.
         </Notification>
       </Container>
-    </Section>
+    </div>
     <Section>
       <Container breakpoint="fullhd">
         <Notification>
