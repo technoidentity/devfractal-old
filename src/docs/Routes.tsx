@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { SimpleRedirect } from '../utils'
-import TableContentLoader from '../utils/TableContentLoader'
+import { SimpleRedirect, TableContentLoader } from '../utils'
 import {
   BasicColumnExample,
   BoxExample,

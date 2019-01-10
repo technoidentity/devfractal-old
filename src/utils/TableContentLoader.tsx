@@ -18,7 +18,7 @@ const Loader = (props: any) => {
   )
 }
 
-const TableContentLoader = () => (
+export const TableContentLoader = () => (
   <React.Fragment>
     {Array(10)
       .fill('')
@@ -34,5 +34,3 @@ TableContentLoader.metadata = {
   description: 'Table with the width of the dynamic rows',
   filename: 'danilowoz-table',
 }
-
-export default TableContentLoader
