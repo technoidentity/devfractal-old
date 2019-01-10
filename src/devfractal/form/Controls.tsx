@@ -10,7 +10,9 @@ import { TextArea, TextAreaProps } from './TextArea'
 
 type OmitForm<T> = Omit<T, 'form'>
 
-interface FormikInputProps<V> extends FieldProps<V>, OmitForm<InputProps> {}
+export interface FormikInputProps<V>
+  extends FieldProps<V>,
+    OmitForm<InputProps> {}
 
 export const FormikInput: <V = unknown>(
   props: FormikInputProps<V>,
@@ -18,7 +20,7 @@ export const FormikInput: <V = unknown>(
   <Input {...props} {...field} />
 )
 
-interface FormikCheckboxProps<V>
+export interface FormikCheckboxProps<V>
   extends FieldProps<V>,
     OmitForm<CheckBoxProps> {}
 
@@ -30,7 +32,7 @@ export const FormikCheckbox: <V = unknown>(
   </CheckBox>
 )
 
-interface FormikRadioGroupProps<V>
+export interface FormikRadioGroupProps<V>
   extends FieldProps<V>,
     OmitForm<RadioGroupProps> {}
 
@@ -50,7 +52,9 @@ export const FormikRadioGroup: <V = unknown>(
   )
 }
 
-interface FormikSelectProps<V> extends FieldProps<V>, OmitForm<SelectProps> {}
+export interface FormikSelectProps<V>
+  extends FieldProps<V>,
+    OmitForm<SelectProps> {}
 
 export const FormikSelect: <V = unknown>(
   props: FormikSelectProps<V>,
@@ -60,7 +64,7 @@ export const FormikSelect: <V = unknown>(
   </Select>
 )
 
-interface FormikTextAreaProps<V>
+export interface FormikTextAreaProps<V>
   extends FieldProps<V>,
     OmitForm<TextAreaProps> {}
 
