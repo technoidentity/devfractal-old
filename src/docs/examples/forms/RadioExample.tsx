@@ -58,7 +58,7 @@ export const RadioExamples: React.SFC = () => {
           <FormField horizontal>
             <FieldLabel>Gender</FieldLabel>
             <FieldBody>
-              <RadioGroup name="gender" defaultValue="female">
+              <RadioGroup name="gender2" defaultValue="female">
                 <Radio value="male"> Male</Radio>
                 <Radio value="female"> Female</Radio>
               </RadioGroup>
