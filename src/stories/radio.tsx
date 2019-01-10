@@ -5,17 +5,17 @@ import { Radio, RadioGroup } from '../devfractal/form'
 
 storiesOf('Radio', module)
   .add('with action', () => (
-    <RadioGroup onChange={action('onChange')}>
+    <RadioGroup name="gender2" onChange={action('onChange')}>
       <Radio>Gender</Radio>
     </RadioGroup>
   ))
   .add('with checked', () => (
-    <RadioGroup>
+    <RadioGroup name="gender2">
       <Radio checked>Male</Radio>)
     </RadioGroup>
   ))
   .add('with disabled', () => (
-    <RadioGroup>
+    <RadioGroup name="gender3">
       <Radio disabled>Female</Radio>)
     </RadioGroup>
   ))

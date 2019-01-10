@@ -43,7 +43,7 @@ export const FormikRadioGroup: <V = unknown>(
       name={field.name}
       onBlur={field.onBlur}
       selected={field.value}
-      onChange={evt => form.setFieldValue(field.name, evt.target.value)}
+      onChange={evt => form.setFieldValue(field.name, evt.value)}
     >
       {children}
     </RadioGroup>

@@ -1,36 +1,30 @@
 import React, { ChangeEvent } from 'react'
+import warning from 'tiny-warning'
 import { Omit } from '../../types'
+import { debugAssert, State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 import { AllControlHelpers } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
 
-interface RadioContext {
-  readonly name?: string
-  readonly selected?: string
-  readonly readOnly?: boolean
-  onChange?(evt: ChangeEvent<HTMLInputElement>): void
-  onBlur?(e: any): void
+export interface RadioChangeEvent {
+  readonly name: string
+  readonly value?: string
 }
 
-const RadioContext: React.Context<RadioContext> = React.createContext<
-  RadioContext
->({})
-
-export interface RadioGroupProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
+interface RadioGroupViewProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'>,
     AllControlHelpers {
-  readonly name?: string
+  readonly name: string
   readonly selected?: string
   readonly defaultValue?: string
   readonly readOnly?: boolean
-  onChange?(evt: ChangeEvent<HTMLInputElement>): void
+  onChange?(evt: RadioChangeEvent): void
   onBlur?(e: any): void
 }
 
-export const RadioGroup: React.SFC<RadioGroupProps> = ({
+const RadioGroupView: React.SFC<RadioGroupViewProps> = ({
   name,
   selected,
-  defaultValue,
   readOnly,
   onChange,
   onBlur,
@@ -38,48 +32,88 @@ export const RadioGroup: React.SFC<RadioGroupProps> = ({
   ...props
 }) => {
   return (
-    <RadioContext.Provider
-      value={{
-        selected: selected || defaultValue,
-        name,
-        readOnly,
-        onChange,
-        onBlur,
-      }}
-    >
-      <ControlWrapper {...props}>{children}</ControlWrapper>
-    </RadioContext.Provider>
+    <ControlWrapper {...props}>
+      {React.Children.map(children, (child: any, i) => {
+        debugAssert(
+          () => child.type.displayName === 'Radio',
+          "Every child to 'RadioGroup' must be 'Radio'",
+        )
+        const _selected: string =
+          selected ||
+          ((children && children[0] && children[0].props.value) || '0')
+        return React.cloneElement(child, {
+          name,
+          value: child.props.value || i.toString(),
+          onBlur,
+          readOnly,
+          onChange: (evt: ChangeEvent<HTMLInputElement>) => {
+            if (onChange) {
+              onChange({
+                name: evt.currentTarget.name,
+                value: evt.currentTarget.value,
+              })
+            }
+          },
+
+          _selected,
+        })
+      })}
+    </ControlWrapper>
   )
 }
 
+export type RadioGroupProps = RadioGroupViewProps
+
+export const RadioGroup: React.SFC<RadioGroupProps> = ({
+  defaultValue,
+  children,
+  ...props
+}) => {
+  warning(
+    !(props.selected && !props.onChange && !props.readOnly),
+    "'selected' provided, but not 'onChange', make this component readOnly.",
+  )
+
+  return props.selected !== undefined ? (
+    <RadioGroupView {...props}>{children}</RadioGroupView>
+  ) : (
+    <State
+      initial={props.selected || defaultValue}
+      render={({ value, set }) => (
+        <RadioGroupView
+          {...props}
+          selected={value}
+          onChange={({ value }) => set(value)}
+        >
+          {children}
+        </RadioGroupView>
+      )}
+    />
+  )
+}
 export interface RadioProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'name'>,
+  extends Omit<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      'name' | 'onChange'
+    >,
     Helpers {}
 
-export const Radio: React.SFC<RadioProps> = ({ value, children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'radio')
+interface RadioInternalProps extends RadioProps {
+  readonly _selected?: string
+}
+
+export const Radio: React.SFC<RadioProps> = args => {
+  const { children, _selected, ...props } = args as RadioInternalProps
+
   return (
-    <RadioContext.Consumer>
-      {({ name, selected, readOnly, onChange, onBlur }) => {
-        // tslint:disable-next-line: typedef
-        const checked = selected ? { checked: value === selected } : {}
-        return (
-          <label className={classes}>
-            <Div
-              as="input"
-              {...props}
-              {...checked}
-              name={name}
-              value={value}
-              readOnly={readOnly}
-              onChange={onChange}
-              onBlur={onBlur}
-              type="radio"
-            />
-            {children}
-          </label>
-        )
-      }}
-    </RadioContext.Consumer>
+    <label className={classNamesHelper(props, 'radio')}>
+      <Div
+        as="input"
+        {...props}
+        checked={_selected === props.value}
+        type="radio"
+      />
+      {children}
+    </label>
   )
 }

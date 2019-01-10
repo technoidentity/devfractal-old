@@ -30,11 +30,18 @@ export const RadioExample: React.SFC = () => (
       </Section>
 
       <Section>
-        <Title size="4">Checked </Title>
-        <RadioGroup name="foobar" defaultValue="bar" readOnly>
-          <Radio value="foo"> Foo</Radio>
-          <Radio value="bar"> Bar</Radio>
-        </RadioGroup>
+        <Title size="4">
+          Radio button with <em>female</em> as default
+        </Title>
+        <FormField horizontal>
+          <FieldLabel>Gender</FieldLabel>
+          <FieldBody>
+            <RadioGroup name="gender" defaultValue="female">
+              <Radio value="male"> Male</Radio>
+              <Radio value="female"> Female</Radio>
+            </RadioGroup>
+          </FieldBody>
+        </FormField>
         <hr />
       </Section>
 
@@ -42,7 +49,6 @@ export const RadioExample: React.SFC = () => (
         <Title size="4">Disabled </Title>
         <RadioGroup name="going">
           <Radio> Going</Radio>
-          <Radio> Not going</Radio>
           <Radio disabled> May be</Radio>
         </RadioGroup>
         <hr />
@@ -50,12 +56,12 @@ export const RadioExample: React.SFC = () => (
 
       <Section>
         <Title size="4">Controlled Radio</Title>
-        <State initial={'red'}>
+        <State initial={'green'}>
           {({ value, set }) => (
             <RadioGroup
               name="color"
               selected={value}
-              onChange={evt => set(evt.target.value)}
+              onChange={({ value }) => set(value || 'red')}
             >
               <Radio value="red"> Red</Radio>
               <Radio value="green"> Green</Radio>
@@ -67,7 +73,7 @@ export const RadioExample: React.SFC = () => (
       </Section>
 
       <Section>
-        <Title size="4">Controlled readonly Radio</Title>
+        <Title size="4">Controlled Readonly Radio</Title>
         <RadioGroup name="color2" selected="green" readOnly>
           <Radio value="red"> Red</Radio>
           <Radio value="green"> Green</Radio>
