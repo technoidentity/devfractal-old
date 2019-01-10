@@ -127,7 +127,7 @@ export const FormField: React.SFC<FormFieldProps> = ({
   ...props
 }) => (
   <Field {...props}>
-    <Label size={labelSize} />
+    <Label size={labelSize}>{label}</Label>
     {children}
     <FieldHelp variant={helpType}>{helpText}</FieldHelp>
   </Field>

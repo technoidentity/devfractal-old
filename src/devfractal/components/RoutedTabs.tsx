@@ -35,14 +35,11 @@ function matches(
     return false
   }
 
-  return (
-    currentLocation.startsWith(baseURL) &&
-    tab ===
-      currentLocation.slice(
-        baseURL.length + separator.length,
-        baseURL.length + separator.length + tab.length,
-      )
-  )
+  const start: number = baseURL.length + separator.length
+  const i: number = baseURL.indexOf(separator, start)
+  const stop: number = i === -1 ? baseURL.length : i
+  const segment: string = currentLocation.slice(start, start + stop + 1)
+  return currentLocation.startsWith(baseURL) && tab === segment
 }
 
 export const RoutedTabsItem: React.SFC<RoutedTabsItemProps> = ({

@@ -76,7 +76,7 @@ export const GeneralExample: React.SFC = () => (
             </CheckBox>
           </Field>
           <Field grouped>
-            <RadioGroup>
+            <RadioGroup name="terms">
               <Radio> Yes</Radio>
               <Radio> No</Radio>
             </RadioGroup>
@@ -383,7 +383,7 @@ export const GeneralExample: React.SFC = () => (
             <FieldLabel>Already a member? </FieldLabel>
             <FieldBody>
               <Field>
-                <RadioGroup>
+                <RadioGroup name="member">
                   <Radio> Yes</Radio>
                   <Radio> No</Radio>
                 </RadioGroup>

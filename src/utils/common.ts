@@ -16,3 +16,18 @@ export function mutative<T>(obj: T, f: (draft: Mutable<T>) => void): T {
     draftState: Draft<T>,
   ) => void | T)
 }
+
+export const debugAssert: (
+  condition: () => boolean,
+  message?: string,
+) => void = (condition, message) => {
+  if (process.env.NODE_ENV === 'development') {
+    if (!condition()) {
+      throw new Error(`assertion error: ${message}`)
+    }
+  }
+}
+
+export const nop: (...args: any[]) => any = () => {
+  return undefined
+}

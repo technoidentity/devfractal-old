@@ -1,7 +1,7 @@
 import React from 'react'
 import warning from 'tiny-warning'
 import { Omit } from '../../types'
-import { State } from '../../utils'
+import { debugAssert, State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export interface TabsChangeEvent {
@@ -67,9 +67,7 @@ interface TabsViewProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   onTabChange?(evt: TabsChangeEvent): void
 }
 
-export type TabsProps = TabsViewProps
-
-const TabsView: React.SFC<Omit<TabsProps, 'defaultValue'>> = ({
+const TabsView: React.SFC<Omit<TabsViewProps, 'defaultValue'>> = ({
   size,
   alignment,
   fullWidth,
@@ -93,6 +91,11 @@ const TabsView: React.SFC<Omit<TabsProps, 'defaultValue'>> = ({
     <Div {...props} className={classes}>
       <ul>
         {React.Children.map(children, (child: any, i: number) => {
+          debugAssert(
+            () => child.type.displayName === 'TabsItem',
+            "Every child to 'Tabs' must be 'TabsItem'",
+          )
+
           const value: string = child.props.value || i.toString()
           return React.cloneElement(child, {
             _name: name,
@@ -106,6 +109,8 @@ const TabsView: React.SFC<Omit<TabsProps, 'defaultValue'>> = ({
     </Div>
   )
 }
+
+export type TabsProps = TabsViewProps
 
 export const Tabs: React.SFC<TabsProps> = ({
   defaultValue,
