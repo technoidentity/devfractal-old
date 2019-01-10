@@ -12,7 +12,10 @@ export interface RadioChangeEvent {
 }
 
 interface RadioGroupViewProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'>,
+  extends Omit<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      'onChange' | 'value'
+    >,
     AllControlHelpers {
   readonly name: string
   readonly selected?: string
