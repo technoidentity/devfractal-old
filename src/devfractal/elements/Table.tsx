@@ -81,13 +81,14 @@ export const TableFoot: React.SFC<TableFootProps> = ({
     </Div>
   )
 }
+
 export interface TrProps
   extends React.HTMLAttributes<HTMLTableRowElement>,
     Helpers {
   readonly selected?: boolean
 }
 
-export const Tr: React.SFC<TrProps> = ({ children, selected, ...props }) => {
+export const Tr: React.SFC<TrProps> = ({ selected, children, ...props }) => {
   const classes: string = classNamesHelper(props, 'tr', {
     'is-selected': selected,
   })
@@ -99,12 +100,37 @@ export const Tr: React.SFC<TrProps> = ({ children, selected, ...props }) => {
   )
 }
 
+type ThVariant =
+  | 'primary'
+  | 'link'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'white'
+  | 'black'
+  | 'dark'
+  | 'light'
 export interface ThProps
   extends React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
-    Helpers {}
+    Helpers {
+  readonly variant?: ThVariant
+  readonly selected?: boolean
+  readonly narrow?: boolean
+}
 
-export const Th: React.SFC<ThProps> = ({ children, className, ...props }) => {
-  const classes: string = classNamesHelper(props)
+export const Th: React.SFC<ThProps> = ({
+  variant,
+  selected,
+  narrow,
+  children,
+  ...props
+}) => {
+  const classes: string = classNamesHelper(props, {
+    [`is-${variant}`]: variant,
+    'is-selected': selected,
+    'is-narrow': narrow,
+  })
 
   return (
     <Div as="th" {...props} className={classes}>
@@ -113,12 +139,37 @@ export const Th: React.SFC<ThProps> = ({ children, className, ...props }) => {
   )
 }
 
+type TdVariant =
+  | 'primary'
+  | 'link'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'white'
+  | 'black'
+  | 'dark'
+  | 'light'
 export interface TdProps
   extends React.TdHTMLAttributes<HTMLTableDataCellElement>,
-    Helpers {}
+    Helpers {
+  readonly variant?: TdVariant
+  readonly selected?: boolean
+  readonly narrow?: boolean
+}
 
-export const Td: React.SFC<TdProps> = ({ children, className, ...props }) => {
-  const classes: string = classNamesHelper(props)
+export const Td: React.SFC<TdProps> = ({
+  variant,
+  selected,
+  narrow,
+  children,
+  ...props
+}) => {
+  const classes: string = classNamesHelper(props, {
+    [`is-${variant}`]: variant,
+    'is-selected': selected,
+    'is-narrow': narrow,
+  })
   return (
     <Div as="td" {...props} className={classes}>
       {children}
