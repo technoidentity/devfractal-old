@@ -1,7 +1,8 @@
 import React from 'react'
+import { assert } from 'tcomb'
 import warning from 'tiny-warning'
 import { Omit } from '../../types'
-import { debugAssert, State } from '../../utils'
+import { State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export interface TabsChangeEvent {
@@ -91,8 +92,8 @@ const TabsView: React.SFC<Omit<TabsViewProps, 'defaultValue'>> = ({
     <Div {...props} className={classes}>
       <ul>
         {React.Children.map(children, (child: any, i: number) => {
-          debugAssert(
-            () => child.type.displayName === 'TabsItem',
+          assert(
+            child.type.displayName === 'TabsItem',
             "Every child to 'Tabs' must be 'TabsItem'",
           )
 

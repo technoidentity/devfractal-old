@@ -1,7 +1,8 @@
 import React, { ChangeEvent } from 'react'
+import { assert } from 'tcomb'
 import warning from 'tiny-warning'
 import { Omit } from '../../types'
-import { debugAssert, State } from '../../utils'
+import { State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 import { AllControlHelpers } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
@@ -19,7 +20,6 @@ interface RadioGroupViewProps
     AllControlHelpers {
   readonly name: string
   readonly selected?: string
-  readonly defaultValue?: string
   readonly readOnly?: boolean
   onChange?(evt: RadioChangeEvent): void
   onBlur?(e: any): void
@@ -37,8 +37,8 @@ const RadioGroupView: React.SFC<RadioGroupViewProps> = ({
   return (
     <ControlWrapper {...props}>
       {React.Children.map(children, (child: any, i) => {
-        debugAssert(
-          () => child.type.displayName === 'Radio',
+        assert(
+          child.type.displayName === 'Radio',
           "Every child to 'RadioGroup' must be 'Radio'",
         )
         const _selected: string =
@@ -65,7 +65,9 @@ const RadioGroupView: React.SFC<RadioGroupViewProps> = ({
   )
 }
 
-export type RadioGroupProps = RadioGroupViewProps
+export interface RadioGroupProps extends RadioGroupViewProps {
+  readonly defaultValue?: string
+}
 
 export const RadioGroup: React.SFC<RadioGroupProps> = ({
   defaultValue,
@@ -74,7 +76,9 @@ export const RadioGroup: React.SFC<RadioGroupProps> = ({
 }) => {
   warning(
     !(props.selected && !props.onChange && !props.readOnly),
-    "'selected' provided, but not 'onChange', make this component readOnly.",
+    `For Radio ${
+      props.name
+    } 'selected' provided, but not 'onChange', make this component readOnly.`,
   )
 
   return props.selected !== undefined ? (
