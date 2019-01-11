@@ -197,6 +197,93 @@ export const TableExample: React.SFC = () => (
       </Table>
     </Section>
     <Section>
+      <Title>Check selected for Td and Th</Title>
+      <Table bordered>
+        <TableHead>
+          <Tr>
+            <Th selected>one</Th>
+            <Th>two</Th>
+          </Tr>
+        </TableHead>
+        <TableBody>
+          <Tr>
+            <Td>three</Td>
+            <Td>four</Td>
+          </Tr>
+          <Tr>
+            <Td>five</Td>
+            <Td selected>six</Td>
+          </Tr>
+        </TableBody>
+      </Table>
+    </Section>
+    <Section>
+      <Title>Check variants for Th</Title>
+      <Table bordered>
+        <TableHead>
+          <Tr>
+            <Th variant="primary">Primary</Th>
+            <Th variant="info">Info</Th>
+            <Th variant="link">Link</Th>
+            <Th variant="warning">Warning</Th>
+            <Th variant="success">Success</Th>
+            <Th variant="danger">Danger</Th>
+            <Th variant="white">White</Th>
+            <Th variant="dark">Dark</Th>
+            <Th variant="light">Light</Th>
+            <Th variant="black">Black</Th>
+          </Tr>
+        </TableHead>
+        <TableBody>
+          <Tr>
+            <Td>one</Td>
+            <Td>two</Td>
+            <Td>three</Td>
+            <Td>four</Td>
+            <Td>five</Td>
+            <Td>six</Td>
+            <Td>seven</Td>
+            <Td>eight</Td>
+            <Td>nine</Td>
+            <Td>ten</Td>
+          </Tr>
+        </TableBody>
+      </Table>
+    </Section>
+    <Section>
+      <Title>Check variants for Td</Title>
+      <Table bordered>
+        <TableHead>
+          <Tr>
+            <Th>Primary</Th>
+            <Th>Info</Th>
+            <Th>Link</Th>
+            <Th>Warning</Th>
+            <Th>Success</Th>
+            <Th>Danger</Th>
+            <Th>White</Th>
+            <Th>Dark</Th>
+            <Th>Light</Th>
+            <Th>Black</Th>
+          </Tr>
+        </TableHead>
+        <TableBody>
+          <Tr>
+            <Td variant="primary">one</Td>
+            <Td variant="info">two</Td>
+            <Td variant="link">three</Td>
+            <Td variant="warning">four</Td>
+            <Td variant="success">five</Td>
+            <Td variant="danger">six</Td>
+            <Td variant="white">seven</Td>
+            <Td variant="dark">eight</Td>
+            <Td variant="light">nine</Td>
+            <Td variant="black">ten</Td>
+          </Tr>
+        </TableBody>
+      </Table>
+    </Section>
+    <Section>
       <Title>Example</Title>
       <Table bordered striped>
         <TableHead>
