@@ -11,7 +11,12 @@ type HeroVariant =
   | 'dark'
   | 'link'
 
-type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar'
+type HeroSize =
+  | 'medium'
+  | 'large'
+  | 'halfheight'
+  | 'fullheight'
+  | 'fullheight-with-navbar'
 
 export interface HeroProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly variant?: HeroVariant
