@@ -32,6 +32,18 @@ export const ProgressBarExample: React.SFC = () => (
         <ProgressBar variant="danger" value="90" max="100">
           90%
         </ProgressBar>
+        <ProgressBar variant="light" value="30" max="100">
+          90%
+        </ProgressBar>
+        <ProgressBar variant="dark" value="45" max="100">
+          90%
+        </ProgressBar>
+        <ProgressBar variant="white" value="60" max="100">
+          90%
+        </ProgressBar>
+        <ProgressBar variant="black" value="75" max="100">
+          90%
+        </ProgressBar>
       </Box>
     </Section>
     <Section>

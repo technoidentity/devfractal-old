@@ -8,6 +8,10 @@ type ProgressBarVariant =
   | 'success'
   | 'warning'
   | 'danger'
+  | 'white'
+  | 'black'
+  | 'dark'
+  | 'light'
 
 type ProgressBarSize = 'small' | 'medium' | 'large'
 
