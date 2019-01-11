@@ -6,11 +6,13 @@ export interface ModalProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly active?: boolean
+  readonly noClose?: boolean
   onModalClosed?(): void
 }
 
 export const Modal: React.SFC<ModalProps> = ({
   active,
+  noClose,
   children,
   onModalClosed,
   ...props
@@ -21,12 +23,16 @@ export const Modal: React.SFC<ModalProps> = ({
     return (
       <Div {...props} className={classes}>
         {children}
-        <Div
-          as="button"
-          onClick={onModalClosed}
-          {...props}
-          className={classNames('modal-close')}
-        />
+        {noClose ? (
+          ''
+        ) : (
+          <Div
+            as="button"
+            onClick={onModalClosed}
+            {...props}
+            className={classNames('modal-close')}
+          />
+        )}
       </Div>
     )
   }
