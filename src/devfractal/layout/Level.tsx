@@ -1,7 +1,7 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-type LevelItemType = 'left' | 'right'
+type LevelItemDirection = 'left' | 'right'
 
 export interface LevelProps
   extends React.HTMLAttributes<HTMLElement>,
@@ -19,17 +19,19 @@ export const Level: React.SFC<LevelProps> = ({ children, ...props }) => {
 export interface LevelItemProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
-  readonly levelItemType?: LevelItemType
+  readonly direction?: LevelItemDirection
+  readonly flexible?: boolean
 }
 
 export const LevelItem: React.SFC<LevelItemProps> = ({
   children,
-  levelItemType,
+  direction,
+  flexible,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'level-item', {
-    'level-item': !levelItemType,
-    [`level-${levelItemType}`]: levelItemType,
+    [`level-${direction}`]: direction,
+    'is-flexible': flexible,
   })
   return (
     <Div {...props} className={classes}>

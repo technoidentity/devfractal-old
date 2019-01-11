@@ -35,10 +35,10 @@ export const MediaObjectExample: React.SFC = () => (
             <TextArea placeholder="Add a comment..." />
           </Field>
           <Level>
-            <LevelItem levelItemType="left">
+            <LevelItem direction="left">
               <Button variant="info">Submit</Button>
             </LevelItem>
-            <LevelItem levelItemType="right">
+            <LevelItem direction="right">
               <CheckBox>Press enter to submit</CheckBox>
             </LevelItem>
           </Level>
@@ -66,7 +66,7 @@ export const MediaObjectExample: React.SFC = () => (
             </p>
           </Content>
           <Level className="is-mobile">
-            <LevelItem levelItemType="left">
+            <LevelItem direction="left">
               <Icon icon={faReply} />
               <Icon icon={faRetweet} />
               <Icon icon={faHeart} />

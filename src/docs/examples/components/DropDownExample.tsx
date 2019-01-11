@@ -73,7 +73,7 @@ const RightAlignableDropdownExampleTab: React.SFC = () => (
     <Section>
       <Level>
         <Title size="4">Right aligned</Title>
-        <LevelItem levelItemType="right">
+        <LevelItem direction="right">
           <Dropdown modifier="active" rightAligned label="Right aligned">
             <DropdownItem>
               <p>
@@ -91,7 +91,7 @@ const RightAlignableDropdownExampleTab: React.SFC = () => (
 const LeftAlignableDropdownExampleTab: React.SFC = () => (
   <>
     <Level>
-      <LevelItem levelItemType="left">
+      <LevelItem direction="left">
         <Section>
           <Field>
             <Title size="4">Left aligned</Title>

@@ -78,7 +78,7 @@ export const MediaModalExample: React.SFC = () => {
                   </p>
                 </Content>
                 <Level className="is-mobile">
-                  <LevelItem levelItemType="left">
+                  <LevelItem direction="left">
                     <Icon icon={faReply} />
                     <Icon icon={faRetweet} />
                     <Icon icon={faHeart} />

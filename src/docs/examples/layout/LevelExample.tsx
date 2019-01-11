@@ -16,7 +16,7 @@ export const LevelExample: React.SFC = () => (
     <Section>
       <Title>Level left</Title>
       <Level>
-        <LevelItem levelItemType="left">
+        <LevelItem direction="left">
           <LevelItem>
             <SubTitle size="5">123 posts</SubTitle>
           </LevelItem>
@@ -32,7 +32,7 @@ export const LevelExample: React.SFC = () => (
     <Section>
       <Title>Level Right</Title>
       <Level>
-        <LevelItem levelItemType="right">
+        <LevelItem direction="right">
           <LevelItem>
             <strong>All</strong>
           </LevelItem>
