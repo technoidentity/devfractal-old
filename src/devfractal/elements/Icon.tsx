@@ -1,4 +1,3 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import {
   FontAwesomeIcon,
   Props as FontAwesomeIconProps,
@@ -9,7 +8,6 @@ import { classNamesHelper, Div, Helpers, removeHelpers } from '../modifiers'
 type IconDirection = 'left' | 'right'
 
 export interface IconProps extends FontAwesomeIconProps, Helpers {
-  readonly icon: IconDefinition
   readonly direction?: IconDirection
 }
 
