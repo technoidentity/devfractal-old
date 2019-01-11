@@ -14,7 +14,7 @@ import { Box, Icon, Section, Tabs, TabsItem, Title } from '../devfractal'
 export const TabsExamples: React.SFC = () => (
   <>
     <Section>
-      <Tabs name="basicTab" selectedTab="pictures">
+      <Tabs name="basicTab50" selectedTab="pictures" readOnly>
         <TabsItem value="pictures">Pictures</TabsItem>
         <TabsItem value="music">Music</TabsItem>
         <TabsItem value="videos">Videos</TabsItem>
@@ -27,14 +27,14 @@ export const TabsExamples: React.SFC = () => (
 export const AlignmentTab: React.SFC = () => (
   <>
     <Title size="6">Centered</Title>
-    <Tabs name="basicTab" selectedTab="pictures" alignment="centered">
+    <Tabs name="basicTab2" selectedTab="pictures" alignment="centered" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
       <TabsItem value="documents">Documents</TabsItem>
     </Tabs>
     <Title size="6">Right</Title>
-    <Tabs name="basicTab" selectedTab="pictures" alignment="right">
+    <Tabs name="basicTab3" selectedTab="pictures" alignment="right" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
@@ -45,7 +45,7 @@ export const AlignmentTab: React.SFC = () => (
 
 export const IconsTab: React.SFC = () => (
   <>
-    <Tabs name="basicTab" selectedTab="pictures" alignment="centered">
+    <Tabs name="basicTab4" selectedTab="pictures" alignment="centered" readOnly>
       <TabsItem value="pictures">
         <Icon icon={faImage} />
         <span>Pictures</span>
@@ -68,19 +68,19 @@ export const IconsTab: React.SFC = () => (
 
 export const SizesTab: React.SFC = () => (
   <>
-    <Tabs name="basicTab" selectedTab="pictures" size="small">
+    <Tabs name="basicTab5" selectedTab="pictures" size="small" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
       <TabsItem value="documents">Documents</TabsItem>
     </Tabs>
-    <Tabs name="basicTab" selectedTab="pictures" size="medium">
+    <Tabs name="basicTab6" selectedTab="pictures" size="medium" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
       <TabsItem value="documents">Documents</TabsItem>
     </Tabs>
-    <Tabs name="basicTab" selectedTab="pictures" size="large">
+    <Tabs name="basicTab7" selectedTab="pictures" size="large" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
@@ -92,7 +92,7 @@ export const SizesTab: React.SFC = () => (
 export const StyleTabs: React.SFC = () => (
   <>
     <Title size="6">Boxed</Title>
-    <Tabs name="basicTab" selectedTab="pictures" tabsStyle="boxed">
+    <Tabs name="basicTab8" selectedTab="pictures" tabsStyle="boxed" readOnly>
       <TabsItem value="pictures">
         <Icon icon={faImage} />
         <span>Pictures</span>
@@ -111,7 +111,7 @@ export const StyleTabs: React.SFC = () => (
       </TabsItem>
     </Tabs>
     <Title size="6">Toggle</Title>
-    <Tabs name="basicTab" selectedTab="pictures" tabsStyle="toggle">
+    <Tabs name="basicTab9" selectedTab="pictures" tabsStyle="toggle" readOnly>
       <TabsItem value="pictures">
         <Icon icon={faImage} />
         <span>Pictures</span>
@@ -130,7 +130,12 @@ export const StyleTabs: React.SFC = () => (
       </TabsItem>
     </Tabs>
     <Title size="6">Toggle-Rounded</Title>
-    <Tabs name="basicTab" selectedTab="pictures" tabsStyle="toggle-rounded">
+    <Tabs
+      name="basicTab10"
+      selectedTab="pictures"
+      tabsStyle="toggle-rounded"
+      readOnly
+    >
       <TabsItem value="pictures">
         <Icon icon={faImage} />
         <span>Pictures</span>
@@ -149,7 +154,7 @@ export const StyleTabs: React.SFC = () => (
       </TabsItem>
     </Tabs>
     <Title size="6">Fullwidth</Title>
-    <Tabs name="basicTab" fullWidth>
+    <Tabs name="basicTab11" fullWidth readOnly>
       <TabsItem value="left">
         <Icon icon={faAngleLeft} />
         <span>Left</span>
@@ -169,10 +174,11 @@ export const StyleTabs: React.SFC = () => (
 export const CombiningTabs: React.SFC = () => (
   <>
     <Tabs
-      name="basicTab"
+      name="basicTab20"
       selectedTab="pictures"
       tabsStyle="boxed"
       alignment="centered"
+      readOnly
     >
       <TabsItem value="pictures">
         <Icon icon={faImage} />
@@ -191,7 +197,13 @@ export const CombiningTabs: React.SFC = () => (
         <span>Documents</span>
       </TabsItem>
     </Tabs>
-    <Tabs name="basicTab" selectedTab="pictures" tabsStyle="toggle" fullWidth>
+    <Tabs
+      name="basicTab12"
+      selectedTab="pictures"
+      tabsStyle="toggle"
+      fullWidth
+      readOnly
+    >
       <TabsItem value="pictures">
         <Icon icon={faImage} />
         <span>Pictures</span>
@@ -210,11 +222,12 @@ export const CombiningTabs: React.SFC = () => (
       </TabsItem>
     </Tabs>
     <Tabs
-      name="basicTab"
+      name="basicTab30"
       selectedTab="pictures"
       tabsStyle="boxed"
       alignment="centered"
       size="medium"
+      readOnly
     >
       <TabsItem value="pictures">
         <Icon icon={faImage} />
@@ -234,11 +247,12 @@ export const CombiningTabs: React.SFC = () => (
       </TabsItem>
     </Tabs>
     <Tabs
-      name="basicTab"
+      name="basicTab40"
       selectedTab="pictures"
       tabsStyle="toggle"
       fullWidth
       size="large"
+      readOnly
     >
       <TabsItem value="pictures">
         <Icon icon={faImage} />
@@ -266,7 +280,7 @@ export const TabsExample: React.SFC = () => (
       <Title textAlignment="centered">Dynamic Tabs</Title>
       <Box>
         <Title size="4">Uncontrolled Tab</Title>
-        <Tabs name="secondTab" defaultValue="documents" size="medium" readOnly>
+        <Tabs name="secondTab" defaultValue="documents" size="medium">
           <TabsItem value="pictures">Pictures</TabsItem>
           <TabsItem value="music">Music</TabsItem>
           <TabsItem value="videos">Videos</TabsItem>
@@ -297,7 +311,7 @@ export const TabsExample: React.SFC = () => (
                 onTabChange={({ value }) => {
                   set(value || 'music')
                 }}
-                name="secondTab"
+                name="secondTab2"
                 size="medium"
               >
                 <TabsItem value="pictures">Pictures</TabsItem>

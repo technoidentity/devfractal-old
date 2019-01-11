@@ -6,7 +6,7 @@ import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export interface TabsChangeEvent {
   readonly name?: string
-  readonly value?: string
+  readonly value: string
 }
 
 type TabsSize = 'small' | 'medium' | 'large'
@@ -22,6 +22,7 @@ export interface TabsItemProps
 
 interface TabsItemInternalProps extends TabsItemProps {
   readonly _name?: string
+  readonly value: string
   readonly _active?: boolean
   _setSelectedTab?(event: TabsChangeEvent): void
 }
@@ -62,7 +63,6 @@ interface TabsViewProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   readonly tabsStyle?: TabsStyle
   readonly name?: string
   readonly selectedTab?: string
-  readonly defaultValue?: string
   readonly readOnly?: boolean
   onTabChange?(evt: TabsChangeEvent): void
 }
@@ -110,7 +110,9 @@ const TabsView: React.SFC<Omit<TabsViewProps, 'defaultValue'>> = ({
   )
 }
 
-export type TabsProps = TabsViewProps
+export interface TabsProps extends TabsViewProps {
+  readonly defaultValue?: string
+}
 
 export const Tabs: React.SFC<TabsProps> = ({
   defaultValue,
@@ -119,7 +121,9 @@ export const Tabs: React.SFC<TabsProps> = ({
 }) => {
   warning(
     !(props.selectedTab && !props.onTabChange && !props.readOnly),
-    "'selectedTab' provided, but not 'onTabChange', make this component readOnly.",
+    `for Tabs ${
+      props.name
+    }, 'selectedTab' provided, but not 'onTabChange', make this component readOnly.`,
   )
 
   return props.selectedTab !== undefined ? (
