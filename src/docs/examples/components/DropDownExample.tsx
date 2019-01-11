@@ -19,9 +19,7 @@ const DropDownExampleTab: React.SFC = () => (
       <Title size="4">Dropdown</Title>
       <Dropdown modifier="active" label="Dropdown button">
         <DropdownItem>Dropdown item</DropdownItem>
-        <DropdownItem as="a" active>
-          Active Dropdown item
-        </DropdownItem>
+        <DropdownItem as="a">Active Dropdown item</DropdownItem>
         <DropdownItem>Dropdown item</DropdownItem>
         <DropdownItem>Dropdown item</DropdownItem>
         <DropdownDivider />
@@ -88,7 +86,7 @@ const RightAlignableDropdownExampleTab: React.SFC = () => (
   </div>
 )
 
-const LeftAlignableDropdownExampleTab: React.SFC = () => (
+const LeftAligedDropdownExampleTab: React.SFC = () => (
   <>
     <Level>
       <LevelItem direction="left">
@@ -170,7 +168,7 @@ export const DropDownExampleRoutes: React.SFC = () => (
     <Route
       path="/components/dropdown/left"
       exact
-      component={LeftAlignableDropdownExampleTab}
+      component={LeftAligedDropdownExampleTab}
     />
     <Route
       path="/components/dropdown/dropup"
