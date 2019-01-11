@@ -85,9 +85,7 @@ export const MediaModalExample: React.SFC = () => {
                   </LevelItem>
                 </Level>
               </MediaContent>
-              <MediaRight>
-                <Delete />
-              </MediaRight>
+              <MediaRight />
             </Media>
           </Box>
         </ModalContent>
@@ -98,17 +96,18 @@ export const MediaModalExample: React.SFC = () => {
 
 export const ModalCardExample: React.SFC = () => {
   const [modal, setModal] = useState(false)
+  const onModalClose: () => void = () => setModal(false)
   return (
     <Section>
       <Button onClick={() => setModal(true)} variant="primary" size="large">
         Launch Card Modal
       </Button>
-      <Modal active={modal} onModalClosed={() => setModal(false)}>
+      <Modal active={modal} noClose>
         <ModalBackground />
         <ModalCard>
           <ModalCardHead>
             <ModalCardTitle>Modal title</ModalCardTitle>
-            <Delete />
+            <Delete onClick={onModalClose} />
           </ModalCardHead>
           <ModalCardBody>
             <Content>
