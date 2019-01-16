@@ -1,5 +1,5 @@
 {
-  "name": "react-starter",
+  "name": "web-starter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.6.3",
     "@fortawesome/free-regular-svg-icons": "^5.6.3",
     "@fortawesome/free-solid-svg-icons": "^5.6.3",
-    "@fortawesome/react-fontawesome": "^0.1.3",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "@storybook/addon-actions": "^4.1.6",
     "@storybook/addon-info": "^4.1.6",
     "@storybook/addon-links": "^4.1.6",
@@ -16,7 +16,7 @@
     "@storybook/react": "^4.1.6",
     "@types/jest": "^23.3.12",
     "@types/node": "^10.12.18",
-    "@types/react": "^16.7.18",
+    "@types/react": "^16.7.20",
     "@types/react-content-loader": "^3.1.4",
     "@types/react-dom": "^16.0.11",
     "@types/react-router": "^4.4.3",
@@ -34,18 +34,18 @@
     "formik": "^1.4.2",
     "formik-persist": "^1.1.0",
     "husky": "^1.3.1",
-    "immer": "^1.10.0",
+    "immer": "^1.10.5",
     "jest": "^23.6.0",
     "json-server": "^0.14.2",
     "lint-staged": "^8.1.0",
     "npm": "^6.5.0",
-    "react": "^16.8.0-alpha.0",
+    "react": "^16.8.0-alpha.1",
     "react-async": "^3.12.0",
     "react-content-loader": "^3.4.2",
     "react-dnd": "^7.0.2",
     "react-dnd-html5-backend": "^7.0.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "react-dom": "^16.8.0-alpha.0",
+    "react-dom": "^16.8.0-alpha.1",
     "react-hot-reload.macro": "^2.0.1",
     "react-powerplug": "^1.0.0",
     "react-router-dom": "^4.3.1",
@@ -56,25 +56,27 @@
     "tcomb": "^3.2.29",
     "tiny-warning": "^1.0.2",
     "ts-jest": "^23.10.5",
-    "tslint": "^5.12.0",
+    "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
-    "tslint-immutable": "^5.0.1",
+    "tslint-immutable": "^5.1.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.2.2",
     "typescript-tslint-plugin": "^0.2.1",
-    "yup": "^0.26.6"
+    "yup": "^0.26.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:single": "CI=true react-scripts test",
-    "check-types": "tsc --noEmit -p tsconfig.commit.json",
-    "lint": "tslint -p tsconfig.commit.json -c tslint.commit.json 'src/**/*.tsx' 'src/**/*.ts'",
+    "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
+    "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
-    "check-all": "yarn lint && yarn check-types && yarn test:single",
+    "validate:types": "tsc --noEmit -p tsconfig.commit.json",
+    "validate": "yarn lint && yarn validate:types && yarn test:single",
+    "all": "yarn validate && yarn start",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
+    "storybook:build": "build-storybook -s public",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -83,16 +85,16 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn check-all"
+      "pre-push": "yarn validate"
     }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn lint:fix",
+      "yarn lint:cmd --fix",
       "git add"
     ],
     "src/**/*.{ts,tsx,js,jsx,json,css}": [
-      "prettier --write",
+      "yarn prettier --write",
       "git add"
     ]
   },
