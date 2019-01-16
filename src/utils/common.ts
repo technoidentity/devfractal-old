@@ -1,4 +1,4 @@
-import { Draft, produce } from 'immer'
+import { produce } from 'immer'
 
 // @TODO: only in development
 export const freeze: <T>(v: T) => Readonly<T> = v => Object.freeze(v)
@@ -11,10 +11,7 @@ export const jsonStringify: (obj: object) => string = obj => {
 export type Mutable<T> = { -readonly [P in keyof T]: Mutable<T[P]> } // Remove readonly
 
 export function mutative<T>(obj: T, f: (draft: Mutable<T>) => void): T {
-  return produce(obj, (f as unknown) as (
-    this: Draft<T>,
-    draftState: Draft<T>,
-  ) => void | T)
+  return produce(obj, f)
 }
 
 export const debugAssert: (
