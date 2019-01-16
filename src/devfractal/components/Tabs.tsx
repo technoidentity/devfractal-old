@@ -1,5 +1,4 @@
 import React from 'react'
-import { assert } from 'tcomb'
 import warning from 'tiny-warning'
 import { Omit } from '../../types'
 import { State } from '../../utils'
@@ -92,7 +91,7 @@ const TabsView: React.SFC<Omit<TabsViewProps, 'defaultValue'>> = ({
     <Div {...props} className={classes}>
       <ul>
         {React.Children.map(children, (child: any, i: number) => {
-          assert(
+          warning(
             child.type.displayName === 'TabsItem',
             "Every child to 'Tabs' must be 'TabsItem'",
           )

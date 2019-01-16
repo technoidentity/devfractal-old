@@ -1,5 +1,4 @@
 import React, { ChangeEvent } from 'react'
-import { assert } from 'tcomb'
 import warning from 'tiny-warning'
 import { Omit } from '../../types'
 import { State } from '../../utils'
@@ -37,7 +36,7 @@ const RadioGroupView: React.SFC<RadioGroupViewProps> = ({
   return (
     <ControlWrapper {...props}>
       {React.Children.map(children, (child: any, i) => {
-        assert(
+        warning(
           child.type.displayName === 'Radio',
           "Every child to 'RadioGroup' must be 'Radio'",
         )
