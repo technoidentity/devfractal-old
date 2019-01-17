@@ -1,5 +1,5 @@
 export * from './AsyncUtils'
-export * from './camelCaseToPhrase'
+export * from './stringUtils'
 export * from './classNames'
 export * from './common'
 export * from './Flex'
