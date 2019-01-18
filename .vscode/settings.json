@@ -1,6 +1,4 @@
 {
-  "editor.fontFamily": "'Firacode-Retina', 'Roboto Mono', mononoki, Monaco, Consolas, 'Ubuntu Mono', 'Courier New', monospace",
-  "editor.fontSize": 15,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "editor.tabCompletion": "on",
