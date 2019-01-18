@@ -34,8 +34,8 @@ function matches(
   if (!(baseURL && currentLocation && separator)) {
     return false
   }
-  const base: string = chop(baseURL)
-  const current: string = chop(currentLocation)
+  const base: string = chop(baseURL, separator)
+  const current: string = chop(currentLocation, separator)
 
   return (
     current.indexOf(base) >= 0 &&
