@@ -32,9 +32,9 @@ export const camelCaseToSpaced: (arg: string) => string = arg =>
 export const camelCaseToPhrase: (arg: string) => string = arg =>
   capitalize(toLower(arg, ' '))
 
-export const chop: (arg: string, delimiter: string) => string = (
+export const chop: (arg: string, delimiter?: string) => string = (
   arg,
-  delimiter,
+  delimiter = '/',
 ) => {
   if (arg.length === 0) {
     return ''
