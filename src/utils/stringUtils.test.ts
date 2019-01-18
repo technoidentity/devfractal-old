@@ -1,16 +1,19 @@
 import {
   camelCaseToHyphenated,
-  camelCaseToLower,
   camelCaseToPhrase,
   camelCaseToSpaced,
   chop,
   extractSegment,
+  toLower,
 } from './stringUtils'
 
 it('test for camelCaseToLower', () => {
-  expect(camelCaseToLower('userName', '/')).toBe('user/name')
-  expect(camelCaseToLower('user', '/')).toBe('user')
-  expect(camelCaseToLower('', '/')).toBe('')
+  expect(toLower('userName', '-')).toBe('user-name')
+  expect(toLower('HelloWorld', '-')).toBe('hello-world')
+  expect(toLower('helloWorld', '-')).toBe('hello-world')
+  expect(toLower('Hello', '/')).toBe('hello')
+  expect(toLower('user', '/')).toBe('user')
+  expect(toLower('', '/')).toBe('')
 })
 
 it('test for camelCaseToPhrase', () => {
@@ -34,11 +37,11 @@ it('test for camelCaseToSpaced', () => {
 })
 
 it('test for chop function', () => {
-  expect(chop('tesla/')).toBe('tesla')
-  expect(chop('hello')).toBe('hello')
-  expect(chop('/hello')).toBe('/hello')
-  expect(chop('/hello / world')).toBe('/hello / world')
-  expect(chop('')).toBe('')
+  expect(chop('tesla/', '/')).toBe('tesla')
+  expect(chop('hello', '-')).toBe('hello')
+  expect(chop('/hello', '-')).toBe('/hello')
+  expect(chop('/hello / world', '/')).toBe('/hello / world')
+  expect(chop('', '')).toBe('')
 })
 
 it('test for extractSegment', () => {

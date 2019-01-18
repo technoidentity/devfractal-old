@@ -2,20 +2,21 @@ export const capitalize: (arg: string) => string = arg => {
   return arg.length === 0 ? '' : arg[0].toUpperCase() + arg.slice(1)
 }
 
-export const camelCaseToLower: (arg: string, delimiter: string) => string = (
+export const toLower: (arg: string, delimiter: string) => string = (
   arg,
   delimiter,
 ) => {
   if (arg.length === 0) {
     return ''
   }
-  let result: string = ''
+  let result: string = arg[0].toLowerCase()
+
   // tslint:disable-next-line: no-loop-statement
-  for (const v of arg) {
-    if (v === v.toUpperCase()) {
-      result += `${delimiter}${v.toLowerCase()}`
+  for (let i: number = 1; i < arg.length; i += 1) {
+    if (arg[i] === arg[i].toUpperCase()) {
+      result += `${delimiter}${arg[i].toLowerCase()}`
     } else {
-      result += v
+      result += arg[i]
     }
   }
 
@@ -23,19 +24,22 @@ export const camelCaseToLower: (arg: string, delimiter: string) => string = (
 }
 
 export const camelCaseToHyphenated: (arg: string) => string = arg =>
-  camelCaseToLower(arg, '-')
+  toLower(arg, '-')
 
 export const camelCaseToSpaced: (arg: string) => string = arg =>
-  camelCaseToLower(arg, ' ')
+  toLower(arg, ' ')
 
 export const camelCaseToPhrase: (arg: string) => string = arg =>
-  capitalize(camelCaseToLower(arg, ' '))
+  capitalize(toLower(arg, ' '))
 
-export const chop: (arg: string) => string = (arg: string) => {
+export const chop: (arg: string, delimiter: string) => string = (
+  arg,
+  delimiter,
+) => {
   if (arg.length === 0) {
     return ''
   }
-  return arg[arg.length - 1] === '/' ? arg.slice(0, arg.length - 1) : arg
+  return arg[arg.length - 1] === delimiter ? arg.slice(0, arg.length - 1) : arg
 }
 
 export const extractSegment: (
