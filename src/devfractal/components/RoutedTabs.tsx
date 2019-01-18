@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
-import { WithRouter } from '../../utils'
+import { chop, extractSegment, WithRouter } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 interface RoutedTabsContext {
@@ -34,13 +34,13 @@ function matches(
   if (!(baseURL && currentLocation && separator)) {
     return false
   }
+  const base: string = chop(baseURL)
+  const current: string = chop(currentLocation)
 
-  const start: number = baseURL.length + separator.length
-  const i: number = currentLocation.indexOf(separator, start)
-  const stop: number = i === -1 ? currentLocation.length : i - 1
-
-  const segment: string = currentLocation.slice(start, stop + 1)
-  return currentLocation.startsWith(baseURL) && tab === segment
+  return (
+    current.indexOf(base) >= 0 &&
+    tab === extractSegment(current, base.length + separator.length, separator)
+  )
 }
 
 export const RoutedTabsItem: React.SFC<RoutedTabsItemProps> = ({
