@@ -159,8 +159,7 @@ export const ElementsRoutes: React.SFC = () => (
 
 export const ComponentsRoutes: React.SFC = () => (
   <>
-    <SimpleRedirect exact from="/components" to="/components/breadcrumb" />
-    <Route path="/components/breadcrumb" exact component={BreadcrumbExample} />
+    <SimpleRedirect exact from="/components" to="/components/dropdown" />
     <Route path="/components/dropdown" exact component={DropDownExample} />
     <Route path="/components/message" exact component={MessageExample} />
     <Route path="/components/tabs" exact component={TabsExample} />
@@ -170,6 +169,27 @@ export const ComponentsRoutes: React.SFC = () => (
     <Route path="/components/navbar" exact component={NavbarExample} />
     <Route path="/components/menu" exact component={MenuExample} />
     <Route path="/components/pagination" exact component={PaginationExample} />
+    <Route path="/components/breadcrumb" exact component={BreadcrumbExample} />
+    <Route
+      path="/components/breadcrumb/bulma"
+      exact
+      component={() => <h1>bulma</h1>}
+    />
+    <Route
+      path="/components/breadcrumb/documentation"
+      exact
+      component={() => <h1>documentation</h1>}
+    />
+    <Route
+      path="/components/breadcrumb/components"
+      component={() => <h1>components</h1>}
+      exact
+    />
+    <Route
+      path="/components/breadcrumb/breadcrumb"
+      component={() => <h1>breadcrumb</h1>}
+      exact
+    />
   </>
 )
 export const ModifiersRoutes: React.SFC = () => (

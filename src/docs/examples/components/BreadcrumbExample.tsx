@@ -20,11 +20,11 @@ export const BreadcrumbExample: React.SFC = () => (
     <Section>
       <Container>
         <Title size="4">Breadcrumb</Title>
-        <Breadcrumb>
-          <BreadcrumbItem>Bulma</BreadcrumbItem>
-          <BreadcrumbItem>Documentation</BreadcrumbItem>
-          <BreadcrumbItem>Components</BreadcrumbItem>
-          <BreadcrumbItem active>Breadcrumb</BreadcrumbItem>
+        <Breadcrumb baseURL="/components/breadcrumb">
+          <BreadcrumbItem value="bulma">Bulma</BreadcrumbItem>
+          <BreadcrumbItem value="documentation">Documentation</BreadcrumbItem>
+          <BreadcrumbItem value="components">Components</BreadcrumbItem>
+          <BreadcrumbItem value="breadcrumb">Breadcrumb</BreadcrumbItem>
         </Breadcrumb>
       </Container>
     </Section>

@@ -1,5 +1,7 @@
 import React from 'react'
-import { State } from '../../utils'
+import { RouteComponentProps } from 'react-router'
+import { NavLink } from 'react-router-dom'
+import { chop, State, WithRouter } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
@@ -7,13 +9,6 @@ type BreadcrumbSize = 'small' | 'medium' | 'large'
 type BreadcrumbAlignment = 'centered' | 'right'
 
 type BreadcrumbSeparator = 'arrow' | 'bullet' | 'dot' | 'succeeds'
-
-export interface BreadcrumbItemProps
-  extends React.LiHTMLAttributes<HTMLLIElement>,
-    Helpers {
-  readonly href?: string
-  readonly active?: boolean
-}
 
 interface BreadcrumbContext {
   readonly selectedBreadcrumb?: string
@@ -24,20 +19,30 @@ const BreadcrumbContext: React.Context<BreadcrumbContext> = React.createContext<
   BreadcrumbContext
 >({})
 
+export interface BreadcrumbItemProps
+  extends React.LiHTMLAttributes<HTMLLIElement>,
+    Helpers {
+  readonly value?: string
+  readonly href?: string
+  readonly currentLocation?: string
+  readonly active?: boolean
+}
+
 export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
   active,
   href,
+  currentLocation,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, {
-    'is-active': active,
+    'is-active': href && currentLocation && href === currentLocation,
   })
   return (
     <BreadcrumbContext.Consumer>
       {() => (
         <Div as="li" {...props} className={classes}>
-          <a href={href}>{children}</a>
+          <NavLink to={href ? href : ''}>{children}</NavLink>
         </Div>
       )}
     </BreadcrumbContext.Consumer>
@@ -52,6 +57,8 @@ export interface BreadcrumbChangeEvent {
 export interface BreadcrumbProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {
+  readonly baseURL?: string
+  readonly currentLocation?: string
   readonly size?: BreadcrumbSize
   readonly alignment?: BreadcrumbAlignment
   readonly separator?: BreadcrumbSeparator
@@ -63,6 +70,8 @@ export interface BreadcrumbProps
 }
 
 export const BreadcrumbView: React.SFC<BreadcrumbProps> = ({
+  baseURL,
+  currentLocation,
   children,
   alignment,
   size,
@@ -74,14 +83,28 @@ export const BreadcrumbView: React.SFC<BreadcrumbProps> = ({
     [`is-${size}`]: size,
     [`has-${separator}-separator`]: separator,
   })
+
   return (
     <Div as="nav" {...props} className={classes}>
-      <ul>{children}</ul>
+      <ul>
+        {React.Children.map(children, (child: any) => {
+          const href: string = `${baseURL && chop(baseURL)}/${
+            child.props.value
+          }`
+          return React.cloneElement(child, { href, currentLocation })
+        })}
+      </ul>
     </Div>
   )
 }
 
-export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
+export const BreadcrumbWithRouter: React.SFC<
+  BreadcrumbProps & RouteComponentProps
+> = ({
+  match,
+  history,
+  location,
+  staticContext,
   selectedBreadcrumb,
   onSelectedBreadcrumbChange,
   defaultValue,
@@ -108,7 +131,9 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
             setSelectedBreadcrumb: ({ value }) => set(value),
           }}
         >
-          <BreadcrumbView {...props}>{children}</BreadcrumbView>
+          <BreadcrumbView currentLocation={location.pathname} {...props}>
+            {children}
+          </BreadcrumbView>
         </BreadcrumbContext.Provider>
       )}
     />
@@ -118,3 +143,7 @@ export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
     </BreadcrumbContext.Provider>
   )
 }
+
+export const Breadcrumb: React.SFC<BreadcrumbProps> = props => (
+  <WithRouter<BreadcrumbProps> {...props} component={BreadcrumbWithRouter} />
+)
