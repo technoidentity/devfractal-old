@@ -46,4 +46,7 @@ it('test for extractSegment', () => {
   expect(extractSegment('/hello / world-foo', 8, '/')).toBe('world-foo')
   expect(extractSegment('/hello / world-foo', 0, '/')).toBe('')
   expect(extractSegment('/hello / world-foo', 1, '/')).toBe('hello')
+  expect(extractSegment('//form//checkbox', '//form'.length + 2, '//')).toBe(
+    'checkbox',
+  )
 })
