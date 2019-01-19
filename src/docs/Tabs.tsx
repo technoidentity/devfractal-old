@@ -14,9 +14,9 @@ export const ColumnsTab: React.SFC = () => (
 
 export const ComponentsTab: React.SFC = () => (
   <RoutedTabs to="/components" size="medium">
-    <RoutedTabsItem value="breadcrumb">Breadcrumb</RoutedTabsItem>
     <RoutedTabsItem value="card">Card</RoutedTabsItem>
     <RoutedTabsItem value="dropdown">Dropdown</RoutedTabsItem>
+    <RoutedTabsItem value="breadcrumb">Breadcrumb</RoutedTabsItem>
     <RoutedTabsItem value="menu">Menu</RoutedTabsItem>
     <RoutedTabsItem value="message">Message</RoutedTabsItem>
     <RoutedTabsItem value="modal">Modal</RoutedTabsItem>
