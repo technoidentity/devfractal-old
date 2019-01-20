@@ -38,6 +38,7 @@ export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
   const classes: string = classNamesHelper(props, {
     'is-active': href && currentLocation && href === currentLocation,
   })
+
   return (
     <BreadcrumbContext.Consumer>
       {() => (
@@ -88,10 +89,12 @@ export const BreadcrumbView: React.SFC<BreadcrumbProps> = ({
     <Div as="nav" {...props} className={classes}>
       <ul>
         {React.Children.map(children, (child: any) => {
-          const href: string = `${baseURL && chop(baseURL)}/${
-            child.props.value
-          }`
-          return React.cloneElement(child, { href, currentLocation })
+          const href: string | undefined =
+            baseURL && `${baseURL && chop(baseURL)}/${child.props.value}`
+          return React.cloneElement(
+            child,
+            href ? { href, currentLocation } : { currentLocation },
+          )
         })}
       </ul>
     </Div>

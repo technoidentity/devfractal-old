@@ -10,6 +10,8 @@ import {
   SubTitle,
   Title,
 } from '../devfractal'
+import { DynamicBreadcrumb } from '../devfractal/components/DynamicBreadcrumb'
+import { WithRouter } from '../utils'
 import logo from './logo.png'
 import {
   ColumnsMedia,
@@ -72,17 +74,20 @@ export const IndexPageBody: React.SFC = () => (
 )
 
 export const IndexPageHeader: React.SFC = () => (
-  <Hero variant="light">
-    <HeroBody>
-      <Container className="has-text-centered">
-        <Title>
-          <Link to="/">
-            {/* @TODO: change this to Image and drop 'style' } */}
-            <img src={logo} style={{ width: '512px' }} />
-          </Link>
-        </Title>
-        <SubTitle>React, as simple as Angular!</SubTitle>
-      </Container>
-    </HeroBody>
-  </Hero>
+  <>
+    <Hero variant="light">
+      <HeroBody>
+        <Container className="has-text-centered">
+          <Title>
+            <Link to="/">
+              {/* @TODO: change this to Image and drop 'style' } */}
+              <img src={logo} style={{ width: '512px' }} />
+            </Link>
+          </Title>
+          <SubTitle>React, as simple as Angular!</SubTitle>
+        </Container>
+      </HeroBody>
+    </Hero>
+    <WithRouter<{}> component={DynamicBreadcrumb} />
+  </>
 )
