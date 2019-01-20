@@ -1,7 +1,7 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { NavLink } from 'react-router-dom'
-import { chop, State, WithRouter } from '../../utils'
+import { chop, WithRouter } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
@@ -10,73 +10,70 @@ type BreadcrumbAlignment = 'centered' | 'right'
 
 type BreadcrumbSeparator = 'arrow' | 'bullet' | 'dot' | 'succeeds'
 
-interface BreadcrumbContext {
-  readonly selectedBreadcrumb?: string
-  setSelectedBreadcrumb?(event: BreadcrumbChangeEvent): void
-}
-
-const BreadcrumbContext: React.Context<BreadcrumbContext> = React.createContext<
-  BreadcrumbContext
->({})
-
 export interface BreadcrumbItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
     Helpers {
   readonly value?: string
-  readonly href?: string
-  readonly currentLocation?: string
   readonly active?: boolean
+  readonly href?: string
 }
 
-export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = ({
+export const BreadcrumbItemWithRouter: React.SFC<
+  BreadcrumbItemProps & RouteComponentProps
+> = ({
+  match,
+  history,
+  location,
+  staticContext,
+
+  value,
   active,
   href,
-  currentLocation,
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, {
-    'is-active': href && currentLocation && href === currentLocation,
-  })
+}) => (
+  <Div
+    as="li"
+    {...props}
+    className={classNamesHelper(props, {
+      'is-active': active || href === location.pathname,
+    })}
+  >
+    {<NavLink to={href || '#'}>{children}</NavLink>}
+  </Div>
+)
 
-  return (
-    <BreadcrumbContext.Consumer>
-      {() => (
-        <Div as="li" {...props} className={classes}>
-          <NavLink to={href ? href : ''}>{children}</NavLink>
-        </Div>
-      )}
-    </BreadcrumbContext.Consumer>
-  )
-}
-
-export interface BreadcrumbChangeEvent {
-  readonly name?: string
-  readonly value?: string
-}
+export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = props => (
+  <WithRouter<BreadcrumbItemProps>
+    {...props}
+    component={BreadcrumbItemWithRouter}
+  />
+)
 
 export interface BreadcrumbProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {
-  readonly baseURL?: string
-  readonly currentLocation?: string
   readonly size?: BreadcrumbSize
   readonly alignment?: BreadcrumbAlignment
+  readonly baseURL?: string
   readonly separator?: BreadcrumbSeparator
-  readonly name?: string
-  readonly selectedBreadcrumb?: string
-  readonly defaultValue?: string
-  readonly readOnly?: boolean
-  onSelectedBreadcrumbChange?(evt: BreadcrumbChangeEvent): void
+  readonly currentLocation?: string
 }
 
-export const BreadcrumbView: React.SFC<BreadcrumbProps> = ({
-  baseURL,
-  currentLocation,
-  children,
+export const BreadcrumbWithRouter: React.SFC<
+  BreadcrumbProps & RouteComponentProps
+> = ({
+  match,
+  history,
+  location,
+  staticContext,
+
   alignment,
   size,
   separator,
+  baseURL,
+
+  children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'breadcrumb', {
@@ -91,59 +88,11 @@ export const BreadcrumbView: React.SFC<BreadcrumbProps> = ({
         {React.Children.map(children, (child: any) => {
           const href: string | undefined =
             baseURL && `${baseURL && chop(baseURL)}/${child.props.value}`
-          return React.cloneElement(
-            child,
-            href ? { href, currentLocation } : { currentLocation },
-          )
+
+          return React.cloneElement(child, href ? { href } : {})
         })}
       </ul>
     </Div>
-  )
-}
-
-export const BreadcrumbWithRouter: React.SFC<
-  BreadcrumbProps & RouteComponentProps
-> = ({
-  match,
-  history,
-  location,
-  staticContext,
-  selectedBreadcrumb,
-  onSelectedBreadcrumbChange,
-  defaultValue,
-  children,
-  ...props
-}) => {
-  if (selectedBreadcrumb && !onSelectedBreadcrumbChange && !props.readOnly) {
-    // tslint:disable-next-line: no-console
-    console.warn(
-      'onTabChange not provided but selectedBreadcrumb provided, make this component readOnly.',
-    )
-  }
-
-  const isUncontrolled: boolean =
-    selectedBreadcrumb === undefined && onSelectedBreadcrumbChange === undefined
-
-  return isUncontrolled ? (
-    <State
-      initial={selectedBreadcrumb || defaultValue}
-      render={({ value, set }) => (
-        <BreadcrumbContext.Provider
-          value={{
-            selectedBreadcrumb: value,
-            setSelectedBreadcrumb: ({ value }) => set(value),
-          }}
-        >
-          <BreadcrumbView currentLocation={location.pathname} {...props}>
-            {children}
-          </BreadcrumbView>
-        </BreadcrumbContext.Provider>
-      )}
-    />
-  ) : (
-    <BreadcrumbContext.Provider value={{}}>
-      <BreadcrumbView {...props}>{children}</BreadcrumbView>
-    </BreadcrumbContext.Provider>
   )
 }
 
