@@ -1,5 +1,12 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
+
+interface NavbarContext {
+  readonly visible?: boolean
+  setVisible?(visible: boolean): void
+}
+
+const NavbarContext: React.Context<NavbarContext> = React.createContext({})
 
 type NavbarVariant =
   | 'primary'
@@ -28,14 +35,17 @@ export const Navbar: React.SFC<NavbarProps> = ({
   children,
   ...props
 }) => {
+  const [visible, setVisible] = useState(false)
   const classes: string = classNamesHelper(props, 'navbar', {
     [`is-${variant}`]: variant,
     [`is-${modifier}`]: modifier,
   })
   return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
+    <NavbarContext.Provider value={{ visible, setVisible }}>
+      <Div {...props} className={classes}>
+        {children}
+      </Div>
+    </NavbarContext.Provider>
   )
 }
 
@@ -57,15 +67,29 @@ export const NavbarBrand: React.SFC<NavbarBrandProps> = ({
 
 export interface NavbarBurgerProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    Helpers {}
+    Helpers {
+  readonly active?: boolean
+}
 
 export const NavbarBurger: React.SFC<NavbarBurgerProps> = ({
+  active,
   children,
   ...props
 }) => {
-  const classes: string = classNamesHelper(props, 'navbar-burger')
+  const { visible, setVisible } = useContext(NavbarContext)
+  const classes: string = classNamesHelper(
+    props,
+    { 'is-active': active || visible },
+    'navbar-burger',
+    'burger',
+  )
   return (
-    <Div as="a" {...props} className={classes}>
+    <Div
+      as="a"
+      {...props}
+      className={classes}
+      onClick={() => setVisible && setVisible(!visible)}
+    >
       {children}
     </Div>
   )
@@ -126,11 +150,16 @@ export const NavbarMenu: React.SFC<NavbarMenuProps> = ({
   children,
   ...props
 }) => {
+  const { visible, setVisible } = useContext(NavbarContext)
   const classes: string = classNamesHelper(props, 'navbar-menu', {
-    'is-active': active,
+    'is-active': active || visible,
   })
   return (
-    <Div {...props} className={classes}>
+    <Div
+      {...props}
+      className={classes}
+      onClick={() => setVisible && setVisible(!visible)}
+    >
       {children}
     </Div>
   )

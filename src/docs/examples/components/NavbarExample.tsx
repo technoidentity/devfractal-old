@@ -60,6 +60,49 @@ export const NavbarExample: React.SFC = () => (
             </NavbarItem>
           </NavbarStart>
           <NavbarEnd>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem>Documentation</NavbarItem>
+            <NavbarItem>Jobs</NavbarItem>
+            <NavbarItem>Contact</NavbarItem>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Section>
+    <Section>
+      <Title size="4">Basic Navbar</Title>
+      <Navbar>
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem>Documentation</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>More</NavbarLink>
+              <NavbarDropdown>
+                <NavbarItem active>About</NavbarItem>
+                <NavbarItem>Jobs</NavbarItem>
+                <NavbarItem>Contact</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Report an issue</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
               <ButtonsGroup>
                 <Button variant="primary">Sign up</Button>
