@@ -17,7 +17,7 @@ const DropdownExampleTab: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Dropdown</Title>
-      <Dropdown modifier="active" label="Dropdown button">
+      <Dropdown label="Dropdown button">
         <DropdownItem>Dropdown item</DropdownItem>
         <DropdownItem as="a" active>
           Active Dropdown item

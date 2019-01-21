@@ -1,5 +1,5 @@
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
+import React, { useState } from 'react'
 import { Icon } from '../elements'
 import { Button } from '../form'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
@@ -23,21 +23,27 @@ export const Dropdown: React.SFC<DropdownProps> = ({
   children,
   ...props
 }) => {
+  const [active, setActive] = useState(modifier === 'active')
   const classes: string = classNamesHelper(props, 'dropdown', {
-    [`is-${modifier}`]: modifier,
+    [`is-hoverable`]: modifier === 'hoverable',
+    [`is-active`]: modifier !== 'hoverable' && active,
     'is-right': rightAligned,
     'is-up': dropUp,
   })
   return (
     <Div {...props} className={classes}>
       <Div className="dropdown-trigger">
-        <Button>
+        <Button onClick={() => setActive(!active)}>
           <span>{label}</span>
           <Icon icon={dropUp ? faAngleUp : faAngleDown} />
         </Button>
       </Div>
       <Div className="dropdown-menu" role="menu">
-        <Div {...props} className="dropdown-content">
+        <Div
+          {...props}
+          className="dropdown-content"
+          onClick={() => setActive(false)}
+        >
           {children}
         </Div>
       </Div>
