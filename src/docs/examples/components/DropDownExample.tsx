@@ -13,7 +13,7 @@ import {
   Title,
 } from '../devfractal'
 
-const DropDownExampleTab: React.SFC = () => (
+const DropdownExampleTab: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Dropdown</Title>
@@ -31,7 +31,7 @@ const DropDownExampleTab: React.SFC = () => (
   </>
 )
 
-const DropDownContentExampleTab: React.SFC = () => (
+const DropdownContentExampleTab: React.SFC = () => (
   <>
     <Section>
       <Title size="4">DropDown Content</Title>
@@ -137,9 +137,9 @@ export const DropdownExamplesTab: React.SFC = () => (
   </RoutedTabs>
 )
 
-export const DropDownExample: React.SFC = () => <DropdownExamplesTab />
+export const DropdownExample: React.SFC = () => <DropdownExamplesTab />
 
-export const DropDownExampleRoutes: React.SFC = () => (
+export const DropdownExampleRoutes: React.SFC = () => (
   <>
     <Route
       exact
@@ -150,12 +150,12 @@ export const DropDownExampleRoutes: React.SFC = () => (
     <Route
       path="/components/dropdown/dropdown"
       exact
-      component={DropDownExampleTab}
+      component={DropdownExampleTab}
     />
     <Route
       path="/components/dropdown/content"
       exact
-      component={DropDownContentExampleTab}
+      component={DropdownContentExampleTab}
     />
     <Route
       path="/components/dropdown/hoverable"
