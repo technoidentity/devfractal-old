@@ -1,7 +1,12 @@
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
 import { chop, extractSegment, WithRouter } from '../../utils'
-import { classNamesHelper, Div, Helpers } from '../modifiers'
+import {
+  classNamesHelper,
+  Div,
+  Helpers,
+  removeRouteComponentProps,
+} from '../modifiers'
 
 interface RoutedTabsContext {
   readonly baseURL?: string
@@ -79,20 +84,18 @@ export interface RoutedTabsProps
 // tslint:disable-next-line: typedef
 const RoutedTabsWithRouter: React.SFC<
   RoutedTabsProps & RouteComponentProps
-> = ({
-  match,
-  history,
-  location,
-  staticContext,
-  to,
-  urlSeparator = '/',
-  size,
-  alignment,
-  fullWidth,
-  tabsStyle,
-  children,
-  ...props
-}) => {
+> = args => {
+  const {
+    to,
+    urlSeparator = '/',
+    size,
+    alignment,
+    fullWidth,
+    tabsStyle,
+    children,
+    ...props
+  } = removeRouteComponentProps(args)
+
   const classes: string = classNamesHelper(props, 'tabs', {
     [`is-${size}`]: size,
     [`is-${alignment}`]: alignment,
@@ -105,7 +108,7 @@ const RoutedTabsWithRouter: React.SFC<
       value={{
         baseURL: to,
         separator: urlSeparator,
-        currentLocation: location.pathname,
+        currentLocation: args.location.pathname,
       }}
     >
       <Div {...props} className={classes}>

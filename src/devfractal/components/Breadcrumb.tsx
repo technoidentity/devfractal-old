@@ -2,7 +2,12 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import { chop, WithRouter } from '../../utils'
-import { classNamesHelper, Div, Helpers } from '../modifiers'
+import {
+  classNamesHelper,
+  Div,
+  Helpers,
+  removeRouteComponentProps,
+} from '../modifiers'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 
@@ -20,28 +25,21 @@ export interface BreadcrumbItemProps
 
 export const BreadcrumbItemWithRouter: React.SFC<
   BreadcrumbItemProps & RouteComponentProps
-> = ({
-  match,
-  history,
-  location,
-  staticContext,
+> = args => {
+  const { active, href, children, ...props } = removeRouteComponentProps(args)
 
-  value,
-  active,
-  href,
-  children,
-  ...props
-}) => (
-  <Div
-    as="li"
-    {...props}
-    className={classNamesHelper(props, {
-      'is-active': active || href === location.pathname,
-    })}
-  >
-    {<NavLink to={href || '#'}>{children}</NavLink>}
-  </Div>
-)
+  return (
+    <Div
+      as="li"
+      {...props}
+      className={classNamesHelper(props, {
+        'is-active': active || href === args.location.pathname,
+      })}
+    >
+      {<NavLink to={href || '#'}>{children}</NavLink>}
+    </Div>
+  )
+}
 
 export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = props => (
   <WithRouter<BreadcrumbItemProps>
@@ -57,22 +55,13 @@ export interface BreadcrumbProps
   readonly alignment?: BreadcrumbAlignment
   readonly baseURL?: string
   readonly separator?: BreadcrumbSeparator
-  readonly currentLocation?: string
 }
 
-export const BreadcrumbWithRouter: React.SFC<
-  BreadcrumbProps & RouteComponentProps
-> = ({
-  match,
-  history,
-  location,
-  staticContext,
-
+export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
   alignment,
   size,
   separator,
   baseURL,
-
   children,
   ...props
 }) => {
@@ -85,17 +74,13 @@ export const BreadcrumbWithRouter: React.SFC<
   return (
     <Div as="nav" {...props} className={classes}>
       <ul>
-        {React.Children.map(children, (child: any) => {
-          const href: string | undefined =
-            baseURL && `${baseURL && chop(baseURL)}/${child.props.value}`
-
-          return React.cloneElement(child, href ? { href } : {})
-        })}
+        {React.Children.map(children, (child: any) =>
+          React.cloneElement(
+            child,
+            baseURL ? { href: `${chop(baseURL)}/${child.props.value}` } : {},
+          ),
+        )}
       </ul>
     </Div>
   )
 }
-
-export const Breadcrumb: React.SFC<BreadcrumbProps> = props => (
-  <WithRouter<BreadcrumbProps> {...props} component={BreadcrumbWithRouter} />
-)
