@@ -6,30 +6,13 @@ import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 type DropdownModifier = 'hoverable' | 'active'
 
-export interface DropdownChangeEvent {
-  readonly name?: string
-  readonly value?: string
-}
-
-interface DropdownContext {
-  readonly name?: string
-  readonly selectedTab?: string
-  setSelectedTab?(event: DropdownChangeEvent): void
-}
-
-const DropdownContext: React.Context<DropdownContext> = React.createContext<
-  DropdownContext
->({})
-
 export interface DropdownProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly label?: string
-  readonly name?: string
   readonly modifier?: DropdownModifier
   readonly rightAligned?: boolean
   readonly dropUp?: boolean
-  onDropdownChange?(event: DropdownChangeEvent): void
 }
 
 export const Dropdown: React.SFC<DropdownProps> = ({
