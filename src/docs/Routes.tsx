@@ -13,7 +13,8 @@ import {
   ContentExample,
   Counter,
   DeleteExample,
-  DropDownExample,
+  DropdownExample,
+  DropdownExampleRoutes,
   FieldsGeneralForm,
   FileExample,
   FooterExample,
@@ -52,7 +53,6 @@ import {
   Todo,
   TypographyHelpersExample,
 } from './examples'
-import { DropDownExampleRoutes } from './examples/components/DropDownExample'
 import {
   LoginFormVariants,
   LoginFormVariantsRoutes,
@@ -161,7 +161,7 @@ export const ComponentsRoutes: React.SFC = () => (
   <>
     <SimpleRedirect exact from="/components" to="/components/card" />
     <Route path="/components/card" exact component={CardExample} />
-    <Route path="/components/dropdown" exact component={DropDownExample} />
+    <Route path="/components/dropdown" exact component={DropdownExample} />
     <Route path="/components/message" exact component={MessageExample} />
     <Route path="/components/tabs" exact component={TabsExample} />
     <Route path="/components/panel" exact component={PanelExample} />
@@ -214,7 +214,7 @@ export const Routes: React.SFC = () => (
     <LayoutRoutes />
     <ColumnsRoutes />
     <ModifiersRoutes />
-    <DropDownExampleRoutes />
+    <DropdownExampleRoutes />
     <LoginFormVariantsRoutes />
   </>
 )
