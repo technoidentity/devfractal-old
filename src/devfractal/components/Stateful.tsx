@@ -6,7 +6,6 @@ export interface StateChangeEvent<State> {
   readonly value?: State
 }
 
-// tslint:disable-next-line: no-empty-interface
 export interface StatefulComponentProps<State = {}> {
   readonly state?: State
   onStateChange?(event: StateChangeEvent<State>): void

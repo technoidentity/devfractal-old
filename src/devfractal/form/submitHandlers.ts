@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { FormikActions, FormikErrors } from 'formik'
+import { logger } from '../../docs/examples/common'
 import { jsonStringify } from '../../utils'
 
 export function consoleSubmit<Values extends object>(
@@ -8,8 +9,7 @@ export function consoleSubmit<Values extends object>(
   return async (values, { setSubmitting }) =>
     new Promise(resolve =>
       setTimeout(() => {
-        // tslint:disable-next-line:no-console
-        console.log(jsonStringify(values))
+        logger(jsonStringify(values))
         setSubmitting(false)
         resolve()
       }, millis),

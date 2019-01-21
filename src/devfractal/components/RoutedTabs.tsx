@@ -81,7 +81,6 @@ export interface RoutedTabsProps
   readonly urlSeparator?: string
 }
 
-// tslint:disable-next-line: typedef
 const RoutedTabsWithRouter: React.SFC<
   RoutedTabsProps & RouteComponentProps
 > = args => {
