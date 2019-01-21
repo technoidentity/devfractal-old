@@ -1,6 +1,6 @@
 import {
-  faArrowLeft,
-  faArrowRight,
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
   faStepBackward,
   faStepForward,
 } from '@fortawesome/free-solid-svg-icons'
@@ -22,25 +22,29 @@ export const SimplePagerView: React.SFC<PagerViewProps> = ({
 }) => (
   <Section>
     <Field groupModifier="grouped-right">
-      <Button variant="info" onClick={() => onPageChange(1)}>
+      <Button
+        variant="white"
+        disabled={currentPage === 1}
+        onClick={() => onPageChange(1)}
+      >
         <Icon icon={faStepBackward} />
       </Button>
       <Button
-        variant="info"
+        variant="white"
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        <Icon icon={faArrowLeft} />
+        <Icon icon={faAngleDoubleLeft} />
       </Button>
       <Button
-        variant="info"
+        variant="white"
         disabled={currentPage === maximumPages}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        <Icon icon={faArrowRight} />
+        <Icon icon={faAngleDoubleRight} />
       </Button>
       <Button
-        variant="info"
+        variant="white"
         disabled={currentPage === maximumPages}
         onClick={() => onPageChange(maximumPages)}
       >
