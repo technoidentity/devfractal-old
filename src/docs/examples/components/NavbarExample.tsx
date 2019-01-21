@@ -166,7 +166,7 @@ export const NavbarExample: React.SFC = () => (
             <NavbarItem>Home</NavbarItem>
             <NavbarItem dropdown modifier="hoverable">
               <NavbarLink>Docs</NavbarLink>
-              <NavbarDropdown modifier="boxed">
+              <NavbarDropdown boxed>
                 <NavbarItem>Overview</NavbarItem>
                 <NavbarItem>Modifiers</NavbarItem>
                 <NavbarItem>Columns</NavbarItem>
@@ -327,7 +327,7 @@ export const NavbarExample: React.SFC = () => (
       <Title size="4">Dropdown without arrow</Title>
 
       <NavbarItem dropdown>
-        <NavbarLink modifier="arrowless">Link without arrow</NavbarLink>
+        <NavbarLink arrowLess>Link without arrow</NavbarLink>
 
         <NavbarDropdown>
           <NavbarItem>Overview</NavbarItem>
@@ -383,7 +383,7 @@ export const NavbarExample: React.SFC = () => (
         <NavbarItem dropdown active>
           <NavbarLink>Docs</NavbarLink>
 
-          <NavbarDropdown modifier="boxed">
+          <NavbarDropdown boxed>
             <NavbarItem>Overview</NavbarItem>
             <NavbarItem>Elements</NavbarItem>
             <NavbarItem>Components</NavbarItem>
@@ -459,7 +459,7 @@ export const NavbarExample: React.SFC = () => (
             <NavbarItem>Home</NavbarItem>
             <NavbarItem dropdown modifier="hoverable">
               <NavbarLink>Docs</NavbarLink>
-              <NavbarDropdown modifier="boxed">
+              <NavbarDropdown boxed>
                 <NavbarItem>Overview</NavbarItem>
                 <NavbarItem>Modifiers</NavbarItem>
                 <NavbarItem>Columns</NavbarItem>
@@ -509,7 +509,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>
@@ -559,7 +559,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>
@@ -609,7 +609,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>
@@ -660,7 +660,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>
@@ -710,7 +710,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>
@@ -760,7 +760,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>
@@ -810,7 +810,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>
@@ -860,7 +860,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>
@@ -910,7 +910,7 @@ export const NavbarExample: React.SFC = () => (
               <NavbarItem>Home</NavbarItem>
               <NavbarItem dropdown modifier="hoverable">
                 <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown modifier="boxed">
+                <NavbarDropdown boxed>
                   <NavbarItem>Overview</NavbarItem>
                   <NavbarItem>Modifiers</NavbarItem>
                   <NavbarItem>Columns</NavbarItem>

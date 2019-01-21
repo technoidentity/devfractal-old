@@ -18,8 +18,11 @@ type BreadcrumbSeparator = 'arrow' | 'bullet' | 'dot' | 'succeeds'
 export interface BreadcrumbItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
     Helpers {
+  // Used by parent to create href
   readonly value?: string
+  // User could directly pass active, if not, this item will be active if href == current url
   readonly active?: boolean
+  // Pass either 'value' or 'href', 'href' can be constructed from 'value'
   readonly href?: string
 }
 
@@ -33,7 +36,8 @@ export const BreadcrumbItemWithRouter: React.SFC<
       as="li"
       {...props}
       className={classNamesHelper(props, {
-        'is-active': active || href === args.location.pathname,
+        'is-active':
+          active || (href && chop(href)) === chop(args.location.pathname),
       })}
     >
       {<NavLink to={href || '#'}>{children}</NavLink>}

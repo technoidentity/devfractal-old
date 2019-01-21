@@ -56,14 +56,11 @@ export interface NavbarBrandProps
 export const NavbarBrand: React.SFC<NavbarBrandProps> = ({
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'navbar-brand')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+}) => (
+  <Div {...props} className={classNamesHelper(props, 'navbar-brand')}>
+    {children}
+  </Div>
+)
 
 export interface NavbarBurgerProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -77,12 +74,11 @@ export const NavbarBurger: React.SFC<NavbarBurgerProps> = ({
   ...props
 }) => {
   const { visible, setVisible } = useContext(NavbarContext)
-  const classes: string = classNamesHelper(
-    props,
-    { 'is-active': active || visible },
-    'navbar-burger',
-    'burger',
-  )
+
+  const classes: string = classNamesHelper(props, 'navbar-burger', 'burger', {
+    'is-active': active || visible,
+  })
+
   return (
     <Div
       as="a"
@@ -126,6 +122,7 @@ export const NavbarItem: React.SFC<NavbarItemsProps> = ({
     'has-dropdown': dropdown,
     [`is-${modifier}`]: modifier,
   })
+
   return (
     <Div
       as={as}
@@ -151,9 +148,11 @@ export const NavbarMenu: React.SFC<NavbarMenuProps> = ({
   ...props
 }) => {
   const { visible, setVisible } = useContext(NavbarContext)
+
   const classes: string = classNamesHelper(props, 'navbar-menu', {
     'is-active': active || visible,
   })
+
   return (
     <Div
       {...props}
@@ -165,20 +164,19 @@ export const NavbarMenu: React.SFC<NavbarMenuProps> = ({
   )
 }
 
-type NavbarDropdownModifier = 'boxed'
 export interface NavbarDropdownProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
-  readonly modifier?: NavbarDropdownModifier
+  readonly boxed?: boolean
 }
 
 export const NavbarDropdown: React.SFC<NavbarDropdownProps> = ({
-  modifier,
+  boxed,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'navbar-dropdown', {
-    [`is-${modifier}`]: modifier,
+    [`is-boxed`]: boxed,
   })
   return (
     <Div {...props} className={classes}>
@@ -187,21 +185,21 @@ export const NavbarDropdown: React.SFC<NavbarDropdownProps> = ({
   )
 }
 
-type NavbarLinkModifier = 'arrowless'
 export interface NavbarLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {
-  readonly modifier?: NavbarLinkModifier
+  readonly arrowLess?: boolean
 }
 
 export const NavbarLink: React.SFC<NavbarLinkProps> = ({
-  modifier,
+  arrowLess,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'navbar-link', {
-    [`is-${modifier}`]: modifier,
+    [`is-arrowless`]: arrowLess,
   })
+
   return (
     <Div as="a" {...props} className={classes}>
       {children}
@@ -216,14 +214,11 @@ export interface NavbarStartProps
 export const NavbarStart: React.SFC<NavbarStartProps> = ({
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'navbar-start')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+}) => (
+  <Div {...props} className={classNamesHelper(props, 'navbar-start')}>
+    {children}
+  </Div>
+)
 
 export interface NavbarEndProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -232,14 +227,11 @@ export interface NavbarEndProps
 export const NavbarEnd: React.SFC<NavbarEndProps> = ({
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'navbar-end')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+}) => (
+  <Div {...props} className={classNamesHelper(props, 'navbar-end')}>
+    {children}
+  </Div>
+)
 
 export interface NavbarDividerProps
   extends React.HTMLAttributes<HTMLElement>,
@@ -248,11 +240,8 @@ export interface NavbarDividerProps
 export const NavbarDivider: React.SFC<NavbarDividerProps> = ({
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'navbar-divider')
-  return (
-    <Div as="hr" {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+}) => (
+  <Div as="hr" {...props} className={classNamesHelper(props, 'navbar-divider')}>
+    {children}
+  </Div>
+)
