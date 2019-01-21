@@ -1,6 +1,7 @@
 import React from 'react'
 import { Function } from 'tcomb'
 import { freeze, Mutable, mutative } from './common'
+import { Null } from './Null'
 
 type SetArgs<T> = T | ((value: Mutable<T>) => void)
 
@@ -61,7 +62,7 @@ export class ImmerState<T> extends React.Component<
 
       return <Component {...renderProps} {...rest} />
     }
-    // tslint:disable-next-line: no-null-keyword
-    return null
+
+    return <Null />
   }
 }

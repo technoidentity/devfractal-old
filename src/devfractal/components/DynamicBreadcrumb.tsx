@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { capitalize, chop, WithRouter } from '../../utils'
+import { capitalize, chop, Null, WithRouter } from '../../utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 
 const DynamicBreadcrumbWithRouter: React.SFC<RouteComponentProps> = ({
@@ -9,8 +9,7 @@ const DynamicBreadcrumbWithRouter: React.SFC<RouteComponentProps> = ({
   const segments: string[] = chop(location.pathname).split('/')
 
   if (segments.length <= 1) {
-    // tslint:disable-next-line: no-null-keyword
-    return null
+    return <Null />
   }
 
   const segmentsPaths: Array<[string, string]> = segments.map<[string, string]>(

@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames } from '../../utils'
+import { classNames, Null } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
 export interface ModalProps
@@ -36,8 +36,8 @@ export const Modal: React.SFC<ModalProps> = ({
       </Div>
     )
   }
-  // tslint:disable-next-line: no-null-keyword
-  return null
+
+  return <Null />
 }
 
 export interface ModalCardProps

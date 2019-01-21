@@ -1,6 +1,7 @@
 import React from 'react'
 import { Function } from 'tcomb'
 import { freeze } from './common'
+import { Null } from './Null'
 
 type SetArgs<T> = T | ((value: T) => T)
 
@@ -60,7 +61,6 @@ export class State<T> extends React.Component<
 
       return <Component {...renderProps} {...rest} />
     }
-    // tslint:disable-next-line: no-null-keyword
-    return null
+    return <Null />
   }
 }
