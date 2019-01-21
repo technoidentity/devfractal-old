@@ -5,7 +5,6 @@ import { RoutedTabs, RoutedTabsItem, Section, Title } from '../devfractal'
 import {
   FieldsLoginForm,
   FormikLoginForm,
-  NotWorkingLoginForm,
   SimpleLoginForm,
 } from './login-form-variants'
 
@@ -50,12 +49,6 @@ export const LoginFormVariantsRoutes: React.SFC = () => (
       exact
       component={FormikLoginForm}
     />
-    <Route
-      path="/composites/login-form-variants/not-working-form"
-      exact
-      component={NotWorkingLoginForm}
-    />
-
     <Route
       path="/composites/login-form-variants/fields-form"
       exact

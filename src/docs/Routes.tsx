@@ -14,6 +14,7 @@ import {
   Counter,
   DeleteExample,
   DropDownExample,
+  DropDownExampleRoutes,
   FieldsGeneralForm,
   FileExample,
   FooterExample,
@@ -25,6 +26,8 @@ import {
   ImageExample,
   InputExample,
   LevelExample,
+  LoginFormVariants,
+  LoginFormVariantsRoutes,
   MediaObjectExample,
   MenuExample,
   MessageExample,
@@ -42,6 +45,7 @@ import {
   SelectExample,
   SimpleExamples,
   SimpleFormExample,
+  SimpleTodo,
   SizesColumnExample,
   TableExample,
   TabsExample,
@@ -52,12 +56,6 @@ import {
   Todo,
   TypographyHelpersExample,
 } from './examples'
-import { DropDownExampleRoutes } from './examples/components/DropDownExample'
-import {
-  LoginFormVariants,
-  LoginFormVariantsRoutes,
-} from './examples/composites/LoginFormVariantsTab'
-import { SimpleTodo } from './examples/composites/SimpleTodo'
 import { IndexPageBody, IndexPageHeader } from './IndexPage'
 import {
   ColumnsTab,
