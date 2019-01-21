@@ -11,7 +11,6 @@ import {
   Title,
 } from '../devfractal'
 import { DynamicBreadcrumb } from '../devfractal/components/DynamicBreadcrumb'
-import { WithRouter } from '../utils'
 import logo from './logo.png'
 import {
   ColumnsMedia,
@@ -88,6 +87,6 @@ export const IndexPageHeader: React.SFC = () => (
         </Container>
       </HeroBody>
     </Hero>
-    <WithRouter<{}> component={DynamicBreadcrumb} />
+    <DynamicBreadcrumb />
   </>
 )

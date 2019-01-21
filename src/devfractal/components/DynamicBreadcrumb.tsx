@@ -1,31 +1,34 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { capitalize } from '../../utils'
+import { capitalize, chop, WithRouter } from '../../utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 
-export const DynamicBreadcrumb: React.SFC<RouteComponentProps> = ({
+const DynamicBreadcrumbWithRouter: React.SFC<RouteComponentProps> = ({
   location,
 }) => {
-  // tslint:disable no-array-mutation typedef prefer-const
+  const segments: string[] = chop(location.pathname).split('/')
 
-  const segments: string[] =
-    location.pathname === '/' ? [''] : location.pathname.split('/')
+  if (segments.length <= 1) {
+    // tslint:disable-next-line: no-null-keyword
+    return null
+  }
 
-  let paths = segments.map((_, i) => {
-    const result = `${segments.slice(0, i + 1).join('/')}`
-    return result === '' ? '/' : result
-  })
-
-  segments.shift()
-  segments.unshift('home')
+  const segmentsPaths: Array<[string, string]> = segments.map<[string, string]>(
+    (s, i) =>
+      s === '' ? ['home', '/'] : [s, `${segments.slice(0, i + 1).join('/')}`],
+  )
 
   return (
     <Breadcrumb>
-      {paths.map((path, i) => (
-        <BreadcrumbItem key={i} href={path}>
-          {capitalize(segments[i])}
+      {segmentsPaths.map(([s, p]) => (
+        <BreadcrumbItem key={p} href={p}>
+          {capitalize(s)}
         </BreadcrumbItem>
       ))}
     </Breadcrumb>
   )
 }
+
+export const DynamicBreadcrumb: React.SFC = () => (
+  <WithRouter<{}> component={DynamicBreadcrumbWithRouter} />
+)
