@@ -42,7 +42,7 @@ export const TextResponsiveSizesExample: React.SFC = () => (
   </Section>
 )
 
-export const TextColorExample: React.SFC = () => (
+export const TextColorHelperExample: React.SFC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
@@ -139,7 +139,7 @@ export const TypographyHelpersExample: React.SFC = () => (
     <TextAlignmentExample />
     <TextResponsiveSizesExample />
     <TextResponsiveAlignmentExample />
-    <TextColorExample />
+    <TextColorHelperExample />
     <TextTransformationExample />
     <TextWeightExample />
   </>
