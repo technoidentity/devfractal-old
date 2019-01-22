@@ -20,7 +20,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimpleCard: React.SFC = () => (
+export const SimpleCardExample: React.SFC = () => (
   <Section>
     <Card>
       <CardHeader>
@@ -131,7 +131,7 @@ export const CardContentExample: React.SFC = () => (
 
 export const CardExample: React.SFC = () => (
   <>
-    <SimpleCard />
+    <SimpleCardExample />
     <CardHeaderIconExample />
     <CardContentExample />
   </>

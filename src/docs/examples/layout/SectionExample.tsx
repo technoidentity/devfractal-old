@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Section, SubTitle, Title } from '../devfractal'
 
-export const LargeSection: React.SFC = () => (
+export const LargeSectionExample: React.SFC = () => (
   <Section>
     <Title>Section with large spacing</Title>
     <Section modifier="large">
@@ -15,7 +15,7 @@ export const LargeSection: React.SFC = () => (
   </Section>
 )
 
-export const MediumSection: React.SFC = () => (
+export const MediumSectionExample: React.SFC = () => (
   <Section>
     <Title>Section with medium spacing</Title>
     <Section modifier="medium">
@@ -31,7 +31,7 @@ export const MediumSection: React.SFC = () => (
 
 export const SectionExample: React.SFC = () => (
   <>
-    <LargeSection />
-    <MediumSection />
+    <LargeSectionExample />
+    <MediumSectionExample />
   </>
 )

@@ -19,7 +19,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimpleHero: React.SFC = () => (
+export const SimpleHeroExample: React.SFC = () => (
   <Section>
     <Title>Simple Hero</Title>
     <Hero>
@@ -33,7 +33,7 @@ export const SimpleHero: React.SFC = () => (
   </Section>
 )
 
-export const HeroColors: React.SFC = () => (
+export const HeroColorsExample: React.SFC = () => (
   <Section>
     <Title>Colors</Title>
     <Hero variant="primary">
@@ -95,7 +95,7 @@ export const HeroColors: React.SFC = () => (
   </Section>
 )
 
-export const HeroGradients: React.SFC = () => (
+export const HeroGradientsExample: React.SFC = () => (
   <Section>
     <Title>Gradients</Title>
     <Hero variant="primary" bold>
@@ -157,7 +157,7 @@ export const HeroGradients: React.SFC = () => (
   </Section>
 )
 
-export const HeroSizes: React.SFC = () => (
+export const HeroSizesExample: React.SFC = () => (
   <Section>
     <Title>Sizes</Title>
     <Hero variant="primary" size="medium">
@@ -194,7 +194,7 @@ export const HeroSizes: React.SFC = () => (
   </Section>
 )
 
-export const MediumHero: React.SFC = () => (
+export const MediumHeroExample: React.SFC = () => (
   <Section>
     <Title>Medium Hero</Title>
     <Hero variant="primary" size="medium">
@@ -249,7 +249,7 @@ export const MediumHero: React.SFC = () => (
   </Section>
 )
 
-export const LargeHero: React.SFC = () => (
+export const LargeHeroExample: React.SFC = () => (
   <Section>
     <Title>Large Hero</Title>
     <Hero variant="info" size="large">
@@ -307,7 +307,7 @@ export const LargeHero: React.SFC = () => (
   </Section>
 )
 
-export const FullHeightHero: React.SFC = () => (
+export const FullHeightHeroExample: React.SFC = () => (
   <Section>
     <Title>FullHeight Hero</Title>
     <Hero variant="success" size="fullheight">
@@ -347,21 +347,21 @@ export const FullHeightHero: React.SFC = () => (
   </Section>
 )
 
-export const ComplexHero: React.SFC = () => (
+export const ComplexHeroExample: React.SFC = () => (
   <Section>
     <Title>FullHeight hero in 3 parts</Title>
-    <MediumHero />
-    <LargeHero />
-    <FullHeightHero />
+    <MediumHeroExample />
+    <LargeHeroExample />
+    <FullHeightHeroExample />
   </Section>
 )
 
 export const HeroExample: React.SFC = () => (
   <>
-    <SimpleHero />
-    <HeroColors />
-    <HeroGradients />
-    <HeroSizes />
-    <ComplexHero />
+    <SimpleHeroExample />
+    <HeroColorsExample />
+    <HeroGradientsExample />
+    <HeroSizesExample />
+    <ComplexHeroExample />
   </>
 )

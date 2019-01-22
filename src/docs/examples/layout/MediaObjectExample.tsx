@@ -19,7 +19,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimpleMediaObject: React.SFC = () => (
+export const SimpleMediaObjectExample: React.SFC = () => (
   <Section>
     <Title>Simple Media Object</Title>
     <Media>
@@ -46,7 +46,7 @@ export const SimpleMediaObject: React.SFC = () => (
   </Section>
 )
 
-export const NestedMediaObject: React.SFC = () => (
+export const NestedMediaObjectExample: React.SFC = () => (
   <Section>
     <Title>Nesting</Title>
     <Media>
@@ -143,7 +143,7 @@ export const NestedMediaObject: React.SFC = () => (
   </Section>
 )
 
-export const ComplexMediaObject: React.SFC = () => (
+export const ComplexMediaObjectExample: React.SFC = () => (
   <Section>
     <Title>Media Object</Title>
     <Media>
@@ -181,8 +181,8 @@ export const ComplexMediaObject: React.SFC = () => (
 
 export const MediaObjectExample: React.SFC = () => (
   <>
-    <SimpleMediaObject />
-    <ComplexMediaObject />
-    <NestedMediaObject />
+    <SimpleMediaObjectExample />
+    <ComplexMediaObjectExample />
+    <NestedMediaObjectExample />
   </>
 )

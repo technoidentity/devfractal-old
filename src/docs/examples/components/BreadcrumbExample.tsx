@@ -15,7 +15,7 @@ import {
   Section,
 } from '../devfractal'
 
-export const BreadcrumbAlignments: React.SFC = () => (
+export const BreadcrumbAlignmentsExample: React.SFC = () => (
   <>
     <Container>
       <Breadcrumb alignment="centered">
@@ -36,7 +36,7 @@ export const BreadcrumbAlignments: React.SFC = () => (
   </>
 )
 
-export const BreadcrumbIcons: React.SFC = () => (
+export const BreadcrumbIconsExample: React.SFC = () => (
   <Container>
     <Breadcrumb>
       <BreadcrumbItem>
@@ -61,7 +61,7 @@ export const BreadcrumbIcons: React.SFC = () => (
   </Container>
 )
 
-export const BreadcrumbSizes: React.SFC = () => (
+export const BreadcrumbSizesExample: React.SFC = () => (
   <Container>
     <Breadcrumb size="small">
       <BreadcrumbItem>Bulma</BreadcrumbItem>
@@ -84,7 +84,7 @@ export const BreadcrumbSizes: React.SFC = () => (
   </Container>
 )
 
-export const BreadcrumbSeparators: React.SFC = () => (
+export const BreadcrumbSeparatorsExample: React.SFC = () => (
   <Container>
     <Breadcrumb separator="arrow">
       <BreadcrumbItem>Bulma</BreadcrumbItem>
@@ -133,21 +133,21 @@ export const BreadcrumbExample: React.SFC = () => (
       <Route
         path="/components/breadcrumb/alignments"
         exact
-        component={BreadcrumbAlignments}
+        component={BreadcrumbAlignmentsExample}
       />
       <Route
         path="/components/breadcrumb/icons"
         exact
-        component={BreadcrumbIcons}
+        component={BreadcrumbIconsExample}
       />
       <Route
         path="/components/breadcrumb/separators"
-        component={BreadcrumbSeparators}
+        component={BreadcrumbSeparatorsExample}
         exact
       />
       <Route
         path="/components/breadcrumb/sizes"
-        component={BreadcrumbSizes}
+        component={BreadcrumbSizesExample}
         exact
       />
     </Container>

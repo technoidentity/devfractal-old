@@ -12,7 +12,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimplePagination: React.SFC = () => (
+export const SimplePaginationExample: React.SFC = () => (
   <>
     <Title>Pagination example</Title>
     <Section>
@@ -37,7 +37,7 @@ export const SimplePagination: React.SFC = () => (
   </>
 )
 
-export const PagerAlignment: React.SFC = () => (
+export const PaginationAlignmentExample: React.SFC = () => (
   <>
     <Title>Alignment</Title>
     <Section>
@@ -83,7 +83,7 @@ export const PagerAlignment: React.SFC = () => (
   </>
 )
 
-export const PagerStyles: React.SFC = () => (
+export const PaginationStylesExample: React.SFC = () => (
   <>
     <Title>Styles</Title>
     <Section>
@@ -108,7 +108,7 @@ export const PagerStyles: React.SFC = () => (
   </>
 )
 
-export const PagerSizes: React.SFC = () => (
+export const PaginationSizesExample: React.SFC = () => (
   <>
     <Title>Sizes</Title>
     <Section>
@@ -194,7 +194,7 @@ export const PagerSizes: React.SFC = () => (
   </>
 )
 
-export const DynamicPagination: React.SFC = () => {
+export const DynamicPaginationExample: React.SFC = () => {
   const [page, setPageChange] = useState(1)
   return (
     <>
@@ -210,10 +210,10 @@ export const DynamicPagination: React.SFC = () => {
 
 export const PaginationExample: React.SFC = () => (
   <Section>
-    <DynamicPagination />
-    <SimplePagination />
-    <PagerAlignment />
-    <PagerStyles />
-    <PagerSizes />
+    <DynamicPaginationExample />
+    <SimplePaginationExample />
+    <PaginationAlignmentExample />
+    <PaginationStylesExample />
+    <PaginationSizesExample />
   </Section>
 )

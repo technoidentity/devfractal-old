@@ -11,7 +11,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const LevelRight: React.SFC = () => (
+export const LevelRightExample: React.SFC = () => (
   <Section>
     <Title>Level left</Title>
     <Level>
@@ -30,7 +30,7 @@ export const LevelRight: React.SFC = () => (
   </Section>
 )
 
-export const LevelLeft: React.SFC = () => (
+export const LevelLeftExample: React.SFC = () => (
   <Section>
     <Title>Level Right</Title>
     <Level>
@@ -55,7 +55,7 @@ export const LevelLeft: React.SFC = () => (
   </Section>
 )
 
-export const CenteredLevel: React.SFC = () => (
+export const CenteredLevelExample: React.SFC = () => (
   <Section>
     <Title>Centered level</Title>
     <Level>
@@ -128,7 +128,7 @@ export const CenteredLevel: React.SFC = () => (
   </Section>
 )
 
-export const MobileLevel: React.SFC = () => (
+export const MobileLevelExample: React.SFC = () => (
   <Section>
     <Title>Mobile level</Title>
     <Level className="is-mobile">
@@ -162,9 +162,9 @@ export const MobileLevel: React.SFC = () => (
 
 export const LevelExample: React.SFC = () => (
   <>
-    <LevelRight />
-    <LevelLeft />
-    <CenteredLevel />
-    <MobileLevel />
+    <LevelRightExample />
+    <LevelLeftExample />
+    <CenteredLevelExample />
+    <MobileLevelExample />
   </>
 )

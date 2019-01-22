@@ -9,7 +9,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimpleMessage: React.SFC = () => (
+export const SimpleMessageExample: React.SFC = () => (
   <Section>
     <Title>Simple Message</Title>
     <Box>
@@ -30,7 +30,7 @@ export const SimpleMessage: React.SFC = () => (
   </Section>
 )
 
-export const MessageColors: React.SFC = () => (
+export const MessageColorsExample: React.SFC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
@@ -253,7 +253,7 @@ export const MessageBodyExample: React.SFC = () => (
   </Section>
 )
 
-export const MessageSizes: React.SFC = () => (
+export const MessageSizesExample: React.SFC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
@@ -315,9 +315,9 @@ export const MessageSizes: React.SFC = () => (
 
 export const MessageExample: React.SFC = () => (
   <>
-    <SimpleMessage />
-    <MessageColors />
+    <SimpleMessageExample />
+    <MessageColorsExample />
     <MessageBodyExample />
-    <MessageSizes />
+    <MessageSizesExample />
   </>
 )

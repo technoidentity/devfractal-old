@@ -23,7 +23,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const BasicNavbar: React.SFC = () => (
+export const BasicNavbarExample: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Basic Navbar</Title>
@@ -148,7 +148,7 @@ export const NavbarBurgerExample: React.SFC = () => (
   </Section>
 )
 
-export const TransparentNavbar: React.SFC = () => (
+export const TransparentNavbarExample: React.SFC = () => (
   <Section>
     <Title size="4">Transparent navbar</Title>
     <Navbar modifier="transparent">
@@ -201,7 +201,7 @@ export const TransparentNavbar: React.SFC = () => (
   </Section>
 )
 
-export const NavbarDropdownMenu: React.SFC = () => (
+export const NavbarDropdownMenuExample: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Dropdown menu</Title>
@@ -249,7 +249,7 @@ export const NavbarDropdownMenu: React.SFC = () => (
   </>
 )
 
-export const NavbarRightDropdown: React.SFC = () => (
+export const NavbarRightDropdownExample: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Right dropdown</Title>
@@ -293,7 +293,7 @@ export const NavbarRightDropdown: React.SFC = () => (
   </>
 )
 
-export const NavbarDropup: React.SFC = () => (
+export const NavbarDropupExample: React.SFC = () => (
   <Section>
     <Title size="4">Dropup</Title>
     <Hero variant="primary">
@@ -323,7 +323,7 @@ export const NavbarDropup: React.SFC = () => (
   </Section>
 )
 
-export const DropdownWithOutArrow: React.SFC = () => (
+export const DropdownWithOutArrowExample: React.SFC = () => (
   <Section>
     <Title size="4">Dropdown without arrow</Title>
     <NavbarItem dropdown>
@@ -339,7 +339,7 @@ export const DropdownWithOutArrow: React.SFC = () => (
   </Section>
 )
 
-export const DropdownMenuStyles: React.SFC = () => (
+export const DropdownMenuStylesExample: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Styles for the dropdown menu</Title>
@@ -435,7 +435,7 @@ export const DropdownMenuStyles: React.SFC = () => (
   </>
 )
 
-export const NavbarColors: React.SFC = () => (
+export const NavbarColorsExample: React.SFC = () => (
   <Section>
     <Title size="4">Colors</Title>
     <Navbar modifier="transparent" variant="primary">
@@ -932,15 +932,15 @@ export const NavbarColors: React.SFC = () => (
 
 export const NavbarExample: React.SFC = () => (
   <>
-    <BasicNavbar />
+    <BasicNavbarExample />
     <NavbarBrandExample />
-    <TransparentNavbar />
+    <TransparentNavbarExample />
     <NavbarBurgerExample />
-    <NavbarDropup />
-    <NavbarDropdownMenu />
-    <NavbarRightDropdown />
-    <DropdownWithOutArrow />
-    <DropdownMenuStyles />
-    <NavbarColors />
+    <NavbarDropupExample />
+    <NavbarDropdownMenuExample />
+    <NavbarRightDropdownExample />
+    <DropdownWithOutArrowExample />
+    <DropdownMenuStylesExample />
+    <NavbarColorsExample />
   </>
 )

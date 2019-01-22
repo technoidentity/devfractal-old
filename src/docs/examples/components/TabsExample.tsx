@@ -24,7 +24,7 @@ export const TabsExamples: React.SFC = () => (
   </>
 )
 
-export const AlignmentTab: React.SFC = () => (
+export const AlignmentTabExample: React.SFC = () => (
   <>
     <Title size="6">Centered</Title>
     <Tabs name="basicTab2" selectedTab="pictures" alignment="centered" readOnly>
@@ -43,7 +43,7 @@ export const AlignmentTab: React.SFC = () => (
   </>
 )
 
-export const IconsTab: React.SFC = () => (
+export const IconsTabExample: React.SFC = () => (
   <>
     <Tabs name="basicTab4" selectedTab="pictures" alignment="centered" readOnly>
       <TabsItem value="pictures">
@@ -66,7 +66,7 @@ export const IconsTab: React.SFC = () => (
   </>
 )
 
-export const SizesTab: React.SFC = () => (
+export const SizesTabExample: React.SFC = () => (
   <>
     <Tabs name="basicTab5" selectedTab="pictures" size="small" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
@@ -89,7 +89,7 @@ export const SizesTab: React.SFC = () => (
   </>
 )
 
-export const StyleTabs: React.SFC = () => (
+export const StyleTabsExample: React.SFC = () => (
   <>
     <Title size="6">Boxed</Title>
     <Tabs name="basicTab8" selectedTab="pictures" tabsStyle="boxed" readOnly>
@@ -171,7 +171,7 @@ export const StyleTabs: React.SFC = () => (
   </>
 )
 
-export const CombiningTabs: React.SFC = () => (
+export const CombiningTabsExample: React.SFC = () => (
   <>
     <Tabs
       name="basicTab20"
@@ -274,7 +274,7 @@ export const CombiningTabs: React.SFC = () => (
   </>
 )
 
-export const UncontrolledTab: React.SFC = () => (
+export const UncontrolledTabExample: React.SFC = () => (
   <Section>
     <Tabs name="secondTab" defaultValue="documents" size="medium">
       <TabsItem value="pictures">Pictures</TabsItem>
@@ -285,7 +285,7 @@ export const UncontrolledTab: React.SFC = () => (
   </Section>
 )
 
-export const SelectedTab: React.SFC = () => (
+export const SelectedTabExample: React.SFC = () => (
   <Section>
     <Tabs selectedTab="music" name="secondTab" size="medium" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
@@ -296,7 +296,7 @@ export const SelectedTab: React.SFC = () => (
   </Section>
 )
 
-export const ControlledTabs: React.SFC = () => (
+export const ControlledTabsExample: React.SFC = () => (
   <>
     <State
       initial={'music'}
@@ -324,7 +324,7 @@ export const ControlledTabs: React.SFC = () => (
   </>
 )
 
-export const StaticTabs: React.SFC = () => (
+export const StaticTabsExample: React.SFC = () => (
   <Section>
     <Title textAlignment="centered">Static Tabs</Title>
     <Box>
@@ -333,47 +333,47 @@ export const StaticTabs: React.SFC = () => (
     </Box>
     <Box>
       <Title size="4">Alignment</Title>
-      <AlignmentTab />
+      <AlignmentTabExample />
     </Box>
     <Box>
       <Title size="4">Icons</Title>
-      <IconsTab />
+      <IconsTabExample />
     </Box>
     <Box>
       <Title size="4">Sizes</Title>
-      <SizesTab />
+      <SizesTabExample />
     </Box>
     <Box>
       <Title size="4">Styles</Title>
-      <StyleTabs />
+      <StyleTabsExample />
     </Box>
     <Box>
       <Title size="4">Combining</Title>
-      <CombiningTabs />
+      <CombiningTabsExample />
     </Box>
   </Section>
 )
 
-export const DynamicTabs: React.SFC = () => (
+export const DynamicTabsExample: React.SFC = () => (
   <Section>
     <Title textAlignment="centered">Dynamic Tabs</Title>
     <Box>
       <Title size="4">Uncontrolled Tab</Title>
-      <UncontrolledTab />
+      <UncontrolledTabExample />
     </Box>
     <Box>
       <Title size="4">
         'selectedTab' is provided, but not 'onTabChange' Tabs will be readonly
       </Title>
-      <SelectedTab />
+      <SelectedTabExample />
     </Box>
-    <ControlledTabs />
+    <ControlledTabsExample />
   </Section>
 )
 
 export const TabsExample: React.SFC = () => (
   <>
-    <DynamicTabs />
-    <StaticTabs />
+    <DynamicTabsExample />
+    <StaticTabsExample />
   </>
 )
