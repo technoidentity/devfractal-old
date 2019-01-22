@@ -1,12 +1,12 @@
 import React from 'react'
-import { Container, Footer, Section } from '../devfractal'
+import { Content, Footer, Section } from '../devfractal'
 
 export const FooterExample: React.SFC = () => (
   <Section>
-    <Footer textColor="primary">
-      <Container>
+    <Footer>
+      <Content textAlignment="centered">
         <p>
-          <strong>Bulma</strong> by{' '}
+          <strong>Bulma</strong> by
           <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is
           licensed
           <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
@@ -16,7 +16,7 @@ export const FooterExample: React.SFC = () => (
           </a>
           .
         </p>
-      </Container>
+      </Content>
     </Footer>
   </Section>
 )

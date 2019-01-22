@@ -23,7 +23,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const NavbarExample: React.SFC = () => (
+export const BasicNavbar: React.SFC = () => (
   <>
     <Section>
       <Title size="4">Basic Navbar</Title>
@@ -43,7 +43,6 @@ export const NavbarExample: React.SFC = () => (
             <span aria-hidden="true" />
           </NavbarBurger>
         </NavbarBrand>
-
         <NavbarMenu>
           <NavbarStart>
             <NavbarItem>Home</NavbarItem>
@@ -86,7 +85,6 @@ export const NavbarExample: React.SFC = () => (
             <span aria-hidden="true" />
           </NavbarBurger>
         </NavbarBrand>
-
         <NavbarMenu>
           <NavbarStart>
             <NavbarItem>Home</NavbarItem>
@@ -113,144 +111,146 @@ export const NavbarExample: React.SFC = () => (
         </NavbarMenu>
       </Navbar>
     </Section>
+  </>
+)
 
+export const NavbarBrandExample: React.SFC = () => (
+  <Section>
+    <Title size="4">Navbar brand</Title>
+    <Navbar>
+      <NavbarBrand>
+        <NavbarItem>
+          {/* TODO:: change this to Image*/}
+          <img
+            src="https://bulma.io/images/bulma-logo.png"
+            width="112"
+            height="28"
+          />
+        </NavbarItem>
+        <NavbarBurger role="button">
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </NavbarBurger>
+      </NavbarBrand>
+    </Navbar>
+  </Section>
+)
+
+export const NavbarBurgerExample: React.SFC = () => (
+  <Section>
+    <Title size="4">Navbar burger(appears on mobile)</Title>
+    <NavbarBurger role="button">
+      <span aria-hidden="true" />
+      <span aria-hidden="true" />
+      <span aria-hidden="true" />
+    </NavbarBurger>
+  </Section>
+)
+
+export const TransparentNavbar: React.SFC = () => (
+  <Section>
+    <Title size="4">Transparent navbar</Title>
+    <Navbar modifier="transparent">
+      <NavbarBrand>
+        <NavbarItem>
+          {/* TODO:: change this to Image*/}
+          <img
+            src="https://bulma.io/images/bulma-logo.png"
+            width="112"
+            height="28"
+          />
+        </NavbarItem>
+        <NavbarBurger role="button">
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </NavbarBurger>
+      </NavbarBrand>
+      <NavbarMenu>
+        <NavbarStart>
+          <NavbarItem>Home</NavbarItem>
+          <NavbarItem dropdown modifier="hoverable">
+            <NavbarLink>Docs</NavbarLink>
+            <NavbarDropdown boxed>
+              <NavbarItem>Overview</NavbarItem>
+              <NavbarItem>Modifiers</NavbarItem>
+              <NavbarItem>Columns</NavbarItem>
+              <NavbarItem>Layout</NavbarItem>
+              <NavbarItem>Form</NavbarItem>
+              <NavbarDivider />
+              <NavbarItem>Elements</NavbarItem>
+              <NavbarItem active>Components</NavbarItem>
+            </NavbarDropdown>
+          </NavbarItem>
+        </NavbarStart>
+        <NavbarEnd>
+          <NavbarItem>
+            <Field grouped>
+              <Button variant="info">
+                <Icon icon={faTwitter} /> <span>Twitter</span>
+              </Button>
+              <Button variant="primary">
+                <Icon icon={faDownload} /> <span>Download</span>
+              </Button>
+            </Field>
+          </NavbarItem>
+        </NavbarEnd>
+      </NavbarMenu>
+    </Navbar>
+  </Section>
+)
+
+export const NavbarDropdownMenu: React.SFC = () => (
+  <>
     <Section>
-      <Title size="4">Navbar brand</Title>
+      <Title size="4">Dropdown menu</Title>
       <Navbar>
-        <NavbarBrand>
-          <NavbarItem>
-            {/* TODO:: change this to Image*/}
-            <img
-              src="https://bulma.io/images/bulma-logo.png"
-              width="112"
-              height="28"
-            />
-          </NavbarItem>
-          <NavbarBurger role="button">
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </NavbarBurger>
-        </NavbarBrand>
+        <NavbarItem dropdown active modifier="expanded">
+          <NavbarLink>Docs(Active)</NavbarLink>
+          <NavbarDropdown>
+            <NavbarItem>Overview</NavbarItem>
+            <NavbarItem>Elements</NavbarItem>
+            <NavbarItem>Components</NavbarItem>
+            <NavbarDivider />
+            <NavbarItem>Version 0.7.2</NavbarItem>
+          </NavbarDropdown>
+        </NavbarItem>
       </Navbar>
     </Section>
     <Section>
-      <Title size="4">Navbar burger(appears on mobile)</Title>
-      <NavbarBurger role="button">
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-      </NavbarBurger>
-    </Section>
-    <Section>
-      <Title size="4">Transparent navbar</Title>
-      <Navbar modifier="transparent">
-        <NavbarBrand>
-          <NavbarItem>
-            {/* TODO:: change this to Image*/}
-            <img
-              src="https://bulma.io/images/bulma-logo.png"
-              width="112"
-              height="28"
-            />
-          </NavbarItem>
-          <NavbarBurger role="button">
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </NavbarBurger>
-        </NavbarBrand>
-
-        <NavbarMenu>
-          <NavbarStart>
-            <NavbarItem>Home</NavbarItem>
-            <NavbarItem dropdown modifier="hoverable">
-              <NavbarLink>Docs</NavbarLink>
-              <NavbarDropdown boxed>
-                <NavbarItem>Overview</NavbarItem>
-                <NavbarItem>Modifiers</NavbarItem>
-                <NavbarItem>Columns</NavbarItem>
-                <NavbarItem>Layout</NavbarItem>
-                <NavbarItem>Form</NavbarItem>
-                <NavbarDivider />
-                <NavbarItem>Elements</NavbarItem>
-                <NavbarItem active>Components</NavbarItem>
-              </NavbarDropdown>
-            </NavbarItem>
-          </NavbarStart>
-          <NavbarEnd>
-            <NavbarItem>
-              <Field grouped>
-                <Button variant="info">
-                  <Icon icon={faTwitter} /> <span>Twitter</span>
-                </Button>
-                <Button variant="primary">
-                  <Icon icon={faDownload} /> <span>Download</span>
-                </Button>
-              </Field>
-            </NavbarItem>
-          </NavbarEnd>
-        </NavbarMenu>
+      <Navbar>
+        <NavbarItem dropdown modifier="hoverable">
+          <NavbarLink>Docs(Hoverable)</NavbarLink>
+          <NavbarDropdown>
+            <NavbarItem>Overview</NavbarItem>
+            <NavbarItem>Elements</NavbarItem>
+            <NavbarItem>Components</NavbarItem>
+            <NavbarDivider />
+            <NavbarItem>Version 0.7.2</NavbarItem>
+          </NavbarDropdown>
+        </NavbarItem>
       </Navbar>
     </Section>
     <Section>
-      <Section>
-        <Section>
-          <Title size="4">Dropdown menu</Title>
-          <Navbar>
-            <NavbarItem dropdown active modifier="expanded">
-              <NavbarLink>Docs(Active)</NavbarLink>
-
-              <NavbarDropdown>
-                <NavbarItem>Overview</NavbarItem>
-                <NavbarItem>Elements</NavbarItem>
-                <NavbarItem>Components</NavbarItem>
-                <NavbarDivider />
-                <NavbarItem>Version 0.7.2</NavbarItem>
-              </NavbarDropdown>
-            </NavbarItem>
-          </Navbar>
-        </Section>
-      </Section>
+      <Navbar>
+        <NavbarItem dropdown>
+          <NavbarLink>Docs(JS)</NavbarLink>
+          <NavbarDropdown>
+            <NavbarItem>Overview</NavbarItem>
+            <NavbarItem>Elements</NavbarItem>
+            <NavbarItem>Components</NavbarItem>
+            <NavbarDivider />
+            <NavbarItem>Version 0.7.2</NavbarItem>
+          </NavbarDropdown>
+        </NavbarItem>
+      </Navbar>
     </Section>
-    <Section>
-      <Section>
-        <Section>
-          <Navbar>
-            <NavbarItem dropdown modifier="hoverable">
-              <NavbarLink>Docs(Hoverable)</NavbarLink>
+  </>
+)
 
-              <NavbarDropdown>
-                <NavbarItem>Overview</NavbarItem>
-                <NavbarItem>Elements</NavbarItem>
-                <NavbarItem>Components</NavbarItem>
-                <NavbarDivider />
-                <NavbarItem>Version 0.7.2</NavbarItem>
-              </NavbarDropdown>
-            </NavbarItem>
-          </Navbar>
-        </Section>
-      </Section>
-    </Section>
-    <Section>
-      <Section>
-        <Section>
-          <Navbar>
-            <NavbarItem dropdown>
-              <NavbarLink>Docs(JS)</NavbarLink>
-
-              <NavbarDropdown>
-                <NavbarItem>Overview</NavbarItem>
-                <NavbarItem>Elements</NavbarItem>
-                <NavbarItem>Components</NavbarItem>
-                <NavbarDivider />
-                <NavbarItem>Version 0.7.2</NavbarItem>
-              </NavbarDropdown>
-            </NavbarItem>
-          </Navbar>
-        </Section>
-      </Section>
-    </Section>
+export const NavbarRightDropdown: React.SFC = () => (
+  <>
     <Section>
       <Title size="4">Right dropdown</Title>
       <Navbar>
@@ -258,7 +258,6 @@ export const NavbarExample: React.SFC = () => (
           <NavbarStart>
             <NavbarItem dropdown active>
               <NavbarLink>Left</NavbarLink>
-
               <NavbarDropdown>
                 <NavbarItem>Overview</NavbarItem>
                 <NavbarItem>Elements</NavbarItem>
@@ -268,11 +267,9 @@ export const NavbarExample: React.SFC = () => (
               </NavbarDropdown>
             </NavbarItem>
           </NavbarStart>
-
           <NavbarEnd>
             <NavbarItem dropdown active>
               <NavbarLink>Right</NavbarLink>
-
               <NavbarDropdown>
                 <NavbarItem>Overview</NavbarItem>
                 <NavbarItem>Elements</NavbarItem>
@@ -284,7 +281,6 @@ export const NavbarExample: React.SFC = () => (
           </NavbarEnd>
         </NavbarMenu>
       </Navbar>
-
       <Hero variant="primary">
         <HeroBody>
           <Title>Documentation</Title>
@@ -294,50 +290,57 @@ export const NavbarExample: React.SFC = () => (
         </HeroBody>
       </Hero>
     </Section>
-    <Section>
-      <Title size="4">Dropup</Title>
-      <Hero variant="primary">
-        <HeroBody>
-          <Title>Documentation</Title>
-          <SubTitle>
-            Everything you need to <strong>create a website</strong> with Bulma
-          </SubTitle>
-        </HeroBody>
-      </Hero>
+  </>
+)
 
-      <Navbar>
-        <NavbarMenu>
-          <NavbarStart>
-            <NavbarItem dropUp active>
-              <NavbarLink>Dropup</NavbarLink>
+export const NavbarDropup: React.SFC = () => (
+  <Section>
+    <Title size="4">Dropup</Title>
+    <Hero variant="primary">
+      <HeroBody>
+        <Title>Documentation</Title>
+        <SubTitle>
+          Everything you need to <strong>create a website</strong> with Bulma
+        </SubTitle>
+      </HeroBody>
+    </Hero>
+    <Navbar>
+      <NavbarMenu>
+        <NavbarStart>
+          <NavbarItem dropUp active>
+            <NavbarLink>Dropup</NavbarLink>
+            <NavbarDropdown>
+              <NavbarItem>Overview</NavbarItem>
+              <NavbarItem>Elements</NavbarItem>
+              <NavbarItem>Components</NavbarItem>
+              <NavbarDivider />
+              <NavbarItem>Version 0.7.2</NavbarItem>
+            </NavbarDropdown>
+          </NavbarItem>
+        </NavbarStart>
+      </NavbarMenu>
+    </Navbar>
+  </Section>
+)
 
-              <NavbarDropdown>
-                <NavbarItem>Overview</NavbarItem>
-                <NavbarItem>Elements</NavbarItem>
-                <NavbarItem>Components</NavbarItem>
-                <NavbarDivider />
-                <NavbarItem>Version 0.7.2</NavbarItem>
-              </NavbarDropdown>
-            </NavbarItem>
-          </NavbarStart>
-        </NavbarMenu>
-      </Navbar>
-    </Section>
-    <Section>
-      <Title size="4">Dropdown without arrow</Title>
+export const DropdownWithOutArrow: React.SFC = () => (
+  <Section>
+    <Title size="4">Dropdown without arrow</Title>
+    <NavbarItem dropdown>
+      <NavbarLink arrowLess>Link without arrow</NavbarLink>
+      <NavbarDropdown>
+        <NavbarItem>Overview</NavbarItem>
+        <NavbarItem>Elements</NavbarItem>
+        <NavbarItem>Components</NavbarItem>
+        <NavbarDivider />
+        <NavbarItem>Version 0.7.2</NavbarItem>
+      </NavbarDropdown>
+    </NavbarItem>
+  </Section>
+)
 
-      <NavbarItem dropdown>
-        <NavbarLink arrowLess>Link without arrow</NavbarLink>
-
-        <NavbarDropdown>
-          <NavbarItem>Overview</NavbarItem>
-          <NavbarItem>Elements</NavbarItem>
-          <NavbarItem>Components</NavbarItem>
-          <NavbarDivider />
-          <NavbarItem>Version 0.7.2</NavbarItem>
-        </NavbarDropdown>
-      </NavbarItem>
-    </Section>
+export const DropdownMenuStyles: React.SFC = () => (
+  <>
     <Section>
       <Title size="4">Styles for the dropdown menu</Title>
       <Navbar>
@@ -348,10 +351,8 @@ export const NavbarExample: React.SFC = () => (
             height="28"
           />
         </NavbarItem>
-
         <NavbarItem dropdown active>
           <NavbarLink>Docs</NavbarLink>
-
           <NavbarDropdown>
             <NavbarItem>Overview</NavbarItem>
             <NavbarItem>Elements</NavbarItem>
@@ -379,10 +380,8 @@ export const NavbarExample: React.SFC = () => (
             height="28"
           />
         </NavbarItem>
-
         <NavbarItem dropdown active>
           <NavbarLink>Docs</NavbarLink>
-
           <NavbarDropdown boxed>
             <NavbarItem>Overview</NavbarItem>
             <NavbarItem>Elements</NavbarItem>
@@ -411,10 +410,8 @@ export const NavbarExample: React.SFC = () => (
             height="28"
           />
         </NavbarItem>
-
         <NavbarItem dropdown active>
           <NavbarLink>Docs</NavbarLink>
-
           <NavbarDropdown>
             <NavbarItem>Overview</NavbarItem>
             <NavbarItem as="a" active>
@@ -435,9 +432,61 @@ export const NavbarExample: React.SFC = () => (
         </HeroBody>
       </Hero>
     </Section>
-    <Section>
-      <Title size="4">Colors</Title>
-      <Navbar modifier="transparent" variant="primary">
+  </>
+)
+
+export const NavbarColors: React.SFC = () => (
+  <Section>
+    <Title size="4">Colors</Title>
+    <Navbar modifier="transparent" variant="primary">
+      <NavbarBrand>
+        <NavbarItem>
+          {/* TODO:: change this to Image*/}
+          <img
+            src="https://bulma.io/images/bulma-logo.png"
+            width="112"
+            height="28"
+          />
+        </NavbarItem>
+        <NavbarBurger role="button">
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </NavbarBurger>
+      </NavbarBrand>
+      <NavbarMenu>
+        <NavbarStart>
+          <NavbarItem>Home</NavbarItem>
+          <NavbarItem dropdown modifier="hoverable">
+            <NavbarLink>Docs</NavbarLink>
+            <NavbarDropdown boxed>
+              <NavbarItem>Overview</NavbarItem>
+              <NavbarItem>Modifiers</NavbarItem>
+              <NavbarItem>Columns</NavbarItem>
+              <NavbarItem>Layout</NavbarItem>
+              <NavbarItem>Form</NavbarItem>
+              <NavbarDivider />
+              <NavbarItem>Elements</NavbarItem>
+              <NavbarItem active>Components</NavbarItem>
+            </NavbarDropdown>
+          </NavbarItem>
+        </NavbarStart>
+        <NavbarEnd>
+          <NavbarItem>
+            <Field grouped>
+              <Button variant="info">
+                <Icon icon={faTwitter} /> <span>Twitter</span>
+              </Button>
+              <Button variant="primary">
+                <Icon icon={faDownload} /> <span>Download</span>
+              </Button>
+            </Field>
+          </NavbarItem>
+        </NavbarEnd>
+      </NavbarMenu>
+    </Navbar>
+    <Field>
+      <Navbar modifier="transparent" variant="success">
         <NavbarBrand>
           <NavbarItem>
             {/* TODO:: change this to Image*/}
@@ -453,7 +502,6 @@ export const NavbarExample: React.SFC = () => (
             <span aria-hidden="true" />
           </NavbarBurger>
         </NavbarBrand>
-
         <NavbarMenu>
           <NavbarStart>
             <NavbarItem>Home</NavbarItem>
@@ -485,458 +533,414 @@ export const NavbarExample: React.SFC = () => (
           </NavbarEnd>
         </NavbarMenu>
       </Navbar>
-
-      <Field>
-        <Navbar modifier="transparent" variant="success">
-          <NavbarBrand>
-            <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+    </Field>
+    <Field>
+      <Navbar modifier="transparent" variant="warning">
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>Docs</NavbarLink>
+              <NavbarDropdown boxed>
+                <NavbarItem>Overview</NavbarItem>
+                <NavbarItem>Modifiers</NavbarItem>
+                <NavbarItem>Columns</NavbarItem>
+                <NavbarItem>Layout</NavbarItem>
+                <NavbarItem>Form</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Elements</NavbarItem>
+                <NavbarItem active>Components</NavbarItem>
+              </NavbarDropdown>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
-
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} /> <span>Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-      <Field>
-        <Navbar modifier="transparent" variant="warning">
-          <NavbarBrand>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+              <Field grouped>
+                <Button variant="info">
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
+                </Button>
+                <Button variant="primary">
+                  <Icon icon={faDownload} /> <span>Download</span>
+                </Button>
+              </Field>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
-
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} /> <span>Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-      <Field>
-        <Navbar modifier="transparent" variant="white">
-          <NavbarBrand>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Field>
+    <Field>
+      <Navbar modifier="transparent" variant="white">
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>Docs</NavbarLink>
+              <NavbarDropdown boxed>
+                <NavbarItem>Overview</NavbarItem>
+                <NavbarItem>Modifiers</NavbarItem>
+                <NavbarItem>Columns</NavbarItem>
+                <NavbarItem>Layout</NavbarItem>
+                <NavbarItem>Form</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Elements</NavbarItem>
+                <NavbarItem active>Components</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+              <Field grouped>
+                <Button variant="info">
+                  <Icon icon={faTwitter} />
+                  <span> Twitter</span>
+                </Button>
+                <Button variant="primary">
+                  <Icon icon={faDownload} /> <span>Download</span>
+                </Button>
+              </Field>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
-
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} />
-                    <span> Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-      <Field>
-        <Navbar modifier="transparent" variant="black">
-          <NavbarBrand>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Field>
+    <Field>
+      <Navbar modifier="transparent" variant="black">
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>Docs</NavbarLink>
+              <NavbarDropdown boxed>
+                <NavbarItem>Overview</NavbarItem>
+                <NavbarItem>Modifiers</NavbarItem>
+                <NavbarItem>Columns</NavbarItem>
+                <NavbarItem>Layout</NavbarItem>
+                <NavbarItem>Form</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Elements</NavbarItem>
+                <NavbarItem active>Components</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+              <Field grouped>
+                <Button variant="info">
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
+                </Button>
+                <Button variant="primary">
+                  <Icon icon={faDownload} /> <span>Download</span>
+                </Button>
+              </Field>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
-
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} /> <span>Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-      <Field>
-        <Navbar modifier="transparent" variant="danger">
-          <NavbarBrand>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Field>
+    <Field>
+      <Navbar modifier="transparent" variant="danger">
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>Docs</NavbarLink>
+              <NavbarDropdown boxed>
+                <NavbarItem>Overview</NavbarItem>
+                <NavbarItem>Modifiers</NavbarItem>
+                <NavbarItem>Columns</NavbarItem>
+                <NavbarItem>Layout</NavbarItem>
+                <NavbarItem>Form</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Elements</NavbarItem>
+                <NavbarItem active>Components</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+              <Field grouped>
+                <Button variant="info">
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
+                </Button>
+                <Button variant="primary">
+                  <Icon icon={faDownload} /> <span>Download</span>
+                </Button>
+              </Field>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
-
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} /> <span>Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-      <Field>
-        <Navbar modifier="transparent" variant="dark">
-          <NavbarBrand>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Field>
+    <Field>
+      <Navbar modifier="transparent" variant="dark">
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>Docs</NavbarLink>
+              <NavbarDropdown boxed>
+                <NavbarItem>Overview</NavbarItem>
+                <NavbarItem>Modifiers</NavbarItem>
+                <NavbarItem>Columns</NavbarItem>
+                <NavbarItem>Layout</NavbarItem>
+                <NavbarItem>Form</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Elements</NavbarItem>
+                <NavbarItem active>Components</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+              <Field grouped>
+                <Button variant="info">
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
+                </Button>
+                <Button variant="primary">
+                  <Icon icon={faDownload} /> <span>Download</span>
+                </Button>
+              </Field>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
-
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} /> <span>Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-      <Field>
-        <Navbar modifier="transparent" variant="info">
-          <NavbarBrand>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Field>
+    <Field>
+      <Navbar modifier="transparent" variant="info">
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>Docs</NavbarLink>
+              <NavbarDropdown boxed>
+                <NavbarItem>Overview</NavbarItem>
+                <NavbarItem>Modifiers</NavbarItem>
+                <NavbarItem>Columns</NavbarItem>
+                <NavbarItem>Layout</NavbarItem>
+                <NavbarItem>Form</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Elements</NavbarItem>
+                <NavbarItem active>Components</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+              <Field grouped>
+                <Button variant="info">
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
+                </Button>
+                <Button variant="primary">
+                  <Icon icon={faDownload} /> <span>Download</span>
+                </Button>
+              </Field>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
-
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} /> <span>Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-      <Field>
-        <Navbar modifier="transparent" variant="light">
-          <NavbarBrand>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Field>
+    <Field>
+      <Navbar modifier="transparent" variant="light">
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>Docs</NavbarLink>
+              <NavbarDropdown boxed>
+                <NavbarItem>Overview</NavbarItem>
+                <NavbarItem>Modifiers</NavbarItem>
+                <NavbarItem>Columns</NavbarItem>
+                <NavbarItem>Layout</NavbarItem>
+                <NavbarItem>Form</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Elements</NavbarItem>
+                <NavbarItem active>Components</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+              <Field grouped>
+                <Button variant="info">
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
+                </Button>
+                <Button variant="primary">
+                  <Icon icon={faDownload} /> <span>Download</span>
+                </Button>
+              </Field>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
-
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} /> <span>Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-      <Field>
-        <Navbar modifier="transparent" variant="link">
-          <NavbarBrand>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Field>
+    <Field>
+      <Navbar modifier="transparent" variant="link">
+        <NavbarBrand>
+          <NavbarItem>
+            {/* TODO:: change this to Image*/}
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </NavbarItem>
+          <NavbarBurger role="button">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu>
+          <NavbarStart>
+            <NavbarItem>Home</NavbarItem>
+            <NavbarItem dropdown modifier="hoverable">
+              <NavbarLink>Docs</NavbarLink>
+              <NavbarDropdown boxed>
+                <NavbarItem>Overview</NavbarItem>
+                <NavbarItem>Modifiers</NavbarItem>
+                <NavbarItem>Columns</NavbarItem>
+                <NavbarItem>Layout</NavbarItem>
+                <NavbarItem>Form</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem>Elements</NavbarItem>
+                <NavbarItem active>Components</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarStart>
+          <NavbarEnd>
             <NavbarItem>
-              {/* TODO:: change this to Image*/}
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
+              <Field grouped>
+                <Button variant="info">
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
+                </Button>
+                <Button variant="primary">
+                  <Icon icon={faDownload} /> <span>Download</span>
+                </Button>
+              </Field>
             </NavbarItem>
-            <NavbarBurger role="button">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </NavbarBurger>
-          </NavbarBrand>
+          </NavbarEnd>
+        </NavbarMenu>
+      </Navbar>
+    </Field>
+  </Section>
+)
 
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem>Home</NavbarItem>
-              <NavbarItem dropdown modifier="hoverable">
-                <NavbarLink>Docs</NavbarLink>
-                <NavbarDropdown boxed>
-                  <NavbarItem>Overview</NavbarItem>
-                  <NavbarItem>Modifiers</NavbarItem>
-                  <NavbarItem>Columns</NavbarItem>
-                  <NavbarItem>Layout</NavbarItem>
-                  <NavbarItem>Form</NavbarItem>
-                  <NavbarDivider />
-                  <NavbarItem>Elements</NavbarItem>
-                  <NavbarItem active>Components</NavbarItem>
-                </NavbarDropdown>
-              </NavbarItem>
-            </NavbarStart>
-            <NavbarEnd>
-              <NavbarItem>
-                <Field grouped>
-                  <Button variant="info">
-                    <Icon icon={faTwitter} /> <span>Twitter</span>
-                  </Button>
-                  <Button variant="primary">
-                    <Icon icon={faDownload} /> <span>Download</span>
-                  </Button>
-                </Field>
-              </NavbarItem>
-            </NavbarEnd>
-          </NavbarMenu>
-        </Navbar>
-      </Field>
-    </Section>
+export const NavbarExample: React.SFC = () => (
+  <>
+    <BasicNavbar />
+    <NavbarBrandExample />
+    <TransparentNavbar />
+    <NavbarBurgerExample />
+    <NavbarDropup />
+    <NavbarDropdownMenu />
+    <NavbarRightDropdown />
+    <DropdownWithOutArrow />
+    <DropdownMenuStyles />
+    <NavbarColors />
   </>
 )

@@ -274,82 +274,106 @@ export const CombiningTabs: React.SFC = () => (
   </>
 )
 
+export const UncontrolledTab: React.SFC = () => (
+  <Section>
+    <Tabs name="secondTab" defaultValue="documents" size="medium">
+      <TabsItem value="pictures">Pictures</TabsItem>
+      <TabsItem value="music">Music</TabsItem>
+      <TabsItem value="videos">Videos</TabsItem>
+      <TabsItem value="documents">Documents</TabsItem>
+    </Tabs>
+  </Section>
+)
+
+export const SelectedTab: React.SFC = () => (
+  <Section>
+    <Tabs selectedTab="music" name="secondTab" size="medium" readOnly>
+      <TabsItem value="pictures">Pictures</TabsItem>
+      <TabsItem value="music">Music</TabsItem>
+      <TabsItem value="videos">Videos</TabsItem>
+      <TabsItem value="documents">Documents</TabsItem>
+    </Tabs>
+  </Section>
+)
+
+export const ControlledTabs: React.SFC = () => (
+  <>
+    <State
+      initial={'music'}
+      render={({ value, set }) => (
+        <>
+          <Box>
+            <Title size="4">Controlled Tab({value})</Title>
+            <Tabs
+              selectedTab={value}
+              onTabChange={({ value }) => {
+                set(value || 'music')
+              }}
+              name="secondTab2"
+              size="medium"
+            >
+              <TabsItem value="pictures">Pictures</TabsItem>
+              <TabsItem value="music">Music</TabsItem>
+              <TabsItem value="videos">Videos</TabsItem>
+              <TabsItem value="documents">Documents</TabsItem>
+            </Tabs>
+          </Box>
+        </>
+      )}
+    />
+  </>
+)
+
+export const StaticTabs: React.SFC = () => (
+  <Section>
+    <Title textAlignment="centered">Static Tabs</Title>
+    <Box>
+      <Title size="4">Basic Tab</Title>
+      <TabsExamples />
+    </Box>
+    <Box>
+      <Title size="4">Alignment</Title>
+      <AlignmentTab />
+    </Box>
+    <Box>
+      <Title size="4">Icons</Title>
+      <IconsTab />
+    </Box>
+    <Box>
+      <Title size="4">Sizes</Title>
+      <SizesTab />
+    </Box>
+    <Box>
+      <Title size="4">Styles</Title>
+      <StyleTabs />
+    </Box>
+    <Box>
+      <Title size="4">Combining</Title>
+      <CombiningTabs />
+    </Box>
+  </Section>
+)
+
+export const DynamicTabs: React.SFC = () => (
+  <Section>
+    <Title textAlignment="centered">Dynamic Tabs</Title>
+    <Box>
+      <Title size="4">Uncontrolled Tab</Title>
+      <UncontrolledTab />
+    </Box>
+    <Box>
+      <Title size="4">
+        'selectedTab' is provided, but not 'onTabChange' Tabs will be readonly
+      </Title>
+      <SelectedTab />
+    </Box>
+    <ControlledTabs />
+  </Section>
+)
+
 export const TabsExample: React.SFC = () => (
-  <div>
-    <Section>
-      <Title textAlignment="centered">Dynamic Tabs</Title>
-      <Box>
-        <Title size="4">Uncontrolled Tab</Title>
-        <Tabs name="secondTab" defaultValue="documents" size="medium">
-          <TabsItem value="pictures">Pictures</TabsItem>
-          <TabsItem value="music">Music</TabsItem>
-          <TabsItem value="videos">Videos</TabsItem>
-          <TabsItem value="documents">Documents</TabsItem>
-        </Tabs>
-      </Box>
-
-      <Box>
-        <Title size="4">
-          'selectedTab' is provided, but not 'onTabChange' Tabs will be readonly
-        </Title>
-        <Tabs selectedTab="music" name="secondTab" size="medium" readOnly>
-          <TabsItem value="pictures">Pictures</TabsItem>
-          <TabsItem value="music">Music</TabsItem>
-          <TabsItem value="videos">Videos</TabsItem>
-          <TabsItem value="documents">Documents</TabsItem>
-        </Tabs>
-      </Box>
-
-      <State
-        initial={'music'}
-        render={({ value, set }) => (
-          <>
-            <Box>
-              <Title size="4">Controlled Tab({value})</Title>
-              <Tabs
-                selectedTab={value}
-                onTabChange={({ value }) => {
-                  set(value || 'music')
-                }}
-                name="secondTab2"
-                size="medium"
-              >
-                <TabsItem value="pictures">Pictures</TabsItem>
-                <TabsItem value="music">Music</TabsItem>
-                <TabsItem value="videos">Videos</TabsItem>
-                <TabsItem value="documents">Documents</TabsItem>
-              </Tabs>
-            </Box>
-          </>
-        )}
-      />
-      <Section>
-        <Title textAlignment="centered">Static Tabs</Title>
-        <Box>
-          <Title size="4">Basic Tab</Title>
-          <TabsExamples />
-        </Box>
-        <Box>
-          <Title size="4">Alignment</Title>
-          <AlignmentTab />
-        </Box>
-        <Box>
-          <Title size="4">Icons</Title>
-          <IconsTab />
-        </Box>
-        <Box>
-          <Title size="4">Sizes</Title>
-          <SizesTab />
-        </Box>
-        <Box>
-          <Title size="4">Styles</Title>
-          <StyleTabs />
-        </Box>
-        <Box>
-          <Title size="4">Combining</Title>
-          <CombiningTabs />
-        </Box>
-      </Section>
-    </Section>
-  </div>
+  <>
+    <DynamicTabs />
+    <StaticTabs />
+  </>
 )

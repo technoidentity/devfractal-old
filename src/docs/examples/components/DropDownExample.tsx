@@ -54,6 +54,7 @@ const DropdownContentExampleTab: React.SFC = () => (
     </Section>
   </>
 )
+
 const HoverableDropdownExampleTab: React.SFC = () => (
   <>
     <Section>

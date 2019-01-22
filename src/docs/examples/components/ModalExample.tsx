@@ -53,7 +53,6 @@ export const MediaModalExample: React.SFC = () => {
       <Button onClick={() => setModal(true)} variant="primary" size="large">
         Launch Media Modal
       </Button>
-
       <Modal active={modal} onModalClosed={() => setModal(false)}>
         <ModalBackground />
         <ModalContent>
@@ -232,6 +231,7 @@ export const ModalCardExample: React.SFC = () => {
     </Section>
   )
 }
+
 export const ModalExample: React.SFC = () => (
   <>
     <MediaModalExample />
