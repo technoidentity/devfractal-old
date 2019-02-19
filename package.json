@@ -89,7 +89,7 @@
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "validate:types": "tsc --noEmit -p tsconfig.commit.json",
-    "validate": "yarn lint && yarn validate:types && yarn test:single",
+    "validate": "yarn lint && yarn validate:types && yarn test:client:single",
     "all": "yarn validate && yarn start",
     "storybook": "start-storybook -p 9009 -s public",
     "storybook:build": "build-storybook -s public",

@@ -3,19 +3,25 @@
     "target": "es5",
     "sourceMap": true,
     "skipLibCheck": true,
-    "lib": ["dom", "es2018"],
+    "lib": [
+      "dom",
+      "es2018"
+    ],
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "plugins": [
     {
@@ -28,5 +34,7 @@
       "mockTypeScriptVersion": false
     }
   ],
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
