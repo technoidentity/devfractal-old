@@ -27,10 +27,3 @@ export const TableContentLoader = () => (
       ))}
   </React.Fragment>
 )
-
-TableContentLoader.metadata = {
-  name: 'DaniloWoz',
-  github: 'danilowoz',
-  description: 'Table with the width of the dynamic rows',
-  filename: 'danilowoz-table',
-}
