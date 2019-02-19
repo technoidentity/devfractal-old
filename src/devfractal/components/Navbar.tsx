@@ -97,7 +97,7 @@ type NavbarItemTag = 'div' | 'a'
 export interface NavbarItemsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
-  readonly dropdown?: boolean
+  readonly dropDown?: boolean
   readonly as?: NavbarItemTag
   readonly active?: boolean
   readonly dropUp?: boolean
@@ -109,7 +109,7 @@ export const NavbarItem: React.SFC<NavbarItemsProps> = ({
   href,
   active,
   as,
-  dropdown,
+  dropDown,
   dropUp,
   modifier,
   children,
@@ -119,7 +119,7 @@ export const NavbarItem: React.SFC<NavbarItemsProps> = ({
     href: { href },
     'is-active': active,
     'has-dropdown-up': dropUp,
-    'has-dropdown': dropdown,
+    'has-dropdown': dropDown,
     [`is-${modifier}`]: modifier,
   })
 
@@ -164,13 +164,13 @@ export const NavbarMenu: React.SFC<NavbarMenuProps> = ({
   )
 }
 
-export interface NavbarDropdownProps
+export interface NavbarDropDownProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly boxed?: boolean
 }
 
-export const NavbarDropdown: React.SFC<NavbarDropdownProps> = ({
+export const NavbarDropDown: React.SFC<NavbarDropDownProps> = ({
   boxed,
   children,
   ...props
