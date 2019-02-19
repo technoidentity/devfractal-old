@@ -1,18 +1,28 @@
 import React from 'react'
-import { consoleSubmit, Section, Simple } from '../../devfractal'
-import { initialLoginValues, loginSchema } from './common'
+import {
+  consoleSubmit,
+  max,
+  min,
+  required,
+  Section,
+  Simple,
+} from '../../devfractal'
+import { initialLoginValues } from './common'
 
 export const SimpleLoginForm: React.SFC = () => (
   <Section>
-    <Simple.Form
-      initialValues={initialLoginValues}
-      validationSchema={loginSchema}
-      onSubmit={consoleSubmit(0)}
-    >
-      <Simple.Text label="Username:" name="username" />
-      <Simple.Password label="Password:" name="password" />
+    <Simple.Form initialValues={initialLoginValues} onSubmit={consoleSubmit(0)}>
+      <Simple.Text
+        label="Username:"
+        name="username"
+        validations={[required(), max(20), min(10)]}
+      />
+      <Simple.Password
+        label="Password:"
+        name="password"
+        validations={[required(), min(8)]}
+      />
       <Simple.FormButtons />
-
       <Simple.Debug />
     </Simple.Form>
   </Section>

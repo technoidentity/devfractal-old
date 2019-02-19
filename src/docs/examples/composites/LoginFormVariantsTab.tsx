@@ -1,7 +1,12 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { SimpleRedirect } from '../../../utils'
-import { RoutedTabs, RoutedTabsItem, Section, Title } from '../devfractal'
+import {
+  RoutedTabs,
+  RoutedTabsItem,
+  Section,
+  SimpleRedirect,
+  Title,
+} from '../devfractal'
 import {
   FieldsLoginForm,
   FormikLoginForm,
@@ -21,11 +26,7 @@ export const LoginFormVariantsTab: React.SFC = () => (
       size="medium"
     >
       <RoutedTabsItem value="formik-form">Formik login form</RoutedTabsItem>
-      <RoutedTabsItem value="not-working-form">
-        Not working login form
-      </RoutedTabsItem>
       <RoutedTabsItem value="fields-form">Fields login form</RoutedTabsItem>
-
       <RoutedTabsItem value="simple-form">Simple login form</RoutedTabsItem>
     </RoutedTabs>
   </>
