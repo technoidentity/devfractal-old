@@ -152,8 +152,6 @@ export const FileAlignmentExample: React.SFC = () => (
   </Section>
 )
 
-// )
-
 export const FileExample: React.SFC = () => (
   <>
     <BasicFileExample />

@@ -113,7 +113,7 @@ export const ListOfTagsExample: React.SFC = () => (
         <Tag>One</Tag>
         <Tag>Two</Tag>
         <Tag>Three</Tag>
-        <Tag>Tour</Tag>
+        <Tag>Four</Tag>
         <Tag>Five</Tag>
         <Tag>Six</Tag>
         <Tag>Seven</Tag>

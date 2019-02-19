@@ -67,6 +67,7 @@ export const StripedTableExample: React.SFC = () => (
     </Table>
   </Section>
 )
+
 export const NarrowTableExample: React.SFC = () => (
   <Section>
     <Title>Narrow Table</Title>

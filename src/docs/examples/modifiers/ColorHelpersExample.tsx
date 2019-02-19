@@ -20,7 +20,6 @@ export const TextColorExample: React.SFC = () => (
       <Text textColor="grey-dark">grey-dark</Text>
       <Text textColor="grey">grey</Text>
       <Text textColor="grey-light">grey-light</Text>
-      <Text textColor="grey-light">grey-light</Text>
       <Text textColor="grey-lighter">grey-lighter</Text>
       <Text textColor="white-ter">white-ter</Text>
       <Text textColor="white-bis">White-bis</Text>
@@ -46,7 +45,6 @@ export const TextBackgroundColorExample: React.SFC = () => (
       <Text textBackgroundColor="grey-darker">grey-darker</Text>
       <Text textBackgroundColor="grey-dark">grey-dark</Text>
       <Text textBackgroundColor="grey">grey</Text>
-      <Text textBackgroundColor="grey-light">grey-light</Text>
       <Text textBackgroundColor="grey-light">grey-light</Text>
       <Text textBackgroundColor="grey-lighter">grey-lighter</Text>
       <Text textBackgroundColor="white-ter">white-ter</Text>

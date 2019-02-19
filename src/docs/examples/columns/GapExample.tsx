@@ -41,7 +41,7 @@ export const GapColumnExample: React.SFC = () => (
     <Section>
       <Container>
         <Title size="4">Gapless</Title>
-        <Columns gapless>
+        <Columns gapLess>
           <Column>
             <Notification variant="primary" textAlignment="centered">
               No Gap
@@ -68,7 +68,7 @@ export const GapColumnExample: React.SFC = () => (
 
     <Section>
       <Container>
-        <Columns gapless multiline responsiveness="mobile">
+        <Columns gapLess multiline responsiveness="mobile">
           <Column size="one-quarter">
             <Notification variant="primary" textAlignment="centered">
               is-one-quarter

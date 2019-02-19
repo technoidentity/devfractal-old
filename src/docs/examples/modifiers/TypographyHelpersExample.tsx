@@ -61,7 +61,6 @@ export const TextColorHelperExample: React.SFC = () => (
       <Text textColor="grey-dark">grey-dark</Text>
       <Text textColor="grey">grey</Text>
       <Text textColor="grey-light">grey-light</Text>
-      <Text textColor="grey-light">grey-light</Text>
       <Text textColor="grey-lighter">grey-lighter</Text>
       <Text textColor="white-ter">white-ter</Text>
       <Text textColor="white-bis">White-bis</Text>

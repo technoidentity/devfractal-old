@@ -12,7 +12,7 @@ export interface ColumnsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly responsiveness?: ColumnsResponsive
-  readonly gapless?: boolean
+  readonly gapLess?: boolean
   readonly verticallyCentered?: boolean
   readonly multiline?: boolean
   readonly columnCentered?: boolean
@@ -21,7 +21,7 @@ export interface ColumnsProps
 export const Columns: React.SFC<ColumnsProps> = ({
   children,
   responsiveness,
-  gapless,
+  gapLess: gapless,
   multiline,
   verticallyCentered,
   columnCentered,

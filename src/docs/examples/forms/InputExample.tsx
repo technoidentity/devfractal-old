@@ -134,7 +134,7 @@ export const ReadonlyStaticInputsExample: React.SFC = () => (
 
 export const FontAwesomeIconsExample: React.SFC = () => (
   <Section>
-    <Title size="4">With Font Awsome icons</Title>
+    <Title size="4">With Font Awesome icons</Title>
     <Input leftIcon={faUser} iconSize="small" type="text" placeholder="Name" />
     <Input
       leftIcon={faEnvelope}

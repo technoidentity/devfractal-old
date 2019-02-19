@@ -64,6 +64,7 @@ export const SelectColorExample: React.SFC = () => (
     </Field>
   </Section>
 )
+
 export const SelectSizeExample: React.SFC = () => (
   <Section>
     <Field>
@@ -93,6 +94,7 @@ export const SelectSizeExample: React.SFC = () => (
     </Field>
   </Section>
 )
+
 export const SelectStyleExample: React.SFC = () => (
   <Section>
     <Field>

@@ -91,12 +91,6 @@ export const ResponsiveImagesWithRatiosExample: React.SFC = () => (
     </Section>
     <Section>
       <Image
-        responsiveImageRatio="1by1"
-        src="https://bulma.io/images/placeholders/480x480.png"
-      />
-    </Section>
-    <Section>
-      <Image
         responsiveImageRatio="1by3"
         src="https://bulma.io/images/placeholders/240x720.png"
       />

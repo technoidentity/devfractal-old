@@ -46,6 +46,7 @@ export const TextAreaSizesExample: React.SFC = () => (
     <TextArea ctrlSize="large" placeholder="Large textarea" />
   </Section>
 )
+
 export const TextAreaStatesExample: React.SFC = () => (
   <Section>
     <Title size="4">States</Title>

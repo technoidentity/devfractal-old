@@ -11,7 +11,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const LevelRightExample: React.SFC = () => (
+export const LevelLeftExample: React.SFC = () => (
   <Section>
     <Title>Level left</Title>
     <Level>
@@ -30,7 +30,7 @@ export const LevelRightExample: React.SFC = () => (
   </Section>
 )
 
-export const LevelLeftExample: React.SFC = () => (
+export const LevelRightExample: React.SFC = () => (
   <Section>
     <Title>Level Right</Title>
     <Level>
