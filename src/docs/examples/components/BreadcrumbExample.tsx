@@ -6,13 +6,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Route } from 'react-router'
-import { SimpleRedirect } from '../../../utils'
 import {
   Breadcrumb,
   BreadcrumbItem,
   Container,
   Icon,
   Section,
+  SimpleRedirect,
 } from '../devfractal'
 
 export const BreadcrumbAlignmentsExample: React.SFC = () => (

@@ -8,8 +8,7 @@ import {
   faMusic,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { State } from '../../../utils'
-import { Box, Icon, Section, Tabs, TabsItem, Title } from '../devfractal'
+import { Box, Icon, Section, State, Tabs, TabsItem, Title } from '../devfractal'
 
 export const TabsExamples: React.SFC = () => (
   <>

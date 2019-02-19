@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { State } from '../../../utils'
 import {
   Column,
   Columns,
@@ -9,10 +8,11 @@ import {
   Radio,
   RadioGroup,
   Section,
+  State,
   Title,
 } from '../devfractal'
 
-const DynamicRadioExample: React.SFC = () => {
+export const DynamicRadioExample: React.SFC = () => {
   const [select, setSelect] = useState('red')
 
   return (

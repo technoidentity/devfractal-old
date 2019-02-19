@@ -1,7 +1,6 @@
 import React from 'react'
-import { Section, Text } from '../../../devfractal'
-import { SimpleRoutedTabs, SimpleTabs } from '../../../simple'
 import { logger } from '../common'
+import { Section, SimpleRoutedTabs, SimpleTabs, Text } from '../devfractal'
 
 const SimpleTabsExample: React.SFC = () => (
   <SimpleTabs

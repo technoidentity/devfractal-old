@@ -1,7 +1,15 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { State, StateRenderProps } from '../../../utils'
-import { Box, Button, Column, Columns, Icon, Text } from '../devfractal'
+import {
+  Box,
+  Button,
+  Column,
+  Columns,
+  Icon,
+  State,
+  StateRenderProps,
+  Text,
+} from '../devfractal'
 
 export const CounterInner: React.SFC<StateRenderProps<number>> = ({
   value: count,
