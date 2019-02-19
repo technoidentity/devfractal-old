@@ -1,8 +1,11 @@
 import React from 'react'
 
 type Display = 'flex' | 'inline-flex'
+
 type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse'
+
 type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse'
+
 type JustifyContent =
   | 'flex-start'
   | 'flex-end'
