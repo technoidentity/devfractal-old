@@ -5,14 +5,11 @@ export interface MediaProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const Media: React.SFC<MediaProps> = ({ children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'media')
-  return (
-    <Div as="article" {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+export const Media: React.SFC<MediaProps> = ({ children, ...props }) => (
+  <Div as="article" {...props} className={classNamesHelper(props, 'media')}>
+    {children}
+  </Div>
+)
 
 export interface MediaLeftProps
   extends React.HTMLAttributes<HTMLElement>,
@@ -21,14 +18,11 @@ export interface MediaLeftProps
 export const MediaLeft: React.SFC<MediaLeftProps> = ({
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'media-left')
-  return (
-    <Div as="figure" {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+}) => (
+  <Div as="figure" {...props} className={classNamesHelper(props, 'media-left')}>
+    {children}
+  </Div>
+)
 
 export interface MediaRightProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -37,14 +31,11 @@ export interface MediaRightProps
 export const MediaRight: React.SFC<MediaRightProps> = ({
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'media-right')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+}) => (
+  <Div {...props} className={classNamesHelper(props, 'media-right')}>
+    {children}
+  </Div>
+)
 
 export interface MediaContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -53,11 +44,8 @@ export interface MediaContentProps
 export const MediaContent: React.SFC<MediaContentProps> = ({
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'media-content')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+}) => (
+  <Div {...props} className={classNamesHelper(props, 'media-content')}>
+    {children}
+  </Div>
+)

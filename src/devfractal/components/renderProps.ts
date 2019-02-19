@@ -4,8 +4,8 @@ import warning from 'tiny-warning'
 
 interface RenderPropsProps<Props> {
   readonly component?: React.ComponentType<Props> | React.ReactNode
-  readonly render?: ((props: Props) => React.ReactNode)
   readonly children?: ((props: Props) => React.ReactNode) | React.ReactNode
+  render?(props: Props): React.ReactNode
 }
 
 export function renderProps<Props>(

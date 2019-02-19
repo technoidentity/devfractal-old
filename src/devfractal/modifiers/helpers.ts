@@ -44,6 +44,7 @@ export const removeCommonHelpers: <T extends CommonHelpers>(
 }) => result
 
 export type RouteComponentPropsRemoved<T> = Omit<T, keyof RouteComponentProps>
+
 export const removeRouteComponentProps: <T extends RouteComponentProps>(
   props: T,
 ) => RouteComponentPropsRemoved<T> = ({

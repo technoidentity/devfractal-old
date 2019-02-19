@@ -7,15 +7,15 @@ export interface CheckBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     AllControlHelpers {}
 
-export const CheckBox: React.SFC<CheckBoxProps> = ({ children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'checkbox')
-
-  return (
-    <ControlWrapper {...props}>
-      <label className="checkbox">
-        <ControlDiv {...props} type="checkbox" className={classes} />
-        {children}
-      </label>
-    </ControlWrapper>
-  )
-}
+export const CheckBox: React.SFC<CheckBoxProps> = ({ children, ...props }) => (
+  <ControlWrapper {...props}>
+    <label className="checkbox">
+      <ControlDiv
+        {...props}
+        type="checkbox"
+        className={classNamesHelper(props, 'checkbox')}
+      />
+      {children}
+    </label>
+  </ControlWrapper>
+)

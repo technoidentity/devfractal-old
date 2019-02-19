@@ -7,14 +7,11 @@ export interface LevelProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const Level: React.SFC<LevelProps> = ({ children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'level')
-  return (
-    <Div as="nav" {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+export const Level: React.SFC<LevelProps> = ({ children, ...props }) => (
+  <Div as="nav" {...props} className={classNamesHelper(props, 'level')}>
+    {children}
+  </Div>
+)
 
 export interface LevelItemProps
   extends React.HTMLAttributes<HTMLDivElement>,

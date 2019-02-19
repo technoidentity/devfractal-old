@@ -1,3 +1,4 @@
+import React from 'react'
 import warning from 'tiny-warning'
 import { State } from '../../utils'
 
@@ -29,7 +30,9 @@ export function Stateful<State>(
   )
 
   const Component: (
-    props: StatefulComponentProps<State>,
+    props: StatefulComponentProps<State> & {
+      readonly children: React.ReactNode
+    },
   ) => JSX.Element = render
 
   return props.state !== undefined ? (

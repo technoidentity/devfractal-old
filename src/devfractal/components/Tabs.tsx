@@ -14,6 +14,7 @@ type TabsSize = 'small' | 'medium' | 'large'
 type TabsAlignment = 'centered' | 'right'
 
 type TabsStyle = 'boxed' | 'toggle' | 'toggle-rounded'
+
 export interface TabsItemProps
   extends React.LiHTMLAttributes<HTMLLIElement>,
     Helpers {

@@ -81,6 +81,7 @@ export const PanelIcon: React.SFC<PanelIconProps> = ({
     </Div>
   )
 }
+
 export interface PanelTabsItemProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     Helpers {

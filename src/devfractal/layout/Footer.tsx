@@ -6,12 +6,9 @@ export interface FooterProps
     Helpers {}
 
 // @TODO: children should be Content
-export const Footer: React.SFC<FooterProps> = ({ children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'footer')
 
-  return (
-    <Div as="footer" {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+export const Footer: React.SFC<FooterProps> = ({ children, ...props }) => (
+  <Div as="footer" {...props} className={classNamesHelper(props, 'footer')}>
+    {children}
+  </Div>
+)

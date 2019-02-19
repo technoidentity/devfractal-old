@@ -10,7 +10,9 @@ export interface IconHelpers {
 
 export type IconHelpersRemoved<T> = Omit<T, keyof IconHelpers>
 
-export const removeIconHelpers: <T extends IconHelpers>(
+export function removeIconHelpers<T extends IconHelpers>(
   props: T,
-) => IconHelpersRemoved<T> = ({ leftIcon, rightIcon, iconSize, ...props }) =>
-  props
+): IconHelpersRemoved<T> {
+  const { leftIcon, rightIcon, iconSize, ...result } = props
+  return result
+}

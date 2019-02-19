@@ -47,37 +47,28 @@ export interface HeroHeadProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const HeroHead: React.SFC<HeroHeadProps> = ({ children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'hero-head')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+export const HeroHead: React.SFC<HeroHeadProps> = ({ children, ...props }) => (
+  <Div {...props} className={classNamesHelper(props, 'hero-head')}>
+    {children}
+  </Div>
+)
 
 export interface HeroBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const HeroBody: React.SFC<HeroBodyProps> = ({ children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'hero-body')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+export const HeroBody: React.SFC<HeroBodyProps> = ({ children, ...props }) => (
+  <Div {...props} className={classNamesHelper(props, 'hero-body')}>
+    {children}
+  </Div>
+)
 
 export interface HeroFootProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const HeroFoot: React.SFC<HeroFootProps> = ({ children, ...props }) => {
-  const classes: string = classNamesHelper(props, 'hero-foot')
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+export const HeroFoot: React.SFC<HeroFootProps> = ({ children, ...props }) => (
+  <Div {...props} className={classNamesHelper(props, 'hero-foot')}>
+    {children}
+  </Div>
+)
