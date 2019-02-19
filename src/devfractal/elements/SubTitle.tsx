@@ -1,24 +1,21 @@
 import React from 'react'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 
-type TitleSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
+type SubTitleSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
-export interface TitleProps
+export interface SubTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     Helpers {
-  readonly size?: TitleSize
-  readonly spaced?: boolean
+  readonly size?: SubTitleSize
 }
 
-export const Title: React.SFC<TitleProps> = ({
+export const SubTitle: React.SFC<SubTitleProps> = ({
   size,
-  spaced,
   children,
   ...props
 }) => {
-  const classes: string = classNamesHelper(props, 'title', {
+  const classes: string = classNamesHelper(props, 'subtitle', {
     [`is-${size}`]: size,
-    'is-spaced': spaced,
   })
 
   return (
