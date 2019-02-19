@@ -15,7 +15,7 @@ export const ColumnsTab: React.SFC = () => (
 export const ComponentsTab: React.SFC = () => (
   <RoutedTabs to="/components" size="medium">
     <RoutedTabsItem value="card">Card</RoutedTabsItem>
-    <RoutedTabsItem value="dropdown">Dropdown</RoutedTabsItem>
+    <RoutedTabsItem value="dropdown">DropDown</RoutedTabsItem>
     <RoutedTabsItem value="breadcrumb">Breadcrumb</RoutedTabsItem>
     <RoutedTabsItem value="menu">Menu</RoutedTabsItem>
     <RoutedTabsItem value="message">Message</RoutedTabsItem>
@@ -69,7 +69,6 @@ export const LayoutTab: React.SFC = () => (
 export const ModifiersTab: React.SFC = () => (
   <RoutedTabs to="/modifiers" size="medium">
     <RoutedTabsItem value="helpers">Helpers</RoutedTabsItem>
-    <RoutedTabsItem value="responsive">Responsive Helpers</RoutedTabsItem>
     <RoutedTabsItem value="colors">Color Helpers</RoutedTabsItem>
     <RoutedTabsItem value="typography">Typography helpers</RoutedTabsItem>
   </RoutedTabs>
