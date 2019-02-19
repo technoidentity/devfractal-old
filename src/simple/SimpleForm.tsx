@@ -154,15 +154,15 @@ export interface SimpleFormProps<Values> {
   onSubmit?(values: Values, actions: FormikActions<Values>): void
 }
 
-const SimpleForm: <Values>(
-  props: SimpleFormProps<Values> & { readonly children: React.ReactNode },
-) => JSX.Element = ({
+function SimpleForm<Values extends object>({
   initialValues,
   validationSchema,
-  onSubmit = consoleSubmit(0),
+  onSubmit = consoleSubmit<Values>(0),
   persist,
   children,
-}) => {
+}: SimpleFormProps<Values> & {
+  readonly children: React.ReactNode
+}): JSX.Element {
   return (
     <Container>
       <Formik
