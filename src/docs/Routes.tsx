@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import { Container } from '../devfractal'
 import { SimpleRedirect, TableContentLoader } from '../utils'
 import {
   BasicColumnExample,
@@ -56,7 +57,13 @@ import {
   Todo,
   TypographyHelpersExample,
 } from './examples'
-import { IndexPageBody, IndexPageHeader } from './IndexPage'
+import {
+  BottomSection,
+  ExploreUIComponents,
+  FooterSection,
+  IndexPageHeader,
+  UIComponentsOverview,
+} from './IndexPage'
 import {
   ColumnsTab,
   ComponentsTab,
@@ -101,6 +108,7 @@ export const CompositesRoutes: React.SFC = () => (
     />
   </>
 )
+
 export const ColumnsRoutes: React.SFC = () => (
   <>
     <SimpleRedirect exact from="/columns" to="/columns/basics" />
@@ -170,6 +178,7 @@ export const ComponentsRoutes: React.SFC = () => (
     <Route path="/components/breadcrumb" component={BreadcrumbExample} />
   </>
 )
+
 export const ModifiersRoutes: React.SFC = () => (
   <>
     <SimpleRedirect exact from="/modifiers" to="/modifiers/helpers" />
@@ -182,6 +191,7 @@ export const ModifiersRoutes: React.SFC = () => (
     />
   </>
 )
+
 export const TabsRoutes: React.SFC = () => (
   <>
     <Route path="/form" component={FormTab} />
@@ -197,12 +207,15 @@ export const TabsRoutes: React.SFC = () => (
 export const IndexRoutes: React.SFC = () => (
   <>
     <Route path="/" component={IndexPageHeader} />
-    <Route exact path="/" component={IndexPageBody} />
+    <Route exact path="/" component={UIComponentsOverview} />
+    <Route exact path="/" component={ExploreUIComponents} />
+    <Route exact path="/" component={BottomSection} />
+    <Route exact path="/" component={FooterSection} />
   </>
 )
 
 export const Routes: React.SFC = () => (
-  <>
+  <Container>
     <IndexRoutes />
     <TabsRoutes />
     <FormRoutes />
@@ -214,5 +227,5 @@ export const Routes: React.SFC = () => (
     <ModifiersRoutes />
     <DropdownExampleRoutes />
     <LoginFormVariantsRoutes />
-  </>
+  </Container>
 )
