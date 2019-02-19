@@ -1,7 +1,8 @@
 {
-  "name": "web-starter",
-  "version": "0.1.0",
-  "private": true,
+  "name": "technoidentity-devfractal",
+  "version": "0.3.1",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "dependencies": {
     "@babel/core": "^7.3.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
@@ -14,6 +15,7 @@
     "@storybook/addon-links": "^4.1.12",
     "@storybook/addons": "^4.1.12",
     "@storybook/react": "^4.1.12",
+    "@types/chance": "^1.0.1",
     "@types/jest": "^24.0.6",
     "@types/node": "^11.9.4",
     "@types/react": "^16.8.3",
@@ -71,11 +73,19 @@
     "typescript-tslint-plugin": "^0.3.1",
     "yup": "^0.26.10"
   },
+  "resolutions": {
+    "react": "16.8.2",
+    "react-dom": "16.8.2",
+    "react-router-dom": "4.3.1",
+    "yup": "^0.26.10"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:single": "CI=true react-scripts test",
+    "start:client": "react-scripts start",
+    "build:client": "react-scripts build",
+    "build": "microbundle",
+    "start:lib": "microbundle watch --compress false --sourcemap true",
+    "test:client": "react-scripts test",
+    "test:client:single": "CI=true react-scripts test",
     "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
@@ -92,7 +102,9 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn validate"
+      "pre-push": "yarn validate",
+      "pre-build": "yarn validate",
+      "pre-publish": "yarn validate"
     }
   },
   "lint-staged": {

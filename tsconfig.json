@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "noEmit": true,
     "target": "es5",
-    "allowJs": true,
-    "checkJs": false,
     "sourceMap": true,
     "skipLibCheck": true,
     "lib": ["dom", "es2018"],
@@ -11,8 +8,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

@@ -1557,6 +1557,11 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
+"@types/chance@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/chance/-/chance-1.0.1.tgz#c10703020369602c40dd9428cc6e1437027116df"
+  integrity sha512-jtV6Bv/j+xk4gcXeLlESwNc/m/I/dIZA0xrt29g0uKcjyPob8iisj/5z0ARE+Ldfx4MxjNFNECG0z++J7zJgqg==
+
 "@types/history@*":
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
