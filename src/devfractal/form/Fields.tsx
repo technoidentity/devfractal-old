@@ -1,7 +1,7 @@
 import {
   ErrorMessage,
   ErrorMessageProps,
-  Field,
+  Field as FormikField,
   FieldConfig,
   FormikConsumer,
 } from 'formik'
@@ -23,22 +23,23 @@ import { RadioGroupProps } from './Radio'
 import { SelectProps } from './Select'
 import { TextAreaProps } from './TextArea'
 
-export type FormikFieldConfig = Omit<FieldConfig, 'validate' | 'innerRef'>
+export type FormikFieldConfig = Omit<FieldConfig, 'innerRef'>
 
 export type InputFieldProps = InputProps & FormikFieldConfig
 
 export const InputField: React.SFC<InputFieldProps> = props => (
-  <Field {...props} component={FormikInput} />
+  <FormikField {...props} component={FormikInput} />
 )
 
 export type CheckboxFieldProps = CheckBoxProps & FormikFieldConfig
+
 export const CheckboxField: React.SFC<CheckboxFieldProps> = ({
   children,
   ...props
 }) => (
-  <Field {...props} component={FormikCheckbox}>
+  <FormikField {...props} component={FormikCheckbox}>
     {children}
-  </Field>
+  </FormikField>
 )
 
 export type RadioFieldProps = RadioGroupProps & FormikFieldConfig
@@ -47,9 +48,9 @@ export const RadioGroupField: React.SFC<RadioFieldProps> = ({
   children,
   ...props
 }) => (
-  <Field {...props} component={FormikRadioGroup}>
+  <FormikField {...props} component={FormikRadioGroup}>
     {children}
-  </Field>
+  </FormikField>
 )
 
 export type SelectFieldProps = SelectProps & FormikFieldConfig
@@ -58,15 +59,15 @@ export const SelectField: React.SFC<SelectFieldProps> = ({
   children,
   ...props
 }) => (
-  <Field {...props} component={FormikSelect}>
+  <FormikField {...props} component={FormikSelect}>
     {children}
-  </Field>
+  </FormikField>
 )
 
 export type TextAreaFieldProps = TextAreaProps & FormikFieldConfig
 
 export const TextAreaField: React.SFC<TextAreaFieldProps> = props => (
-  <Field {...props} component={FormikTextArea} />
+  <FormikField {...props} component={FormikTextArea} />
 )
 
 export type ErrorMessageProps = FormikErrorProps
