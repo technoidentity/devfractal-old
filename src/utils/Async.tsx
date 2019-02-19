@@ -1,5 +1,6 @@
 import React from 'react'
-import { useAsync } from 'react-async'
+import { useAsync } from 'react-use'
+import { nop } from './common'
 
 export interface AsyncComponentProps {
   readonly isLoading: boolean
@@ -16,13 +17,12 @@ export const Async: React.SFC<AsyncProps> = ({
   asyncFn,
   children,
 }): JSX.Element => {
-  const { data, error, isLoading } = useAsync(asyncFn)
-  return children({ data, error, isLoading })
+  const { value, error, loading } = useAsync(asyncFn)
+  return children({ data: value, error, isLoading: loading })
 }
-
 export const delay: (delay: number, f: () => void) => Promise<void> = async (
-  delay: number,
-  f: () => void,
+  delay,
+  f = nop,
 ) =>
   new Promise(resolve =>
     setTimeout(() => {
@@ -34,7 +34,7 @@ export const delay: (delay: number, f: () => void) => Promise<void> = async (
 export const interval: (
   interval: number,
   f: () => void,
-) => Promise<void> = async (interval: number, f: () => void) =>
+) => Promise<void> = async (interval, f = nop) =>
   new Promise(resolve =>
     setInterval(() => {
       f()

@@ -3,19 +3,19 @@ import { Function } from 'tcomb'
 import { freeze, Mutable, mutative } from './common'
 import { Null } from './Null'
 
-type SetArgs<T> = T | ((value: Mutable<T>) => void)
+type ImmerSetArgs<T> = T | ((value: Mutable<T>) => void)
 
-interface StateRenderProps<T> {
+interface ImmerStateRenderProps<T> {
   readonly value: T
-  set(updater: SetArgs<T>): void
-  eset<Event>(update: SetArgs<T>): (event?: Event) => void
+  set(updater: ImmerSetArgs<T>): void
+  eset<Event>(update: ImmerSetArgs<T>): (event?: Event) => void
   reset(): void
 }
 
 export interface ImmerStateProps<T> {
   readonly initial: T
-  readonly render?: React.ComponentType<StateRenderProps<T>>
-  children?(args: StateRenderProps<T>): JSX.Element | null
+  readonly render?: React.ComponentType<ImmerStateRenderProps<T>>
+  children?(args: ImmerStateRenderProps<T>): JSX.Element | null
   onChange?(v: T): void
 }
 
@@ -34,7 +34,7 @@ export class ImmerState<T> extends React.Component<
     this.state = { value: this.initialValue }
   }
 
-  readonly _set: (ƒv: SetArgs<T>) => void = fv => {
+  readonly _set: (ƒv: ImmerSetArgs<T>) => void = fv => {
     const value: T = Function.is(fv) ? mutative(this.state.value, fv) : fv
 
     this.setState(
@@ -51,7 +51,7 @@ export class ImmerState<T> extends React.Component<
     const renderProps = {
       value,
       set: this._set,
-      eset: (f: SetArgs<T>) => () => this._set(f),
+      eset: (f: ImmerSetArgs<T>) => () => this._set(f),
       reset: () => this._set(this.initialValue),
     }
     if (children) {
