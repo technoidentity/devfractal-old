@@ -1,7 +1,9 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../modifiers'
+import { classNamesHelper } from '../modifiers'
 import { AllControlHelpers, ControlDiv } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
+
+type ButtonType = 'button' | 'reset' | 'submit'
 
 type ButtonVariant =
   | 'white'
@@ -28,33 +30,6 @@ type ButtonState =
   | 'loading'
   | 'static'
   | 'selected'
-
-type ButtonType = 'button' | 'reset' | 'submit'
-
-export interface ButtonsGroupProps
-  extends React.HTMLAttributes<HTMLElement>,
-    Helpers {
-  readonly alignment?: 'centered' | 'right'
-  readonly addons?: boolean
-}
-
-export const ButtonsGroup: React.SFC<ButtonsGroupProps> = ({
-  addons,
-  alignment,
-  children,
-  ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'buttons', {
-    [`is-${alignment}`]: alignment,
-    [`has-${addons}`]: addons,
-  })
-
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
