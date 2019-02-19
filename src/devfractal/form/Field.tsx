@@ -55,21 +55,23 @@ export interface FieldBodyProps
 export const FieldBody: React.SFC<FieldBodyProps> = ({
   children,
   ...props
-}) => {
-  const classes: string = classNamesHelper(props, 'field-body')
+}) => (
+  <Div {...props} className={classNamesHelper(props, 'field-body')}>
+    {children}
+  </Div>
+)
 
-  return (
-    <Div {...props} className={classes}>
-      {children}
-    </Div>
-  )
-}
+export type FieldHelpType =
+  | 'primary'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
 
-export type HelpType = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 export interface FieldHelpProps
   extends React.HTMLAttributes<HTMLParagraphElement>,
     Helpers {
-  readonly variant?: HelpType
+  readonly variant?: FieldHelpType
 }
 
 export const FieldHelp: React.SFC<FieldHelpProps> = ({
@@ -114,7 +116,7 @@ export const FieldLabel: React.SFC<FieldLabelProps> = ({
 export interface FormFieldProps extends FieldProps {
   readonly label?: string
   readonly labelSize?: LabelSize
-  readonly helpType?: HelpType
+  readonly helpType?: FieldHelpType
   readonly helpText?: string
 }
 
