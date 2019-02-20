@@ -79,9 +79,9 @@
     "yup": "^0.26.10"
   },
   "scripts": {
-    "start:client": "react-scripts start",
-    "build:client": "react-scripts build",
-    "build": "microbundle",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:lib": "microbundle",
     "start:lib": "microbundle watch --compress false --sourcemap true",
     "test:client": "react-scripts test",
     "test:client:single": "CI=true react-scripts test",
