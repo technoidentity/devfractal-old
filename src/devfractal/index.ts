@@ -1,6 +1,8 @@
 import 'bulma/css/bulma.min.css'
 export * from './columns'
 export * from './components'
+export * from './crud'
+
 export * from './elements'
 export * from './flex'
 export * from './form'
