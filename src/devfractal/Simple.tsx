@@ -9,7 +9,6 @@ import { Persist } from 'formik-persist'
 import React from 'react'
 import { Boolean, Function, Number } from 'tcomb'
 import { number, NumberSchema, Schema, string, StringSchema } from 'yup'
-import { Async, camelCaseToPhrase, State } from '../utils'
 import { Column, Columns } from './columns'
 import {
   RoutedTabs,
@@ -51,6 +50,7 @@ import {
 } from './form'
 import { Container, Section } from './layout'
 import { Omit } from './types'
+import { Async, camelCaseToPhrase, State } from './utils'
 
 export interface SimpleInputProps<S extends Schema<any>>
   extends InputFieldProps {

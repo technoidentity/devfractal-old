@@ -1,7 +1,14 @@
 import React from 'react'
 import { Boolean } from 'tcomb'
-import { Box, CheckBox, Column, Columns, Section, Title } from '../devfractal'
-import { camelCaseToPhrase } from '../utils'
+import {
+  Box,
+  camelCaseToPhrase,
+  CheckBox,
+  Column,
+  Columns,
+  Section,
+  Title,
+} from '../devfractal'
 
 const SimpleHeader: React.SFC<{ readonly objectKey: string }> = ({
   objectKey,

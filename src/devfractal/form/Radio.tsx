@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from 'react'
 import warning from 'tiny-warning'
 import { Omit } from '../../types'
-import { State } from '../../utils'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
+import { State } from '../utils'
 import { AllControlHelpers } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
 

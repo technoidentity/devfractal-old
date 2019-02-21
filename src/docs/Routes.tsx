@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Container } from '../devfractal'
-import { SimpleRedirect, TableContentLoader } from '../utils'
+import { Container, SimpleRedirect, TableContentLoader } from '../devfractal'
 import {
   BasicColumnExample,
   BoxExample,

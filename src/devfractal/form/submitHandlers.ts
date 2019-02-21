@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { FormikActions, FormikErrors } from 'formik'
-import { jsonStringify } from '../../utils'
+import { jsonStringify } from '../utils'
 
 export function consoleSubmit<Values extends object>(
   milliseconds: number = 0,

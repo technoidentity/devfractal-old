@@ -1,6 +1,8 @@
 import React from 'react'
 import { Boolean, Function } from 'tcomb'
 import {
+  Async,
+  camelCaseToPhrase,
   CheckBox,
   Table,
   TableBody,
@@ -10,7 +12,6 @@ import {
   Th,
   Tr,
 } from '../devfractal'
-import { Async, camelCaseToPhrase } from '../utils'
 
 export interface RowClickEvent<T> {
   readonly value: T

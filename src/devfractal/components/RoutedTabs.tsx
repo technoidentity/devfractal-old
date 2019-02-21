@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
-import { chop, extractSegment, WithRouter } from '../../utils'
 import {
   classNamesHelper,
   Div,
   Helpers,
   removeRouteComponentProps,
 } from '../modifiers'
+import { chop, extractSegment, WithRouter } from '../utils'
 
 interface RoutedTabsContext {
   readonly baseURL?: string

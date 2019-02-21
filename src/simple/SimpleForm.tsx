@@ -4,6 +4,7 @@ import React from 'react'
 import { ObjectSchema } from 'yup'
 import {
   Button,
+  camelCaseToPhrase,
   CheckboxField,
   CheckboxFieldProps,
   consoleSubmit,
@@ -22,7 +23,6 @@ import {
   TextAreaField,
   TextAreaFieldProps,
 } from '../devfractal'
-import { camelCaseToPhrase } from '../utils'
 
 export interface SimpleInputProps extends InputFieldProps {
   readonly label?: string
