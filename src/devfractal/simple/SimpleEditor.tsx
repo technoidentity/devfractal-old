@@ -5,6 +5,7 @@ import { Label } from '../form'
 import { Section } from '../layout'
 import { camelCaseToPhrase } from '../utils'
 import { Simple } from './SimpleForm'
+
 export interface SimpleEditorProps extends React.HTMLAttributes<HTMLElement> {
   readonly object: { readonly [index: string]: any }
 }
@@ -22,17 +23,9 @@ export const SimpleEditor: React.SFC<SimpleEditorProps> = ({ object }) => {
                   <Simple.Checkbox name={key} checked={object[key]} readOnly />
                 </>
               ) : Number.is(object[key]) ? (
-                <Simple.Input
-                  label={camelCaseToPhrase(key)}
-                  type="number"
-                  name={key}
-                />
+                <Simple.Number label={camelCaseToPhrase(key)} name={key} />
               ) : (
-                <Simple.Input
-                  label={camelCaseToPhrase(key)}
-                  type="text"
-                  name={key}
-                />
+                <Simple.Text label={camelCaseToPhrase(key)} name={key} />
               )}
             </React.Fragment>
           ))}
