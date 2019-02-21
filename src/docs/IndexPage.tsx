@@ -51,14 +51,14 @@ export const HeroBodySection: React.SFC = () => (
       <Title
         textColor="white"
         textWeight="bold"
-        className="is-size-2-desktop is-size-4-mobile"
+        className="is-size-2-desktop is-size-3-tablet is-size-4-mobile"
       >
         React, Simplified!
       </Title>
       <SubTitle
         textColor="white"
         textWeight="bold"
-        className="is-size-3-desktop is-size-5-mobile"
+        className="is-size-3-desktop is-size-4-tablet is-size-5-mobile"
       >
         Complete React UI Components Library
       </SubTitle>
@@ -75,10 +75,11 @@ export const HeroBodySection: React.SFC = () => (
     <img
       src={contentloader}
       style={{
+        backgroundColor: '#004365',
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
-        width: '70%',
+        width: '50%',
       }}
     />
   </>
@@ -143,14 +144,14 @@ export const UIComponentsOverview: React.SFC = () => (
         textAlignment="centered"
         textWeight="bold"
         style={{ color: '#004267' }}
-        className="is-size-4-desktop is-size-5-mobile"
+        className="is-size-4-desktop is-size-4-tablet is-size-5-mobile"
       >
         Easy things should be easy and
         <Text
           textAlignment="centered"
           textWeight="bold"
           style={{ color: '#004267' }}
-          className="is-size-4-desktop is-size-5-mobile"
+          className="is-size-4-desktop is-size-4-desktop is-size-5-mobile"
         >
           hard thing should be possible
         </Text>
@@ -159,52 +160,52 @@ export const UIComponentsOverview: React.SFC = () => (
         textAlignment="centered"
         textWeight="bold"
         style={{ color: '#EB132D', marginTop: '3rem' }}
-        className="is-size-4-desktop is-size-5-mobile"
+        className="is-size-4-desktop is-size-4-tablet is-size-5-mobile"
       >
         UI components overview
       </Text>
       <Section>
         <Columns multiline>
           <Column>
-            <Notification variant="white">
+            <Notification style={{ color: '#c3c3c3' }}>
               <Text
                 textWeight="bold"
                 style={{ color: '#595959' }}
-                className="is-size-5-desktop is-size-6-mobile"
+                className="is-size-5-desktop is-size-5-tablet is-size-6-mobile"
               >
                 Lightweight and user friendly
               </Text>
-              <Text textSize="6">
+              <Text textSize="6" textColor="grey-dark">
                 This library is built from scratch to be lightweight,include
                 only specific components that the user requires
               </Text>
             </Notification>
           </Column>
           <Column>
-            <Notification variant="white">
+            <Notification style={{ color: '#c3c3c3' }}>
               <Text
                 textWeight="bold"
                 style={{ color: '#595959' }}
-                className="is-size-5-desktop is-size-6-mobile"
+                className="is-size-5-desktop is-size-5-tablet is-size-6-mobile"
               >
                 Modular architecture
               </Text>
-              <Text textSize="6">
+              <Text textSize="6" textColor="grey-dark">
                 Built as modules to enable selective referencing,include the
                 components and features that you user requires in application
               </Text>
             </Notification>
           </Column>
           <Column>
-            <Notification variant="white">
+            <Notification style={{ color: '#c3c3c3' }}>
               <Text
                 textWeight="bold"
                 style={{ color: '#595959' }}
-                className="is-size-5-desktop is-size-6-mobile"
+                className="is-size-5-desktop is-size-5-tablet is-size-6-mobile"
               >
                 Built for performance
               </Text>
-              <Text textSize="6">
+              <Text textSize="6" textColor="grey-dark">
                 We ensure that all our components are designed and built to
                 acheive the best performance as user requires in application
               </Text>
@@ -213,45 +214,45 @@ export const UIComponentsOverview: React.SFC = () => (
         </Columns>
         <Columns multiline>
           <Column>
-            <Notification variant="white">
+            <Notification style={{ color: '#c3c3c3' }}>
               <Text
                 textWeight="bold"
                 style={{ color: '#595959' }}
-                className="is-size-5-desktop is-size-6-mobile"
+                className="is-size-5-desktop is-size-5-desktop is-size-6-mobile"
               >
                 Responsive and touch friendly
               </Text>
-              <Text textSize="6">
+              <Text textSize="6" textColor="grey-dark">
                 All Components are touch friendly, render adaptively
               </Text>
             </Notification>
           </Column>
           <Column>
-            <Notification variant="white">
+            <Notification style={{ color: '#c3c3c3' }}>
               <Text
                 textWeight="bold"
                 style={{ color: '#595959' }}
-                className="is-size-5-desktop is-size-6-mobile"
+                className="is-size-5-desktop is-size-5-tablet is-size-6-mobile"
               >
                 Code on GitHub
               </Text>
-              <Text textSize="6">
+              <Text textSize="6" textColor="grey-dark">
                 Complete source code,unit test files, and e2e test scripts are
                 available on GitHub
               </Text>
             </Notification>
           </Column>
           <Column>
-            <Notification variant="white">
+            <Notification style={{ color: '#c3c3c3' }}>
               <Text
                 textSize="5"
                 textWeight="bold"
                 style={{ color: '#595959' }}
-                className="is-size-5-desktop is-size-6-mobile"
+                className="is-size-5-desktop is-size-5-tablet is-size-6-mobile"
               >
                 Globalization simplified
               </Text>
-              <Text textSize="6">
+              <Text textSize="6" textColor="grey-dark">
                 Easily build applications to use by audience in various
                 languages
               </Text>
@@ -269,7 +270,7 @@ export const ExploreUIComponents: React.SFC = () => (
       <Title
         textAlignment="centered"
         textColor="white"
-        className="is-size-3-desktop is-size-4-mobile"
+        className="is-size-3-desktop is-size-3-tablet is-size-4-mobile"
       >
         Explore Devfractal UI Components
       </Title>
@@ -309,7 +310,7 @@ export const ExploreUIComponents: React.SFC = () => (
           </Column>
         </Columns>
         <Columns multiline>
-          <Column narrow>
+          <Column>
             <Link to="/composites">
               <CompositesMedia />
             </Link>
@@ -333,7 +334,7 @@ export const BottomSection: React.SFC = () => (
       <Text
         textWeight="semiBold"
         style={{ color: '#595959' }}
-        className="is-size-4-desktop is-size-5-mobile"
+        className="is-size-4-desktop is-size-4-tablet is-size-5-mobile"
       >
         <Icon
           icon={faQuoteLeft}
@@ -346,7 +347,7 @@ export const BottomSection: React.SFC = () => (
       <Text
         textWeight="semiBold"
         style={{ color: '#595959' }}
-        className="is-size-4-desktop is-size-5-mobile"
+        className="is-size-4-desktop is-size-4-tablet is-size-5-mobile"
       >
         across multiple platforms that allow us to levarage our existing skills
       </Text>
@@ -357,7 +358,7 @@ export const BottomSection: React.SFC = () => (
           <Text
             textWeight="bold"
             style={{ color: '#595959' }}
-            className="is-size-5-desktop is-size-6-mobile"
+            className="is-size-5-desktop is-size-5-tablet is-size-6-mobile"
           >
             COMPANY
           </Text>
@@ -369,7 +370,7 @@ export const BottomSection: React.SFC = () => (
           <Text
             textWeight="bold"
             style={{ color: '#595959' }}
-            className="is-size-5-desktop is-size-6-mobile"
+            className="is-size-5-desktop is-size-5-tablet  is-size-6-mobile"
           >
             LEARNING & SUPPORT
           </Text>
@@ -381,7 +382,7 @@ export const BottomSection: React.SFC = () => (
           <Text
             textWeight="bold"
             style={{ color: '#595959' }}
-            className="is-size-5-desktop is-size-6-mobile"
+            className="is-size-5-desktop is-size-5-tablet  is-size-6-mobile"
           >
             RESOURCES
           </Text>
@@ -393,7 +394,7 @@ export const BottomSection: React.SFC = () => (
           <Text
             textWeight="bold"
             style={{ color: '#595959' }}
-            className="is-size-5-desktop is-size-6-mobile"
+            className="is-size-5-desktop  is-size-5-tablet  is-size-6-mobile"
           >
             SUPPORT
           </Text>

@@ -9,7 +9,7 @@ import layouticon from './images/layouticon.png'
 import modifiersicon from './images/modifiersicon.png'
 
 export const FormMedia: React.SFC = () => (
-  <Media className="box" style={{ backgroundColor: '#004267' }}>
+  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={formicon} />
     </MediaLeft>
@@ -29,7 +29,7 @@ export const FormMedia: React.SFC = () => (
 )
 
 export const ColumnsMedia: React.SFC = () => (
-  <Media className="box" style={{ backgroundColor: '#004267' }}>
+  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={columnsicon} />
     </MediaLeft>
@@ -49,7 +49,7 @@ export const ColumnsMedia: React.SFC = () => (
 )
 
 export const LayoutMedia: React.SFC = () => (
-  <Media className="box" style={{ backgroundColor: '#004267' }}>
+  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={layouticon} />
     </MediaLeft>
@@ -69,7 +69,7 @@ export const LayoutMedia: React.SFC = () => (
 )
 
 export const ElementsMedia: React.SFC = () => (
-  <Media className="box" style={{ backgroundColor: '#004267' }}>
+  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={elementsicon} />
     </MediaLeft>
@@ -89,7 +89,7 @@ export const ElementsMedia: React.SFC = () => (
 )
 
 export const ComponentsMedia: React.SFC = () => (
-  <Media className="box" style={{ backgroundColor: '#004267' }}>
+  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={componentsicon} />
     </MediaLeft>
@@ -109,7 +109,7 @@ export const ComponentsMedia: React.SFC = () => (
 )
 
 export const ModifiersMedia: React.SFC = () => (
-  <Media className="box" style={{ backgroundColor: '#004267' }}>
+  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={modifiersicon} />
     </MediaLeft>
@@ -129,7 +129,7 @@ export const ModifiersMedia: React.SFC = () => (
 )
 
 export const CompositesMedia: React.SFC = () => (
-  <Media className="box" style={{ backgroundColor: '#004267' }}>
+  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={compositesicon} />
     </MediaLeft>
