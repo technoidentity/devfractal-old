@@ -18,7 +18,7 @@ export interface RowClickEvent<T> {
 
 export interface SimpleTableProps<T> extends TableProps {
   readonly headers?: ReadonlyArray<string>
-  readonly values: ReadonlyArray<T> | (() => Promise<T>)
+  readonly values: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
   onRowClicked?(value: RowClickEvent<T>): void
 }
 
