@@ -1,7 +1,14 @@
 import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import { Persist } from 'formik-persist'
 import React from 'react'
-import { ObjectSchema } from 'yup'
+import {
+  number,
+  NumberSchema,
+  ObjectSchema,
+  Schema,
+  string,
+  StringSchema,
+} from 'yup'
 import {
   Button,
   CheckboxField,
@@ -10,7 +17,6 @@ import {
   DebugField,
   ErrorField,
   Field,
-  FieldProps,
   InputField,
   InputFieldProps,
   Label,
@@ -22,42 +28,74 @@ import {
   TextAreaFieldProps,
 } from '../form'
 import { Container } from '../layout'
+import { Omit } from '../types'
 import { camelCaseToPhrase } from '../utils'
 
-export interface SimpleInputProps extends InputFieldProps {
+export interface SimpleInputProps<S extends Schema<any>>
+  extends InputFieldProps {
+  readonly schema: S
   readonly label?: string
   readonly name: string
+  readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
-type GenericInputProps = FieldProps & Exclude<SimpleInputProps, 'type'>
+type GenericInputProps<S extends Schema<any> = StringSchema> = Omit<
+  SimpleInputProps<S>,
+  'type' | 'schema'
+>
 // & ValidationProps
 
-const SimpleInput: React.SFC<GenericInputProps> = ({
-  // validations,
-  label,
-  ...props
-}) => (
-  <Field>
-    <Label>{label || camelCaseToPhrase(props.name)}</Label>
-    <InputField {...props} />
-    <ErrorField name={props.name} />
-  </Field>
-)
+function validator<S extends Schema<any>>(
+  initialSchema: S,
+  validations?: ReadonlyArray<(schema: S) => S>,
+): <V>(value: V) => V | undefined {
+  return value => {
+    if (validations === undefined) {
+      return undefined
+    }
+
+    let schema: S = initialSchema
+    validations.forEach(v => (schema = v(schema)))
+
+    try {
+      schema.validateSync(value)
+      return undefined
+    } catch (err) {
+      return err.message
+    }
+  }
+}
+
+function SimpleInput<S extends Schema<any> = StringSchema>(
+  args: SimpleInputProps<S>,
+): JSX.Element {
+  const { schema, label, validations, ...props } = args
+  return (
+    <Field>
+      <Label>{label || camelCaseToPhrase(props.name)}</Label>
+      <InputField {...props} validate={validator(schema, validations)} />
+      <ErrorField name={props.name} />
+    </Field>
+  )
+}
 
 const SimpleText: React.SFC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="text" />
+  <SimpleInput {...props} type="text" schema={string()} />
+)
+const SimpleNumber: React.SFC<GenericInputProps<NumberSchema>> = props => (
+  <SimpleInput schema={number()} {...props} type="number" />
 )
 const SimplePassword: React.SFC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="password" />
+  <SimpleInput schema={string()} {...props} type="password" />
 )
 const SimpleEmail: React.SFC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="email" />
+  <SimpleInput {...props} type="email" schema={string()} />
 )
-const SimpleTelephone: React.SFC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="tel" />
+const SimpleTelephone: React.SFC<GenericInputProps<NumberSchema>> = props => (
+  <SimpleInput schema={number()} {...props} type="tel" />
 )
 const SimpleUrl: React.SFC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="url" />
+  <SimpleInput schema={string()} {...props} type="url" />
 )
 
 export interface SimpleCheckboxProps extends CheckboxFieldProps {
@@ -186,6 +224,7 @@ export const Simple = {
   Form: SimpleForm,
   FormButtons: SimpleFormButtons,
   Input: SimpleInput,
+  Number: SimpleNumber,
   Text: SimpleText,
   Password: SimplePassword,
   Email: SimpleEmail,
