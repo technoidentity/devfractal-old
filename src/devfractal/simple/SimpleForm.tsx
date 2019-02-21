@@ -4,11 +4,9 @@ import React from 'react'
 import { ObjectSchema } from 'yup'
 import {
   Button,
-  camelCaseToPhrase,
   CheckboxField,
   CheckboxFieldProps,
   consoleSubmit,
-  Container,
   DebugField,
   ErrorField,
   Field,
@@ -22,7 +20,9 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from '../devfractal'
+} from '../form'
+import { Container } from '../layout'
+import { camelCaseToPhrase } from '../utils'
 
 export interface SimpleInputProps extends InputFieldProps {
   readonly label?: string

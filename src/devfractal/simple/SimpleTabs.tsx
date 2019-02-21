@@ -1,15 +1,15 @@
 import React from 'react'
+
 import {
-  camelCaseToPhrase,
   RoutedTabs,
   RoutedTabsItem,
   RoutedTabsProps,
-  State,
   Tabs,
   TabsItem,
   TabsProps,
-} from '../devfractal'
+} from '../components'
 import { Omit } from '../types'
+import { camelCaseToPhrase, State } from '../utils'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {
   readonly name?: string
