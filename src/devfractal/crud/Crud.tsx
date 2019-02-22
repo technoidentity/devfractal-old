@@ -11,15 +11,17 @@ import {
 } from './Routes'
 
 export type CrudProps<T extends Props & { readonly id: any }> = Readonly<{
+  readonly basePath: string
   readonly api: ApiRepository<T>
   readonly paths?: Paths
   readonly components?: RouteComponentsResult
 }>
 
 export function Crud<T extends { id: any }>({
+  basePath,
   api,
   paths = ps(api.resource),
-  components = RouteComponents({ api }),
+  components = RouteComponents({ api }, basePath),
 }: CrudProps<T>): JSX.Element {
   const { create, list, edit, view } = paths
   const { Create, List, Edit, View } = components

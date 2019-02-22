@@ -153,3 +153,23 @@ export const CompositesMedia: React.SFC = () => (
     </MediaContent>
   </Media>
 )
+
+export const CrudMedia: React.SFC = () => (
+  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+    <MediaLeft style={{ marginTop: '1rem' }}>
+      <img src={compositesicon} />
+    </MediaLeft>
+    <MediaContent>
+      <Text
+        textWeight="bold"
+        textColor="white"
+        className="is-size-4-desktop is-size-5-mobile"
+      >
+        Crud
+      </Text>
+      <SubTitle size="6" textColor="white">
+        Create Crud components, rails style!
+      </SubTitle>
+    </MediaContent>
+  </Media>
+)

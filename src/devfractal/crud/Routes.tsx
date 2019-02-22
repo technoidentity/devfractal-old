@@ -8,7 +8,7 @@ import { TVT } from './utils'
 const base: (resource: string, basePath?: string) => string = (
   resource,
   basePath,
-) => (basePath ? `${`/${basePath}`}/${resource}` : `/${resource}`)
+) => (basePath ? `${basePath}/${resource}` : `/${resource}`)
 
 export interface Paths {
   readonly list: string
@@ -22,7 +22,6 @@ export const paths: (resource: string, basePath?: string) => Paths = (
   basePath,
 ) => {
   const path: string = base(resource, basePath)
-
   return {
     list: path,
     create: `${path}/create`,
@@ -42,13 +41,12 @@ export const pathFns: (resource: string, basePath?: string) => PathFns = (
   resource,
   basePath,
 ) => {
-  const { list, create } = paths(resource, basePath)
-
+  const path: string = base(resource, basePath)
   return {
-    list: () => list,
-    create: () => create,
-    view: (id: unknown) => `${base(resource, basePath)}/${id}`,
-    edit: (id: unknown) => `${base(resource, basePath)}/${id}/edit`,
+    list: () => `${path}`,
+    create: () => `${path}/create`,
+    view: (id: unknown) => `${path}/${id}`,
+    edit: (id: unknown) => `${path}/${id}/edit`,
   }
 }
 
@@ -73,7 +71,8 @@ export interface RouteComponentsResult {
 
 export const RouteComponents: <T extends Props & { readonly id: unknown }>(
   args: RouteComponentsArgs<T> | APIRouteComponentsArgs<T>,
-) => RouteComponentsResult = args => {
+  basePath: string,
+) => RouteComponentsResult = (args, basePath) => {
   // tslint:disable typedef
   const { all, one } = args.api
   const value = 'value' in args ? args.value : args.api.value
@@ -86,8 +85,10 @@ export const RouteComponents: <T extends Props & { readonly id: unknown }>(
     List: ({ history }) => (
       <Crud.List
         list={all}
-        onEdit={({ value }) => history.push(pathFns(resource).edit(+value.id))}
-        onCreate={() => history.push(pathFns(resource).create())}
+        onEdit={({ value }) =>
+          history.push(pathFns(resource, basePath).edit(+value.id))
+        }
+        onCreate={() => history.push(pathFns(resource, basePath).create())}
       />
     ),
     Create: () => <Crud.Create />,

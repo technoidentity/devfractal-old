@@ -60,6 +60,7 @@ import {
   Todo,
   TypographyHelpersExample,
 } from './examples'
+import { TodoRoutes } from './examples/crud/TodoRoutes'
 import {
   BottomSection,
   ExploreUIComponents,
@@ -111,6 +112,8 @@ export const CompositesRoutes: React.SFC = () => (
     />
   </>
 )
+
+export const CrudRoutes: React.SFC = () => <TodoRoutes />
 
 export const ColumnsRoutes: React.SFC = () => (
   <>
@@ -223,6 +226,7 @@ export const Routes: React.SFC = () => (
     <TabsRoutes />
     <FormRoutes />
     <CompositesRoutes />
+    <TodoRoutes />
     <ElementsRoutes />
     <ComponentsRoutes />
     <LayoutRoutes />

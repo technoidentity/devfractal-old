@@ -1,8 +1,7 @@
-import { Field } from 'formik'
 import { Props } from 'io-ts'
 import React, { FC } from 'react'
 import { useAsync } from 'react-use'
-import { Button } from '../form'
+import { Button, Field } from '../form'
 import { Container } from '../layout'
 import { Text } from '../modifiers'
 import {

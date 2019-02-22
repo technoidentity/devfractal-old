@@ -39,6 +39,7 @@ import {
   ColumnsMedia,
   ComponentsMedia,
   CompositesMedia,
+  CrudMedia,
   ElementsMedia,
   FormMedia,
   LayoutMedia,
@@ -313,6 +314,11 @@ export const ExploreUIComponents: React.SFC = () => (
           <Column>
             <Link to="/composites">
               <CompositesMedia />
+            </Link>
+          </Column>
+          <Column>
+            <Link to="/crud">
+              <CrudMedia />
             </Link>
           </Column>
           <img
