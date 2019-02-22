@@ -23,6 +23,7 @@
     "fontawesome",
     "formik",
     "fortawesome",
-    "powerplug"
+    "powerplug",
+    "todos"
   ]
 }
