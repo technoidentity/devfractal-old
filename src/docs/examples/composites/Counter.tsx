@@ -22,7 +22,7 @@ export const CounterInner: React.SFC<StateRenderProps<number>> = ({
         <Button
           variant="info"
           size="medium"
-          onClick={eset(count + 1)}
+          onClick={eset(+count + 1)}
           noControl
         >
           <Icon icon={faPlus} />
@@ -33,7 +33,7 @@ export const CounterInner: React.SFC<StateRenderProps<number>> = ({
         <Button
           variant="success"
           size="medium"
-          onClick={eset(count - 1)}
+          onClick={eset(+count - 1)}
           noControl
         >
           <Icon icon={faMinus} />

@@ -8,17 +8,16 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "allowJs": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "allowJs": false,
+    "isolatedModules": false,
+    "suppressImplicitAnyIndexErrors": true
   },
   "plugins": [
     {
@@ -31,6 +30,5 @@
       "mockTypeScriptVersion": false
     }
   ],
-  "include": ["src"],
-  "exclude": ["src/devfractal/build", "src/devfractal/.rts2*", "src/devfractal/node_modules"]
+  "exclude": ["build", "rts2*"]
 }

@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Radio, RadioGroup } from '../devfractal/form'
+import { Radio, RadioGroup } from '../docs/examples/devfractal'
 
 storiesOf('Radio', module)
   .add('with action', () => (

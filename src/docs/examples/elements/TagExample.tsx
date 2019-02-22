@@ -1,5 +1,5 @@
 import React from 'react'
-import { Control } from '../../../devfractal/form/Control'
+import { Control } from '../devfractal'
 import {
   Box,
   Delete,

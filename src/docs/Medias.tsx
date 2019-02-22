@@ -1,5 +1,11 @@
 import React from 'react'
-import { Media, MediaContent, MediaLeft, SubTitle, Text } from '../devfractal'
+import {
+  Media,
+  MediaContent,
+  MediaLeft,
+  SubTitle,
+  Text,
+} from '../docs/examples/devfractal'
 import columnsicon from './images/columnsicon.png'
 import componentsicon from './images/componentsicon.png'
 import compositesicon from './images/compositesicon.png'

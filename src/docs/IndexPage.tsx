@@ -14,6 +14,7 @@ import {
   Column,
   Columns,
   Container,
+  DynamicBreadcrumb,
   Hero,
   HeroHead,
   Icon,
@@ -29,8 +30,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from '../devfractal'
-import { DynamicBreadcrumb } from '../devfractal/components/DynamicBreadcrumb'
+} from '../docs/examples/devfractal'
 import contentloader from './images/contentloader.png'
 import devfractalicon from './images/devfractalicon.png'
 import logo from './images/logo.png'

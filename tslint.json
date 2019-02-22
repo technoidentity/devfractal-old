@@ -151,5 +151,12 @@
     // "no-class": true
   },
 
+  "linterOptions": {
+    "exclude": [
+      "src/devfractal/build/**",
+      "src/devfractal/.rts2*/**",
+      "src/devfractal/node_modules/**"
+    ]
+  },
   "defaultSeverity": "warn"
 }

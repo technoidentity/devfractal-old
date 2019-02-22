@@ -10,7 +10,7 @@ import {
   SimpleEditor,
   SimpleTable,
   SimpleViewer,
-} from '../Simple'
+} from '../simple'
 import { emptyFromType } from './empty'
 import { TVT, VT } from './utils'
 
