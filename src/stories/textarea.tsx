@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { TextArea } from '../devfractal/form/TextArea'
+import { TextArea } from '../docs/examples/devfractal'
 
 storiesOf('TextArea', module)
   .add('with variant', () => (

@@ -151,5 +151,11 @@
     // "no-class": true
   },
 
+  "linterOptions": {
+    "exclude": [
+      "src/technoidentity-devfractal/build/**",
+      "src/technoidentity-devfractal/node_modules/**"
+    ]
+  },
   "defaultSeverity": "warn"
 }
