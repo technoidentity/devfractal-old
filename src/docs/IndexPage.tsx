@@ -218,7 +218,7 @@ export const UIComponentsOverview: React.SFC = () => (
               <Text
                 textWeight="bold"
                 style={{ color: '#595959' }}
-                className="is-size-5-desktop is-size-5-desktop is-size-6-mobile"
+                className="is-size-5-desktop is-size-5-tablet is-size-6-mobile"
               >
                 Responsive and touch friendly
               </Text>
