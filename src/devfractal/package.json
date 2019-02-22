@@ -4,16 +4,12 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.15",
-    "@fortawesome/free-brands-svg-icons": "^5.7.2",
-    "@fortawesome/free-regular-svg-icons": "^5.7.2",
-    "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "bulma": "^0.7.4",
     "formik": "^1.5.1",
     "formik-persist": "^1.1.0",
-    "fp-ts": "^1.14.1",
+    "fp-ts": "^1.14.2",
     "immer": "^2.0.0",
     "io-ts": "^1.8.2",
     "io-ts-reporters": "^0.0.21",
@@ -30,7 +26,6 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.6",
-    "@types/node": "^11.9.4",
     "@types/react": "^16.8.4",
     "@types/react-content-loader": "^3.1.4",
     "@types/react-dom": "^16.8.2",
@@ -59,6 +54,7 @@
   },
   "scripts": {
     "build": "microbundle",
+    "clean": "rimraf build .rts2* node_modules yarn.lock",
     "start": "microbundle watch --compress false --sourcemap true",
     "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",

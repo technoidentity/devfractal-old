@@ -153,8 +153,9 @@
 
   "linterOptions": {
     "exclude": [
-      "src/technoidentity-devfractal/build/**",
-      "src/technoidentity-devfractal/node_modules/**"
+      "src/devfractal/build/**",
+      "src/devfractal/.rts2*/**",
+      "src/devfractal/node_modules/**"
     ]
   },
   "defaultSeverity": "warn"
