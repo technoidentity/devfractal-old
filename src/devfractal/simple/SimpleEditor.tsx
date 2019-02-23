@@ -4,34 +4,32 @@ import { Box } from '../elements'
 import { Label } from '../form'
 import { Section } from '../layout'
 import { camelCaseToPhrase } from '../utils'
-import { Simple } from './SimpleForm'
+import { Simple } from './internal'
 
-export interface SimpleEditorProps extends React.HTMLAttributes<HTMLElement> {
-  readonly object: { readonly [index: string]: any }
+export interface SimpleEditorProps {
+  readonly data: { readonly [index: string]: any }
 }
 
-export const SimpleEditor: React.SFC<SimpleEditorProps> = ({ object }) => {
-  return (
-    <Section>
-      <Box>
-        <Simple.Form initialValues={object}>
-          {Object.keys(object).map(key => (
-            <React.Fragment key={key}>
-              {Boolean.is(object[key]) ? (
-                <>
-                  <Label>{camelCaseToPhrase(key)}</Label>
-                  <Simple.Checkbox name={key} checked={object[key]} readOnly />
-                </>
-              ) : Number.is(object[key]) ? (
-                <Simple.Number label={camelCaseToPhrase(key)} name={key} />
-              ) : (
-                <Simple.Text label={camelCaseToPhrase(key)} name={key} />
-              )}
-            </React.Fragment>
-          ))}
-          <Simple.FormButtons />
-        </Simple.Form>
-      </Box>
-    </Section>
-  )
-}
+export const SimpleEditor: React.SFC<SimpleEditorProps> = ({ data }) => (
+  <Section>
+    <Box>
+      <Simple.Form initialValues={data}>
+        {Object.keys(data).map(key => (
+          <React.Fragment key={key}>
+            {Boolean.is(data[key]) ? (
+              <>
+                <Label>{camelCaseToPhrase(key)}</Label>
+                <Simple.Checkbox name={key} checked={data[key]} readOnly />
+              </>
+            ) : Number.is(data[key]) ? (
+              <Simple.Number label={camelCaseToPhrase(key)} name={key} />
+            ) : (
+              <Simple.Text label={camelCaseToPhrase(key)} name={key} />
+            )}
+          </React.Fragment>
+        ))}
+        <Simple.FormButtons />
+      </Simple.Form>
+    </Box>
+  </Section>
+)

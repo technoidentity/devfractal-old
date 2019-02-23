@@ -18,24 +18,24 @@ export interface RowClickEvent<T> {
 
 export interface SimpleTableProps<T> extends TableProps {
   readonly headers?: ReadonlyArray<string>
-  readonly values: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
+  readonly data: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
   onRowClicked?(value: RowClickEvent<T>): void
 }
 
 export interface RowsProps<T> {
   readonly headers: ReadonlyArray<string>
-  readonly values: ReadonlyArray<T>
+  readonly data: ReadonlyArray<T>
   onRowClicked?(value: RowClickEvent<T>): void
 }
 
 function Rows<T>(props: RowsProps<T>): JSX.Element {
-  const { values, headers, onRowClicked } = props
+  const { data, headers, onRowClicked } = props
   return (
     <>
-      {values.map((value, i) => (
+      {data.map((value, i) => (
         <Tr
           key={i}
-          onClick={() => onRowClicked && onRowClicked({ value: values[i] })}
+          onClick={() => onRowClicked && onRowClicked({ value: data[i] })}
         >
           {headers.map(key => (
             <Td key={key}>
@@ -54,13 +54,13 @@ function Rows<T>(props: RowsProps<T>): JSX.Element {
 
 export interface TableViewProps<T> extends TableProps {
   readonly headers?: ReadonlyArray<string>
-  readonly values: ReadonlyArray<T>
+  readonly data: ReadonlyArray<T>
   onRowClicked?(value: RowClickEvent<T>): void
 }
 function TableView<T>(args: TableViewProps<T>): JSX.Element {
-  const { headers, values, onRowClicked, ...props } = args
+  const { headers, data, onRowClicked, ...props } = args
   const allHeaders: ReadonlyArray<string> =
-    headers || Object.keys(values[0] || {})
+    headers || Object.keys(data[0] || {})
   return (
     <Table {...props} fullWidth>
       <TableHead>
@@ -72,26 +72,22 @@ function TableView<T>(args: TableViewProps<T>): JSX.Element {
       </TableHead>
 
       <TableBody>
-        <Rows
-          values={values}
-          headers={allHeaders}
-          onRowClicked={onRowClicked}
-        />
+        <Rows data={data} headers={allHeaders} onRowClicked={onRowClicked} />
       </TableBody>
     </Table>
   )
 }
 export function SimpleTable<T>(args: SimpleTableProps<T>): JSX.Element {
-  const { values, ...props } = args
+  const { data, ...props } = args
 
-  if (Function.is(values)) {
+  if (Function.is(data)) {
     return (
-      <Async asyncFn={values}>
+      <Async asyncFn={data}>
         {({ error, data }) => {
           if (error) {
             return <div>Error</div>
           } else if (data) {
-            return <TableView {...props} values={data} />
+            return <TableView {...props} data={data} />
           } else {
             return <div>Loading...</div>
           }
@@ -99,6 +95,6 @@ export function SimpleTable<T>(args: SimpleTableProps<T>): JSX.Element {
       </Async>
     )
   } else {
-    return <TableView values={values} {...props} />
+    return <TableView data={data} {...props} />
   }
 }

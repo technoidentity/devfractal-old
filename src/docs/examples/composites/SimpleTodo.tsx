@@ -29,7 +29,7 @@ const todoList: ReadonlyArray<Todo> = [
 export const SimpleTodo: React.SFC = () => (
   <>
     <SimpleAddTodo />
-    <SimpleViewer object={todoList[0]} />
-    <SimpleTable headers={['id', 'title', 'done']} values={todoList} />
+    <SimpleViewer data={todoList[0]} />
+    <SimpleTable headers={['id', 'title', 'done']} data={todoList} />
   </>
 )

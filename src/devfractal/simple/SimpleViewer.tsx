@@ -19,21 +19,21 @@ const SimpleValue: React.SFC<{ readonly objectValue: string }> = ({
     <>{objectValue}</>
   )
 
-export interface SimpleViewerProps extends React.HTMLAttributes<HTMLElement> {
-  readonly object: { readonly [index: string]: any }
+export interface SimpleViewerProps {
+  readonly data: { readonly [index: string]: any }
 }
 
-export const SimpleViewer: React.SFC<SimpleViewerProps> = ({ object }) => {
+export const SimpleViewer: React.SFC<SimpleViewerProps> = ({ data }) => {
   return (
     <Section>
       <Box>
-        {Object.keys(object).map(key => (
+        {Object.keys(data).map(key => (
           <Columns key={key}>
             <Column>
               <SimpleHeader objectKey={key} />
             </Column>
             <Column>
-              <SimpleValue objectValue={object[key]} />
+              <SimpleValue objectValue={data[key]} />
             </Column>
           </Columns>
         ))}

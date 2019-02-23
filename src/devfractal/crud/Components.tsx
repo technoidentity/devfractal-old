@@ -34,13 +34,13 @@ export type CrudComponentsResult<T extends Props, V = TVT<T>> = Readonly<{
 export const CrudComponents: <T extends Props>(
   typeValue: VT<T>, // or pass to Create?
 ) => CrudComponentsResult<T> = typeValue => ({
-  Create: () => <SimpleEditor object={emptyFromType(typeValue)} />,
+  Create: () => <SimpleEditor data={emptyFromType(typeValue)} />,
 
   Edit: ({ asyncFn }) => {
     const { value, loading, error } = useAsync(asyncFn)
     return value ? (
       // @TODO: typed SimpleEditor/Viewer/Table would be awesome!
-      <SimpleEditor object={value} />
+      <SimpleEditor data={value} />
     ) : loading ? (
       <h1>Loading...</h1>
     ) : (
@@ -53,7 +53,7 @@ export const CrudComponents: <T extends Props>(
   View: ({ asyncFn }) => {
     const { value, loading, error } = useAsync(asyncFn)
     return value ? (
-      <SimpleViewer object={value} />
+      <SimpleViewer data={value} />
     ) : loading ? (
       <h1>Loading...</h1>
     ) : (
@@ -68,7 +68,7 @@ export const CrudComponents: <T extends Props>(
           New
         </Button>
       </Field>
-      <SimpleTable values={list} onRowClicked={onEdit} />
+      <SimpleTable data={list} onRowClicked={onEdit} />
     </Container>
   ),
   // @TODO: remove
