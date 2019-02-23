@@ -21,7 +21,6 @@
     "react-router-dom": "4.3.1",
     "react-use": "^5.4.1",
     "tcomb": "^3.2.29",
-    "tiny-warning": "^1.0.2",
     "yup": "0.26.10"
   },
   "devDependencies": {

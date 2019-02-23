@@ -12,7 +12,7 @@ import {
   TypeOf,
 } from 'io-ts'
 import { PathReporter } from 'io-ts/lib/PathReporter'
-import warning from 'tiny-warning'
+import { warning } from './internal'
 
 export const optionalProps: <P extends Props>(
   props: P,
