@@ -1,6 +1,6 @@
 import { Props, ReadonlyC, TypeC } from 'io-ts'
 import React from 'react'
-import { api, Crud } from '../crud'
+import { api, Crud } from '../internal'
 
 export interface SimpleCrudProps<T extends Props & { readonly id: any }> {
   readonly baseUrl: string

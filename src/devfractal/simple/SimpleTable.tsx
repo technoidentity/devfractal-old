@@ -1,6 +1,9 @@
 import React from 'react'
 import { Boolean, Function } from 'tcomb'
 import {
+  Async,
+  camelCaseToPhrase,
+  CheckBox,
   Table,
   TableBody,
   TableHead,
@@ -8,9 +11,7 @@ import {
   Td,
   Th,
   Tr,
-} from '../elements'
-import { CheckBox } from '../form'
-import { Async, camelCaseToPhrase } from '../utils'
+} from '../internal'
 
 export interface RowClickEvent<T> {
   readonly value: T

@@ -9,7 +9,7 @@ import {
   TypeOf,
 } from 'io-ts'
 import { Omit } from 'react-router'
-import { toPromise } from './utils'
+import { toPromise } from './internal'
 
 export interface ApiUrls {
   all(): string

@@ -1,14 +1,14 @@
 import { Props } from 'io-ts'
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import { Section } from '../layout'
-import { ApiRepository } from './internal'
+import { Section } from '../internal'
 import {
+  ApiRepository,
   Paths,
   paths as ps,
   RouteComponents,
   RouteComponentsResult,
-} from './Routes'
+} from './internal'
 
 export type CrudProps<T extends Props & { readonly id: any }> = Readonly<{
   readonly basePath: string

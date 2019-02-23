@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helpers, removeHelpers } from '../modifiers'
+import { Helpers, removeHelpers } from '../internal'
 import {
   ControlHelpers,
   IconHelpers,

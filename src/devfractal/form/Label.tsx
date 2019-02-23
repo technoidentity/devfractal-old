@@ -1,7 +1,12 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../modifiers'
-import { optionalProps, warnProps } from '../utils'
+import {
+  classNamesHelper,
+  Div,
+  Helpers,
+  optionalProps,
+  warnProps,
+} from '../internal'
 
 // tslint:disable-next-line: typedef
 const LabelSize = t.keyof({

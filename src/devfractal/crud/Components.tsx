@@ -1,17 +1,17 @@
 import { Props } from 'io-ts'
 import React, { FC } from 'react'
 import { useAsync } from 'react-use'
-import { Button, Field } from '../form'
-import { Container } from '../layout'
-import { Text } from '../modifiers'
 import {
+  Button,
+  Container,
+  Field,
   RowClickEvent,
   SimpleEditor,
   SimpleTable,
   SimpleViewer,
-} from '../simple'
-import { emptyFromType } from './empty'
-import { TVT, VT } from './utils'
+  Text,
+} from '../internal'
+import { emptyFromType, TVT, VT } from './internal'
 
 interface ItemProps<T> {
   asyncFn(): Promise<T>

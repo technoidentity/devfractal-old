@@ -1,6 +1,6 @@
 import { RouteComponentProps } from 'react-router'
 import { Omit } from '../../types'
-import { ClassNameArg, classNames } from '../utils'
+import { ClassNameArg, classNames } from '../internal'
 import { CommonHelpers, ResponsiveHelpers, TextHelpers } from './types'
 
 export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({

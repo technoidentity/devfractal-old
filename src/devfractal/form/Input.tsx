@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper } from '../modifiers'
+import { classNamesHelper } from '../internal'
 import { AllControlHelpers, ControlDiv, ControlWrapper } from './internal'
 
 type InputVariant =

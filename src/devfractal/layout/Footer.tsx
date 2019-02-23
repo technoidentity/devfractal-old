@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../modifiers'
+import { classNamesHelper, Div, Helpers } from '../internal'
 
 export interface FooterProps
   extends React.HTMLAttributes<HTMLElement>,

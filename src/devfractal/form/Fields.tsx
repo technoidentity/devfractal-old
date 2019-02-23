@@ -7,7 +7,7 @@ import {
 } from 'formik'
 import React from 'react'
 import { Omit } from '../../types'
-import { jsonStringify } from '../utils'
+import { jsonStringify } from '../internal'
 import {
   CheckBoxProps,
   FormikCheckbox,

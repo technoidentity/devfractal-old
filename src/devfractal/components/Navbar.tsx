@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { classNamesHelper, Div, Helpers } from '../modifiers'
+import { classNamesHelper, Div, Helpers } from '../internal'
 
 interface NavbarContext {
   readonly visible?: boolean

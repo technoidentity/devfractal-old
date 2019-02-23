@@ -1,6 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../modifiers'
-import { classNames } from '../utils'
+import { classNames, classNamesHelper, Div, Helpers } from '../internal'
 
 type FixedSquaredImageSize =
   | '16x16'

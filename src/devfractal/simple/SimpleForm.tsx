@@ -11,25 +11,25 @@ import {
 } from 'yup'
 import {
   Button,
+  camelCaseToPhrase,
   CheckboxField,
   CheckboxFieldProps,
   consoleSubmit,
+  Container,
   DebugField,
   ErrorField,
   Field,
   InputField,
   InputFieldProps,
   Label,
+  Omit,
   RadioFieldProps,
   RadioGroupField,
   SelectField,
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from '../form'
-import { Container } from '../layout'
-import { Omit } from '../types'
-import { camelCaseToPhrase } from '../utils'
+} from '../internal'
 
 export interface SimpleInputProps<S extends Schema<any>>
   extends InputFieldProps {

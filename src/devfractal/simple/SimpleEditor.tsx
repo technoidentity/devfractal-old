@@ -1,9 +1,6 @@
 import React from 'react'
 import { Boolean, Number } from 'tcomb'
-import { Box } from '../elements'
-import { Label } from '../form'
-import { Section } from '../layout'
-import { camelCaseToPhrase } from '../utils'
+import { Box, camelCaseToPhrase, Label, Section } from '../internal'
 import { Simple } from './internal'
 
 export interface SimpleEditorProps {

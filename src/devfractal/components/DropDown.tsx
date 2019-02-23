@@ -1,8 +1,6 @@
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
-import { Icon } from '../elements'
-import { Button } from '../form'
-import { classNamesHelper, Div, Helpers } from '../modifiers'
+import { Button, classNamesHelper, Div, Helpers, Icon } from '../internal'
 
 type DropDownModifier = 'hoverable' | 'active'
 

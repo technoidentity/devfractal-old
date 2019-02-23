@@ -4,7 +4,7 @@ import {
   Props as FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { classNamesHelper, Div, Helpers, removeHelpers } from '../modifiers'
+import { classNamesHelper, Div, Helpers, removeHelpers } from '../internal'
 
 export interface PanelProps
   extends React.HTMLAttributes<HTMLElement>,
