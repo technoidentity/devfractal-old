@@ -18,7 +18,7 @@
     "@storybook/react": "^4.1.13",
     "@types/chance": "^1.0.1",
     "@types/jest": "^24.0.6",
-    "@types/node": "^11.9.4",
+    "@types/node": "^11.9.5",
     "@types/react": "^16.8.4",
     "@types/react-content-loader": "^3.1.4",
     "@types/react-dom": "^16.8.2",
@@ -47,7 +47,7 @@
     "react": "^16.8.3",
     "react-content-loader": "^4.0.1",
     "react-dom": "^16.8.3",
-    "react-hanger": "^1.1.2",
+    "react-hanger": "^1.1.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
     "react-use": "^5.4.1",
@@ -72,8 +72,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:lib": "microbundle",
-    "start:lib": "microbundle watch --compress false --sourcemap true",
     "test": "react-scripts test",
     "test:single": "CI=true react-scripts test",
     "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
@@ -113,5 +111,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "rimraf": "^2.6.3"
+  }
 }
