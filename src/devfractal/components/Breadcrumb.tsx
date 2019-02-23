@@ -8,7 +8,7 @@ import {
   Helpers,
   removeRouteComponentProps,
   WithRouter,
-} from '../internal'
+} from '../lib'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 

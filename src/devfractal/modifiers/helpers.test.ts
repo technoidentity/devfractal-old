@@ -1,4 +1,4 @@
-import { commonHelpersClasses, responsiveClass } from '../internal'
+import { commonHelpersClasses, responsiveClass } from '../lib'
 
 it('helper classes', () => {
   expect(

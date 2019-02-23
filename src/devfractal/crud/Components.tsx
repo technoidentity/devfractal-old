@@ -10,7 +10,7 @@ import {
   SimpleTable,
   SimpleViewer,
   Text,
-} from '../internal'
+} from '../lib'
 import { emptyFromType, TVT, VT } from './internal'
 
 interface ItemProps<T> {

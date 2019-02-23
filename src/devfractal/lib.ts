@@ -1,5 +1,3 @@
-import 'bulma/css/bulma.min.css'
-
 export * from './columns'
 export * from './components'
 export * from './crud'

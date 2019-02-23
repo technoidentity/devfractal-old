@@ -29,7 +29,7 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from '../internal'
+} from '../lib'
 
 export interface SimpleInputProps<S extends Schema<any>>
   extends InputFieldProps {

@@ -5,7 +5,7 @@ import {
   faStepForward,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Button, Field, Icon, Section } from '../internal'
+import { Button, Field, Icon, Section } from '../lib'
 
 interface PagerViewProps {
   readonly currentPage: number

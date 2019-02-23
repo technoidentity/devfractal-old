@@ -8,7 +8,7 @@ import {
   Columns,
   Section,
   Title,
-} from '../internal'
+} from '../lib'
 
 const SimpleHeader: React.SFC<{ readonly objectKey: string }> = ({
   objectKey,

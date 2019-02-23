@@ -10,7 +10,7 @@ import {
   NavbarItem,
   NavbarItemsProps,
   NavbarMenu,
-} from '../internal'
+} from '../lib'
 
 const NavBurger: React.SFC<NavbarBurgerProps> = props => (
   <NavbarBurger role="button" {...props}>

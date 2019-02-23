@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames, classNamesHelper } from '../internal'
+import { classNames, classNamesHelper } from '../lib'
 import { AllControlHelpers, ControlDiv, ControlWrapper } from './internal'
 
 type SelectVariant =

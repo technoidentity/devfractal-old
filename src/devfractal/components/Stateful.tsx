@@ -1,5 +1,5 @@
 import React from 'react'
-import { State, warning } from '../internal'
+import { State, warning } from '../lib'
 
 export interface StateChangeEvent<State> {
   readonly name?: string

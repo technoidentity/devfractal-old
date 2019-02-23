@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { capitalize, chop, Null, WithRouter } from '../internal'
+import { capitalize, chop, Null, WithRouter } from '../lib'
 import { Breadcrumb, BreadcrumbItem } from './internal'
 
 const DynamicBreadcrumbWithRouter: React.SFC<RouteComponentProps> = ({

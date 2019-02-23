@@ -1,6 +1,6 @@
 import React from 'react'
 import { Omit } from '../../types'
-import { classNamesHelper, Div, Helpers, State, warning } from '../internal'
+import { classNamesHelper, Div, Helpers, State, warning } from '../lib'
 
 export interface TabsChangeEvent {
   readonly name?: string
