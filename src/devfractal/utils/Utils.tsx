@@ -15,7 +15,7 @@ import {
 import { reporter } from 'io-ts-reporters'
 import { PathReporter } from 'io-ts/lib/PathReporter'
 import React from 'react'
-import warning from 'tiny-warning'
+import { warning } from './internal'
 
 // tslint:disable-next-line: no-null-keyword
 

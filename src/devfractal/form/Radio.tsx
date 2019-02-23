@@ -1,7 +1,6 @@
 import React, { ChangeEvent } from 'react'
-import warning from 'tiny-warning'
 import { Omit } from '../../types'
-import { classNamesHelper, Div, Helpers, State } from '../internal'
+import { classNamesHelper, Div, Helpers, State, warning } from '../internal'
 import { AllControlHelpers, ControlWrapper } from './internal'
 
 export interface RadioChangeEvent {

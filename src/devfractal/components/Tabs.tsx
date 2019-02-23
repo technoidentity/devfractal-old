@@ -1,7 +1,6 @@
 import React from 'react'
-import warning from 'tiny-warning'
 import { Omit } from '../../types'
-import { classNamesHelper, Div, Helpers, State } from '../internal'
+import { classNamesHelper, Div, Helpers, State, warning } from '../internal'
 
 export interface TabsChangeEvent {
   readonly name?: string

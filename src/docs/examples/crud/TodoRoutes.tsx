@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Route, Switch } from 'react-router'
+import { Route, Switch } from 'react-router'
 import { Section } from 'technoidentity-devfractal'
 import { paths, RouteComponents } from '../devfractal'
 import { InMemoryAPI } from './todoAPI'
@@ -22,7 +22,7 @@ export const TodoRoutes: React.SFC = () => {
   const { create, list, edit, view } = paths(resource, basePath)
   return (
     <Section>
-      <Redirect from="/crud" to="/crud/todos" />
+      {/* <Redirect from="/crud" to="/crud/todos" /> */}
       <Switch>
         <Route exact path={create} component={Create} />
         <Route exact path={edit} component={Edit} />

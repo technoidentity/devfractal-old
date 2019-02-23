@@ -1,6 +1,5 @@
 import React from 'react'
-import warning from 'tiny-warning'
-import { State } from '../internal'
+import { State, warning } from '../internal'
 
 export interface StateChangeEvent<State> {
   readonly name?: string
