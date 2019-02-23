@@ -1,17 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { withRouter } from 'react-router'
 
-// tslint:disable
+export const ScrollToTop: React.ComponentClass = withRouter(
+  ({ children, location }): JSX.Element => {
+    useEffect(() => window.scrollTo(0, 0), [location.pathname])
 
-class ScrollToTop extends React.Component<any, any> {
-  componentDidUpdate(prevProps: any) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
-      window.scrollTo(0, 0)
-    }
-  }
-  render() {
-    return this.props.children
-  }
-}
-
-export default withRouter(ScrollToTop)
+    return <>{children}</>
+  },
+)
