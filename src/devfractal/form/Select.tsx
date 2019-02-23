@@ -1,8 +1,7 @@
 import React from 'react'
 import { classNamesHelper } from '../modifiers'
 import { classNames } from '../utils'
-import { AllControlHelpers, ControlDiv } from './ControlDiv'
-import { ControlWrapper } from './ControlHelpers'
+import { AllControlHelpers, ControlDiv, ControlWrapper } from './internal'
 
 type SelectVariant =
   | 'primary'

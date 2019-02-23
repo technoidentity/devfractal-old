@@ -1,9 +1,13 @@
 import { Props } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
-import { ApiRepository, Repository } from './api'
-import { CrudComponents, CrudComponentsResult } from './Components'
-import { TVT } from './utils'
+import {
+  ApiRepository,
+  CrudComponents,
+  CrudComponentsResult,
+  Repository,
+  TVT,
+} from './internal'
 
 const base: (resource: string, basePath?: string) => string = (
   resource,

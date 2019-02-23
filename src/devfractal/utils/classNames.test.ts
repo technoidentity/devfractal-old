@@ -1,4 +1,4 @@
-import { classNames } from './classNames'
+import { classNames } from './internal'
 
 // tslint:disable:no-null-keyword
 

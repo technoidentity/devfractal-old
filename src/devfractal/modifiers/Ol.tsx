@@ -1,6 +1,5 @@
 import React, { OlHTMLAttributes } from 'react'
-import { Div } from './div'
-import { classNamesHelper, Helpers } from './helpers'
+import { classNamesHelper, Div, Helpers } from './internal'
 
 type OlModifier = 'lower-alpha' | 'lower-roman' | 'upper-alpha' | 'upper-roman'
 

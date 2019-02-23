@@ -1,7 +1,6 @@
 import React from 'react'
 import { Function } from 'tcomb'
-import { freeze } from './common'
-import { Null } from './Null'
+import { freeze, Null } from './internal'
 
 type SetArgs<T> = T | ((value: T) => T)
 

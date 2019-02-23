@@ -3,8 +3,7 @@ import warning from 'tiny-warning'
 import { Omit } from '../../types'
 import { classNamesHelper, Div, Helpers } from '../modifiers'
 import { State } from '../utils'
-import { AllControlHelpers } from './ControlDiv'
-import { ControlWrapper } from './ControlHelpers'
+import { AllControlHelpers, ControlWrapper } from './internal'
 
 export interface RadioChangeEvent {
   readonly name: string

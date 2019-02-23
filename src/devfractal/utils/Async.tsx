@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAsync } from 'react-use'
-import { nop } from './common'
+import { nop } from './internal'
 
 export interface AsyncComponentProps {
   readonly isLoading: boolean

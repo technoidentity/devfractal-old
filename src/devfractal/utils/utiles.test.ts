@@ -7,7 +7,7 @@ import {
   extractSegment,
   range,
   toLower,
-} from './index'
+} from './internal'
 
 // tslint:disable:no-null-keyword
 

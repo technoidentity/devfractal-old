@@ -1,12 +1,20 @@
 import { FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
 import { Omit } from '../../types'
-import { CheckBox, CheckBoxProps } from './CheckBox'
-import { FieldHelp, FieldHelpProps } from './Field'
-import { Input, InputProps } from './Input'
-import { RadioGroup, RadioGroupProps } from './Radio'
-import { Select, SelectProps } from './Select'
-import { TextArea, TextAreaProps } from './TextArea'
+import {
+  CheckBox,
+  CheckBoxProps,
+  FieldHelp,
+  FieldHelpProps,
+  Input,
+  InputProps,
+  RadioGroup,
+  RadioGroupProps,
+  Select,
+  SelectProps,
+  TextArea,
+  TextAreaProps,
+} from './internal'
 
 type OmitForm<T> = Omit<T, 'form'>
 

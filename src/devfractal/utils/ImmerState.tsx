@@ -1,7 +1,7 @@
 import React from 'react'
 import { Function } from 'tcomb'
-import { freeze, Mutable, mutative } from './common'
-import { Null } from './Null'
+import { freeze, Mutable, mutative } from './internal'
+import { Null } from './internal'
 
 type ImmerSetArgs<T> = T | ((value: Mutable<T>) => void)
 

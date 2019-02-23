@@ -8,8 +8,8 @@ import {
 import React from 'react'
 import { Omit } from '../../types'
 import { jsonStringify } from '../utils'
-import { CheckBoxProps } from './CheckBox'
 import {
+  CheckBoxProps,
   FormikCheckbox,
   FormikError,
   FormikErrorProps,
@@ -17,11 +17,11 @@ import {
   FormikRadioGroup,
   FormikSelect,
   FormikTextArea,
-} from './Controls'
-import { InputProps } from './Input'
-import { RadioGroupProps } from './Radio'
-import { SelectProps } from './Select'
-import { TextAreaProps } from './TextArea'
+  InputProps,
+  RadioGroupProps,
+  SelectProps,
+  TextAreaProps,
+} from './internal'
 
 export type FormikFieldConfig = Omit<FieldConfig, 'innerRef'>
 

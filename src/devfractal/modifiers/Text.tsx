@@ -1,6 +1,5 @@
 import React from 'react'
-import { Div } from './div'
-import { classNamesHelper, Helpers } from './helpers'
+import { classNamesHelper, Div, Helpers } from './internal'
 
 type HeaderTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 

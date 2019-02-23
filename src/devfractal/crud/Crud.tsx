@@ -2,7 +2,7 @@ import { Props } from 'io-ts'
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import { Section } from '../layout'
-import { ApiRepository } from './api'
+import { ApiRepository } from './internal'
 import {
   Paths,
   paths as ps,
