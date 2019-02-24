@@ -1,3 +1,5 @@
+export default undefined
+
 const { createConfig, babel, typescript } = require('webpack-blocks')
 
 module.exports = {

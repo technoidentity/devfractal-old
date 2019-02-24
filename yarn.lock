@@ -11148,6 +11148,21 @@ react-use@^5.4.1:
     use-callbag "^0.1.2"
     use-onclickoutside "^0.1.0"
 
+react-use@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-5.5.0.tgz#abc6e1e25b4aac7e32796175ce9b5f08cd2ff307"
+  integrity sha512-zBPsU0L7WuRYZ3yDq7AXxs35eH3JFUtCyOWdShg64PrTHz8bHd4V5VkHbU2sGKMSpkBh35qwJgT1jU8Z47FugQ==
+  dependencies:
+    "@types/react" "^16.8.2"
+    keyboardjs "^2.5.1"
+    nano-css "^3.4.0"
+    react-wait "^0.3.0"
+    rebound "^0.1.0"
+    throttle-debounce "^2.0.1"
+    ts-easing "^0.1.0"
+    use-callbag "^0.1.2"
+    use-onclickoutside "^0.1.0"
+
 react-wait@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/react-wait/-/react-wait-0.3.0.tgz#0cdd4d919012451a5bc3ab0a16d00c6fd9a8c10b"
@@ -12897,10 +12912,10 @@ tslint-react@^3.6.0:
   dependencies:
     tsutils "^2.13.1"
 
-tslint@^5.12.1:
-  version "5.12.1"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.12.1.tgz#8cec9d454cf8a1de9b0a26d7bdbad6de362e52c1"
-  integrity sha512-sfodBHOucFg6egff8d1BvuofoOQ/nOeYNfbp7LDlKBcLNrL3lmS5zoiDGyOMdT7YsEXAwWpTdAHwOGOc8eRZAw==
+tslint@^5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.13.0.tgz#239a2357c36b620d72d86744754b6fc088a25359"
+  integrity sha512-ECOOQRxXCYnUUePG5h/+Z1Zouobk3KFpIHA9aKBB/nnMxs97S1JJPDGt5J4cGm1y9U9VmVlfboOxA8n1kSNzGw==
   dependencies:
     babel-code-frame "^6.22.0"
     builtin-modules "^1.1.1"
@@ -12910,6 +12925,7 @@ tslint@^5.12.1:
     glob "^7.1.1"
     js-yaml "^3.7.0"
     minimatch "^3.0.4"
+    mkdirp "^0.5.1"
     resolve "^1.3.2"
     semver "^5.3.0"
     tslib "^1.8.0"
