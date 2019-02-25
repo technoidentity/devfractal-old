@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import { Section } from 'technoidentity-devfractal'
-import { paths, RouteComponents } from '../devfractal'
+import { paths, RouteComponents, Section } from '../devfractal'
 import { InMemoryAPI } from './todoAPI'
 import { TodoValue } from './types'
 
