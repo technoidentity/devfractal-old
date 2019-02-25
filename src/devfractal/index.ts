@@ -1,2 +1,2 @@
 import 'bulma/css/bulma.min.css'
-export * from './lib'
+export * from './src/lib'
