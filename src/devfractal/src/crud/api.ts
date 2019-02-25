@@ -11,33 +11,36 @@ import {
 import { Omit } from 'react-router'
 import { toPromise } from './internal'
 
-export interface ApiUrls {
+export interface ApiUrls<IDType = unknown> {
   all(): string
   create(): string
-  one(id: unknown): string
-  remove(id: unknown): string
+  one(id: IDType): string
+  remove(id: IDType): string
 }
 
-export const apiUrls: (baseUrl: string, resource: string) => ApiUrls = (
-  baseUrl,
-  resource,
-) => ({
-  all: () => `${baseUrl}/${resource}`,
-  create: () => `${baseUrl}/${resource}`,
-  one: (id: unknown) => `${baseUrl}/${resource}/${id}`,
-  remove: (id: unknown) => `${baseUrl}/${resource}/${id}`,
-})
+export function apiUrls<IDType = unknown>(
+  baseUrl: string,
+  resource: string,
+): ApiUrls<IDType> {
+  return {
+    all: () => `${baseUrl}/${resource}`,
+    create: () => `${baseUrl}/${resource}`,
+    one: (id: IDType) => `${baseUrl}/${resource}/${id}`,
+    remove: (id: IDType) => `${baseUrl}/${resource}/${id}`,
+  }
+}
 
 interface ApiValues<
   T extends Props & { readonly id: any },
   V extends Mixed = ReadonlyC<TypeC<T>>,
-  LV = ReadonlyArrayC<V>
+  LV = ReadonlyArrayC<V>,
+  IDType = T['id']
 > {
   readonly baseUrl: string
   readonly resource: string
   readonly value: V
   readonly listValue: LV
-  readonly urls: ApiUrls
+  readonly urls: IDType
 }
 
 export interface Repository<
@@ -59,13 +62,14 @@ export type ApiRepository<T extends Props & { readonly id: any }> = Repository<
 export interface APIArgs<
   T extends Props & { readonly id: any },
   V = ReadonlyC<TypeC<T>>,
-  LV = ReadonlyArrayC<ReadonlyC<TypeC<T>>>
+  LV = ReadonlyArrayC<ReadonlyC<TypeC<T>>>,
+  IDType = T['id']
 > {
   readonly baseUrl: string
   readonly resource: string
   readonly value: V
   readonly listValue?: LV
-  readonly urls?: ApiUrls
+  readonly urls?: IDType
 }
 
 export function api<T extends Props & { id: any }>({
@@ -90,6 +94,7 @@ export function api<T extends Props & { id: any }>({
     one: async id =>
       toPromise(
         value.decode(
+          // @TODO: enforce correct type for id at runtime using 'value'
           (await axios.get<TypeOf<typeof value>>(urls.one(id))).data,
         ),
       ),
@@ -100,6 +105,7 @@ export function api<T extends Props & { id: any }>({
         ),
       ),
     remove: async id =>
+      // @TODO: data is any?!!!
       toPromise(value.decode((await axios.delete(urls.remove(id))).data)),
   }
 }
