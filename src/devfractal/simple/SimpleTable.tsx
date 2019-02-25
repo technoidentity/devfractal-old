@@ -17,12 +17,6 @@ export interface RowClickEvent<T> {
   readonly value: T
 }
 
-export interface SimpleTableProps<T> extends TableProps {
-  readonly headers?: ReadonlyArray<string>
-  readonly data: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
-  onRowClicked?(value: RowClickEvent<T>): void
-}
-
 export interface RowsProps<T> {
   readonly headers: ReadonlyArray<string>
   readonly data: ReadonlyArray<T>
@@ -78,6 +72,13 @@ function TableView<T>(args: TableViewProps<T>): JSX.Element {
     </Table>
   )
 }
+
+export interface SimpleTableProps<T> extends TableProps {
+  readonly headers?: ReadonlyArray<string>
+  readonly data: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
+  onRowClicked?(value: RowClickEvent<T>): void
+}
+
 export function SimpleTable<T>(args: SimpleTableProps<T>): JSX.Element {
   const { data, ...props } = args
 
