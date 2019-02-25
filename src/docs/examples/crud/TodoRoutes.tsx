@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import { paths, RouteComponents, Section } from '../devfractal'
+import { paths, RouteComponents, Section, SimpleRedirect } from '../devfractal'
 import { InMemoryAPI } from './todoAPI'
 import { TodoValue } from './types'
 
@@ -21,7 +21,7 @@ export const TodoRoutes: React.SFC = () => {
   const { create, list, edit, view } = paths(resource, basePath)
   return (
     <Section>
-      {/* <Redirect from="/crud" to="/crud/todos" /> */}
+      <SimpleRedirect exact from="/crud" to="/crud/todos" />
       <Switch>
         <Route exact path={create} component={Create} />
         <Route exact path={edit} component={Edit} />

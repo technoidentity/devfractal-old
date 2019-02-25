@@ -15,8 +15,7 @@ export const InMemoryAPI: Repository<Todo> = {
   all: async () => toPromise(TodoListValue.decode(staticTodoList)),
 
   one: async id => {
-    assert(Number.is(id))
-    return toPromise(TodoValue.decode(staticTodoList.find(t => t.id === id)))
+    return toPromise(TodoValue.decode(staticTodoList.find(t => t.id === +id)))
   },
 
   create: async value => {
