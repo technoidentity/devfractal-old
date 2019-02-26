@@ -15,6 +15,7 @@ export interface ApiUrls<IDType = unknown> {
   all(): string
   create(): string
   one(id: IDType): string
+  edit(id: IDType): string
   remove(id: IDType): string
 }
 
@@ -26,6 +27,7 @@ export function apiUrls<IDType = unknown>(
     all: () => `${baseUrl}/${resource}`,
     create: () => `${baseUrl}/${resource}`,
     one: (id: IDType) => `${baseUrl}/${resource}/${id}`,
+    edit: (id: IDType) => `${baseUrl}/${resource}/${id}`,
     remove: (id: IDType) => `${baseUrl}/${resource}/${id}`,
   }
 }
@@ -49,8 +51,9 @@ export interface Repository<
   IDType = T['id']
 > {
   all(): Promise<List>
-  one(id: IDType): Promise<T>
   create(value: Omit<T, 'id'>): Promise<T>
+  one(id: IDType): Promise<T>
+  edit(value: T): Promise<T>
   remove(id: IDType): Promise<T>
 }
 
@@ -103,6 +106,10 @@ export function api<T extends Props & { id: any }>({
         value.decode(
           (await axios.post<TypeOf<typeof value>>(urls.create())).data,
         ),
+      ),
+    edit: async () =>
+      toPromise(
+        value.decode((await axios.post<TypeOf<typeof value>>(urls())).data),
       ),
     remove: async id =>
       // @TODO: data is any?!!!

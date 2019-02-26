@@ -2,14 +2,13 @@ import { Either } from 'fp-ts/lib/Either'
 import { Errors } from 'io-ts'
 import { assert, Number } from 'tcomb'
 import { rejected, Repository, toPromise } from '../devfractal'
-import { fakeTodoList } from './fakeData'
+import { fakeTodo, fakeTodoList } from './fakeData'
 import { Todo, TodoListValue, TodoValue } from './types'
 
-// tslint:disable-next-line:readonly-array
-const staticTodoList: Todo[] = fakeTodoList(5)
+// tslint:disable no-let
 
-// tslint:disable-next-line:no-let
-let id: number = 1000
+let staticTodoList: ReadonlyArray<Todo> = fakeTodoList(5)
+let nextID: number = 1000
 
 export const InMemoryAPI: Repository<Todo> = {
   all: async () => toPromise(TodoListValue.decode(staticTodoList)),
@@ -19,15 +18,27 @@ export const InMemoryAPI: Repository<Todo> = {
   },
 
   create: async value => {
-    const todo: Either<Errors, Todo> = TodoValue.decode({ id, ...value })
+    const todo: Either<Errors, Todo> = TodoValue.decode({
+      id: nextID,
+      ...value,
+    })
 
     if (todo.isRight()) {
-      // tslint:disable-next-line: no-array-mutation
-      staticTodoList.push(todo.value)
+      staticTodoList = [...staticTodoList, todo.value]
       return todo.value
     }
-    ++id
+    ++nextID
     return rejected(todo)
+  },
+
+  edit: async value => {
+    const i: number = staticTodoList.findIndex(t => t.id === +value.id)
+    if (i === -1) {
+      return rejected(`no todo with id: ${nextID}`)
+    }
+    const [ignore, ...rest] = staticTodoList
+    staticTodoList = [value, ...rest]
+    return value
   },
 
   remove: async id => {
@@ -39,8 +50,10 @@ export const InMemoryAPI: Repository<Todo> = {
     }
 
     const todo: Todo = staticTodoList[i]
-    // tslint:disable-next-line: no-array-mutation
-    staticTodoList.splice(i, 1)
+    staticTodoList = [
+      ...staticTodoList.slice(0, i),
+      ...staticTodoList.slice(i + 1),
+    ]
     return todo
   },
 }

@@ -1,6 +1,6 @@
 import Chance from 'chance'
 import { assert, Integer } from 'tcomb'
-import { Todo } from './types'
+import { Todo, TodoList } from './types'
 
 // tslint:disable typedef readonly-array no-loop-statement no-array-mutation
 
@@ -18,7 +18,7 @@ export const fakeTodo: () => Todo = () => ({
   done: fakeDone(),
 })
 
-export const fakeTodoList: (n: number) => Todo[] = n => {
+export const fakeTodoList: (n: number) => TodoList = n => {
   assert(Integer.is(n) && n >= 0)
 
   const result: Todo[] = []

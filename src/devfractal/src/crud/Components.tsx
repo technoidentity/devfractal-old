@@ -34,14 +34,19 @@ export type CrudComponentsResult<T extends Props, V = TVT<T>> = Readonly<{
 export const CrudComponents: <T extends Props & { readonly id: unknown }>(
   typeValue: VT<T>, // or pass to Create?
   api: Repository<TVT<T>>,
-) => CrudComponentsResult<T> = typeValue => ({
-  Create: () => <SimpleEditor data={emptyFromType(typeValue)} />,
+) => CrudComponentsResult<T> = (typeValue, api) => ({
+  Create: () => (
+    <SimpleEditor
+      data={emptyFromType(typeValue)}
+      onSubmit={values => api.create(values)}
+    />
+  ),
 
   Edit: ({ asyncFn }) => {
     const { value, loading, error } = useAsync(asyncFn)
     return value ? (
       // @TODO: typed SimpleEditor/Viewer/Table would be awesome!
-      <SimpleEditor data={value} />
+      <SimpleEditor data={value} onSubmit={values => api.edit(values)} />
     ) : loading ? (
       <h1>Loading...</h1>
     ) : (
