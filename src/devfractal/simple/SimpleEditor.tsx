@@ -1,3 +1,4 @@
+import { FormikActions } from 'formik'
 import React from 'react'
 import { Boolean, Function, Number } from 'tcomb'
 import { Async, Box, camelCaseToPhrase, Label, Section } from '../lib'
@@ -5,15 +6,17 @@ import { Simple } from './internal'
 
 export interface SimpleEditorViewProps<T extends object> {
   readonly data: T
+  onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
 export function SimpleEditorView<T extends object = any>({
   data,
+  onSubmit,
 }: SimpleEditorViewProps<T>): JSX.Element {
   return (
     <Section>
       <Box>
-        <Simple.Form initialValues={data}>
+        <Simple.Form initialValues={data} onSubmit={onSubmit}>
           {Object.keys(data).map(key => (
             <React.Fragment key={key}>
               {Boolean.is(data[key]) ? (
@@ -37,10 +40,12 @@ export function SimpleEditorView<T extends object = any>({
 
 export interface SimpleEditorProps<T extends object = any> {
   readonly data: T | (() => Promise<T>)
+  onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
 export function SimpleEditor<T extends object>({
   data,
+  onSubmit,
 }: SimpleEditorProps<T>): JSX.Element {
   if (Function.is(data)) {
     return (
@@ -49,7 +54,7 @@ export function SimpleEditor<T extends object>({
           if (error) {
             return <div>Error</div>
           } else if (data) {
-            return <SimpleEditorView data={data} />
+            return <SimpleEditorView data={data} onSubmit={onSubmit} />
           } else {
             return <div>Loading...</div>
           }
@@ -57,6 +62,6 @@ export function SimpleEditor<T extends object>({
       </Async>
     )
   } else {
-    return <SimpleEditorView data={data} />
+    return <SimpleEditorView data={data} onSubmit={onSubmit} />
   }
 }
