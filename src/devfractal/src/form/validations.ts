@@ -29,6 +29,18 @@ export const max: (
 ) => <T extends CommonSchema>(schema: T) => T = (maxValue, message) => schema =>
   schema.max(maxValue, message) as typeof schema
 
+export const length: (
+  limit: number,
+  message?: TestOptionsMessage,
+) => (schema: StringSchema) => StringSchema = (limit, message) => schema =>
+  (schema as any).length(limit, message)
+
+export const matches: (
+  exp: RegExp,
+  message?: TestOptionsMessage,
+) => (schema: StringSchema) => StringSchema = (exp, message) => schema =>
+  schema.matches(exp, message)
+
 export const email: (
   message?: TestOptionsMessage,
 ) => (schema: StringSchema) => StringSchema = message => schema =>
