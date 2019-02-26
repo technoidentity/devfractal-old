@@ -81,7 +81,7 @@ export const RouteComponents: <T extends Props & { readonly id: unknown }>(
   const { all, one } = args.api
   const value = 'value' in args ? args.value : args.api.value
   const resource = 'resource' in args ? args.resource : args.api.resource
-  const Crud = args.Crud || CrudComponents(value)
+  const Crud = args.Crud || CrudComponents(value, args.api)
 
   // tslint:enable typedef
 

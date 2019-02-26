@@ -11,7 +11,7 @@ import {
   SimpleViewer,
   Text,
 } from '../lib'
-import { emptyFromType, TVT, VT } from './internal'
+import { emptyFromType, Repository, TVT, VT } from './internal'
 
 interface ItemProps<T> {
   asyncFn(): Promise<T>
@@ -31,8 +31,9 @@ export type CrudComponentsResult<T extends Props, V = TVT<T>> = Readonly<{
   readonly View: FC<ItemProps<V>>
 }>
 
-export const CrudComponents: <T extends Props>(
+export const CrudComponents: <T extends Props & { readonly id: unknown }>(
   typeValue: VT<T>, // or pass to Create?
+  api: Repository<TVT<T>>,
 ) => CrudComponentsResult<T> = typeValue => ({
   Create: () => <SimpleEditor data={emptyFromType(typeValue)} />,
 
