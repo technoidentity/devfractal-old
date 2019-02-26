@@ -38,7 +38,9 @@ export const CrudComponents: <T extends Props & { readonly id: unknown }>(
   Create: () => (
     <SimpleEditor
       data={emptyFromType(typeValue)}
-      onSubmit={values => api.create(values)}
+      onSubmit={async values => {
+        await api.create(values)
+      }}
     />
   ),
 
@@ -46,7 +48,12 @@ export const CrudComponents: <T extends Props & { readonly id: unknown }>(
     const { value, loading, error } = useAsync(asyncFn)
     return value ? (
       // @TODO: typed SimpleEditor/Viewer/Table would be awesome!
-      <SimpleEditor data={value} onSubmit={values => api.edit(values)} />
+      <SimpleEditor
+        data={value}
+        onSubmit={async values => {
+          await api.edit(values)
+        }}
+      />
     ) : loading ? (
       <h1>Loading...</h1>
     ) : (

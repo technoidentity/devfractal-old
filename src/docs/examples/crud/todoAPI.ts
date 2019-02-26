@@ -2,7 +2,7 @@ import { Either } from 'fp-ts/lib/Either'
 import { Errors } from 'io-ts'
 import { assert, Number } from 'tcomb'
 import { rejected, Repository, toPromise } from '../devfractal'
-import { fakeTodo, fakeTodoList } from './fakeData'
+import { fakeTodoList } from './fakeData'
 import { Todo, TodoListValue, TodoValue } from './types'
 
 // tslint:disable no-let
@@ -36,8 +36,7 @@ export const InMemoryAPI: Repository<Todo> = {
     if (i === -1) {
       return rejected(`no todo with id: ${nextID}`)
     }
-    const [ignore, ...rest] = staticTodoList
-    staticTodoList = [value, ...rest]
+    staticTodoList = [value, ...staticTodoList.slice(1)]
     return value
   },
 
