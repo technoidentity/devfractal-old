@@ -1,5 +1,4 @@
-export default undefined
-
+// @ts-ignore
 const { createConfig, babel, typescript } = require('webpack-blocks')
 
 module.exports = {
