@@ -11,18 +11,12 @@ import {
   Title,
 } from '../lib'
 
-const SimpleHeader: React.SFC<{ readonly objectKey: string }> = ({
-  objectKey,
-}) => <Title size="4">{camelCaseToPhrase(objectKey)}</Title>
+const SimpleHeader: React.SFC<{ readonly header: string }> = ({ header }) => (
+  <Title size="4">{camelCaseToPhrase(header)}</Title>
+)
 
-const SimpleValue: React.SFC<{ readonly objectValue: string }> = ({
-  objectValue,
-}) =>
-  Boolean.is(objectValue) ? (
-    <CheckBox checked={objectValue} readOnly />
-  ) : (
-    <>{objectValue}</>
-  )
+const SimpleValue: React.SFC<{ readonly data: string }> = ({ data }) =>
+  Boolean.is(data) ? <CheckBox checked={data} readOnly /> : <>{data}</>
 
 export interface SimpleViewerViewProps<T extends object> {
   readonly data: T
@@ -37,10 +31,10 @@ export function SimpleViewerView<T extends object>({
         {Object.keys(data).map(key => (
           <Columns key={key}>
             <Column>
-              <SimpleHeader objectKey={key} />
+              <SimpleHeader header={key} />
             </Column>
             <Column>
-              <SimpleValue objectValue={data[key]} />
+              <SimpleValue data={data[key]} />
             </Column>
           </Columns>
         ))}
