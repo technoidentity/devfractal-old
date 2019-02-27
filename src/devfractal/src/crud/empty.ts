@@ -31,15 +31,17 @@ export function emptyFromType<T extends Props>(
 
   // tslint:disable no-object-mutation
   Object.keys(props).forEach(prop => {
-    if (props[prop].name === 'number') {
-      value[prop] = 0
-    } else if (props[prop].name === 'string') {
-      value[prop] = ''
-    } else if (props[prop].name === 'boolean') {
-      value[prop] = false
-      // @TODO: handle array and object
-    } else {
-      throw new Error(`Unsupported type ${props[prop]}`)
+    if (prop !== 'id') {
+      if (props[prop].name === 'number') {
+        value[prop] = 0
+      } else if (props[prop].name === 'string') {
+        value[prop] = ''
+      } else if (props[prop].name === 'boolean') {
+        value[prop] = false
+        // @TODO: handle array and object
+      } else {
+        throw new Error(`Unsupported type ${props[prop]}`)
+      }
     }
   })
   // tslint:enable no-object-mutation
