@@ -68,7 +68,7 @@ interface RouteComponentsArgs<T extends Props & { readonly id: unknown }> {
 
 export interface RouteComponentsResult {
   readonly List: FC<RouteComponentProps>
-  readonly Create: FC
+  readonly Create: FC<RouteComponentProps>
   readonly Edit: FC<RouteComponentProps<{ readonly id?: string }>>
   readonly View: FC<RouteComponentProps<{ readonly id?: string }>>
 }
@@ -78,11 +78,11 @@ export const RouteComponents: <T extends Props & { readonly id: unknown }>(
   basePath: string,
 ) => RouteComponentsResult = (args, basePath) => {
   // tslint:disable typedef
-  const { all, one } = args.api
+  const { all, one, create, edit } = args.api
   const value = 'value' in args ? args.value : args.api.value
   const resource = 'resource' in args ? args.resource : args.api.resource
-  const Crud = args.Crud || CrudComponents(value, args.api)
-
+  const Crud = args.Crud || CrudComponents(value)
+  const paths = pathFns(resource, basePath)
   // tslint:enable typedef
 
   return {
@@ -92,14 +92,29 @@ export const RouteComponents: <T extends Props & { readonly id: unknown }>(
         onEdit={({ value }) =>
           history.push(pathFns(resource, basePath).edit(+value.id))
         }
-        onCreate={() => history.push(pathFns(resource, basePath).create())}
+        onCreate={() => history.push(paths.create())}
       />
     ),
-    Create: () => <Crud.Create />,
+    Create: ({ history }) => (
+      <Crud.Create
+        onSubmit={async (values, actions) => {
+          await create(values, actions)
+          history.push(paths.list())
+          // @TODO: handle error?
+        }}
+      />
+    ),
 
-    Edit: ({ match }) => (
+    Edit: ({ history, match }) => (
       // @TODO: handle id type in one?
-      <Crud.Edit asyncFn={async () => one(match.params.id as any)} />
+      <Crud.Edit
+        asyncFn={async () => one(match.params.id as any)}
+        onSubmit={async (values, actions) => {
+          await edit(values, actions)
+          history.push(paths.list())
+          // @TODO: handle error?
+        }}
+      />
     ),
     View: ({ match }) => (
       <Crud.View asyncFn={async () => one(match.params.id as any)} />

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { FormikActions } from 'formik'
 import {
   Mixed,
   Props,
@@ -9,6 +10,7 @@ import {
   TypeOf,
 } from 'io-ts'
 import { Omit } from 'react-router'
+import { apiSubmit } from '../lib'
 import { toPromise } from './internal'
 
 export interface ApiUrls<IDType = unknown> {
@@ -51,9 +53,12 @@ export interface Repository<
   IDType = T['id']
 > {
   all(): Promise<List>
-  create(value: Omit<T, 'id'>): Promise<T>
+  create(
+    value: Omit<T, 'id'>,
+    actions: FormikActions<Omit<T, 'id'>>,
+  ): Promise<T>
   one(id: IDType): Promise<T>
-  edit(value: T): Promise<T>
+  edit(value: T, actions: FormikActions<T>): Promise<T>
   remove(id: IDType): Promise<T>
 }
 
@@ -101,15 +106,22 @@ export function api<T extends Props & { id: any }>({
           (await axios.get<TypeOf<typeof value>>(urls.one(id))).data,
         ),
       ),
-    create: async () =>
+    create: async (values, actions) =>
       toPromise(
         value.decode(
-          (await axios.post<TypeOf<typeof value>>(urls.create())).data,
+          await apiSubmit<Omit<TypeOf<typeof value>, 'id'>>({
+            url: urls.create(),
+          })(values, actions),
         ),
       ),
-    edit: async () =>
+    edit: async (values, actions) =>
       toPromise(
-        value.decode((await axios.post<TypeOf<typeof value>>(urls())).data),
+        value.decode(
+          apiSubmit<TypeOf<typeof value>>({ url: urls(), action: 'put' })(
+            values,
+            actions,
+          ),
+        ),
       ),
     remove: async id =>
       // @TODO: data is any?!!!
