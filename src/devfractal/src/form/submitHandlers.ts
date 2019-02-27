@@ -18,6 +18,7 @@ export function consoleSubmit<Values extends object>(
 
 interface APISubmitArgs<Values, Result extends Values> {
   readonly url: string
+  readonly action?: 'post' | 'put'
   readonly noResetOnSubmit?: boolean
   errorsTransformer?(errors: unknown): FormikErrors<Values>
   responseTransformer?(response: unknown): Result
@@ -31,9 +32,11 @@ type APISubmitResult<Values extends {}, Result extends Values> = (
   formikArgs: FormikActions<Values>,
 ) => Promise<Result>
 
+export type ApiSubmitAction = 'post' | 'put'
 // Need to create Either and AsynchronousEither
 export function apiSubmit<Values extends {}, Result extends Values = Values>({
   url,
+  action = 'post',
   noResetOnSubmit = false,
   valuesTransformer = id,
   responseTransformer = id,
@@ -42,11 +45,15 @@ export function apiSubmit<Values extends {}, Result extends Values = Values>({
   return async (values, { setValues, setErrors, setSubmitting, resetForm }) => {
     try {
       // Should handle the erroneous scenario, output keys aren't a subset of input
-      const response: Result = responseTransformer(
-        (await axios.post(url, valuesTransformer(values))).data,
-      )
+      const data: Values =
+        action === 'post'
+          ? (await axios.post(url, valuesTransformer(values))).data
+          : (await axios.put(url, valuesTransformer(values))).data
+
+      const response: Result = responseTransformer(data)
       setValues(response)
       setSubmitting(false)
+
       if (!noResetOnSubmit) {
         resetForm()
       }
