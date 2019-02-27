@@ -29,7 +29,7 @@ const id: (x: unknown) => any = x => x
 
 type APISubmitResult<Values extends {}, Result extends Values> = (
   values: Values,
-  formikArgs: FormikActions<Values>,
+  actions: FormikActions<Values>,
 ) => Promise<Result>
 
 export type ApiSubmitAction = 'post' | 'put'
