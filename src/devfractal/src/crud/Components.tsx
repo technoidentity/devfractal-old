@@ -1,3 +1,4 @@
+import { FormikActions } from 'formik'
 import { Props } from 'io-ts'
 import React, { FC } from 'react'
 import { useAsync } from 'react-use'
@@ -5,16 +6,27 @@ import {
   Button,
   Container,
   Field,
+  Omit,
   RowClickEvent,
   SimpleEditor,
   SimpleTable,
   SimpleViewer,
   Text,
 } from '../lib'
-import { emptyFromType, Repository, TVT, VT } from './internal'
+import { emptyFromType, TVT, VT } from './internal'
 
 interface ItemProps<T> {
   asyncFn(): Promise<T>
+}
+
+export interface EditProps<T> extends ItemProps<T> {
+  onSubmit?(values: T, actions: FormikActions<T>): void
+}
+
+export interface ViewProps<T> extends ItemProps<T> {}
+
+export interface CreateProps<T> {
+  onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
 export interface ListProps<T> {
@@ -26,34 +38,23 @@ export interface ListProps<T> {
 
 export type CrudComponentsResult<T extends Props, V = TVT<T>> = Readonly<{
   readonly List: FC<ListProps<V>>
-  readonly Create: FC
-  readonly Edit: FC<ItemProps<V>>
+  readonly Create: FC<CreateProps<Omit<V, 'id'>>>
+  readonly Edit: FC<EditProps<V>>
   readonly View: FC<ItemProps<V>>
 }>
 
 export const CrudComponents: <T extends Props & { readonly id: unknown }>(
   typeValue: VT<T>, // or pass to Create?
-  api: Repository<TVT<T>>,
-) => CrudComponentsResult<T> = (typeValue, api) => ({
-  Create: () => (
-    <SimpleEditor
-      data={emptyFromType(typeValue)}
-      onSubmit={async values => {
-        await api.create(values)
-      }}
-    />
+) => CrudComponentsResult<T> = typeValue => ({
+  Create: ({ onSubmit }) => (
+    <SimpleEditor data={emptyFromType(typeValue)} onSubmit={onSubmit} />
   ),
 
-  Edit: ({ asyncFn }) => {
+  Edit: ({ asyncFn, onSubmit }) => {
     const { value, loading, error } = useAsync(asyncFn)
     return value ? (
       // @TODO: typed SimpleEditor/Viewer/Table would be awesome!
-      <SimpleEditor
-        data={value}
-        onSubmit={async values => {
-          await api.edit(values)
-        }}
-      />
+      <SimpleEditor data={value} onSubmit={onSubmit} />
     ) : loading ? (
       <h1>Loading...</h1>
     ) : (
