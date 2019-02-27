@@ -6,16 +6,13 @@ import { CalendarComponent } from './Calendar'
 
 import { getDateISO } from './helpers'
 
-// tslint:disable
-// ts-ignore
-
 export interface DatePickerState {
   readonly date: Date
   readonly isCalendarOpen: boolean
 }
 
 export class DatePicker extends React.Component<{}, DatePickerState> {
-  readonly state = {
+  readonly state: DatePickerState = {
     isCalendarOpen: false,
     date: new Date(),
   }
@@ -29,7 +26,7 @@ export class DatePicker extends React.Component<{}, DatePickerState> {
     month: number,
     year: number,
   ) => {
-    const date = new Date(year, month, day)
+    const date: Date = new Date(year, month, day)
     this.setState({ date, isCalendarOpen: false })
   }
 

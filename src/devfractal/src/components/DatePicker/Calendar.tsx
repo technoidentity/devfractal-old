@@ -3,21 +3,21 @@ import * as React from 'react'
 import 'bulma/css/bulma.css'
 import 'font-awesome/css/font-awesome.min.css'
 
-// tslint:disable
-// ts-ignore
-
 import {
-  getCalendarDates,
-  getPreviousMonth,
-  getNextMonth,
   calendarMonths,
+  getCalendarDates,
+  getNextMonth,
+  getPreviousMonth,
   isSameDay,
   isSameMonth,
 } from './helpers'
 
-const partitionArray = (array: any, size: number) => {
+const partitionArray: (array: any, size: number) => ReadonlyArray<any> = (
+  array: ReadonlyArray<ReadonlyArray<number>>,
+  size: number,
+) => {
   return Array.from(Array(array.length).keys())
-    .map(i => (i % size === 0 ? array.slice(i, i + size) : null))
+    .map(i => (i % size === 0 ? array.slice(i, i + size) : undefined))
     .filter((e: any) => e)
 }
 
@@ -28,7 +28,12 @@ export interface DisplayMonthDaysTableProps {
   onDateButtonClick(day: number, month: number, year: number): void
 }
 
-export const DisplayMonthDaysTable = ({
+export const DisplayMonthDaysTable: ({
+  Weeks_Month,
+  onDateButtonClick,
+  month,
+  year,
+}: DisplayMonthDaysTableProps) => JSX.Element = ({
   Weeks_Month,
   onDateButtonClick,
   month,
@@ -40,7 +45,7 @@ export const DisplayMonthDaysTable = ({
         <thead>
           <tr>
             <th
-              className="has-text-info is-size-7-mobile	
+              className="has-text-info is-size-7-mobile
 	"
             >
               SUN
@@ -59,16 +64,16 @@ export const DisplayMonthDaysTable = ({
               return (
                 <tr key={index}>
                   {week.map((date: any, i: number) => {
-                    const _date = new Date(date.join('-'))
+                    const currentDate: Date = new Date(date.join('-'))
 
-                    return isSameDay(_date) ? (
+                    return isSameDay(currentDate) ? (
                       <td key={i}>
                         <button className="button is-info is-rounded is-size-7-mobile	">
-                          {_date.getDate()}
+                          {currentDate.getDate()}
                         </button>
                       </td>
                     ) : isSameMonth(
-                        _date,
+                        currentDate,
                         new Date([year, month, 1].join('-')),
                       ) ? (
                       <td key={i}>
@@ -76,13 +81,13 @@ export const DisplayMonthDaysTable = ({
                           className="button is-rounded has-text-info is-size-7-mobile		 "
                           onClick={() =>
                             onDateButtonClick(
-                              _date.getDate(),
-                              _date.getMonth(),
-                              _date.getFullYear(),
+                              currentDate.getDate(),
+                              currentDate.getMonth(),
+                              currentDate.getFullYear(),
                             )
                           }
                         >
-                          {_date.getDate()}
+                          {currentDate.getDate()}
                         </button>
                       </td>
                     ) : (
@@ -91,13 +96,13 @@ export const DisplayMonthDaysTable = ({
                           className="button is-rounded has-text-grey is-size-7-mobile		"
                           onClick={() =>
                             onDateButtonClick(
-                              _date.getDate(),
-                              _date.getMonth(),
-                              _date.getFullYear(),
+                              currentDate.getDate(),
+                              currentDate.getMonth(),
+                              currentDate.getFullYear(),
                             )
                           }
                         >
-                          {_date.getDate()}
+                          {currentDate.getDate()}
                         </button>
                       </td>
                     )
@@ -137,8 +142,8 @@ export class CalendarComponent extends React.Component<
 
   readonly calendarDates = () => {
     const { current, month, year } = this.state
-    const calendarMonth = month || +current.getMonth() + 1
-    const calendarYear = year || current.getFullYear()
+    const calendarMonth: number = month || +current.getMonth() + 1
+    const calendarYear: number = year || current.getFullYear()
     return getCalendarDates(calendarMonth, calendarYear)
   }
 
@@ -153,8 +158,10 @@ export class CalendarComponent extends React.Component<
   }
 
   render(): JSX.Element {
-    const displayCalendarDays = this.calendarDates()
-    const weeksMonth = partitionArray(displayCalendarDays, 7)
+    const displayCalendarDays: ReadonlyArray<
+      ReadonlyArray<string | number>
+    > = this.calendarDates()
+    const weeksMonth: any = partitionArray(displayCalendarDays, 7)
 
     return (
       <div>
@@ -172,7 +179,7 @@ export class CalendarComponent extends React.Component<
               </div>
             </div>
             <div className="has-text-info	 ">
-              {calendarMonths[this.state.month]}-{this.state.year}
+              {calendarMonths[this.state.month - 1]}-{this.state.year}
             </div>
             <div
               className="button is-info is-inverted"
