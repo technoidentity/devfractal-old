@@ -52,9 +52,9 @@ export const StepComponent: () => JSX.Element = () => {
     setProfileValues({ ...profileValues, [name]: value })
   }
 
-  const handleSocialValuesInputChange: (
+  const handleSocialValuesInputChange: (event: React.SyntheticEvent) => void = (
     event: React.SyntheticEvent,
-  ) => void = (event: React.SyntheticEvent) => {
+  ) => {
     event.persist()
     const { name, value } = event.target as HTMLInputElement
     setSocialValues({ ...socialValues, [name]: value })
