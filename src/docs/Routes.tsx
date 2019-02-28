@@ -58,6 +58,7 @@ import {
   TileExample,
   TitleExample,
   Todo,
+  TreeViewStructure,
   TypographyHelpersExample,
 } from './examples'
 import { TodoRoutes } from './examples/crud/TodoRoutes'
@@ -104,6 +105,7 @@ export const CompositesRoutes: React.SFC = () => (
     />
     <Route path="/composites/counter" exact component={Counter} />
     <Route path="/composites/todo" exact component={Todo} />
+    <Route path="/composites/treeview" exact component={TreeViewStructure} />
     <Route path="/composites/simple-todo" exact component={SimpleTodo} />
     <Route
       path="/composites/login-form-variants"
