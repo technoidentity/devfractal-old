@@ -31,10 +31,10 @@ import {
   Text,
   Title,
 } from '../docs/examples/devfractal'
-import contentloader from './images/contentloader.png'
-import devfractalicon from './images/devfractalicon.png'
+import contentLoader from './images/contentLoader.png'
+import devfractalIcon from './images/devfractalIcon.png'
 import logo from './images/logo.png'
-import uicomponents from './images/uicomponentsicon.png'
+import uiComponentsIcon from './images/uiComponentsIcon.png'
 import {
   ColumnsMedia,
   ComponentsMedia,
@@ -74,7 +74,7 @@ export const HeroBodySection: React.SFC = () => (
       </ButtonsGroup>
     </Section>
     <img
-      src={contentloader}
+      src={contentLoader}
       style={{
         backgroundColor: '#004365',
         display: 'block',
@@ -93,7 +93,7 @@ export const IndexPageHeader: React.SFC = () => (
         <Navbar>
           <NavbarBrand>
             <NavbarItem style={{ paddingLeft: '7rem' }}>
-              <img src={devfractalicon} />
+              <img src={devfractalIcon} />
               <Link to="/">
                 <Text textColor="white" textWeight="bold" textSize="5">
                   DEVFRACTAL
@@ -322,7 +322,7 @@ export const ExploreUIComponents: React.SFC = () => (
             </Link>
           </Column>
           <img
-            src={uicomponents}
+            src={uiComponentsIcon}
             style={{
               marginLeft: 'auto',
               marginTop: 'auto',
