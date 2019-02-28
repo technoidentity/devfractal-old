@@ -30,7 +30,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from '../docs/examples/devfractal'
+} from '../devfractal'
 import contentLoader from './images/contentLoader.png'
 import devfractalIcon from './images/devfractalIcon.png'
 import logo from './images/logo.png'
