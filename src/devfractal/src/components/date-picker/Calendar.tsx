@@ -3,6 +3,7 @@ import * as React from 'react'
 import 'bulma/css/bulma.css'
 import 'font-awesome/css/font-awesome.min.css'
 
+import { Null } from '../../utils'
 import {
   calendarMonths,
   getCalendarDates,
@@ -12,20 +13,17 @@ import {
   isSameMonth,
 } from './helpers'
 
-const partitionArray: (
-  array: ReadonlyArray<ReadonlyArray<string | number>>,
+const partitionArray: <T>(
+  array: ReadonlyArray<ReadonlyArray<T>>,
   size: number,
-) => ReadonlyArray<
-  ReadonlyArray<ReadonlyArray<string | number>> | undefined
-> = (array: ReadonlyArray<ReadonlyArray<string | number>>, size: number) => {
-  return Array.from(Array(array.length).keys())
-    .map(i => (i % size === 0 ? array.slice(i, i + size) : undefined))
-    .filter((e: any) => e)
-}
+) => ReadonlyArray<ReadonlyArray<ReadonlyArray<T>>> = (array, size) =>
+  Array.from(Array(array.length).keys())
+    .map(i => (i % size === 0 ? array.slice(i, i + size) : []))
+    .filter(e => e.length !== 0)
 
 export interface DisplayMonthDaysTableProps {
-  readonly Weeks_Month: ReadonlyArray<
-    ReadonlyArray<ReadonlyArray<string | number>> | undefined
+  readonly weeksMonth: ReadonlyArray<
+    ReadonlyArray<ReadonlyArray<string | number>>
   >
   readonly month: number
   readonly year: number
@@ -33,100 +31,88 @@ export interface DisplayMonthDaysTableProps {
 }
 
 export const DisplayMonthDaysTable: ({
-  Weeks_Month,
+  weeksMonth,
   onDateButtonClick,
   month,
   year,
 }: DisplayMonthDaysTableProps) => JSX.Element = ({
-  Weeks_Month,
+  weeksMonth,
   onDateButtonClick,
   month,
   year,
-}: DisplayMonthDaysTableProps) => {
-  return (
-    <div>
-      <table className="table is-bordered is-striped is-narrow is-hoverable  is-fullwidth">
-        <thead>
-          <tr>
-            <th
-              className="has-text-info is-size-7-mobile
-	"
-            >
-              SUN
-            </th>
-            <th className="has-text-info is-size-7-mobile		">MON</th>
-            <th className="has-text-info is-size-7-mobile		">TUE</th>
-            <th className="has-text-info is-size-7-mobile		">WED</th>
-            <th className="has-text-info is-size-7-mobile		">THU</th>
-            <th className="has-text-info is-size-7-mobile		">FRI</th>
-            <th className="has-text-info is-size-7-mobile		">SAT</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Weeks_Month.map(
-            (
-              week: ReadonlyArray<ReadonlyArray<string | number>> | undefined,
-              index: number,
-            ) => {
-              return (
-                <tr key={index}>
-                  {week
-                    ? week.map(
-                        (date: ReadonlyArray<string | number>, i: number) => {
-                          const currentDate: Date = new Date(date.join('-'))
+}: DisplayMonthDaysTableProps) => (
+  // @TODO: Possible to split this into multiple local components?
+  <div>
+    <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th className="has-text-info is-size-7-mobile	">SUN</th>
+          <th className="has-text-info is-size-7-mobile		">MON</th>
+          <th className="has-text-info is-size-7-mobile		">TUE</th>
+          <th className="has-text-info is-size-7-mobile		">WED</th>
+          <th className="has-text-info is-size-7-mobile		">THU</th>
+          <th className="has-text-info is-size-7-mobile		">FRI</th>
+          <th className="has-text-info is-size-7-mobile		">SAT</th>
+        </tr>
+      </thead>
+      <tbody>
+        {weeksMonth.map((week, index) => (
+          // @TODO: index as key is a really bad idea!
+          <tr key={index}>
+            {week ? (
+              week.map((date, i) => {
+                const currentDate: Date = new Date(date.join('-'))
 
-                          return isSameDay(currentDate) ? (
-                            <td key={i}>
-                              <button className="button is-info is-rounded is-size-7-mobile	">
-                                {currentDate.getDate()}
-                              </button>
-                            </td>
-                          ) : isSameMonth(
-                              currentDate,
-                              new Date([year, month, 1].join('-')),
-                            ) ? (
-                            <td key={i}>
-                              <button
-                                className="button is-rounded has-text-info is-size-7-mobile		 "
-                                onClick={() =>
-                                  onDateButtonClick(
-                                    currentDate.getDate(),
-                                    currentDate.getMonth(),
-                                    currentDate.getFullYear(),
-                                  )
-                                }
-                              >
-                                {currentDate.getDate()}
-                              </button>
-                            </td>
-                          ) : (
-                            <td key={i}>
-                              <button
-                                className="button is-rounded has-text-grey is-size-7-mobile		"
-                                onClick={() =>
-                                  onDateButtonClick(
-                                    currentDate.getDate(),
-                                    currentDate.getMonth(),
-                                    currentDate.getFullYear(),
-                                  )
-                                }
-                              >
-                                {currentDate.getDate()}
-                              </button>
-                            </td>
-                          )
-                        },
-                      )
-                    : undefined}
-                </tr>
-              )
-            },
-          )}
-        </tbody>
-      </table>
-    </div>
-  )
-}
+                return isSameDay(currentDate) ? (
+                  <td key={i}>
+                    <button className="button is-info is-rounded is-size-7-mobile	">
+                      {currentDate.getDate()}
+                    </button>
+                  </td>
+                ) : isSameMonth(
+                    currentDate,
+                    new Date([year, month, 1].join('-')),
+                  ) ? (
+                  <td key={i}>
+                    <button
+                      className="button is-rounded has-text-info is-size-7-mobile		 "
+                      onClick={() =>
+                        onDateButtonClick(
+                          currentDate.getDate(),
+                          currentDate.getMonth(),
+                          currentDate.getFullYear(),
+                        )
+                      }
+                    >
+                      {currentDate.getDate()}
+                    </button>
+                  </td>
+                ) : (
+                  <td key={i}>
+                    <button
+                      className="button is-rounded has-text-grey is-size-7-mobile		"
+                      onClick={() =>
+                        onDateButtonClick(
+                          currentDate.getDate(),
+                          currentDate.getMonth(),
+                          currentDate.getFullYear(),
+                        )
+                      }
+                    >
+                      {currentDate.getDate()}
+                    </button>
+                  </td>
+                )
+              })
+            ) : (
+              <Null />
+            )}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)
 
 export interface CalendarState {
   readonly current: Date
@@ -138,23 +124,29 @@ export interface CalendarProps {
   onDateButtonClick(day: number, month: number, year: number): void
 }
 
+// @TODO: Use hooks or something avoid classes!
 export class CalendarComponent extends React.Component<
   CalendarProps,
   CalendarState
 > {
   constructor(props: CalendarProps) {
     super(props)
+    const date: Date = new Date()
     this.state = {
-      current: new Date(),
-      month: new Date().getMonth() + 1,
-      year: new Date().getFullYear(),
+      current: date,
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
     }
   }
 
   readonly calendarDates = () => {
     const { current, month, year } = this.state
+
+    // @TODO: We do this a lot in this project.
+    // Need to have a more robust way to convert strings to numbers
     const calendarMonth: number = month || +current.getMonth() + 1
     const calendarYear: number = year || current.getFullYear()
+
     return getCalendarDates(calendarMonth, calendarYear)
   }
 
@@ -172,13 +164,10 @@ export class CalendarComponent extends React.Component<
     const displayCalendarDays: ReadonlyArray<
       ReadonlyArray<string | number>
     > = this.calendarDates()
-    const weeksMonth: ReadonlyArray<
-      ReadonlyArray<ReadonlyArray<string | number>> | undefined
-    > = partitionArray(displayCalendarDays, 7)
 
     return (
       <div>
-        <div className="box  ">
+        <div className="box">
           <div className="level is-mobile">
             <div
               className="button is-info is-inverted"
@@ -208,14 +197,14 @@ export class CalendarComponent extends React.Component<
           </div>
 
           <div>
-            <React.Fragment>
+            <>
               <DisplayMonthDaysTable
-                Weeks_Month={weeksMonth}
+                weeksMonth={partitionArray(displayCalendarDays, 7)}
                 month={this.state.month}
                 year={this.state.year}
                 onDateButtonClick={this.props.onDateButtonClick}
               />
-            </React.Fragment>
+            </>
           </div>
         </div>
       </div>
