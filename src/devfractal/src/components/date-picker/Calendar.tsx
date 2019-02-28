@@ -12,17 +12,21 @@ import {
   isSameMonth,
 } from './helpers'
 
-const partitionArray: (array: any, size: number) => ReadonlyArray<any> = (
-  array: ReadonlyArray<ReadonlyArray<number>>,
+const partitionArray: (
+  array: ReadonlyArray<ReadonlyArray<string | number>>,
   size: number,
-) => {
+) => ReadonlyArray<
+  ReadonlyArray<ReadonlyArray<string | number>> | undefined
+> = (array: ReadonlyArray<ReadonlyArray<string | number>>, size: number) => {
   return Array.from(Array(array.length).keys())
     .map(i => (i % size === 0 ? array.slice(i, i + size) : undefined))
     .filter((e: any) => e)
 }
 
 export interface DisplayMonthDaysTableProps {
-  readonly Weeks_Month: ReadonlyArray<ReadonlyArray<string | number>>
+  readonly Weeks_Month: ReadonlyArray<
+    ReadonlyArray<ReadonlyArray<string | number>> | undefined
+  >
   readonly month: number
   readonly year: number
   onDateButtonClick(day: number, month: number, year: number): void
@@ -60,53 +64,60 @@ export const DisplayMonthDaysTable: ({
         </thead>
         <tbody>
           {Weeks_Month.map(
-            (week: ReadonlyArray<string | number>, index: number) => {
+            (
+              week: ReadonlyArray<ReadonlyArray<string | number>> | undefined,
+              index: number,
+            ) => {
               return (
                 <tr key={index}>
-                  {week.map((date: any, i: number) => {
-                    const currentDate: Date = new Date(date.join('-'))
+                  {week
+                    ? week.map(
+                        (date: ReadonlyArray<string | number>, i: number) => {
+                          const currentDate: Date = new Date(date.join('-'))
 
-                    return isSameDay(currentDate) ? (
-                      <td key={i}>
-                        <button className="button is-info is-rounded is-size-7-mobile	">
-                          {currentDate.getDate()}
-                        </button>
-                      </td>
-                    ) : isSameMonth(
-                        currentDate,
-                        new Date([year, month, 1].join('-')),
-                      ) ? (
-                      <td key={i}>
-                        <button
-                          className="button is-rounded has-text-info is-size-7-mobile		 "
-                          onClick={() =>
-                            onDateButtonClick(
-                              currentDate.getDate(),
-                              currentDate.getMonth(),
-                              currentDate.getFullYear(),
-                            )
-                          }
-                        >
-                          {currentDate.getDate()}
-                        </button>
-                      </td>
-                    ) : (
-                      <td key={i}>
-                        <button
-                          className="button is-rounded has-text-grey is-size-7-mobile		"
-                          onClick={() =>
-                            onDateButtonClick(
-                              currentDate.getDate(),
-                              currentDate.getMonth(),
-                              currentDate.getFullYear(),
-                            )
-                          }
-                        >
-                          {currentDate.getDate()}
-                        </button>
-                      </td>
-                    )
-                  })}
+                          return isSameDay(currentDate) ? (
+                            <td key={i}>
+                              <button className="button is-info is-rounded is-size-7-mobile	">
+                                {currentDate.getDate()}
+                              </button>
+                            </td>
+                          ) : isSameMonth(
+                              currentDate,
+                              new Date([year, month, 1].join('-')),
+                            ) ? (
+                            <td key={i}>
+                              <button
+                                className="button is-rounded has-text-info is-size-7-mobile		 "
+                                onClick={() =>
+                                  onDateButtonClick(
+                                    currentDate.getDate(),
+                                    currentDate.getMonth(),
+                                    currentDate.getFullYear(),
+                                  )
+                                }
+                              >
+                                {currentDate.getDate()}
+                              </button>
+                            </td>
+                          ) : (
+                            <td key={i}>
+                              <button
+                                className="button is-rounded has-text-grey is-size-7-mobile		"
+                                onClick={() =>
+                                  onDateButtonClick(
+                                    currentDate.getDate(),
+                                    currentDate.getMonth(),
+                                    currentDate.getFullYear(),
+                                  )
+                                }
+                              >
+                                {currentDate.getDate()}
+                              </button>
+                            </td>
+                          )
+                        },
+                      )
+                    : undefined}
                 </tr>
               )
             },
@@ -161,7 +172,9 @@ export class CalendarComponent extends React.Component<
     const displayCalendarDays: ReadonlyArray<
       ReadonlyArray<string | number>
     > = this.calendarDates()
-    const weeksMonth: any = partitionArray(displayCalendarDays, 7)
+    const weeksMonth: ReadonlyArray<
+      ReadonlyArray<ReadonlyArray<string | number>> | undefined
+    > = partitionArray(displayCalendarDays, 7)
 
     return (
       <div>
