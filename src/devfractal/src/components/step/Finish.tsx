@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { StepComponent } from './StepItem'
-
-import { FinishFormPropType } from './types'
+import { Button, Field, Section, Title } from '../../lib'
+import { FinishFormPropType, StepItemComponent } from '../step'
 
 export const FinishForm: ({
   socialValues,
@@ -9,30 +8,25 @@ export const FinishForm: ({
 }: FinishFormPropType) => JSX.Element = ({
   socialValues,
   prevClick,
-}: FinishFormPropType) => {
-  return (
-    <div>
-      <StepComponent activePage={4} />
-      <div className="step-content has-text-centered">
-        <h1 className="title is-4">Your account is now created!</h1>
-      </div>
-      <section className="section">
-        <div className="has-text-centered">
-          <a
-            data-nav="previous"
-            className="button is-light"
-            onClick={e => {
-              e.persist()
-              prevClick(socialValues)
-            }}
-          >
-            Previous
-          </a>
-          <a data-nav="next" className="button is-light is-static">
-            Next
-          </a>
-        </div>
-      </section>
-    </div>
-  )
-}
+}: FinishFormPropType) => (
+  <Section>
+    <StepItemComponent activePage={4} />
+    <Section textAlignment="centered">
+      <Title size="4">Your account is now created!</Title>
+    </Section>
+    <Field groupModifier="grouped-centered">
+      <Button
+        variant="light"
+        onClick={e => {
+          e.persist()
+          prevClick(socialValues)
+        }}
+      >
+        Previous
+      </Button>
+      <Button variant="light" state="static">
+        Next
+      </Button>
+    </Field>
+  </Section>
+)

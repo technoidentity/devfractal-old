@@ -24,18 +24,16 @@ export const StepItem: ({
 }: {
   readonly id?: number | undefined
   readonly name?: string | undefined
-}) => JSX.Element = ({ id = 1, name = '' }) => {
-  return (
-    <div className="step-item  is-success">
-      <div className="step-marker">{id}</div>
-      <div className="step-details">
-        <p className="step-title">{name}</p>
-      </div>
+}) => JSX.Element = ({ id = 1, name = '' }) => (
+  <div className="step-item  is-success">
+    <div className="step-marker">{id}</div>
+    <div className="step-details">
+      <p className="step-title">{name}</p>
     </div>
-  )
-}
+  </div>
+)
 
-export const StepComponent: ({
+export const StepItemComponent: ({
   activePage,
 }: {
   readonly activePage?: number | undefined
