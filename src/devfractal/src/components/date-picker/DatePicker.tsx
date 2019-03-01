@@ -1,10 +1,6 @@
 import * as React from 'react'
-
-import 'bulma/css/bulma.css'
-
-import { CalendarComponent } from './Calendar'
-
-import { getDateISO } from './helpers'
+import { Button, Field, Section } from '../../lib'
+import { CalendarComponent, getDateISO } from '../date-picker'
 
 export interface DatePickerState {
   readonly date: Date
@@ -30,26 +26,25 @@ export const DatePicker: () => JSX.Element = () => {
   }
 
   return (
-    <section>
-      <div className="field has-addons">
-        <input
-          className="button is-static is-info"
-          type="text"
-          placeholder="BirthDay"
-        />
-        <button
-          className=" button is-outlined  is-info "
-          type="submit "
+    <Section>
+      <Field addons>
+        <Button variant="info" state="static">
+          Birthday
+        </Button>
+        <Button
+          variant="info"
+          outlined
+          type="submit"
           onClick={toggleDateButtonClick}
         >
           {getDateISO(date)}
-        </button>
-      </div>
-      <div>
+        </Button>
+      </Field>
+      <Section>
         {isCalendarOpen && (
           <CalendarComponent onDateButtonClick={handleDateButtonClick} />
         )}
-      </div>
-    </section>
+      </Section>
+    </Section>
   )
 }

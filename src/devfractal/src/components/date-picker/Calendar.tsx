@@ -1,11 +1,20 @@
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import * as React from 'react'
-
-import 'bulma/css/bulma.css'
-import 'font-awesome/css/font-awesome.min.css'
-
 import * as shortid from 'shortid'
-
-import { Null } from '../../utils'
+import {
+  Button,
+  Icon,
+  Level,
+  LevelItem,
+  Null,
+  Section,
+  Table,
+  TableBody,
+  TableHead,
+  Td,
+  Th,
+  Tr,
+} from '../../lib'
 import {
   calendarMonths,
   getCalendarDates,
@@ -13,7 +22,7 @@ import {
   getPreviousMonth,
   isSameDay,
   isSameMonth,
-} from './helpers'
+} from '../date-picker'
 
 const partitionArray: <T>(
   array: ReadonlyArray<ReadonlyArray<T>>,
@@ -62,21 +71,23 @@ export const DisplayMonthDays: ({
 }: DisplayMonthDaysProps) => {
   return (
     // @TODO: index as key is a really bad idea!
-    <tr key={shortid.generate()}>
+    <Tr key={shortid.generate()}>
       {week ? (
         week.map(date => {
           const currentDate: Date = new Date(date.join('-'))
 
           return isSameDay(currentDate) ? (
-            <td key={shortid.generate()}>
-              <button className="button is-info is-rounded is-size-7-mobile	">
+            <Td key={shortid.generate()}>
+              <Button variant="info" rounded className="is-size-7-mobile">
                 {currentDate.getDate()}
-              </button>
-            </td>
+              </Button>
+            </Td>
           ) : isSameMonth(currentDate, new Date([year, month, 1].join('-'))) ? (
-            <td key={shortid.generate()}>
-              <button
-                className="button is-rounded has-text-info is-size-7-mobile		 "
+            <Td key={shortid.generate()}>
+              <Button
+                textColor="info"
+                rounded
+                className="is-size-7-mobile"
                 onClick={() =>
                   onDateButtonClick(
                     currentDate.getDate(),
@@ -86,12 +97,14 @@ export const DisplayMonthDays: ({
                 }
               >
                 {currentDate.getDate()}
-              </button>
-            </td>
+              </Button>
+            </Td>
           ) : (
-            <td key={shortid.generate()}>
-              <button
-                className="button is-rounded has-text-grey is-size-7-mobile		"
+            <Td key={shortid.generate()}>
+              <Button
+                textColor="grey-darker"
+                rounded
+                className="is-size-7-mobile"
                 onClick={() =>
                   onDateButtonClick(
                     currentDate.getDate(),
@@ -101,14 +114,14 @@ export const DisplayMonthDays: ({
                 }
               >
                 {currentDate.getDate()}
-              </button>
-            </td>
+              </Button>
+            </Td>
           )
         })
       ) : (
         <Null />
       )}
-    </tr>
+    </Tr>
   )
 }
 
@@ -124,20 +137,34 @@ export const DisplayMonthDaysList: ({
   year,
 }: DisplayMonthDaysListProps) => (
   // @TODO: Possible to split this into multiple local components?
-  <div>
-    <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-      <thead>
-        <tr>
-          <th className="has-text-info is-size-7-mobile	">SUN</th>
-          <th className="has-text-info is-size-7-mobile		">MON</th>
-          <th className="has-text-info is-size-7-mobile		">TUE</th>
-          <th className="has-text-info is-size-7-mobile		">WED</th>
-          <th className="has-text-info is-size-7-mobile		">THU</th>
-          <th className="has-text-info is-size-7-mobile		">FRI</th>
-          <th className="has-text-info is-size-7-mobile		">SAT</th>
-        </tr>
-      </thead>
-      <tbody>
+  <Section>
+    <Table bordered striped hoverable narrow fullWidth>
+      <TableHead>
+        <Tr>
+          <Th textColor="info" className="is-size-7-mobile">
+            SUN
+          </Th>
+          <Th textColor="info" className="is-size-7-mobile">
+            MON
+          </Th>
+          <Th textColor="info" className="is-size-7-mobile">
+            TUE
+          </Th>
+          <Th textColor="info" className="is-size-7-mobile">
+            WED
+          </Th>
+          <Th textColor="info" className="is-size-7-mobile">
+            THU
+          </Th>
+          <Th textColor="info" className="is-size-7-mobile">
+            FRI
+          </Th>
+          <Th textColor="info" className="is-size-7-mobile">
+            SAT
+          </Th>
+        </Tr>
+      </TableHead>
+      <TableBody>
         {weeksMonth.map(week => (
           <DisplayMonthDays
             key={shortid.generate()}
@@ -147,9 +174,9 @@ export const DisplayMonthDaysList: ({
             onDateButtonClick={onDateButtonClick}
           />
         ))}
-      </tbody>
-    </table>
-  </div>
+      </TableBody>
+    </Table>
+  </Section>
 )
 
 export interface CalendarState {
@@ -198,42 +225,32 @@ export const CalendarComponent: ({
   > = calendarDates()
 
   return (
-    <div>
-      <div className="box  ">
-        <div className="level is-mobile">
-          <div
-            className="button is-info is-inverted"
-            onClick={gotoPreviousMonth}
-          >
-            <div className="level-left">
-              <span className="icon ">
-                <i className="fa fa-caret-left" />
-              </span>
-              Previous
-            </div>
-          </div>
-          <div className="has-text-info	 ">
-            {calendarMonths[state.currentMonth - 1]}-{state.currentYear}
-          </div>
-          <div className="button is-info is-inverted" onClick={gotoNextMonth}>
-            <div className="level-right">
-              <span className="icon ">
-                <i className="fa fa-caret-right" />
-              </span>
-              Next
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <DisplayMonthDaysList
-            weeksMonth={partitionArray(displayCalendarDays, 7)}
-            month={state.currentMonth}
-            year={state.currentYear}
-            onDateButtonClick={onDateButtonClick}
-          />
-        </div>
-      </div>
-    </div>
+    <Section>
+      <Level className="is-mobile">
+        <Button variant="info" inverted onClick={gotoPreviousMonth}>
+          <LevelItem direction="left">
+            <Icon icon={faCaretLeft} />
+            Previous
+          </LevelItem>
+        </Button>
+        <Section textColor="info">
+          {calendarMonths[state.currentMonth - 1]}-{state.currentYear}
+        </Section>
+        <Button variant="info" inverted onClick={gotoNextMonth}>
+          <LevelItem direction="right">
+            Next
+            <Icon icon={faCaretRight} />
+          </LevelItem>
+        </Button>
+      </Level>
+      <Section>
+        <DisplayMonthDaysList
+          weeksMonth={partitionArray(displayCalendarDays, 7)}
+          month={state.currentMonth}
+          year={state.currentYear}
+          onDateButtonClick={onDateButtonClick}
+        />
+      </Section>
+    </Section>
   )
 }
