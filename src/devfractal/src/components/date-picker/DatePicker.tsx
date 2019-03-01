@@ -11,48 +11,45 @@ export interface DatePickerState {
   readonly isCalendarOpen: boolean
 }
 
-export class DatePicker extends React.Component<{}, DatePickerState> {
-  readonly state: DatePickerState = {
-    isCalendarOpen: false,
-    date: new Date(),
+export const DatePicker: () => JSX.Element = () => {
+  const [isCalendarOpen, setIsCalendarOpen] = React.useState(false)
+  const [date, setDate] = React.useState(new Date())
+
+  const toggleDateButtonClick: () => void = () => {
+    setIsCalendarOpen(!isCalendarOpen)
   }
 
-  readonly toggleDateButtonClick = () => {
-    this.setState({ isCalendarOpen: !this.state.isCalendarOpen })
-  }
-
-  readonly handleDateButtonClick = (
+  const handleDateButtonClick: (
     day: number,
     month: number,
     year: number,
-  ) => {
-    const date: Date = new Date(year, month, day)
-    this.setState({ date, isCalendarOpen: false })
+  ) => void = (day: number, month: number, year: number) => {
+    const newDate: Date = new Date(year, month, day)
+    setDate(newDate)
+    setIsCalendarOpen(false)
   }
 
-  render(): JSX.Element {
-    return (
-      <section>
-        <div className="field has-addons">
-          <input
-            className="button is-static is-info"
-            type="text"
-            placeholder="BirthDay"
-          />
-          <button
-            className=" button is-outlined  is-info "
-            type="submit "
-            onClick={this.toggleDateButtonClick}
-          >
-            {getDateISO(this.state.date)}
-          </button>
-        </div>
-        <div>
-          {this.state.isCalendarOpen && (
-            <CalendarComponent onDateButtonClick={this.handleDateButtonClick} />
-          )}
-        </div>
-      </section>
-    )
-  }
+  return (
+    <section>
+      <div className="field has-addons">
+        <input
+          className="button is-static is-info"
+          type="text"
+          placeholder="BirthDay"
+        />
+        <button
+          className=" button is-outlined  is-info "
+          type="submit "
+          onClick={toggleDateButtonClick}
+        >
+          {getDateISO(date)}
+        </button>
+      </div>
+      <div>
+        {isCalendarOpen && (
+          <CalendarComponent onDateButtonClick={handleDateButtonClick} />
+        )}
+      </div>
+    </section>
+  )
 }
