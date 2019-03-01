@@ -22,7 +22,7 @@ import {
   getPreviousMonth,
   isSameDay,
   isSameMonth,
-} from '../date-picker'
+} from './internal'
 
 const partitionArray: <T>(
   array: ReadonlyArray<ReadonlyArray<T>>,

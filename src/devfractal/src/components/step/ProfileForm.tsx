@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button, Field, FieldBody, FieldLabel, Input, Section } from '../../lib'
-import { ProfileFormPropType, StepItemComponent } from '../step'
+import { ProfileFormPropType, StepItemComponent } from './internal'
 
 export const ProfileForm: ({
   initialValues,

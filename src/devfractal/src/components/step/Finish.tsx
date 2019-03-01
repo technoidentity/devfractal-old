@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button, Field, Section, Title } from '../../lib'
-import { FinishFormPropType, StepItemComponent } from '../step'
+import { FinishFormPropType, StepItemComponent } from './internal'
 
 export const FinishForm: ({
   socialValues,

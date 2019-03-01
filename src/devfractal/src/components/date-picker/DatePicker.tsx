@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button, Field, Section } from '../../lib'
-import { CalendarComponent, getDateISO } from '../date-picker'
+import { CalendarComponent, getDateISO } from './internal'
 
 export interface DatePickerState {
   readonly date: Date

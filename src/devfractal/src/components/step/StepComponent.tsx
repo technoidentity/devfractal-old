@@ -7,7 +7,7 @@ import {
   ProfileFormType,
   SocialForm,
   SocialFormType,
-} from '../step'
+} from './internal'
 
 export const accountInitialValues: AccountFormType = {
   userName: '',

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button, Field, FieldBody, FieldLabel, Input, Section } from '../../lib'
-import { SocialFormPropType, StepItemComponent } from '../step'
+import { SocialFormPropType, StepItemComponent } from './internal'
 
 export const SocialForm: ({
   initialValues,
