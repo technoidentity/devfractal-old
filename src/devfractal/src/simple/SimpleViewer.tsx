@@ -1,6 +1,7 @@
 import React from 'react'
-import { Boolean } from 'tcomb'
+import { Boolean, Function } from 'tcomb'
 import {
+  Async,
   Box,
   camelCaseToPhrase,
   CheckBox,
@@ -23,11 +24,13 @@ const SimpleValue: React.SFC<{ readonly objectValue: string }> = ({
     <>{objectValue}</>
   )
 
-export interface SimpleViewerProps {
-  readonly data: { readonly [index: string]: any }
+export interface SimpleViewerViewProps<T extends object> {
+  readonly data: T
 }
 
-export const SimpleViewer: React.SFC<SimpleViewerProps> = ({ data }) => {
+export function SimpleViewerView<T extends object>({
+  data,
+}: SimpleViewerViewProps<T>): JSX.Element {
   return (
     <Section>
       <Box>
@@ -44,4 +47,30 @@ export const SimpleViewer: React.SFC<SimpleViewerProps> = ({ data }) => {
       </Box>
     </Section>
   )
+}
+
+export interface SimpleViewerProps<T extends object> {
+  readonly data: T | (() => Promise<T>)
+}
+
+export function SimpleViewer<T extends object = any>({
+  data,
+}: SimpleViewerProps<T>): JSX.Element {
+  if (Function.is(data)) {
+    return (
+      <Async asyncFn={data}>
+        {({ error, data }) => {
+          if (error) {
+            return <div>Error</div>
+          } else if (data) {
+            return <SimpleViewerView data={data} />
+          } else {
+            return <div>Loading...</div>
+          }
+        }}
+      </Async>
+    )
+  } else {
+    return <SimpleViewerView data={data} />
+  }
 }
