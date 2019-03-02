@@ -6,11 +6,11 @@ export interface SimpleCrudProps<T extends Props & { readonly id: any }> {
   readonly baseUrl: string
   readonly resource: string
   readonly value: ReadonlyC<TypeC<T>>
+  readonly basePath?: string
 }
 
 export const SimpleCrud: <T extends Props & { readonly id: any }>(
   args: SimpleCrudProps<T>,
-  basePath: string,
-) => JSX.Element = (args, basePath) => (
-  <Crud api={api(args)} basePath={basePath} />
+) => JSX.Element = ({ basePath = '', ...props }) => (
+  <Crud api={api(props)} basePath={basePath} />
 )

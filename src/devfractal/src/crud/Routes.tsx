@@ -46,8 +46,9 @@ export const pathFns: (resource: string, basePath?: string) => PathFns = (
   basePath,
 ) => {
   const path: string = base(resource, basePath)
+
   return {
-    list: () => `${path}`,
+    list: () => path,
     create: () => `${path}/create`,
     view: (id: unknown) => `${path}/${id}`,
     edit: (id: unknown) => `${path}/${id}/edit`,
