@@ -2,7 +2,6 @@ import React from 'react'
 import { Boolean, Function } from 'tcomb'
 import {
   Async,
-  Box,
   camelCaseToPhrase,
   CheckBox,
   Column,
@@ -33,18 +32,16 @@ export function SimpleViewerView<T extends object>({
 }: SimpleViewerViewProps<T>): JSX.Element {
   return (
     <Section>
-      <Box>
-        {Object.keys(data).map(key => (
-          <Columns key={key}>
-            <Column>
-              <SimpleHeader objectKey={key} />
-            </Column>
-            <Column>
-              <SimpleValue objectValue={data[key]} />
-            </Column>
-          </Columns>
-        ))}
-      </Box>
+      {Object.keys(data).map(key => (
+        <Columns key={key}>
+          <Column>
+            <SimpleHeader objectKey={key} />
+          </Column>
+          <Column>
+            <SimpleValue objectValue={data[key]} />
+          </Column>
+        </Columns>
+      ))}
     </Section>
   )
 }
@@ -53,7 +50,7 @@ export interface SimpleViewerProps<T extends object> {
   readonly data: T | (() => Promise<T>)
 }
 
-export function SimpleViewer<T extends object = any>({
+export function SimpleViewer<T extends object>({
   data,
 }: SimpleViewerProps<T>): JSX.Element {
   if (Function.is(data)) {
@@ -61,7 +58,7 @@ export function SimpleViewer<T extends object = any>({
       <Async asyncFn={data}>
         {({ error, data }) => {
           if (error) {
-            return <div>Error</div>
+            return <div style={{ color: 'red' }}>{`${error.message}`}</div>
           } else if (data) {
             return <SimpleViewerView data={data} />
           } else {
@@ -70,7 +67,6 @@ export function SimpleViewer<T extends object = any>({
         }}
       </Async>
     )
-  } else {
-    return <SimpleViewerView data={data} />
   }
+  return <SimpleViewerView data={data} />
 }
