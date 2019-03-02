@@ -85,7 +85,7 @@ export function api<T extends Props & { id: any }>({
   resource,
   value,
   listValue = readonlyArray(value),
-  urls = apiUrls(baseUrl, resource),
+  urls = apiUrls<T['id']>(baseUrl, resource),
 }: APIArgs<T>): ApiRepository<T> {
   return {
     baseUrl,
@@ -117,10 +117,10 @@ export function api<T extends Props & { id: any }>({
     edit: async (values, actions) =>
       toPromise(
         value.decode(
-          apiSubmit<TypeOf<typeof value>>({ url: urls(), action: 'put' })(
-            values,
-            actions,
-          ),
+          await apiSubmit<TypeOf<typeof value>>({
+            url: urls.edit(values.id),
+            action: 'put',
+          })(values, actions),
         ),
       ),
     remove: async id =>
