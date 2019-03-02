@@ -1,6 +1,6 @@
-export const thisYear: number = new Date().getFullYear()
+export const currentYear: number = new Date().getFullYear()
 
-export const thisMonth: number = new Date().getMonth() + 1
+export const currentMonth: number = new Date().getMonth() + 1
 
 export const calendarMonths: ReadonlyArray<String> = [
   'Jan',
@@ -25,15 +25,15 @@ export const zeroPad: (value: number, length: number) => string = (
 ) => `${value}`.padStart(length, '0')
 
 export const getDaysInMonth: (month?: number, year?: number) => number = (
-  month = thisMonth,
-  year = thisYear,
+  month = currentYear,
+  year = currentMonth,
 ) => new Date(year, month, 0).getDate()
 
 export const getMonthFirstDay: (month?: number, year?: number) => number = (
-  month = thisMonth,
-  year = thisYear,
+  month = currentMonth,
+  year = currentYear,
 ) => {
-  return +new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
+  return new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
 }
 
 export const isDate: (date: Date) => boolean = (date: Date) => {
@@ -51,13 +51,13 @@ export const isSameMonth: (date: Date, baseDate?: Date) => boolean = (
   if (!(isDate(date) && isDate(baseDate))) {
     return false
   } else {
-    const baseDateMonth: number = +baseDate.getMonth() + 1
+    const baseDateMonth: number = baseDate.getMonth() + 1
     const baseDateYear: number = baseDate.getFullYear()
 
-    const dateMonth: number = +date.getMonth() + 1
+    const dateMonth: number = date.getMonth() + 1
     const dateYear: number = date.getFullYear()
 
-    return +baseDateMonth === +dateMonth && +baseDateYear === +dateYear
+    return baseDateMonth === dateMonth && baseDateYear === dateYear
   }
 }
 
@@ -69,17 +69,17 @@ export const isSameDay: (date: Date, baseDate?: Date) => boolean = (
     return false
   } else {
     const baseDateDate: number = baseDate.getDate()
-    const baseDateMonth: number = +baseDate.getMonth() + 1
+    const baseDateMonth: number = baseDate.getMonth() + 1
     const baseDateYear: number = baseDate.getFullYear()
 
     const dateDate: number = date.getDate()
-    const dateMonth: number = +date.getMonth() + 1
+    const dateMonth: number = date.getMonth() + 1
     const dateYear: number = date.getFullYear()
 
     return (
-      +baseDateDate === +dateDate &&
-      +baseDateMonth === +dateMonth &&
-      +baseDateYear === +dateYear
+      baseDateDate === dateDate &&
+      baseDateMonth === dateMonth &&
+      baseDateYear === dateYear
     )
   }
 }
@@ -126,8 +126,8 @@ export const getCalendarDates: (
   month?: number,
   year?: number,
 ) => ReadonlyArray<ReadonlyArray<string | number>> = (
-  month = thisMonth,
-  year = thisYear,
+  month = currentMonth,
+  year = currentYear,
 ) => {
   const monthDays: number = getDaysInMonth(month, year)
   const monthFirstDay: number = getMonthFirstDay(month, year)
@@ -151,18 +151,18 @@ export const getCalendarDates: (
     return [prevMonthYear, zeroPad(prevMonth, 2), zeroPad(day, 2)]
   })
 
-  const thisMonthDates: Array<Array<string | number>> = Array.from(
+  const currentMonthDates: Array<Array<string | number>> = Array.from(
     Array(monthDays).keys(),
   ).map((index: number) => {
     const day: number = index + 1
     return [year, zeroPad(month, 2), zeroPad(day, 2)]
   })
 
-  const nexMonthDates: Array<Array<string | number>> = Array.from(
+  const nextMonthDates: Array<Array<string | number>> = Array.from(
     Array(daysFromNextMonth).keys(),
   ).map((index: number) => {
     const day: number = index + 1
     return [nextMonthYear, zeroPad(nextMonth, 2), zeroPad(day, 2)]
   })
-  return [...previousMonthDates, ...thisMonthDates, ...nexMonthDates]
+  return [...previousMonthDates, ...currentMonthDates, ...nextMonthDates]
 }
