@@ -6,11 +6,13 @@ import { Simple } from './internal'
 
 export interface SimpleEditorViewProps<T extends object> {
   readonly data: T
+  readonly id?: keyof T
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
 export function SimpleEditorView<T extends object>({
   data,
+  id,
   onSubmit,
 }: SimpleEditorViewProps<T>): JSX.Element {
   return (
@@ -27,13 +29,13 @@ export function SimpleEditorView<T extends object>({
               <Simple.Number
                 label={camelCaseToPhrase(key)}
                 name={key}
-                readOnly={key === 'id'}
+                readOnly={key === id}
               />
             ) : (
               <Simple.Text
                 label={camelCaseToPhrase(key)}
                 name={key}
-                readOnly={key === 'id'}
+                readOnly={key === id}
               />
             )}
           </React.Fragment>
@@ -46,12 +48,14 @@ export function SimpleEditorView<T extends object>({
 
 export interface SimpleEditorProps<T extends object> {
   readonly data: T | (() => Promise<T>)
+  readonly id: keyof T
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
 export function SimpleEditor<T extends object>({
   data,
   onSubmit,
+  id,
 }: SimpleEditorProps<T>): JSX.Element {
   if (Function.is(data)) {
     return (
@@ -60,7 +64,7 @@ export function SimpleEditor<T extends object>({
           if (error) {
             return <div style={{ color: 'red' }}>{`${error.message}`}</div>
           } else if (data) {
-            return <SimpleEditorView data={data} onSubmit={onSubmit} />
+            return <SimpleEditorView id={id} data={data} onSubmit={onSubmit} />
           } else {
             return <div>Loading...</div>
           }
@@ -69,5 +73,5 @@ export function SimpleEditor<T extends object>({
     )
   }
 
-  return <SimpleEditorView data={data} onSubmit={onSubmit} />
+  return <SimpleEditorView id={id} data={data} onSubmit={onSubmit} />
 }

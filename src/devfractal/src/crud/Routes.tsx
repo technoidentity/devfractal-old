@@ -58,14 +58,16 @@ export const pathFns: (resource: string, basePath: string) => PathFns = (
 
 interface APIRouteComponentsArgs<T extends Props, ID extends keyof T> {
   readonly api: APIRepository<T, ID>
-  readonly Crud?: CrudComponentsResult<T, TVT<T>, ID>
+  readonly Crud?: CrudComponentsResult<T, ID>
   readonly basePath: string
+  readonly id: ID
 }
 
 interface RouteComponentsArgs<T extends Props, ID extends keyof T> {
   readonly api: Repository<TVT<T>, ID>
-  readonly Crud?: CrudComponentsResult<T, TVT<T>, ID>
+  readonly Crud?: CrudComponentsResult<T, ID>
   readonly basePath: string
+  readonly id: ID
   readonly value: APIRepository<T, ID>['value']
   readonly resource: string
 }
@@ -84,7 +86,7 @@ export function routeComponents<T extends Props, ID extends keyof T>(
   const { all, one, create, edit } = args.api
   const value = 'value' in args ? args.value : args.api.value
   const resource = 'resource' in args ? args.resource : args.api.resource
-  const Crud = args.Crud || CrudComponents(value)
+  const Crud = args.Crud || CrudComponents(value, args.id)
   const paths = pathFns(resource, args.basePath)
   // tslint:enable typedef
 

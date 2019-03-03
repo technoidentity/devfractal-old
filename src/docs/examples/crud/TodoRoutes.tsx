@@ -9,6 +9,7 @@ const basePath: string = '/crud'
 
 const { Create, List, Edit, View } = routeComponents({
   basePath,
+  id: 'id',
   api: InMemoryAPI,
   value: TodoValue,
   resource,

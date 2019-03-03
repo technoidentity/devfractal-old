@@ -10,7 +10,7 @@ import { Todo, TodoListValue, TodoValue } from './types'
 let staticTodoList: ReadonlyArray<Todo> = fakeTodoList(5)
 let nextID: number = 1000
 
-export const InMemoryAPI: Repository<Todo> = {
+export const InMemoryAPI: Repository<Todo, 'id'> = {
   all: async () => toPromise(TodoListValue.decode(staticTodoList)),
 
   one: async id => {

@@ -13,15 +13,14 @@ import {
 } from '../lib'
 import { emptyFromType, TVT, VT } from './internal'
 
-interface ItemProps<T> {
+export interface EditProps<T> {
   readonly data: T | (() => Promise<T>)
-}
-
-export interface EditProps<T> extends ItemProps<T> {
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
-export interface ViewProps<T> extends ItemProps<T> {}
+export interface ViewProps<T> {
+  readonly data: T | (() => Promise<T>)
+}
 
 export interface CreateProps<T> {
   onSubmit?(values: T, actions: FormikActions<T>): void
@@ -36,26 +35,30 @@ export interface ListProps<T> {
 
 export type CrudComponentsResult<
   T extends Props,
-  V = TVT<T>,
-  ID extends keyof T = 'id'
+  ID extends keyof T
 > = Readonly<{
-  readonly List: FC<ListProps<V>>
-  readonly Create: FC<CreateProps<Omit<V, ID>>>
-  readonly Edit: FC<EditProps<V>>
-  readonly View: FC<ItemProps<V>>
+  readonly List: FC<ListProps<TVT<T>>>
+  readonly Create: FC<CreateProps<Omit<TVT<T>, ID>>>
+  readonly Edit: FC<EditProps<TVT<T>>>
+  readonly View: FC<ViewProps<TVT<T>>>
 }>
 
-export const CrudComponents: <T extends Props, ID extends keyof T = 'id'>(
+export const CrudComponents: <T extends Props, ID extends keyof T>(
   // cannot pass this to create, as getting type from typeValue is easy,
   // not the other way round
   typeValue: VT<T>,
-) => CrudComponentsResult<T, TVT<T>, ID> = typeValue => ({
+  id: keyof T,
+) => CrudComponentsResult<T, ID> = (typeValue, id) => ({
   Create: ({ onSubmit }) => (
-    <SimpleEditor data={emptyFromType(typeValue)} onSubmit={onSubmit} />
+    <SimpleEditor
+      id={id}
+      data={emptyFromType(typeValue, id)}
+      onSubmit={onSubmit}
+    />
   ),
 
   Edit: ({ data, onSubmit }) => (
-    <SimpleEditor data={data} onSubmit={onSubmit} />
+    <SimpleEditor id={id} data={data} onSubmit={onSubmit} />
   ),
 
   View: ({ data }) => <SimpleViewer data={data} />,

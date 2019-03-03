@@ -25,13 +25,14 @@ export const emptyFromValue: <T extends object>(value: T) => T = value => {
 
 export function emptyFromType<T extends Props>(
   typeValue: ReadonlyC<TypeC<T>>,
+  id: keyof T,
 ): T {
   const props: T = typeValue.type.props
   const value: any = {}
 
   // tslint:disable no-object-mutation
   Object.keys(props).forEach(prop => {
-    if (prop !== 'id') {
+    if (prop !== id) {
       if (props[prop].name === 'number') {
         value[prop] = 0
       } else if (props[prop].name === 'string') {

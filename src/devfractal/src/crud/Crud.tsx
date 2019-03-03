@@ -13,6 +13,7 @@ import {
 export type CrudProps<T extends Props, ID extends keyof T> = Readonly<{
   readonly basePath: string
   readonly api: APIRepository<T, ID>
+  readonly id: ID
   readonly paths?: Paths
   readonly components?: RouteComponentsResult
 }>
@@ -20,8 +21,9 @@ export type CrudProps<T extends Props, ID extends keyof T> = Readonly<{
 export function Crud<T extends Props, ID extends keyof T>({
   basePath,
   api,
+  id,
   paths = ps(api.resource, basePath),
-  components = routeComponents<T, ID>({ api, basePath }),
+  components = routeComponents<T, ID>({ api, basePath, id }),
 }: CrudProps<T, ID>): JSX.Element {
   const { create, list, edit, view } = paths
   const { Create, List, Edit, View } = components

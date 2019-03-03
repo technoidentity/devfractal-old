@@ -1,90 +1,87 @@
 import axios from 'axios'
 import { FormikActions } from 'formik'
-import {
-  Mixed,
+import t, {
   Props,
   readonlyArray,
   ReadonlyArrayC,
   ReadonlyC,
   TypeC,
   TypeOf,
+  union,
 } from 'io-ts'
 import { Omit } from 'react-router'
 import { apiSubmit, TVT } from '../lib'
+import { typeInvariant } from '../utils'
 import { toPromise } from './internal'
 
-export interface URLs<IDType> {
-  // readonly id: IDType
+export interface URLs {
   all(): string
   create(): string
-  one(id: IDType): string
-  edit(id: IDType): string
-  remove(id: IDType): string
+  one(id: string | number): string
+  edit(id: string | number): string
+  remove(id: string | number): string
 }
 
-export function apiURLs<IDType>(
-  baseUrl: string, // eg: 'https://localhost:3000'
+export const apiURLs: (
+  baseURL: string, // eg: 'https://localhost:3000'
   resource: string, // eg: 'todos'
-): URLs<IDType> {
-  return {
-    all: () => `${baseUrl}/${resource}`,
-    create: () => `${baseUrl}/${resource}`,
-    one: (id: IDType) => `${baseUrl}/${resource}/${id}`,
-    edit: (id: IDType) => `${baseUrl}/${resource}/${id}`,
-    remove: (id: IDType) => `${baseUrl}/${resource}/${id}`,
-  }
-}
+) => URLs = (baseURL, resource) => ({
+  all: () => `${baseURL}/${resource}`,
 
-interface APIValues<
-  T extends Props,
-  V extends Mixed = ReadonlyC<TypeC<T>>,
-  LV = ReadonlyArrayC<V>,
-  ID extends keyof T = 'id'
-> {
-  readonly baseUrl: string
-  readonly resource: string
-  readonly value: V
-  readonly listValue: LV
-  readonly urls: URLs<T[ID]>
-}
+  create: () => `${baseURL}/${resource}`,
+
+  one: (id: string | number) => {
+    typeInvariant(union([t.number, t.string]), id)
+    return `${baseURL}/${resource}/${id}`
+  },
+
+  edit: (id: string | number) => {
+    typeInvariant(union([t.number, t.string]), id)
+    return `${baseURL}/${resource}/${id}`
+  },
+
+  remove: (id: string | number) => {
+    typeInvariant(union([t.number, t.string]), id)
+    return `${baseURL}/${resource}/${id}`
+  },
+})
 
 export interface Repository<
   T extends { readonly [key: string]: unknown },
-  ID extends keyof T = 'id',
-  List = ReadonlyArray<T>
+  ID extends keyof T
 > {
-  all(): Promise<List>
+  all(): Promise<ReadonlyArray<T>>
   create(value: Omit<T, ID>, actions: FormikActions<Omit<T, ID>>): Promise<T>
   one(id: T[ID]): Promise<T>
   edit(value: T, actions: FormikActions<T>): Promise<T>
   remove(id: T[ID]): Promise<T>
 }
 
-export type APIRepository<
-  T extends Props,
-  ID extends keyof T = 'id'
-> = Repository<TVT<T>, ID> & APIValues<T>
-
-export interface APIArgs<
-  T extends Props,
-  V = ReadonlyC<TypeC<T>>,
-  LV = ReadonlyArrayC<ReadonlyC<TypeC<T>>>,
-  ID extends keyof T = 'id'
-> {
+export interface APIRepository<T extends Props, ID extends keyof T>
+  extends Repository<TVT<T>, ID> {
   readonly baseUrl: string
   readonly resource: string
-  readonly value: V
-  readonly listValue?: LV
-  readonly urls?: URLs<T[ID]>
+  readonly value: ReadonlyC<TypeC<T>>
+  readonly listValue: ReadonlyArrayC<ReadonlyC<TypeC<T>>>
+  readonly urls: URLs
+}
+export interface APIArgs<T extends Props, ID extends keyof T> {
+  readonly baseUrl: string
+  readonly resource: string
+  readonly value: ReadonlyC<TypeC<T>>
+  readonly id: ID
+  readonly listValue?: ReadonlyArrayC<ReadonlyC<TypeC<T>>>
+  readonly urls?: URLs
 }
 
-export function api<T extends Props, ID extends keyof T = 'id'>({
+export function api<T extends Props, ID extends keyof T>({
   baseUrl,
   resource,
   value,
+  id,
   listValue = readonlyArray(value),
-  urls = apiURLs<T[ID]>(baseUrl, resource),
-}: APIArgs<T>): APIRepository<T> {
+  urls = apiURLs(baseUrl, resource),
+}: APIArgs<T, ID>): APIRepository<T, ID> {
   return {
     baseUrl,
     resource,
@@ -97,17 +94,21 @@ export function api<T extends Props, ID extends keyof T = 'id'>({
           (await axios.get<TypeOf<typeof listValue>>(urls.all())).data,
         ),
       ),
-    one: async id =>
-      toPromise(
+
+    one: async pid => {
+      typeInvariant(value.type.props[id], pid)
+      return toPromise(
         value.decode(
           // @TODO: enforce correct type for id at runtime using 'value'
-          (await axios.get<TypeOf<typeof value>>(urls.one(id))).data,
+          (await axios.get<TypeOf<typeof value>>(urls.one(pid))).data,
         ),
-      ),
+      )
+    },
+
     create: async (values, actions) =>
       toPromise(
         value.decode(
-          await apiSubmit<Omit<TypeOf<typeof value>, 'id'>>({
+          await apiSubmit<Omit<TypeOf<typeof value>, ID>>({
             url: urls.create(),
           })(values, actions),
         ),
@@ -121,8 +122,12 @@ export function api<T extends Props, ID extends keyof T = 'id'>({
           })(values, actions),
         ),
       ),
-    remove: async id =>
-      // @TODO: data is any?!!!
-      toPromise(value.decode((await axios.delete(urls.remove(id))).data)),
+
+    remove: async pid => {
+      typeInvariant(value.type.props[id], pid)
+      return toPromise(
+        value.decode((await axios.delete(urls.remove(pid))).data),
+      )
+    },
   }
 }
