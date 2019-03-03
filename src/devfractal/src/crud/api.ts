@@ -10,10 +10,10 @@ import {
   TypeOf,
 } from 'io-ts'
 import { Omit } from 'react-router'
-import { apiSubmit } from '../lib'
+import { apiSubmit, TVT } from '../lib'
 import { toPromise } from './internal'
 
-export interface ApiUrls<IDType = unknown> {
+export interface ApiUrls<IDType> {
   all(): string
   create(): string
   one(id: IDType): string
@@ -21,9 +21,9 @@ export interface ApiUrls<IDType = unknown> {
   remove(id: IDType): string
 }
 
-export function apiUrls<IDType = unknown>(
-  baseUrl: string,
-  resource: string,
+export function apiUrls<IDType>(
+  baseUrl: string, // eg: 'https://localhost:3000'
+  resource: string, // eg: 'todos'
 ): ApiUrls<IDType> {
   return {
     all: () => `${baseUrl}/${resource}`,
@@ -35,57 +35,54 @@ export function apiUrls<IDType = unknown>(
 }
 
 interface ApiValues<
-  T extends Props & { readonly id: any },
+  T extends Props,
   V extends Mixed = ReadonlyC<TypeC<T>>,
   LV = ReadonlyArrayC<V>,
-  IDType = T['id']
+  ID extends keyof T = 'id'
 > {
   readonly baseUrl: string
   readonly resource: string
   readonly value: V
   readonly listValue: LV
-  readonly urls: IDType
+  readonly urls: ApiUrls<T[ID]>
 }
 
 export interface Repository<
-  T extends { readonly id: any },
-  List = ReadonlyArray<T>,
-  IDType = T['id']
+  T extends { readonly [key: string]: unknown },
+  ID extends keyof T = 'id',
+  List = ReadonlyArray<T>
 > {
   all(): Promise<List>
-  create(
-    value: Omit<T, 'id'>,
-    actions: FormikActions<Omit<T, 'id'>>,
-  ): Promise<T>
-  one(id: IDType): Promise<T>
+  create(value: Omit<T, ID>, actions: FormikActions<Omit<T, ID>>): Promise<T>
+  one(id: T[ID]): Promise<T>
   edit(value: T, actions: FormikActions<T>): Promise<T>
-  remove(id: IDType): Promise<T>
+  remove(id: T[ID]): Promise<T>
 }
 
-export type ApiRepository<T extends Props & { readonly id: any }> = Repository<
-  TypeOf<ReadonlyC<TypeC<T>>>
-> &
-  ApiValues<T>
+export type ApiRepository<
+  T extends Props,
+  ID extends keyof T = 'id'
+> = Repository<TVT<T>, ID> & ApiValues<T>
 
 export interface APIArgs<
-  T extends Props & { readonly id: any },
+  T extends Props,
   V = ReadonlyC<TypeC<T>>,
   LV = ReadonlyArrayC<ReadonlyC<TypeC<T>>>,
-  IDType = T['id']
+  ID extends keyof T = 'id'
 > {
   readonly baseUrl: string
   readonly resource: string
   readonly value: V
   readonly listValue?: LV
-  readonly urls?: IDType
+  readonly urls?: ApiUrls<T[ID]>
 }
 
-export function api<T extends Props & { id: any }>({
+export function api<T extends Props, ID extends keyof T = 'id'>({
   baseUrl,
   resource,
   value,
   listValue = readonlyArray(value),
-  urls = apiUrls<T['id']>(baseUrl, resource),
+  urls = apiUrls<T[ID]>(baseUrl, resource),
 }: APIArgs<T>): ApiRepository<T> {
   return {
     baseUrl,
