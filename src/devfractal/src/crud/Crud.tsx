@@ -3,7 +3,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router'
 import { Section } from '../lib'
 import {
-  ApiRepository,
+  APIRepository,
   Paths,
   paths as ps,
   RouteComponents,
@@ -12,7 +12,7 @@ import {
 
 export type CrudProps<T extends Props & { readonly id: any }> = Readonly<{
   readonly basePath: string
-  readonly api: ApiRepository<T>
+  readonly api: APIRepository<T>
   readonly paths?: Paths
   readonly components?: RouteComponentsResult
 }>

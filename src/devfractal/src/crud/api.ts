@@ -13,7 +13,8 @@ import { Omit } from 'react-router'
 import { apiSubmit, TVT } from '../lib'
 import { toPromise } from './internal'
 
-export interface ApiUrls<IDType> {
+export interface URLs<IDType> {
+  // readonly id: IDType
   all(): string
   create(): string
   one(id: IDType): string
@@ -21,10 +22,10 @@ export interface ApiUrls<IDType> {
   remove(id: IDType): string
 }
 
-export function apiUrls<IDType>(
+export function apiURLs<IDType>(
   baseUrl: string, // eg: 'https://localhost:3000'
   resource: string, // eg: 'todos'
-): ApiUrls<IDType> {
+): URLs<IDType> {
   return {
     all: () => `${baseUrl}/${resource}`,
     create: () => `${baseUrl}/${resource}`,
@@ -34,7 +35,7 @@ export function apiUrls<IDType>(
   }
 }
 
-interface ApiValues<
+interface APIValues<
   T extends Props,
   V extends Mixed = ReadonlyC<TypeC<T>>,
   LV = ReadonlyArrayC<V>,
@@ -44,7 +45,7 @@ interface ApiValues<
   readonly resource: string
   readonly value: V
   readonly listValue: LV
-  readonly urls: ApiUrls<T[ID]>
+  readonly urls: URLs<T[ID]>
 }
 
 export interface Repository<
@@ -59,10 +60,10 @@ export interface Repository<
   remove(id: T[ID]): Promise<T>
 }
 
-export type ApiRepository<
+export type APIRepository<
   T extends Props,
   ID extends keyof T = 'id'
-> = Repository<TVT<T>, ID> & ApiValues<T>
+> = Repository<TVT<T>, ID> & APIValues<T>
 
 export interface APIArgs<
   T extends Props,
@@ -74,7 +75,7 @@ export interface APIArgs<
   readonly resource: string
   readonly value: V
   readonly listValue?: LV
-  readonly urls?: ApiUrls<T[ID]>
+  readonly urls?: URLs<T[ID]>
 }
 
 export function api<T extends Props, ID extends keyof T = 'id'>({
@@ -82,8 +83,8 @@ export function api<T extends Props, ID extends keyof T = 'id'>({
   resource,
   value,
   listValue = readonlyArray(value),
-  urls = apiUrls<T[ID]>(baseUrl, resource),
-}: APIArgs<T>): ApiRepository<T> {
+  urls = apiURLs<T[ID]>(baseUrl, resource),
+}: APIArgs<T>): APIRepository<T> {
   return {
     baseUrl,
     resource,

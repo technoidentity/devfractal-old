@@ -2,7 +2,7 @@ import { Props } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
 import {
-  ApiRepository,
+  APIRepository,
   CrudComponents,
   CrudComponentsResult,
   Repository,
@@ -56,13 +56,13 @@ export const pathFns: (resource: string, basePath?: string) => PathFns = (
 }
 
 interface APIRouteComponentsArgs<T extends Props & { readonly id: unknown }> {
-  readonly api: ApiRepository<T>
+  readonly api: APIRepository<T>
   readonly Crud?: CrudComponentsResult<T>
 }
 
 interface RouteComponentsArgs<T extends Props & { readonly id: unknown }> {
   readonly api: Repository<TVT<T>>
-  readonly value: ApiRepository<T>['value']
+  readonly value: APIRepository<T>['value']
   readonly resource: string
   readonly Crud?: CrudComponentsResult<T>
 }
