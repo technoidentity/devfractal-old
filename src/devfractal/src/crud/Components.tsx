@@ -1,7 +1,6 @@
 import { FormikActions } from 'formik'
 import { Props } from 'io-ts'
 import React, { FC } from 'react'
-import { useAsync } from 'react-use'
 import {
   Button,
   Container,
@@ -11,12 +10,11 @@ import {
   SimpleEditor,
   SimpleTable,
   SimpleViewer,
-  Text,
 } from '../lib'
 import { emptyFromType, TVT, VT } from './internal'
 
 interface ItemProps<T> {
-  asyncFn(): Promise<T>
+  readonly data: T | (() => Promise<T>)
 }
 
 export interface EditProps<T> extends ItemProps<T> {
@@ -36,44 +34,31 @@ export interface ListProps<T> {
   onDelete?(value: RowClickEvent<T>): void
 }
 
-export type CrudComponentsResult<T extends Props, V = TVT<T>> = Readonly<{
+export type CrudComponentsResult<
+  T extends Props,
+  V = TVT<T>,
+  ID extends keyof T = 'id'
+> = Readonly<{
   readonly List: FC<ListProps<V>>
-  readonly Create: FC<CreateProps<Omit<V, 'id'>>>
+  readonly Create: FC<CreateProps<Omit<V, ID>>>
   readonly Edit: FC<EditProps<V>>
   readonly View: FC<ItemProps<V>>
 }>
 
-export const CrudComponents: <T extends Props & { readonly id: unknown }>(
-  typeValue: VT<T>, // or pass to Create?
-) => CrudComponentsResult<T> = typeValue => ({
+export const CrudComponents: <T extends Props, ID extends keyof T = 'id'>(
+  // cannot pass this to create, as getting type from typeValue is easy,
+  // not the other way round
+  typeValue: VT<T>,
+) => CrudComponentsResult<T, TVT<T>, ID> = typeValue => ({
   Create: ({ onSubmit }) => (
     <SimpleEditor data={emptyFromType(typeValue)} onSubmit={onSubmit} />
   ),
 
-  Edit: ({ asyncFn, onSubmit }) => {
-    const { value, loading, error } = useAsync(asyncFn)
-    return value ? (
-      // @TODO: typed SimpleEditor/Viewer/Table would be awesome!
-      <SimpleEditor data={value} onSubmit={onSubmit} />
-    ) : loading ? (
-      <h1>Loading...</h1>
-    ) : (
-      <Text textSize="4" textColor="danger">
-        >{error ? error.message : 'Unknown Error'}
-      </Text>
-    )
-  },
+  Edit: ({ data, onSubmit }) => (
+    <SimpleEditor data={data} onSubmit={onSubmit} />
+  ),
 
-  View: ({ asyncFn }) => {
-    const { value, loading, error } = useAsync(asyncFn)
-    return value ? (
-      <SimpleViewer data={value} />
-    ) : loading ? (
-      <h1>Loading...</h1>
-    ) : (
-      <h1>${error ? error.message : 'Unknown Error'}</h1>
-    )
-  },
+  View: ({ data }) => <SimpleViewer data={data} />,
 
   List: ({ list, onCreate, onEdit }) => (
     <Container>
@@ -85,5 +70,4 @@ export const CrudComponents: <T extends Props & { readonly id: unknown }>(
       <SimpleTable data={list} onRowClicked={onEdit} />
     </Container>
   ),
-  // @TODO: remove
 })

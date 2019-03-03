@@ -9,7 +9,7 @@ import {
   TVT,
 } from './internal'
 
-const base: (resource: string, basePath?: string) => string = (
+const base: (resource: string, basePath: string) => string = (
   resource,
   basePath,
 ) => (basePath ? `${basePath}/${resource}` : `/${resource}`)
@@ -21,11 +21,12 @@ export interface Paths {
   readonly edit: string
 }
 
-export const paths: (resource: string, basePath?: string) => Paths = (
+export const paths: (resource: string, basePath: string) => Paths = (
   resource,
   basePath,
 ) => {
   const path: string = base(resource, basePath)
+
   return {
     list: path,
     create: `${path}/create`,
@@ -41,7 +42,7 @@ export type PathFns = Readonly<{
   create(): string
 }>
 
-export const pathFns: (resource: string, basePath?: string) => PathFns = (
+export const pathFns: (resource: string, basePath: string) => PathFns = (
   resource,
   basePath,
 ) => {
@@ -55,35 +56,36 @@ export const pathFns: (resource: string, basePath?: string) => PathFns = (
   }
 }
 
-interface APIRouteComponentsArgs<T extends Props & { readonly id: unknown }> {
-  readonly api: APIRepository<T>
-  readonly Crud?: CrudComponentsResult<T>
+interface APIRouteComponentsArgs<T extends Props, ID extends keyof T> {
+  readonly api: APIRepository<T, ID>
+  readonly Crud?: CrudComponentsResult<T, TVT<T>, ID>
+  readonly basePath: string
 }
 
-interface RouteComponentsArgs<T extends Props & { readonly id: unknown }> {
-  readonly api: Repository<TVT<T>>
-  readonly value: APIRepository<T>['value']
+interface RouteComponentsArgs<T extends Props, ID extends keyof T> {
+  readonly api: Repository<TVT<T>, ID>
+  readonly Crud?: CrudComponentsResult<T, TVT<T>, ID>
+  readonly basePath: string
+  readonly value: APIRepository<T, ID>['value']
   readonly resource: string
-  readonly Crud?: CrudComponentsResult<T>
 }
 
 export interface RouteComponentsResult {
   readonly List: FC<RouteComponentProps>
   readonly Create: FC<RouteComponentProps>
-  readonly Edit: FC<RouteComponentProps<{ readonly id?: string }>>
-  readonly View: FC<RouteComponentProps<{ readonly id?: string }>>
+  readonly Edit: FC<RouteComponentProps<{ readonly id: string }>>
+  readonly View: FC<RouteComponentProps<{ readonly id: string }>>
 }
 
-export const RouteComponents: <T extends Props & { readonly id: unknown }>(
-  args: RouteComponentsArgs<T> | APIRouteComponentsArgs<T>,
-  basePath: string,
-) => RouteComponentsResult = (args, basePath) => {
+export function routeComponents<T extends Props, ID extends keyof T>(
+  args: RouteComponentsArgs<T, ID> | APIRouteComponentsArgs<T, ID>,
+): RouteComponentsResult {
   // tslint:disable typedef
   const { all, one, create, edit } = args.api
   const value = 'value' in args ? args.value : args.api.value
   const resource = 'resource' in args ? args.resource : args.api.resource
   const Crud = args.Crud || CrudComponents(value)
-  const paths = pathFns(resource, basePath)
+  const paths = pathFns(resource, args.basePath)
   // tslint:enable typedef
 
   return {
@@ -91,7 +93,7 @@ export const RouteComponents: <T extends Props & { readonly id: unknown }>(
       <Crud.List
         list={all}
         onEdit={({ value }) =>
-          history.push(pathFns(resource, basePath).edit(+value.id))
+          history.push(pathFns(resource, args.basePath).edit(+value.id))
         }
         onCreate={() => history.push(paths.create())}
       />
@@ -109,7 +111,7 @@ export const RouteComponents: <T extends Props & { readonly id: unknown }>(
     Edit: ({ history, match }) => (
       // @TODO: handle id type in one?
       <Crud.Edit
-        asyncFn={async () => one(match.params.id as any)}
+        data={async () => one(match.params.id as any)}
         onSubmit={async (values, actions) => {
           await edit(values, actions)
           history.push(paths.list())
@@ -117,8 +119,9 @@ export const RouteComponents: <T extends Props & { readonly id: unknown }>(
         }}
       />
     ),
+
     View: ({ match }) => (
-      <Crud.View asyncFn={async () => one(match.params.id as any)} />
+      <Crud.View data={async () => one(match.params.id as any)} />
     ),
   }
 }

@@ -1,20 +1,18 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import { paths, RouteComponents, Section, SimpleRedirect } from '../devfractal'
+import { paths, routeComponents, Section, SimpleRedirect } from '../devfractal'
 import { InMemoryAPI } from './todoAPI'
 import { TodoValue } from './types'
 
 const resource: string = 'todos'
 const basePath: string = '/crud'
 
-const { Create, List, Edit, View } = RouteComponents(
-  {
-    api: InMemoryAPI,
-    value: TodoValue,
-    resource,
-  },
+const { Create, List, Edit, View } = routeComponents({
   basePath,
-)
+  api: InMemoryAPI,
+  value: TodoValue,
+  resource,
+})
 
 export const TodoRoutes: React.SFC = () => {
   // @TODO: It should be /crud
