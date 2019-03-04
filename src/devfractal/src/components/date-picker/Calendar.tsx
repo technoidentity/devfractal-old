@@ -20,7 +20,7 @@ import {
   calendarMonths,
   calenderDates,
   isSameDay,
-  isSameMonth,
+  isThisMonth,
   nextMonth,
   previousMonth,
   weekDays,
@@ -47,29 +47,22 @@ export interface DisplayMonthDaysListProps {
   readonly weeksMonth: ReadonlyArray<
     ReadonlyArray<ReadonlyArray<string | number>> | undefined
   >
-  readonly month: number
-  readonly year: number
+
   onDateButtonClick(date: Date): void
 }
 
 export interface DisplayMonthDaysProps {
   readonly week: ReadonlyArray<ReadonlyArray<string | number>> | undefined
 
-  readonly month: number
-  readonly year: number
   onDateButtonClick(date: Date): void
 }
 
 export const DisplayMonthDays: ({
   week,
   onDateButtonClick,
-  month,
-  year,
 }: DisplayMonthDaysProps) => JSX.Element = ({
   week,
   onDateButtonClick,
-  month,
-  year,
 }: DisplayMonthDaysProps) => {
   return (
     // @TODO: index as key is a really bad idea!
@@ -84,7 +77,7 @@ export const DisplayMonthDays: ({
                 {currentDate.getDate()}
               </Button>
             </Td>
-          ) : isSameMonth(currentDate, new Date([year, month, 1].join('-'))) ? (
+          ) : isThisMonth(currentDate) ? (
             <Td key={shortid.generate()}>
               <Button
                 textColor="info"
@@ -118,13 +111,9 @@ export const DisplayMonthDays: ({
 export const DisplayMonthDaysList: ({
   weeksMonth,
   onDateButtonClick,
-  month,
-  year,
 }: DisplayMonthDaysListProps) => JSX.Element = ({
   weeksMonth,
   onDateButtonClick,
-  month,
-  year,
 }: DisplayMonthDaysListProps) => (
   // @TODO: Possible to split this into multiple local components?
   <Section>
@@ -147,8 +136,6 @@ export const DisplayMonthDaysList: ({
           <DisplayMonthDays
             key={shortid.generate()}
             week={week}
-            month={month}
-            year={year}
             onDateButtonClick={onDateButtonClick}
           />
         ))}
@@ -228,8 +215,6 @@ export const CalendarComponent: ({
       <Section>
         <DisplayMonthDaysList
           weeksMonth={partitionArray(displayCalendarDays, 7)}
-          month={state.currentMonth}
-          year={state.currentYear}
           onDateButtonClick={onDateButtonClick}
         />
       </Section>
