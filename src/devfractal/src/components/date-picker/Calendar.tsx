@@ -23,6 +23,7 @@ import {
   isSameMonth,
   nextMonth,
   previousMonth,
+  weekDays,
 } from './internal'
 
 const partitionArray: <T>(
@@ -130,13 +131,15 @@ export const DisplayMonthDaysList: ({
     <Table bordered striped hoverable narrow fullWidth>
       <TableHead>
         <Tr>
-          {calendarMonths
-            .map(m => m.toUpperCase())
-            .map(m => (
-              <Th textColor="info" className="is-size-7-mobile">
-                {m}
-              </Th>
-            ))}
+          {weekDays.map(m => (
+            <Th
+              key={shortid.generate()}
+              textColor="info"
+              className="is-size-7-mobile"
+            >
+              {m}
+            </Th>
+          ))}
         </Tr>
       </TableHead>
       <TableBody>

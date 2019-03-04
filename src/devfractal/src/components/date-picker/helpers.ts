@@ -17,6 +17,16 @@ export const calendarMonths: ReadonlyArray<String> = [
   'Dec',
 ]
 
+export const weekDays: ReadonlyArray<String> = [
+  'SUN',
+  'MON',
+  'TUE',
+  'WED',
+  'THU',
+  'FRI',
+  'SAT',
+]
+
 export const calendarWeeks: number = 6
 
 export const zeroPad: (value: number, length: number) => string = (
