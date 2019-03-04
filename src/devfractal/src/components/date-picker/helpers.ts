@@ -1,3 +1,5 @@
+import date_fns from 'date-fns'
+
 export const currentYear: () => number = () => new Date().getFullYear()
 
 export const currentMonth: () => number = () => new Date().getMonth() + 1
@@ -37,55 +39,30 @@ export const zeroPad: (value: number, length: number) => string = (
 export const daysInMonth: (month: number, year: number) => number = (
   month,
   year,
-) => new Date(year, month, 0).getDate()
+) => date_fns.getDaysInMonth(new Date(year, month - 1))
 
 export const firstDayOfMonth: (month: number, year: number) => number = (
   month,
   year,
 ) => new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
 
-export const isDate: (date: Date) => boolean = (date: Date) => {
-  const isDate: boolean =
-    Object.prototype.toString.call(date) === '[object Date]'
-  const isValidDate: boolean = date && !Number.isNaN(date.valueOf())
-
-  return isDate && isValidDate
-}
-
-export const isSameMonth: (date: Date, baseDate?: Date) => boolean = (
-  date: Date,
-  baseDate = new Date(),
-) => {
-  if (!(isDate(date) && isDate(baseDate))) {
-    return false
-  }
-
-  return (
-    baseDate.getMonth() + 1 === date.getMonth() + 1 &&
-    baseDate.getFullYear() === date.getFullYear()
-  )
-}
+export const isDate: (date: Date) => boolean = date =>
+  date_fns.isDate(date) && date_fns.isValid(date)
 
 export const isSameDay: (date: Date, baseDate?: Date) => boolean = (
   date: Date,
   baseDate = new Date(),
-) => {
-  if (!(isDate(date) && isDate(baseDate))) {
-    return false
-  }
-  return (
-    baseDate.getDate() === date.getDate() &&
-    baseDate.getMonth() + 1 === date.getMonth() + 1 &&
-    baseDate.getFullYear() === date.getFullYear()
-  )
-}
+) => date_fns.isSameDay(date, baseDate)
+
+export const isThisMonth: (date: Date) => boolean = (date: Date) =>
+  date_fns.isThisMonth(date)
 
 export const toISODate: (date: Date) => string | undefined = date => {
   return isDate(date)
     ? [
-        date.getFullYear(),
-        zeroPad(+date.getMonth() + 1, 2),
-        zeroPad(+date.getDate(), 2),
+        date_fns.getISOYear(date),
+        zeroPad(date_fns.getMonth(date) + 1, 2),
+        zeroPad(date_fns.getDate(date), 2),
       ].join('-')
     : undefined
 }
