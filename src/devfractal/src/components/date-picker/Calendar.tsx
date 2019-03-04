@@ -162,30 +162,28 @@ export const CalendarComponent: ({
   selectedDate,
   onDateButtonClick,
 }: CalendarProps) => {
-  const [state, setState] = React.useState({
-    currentMonth: selectedDate.getMonth() + 1,
-    currentYear: selectedDate.getFullYear(),
-  })
+  const [currentMonth, setCurrentMonth] = React.useState(
+    selectedDate.getMonth() + 1,
+  )
+
+  const [currentYear, setCurrentYear] = React.useState(
+    selectedDate.getFullYear(),
+  )
 
   const calendarDates: () => ReadonlyArray<
     ReadonlyArray<string | number>
-  > = () => {
-    const { currentMonth, currentYear } = state
-    const calendarMonth: number = currentMonth
-    const calendarYear: number = currentYear
-    return calenderDates(calendarMonth, calendarYear)
-  }
+  > = () => calenderDates(currentMonth, currentYear)
 
   const gotoPreviousMonth: () => void = () => {
-    const { currentMonth, currentYear } = state
     const { month, year } = previousMonth(currentMonth, currentYear)
-    setState({ ...state, currentMonth: month, currentYear: year })
+    setCurrentMonth(month)
+    setCurrentYear(year)
   }
 
   const gotoNextMonth: () => void = () => {
-    const { currentMonth, currentYear } = state
     const { month, year } = nextMonth(currentMonth, currentYear)
-    setState({ ...state, currentMonth: month, currentYear: year })
+    setCurrentMonth(month)
+    setCurrentYear(year)
   }
 
   const displayCalendarDays: ReadonlyArray<
@@ -202,7 +200,7 @@ export const CalendarComponent: ({
           </LevelItem>
         </Button>
         <Section textColor="info">
-          {calendarMonths[state.currentMonth - 1]}-{state.currentYear}
+          {calendarMonths[currentMonth - 1]}-{currentYear}
         </Section>
         <Button variant="info" inverted onClick={gotoNextMonth}>
           <LevelItem direction="right">
