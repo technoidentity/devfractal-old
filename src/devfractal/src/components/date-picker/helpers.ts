@@ -32,9 +32,7 @@ export const getDaysInMonth: (month?: number, year?: number) => number = (
 export const getMonthFirstDay: (month?: number, year?: number) => number = (
   month = currentMonth(),
   year = currentYear(),
-) => {
-  return new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
-}
+) => new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
 
 export const isDate: (date: Date) => boolean = (date: Date) => {
   const isDate: boolean =
@@ -146,23 +144,23 @@ export const getCalendarDates: (
 
   const previousMonthDates: Array<Array<string | number>> = Array.from(
     Array(daysFromPreviousMonth).keys(),
-  ).map((index: number) => {
-    const day: number = index + 1 + (prevMonthDays - daysFromPreviousMonth)
-    return [prevMonthYear, zeroPad(prevMonth, 2), zeroPad(day, 2)]
-  })
+  ).map(index => [
+    prevMonthYear,
+    zeroPad(prevMonth, 2),
+    zeroPad(index + 1 + (prevMonthDays - daysFromPreviousMonth), 2),
+  ])
 
   const currentMonthDates: Array<Array<string | number>> = Array.from(
     Array(monthDays).keys(),
-  ).map((index: number) => {
-    const day: number = index + 1
-    return [year, zeroPad(month, 2), zeroPad(day, 2)]
-  })
+  ).map(index => [year, zeroPad(month, 2), zeroPad(index + 1, 2)])
 
   const nextMonthDates: Array<Array<string | number>> = Array.from(
     Array(daysFromNextMonth).keys(),
-  ).map((index: number) => {
-    const day: number = index + 1
-    return [nextMonthYear, zeroPad(nextMonth, 2), zeroPad(day, 2)]
-  })
+  ).map((index: number) => [
+    nextMonthYear,
+    zeroPad(nextMonth, 2),
+    zeroPad(index + 1, 2),
+  ])
+
   return [...previousMonthDates, ...currentMonthDates, ...nextMonthDates]
 }
