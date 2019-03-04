@@ -1,16 +1,16 @@
-import axios from 'axios'
-import { FormikActions } from 'formik'
+import axios, { AxiosPromise } from 'axios'
 import t, {
   Props,
   readonlyArray,
   ReadonlyArrayC,
   ReadonlyC,
+  Type,
   TypeC,
   TypeOf,
   union,
 } from 'io-ts'
 import { Omit } from 'react-router'
-import { apiSubmit, TVT, typeInvariant } from '../lib'
+import { TVT, typeInvariant } from '../lib'
 import { toPromise } from './internal'
 
 export interface URLs {
@@ -45,14 +45,11 @@ export const apiURLs: (
   },
 })
 
-export interface Repository<
-  T extends { readonly [key: string]: unknown },
-  ID extends keyof T
-> {
+export interface Repository<T, ID extends keyof T> {
   all(): Promise<ReadonlyArray<T>>
-  create(value: Omit<T, ID>, actions: FormikActions<Omit<T, ID>>): Promise<T>
+  create(value: Omit<T, ID>): Promise<T>
   one(id: T[ID]): Promise<T>
-  edit(value: T, actions: FormikActions<T>): Promise<T>
+  edit(value: T): Promise<T>
   remove(id: T[ID]): Promise<T>
 }
 
@@ -73,6 +70,12 @@ export interface APIArgs<T extends Props, ID extends keyof T> {
   readonly urls?: URLs
 }
 
+const request: <A>(
+  value: Type<A>,
+  promise: AxiosPromise<A>,
+) => Promise<A> = async (value, promise) =>
+  toPromise(value.decode((await promise).data))
+
 export function api<T extends Props, ID extends keyof T>({
   baseUrl,
   resource,
@@ -88,45 +91,25 @@ export function api<T extends Props, ID extends keyof T>({
     listValue,
     urls,
     all: async () =>
-      toPromise(
-        listValue.decode(
-          (await axios.get<TypeOf<typeof listValue>>(urls.all())).data,
-        ),
-      ),
+      request(listValue, axios.get<TypeOf<typeof listValue>>(urls.all())),
 
     one: async pid => {
       typeInvariant(value.type.props[id], pid)
-      return toPromise(
-        value.decode(
-          // @TODO: enforce correct type for id at runtime using 'value'
-          (await axios.get<TypeOf<typeof value>>(urls.one(pid))).data,
-        ),
-      )
+      return request(value, axios.get<TypeOf<typeof value>>(urls.one(pid)))
     },
 
-    create: async (values, actions) =>
-      toPromise(
-        value.decode(
-          await apiSubmit<Omit<TypeOf<typeof value>, ID>>({
-            url: urls.create(),
-          })(values, actions),
-        ),
-      ),
-    edit: async (values, actions) =>
-      toPromise(
-        value.decode(
-          await apiSubmit<TypeOf<typeof value>>({
-            url: urls.edit(values.id),
-            action: 'put',
-          })(values, actions),
-        ),
+    create: async values =>
+      request(value, axios.post<TypeOf<typeof value>>(urls.create(), values)),
+
+    edit: async values =>
+      request(
+        value,
+        axios.put<TypeOf<typeof value>>(urls.edit(values.id), values),
       ),
 
     remove: async pid => {
       typeInvariant(value.type.props[id], pid)
-      return toPromise(
-        value.decode((await axios.delete(urls.remove(pid))).data),
-      )
+      return request(value, axios.delete(urls.remove(pid)))
     },
   }
 }

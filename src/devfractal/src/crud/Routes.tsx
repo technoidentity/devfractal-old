@@ -1,6 +1,7 @@
 import { Props } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
+import { formikSubmit } from '../form/submitHandlers'
 import {
   APIRepository,
   CrudComponents,
@@ -103,7 +104,7 @@ export function routeComponents<T extends Props, ID extends keyof T>(
     Create: ({ history }) => (
       <Crud.Create
         onSubmit={async (values, actions) => {
-          await create(values, actions)
+          await formikSubmit(create)(values, actions)
           history.push(paths.list())
           // @TODO: handle error?
         }}
@@ -115,7 +116,7 @@ export function routeComponents<T extends Props, ID extends keyof T>(
       <Crud.Edit
         data={async () => one(match.params.id as any)}
         onSubmit={async (values, actions) => {
-          await edit(values, actions)
+          await formikSubmit(edit)(values, actions)
           history.push(paths.list())
           // @TODO: handle error?
         }}
