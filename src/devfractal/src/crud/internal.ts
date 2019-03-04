@@ -1,6 +1,6 @@
 export * from './api'
 export * from './empty'
 export * from './utils'
-export * from './CrudViews'
+export * from './Views'
 export * from './Crud'
 export * from './Components'

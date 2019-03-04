@@ -4,10 +4,10 @@ import { RouteComponentProps } from 'react-router'
 import { formikSubmit } from '../lib'
 import {
   APIRepository,
-  CrudViews,
   CrudViewsResult,
   Repository,
   TVT,
+  Views,
 } from './internal'
 
 const base: (resource: string, basePath: string) => string = (
@@ -59,14 +59,14 @@ export const pathFns: (resource: string, basePath: string) => PathFns = (
 
 interface APIComponentsArgs<T extends Props, ID extends keyof T> {
   readonly api: APIRepository<T, ID>
-  readonly Crud?: CrudViewsResult<T, ID>
+  readonly Views?: CrudViewsResult<T, ID>
   readonly basePath: string
   readonly id: ID
 }
 
 interface ComponentsArgs<T extends Props, ID extends keyof T> {
   readonly api: Repository<TVT<T>, ID>
-  readonly Crud?: CrudViewsResult<T, ID>
+  readonly Views?: CrudViewsResult<T, ID>
   readonly basePath: string
   readonly id: ID
   readonly value: APIRepository<T, ID>['value']
@@ -87,13 +87,13 @@ export function components<T extends Props, ID extends keyof T>(
   const { all, one, create, edit } = args.api
   const value = 'value' in args ? args.value : args.api.value
   const resource = 'resource' in args ? args.resource : args.api.resource
-  const Crud = args.Crud || CrudViews(value, args.id)
+  const CV = args.Views || Views(value, args.id)
   const paths = pathFns(resource, args.basePath)
   // tslint:enable typedef
 
   return {
     List: ({ history }) => (
-      <Crud.List
+      <CV.List
         list={all}
         onEdit={({ value }) =>
           history.push(pathFns(resource, args.basePath).edit(+value.id))
@@ -102,7 +102,7 @@ export function components<T extends Props, ID extends keyof T>(
       />
     ),
     Create: ({ history }) => (
-      <Crud.Create
+      <CV.Create
         onSubmit={async (values, actions) => {
           await formikSubmit(create)(values, actions)
           history.push(paths.list())
@@ -113,7 +113,7 @@ export function components<T extends Props, ID extends keyof T>(
 
     Edit: ({ history, match }) => (
       // @TODO: handle id type in one?
-      <Crud.Edit
+      <CV.Edit
         data={async () => one(match.params.id as any)}
         onSubmit={async (values, actions) => {
           await formikSubmit(edit)(values, actions)
@@ -124,7 +124,7 @@ export function components<T extends Props, ID extends keyof T>(
     ),
 
     View: ({ match }) => (
-      <Crud.View data={async () => one(match.params.id as any)} />
+      <CV.View data={async () => one(match.params.id as any)} />
     ),
   }
 }

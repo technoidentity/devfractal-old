@@ -40,7 +40,7 @@ export interface CrudViewsResult<T extends Props, ID extends keyof T> {
   readonly View: FC<ViewProps<TVT<T>>>
 }
 
-export const CrudViews: <T extends Props, ID extends keyof T>(
+export const Views: <T extends Props, ID extends keyof T>(
   // cannot pass this to create, as getting type from typeValue is easy,
   // not the other way round
   typeValue: VT<T>,
