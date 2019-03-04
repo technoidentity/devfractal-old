@@ -36,12 +36,12 @@ export const paths: (resource: string, basePath: string) => Paths = (
   }
 }
 
-export type PathFns = Readonly<{
+export interface PathFns {
   view(id: unknown): string
   edit(id: unknown): string
   list(): string
   create(): string
-}>
+}
 
 export const pathFns: (resource: string, basePath: string) => PathFns = (
   resource,

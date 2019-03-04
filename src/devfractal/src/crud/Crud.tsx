@@ -10,13 +10,13 @@ import {
   paths as ps,
 } from './internal'
 
-export type CrudProps<T extends Props, ID extends keyof T> = Readonly<{
+export interface CrudProps<T extends Props, ID extends keyof T> {
   readonly basePath: string
   readonly api: APIRepository<T, ID>
   readonly id: ID
   readonly paths?: Paths
   readonly components?: ComponentsResult
-}>
+}
 
 export function Crud<T extends Props, ID extends keyof T>({
   basePath,

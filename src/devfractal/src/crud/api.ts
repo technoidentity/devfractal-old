@@ -9,8 +9,7 @@ import t, {
   TypeOf,
   union,
 } from 'io-ts'
-import { Omit } from 'react-router'
-import { TVT, typeInvariant } from '../lib'
+import { Omit, TVT, typeInvariant } from '../lib'
 import { toPromise } from './internal'
 
 export interface URLs {
@@ -99,14 +98,11 @@ export function api<T extends Props, ID extends keyof T>({
       return request(value, axios.get<TypeOf<typeof value>>(urls.one(pid)))
     },
 
-    create: async values =>
-      request(value, axios.post<TypeOf<typeof value>>(urls.create(), values)),
+    create: async v =>
+      request(value, axios.post<TypeOf<typeof value>>(urls.create(), v)),
 
-    edit: async values =>
-      request(
-        value,
-        axios.put<TypeOf<typeof value>>(urls.edit(values.id), values),
-      ),
+    edit: async v =>
+      request(value, axios.put<TypeOf<typeof value>>(urls.edit(v.id), v)),
 
     remove: async pid => {
       typeInvariant(value.type.props[id], pid)
