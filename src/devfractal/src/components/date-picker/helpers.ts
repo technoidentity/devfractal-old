@@ -1,6 +1,6 @@
-export const currentYear: number = new Date().getFullYear()
+export const currentYear: () => number = () => new Date().getFullYear()
 
-export const currentMonth: number = new Date().getMonth() + 1
+export const currentMonth: () => number = () => new Date().getMonth() + 1
 
 export const calendarMonths: ReadonlyArray<String> = [
   'Jan',
@@ -25,13 +25,13 @@ export const zeroPad: (value: number, length: number) => string = (
 ) => `${value}`.padStart(length, '0')
 
 export const getDaysInMonth: (month?: number, year?: number) => number = (
-  month = currentYear,
-  year = currentMonth,
+  month = currentYear(),
+  year = currentMonth(),
 ) => new Date(year, month, 0).getDate()
 
 export const getMonthFirstDay: (month?: number, year?: number) => number = (
-  month = currentMonth,
-  year = currentYear,
+  month = currentMonth(),
+  year = currentYear(),
 ) => {
   return new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
 }
@@ -126,8 +126,8 @@ export const getCalendarDates: (
   month?: number,
   year?: number,
 ) => ReadonlyArray<ReadonlyArray<string | number>> = (
-  month = currentMonth,
-  year = currentYear,
+  month = currentMonth(),
+  year = currentYear(),
 ) => {
   const monthDays: number = getDaysInMonth(month, year)
   const monthFirstDay: number = getMonthFirstDay(month, year)
