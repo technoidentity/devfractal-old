@@ -4,14 +4,16 @@ import React, { FC } from 'react'
 import {
   Button,
   Container,
+  emptyFromType,
   Field,
   Omit,
   RowClickEvent,
   SimpleEditor,
   SimpleTable,
   SimpleViewer,
+  TVT,
+  VT,
 } from '../lib'
-import { emptyFromType, TVT, VT } from './internal'
 
 export interface EditProps<T> {
   readonly data: T | (() => Promise<T>)

@@ -9,8 +9,7 @@ import t, {
   TypeOf,
   union,
 } from 'io-ts'
-import { Omit, TVT, typeInvariant } from '../lib'
-import { toPromise } from './internal'
+import { Omit, toPromise, TVT, typeInvariant } from '../lib'
 
 export interface URLs {
   all(): string

@@ -1,14 +1,8 @@
 import { Props } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
-import { formikSubmit } from '../lib'
-import {
-  APIRepository,
-  CrudViewsResult,
-  Repository,
-  TVT,
-  Views,
-} from './internal'
+import { formikSubmit, TVT } from '../lib'
+import { APIRepository, CrudViewsResult, Repository, Views } from './internal'
 
 const base: (resource: string, basePath: string) => string = (
   resource,
