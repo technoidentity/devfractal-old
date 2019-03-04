@@ -1,4 +1,12 @@
-import date_fns from 'date-fns'
+import {
+  getDate,
+  getDaysInMonth,
+  getISOYear,
+  getMonth,
+  isDate,
+  isValid,
+} from 'date-fns'
+import { range } from '../../lib'
 
 export const currentYear: () => number = () => new Date().getFullYear()
 
@@ -39,30 +47,22 @@ export const zeroPad: (value: number, length: number) => string = (
 export const daysInMonth: (month: number, year: number) => number = (
   month,
   year,
-) => date_fns.getDaysInMonth(new Date(year, month - 1))
+) => getDaysInMonth(new Date(year, month - 1))
 
 export const firstDayOfMonth: (month: number, year: number) => number = (
   month,
   year,
 ) => new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
 
-export const isDate: (date: Date) => boolean = date =>
-  date_fns.isDate(date) && date_fns.isValid(date)
-
-export const isSameDay: (date: Date, baseDate?: Date) => boolean = (
-  date: Date,
-  baseDate = new Date(),
-) => date_fns.isSameDay(date, baseDate)
-
-export const isThisMonth: (date: Date) => boolean = (date: Date) =>
-  date_fns.isThisMonth(date)
+export const isValidDate: (date: Date) => boolean = date =>
+  isDate(date) && isValid(date)
 
 export const toISODate: (date: Date) => string | undefined = date => {
-  return isDate(date)
+  return isValidDate(date)
     ? [
-        date_fns.getISOYear(date),
-        zeroPad(date_fns.getMonth(date) + 1, 2),
-        zeroPad(date_fns.getDate(date), 2),
+        getISOYear(date),
+        zeroPad(getMonth(date) + 1, 2),
+        zeroPad(getDate(date), 2),
       ].join('-')
     : undefined
 }
@@ -96,37 +96,35 @@ export const calenderDates: (
   month = currentMonth(),
   year = currentYear(),
 ) => {
-  const monthDays: number = daysInMonth(month, year)
-  const monthFirstDay: number = firstDayOfMonth(month, year)
+  const dim: number = daysInMonth(month, year)
+  const firstDay: number = firstDayOfMonth(month, year)
 
-  const daysFromPreviousMonth: number = monthFirstDay - 1
-  const daysFromNextMonth: number =
-    calendarWeeks * 7 - (monthDays + daysFromPreviousMonth)
+  const daysFromPrevMonth: number = firstDay - 1
 
-  const { month: prevMonth, year: prevMonthYear } = previousMonth(month, year)
-  const { month: nxtMonth, year: nextMonthYear } = nextMonth(month, year)
-
-  const prevMonthDays: number = daysInMonth(prevMonth, prevMonthYear)
+  const { month: prevMonth, year: prevYear } = previousMonth(month, year)
+  const { month: nxtMonth, year: nxtYear } = nextMonth(month, year)
 
   const previousMonthDates: Array<Array<string | number>> = Array.from(
-    Array(daysFromPreviousMonth).keys(),
+    Array(daysFromPrevMonth).keys(),
   ).map(index => [
-    prevMonthYear,
+    prevYear,
     zeroPad(prevMonth, 2),
-    zeroPad(index + 1 + (prevMonthDays - daysFromPreviousMonth), 2),
+    zeroPad(
+      index + 1 + (daysInMonth(prevMonth, prevYear) - daysFromPrevMonth),
+      2,
+    ),
   ])
 
   const currentMonthDates: Array<Array<string | number>> = Array.from(
-    Array(monthDays).keys(),
+    Array(dim).keys(),
   ).map(index => [year, zeroPad(month, 2), zeroPad(index + 1, 2)])
 
-  const nextMonthDates: Array<Array<string | number>> = Array.from(
-    Array(daysFromNextMonth).keys(),
-  ).map((index: number) => [
-    nextMonthYear,
-    zeroPad(nxtMonth, 2),
-    zeroPad(index + 1, 2),
-  ])
+  const daysFromNextMonth: number =
+    calendarWeeks * 7 - (dim + daysFromPrevMonth)
+
+  const nextMonthDates: Array<Array<string | number>> = range(
+    daysFromNextMonth,
+  ).map(i => [nxtYear, zeroPad(nxtMonth, 2), zeroPad(i + 1, 2)])
 
   return [...previousMonthDates, ...currentMonthDates, ...nextMonthDates]
 }

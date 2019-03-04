@@ -1,4 +1,5 @@
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import { isSameDay, isThisMonth } from 'date-fns'
 import React from 'react'
 import shortid from 'shortid'
 import {
@@ -19,8 +20,6 @@ import {
 import {
   calendarMonths,
   calenderDates,
-  isSameDay,
-  isThisMonth,
   nextMonth,
   previousMonth,
   weekDays,
@@ -71,7 +70,7 @@ export const DisplayMonthDays: ({
         week.map(date => {
           const currentDate: Date = new Date(date.join('-'))
 
-          return isSameDay(currentDate) ? (
+          return isSameDay(currentDate, new Date()) ? (
             <Td key={shortid.generate()}>
               <Button variant="info" rounded className="is-size-7-mobile">
                 {currentDate.getDate()}
@@ -108,7 +107,7 @@ export const DisplayMonthDays: ({
   )
 }
 
-export const DisplayMonthDaysList: ({
+export const MonthDaysList: ({
   weeksMonth,
   onDateButtonClick,
 }: DisplayMonthDaysListProps) => JSX.Element = ({
@@ -213,7 +212,7 @@ export const CalendarComponent: ({
         </Button>
       </Level>
       <Section>
-        <DisplayMonthDaysList
+        <MonthDaysList
           weeksMonth={partitionArray(displayCalendarDays, 7)}
           onDateButtonClick={onDateButtonClick}
         />

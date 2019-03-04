@@ -2,22 +2,17 @@ import * as React from 'react'
 import { Button, Field, Section } from '../../lib'
 import { CalendarComponent, toISODate } from './internal'
 
-export interface DatePickerState {
-  readonly date: Date
-  readonly isCalendarOpen: boolean
-}
-
-export const DatePicker: () => JSX.Element = () => {
-  const [isCalendarOpen, setIsCalendarOpen] = React.useState(false)
+export const DatePicker: React.SFC = () => {
+  const [calendarOpen, setCalendarOpen] = React.useState(false)
   const [date, setDate] = React.useState(new Date())
 
-  const toggleDateButtonClick: () => void = () => {
-    setIsCalendarOpen(!isCalendarOpen)
+  const toggle: () => void = () => {
+    setCalendarOpen(!calendarOpen)
   }
 
   const handleDateButtonClick: (date: Date) => void = date => {
     setDate(date)
-    setIsCalendarOpen(false)
+    setCalendarOpen(false)
   }
 
   return (
@@ -26,17 +21,12 @@ export const DatePicker: () => JSX.Element = () => {
         <Button variant="info" state="static">
           Birthday
         </Button>
-        <Button
-          variant="info"
-          outlined
-          type="submit"
-          onClick={toggleDateButtonClick}
-        >
+        <Button variant="info" outlined type="submit" onClick={toggle}>
           {toISODate(date)}
         </Button>
       </Field>
       <Section>
-        {isCalendarOpen && (
+        {calendarOpen && (
           <CalendarComponent
             selectedDate={date}
             onDateButtonClick={handleDateButtonClick}
