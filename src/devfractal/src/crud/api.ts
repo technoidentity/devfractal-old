@@ -10,8 +10,7 @@ import t, {
   union,
 } from 'io-ts'
 import { Omit } from 'react-router'
-import { apiSubmit, TVT } from '../lib'
-import { typeInvariant } from '../utils'
+import { apiSubmit, TVT, typeInvariant } from '../lib'
 import { toPromise } from './internal'
 
 export interface URLs {
@@ -68,8 +67,8 @@ export interface APIRepository<T extends Props, ID extends keyof T>
 export interface APIArgs<T extends Props, ID extends keyof T> {
   readonly baseUrl: string
   readonly resource: string
-  readonly value: ReadonlyC<TypeC<T>>
   readonly id: ID
+  readonly value: ReadonlyC<TypeC<T>>
   readonly listValue?: ReadonlyArrayC<ReadonlyC<TypeC<T>>>
   readonly urls?: URLs
 }
