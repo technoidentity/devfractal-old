@@ -20,18 +20,18 @@ export const calendarMonths: ReadonlyArray<String> = [
 export const calendarWeeks: number = 6
 
 export const zeroPad: (value: number, length: number) => string = (
-  value: number,
-  length: number,
+  value,
+  length,
 ) => `${value}`.padStart(length, '0')
 
-export const daysInMonth: (month?: number, year?: number) => number = (
-  month = currentYear(),
-  year = currentMonth(),
+export const daysInMonth: (month: number, year: number) => number = (
+  month,
+  year,
 ) => new Date(year, month, 0).getDate()
 
-export const firstDayOfMonth: (month?: number, year?: number) => number = (
-  month = currentMonth(),
-  year = currentYear(),
+export const firstDayOfMonth: (month: number, year: number) => number = (
+  month,
+  year,
 ) => new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
 
 export const isDate: (date: Date) => boolean = (date: Date) => {
@@ -48,15 +48,12 @@ export const isSameMonth: (date: Date, baseDate?: Date) => boolean = (
 ) => {
   if (!(isDate(date) && isDate(baseDate))) {
     return false
-  } else {
-    const baseDateMonth: number = baseDate.getMonth() + 1
-    const baseDateYear: number = baseDate.getFullYear()
-
-    const dateMonth: number = date.getMonth() + 1
-    const dateYear: number = date.getFullYear()
-
-    return baseDateMonth === dateMonth && baseDateYear === dateYear
   }
+
+  return (
+    baseDate.getMonth() + 1 === date.getMonth() + 1 &&
+    baseDate.getFullYear() === date.getFullYear()
+  )
 }
 
 export const isSameDay: (date: Date, baseDate?: Date) => boolean = (
@@ -65,26 +62,15 @@ export const isSameDay: (date: Date, baseDate?: Date) => boolean = (
 ) => {
   if (!(isDate(date) && isDate(baseDate))) {
     return false
-  } else {
-    const baseDateDate: number = baseDate.getDate()
-    const baseDateMonth: number = baseDate.getMonth() + 1
-    const baseDateYear: number = baseDate.getFullYear()
-
-    const dateDate: number = date.getDate()
-    const dateMonth: number = date.getMonth() + 1
-    const dateYear: number = date.getFullYear()
-
-    return (
-      baseDateDate === dateDate &&
-      baseDateMonth === dateMonth &&
-      baseDateYear === dateYear
-    )
   }
+  return (
+    baseDate.getDate() === date.getDate() &&
+    baseDate.getMonth() + 1 === date.getMonth() + 1 &&
+    baseDate.getFullYear() === date.getFullYear()
+  )
 }
 
-export const toISODate: (date?: Date) => string | undefined = (
-  date = new Date(),
-) => {
+export const toISODate: (date: Date) => string | undefined = date => {
   return isDate(date)
     ? [
         date.getFullYear(),
@@ -100,12 +86,10 @@ export const previousMonth: (
 ) => {
   readonly month: number
   readonly year: number
-} = (month: number, year: number) => {
-  const prevMonth: number = month > 1 ? month - 1 : 12
-  const prevMonthYear: number = month > 1 ? year : year - 1
-
-  return { month: prevMonth, year: prevMonthYear }
-}
+} = (month, year) => ({
+  month: month > 1 ? month - 1 : 12,
+  year: month > 1 ? year : year - 1,
+})
 
 export const nextMonth: (
   month: number,
@@ -113,12 +97,10 @@ export const nextMonth: (
 ) => {
   readonly month: number
   readonly year: number
-} = (month: number, year: number) => {
-  const nextMonth: number = month < 12 ? month + 1 : 1
-  const nextMonthYear: number = month < 12 ? year : year + 1
-
-  return { month: nextMonth, year: nextMonthYear }
-}
+} = (month, year) => ({
+  month: month < 12 ? month + 1 : 1,
+  year: month < 12 ? year : year + 1,
+})
 
 export const calenderDates: (
   month?: number,
