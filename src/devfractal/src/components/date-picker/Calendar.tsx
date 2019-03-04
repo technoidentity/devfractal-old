@@ -39,7 +39,7 @@ export interface DisplayMonthDaysTableProps {
   >
   readonly month: number
   readonly year: number
-  onDateButtonClick(day: number, month: number, year: number): void
+  onDateButtonClick(date: Date): void
 }
 
 export interface DisplayMonthDaysListProps {
@@ -48,7 +48,7 @@ export interface DisplayMonthDaysListProps {
   >
   readonly month: number
   readonly year: number
-  onDateButtonClick(day: number, month: number, year: number): void
+  onDateButtonClick(date: Date): void
 }
 
 export interface DisplayMonthDaysProps {
@@ -56,7 +56,7 @@ export interface DisplayMonthDaysProps {
 
   readonly month: number
   readonly year: number
-  onDateButtonClick(day: number, month: number, year: number): void
+  onDateButtonClick(date: Date): void
 }
 
 export const DisplayMonthDays: ({
@@ -89,13 +89,7 @@ export const DisplayMonthDays: ({
                 textColor="info"
                 rounded
                 className="is-size-7-mobile"
-                onClick={() =>
-                  onDateButtonClick(
-                    currentDate.getDate(),
-                    currentDate.getMonth(),
-                    currentDate.getFullYear(),
-                  )
-                }
+                onClick={() => onDateButtonClick(currentDate)}
               >
                 {currentDate.getDate()}
               </Button>
@@ -106,13 +100,7 @@ export const DisplayMonthDays: ({
                 textColor="grey-darker"
                 rounded
                 className="is-size-7-mobile"
-                onClick={() =>
-                  onDateButtonClick(
-                    currentDate.getDate(),
-                    currentDate.getMonth(),
-                    currentDate.getFullYear(),
-                  )
-                }
+                onClick={() => onDateButtonClick(currentDate)}
               >
                 {currentDate.getDate()}
               </Button>
@@ -174,7 +162,7 @@ export interface CalendarState {
 
 export interface CalendarProps {
   readonly selectedDate: Date
-  onDateButtonClick(day: number, month: number, year: number): void
+  onDateButtonClick(date: Date): void
 }
 
 // @TODO: Use hooks or something avoid classes!

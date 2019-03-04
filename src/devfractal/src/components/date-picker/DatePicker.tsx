@@ -15,13 +15,8 @@ export const DatePicker: () => JSX.Element = () => {
     setIsCalendarOpen(!isCalendarOpen)
   }
 
-  const handleDateButtonClick: (
-    day: number,
-    month: number,
-    year: number,
-  ) => void = (day: number, month: number, year: number) => {
-    const newDate: Date = new Date(year, month, day)
-    setDate(newDate)
+  const handleDateButtonClick: (date: Date) => void = date => {
+    setDate(date)
     setIsCalendarOpen(false)
   }
 
