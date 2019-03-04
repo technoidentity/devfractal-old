@@ -17,11 +17,11 @@ import {
 } from '../../lib'
 import {
   calendarMonths,
-  getCalendarDates,
-  getNextMonth,
-  getPreviousMonth,
+  calenderDates,
   isSameDay,
   isSameMonth,
+  nextMonth,
+  previousMonth,
 } from './internal'
 
 const partitionArray: <T>(
@@ -209,18 +209,18 @@ export const CalendarComponent: ({
     const { currentMonth, currentYear } = state
     const calendarMonth: number = currentMonth
     const calendarYear: number = currentYear
-    return getCalendarDates(calendarMonth, calendarYear)
+    return calenderDates(calendarMonth, calendarYear)
   }
 
   const gotoPreviousMonth: () => void = () => {
     const { currentMonth, currentYear } = state
-    const { month, year } = getPreviousMonth(currentMonth, currentYear)
+    const { month, year } = previousMonth(currentMonth, currentYear)
     setState({ ...state, currentMonth: month, currentYear: year })
   }
 
   const gotoNextMonth: () => void = () => {
     const { currentMonth, currentYear } = state
-    const { month, year } = getNextMonth(currentMonth, currentYear)
+    const { month, year } = nextMonth(currentMonth, currentYear)
     setState({ ...state, currentMonth: month, currentYear: year })
   }
 

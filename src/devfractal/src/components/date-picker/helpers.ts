@@ -24,12 +24,12 @@ export const zeroPad: (value: number, length: number) => string = (
   length: number,
 ) => `${value}`.padStart(length, '0')
 
-export const getDaysInMonth: (month?: number, year?: number) => number = (
+export const daysInMonth: (month?: number, year?: number) => number = (
   month = currentYear(),
   year = currentMonth(),
 ) => new Date(year, month, 0).getDate()
 
-export const getMonthFirstDay: (month?: number, year?: number) => number = (
+export const firstDayOfMonth: (month?: number, year?: number) => number = (
   month = currentMonth(),
   year = currentYear(),
 ) => new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
@@ -82,7 +82,7 @@ export const isSameDay: (date: Date, baseDate?: Date) => boolean = (
   }
 }
 
-export const getDateISO: (date?: Date) => string | undefined = (
+export const toISODate: (date?: Date) => string | undefined = (
   date = new Date(),
 ) => {
   return isDate(date)
@@ -94,7 +94,7 @@ export const getDateISO: (date?: Date) => string | undefined = (
     : undefined
 }
 
-export const getPreviousMonth: (
+export const previousMonth: (
   month: number,
   year: number,
 ) => {
@@ -107,7 +107,7 @@ export const getPreviousMonth: (
   return { month: prevMonth, year: prevMonthYear }
 }
 
-export const getNextMonth: (
+export const nextMonth: (
   month: number,
   year: number,
 ) => {
@@ -120,27 +120,24 @@ export const getNextMonth: (
   return { month: nextMonth, year: nextMonthYear }
 }
 
-export const getCalendarDates: (
+export const calenderDates: (
   month?: number,
   year?: number,
 ) => ReadonlyArray<ReadonlyArray<string | number>> = (
   month = currentMonth(),
   year = currentYear(),
 ) => {
-  const monthDays: number = getDaysInMonth(month, year)
-  const monthFirstDay: number = getMonthFirstDay(month, year)
+  const monthDays: number = daysInMonth(month, year)
+  const monthFirstDay: number = firstDayOfMonth(month, year)
 
   const daysFromPreviousMonth: number = monthFirstDay - 1
   const daysFromNextMonth: number =
     calendarWeeks * 7 - (monthDays + daysFromPreviousMonth)
 
-  const { month: prevMonth, year: prevMonthYear } = getPreviousMonth(
-    month,
-    year,
-  )
-  const { month: nextMonth, year: nextMonthYear } = getNextMonth(month, year)
+  const { month: prevMonth, year: prevMonthYear } = previousMonth(month, year)
+  const { month: nxtMonth, year: nextMonthYear } = nextMonth(month, year)
 
-  const prevMonthDays: number = getDaysInMonth(prevMonth, prevMonthYear)
+  const prevMonthDays: number = daysInMonth(prevMonth, prevMonthYear)
 
   const previousMonthDates: Array<Array<string | number>> = Array.from(
     Array(daysFromPreviousMonth).keys(),
@@ -158,7 +155,7 @@ export const getCalendarDates: (
     Array(daysFromNextMonth).keys(),
   ).map((index: number) => [
     nextMonthYear,
-    zeroPad(nextMonth, 2),
+    zeroPad(nxtMonth, 2),
     zeroPad(index + 1, 2),
   ])
 

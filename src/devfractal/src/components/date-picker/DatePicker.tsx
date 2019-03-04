@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button, Field, Section } from '../../lib'
-import { CalendarComponent, getDateISO } from './internal'
+import { CalendarComponent, toISODate } from './internal'
 
 export interface DatePickerState {
   readonly date: Date
@@ -37,7 +37,7 @@ export const DatePicker: () => JSX.Element = () => {
           type="submit"
           onClick={toggleDateButtonClick}
         >
-          {getDateISO(date)}
+          {toISODate(date)}
         </Button>
       </Field>
       <Section>
