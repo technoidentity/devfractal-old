@@ -142,27 +142,13 @@ export const DisplayMonthDaysList: ({
     <Table bordered striped hoverable narrow fullWidth>
       <TableHead>
         <Tr>
-          <Th textColor="info" className="is-size-7-mobile">
-            SUN
-          </Th>
-          <Th textColor="info" className="is-size-7-mobile">
-            MON
-          </Th>
-          <Th textColor="info" className="is-size-7-mobile">
-            TUE
-          </Th>
-          <Th textColor="info" className="is-size-7-mobile">
-            WED
-          </Th>
-          <Th textColor="info" className="is-size-7-mobile">
-            THU
-          </Th>
-          <Th textColor="info" className="is-size-7-mobile">
-            FRI
-          </Th>
-          <Th textColor="info" className="is-size-7-mobile">
-            SAT
-          </Th>
+          {calendarMonths
+            .map(m => m.toUpperCase())
+            .map(m => (
+              <Th textColor="info" className="is-size-7-mobile">
+                {m}
+              </Th>
+            ))}
         </Tr>
       </TableHead>
       <TableBody>
