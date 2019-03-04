@@ -1,12 +1,13 @@
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
-import * as React from 'react'
-import * as shortid from 'shortid'
+import React from 'react'
+import shortid from 'shortid'
 import {
   Button,
   Icon,
   Level,
   LevelItem,
   Null,
+  range,
   Section,
   Table,
   TableBody,
@@ -28,7 +29,7 @@ const partitionArray: <T>(
   array: ReadonlyArray<ReadonlyArray<T>>,
   size: number,
 ) => ReadonlyArray<ReadonlyArray<ReadonlyArray<T>>> = (array, size) =>
-  Array.from(Array(array.length).keys())
+  range(array.length)
     .map(i => (i % size === 0 ? array.slice(i, i + size) : []))
     .filter(e => e.length !== 0)
 
