@@ -4,10 +4,10 @@ import { Route, Switch } from 'react-router'
 import { Section } from '../lib'
 import {
   APIRepository,
+  components as comps,
+  ComponentsResult,
   Paths,
   paths as ps,
-  routeComponents,
-  RouteComponentsResult,
 } from './internal'
 
 export type CrudProps<T extends Props, ID extends keyof T> = Readonly<{
@@ -15,7 +15,7 @@ export type CrudProps<T extends Props, ID extends keyof T> = Readonly<{
   readonly api: APIRepository<T, ID>
   readonly id: ID
   readonly paths?: Paths
-  readonly components?: RouteComponentsResult
+  readonly components?: ComponentsResult
 }>
 
 export function Crud<T extends Props, ID extends keyof T>({
@@ -23,7 +23,7 @@ export function Crud<T extends Props, ID extends keyof T>({
   api,
   id,
   paths = ps(api.resource, basePath),
-  components = routeComponents<T, ID>({ api, basePath, id }),
+  components = comps<T, ID>({ api, basePath, id }),
 }: CrudProps<T, ID>): JSX.Element {
   const { create, list, edit, view } = paths
   const { Create, List, Edit, View } = components

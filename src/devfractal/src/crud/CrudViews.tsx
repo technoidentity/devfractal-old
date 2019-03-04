@@ -33,22 +33,19 @@ export interface ListProps<T> {
   onDelete?(value: RowClickEvent<T>): void
 }
 
-export type CrudComponentsResult<
-  T extends Props,
-  ID extends keyof T
-> = Readonly<{
+export interface CrudViewsResult<T extends Props, ID extends keyof T> {
   readonly List: FC<ListProps<TVT<T>>>
   readonly Create: FC<CreateProps<Omit<TVT<T>, ID>>>
   readonly Edit: FC<EditProps<TVT<T>>>
   readonly View: FC<ViewProps<TVT<T>>>
-}>
+}
 
-export const CrudComponents: <T extends Props, ID extends keyof T>(
+export const CrudViews: <T extends Props, ID extends keyof T>(
   // cannot pass this to create, as getting type from typeValue is easy,
   // not the other way round
   typeValue: VT<T>,
   id: keyof T,
-) => CrudComponentsResult<T, ID> = (typeValue, id) => ({
+) => CrudViewsResult<T, ID> = (typeValue, id) => ({
   Create: ({ onSubmit }) => (
     <SimpleEditor
       id={id}

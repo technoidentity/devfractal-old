@@ -1,11 +1,11 @@
 import { Props } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
-import { formikSubmit } from '../form/submitHandlers'
+import { formikSubmit } from '../lib'
 import {
   APIRepository,
-  CrudComponents,
-  CrudComponentsResult,
+  CrudViews,
+  CrudViewsResult,
   Repository,
   TVT,
 } from './internal'
@@ -57,37 +57,37 @@ export const pathFns: (resource: string, basePath: string) => PathFns = (
   }
 }
 
-interface APIRouteComponentsArgs<T extends Props, ID extends keyof T> {
+interface APIComponentsArgs<T extends Props, ID extends keyof T> {
   readonly api: APIRepository<T, ID>
-  readonly Crud?: CrudComponentsResult<T, ID>
+  readonly Crud?: CrudViewsResult<T, ID>
   readonly basePath: string
   readonly id: ID
 }
 
-interface RouteComponentsArgs<T extends Props, ID extends keyof T> {
+interface ComponentsArgs<T extends Props, ID extends keyof T> {
   readonly api: Repository<TVT<T>, ID>
-  readonly Crud?: CrudComponentsResult<T, ID>
+  readonly Crud?: CrudViewsResult<T, ID>
   readonly basePath: string
   readonly id: ID
   readonly value: APIRepository<T, ID>['value']
   readonly resource: string
 }
 
-export interface RouteComponentsResult {
+export interface ComponentsResult {
   readonly List: FC<RouteComponentProps>
   readonly Create: FC<RouteComponentProps>
   readonly Edit: FC<RouteComponentProps<{ readonly id: string }>>
   readonly View: FC<RouteComponentProps<{ readonly id: string }>>
 }
 
-export function routeComponents<T extends Props, ID extends keyof T>(
-  args: RouteComponentsArgs<T, ID> | APIRouteComponentsArgs<T, ID>,
-): RouteComponentsResult {
+export function components<T extends Props, ID extends keyof T>(
+  args: ComponentsArgs<T, ID> | APIComponentsArgs<T, ID>,
+): ComponentsResult {
   // tslint:disable typedef
   const { all, one, create, edit } = args.api
   const value = 'value' in args ? args.value : args.api.value
   const resource = 'resource' in args ? args.resource : args.api.resource
-  const Crud = args.Crud || CrudComponents(value, args.id)
+  const Crud = args.Crud || CrudViews(value, args.id)
   const paths = pathFns(resource, args.basePath)
   // tslint:enable typedef
 

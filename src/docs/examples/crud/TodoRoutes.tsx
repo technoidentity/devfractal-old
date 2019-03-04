@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import { paths, routeComponents, Section, SimpleRedirect } from '../devfractal'
+import { components, paths, Section, SimpleRedirect } from '../devfractal'
 import { InMemoryAPI } from './todoAPI'
 import { TodoValue } from './types'
 
 const resource: string = 'todos'
 const basePath: string = '/crud'
 
-const { Create, List, Edit, View } = routeComponents({
+const { Create, List, Edit, View } = components({
   basePath,
   id: 'id',
   api: InMemoryAPI,

@@ -90,6 +90,7 @@ export function api<T extends Props, ID extends keyof T>({
     value,
     listValue,
     urls,
+
     all: async () =>
       request(listValue, axios.get<TypeOf<typeof listValue>>(urls.all())),
 
