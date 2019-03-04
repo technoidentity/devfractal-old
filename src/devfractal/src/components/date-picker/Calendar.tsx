@@ -186,25 +186,29 @@ export interface CalendarState {
 }
 
 export interface CalendarProps {
+  readonly selectedDate: Date
   onDateButtonClick(day: number, month: number, year: number): void
 }
 
 // @TODO: Use hooks or something avoid classes!
 export const CalendarComponent: ({
+  selectedDate,
   onDateButtonClick,
-}: CalendarProps) => JSX.Element = ({ onDateButtonClick }: CalendarProps) => {
+}: CalendarProps) => JSX.Element = ({
+  selectedDate,
+  onDateButtonClick,
+}: CalendarProps) => {
   const [state, setState] = React.useState({
-    current: new Date(),
-    currentMonth: new Date().getMonth() + 1,
-    currentYear: new Date().getFullYear(),
+    currentMonth: selectedDate.getMonth() + 1,
+    currentYear: selectedDate.getFullYear(),
   })
 
   const calendarDates: () => ReadonlyArray<
     ReadonlyArray<string | number>
   > = () => {
-    const { current, currentMonth, currentYear } = state
-    const calendarMonth: number = currentMonth || current.getMonth() + 1
-    const calendarYear: number = currentYear || current.getFullYear()
+    const { currentMonth, currentYear } = state
+    const calendarMonth: number = currentMonth
+    const calendarYear: number = currentYear
     return getCalendarDates(calendarMonth, calendarYear)
   }
 

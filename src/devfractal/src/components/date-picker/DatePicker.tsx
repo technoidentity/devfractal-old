@@ -42,7 +42,10 @@ export const DatePicker: () => JSX.Element = () => {
       </Field>
       <Section>
         {isCalendarOpen && (
-          <CalendarComponent onDateButtonClick={handleDateButtonClick} />
+          <CalendarComponent
+            selectedDate={date}
+            onDateButtonClick={handleDateButtonClick}
+          />
         )}
       </Section>
     </Section>
