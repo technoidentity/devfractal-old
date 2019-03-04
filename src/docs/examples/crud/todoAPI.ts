@@ -36,7 +36,11 @@ export const InMemoryAPI: Repository<Todo, 'id'> = {
     if (i === -1) {
       return rejected(`no todo with id: ${nextID}`)
     }
-    staticTodoList = [value, ...staticTodoList.slice(1)]
+    staticTodoList = [
+      ...staticTodoList.slice(0, i),
+      value,
+      ...staticTodoList.slice(i + 1),
+    ]
     return value
   },
 
