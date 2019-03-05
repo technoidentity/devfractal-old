@@ -1,13 +1,11 @@
 import * as React from 'react'
 import {
   AccountForm,
-  AccountFormType,
   FinishForm,
   ProfileForm,
-  ProfileFormType,
   SocialForm,
-  SocialFormType,
-} from './internal'
+} from '../../../../docs/examples/components/step'
+import { AccountFormType, ProfileFormType, SocialFormType } from './internal'
 
 export const accountInitialValues: AccountFormType = {
   userName: '',
