@@ -33,7 +33,7 @@ const partitionArray: <T>(
     .map(i => (i % size === 0 ? array.slice(i, i + size) : []))
     .filter(e => e.length !== 0)
 
-export interface DisplayMonthDaysTableProps {
+export interface MonthDaysTableProps {
   readonly weeksMonth: ReadonlyArray<
     ReadonlyArray<ReadonlyArray<string | number>>
   >
@@ -42,7 +42,7 @@ export interface DisplayMonthDaysTableProps {
   onDateButtonClick(date: Date): void
 }
 
-export interface DisplayMonthDaysListProps {
+export interface MonthDaysListProps {
   readonly weeksMonth: ReadonlyArray<
     ReadonlyArray<ReadonlyArray<string | number>> | undefined
   >
@@ -50,19 +50,19 @@ export interface DisplayMonthDaysListProps {
   onDateButtonClick(date: Date): void
 }
 
-export interface DisplayMonthDaysProps {
+export interface MonthDaysProps {
   readonly week: ReadonlyArray<ReadonlyArray<string | number>> | undefined
 
   onDateButtonClick(date: Date): void
 }
 
-export const DisplayMonthDays: ({
+export const MonthDays: ({
   week,
   onDateButtonClick,
-}: DisplayMonthDaysProps) => JSX.Element = ({
+}: MonthDaysProps) => JSX.Element = ({
   week,
   onDateButtonClick,
-}: DisplayMonthDaysProps) => {
+}: MonthDaysProps) => {
   return (
     // @TODO: index as key is a really bad idea!
     <Tr key={shortid.generate()}>
@@ -110,10 +110,10 @@ export const DisplayMonthDays: ({
 export const MonthDaysList: ({
   weeksMonth,
   onDateButtonClick,
-}: DisplayMonthDaysListProps) => JSX.Element = ({
+}: MonthDaysListProps) => JSX.Element = ({
   weeksMonth,
   onDateButtonClick,
-}: DisplayMonthDaysListProps) => (
+}: MonthDaysListProps) => (
   // @TODO: Possible to split this into multiple local components?
   <Section>
     <Table bordered striped hoverable narrow fullWidth>
@@ -132,7 +132,7 @@ export const MonthDaysList: ({
       </TableHead>
       <TableBody>
         {weeksMonth.map(week => (
-          <DisplayMonthDays
+          <MonthDays
             key={shortid.generate()}
             week={week}
             onDateButtonClick={onDateButtonClick}
