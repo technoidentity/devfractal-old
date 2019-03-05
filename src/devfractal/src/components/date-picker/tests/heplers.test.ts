@@ -8,83 +8,51 @@ import {
   zeroPad,
 } from '../helpers'
 
-describe('Pads a string value with leading zeroes(0) until length is reached', () => {
-  test('zeroPad(1,2) to be "01"', () => {
-    expect(zeroPad(1, 2)).toBe('01')
-  })
-
-  test('zeroPad(1,3) to be "001"', () => {
-    expect(zeroPad(1, 3)).toBe('001')
-  })
-  test('zeroPad(45,2) to be "45"', () => {
-    expect(zeroPad(45, 2)).toBe('45')
-  })
+test('zeroPad pads a string value with leading zeros until length is reached', () => {
+  expect(zeroPad(1, 2)).toBe('01')
+  expect(zeroPad(1, 3)).toBe('001')
+  expect(zeroPad(45, 2)).toBe('45')
+  expect(zeroPad(452, 2)).toBe('452')
 })
 
-describe('Number of days in month for a given year', () => {
-  test('number of days in january 2019 is 31', () => {
+describe('daysInMonth', () => {
+  test('January has 31 days', () => {
     expect(daysInMonth(1, 2019)).toBe(31)
   })
-  test('number of days in february 2019 is 28', () => {
+  test('February in non leap year has 28 days', () => {
     expect(daysInMonth(2, 2019)).toBe(28)
   })
-  test('number of days in february 2016 is 28', () => {
+  test('February in a leap year has 28 days', () => {
     expect(daysInMonth(2, 2016)).toBe(29)
   })
-  test('number of days in april 2019 is 30', () => {
+  test('April has 30 days', () => {
     expect(daysInMonth(4, 2016)).toBe(30)
   })
 })
 
-describe('first day of month for a given year from 1(SUN)-7(SAT)', () => {
-  test('first day of March 2019 is 6', () => {
-    expect(firstDayOfMonth(3, 2019)).toBe(6)
-  })
-  test('first day of April 2019 is 6', () => {
-    expect(firstDayOfMonth(4, 2019)).toBe(2)
-  })
-  test('first day of february 2019 is 6', () => {
-    expect(firstDayOfMonth(2, 2019)).toBe(6)
-  })
-  test('first day of january 2018 is 6', () => {
-    expect(firstDayOfMonth(1, 2018)).toBe(2)
-  })
+test('firstDayOfMonth', () => {
+  expect(firstDayOfMonth(3, 2019)).toBe(6)
+  expect(firstDayOfMonth(4, 2019)).toBe(2)
+  expect(firstDayOfMonth(2, 2019)).toBe(6)
+  expect(firstDayOfMonth(1, 2018)).toBe(2)
 })
 
-describe('Format the date into YYYY-MM-DD', () => {
-  test('toISODate(new Date(2019, 1, 1))should be "2019-02-01"', () => {
-    expect(toISODate(new Date(2019, 1, 1))).toBe('2019-02-01')
-  })
-  test('toISODate(new Date(2019, 0, 1))should be "2019-01-01"', () => {
-    expect(toISODate(new Date(2019, 0, 1))).toBe('2019-01-01')
-  })
-  test('toISODate(new Date(2019, 1, 1))should be "2019-02-01"', () => {
-    expect(toISODate(new Date(2019, 11, 1))).toBe('2019-12-01')
-  })
+test('toISODate', () => {
+  expect(toISODate(new Date(2019, 1, 1))).toBe('2019-02-01')
+  expect(toISODate(new Date(2019, 0, 1))).toBe('2019-01-01')
+  expect(toISODate(new Date(2019, 11, 1))).toBe('2019-12-01')
 })
 
-describe('get previous month and year for given month and year ', () => {
-  test('getPreviousMonth(1, 2019) should be { month: 12, year: 2018 }', () => {
-    expect(previousMonth(1, 2019)).toMatchObject({ month: 12, year: 2018 })
-  })
-  test('getPreviousMonth(4, 2019) should be { month: 3, year: 2019 }', () => {
-    expect(previousMonth(4, 2019)).toMatchObject({ month: 3, year: 2019 })
-  })
-  test('getPreviousMonth(12, 2019) should be { month: 11, year: 2019 }', () => {
-    expect(previousMonth(12, 2019)).toMatchObject({ month: 11, year: 2019 })
-  })
+test('getPreviousMonth', () => {
+  expect(previousMonth(1, 2019)).toMatchObject({ month: 12, year: 2018 })
+  expect(previousMonth(4, 2019)).toMatchObject({ month: 3, year: 2019 })
+  expect(previousMonth(12, 2019)).toMatchObject({ month: 11, year: 2019 })
 })
 
-describe('get next month and year for given month and year ', () => {
-  test('getNextMonth(12, 2018) should be { month: 1, year: 2019 }', () => {
-    expect(nextMonth(12, 2018)).toMatchObject({ month: 1, year: 2019 })
-  })
-  test('getNextMonth(4, 2019) should be { month: 5, year: 2019 }', () => {
-    expect(nextMonth(4, 2019)).toMatchObject({ month: 5, year: 2019 })
-  })
-  test('getNextMonth(1, 2019) should be { month: 2, year: 2019 }', () => {
-    expect(nextMonth(1, 2019)).toMatchObject({ month: 2, year: 2019 })
-  })
+test('get next month and year for given month and year ', () => {
+  expect(nextMonth(12, 2018)).toMatchObject({ month: 1, year: 2019 })
+  expect(nextMonth(4, 2019)).toMatchObject({ month: 5, year: 2019 })
+  expect(nextMonth(1, 2019)).toMatchObject({ month: 2, year: 2019 })
 })
 
 describe('Calendar dates for a month in the specified year', () => {
