@@ -13,7 +13,7 @@ import {
   SimpleLoginForm,
 } from './login-form-variants'
 
-export const LoginFormVariantsTab: React.SFC = () => (
+export const LoginFormVariantsTab: React.FunctionComponent = () => (
   <>
     <Section>
       <Title size="4" textAlignment="centered">
@@ -32,9 +32,11 @@ export const LoginFormVariantsTab: React.SFC = () => (
   </>
 )
 
-export const LoginFormVariants: React.SFC = () => <LoginFormVariantsTab />
+export const LoginFormVariants: React.FunctionComponent = () => (
+  <LoginFormVariantsTab />
+)
 
-export const LoginFormVariantsRoutes: React.SFC = () => (
+export const LoginFormVariantsRoutes: React.FunctionComponent = () => (
   <>
     <SimpleRedirect
       exact

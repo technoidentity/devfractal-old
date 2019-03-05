@@ -11,7 +11,7 @@ export interface TableProps
   readonly fullWidth?: boolean
 }
 
-export const Table: React.SFC<TableProps> = ({
+export const Table: React.FunctionComponent<TableProps> = ({
   children,
   bordered,
   striped,
@@ -38,7 +38,7 @@ export interface TableHeadProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const TableHead: React.SFC<TableHeadProps> = ({
+export const TableHead: React.FunctionComponent<TableHeadProps> = ({
   children,
   ...props
 }) => {
@@ -54,7 +54,7 @@ export interface TableBodyProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const TableBody: React.SFC<TableBodyProps> = ({
+export const TableBody: React.FunctionComponent<TableBodyProps> = ({
   children,
   ...props
 }) => {
@@ -70,7 +70,7 @@ export interface TableFootProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const TableFoot: React.SFC<TableFootProps> = ({
+export const TableFoot: React.FunctionComponent<TableFootProps> = ({
   children,
   ...props
 }) => {
@@ -88,7 +88,11 @@ export interface TrProps
   readonly selected?: boolean
 }
 
-export const Tr: React.SFC<TrProps> = ({ selected, children, ...props }) => {
+export const Tr: React.FunctionComponent<TrProps> = ({
+  selected,
+  children,
+  ...props
+}) => {
   const classes: string = classNamesHelper(props, 'tr', {
     'is-selected': selected,
   })
@@ -119,7 +123,7 @@ export interface ThProps
   readonly narrow?: boolean
 }
 
-export const Th: React.SFC<ThProps> = ({
+export const Th: React.FunctionComponent<ThProps> = ({
   variant,
   selected,
   narrow,
@@ -158,7 +162,7 @@ export interface TdProps
   readonly narrow?: boolean
 }
 
-export const Td: React.SFC<TdProps> = ({
+export const Td: React.FunctionComponent<TdProps> = ({
   variant,
   selected,
   narrow,

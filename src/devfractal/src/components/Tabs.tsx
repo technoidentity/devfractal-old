@@ -26,7 +26,7 @@ interface TabsItemInternalProps extends TabsItemProps {
   _setSelectedTab?(event: TabsChangeEvent): void
 }
 
-export const TabsItem: React.SFC<TabsItemProps> = args => {
+export const TabsItem: React.FunctionComponent<TabsItemProps> = args => {
   const {
     value,
     _name,
@@ -66,7 +66,9 @@ interface TabsViewProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
   onTabChange?(evt: TabsChangeEvent): void
 }
 
-const TabsView: React.SFC<Omit<TabsViewProps, 'defaultValue'>> = ({
+const TabsView: React.FunctionComponent<
+  Omit<TabsViewProps, 'defaultValue'>
+> = ({
   size,
   alignment,
   fullWidth,
@@ -113,7 +115,7 @@ export interface TabsProps extends TabsViewProps {
   readonly defaultValue?: string
 }
 
-export const Tabs: React.SFC<TabsProps> = ({
+export const Tabs: React.FunctionComponent<TabsProps> = ({
   defaultValue,
   children,
   ...props

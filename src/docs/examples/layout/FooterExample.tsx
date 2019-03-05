@@ -1,7 +1,7 @@
 import React from 'react'
 import { Content, Footer, Section } from '../devfractal'
 
-export const FooterExample: React.SFC = () => (
+export const FooterExample: React.FunctionComponent = () => (
   <Section>
     <Footer>
       <Content textAlignment="centered">

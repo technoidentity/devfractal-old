@@ -12,7 +12,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicInputExample: React.SFC = () => {
+export const DynamicInputExample: React.FunctionComponent = () => {
   const [change, setChange] = useState('')
   return (
     <Section>
@@ -28,14 +28,14 @@ export const DynamicInputExample: React.SFC = () => {
   )
 }
 
-export const NormalInputExample: React.SFC = () => (
+export const NormalInputExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Normal Input</Title>
     <Input type="text" placeholder="Text input" />
   </Section>
 )
 
-export const InputColorsExample: React.SFC = () => (
+export const InputColorsExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Colors</Title>
     <Input variant="primary" type="text" placeholder="Primary input" />
@@ -50,7 +50,7 @@ export const InputColorsExample: React.SFC = () => (
   </Section>
 )
 
-export const InputSizesExample: React.SFC = () => (
+export const InputSizesExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Sizes</Title>
     <Input ctrlSize="small" type="text" placeholder="Small input" />
@@ -60,14 +60,14 @@ export const InputSizesExample: React.SFC = () => (
   </Section>
 )
 
-export const InputStyleExample: React.SFC = () => (
+export const InputStyleExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Styles</Title>
     <Input type="text" rounded placeholder="Rounded input" />
   </Section>
 )
 
-export const InputStateExample: React.SFC = () => (
+export const InputStateExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">States</Title>
     <Text>Hover</Text>
@@ -79,7 +79,7 @@ export const InputStateExample: React.SFC = () => (
   </Section>
 )
 
-export const InputCombinationsExample: React.SFC = () => (
+export const InputCombinationsExample: React.FunctionComponent = () => (
   <Section>
     <Input
       loading
@@ -103,14 +103,14 @@ export const InputCombinationsExample: React.SFC = () => (
   </Section>
 )
 
-export const DisabledInputExample: React.SFC = () => (
+export const DisabledInputExample: React.FunctionComponent = () => (
   <Section>
     <Text textSize="4">Disabled</Text>
     <Input disabled placeholder="disabled input" />
   </Section>
 )
 
-export const ReadonlyStaticInputsExample: React.SFC = () => (
+export const ReadonlyStaticInputsExample: React.FunctionComponent = () => (
   <Section>
     <SubTitle size="4">Readonly and Static inputs</SubTitle>
     <Input type="text" value="This text is readonly" readOnly />
@@ -132,7 +132,7 @@ export const ReadonlyStaticInputsExample: React.SFC = () => (
   </Section>
 )
 
-export const FontAwesomeIconsExample: React.SFC = () => (
+export const FontAwesomeIconsExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">With Font Awesome icons</Title>
     <Input leftIcon={faUser} iconSize="small" type="text" placeholder="Name" />
@@ -147,7 +147,7 @@ export const FontAwesomeIconsExample: React.SFC = () => (
   </Section>
 )
 
-export const MoreExamples: React.SFC = () => (
+export const MoreExamples: React.FunctionComponent = () => (
   <Section>
     <Input
       leftIcon={faEnvelope}
@@ -183,7 +183,7 @@ export const MoreExamples: React.SFC = () => (
   </Section>
 )
 
-export const InputExample: React.SFC = () => (
+export const InputExample: React.FunctionComponent = () => (
   <>
     <DynamicInputExample />
     <NormalInputExample />

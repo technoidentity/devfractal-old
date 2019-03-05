@@ -18,7 +18,7 @@ export interface ColumnsProps
   readonly columnCentered?: boolean
 }
 
-export const Columns: React.SFC<ColumnsProps> = ({
+export const Columns: React.FunctionComponent<ColumnsProps> = ({
   children,
   responsiveness,
   gapLess: gapless,

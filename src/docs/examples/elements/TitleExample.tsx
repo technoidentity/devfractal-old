@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Section, SubTitle, Title } from '../devfractal'
 
-export const TitleSizeExample: React.SFC = () => (
+export const TitleSizeExample: React.FunctionComponent = () => (
   <Section>
     <Title>Title Sizes</Title>
     <Box>
@@ -16,7 +16,7 @@ export const TitleSizeExample: React.SFC = () => (
   </Section>
 )
 
-export const SubtitleSizeExample: React.SFC = () => (
+export const SubtitleSizeExample: React.FunctionComponent = () => (
   <Section>
     <Title>Subtitle Sizes</Title>
     <Box>
@@ -31,7 +31,7 @@ export const SubtitleSizeExample: React.SFC = () => (
   </Section>
 )
 
-export const CombinedExample: React.SFC = () => (
+export const CombinedExample: React.FunctionComponent = () => (
   <Section>
     <Title>Combined Example</Title>
     <Box>
@@ -45,7 +45,7 @@ export const CombinedExample: React.SFC = () => (
   </Section>
 )
 
-export const WithSpacingExample: React.SFC = () => (
+export const WithSpacingExample: React.FunctionComponent = () => (
   <Section>
     <Title>With Spacing</Title>
     <Box>
@@ -65,7 +65,7 @@ export const WithSpacingExample: React.SFC = () => (
   </Section>
 )
 
-export const TitleExample: React.SFC = () => (
+export const TitleExample: React.FunctionComponent = () => (
   <>
     <TitleSizeExample />
     <SubtitleSizeExample />

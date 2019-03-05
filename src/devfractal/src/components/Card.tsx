@@ -5,7 +5,10 @@ export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const Card: React.SFC<CardProps> = ({ children, ...props }) => {
+export const Card: React.FunctionComponent<CardProps> = ({
+  children,
+  ...props
+}) => {
   const classes: string = classNamesHelper(props, 'card')
   return (
     <Div {...props} className={classes}>
@@ -18,7 +21,7 @@ export interface CardHeaderProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {}
 
-export const CardHeader: React.SFC<CardHeaderProps> = ({
+export const CardHeader: React.FunctionComponent<CardHeaderProps> = ({
   children,
   ...props
 }) => {
@@ -37,7 +40,7 @@ export interface CardHeaderTitleProps
   readonly alignment?: HeaderTitleAlignment
 }
 
-export const CardHeaderTitle: React.SFC<CardHeaderTitleProps> = ({
+export const CardHeaderTitle: React.FunctionComponent<CardHeaderTitleProps> = ({
   alignment,
   children,
   ...props
@@ -56,7 +59,7 @@ export interface CardHeaderIconProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const CardHeaderIcon: React.SFC<CardHeaderIconProps> = ({
+export const CardHeaderIcon: React.FunctionComponent<CardHeaderIconProps> = ({
   children,
   ...props
 }) => {
@@ -72,7 +75,7 @@ export interface CardContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const CardContent: React.SFC<CardContentProps> = ({
+export const CardContent: React.FunctionComponent<CardContentProps> = ({
   children,
   ...props
 }) => {
@@ -88,7 +91,7 @@ export interface CardFooterProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const CardFooter: React.SFC<CardFooterProps> = ({
+export const CardFooter: React.FunctionComponent<CardFooterProps> = ({
   children,
   ...props
 }) => {
@@ -103,7 +106,7 @@ export interface CardFooterItemProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const CardFooterItem: React.SFC<CardFooterItemProps> = ({
+export const CardFooterItem: React.FunctionComponent<CardFooterItemProps> = ({
   children,
   ...props
 }) => {
@@ -119,7 +122,7 @@ export interface CardImageProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const CardImage: React.SFC<CardImageProps> = ({
+export const CardImage: React.FunctionComponent<CardImageProps> = ({
   children,
   ...props
 }) => {

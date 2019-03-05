@@ -10,13 +10,13 @@ import {
   Title,
 } from '../lib'
 
-const SimpleHeader: React.SFC<{ readonly objectKey: string }> = ({
+const SimpleHeader: React.FunctionComponent<{ readonly objectKey: string }> = ({
   objectKey,
 }) => <Title size="4">{camelCaseToPhrase(objectKey)}</Title>
 
-const SimpleValue: React.SFC<{ readonly objectValue: string }> = ({
-  objectValue,
-}) =>
+const SimpleValue: React.FunctionComponent<{
+  readonly objectValue: string
+}> = ({ objectValue }) =>
   Boolean.is(objectValue) ? (
     <CheckBox checked={objectValue} readOnly />
   ) : (

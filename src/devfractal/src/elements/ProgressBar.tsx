@@ -24,7 +24,7 @@ export interface ProgressBarProps
   readonly max: string
 }
 
-export const ProgressBar: React.SFC<ProgressBarProps> = ({
+export const ProgressBar: React.FunctionComponent<ProgressBarProps> = ({
   size,
   variant,
   children,

@@ -9,7 +9,7 @@ export interface ContentProps
   readonly size?: ContentSize
 }
 
-export const Content: React.SFC<ContentProps> = ({
+export const Content: React.FunctionComponent<ContentProps> = ({
   size,
   children,
   ...props

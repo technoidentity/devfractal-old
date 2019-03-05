@@ -28,7 +28,9 @@ interface GeneralFormProps {
   readonly radio: string
 }
 
-const InnerFieldsGeneralForm: React.SFC<FormikProps<GeneralFormProps>> = () => {
+const InnerFieldsGeneralForm: React.FunctionComponent<
+  FormikProps<GeneralFormProps>
+> = () => {
   return (
     <Section>
       <Container>

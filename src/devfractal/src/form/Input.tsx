@@ -43,7 +43,7 @@ export interface InputProps
   readonly type?: InputType
 }
 
-export const Input: React.SFC<InputProps> = ({
+export const Input: React.FunctionComponent<InputProps> = ({
   noControl,
   variant,
   fullWidth,

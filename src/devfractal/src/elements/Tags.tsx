@@ -10,7 +10,7 @@ export interface TagsProps
   readonly addons?: boolean
 }
 
-export const Tags: React.SFC<TagsProps> = ({
+export const Tags: React.FunctionComponent<TagsProps> = ({
   alignment,
   addons,
   children,

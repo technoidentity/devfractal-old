@@ -9,7 +9,7 @@ export interface PaginationProps
   readonly alignment?: 'centered' | 'right'
 }
 
-export const Pagination: React.SFC<PaginationProps> = ({
+export const Pagination: React.FunctionComponent<PaginationProps> = ({
   rounded,
   size,
   alignment,
@@ -41,7 +41,7 @@ export interface PaginationLinkProps
   readonly disabled?: boolean
 }
 
-export const PaginationLink: React.SFC<PaginationLinkProps> = ({
+export const PaginationLink: React.FunctionComponent<PaginationLinkProps> = ({
   current,
   disabled,
   children,
@@ -63,7 +63,7 @@ export interface PaginationListProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const PaginationList: React.SFC<PaginationListProps> = ({
+export const PaginationList: React.FunctionComponent<PaginationListProps> = ({
   children,
   ...props
 }) => {
@@ -78,9 +78,9 @@ export interface PaginationEllipsisProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     Helpers {}
 
-export const PaginationEllipsis: React.SFC<PaginationEllipsisProps> = ({
-  ...props
-}) => {
+export const PaginationEllipsis: React.FunctionComponent<
+  PaginationEllipsisProps
+> = ({ ...props }) => {
   const classes: string = classNamesHelper(props, 'pagination-ellipsis')
   return (
     <li>
@@ -96,11 +96,9 @@ export interface PaginationPreviousProps
   readonly disabled?: boolean
 }
 
-export const PaginationPrevious: React.SFC<PaginationPreviousProps> = ({
-  disabled,
-  children,
-  ...props
-}) => {
+export const PaginationPrevious: React.FunctionComponent<
+  PaginationPreviousProps
+> = ({ disabled, children, ...props }) => {
   const classes: string = classNamesHelper(
     props,
 
@@ -119,7 +117,7 @@ export interface PaginationNextProps
   readonly disabled?: boolean
 }
 
-export const PaginationNext: React.SFC<PaginationNextProps> = ({
+export const PaginationNext: React.FunctionComponent<PaginationNextProps> = ({
   children,
   disabled,
   ...props

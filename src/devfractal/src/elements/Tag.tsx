@@ -25,7 +25,7 @@ export interface TagProps
   readonly modifier?: TagModifier
 }
 
-export const Tag: React.SFC<TagProps> = ({
+export const Tag: React.FunctionComponent<TagProps> = ({
   size,
   variant,
   modifier,

@@ -13,7 +13,7 @@ export interface DropDownProps
   readonly dropUp?: boolean
 }
 
-export const DropDown: React.SFC<DropDownProps> = ({
+export const DropDown: React.FunctionComponent<DropDownProps> = ({
   label,
   modifier,
   rightAligned,
@@ -58,7 +58,7 @@ export interface DropDownItemProps
   readonly as?: DropDownItemTag
 }
 
-export const DropDownItem: React.SFC<DropDownItemProps> = ({
+export const DropDownItem: React.FunctionComponent<DropDownItemProps> = ({
   active,
   as,
   children,
@@ -78,7 +78,7 @@ export interface DropDownDividerProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const DropDownDivider: React.SFC<DropDownDividerProps> = ({
+export const DropDownDivider: React.FunctionComponent<DropDownDividerProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'dropdown-divider')

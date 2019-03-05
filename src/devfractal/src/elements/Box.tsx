@@ -5,7 +5,10 @@ export interface BoxProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const Box: React.SFC<BoxProps> = ({ children, ...props }) => (
+export const Box: React.FunctionComponent<BoxProps> = ({
+  children,
+  ...props
+}) => (
   <Div {...props} className={classNamesHelper(props, 'box')}>
     {children}
   </Div>

@@ -19,7 +19,7 @@ export interface NotificationProps
   readonly variant?: NotificationVariant
 }
 
-export const Notification: React.SFC<NotificationProps> = ({
+export const Notification: React.FunctionComponent<NotificationProps> = ({
   variant,
   children,
   ...props

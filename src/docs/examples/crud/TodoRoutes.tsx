@@ -15,7 +15,7 @@ const { Create, List, Edit, View } = components({
   resource,
 })
 
-export const TodoRoutes: React.SFC = () => {
+export const TodoRoutes: React.FunctionComponent = () => {
   // @TODO: It should be /crud
   const { create, list, edit, view } = paths(resource, basePath)
   return (

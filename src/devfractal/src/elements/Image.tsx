@@ -36,7 +36,7 @@ export interface ImageProps
   readonly rounded?: boolean
 }
 
-export const Image: React.SFC<ImageProps> = ({
+export const Image: React.FunctionComponent<ImageProps> = ({
   size,
   children,
   responsiveImageRatio,

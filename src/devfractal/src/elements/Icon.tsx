@@ -11,7 +11,7 @@ export interface IconProps extends FontAwesomeIconProps, Helpers {
   readonly direction?: IconDirection
 }
 
-export const Icon: React.SFC<IconProps> = ({
+export const Icon: React.FunctionComponent<IconProps> = ({
   direction,
   children,
   ...props

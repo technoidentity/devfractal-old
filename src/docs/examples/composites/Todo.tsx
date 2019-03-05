@@ -21,7 +21,13 @@ interface Todo {
 
 type TodoList = ReadonlyArray<Todo>
 
-const TodoItem: React.SFC<Todo> = ({ id, title, description, time, done }) => (
+const TodoItem: React.FunctionComponent<Todo> = ({
+  id,
+  title,
+  description,
+  time,
+  done,
+}) => (
   <Tr>
     <Td>{id}</Td>
     <Td>{title}</Td>
@@ -39,7 +45,9 @@ interface TodoListViewProps {
   readonly todoList: TodoList
 }
 
-const TodoListView: React.SFC<TodoListViewProps> = ({ todoList }) => (
+const TodoListView: React.FunctionComponent<TodoListViewProps> = ({
+  todoList,
+}) => (
   <Table>
     <TableHead>
       <Tr>
@@ -89,7 +97,7 @@ const todoList: ReadonlyArray<Todo> = [
   },
 ]
 
-export const Todo: React.SFC = () => (
+export const Todo: React.FunctionComponent = () => (
   <Section>
     <TodoListView todoList={todoList} />
   </Section>

@@ -54,7 +54,7 @@ export const component: <
 >(
   propsValue: T,
   inner: React.ComponentType<P>,
-) => React.SFC<P> = (propsValue, inner) => props => {
+) => React.FunctionComponent<P> = (propsValue, inner) => props => {
   const v: string = reporter(propsValue.decode(props)).join('\n')
   warning(v === '', v)
 

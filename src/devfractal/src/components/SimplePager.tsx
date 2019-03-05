@@ -13,7 +13,7 @@ interface PagerViewProps {
   onPageChange(nextPage: number): void
 }
 
-export const SimplePagerView: React.SFC<PagerViewProps> = ({
+export const SimplePagerView: React.FunctionComponent<PagerViewProps> = ({
   currentPage,
   maximumPages,
   onPageChange,

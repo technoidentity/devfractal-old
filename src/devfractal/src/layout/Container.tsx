@@ -8,7 +8,7 @@ export interface ContainerProps
   readonly fluid?: boolean
 }
 
-export const Container: React.SFC<ContainerProps> = ({
+export const Container: React.FunctionComponent<ContainerProps> = ({
   children,
   fluid,
   breakpoint,

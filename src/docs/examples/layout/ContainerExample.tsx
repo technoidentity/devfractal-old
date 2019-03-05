@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Notification, Section, Title } from '../devfractal'
 
-export const CenteredContainerExample: React.SFC = () => (
+export const CenteredContainerExample: React.FunctionComponent = () => (
   <Section>
     <Title>Centered container</Title>
     <Container>
@@ -10,7 +10,7 @@ export const CenteredContainerExample: React.SFC = () => (
   </Section>
 )
 
-export const FluidContainerExample: React.SFC = () => (
+export const FluidContainerExample: React.FunctionComponent = () => (
   <Section>
     <div className="is-fullwidth">
       <Title>Fluid container</Title>
@@ -24,7 +24,7 @@ export const FluidContainerExample: React.SFC = () => (
   </Section>
 )
 
-export const ContainerBreakpointExample: React.SFC = () => (
+export const ContainerBreakpointExample: React.FunctionComponent = () => (
   <Section>
     <div className="is-fullwidth">
       <Title>Breakpoint containers</Title>
@@ -46,7 +46,7 @@ export const ContainerBreakpointExample: React.SFC = () => (
   </Section>
 )
 
-export const ContainerExample: React.SFC = () => (
+export const ContainerExample: React.FunctionComponent = () => (
   <>
     <CenteredContainerExample />
     <FluidContainerExample />

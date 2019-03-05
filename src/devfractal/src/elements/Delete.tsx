@@ -9,7 +9,10 @@ export interface DeleteProps
   readonly size?: DeleteSize
 }
 
-export const Delete: React.SFC<DeleteProps> = ({ size, ...props }) => {
+export const Delete: React.FunctionComponent<DeleteProps> = ({
+  size,
+  ...props
+}) => {
   const classes: string = classNamesHelper(props, 'delete', {
     [`is-${size}`]: size,
   })

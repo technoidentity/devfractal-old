@@ -26,7 +26,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const ImageModalExample: React.SFC = () => {
+export const ImageModalExample: React.FunctionComponent = () => {
   const [modal, setModal] = useState(false)
   return (
     <Section>
@@ -46,7 +46,7 @@ export const ImageModalExample: React.SFC = () => {
   )
 }
 
-export const MediaModalExample: React.SFC = () => {
+export const MediaModalExample: React.FunctionComponent = () => {
   const [modal, setModal] = useState(false)
   return (
     <Section>
@@ -93,7 +93,7 @@ export const MediaModalExample: React.SFC = () => {
   )
 }
 
-export const ModalCardExample: React.SFC = () => {
+export const ModalCardExample: React.FunctionComponent = () => {
   const [modal, setModal] = useState(false)
   const onModalClose: () => void = () => setModal(false)
   return (
@@ -232,7 +232,7 @@ export const ModalCardExample: React.SFC = () => {
   )
 }
 
-export const ModalExample: React.SFC = () => (
+export const ModalExample: React.FunctionComponent = () => (
   <>
     <MediaModalExample />
     <ImageModalExample />

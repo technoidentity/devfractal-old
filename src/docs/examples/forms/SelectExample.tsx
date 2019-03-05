@@ -2,7 +2,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import { Field, Section, Select, Text, Title } from '../devfractal'
 
-export const DynamicSelectExample: React.SFC = () => {
+export const DynamicSelectExample: React.FunctionComponent = () => {
   const [select, setSelect] = useState('red')
   return (
     <Section>
@@ -17,7 +17,7 @@ export const DynamicSelectExample: React.SFC = () => {
   )
 }
 
-export const BasicSelectExample: React.SFC = () => (
+export const BasicSelectExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Select</Title>
     <Select>
@@ -29,7 +29,7 @@ export const BasicSelectExample: React.SFC = () => (
   </Section>
 )
 
-export const SelectColorExample: React.SFC = () => (
+export const SelectColorExample: React.FunctionComponent = () => (
   <Section>
     <Field>
       <Title size="4">Colors</Title>
@@ -65,7 +65,7 @@ export const SelectColorExample: React.SFC = () => (
   </Section>
 )
 
-export const SelectSizeExample: React.SFC = () => (
+export const SelectSizeExample: React.FunctionComponent = () => (
   <Section>
     <Field>
       <Title size="4">Sizes</Title>
@@ -95,7 +95,7 @@ export const SelectSizeExample: React.SFC = () => (
   </Section>
 )
 
-export const SelectStyleExample: React.SFC = () => (
+export const SelectStyleExample: React.FunctionComponent = () => (
   <Section>
     <Field>
       <Title size="4">Style</Title>
@@ -107,7 +107,7 @@ export const SelectStyleExample: React.SFC = () => (
   </Section>
 )
 
-export const SelectStateExample: React.SFC = () => (
+export const SelectStateExample: React.FunctionComponent = () => (
   <Section>
     <Field>
       <Title size="4">States</Title>
@@ -141,7 +141,7 @@ export const SelectStateExample: React.SFC = () => (
   </Section>
 )
 
-export const WithIconsExample: React.SFC = () => (
+export const WithIconsExample: React.FunctionComponent = () => (
   <Section>
     <Field>
       <Title size="4">With icons</Title>
@@ -168,7 +168,7 @@ export const WithIconsExample: React.SFC = () => (
   </Section>
 )
 
-export const SelectExample: React.SFC = () => (
+export const SelectExample: React.FunctionComponent = () => (
   <>
     <DynamicSelectExample />
     <BasicSelectExample />

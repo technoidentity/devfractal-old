@@ -12,7 +12,7 @@ import {
   Tr,
 } from '../devfractal'
 
-export const BorderedTableExample: React.SFC = () => (
+export const BorderedTableExample: React.FunctionComponent = () => (
   <Section>
     <Title>Bordered Table</Title>
     <Table bordered>
@@ -32,7 +32,7 @@ export const BorderedTableExample: React.SFC = () => (
   </Section>
 )
 
-export const StripedTableExample: React.SFC = () => (
+export const StripedTableExample: React.FunctionComponent = () => (
   <Section>
     <Title>Striped Table</Title>
     <Table striped>
@@ -68,7 +68,7 @@ export const StripedTableExample: React.SFC = () => (
   </Section>
 )
 
-export const NarrowTableExample: React.SFC = () => (
+export const NarrowTableExample: React.FunctionComponent = () => (
   <Section>
     <Title>Narrow Table</Title>
     <Table narrow>
@@ -104,7 +104,7 @@ export const NarrowTableExample: React.SFC = () => (
   </Section>
 )
 
-export const HoverableTableExample: React.SFC = () => (
+export const HoverableTableExample: React.FunctionComponent = () => (
   <Section>
     <Title>Hoverable Table</Title>
     <Table hoverable>
@@ -140,7 +140,7 @@ export const HoverableTableExample: React.SFC = () => (
   </Section>
 )
 
-export const FullWidthTableExample: React.SFC = () => (
+export const FullWidthTableExample: React.FunctionComponent = () => (
   <Section>
     <Title>FullWidth Table</Title>
     <Table fullWidth>
@@ -176,7 +176,7 @@ export const FullWidthTableExample: React.SFC = () => (
   </Section>
 )
 
-export const CombineAllModifiersExample: React.SFC = () => (
+export const CombineAllModifiersExample: React.FunctionComponent = () => (
   <Section>
     <Title>Combine All Modifiers</Title>
     <Table bordered striped narrow hoverable fullWidth>
@@ -212,7 +212,7 @@ export const CombineAllModifiersExample: React.SFC = () => (
   </Section>
 )
 
-export const SelectedTdThExample: React.SFC = () => (
+export const SelectedTdThExample: React.FunctionComponent = () => (
   <Section>
     <Title>Check selected for Td and Th</Title>
     <Table bordered>
@@ -236,7 +236,7 @@ export const SelectedTdThExample: React.SFC = () => (
   </Section>
 )
 
-export const ColorForThExample: React.SFC = () => (
+export const ColorForThExample: React.FunctionComponent = () => (
   <Section>
     <Title>Check variants for Th</Title>
     <Table bordered>
@@ -272,7 +272,7 @@ export const ColorForThExample: React.SFC = () => (
   </Section>
 )
 
-export const ColorForTdExample: React.SFC = () => (
+export const ColorForTdExample: React.FunctionComponent = () => (
   <Section>
     <Title>Check variants for Td</Title>
     <Table bordered>
@@ -308,7 +308,7 @@ export const ColorForTdExample: React.SFC = () => (
   </Section>
 )
 
-export const ExampleTable: React.SFC = () => (
+export const ExampleTable: React.FunctionComponent = () => (
   <Section>
     <Title>Example</Title>
     <Table bordered striped>
@@ -872,7 +872,7 @@ export const ExampleTable: React.SFC = () => (
   </Section>
 )
 
-export const TableExample: React.SFC = () => (
+export const TableExample: React.FunctionComponent = () => (
   <>
     <BorderedTableExample />
     <StripedTableExample />

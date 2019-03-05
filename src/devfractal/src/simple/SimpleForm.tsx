@@ -79,22 +79,22 @@ function SimpleInput<S extends Schema<any> = StringSchema>(
   )
 }
 
-const SimpleText: React.SFC<GenericInputProps> = props => (
+const SimpleText: React.FunctionComponent<GenericInputProps> = props => (
   <SimpleInput {...props} type="text" schema={string()} />
 )
-const SimpleNumber: React.SFC<GenericInputProps<NumberSchema>> = props => (
-  <SimpleInput schema={number()} {...props} type="number" />
-)
-const SimplePassword: React.SFC<GenericInputProps> = props => (
+const SimpleNumber: React.FunctionComponent<
+  GenericInputProps<NumberSchema>
+> = props => <SimpleInput schema={number()} {...props} type="number" />
+const SimplePassword: React.FunctionComponent<GenericInputProps> = props => (
   <SimpleInput schema={string()} {...props} type="password" />
 )
-const SimpleEmail: React.SFC<GenericInputProps> = props => (
+const SimpleEmail: React.FunctionComponent<GenericInputProps> = props => (
   <SimpleInput {...props} type="email" schema={string()} />
 )
-const SimpleTelephone: React.SFC<GenericInputProps<NumberSchema>> = props => (
-  <SimpleInput schema={number()} {...props} type="tel" />
-)
-const SimpleUrl: React.SFC<GenericInputProps> = props => (
+const SimpleTelephone: React.FunctionComponent<
+  GenericInputProps<NumberSchema>
+> = props => <SimpleInput schema={number()} {...props} type="tel" />
+const SimpleUrl: React.FunctionComponent<GenericInputProps> = props => (
   <SimpleInput schema={string()} {...props} type="url" />
 )
 
@@ -102,7 +102,7 @@ export interface SimpleCheckboxProps extends CheckboxFieldProps {
   readonly name: string
 }
 
-const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
+const SimpleCheckbox: React.FunctionComponent<SimpleCheckboxProps> = ({
   children,
   ...props
 }) => (
@@ -116,7 +116,7 @@ export interface SimpleRadioGroupProps extends RadioFieldProps {
   readonly name: string
 }
 
-const SimpleRadioGroup: React.SFC<SimpleRadioGroupProps> = ({
+const SimpleRadioGroup: React.FunctionComponent<SimpleRadioGroupProps> = ({
   children,
   ...props
 }) => (
@@ -130,7 +130,10 @@ export interface SimpleSelectProps extends SelectFieldProps {
   readonly name: string
 }
 
-const SimpleSelect: React.SFC<SimpleSelectProps> = ({ children, ...props }) => (
+const SimpleSelect: React.FunctionComponent<SimpleSelectProps> = ({
+  children,
+  ...props
+}) => (
   <Field>
     <SelectField {...props}>{children}</SelectField>
     <ErrorField name={props.name} />
@@ -142,7 +145,7 @@ export interface SimpleTextAreaProps extends TextAreaFieldProps {
   readonly label: string
 }
 
-const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
+const SimpleTextArea: React.FunctionComponent<SimpleTextAreaProps> = ({
   label,
   ...props
 }) => (
@@ -158,7 +161,7 @@ export interface SimpleFormButtonsProps {
   readonly reset?: boolean | string
 }
 
-const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
+const SimpleFormButtons: React.FunctionComponent<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
 }) => (

@@ -13,7 +13,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicDeleteExample: React.SFC = () => {
+export const DynamicDeleteExample: React.FunctionComponent = () => {
   const [click, setDeleted] = useState('click Me!')
 
   return (
@@ -24,14 +24,14 @@ export const DynamicDeleteExample: React.SFC = () => {
   )
 }
 
-export const DefaultDeleteExample: React.SFC = () => (
+export const DefaultDeleteExample: React.FunctionComponent = () => (
   <Section>
     <Title>Default Delete</Title>
     <Delete />
   </Section>
 )
 
-export const DeleteSizeExample: React.SFC = () => (
+export const DeleteSizeExample: React.FunctionComponent = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
@@ -43,7 +43,7 @@ export const DeleteSizeExample: React.SFC = () => (
   </Section>
 )
 
-export const DeleteCombinationsExample: React.SFC = () => (
+export const DeleteCombinationsExample: React.FunctionComponent = () => (
   <Section>
     <Title>Combinations</Title>
     <Box>
@@ -82,7 +82,7 @@ export const DeleteCombinationsExample: React.SFC = () => (
   </Section>
 )
 
-export const DeleteExample: React.SFC = () => (
+export const DeleteExample: React.FunctionComponent = () => (
   <>
     <DynamicDeleteExample />
     <DefaultDeleteExample />

@@ -9,7 +9,7 @@ export interface ModalProps
   onModalClosed?(): void
 }
 
-export const Modal: React.SFC<ModalProps> = ({
+export const Modal: React.FunctionComponent<ModalProps> = ({
   active,
   noClose,
   children,
@@ -43,7 +43,7 @@ export interface ModalCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const ModalCard: React.SFC<ModalCardProps> = ({
+export const ModalCard: React.FunctionComponent<ModalCardProps> = ({
   children,
   ...props
 }) => {
@@ -59,7 +59,7 @@ export interface ModalCardHeadProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {}
 
-export const ModalCardHead: React.SFC<ModalCardHeadProps> = ({
+export const ModalCardHead: React.FunctionComponent<ModalCardHeadProps> = ({
   children,
   ...props
 }) => {
@@ -75,7 +75,7 @@ export interface ModalCardTitleProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const ModalCardTitle: React.SFC<ModalCardTitleProps> = ({
+export const ModalCardTitle: React.FunctionComponent<ModalCardTitleProps> = ({
   children,
   ...props
 }) => {
@@ -91,7 +91,7 @@ export interface ModalCardBodyProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const ModalCardBody: React.SFC<ModalCardBodyProps> = ({
+export const ModalCardBody: React.FunctionComponent<ModalCardBodyProps> = ({
   children,
   ...props
 }) => {
@@ -107,7 +107,7 @@ export interface ModalCardFootProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const ModalCardFoot: React.SFC<ModalCardFootProps> = ({
+export const ModalCardFoot: React.FunctionComponent<ModalCardFootProps> = ({
   children,
   ...props
 }) => {
@@ -123,7 +123,7 @@ export interface ModalBackgroundProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const ModalBackground: React.SFC<ModalBackgroundProps> = ({
+export const ModalBackground: React.FunctionComponent<ModalBackgroundProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'modal-background')
@@ -134,7 +134,7 @@ export interface ModalContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const ModalContent: React.SFC<ModalContentProps> = ({
+export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
   children,
   ...props
 }) => {

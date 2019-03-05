@@ -11,14 +11,14 @@ import {
   Title,
 } from '../devfractal'
 
-export const BasicTagExample: React.SFC = () => (
+export const BasicTagExample: React.FunctionComponent = () => (
   <Section>
     <Title>Default Tag</Title>
     <Tag>Tag label</Tag>
   </Section>
 )
 
-export const TagColorExample: React.SFC = () => (
+export const TagColorExample: React.FunctionComponent = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
@@ -38,7 +38,7 @@ export const TagColorExample: React.SFC = () => (
   </Section>
 )
 
-export const TagSizeExample: React.SFC = () => (
+export const TagSizeExample: React.FunctionComponent = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
@@ -51,7 +51,7 @@ export const TagSizeExample: React.SFC = () => (
   </Section>
 )
 
-export const TagModifiersExample: React.SFC = () => (
+export const TagModifiersExample: React.FunctionComponent = () => (
   <Section>
     <Title>Modifiers</Title>
     <Box>
@@ -63,7 +63,7 @@ export const TagModifiersExample: React.SFC = () => (
   </Section>
 )
 
-export const CombinationsExample: React.SFC = () => (
+export const CombinationsExample: React.FunctionComponent = () => (
   <Section>
     <Title>Combinations</Title>
     <Box>
@@ -85,7 +85,7 @@ export const CombinationsExample: React.SFC = () => (
   </Section>
 )
 
-export const TagAlignmentExample: React.SFC = () => (
+export const TagAlignmentExample: React.FunctionComponent = () => (
   <Section>
     <Title>Alignment</Title>
     <Box>
@@ -105,7 +105,7 @@ export const TagAlignmentExample: React.SFC = () => (
   </Section>
 )
 
-export const ListOfTagsExample: React.SFC = () => (
+export const ListOfTagsExample: React.FunctionComponent = () => (
   <Section>
     <Title>List of Tags</Title>
     <Box>
@@ -127,7 +127,7 @@ export const ListOfTagsExample: React.SFC = () => (
   </Section>
 )
 
-export const AttachTagsTogetherExample: React.SFC = () => (
+export const AttachTagsTogetherExample: React.FunctionComponent = () => (
   <Section>
     <Title>Attach Tags Together</Title>
     <Box>
@@ -157,7 +157,7 @@ export const AttachTagsTogetherExample: React.SFC = () => (
   </Section>
 )
 
-export const TagExample: React.SFC = () => (
+export const TagExample: React.FunctionComponent = () => (
   <>
     <BasicTagExample />
     <TagColorExample />

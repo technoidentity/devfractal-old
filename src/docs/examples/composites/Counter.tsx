@@ -11,11 +11,9 @@ import {
   Text,
 } from '../devfractal'
 
-export const CounterInner: React.SFC<StateRenderProps<number>> = ({
-  value: count,
-  eset,
-  reset,
-}) => (
+export const CounterInner: React.FunctionComponent<
+  StateRenderProps<number>
+> = ({ value: count, eset, reset }) => (
   <Columns>
     <Column narrow>
       <Box textAlignment="centered">
@@ -48,6 +46,6 @@ export const CounterInner: React.SFC<StateRenderProps<number>> = ({
   </Columns>
 )
 
-export const Counter: React.SFC = () => (
+export const Counter: React.FunctionComponent = () => (
   <State initial={0} render={CounterInner} />
 )

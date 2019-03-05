@@ -22,7 +22,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicButtonExample: React.SFC = () => {
+export const DynamicButtonExample: React.FunctionComponent = () => {
   const [click, setClick] = useState(false)
   return (
     <Section>
@@ -34,14 +34,14 @@ export const DynamicButtonExample: React.SFC = () => {
   )
 }
 
-export const NormalButtonExample: React.SFC = () => (
+export const NormalButtonExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Normal button</Title>
     <Button>Button</Button>
   </Section>
 )
 
-export const TypesOfButtonExample: React.SFC = () => (
+export const TypesOfButtonExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Types of button</Title>
     <Field grouped>
@@ -53,7 +53,7 @@ export const TypesOfButtonExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonColorsExample: React.SFC = () => (
+export const ButtonColorsExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Colors</Title>
     <Field grouped>
@@ -74,7 +74,7 @@ export const ButtonColorsExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonSizesExample: React.SFC = () => (
+export const ButtonSizesExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Sizes</Title>
     <Field grouped>
@@ -87,7 +87,7 @@ export const ButtonSizesExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonStylesExample: React.SFC = () => (
+export const ButtonStylesExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Styles</Title>
     <Label>Outlined</Label>
@@ -174,7 +174,7 @@ export const ButtonStylesExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonStatesExample: React.SFC = () => (
+export const ButtonStatesExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">States</Title>
     <Label>Normal</Label>
@@ -267,14 +267,14 @@ export const ButtonStatesExample: React.SFC = () => (
   </Section>
 )
 
-export const StaticButtonExample: React.SFC = () => (
+export const StaticButtonExample: React.FunctionComponent = () => (
   <Section>
     <Label>Static</Label>
     <Button state="static">Static</Button>
   </Section>
 )
 
-export const DisabledButtonExample: React.SFC = () => (
+export const DisabledButtonExample: React.FunctionComponent = () => (
   <Section>
     <Label>Disabled</Label>
     <Field grouped>
@@ -300,7 +300,7 @@ export const DisabledButtonExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonWithFontAwesomeIconsExample: React.SFC = () => (
+export const ButtonWithFontAwesomeIconsExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">With Font Awesome icons</Title>
     <Field grouped>
@@ -351,7 +351,7 @@ export const ButtonWithFontAwesomeIconsExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonGroupExample: React.SFC = () => (
+export const ButtonGroupExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Button group</Title>
     <Field grouped>
@@ -362,7 +362,7 @@ export const ButtonGroupExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonAddonsExample: React.SFC = () => (
+export const ButtonAddonsExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Button addons</Title>
     <Field addons>
@@ -382,7 +382,7 @@ export const ButtonAddonsExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonGroupWithAddonsExample: React.SFC = () => (
+export const ButtonGroupWithAddonsExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">Button group with addons</Title>
     <Field addons>
@@ -415,7 +415,7 @@ export const ButtonGroupWithAddonsExample: React.SFC = () => (
   </Section>
 )
 
-export const ListOfButtonsExample: React.SFC = () => (
+export const ListOfButtonsExample: React.FunctionComponent = () => (
   <Section>
     <Title size="4">List of buttons</Title>
     <ButtonsGroup>
@@ -496,7 +496,7 @@ export const ListOfButtonsExample: React.SFC = () => (
   </Section>
 )
 
-export const ButtonExample: React.SFC = () => (
+export const ButtonExample: React.FunctionComponent = () => (
   <>
     <DynamicButtonExample />
     <NormalButtonExample />

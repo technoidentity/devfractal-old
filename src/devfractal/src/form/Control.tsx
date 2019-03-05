@@ -4,6 +4,7 @@ import { ControlWrapper, ControlWrapperProps } from './internal'
 
 export type ControlProps = Omit<ControlWrapperProps, 'noControl'>
 
-export const Control: React.SFC<ControlProps> = ({ children, ...props }) => (
-  <ControlWrapper {...props}>{children}</ControlWrapper>
-)
+export const Control: React.FunctionComponent<ControlProps> = ({
+  children,
+  ...props
+}) => <ControlWrapper {...props}>{children}</ControlWrapper>
