@@ -24,6 +24,7 @@ export const ComponentsTab: React.SFC = () => (
     <RoutedTabsItem value="pagination">Pagination</RoutedTabsItem>
     <RoutedTabsItem value="panel">Panel</RoutedTabsItem>
     <RoutedTabsItem value="tabs">Tabs</RoutedTabsItem>
+    <RoutedTabsItem value="step">Step</RoutedTabsItem>
   </RoutedTabs>
 )
 

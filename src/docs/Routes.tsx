@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import {
   Container,
   SimpleRedirect,
+  StepComponent,
   TableContentLoader,
 } from '../docs/examples/devfractal'
 import {
@@ -182,6 +183,7 @@ export const ComponentsRoutes: React.SFC = () => (
     <Route path="/components/menu" exact component={MenuExample} />
     <Route path="/components/pagination" exact component={PaginationExample} />
     <Route path="/components/breadcrumb" component={BreadcrumbExample} />
+    <Route path="/components/step" component={StepComponent} />
   </>
 )
 
