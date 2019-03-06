@@ -2,13 +2,13 @@ import { Either } from 'fp-ts/lib/Either'
 import { Errors } from 'io-ts'
 import { assert, Number } from 'tcomb'
 import { rejected, Repository, toPromise } from '../devfractal'
-import { fakeTodoList } from './fakeData'
+import { fakeTodoList } from './fakeTodoList'
 import { Todo, TodoListValue, TodoValue } from './types'
 
 // tslint:disable no-let
-
 let staticTodoList: ReadonlyArray<Todo> = fakeTodoList(5)
 let nextID: number = 1000
+// tslint:enable no-let
 
 export const InMemoryAPI: Repository<Todo, 'id'> = {
   all: async () => toPromise(TodoListValue.decode(staticTodoList)),
