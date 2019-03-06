@@ -22,7 +22,8 @@ import {
 import { reporter } from 'io-ts-reporters'
 import { DateType } from 'io-ts-types'
 import { String } from 'tcomb'
-import { invariant } from './invariant'
+import { invariant } from './internal'
+
 export type VT<T extends Props> = ReadonlyC<TypeC<T>>
 export type TVT<T extends Props> = TypeOf<VT<T>>
 
@@ -70,7 +71,7 @@ export function emptyFromType<T extends Props>(
 
   Object.keys(props).forEach(prop => {
     if (prop !== id) {
-      if (props[prop] instanceof NumberType) {
+      if (props[prop] instanceof NumberType || props[prop].name === 'Int') {
         value[prop] = 0
       } else if (props[prop] instanceof StringType) {
         value[prop] = ''
@@ -99,7 +100,24 @@ export function emptyFromType<T extends Props>(
   })
 
   // warnProps(typeValue, value)
-
   return value
 }
-// tslint:disable no-object-mutation
+
+// console.log(
+//   emptyFromType(
+//     iots.readonly(
+//       iots.type({
+//         x: iots.number,
+//         d: date,
+//         e: iots.keyof({ foo: 0, bar: 0 }),
+//         a: iots.readonlyArray(iots.string),
+//         o: iots.readonly(iots.type({ x: iots.number, y: iots.number })),
+//         o2: iots.readonly(
+//           iots.type({
+//             fizz: iots.readonly(iots.type({ buzz: iots.boolean })),
+//           }),
+//         ),
+//       }),
+//     ),
+//   ),
+// )
