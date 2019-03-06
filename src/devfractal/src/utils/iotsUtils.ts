@@ -1,18 +1,28 @@
 import { Either } from 'fp-ts/lib/Either'
 import {
   Array,
+  ArrayType,
   boolean,
+  BooleanType,
   Errors,
+  InterfaceType,
+  Mixed,
   number,
+  NumberType,
   Props,
+  ReadonlyArrayType,
   ReadonlyC,
+  ReadonlyType,
   string,
+  StringType,
   TypeC,
   TypeOf,
 } from 'io-ts'
 import { reporter } from 'io-ts-reporters'
+import { DateType } from 'io-ts-types'
 import { String } from 'tcomb'
-
+import { invariant } from './invariant'
+import { warnProps } from './props'
 export type VT<T extends Props> = ReadonlyC<TypeC<T>>
 export type TVT<T extends Props> = TypeOf<VT<T>>
 
@@ -44,38 +54,51 @@ const emptyValue: (v: unknown) => unknown = v => {
   return {}
 }
 
+// tslint:disable no-object-mutation
 export const emptyFromValue: <T extends object>(value: T) => T = value => {
   const result: any = {}
-  // tslint:disable-next-line: no-object-mutation
   Object.keys(value).forEach(k => (result[k] = emptyValue(value[k])))
   return result
 }
 
 export function emptyFromType<T extends Props>(
   typeValue: ReadonlyC<TypeC<T>>,
-  id: keyof T,
-): T {
+  id?: keyof T,
+): TypeOf<typeof typeValue> {
   const props: T = typeValue.type.props
   const value: any = {}
 
-  // tslint:disable no-object-mutation
   Object.keys(props).forEach(prop => {
     if (prop !== id) {
-      if (props[prop].name === 'number') {
+      if (props[prop] instanceof NumberType) {
         value[prop] = 0
-      } else if (props[prop].name === 'string') {
+      } else if (props[prop] instanceof StringType) {
         value[prop] = ''
-      } else if (props[prop].name === 'boolean') {
+      } else if (props[prop] instanceof BooleanType) {
         value[prop] = false
         // @TODO: handle array and object
+      } else if (props[prop] instanceof DateType) {
+        value[prop] = new Date()
       } else {
-        throw new Error(`Unsupported type ${props[prop]}`)
+        const v: Mixed = props[prop]
+        invariant(
+          !(v instanceof InterfaceType || v instanceof ArrayType),
+          `Everything must be readonly: ${v.name}`,
+        )
+
+        if (v instanceof ReadonlyType) {
+          value[prop] = emptyFromType(v, undefined)
+        } else if (v instanceof ReadonlyArrayType) {
+          value[prop] = []
+        } else {
+          throw new Error(`Unknown type ${props[prop]}`)
+        }
       }
     }
   })
-  // tslint:enable no-object-mutation
 
-  // typeValue check before return assertions?
+  warnProps(typeValue, value)
 
   return value
 }
+// tslint:disable no-object-mutation
