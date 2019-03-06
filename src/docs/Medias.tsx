@@ -8,7 +8,7 @@ import formIcon from './images/formIcon.png'
 import layoutIcon from './images/layoutIcon.png'
 import modifiersIcon from './images/modifiersIcon.png'
 
-export const FormMedia: React.FunctionComponent = () => (
+export const FormMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={formIcon} />
@@ -28,7 +28,7 @@ export const FormMedia: React.FunctionComponent = () => (
   </Media>
 )
 
-export const ColumnsMedia: React.FunctionComponent = () => (
+export const ColumnsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={columnsIcon} />
@@ -48,7 +48,7 @@ export const ColumnsMedia: React.FunctionComponent = () => (
   </Media>
 )
 
-export const LayoutMedia: React.FunctionComponent = () => (
+export const LayoutMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={layoutIcon} />
@@ -68,7 +68,7 @@ export const LayoutMedia: React.FunctionComponent = () => (
   </Media>
 )
 
-export const ElementsMedia: React.FunctionComponent = () => (
+export const ElementsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={elementsIcon} />
@@ -88,7 +88,7 @@ export const ElementsMedia: React.FunctionComponent = () => (
   </Media>
 )
 
-export const ComponentsMedia: React.FunctionComponent = () => (
+export const ComponentsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={componentsIcon} />
@@ -108,7 +108,7 @@ export const ComponentsMedia: React.FunctionComponent = () => (
   </Media>
 )
 
-export const ModifiersMedia: React.FunctionComponent = () => (
+export const ModifiersMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={modifiersIcon} />
@@ -128,7 +128,7 @@ export const ModifiersMedia: React.FunctionComponent = () => (
   </Media>
 )
 
-export const CompositesMedia: React.FunctionComponent = () => (
+export const CompositesMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={compositesIcon} />
@@ -148,7 +148,7 @@ export const CompositesMedia: React.FunctionComponent = () => (
   </Media>
 )
 
-export const CrudMedia: React.FunctionComponent = () => (
+export const CrudMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={compositesIcon} />

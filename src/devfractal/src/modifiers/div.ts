@@ -7,7 +7,7 @@ export interface DivProps
   readonly as?: keyof React.ReactHTML
 }
 
-export const Div: React.FunctionComponent<DivProps> = ({
+export const Div: React.FC<DivProps> = ({
   as = 'div',
   className,
   children,

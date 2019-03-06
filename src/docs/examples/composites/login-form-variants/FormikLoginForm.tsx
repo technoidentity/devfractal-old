@@ -3,9 +3,7 @@ import React from 'react'
 import { logger } from '../../common'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
-const LoginFormInner: React.FunctionComponent<
-  FormikProps<LoginValues>
-> = () => (
+const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (
   <Form>
     <fieldset>
       <label>Username</label>
@@ -26,7 +24,7 @@ const LoginFormInner: React.FunctionComponent<
   </Form>
 )
 
-export const FormikLoginForm: React.FunctionComponent = () => (
+export const FormikLoginForm: React.FC = () => (
   <Formik
     initialValues={initialLoginValues}
     validationSchema={loginSchema}

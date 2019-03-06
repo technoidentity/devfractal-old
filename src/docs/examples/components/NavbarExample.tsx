@@ -23,7 +23,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const BasicNavbarExample: React.FunctionComponent = () => (
+export const BasicNavbarExample: React.FC = () => (
   <>
     <Section>
       <Title size="4">Basic Navbar</Title>
@@ -114,7 +114,7 @@ export const BasicNavbarExample: React.FunctionComponent = () => (
   </>
 )
 
-export const NavbarBrandExample: React.FunctionComponent = () => (
+export const NavbarBrandExample: React.FC = () => (
   <Section>
     <Title size="4">Navbar brand</Title>
     <Navbar>
@@ -137,7 +137,7 @@ export const NavbarBrandExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const NavbarBurgerExample: React.FunctionComponent = () => (
+export const NavbarBurgerExample: React.FC = () => (
   <Section>
     <Title size="4">Navbar burger(appears on mobile)</Title>
     <NavbarBurger role="button">
@@ -148,7 +148,7 @@ export const NavbarBurgerExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const TransparentNavbarExample: React.FunctionComponent = () => (
+export const TransparentNavbarExample: React.FC = () => (
   <Section>
     <Title size="4">Transparent navbar</Title>
     <Navbar modifier="transparent">
@@ -201,7 +201,7 @@ export const TransparentNavbarExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const NavbarDropDownMenuExample: React.FunctionComponent = () => (
+export const NavbarDropDownMenuExample: React.FC = () => (
   <>
     <Section>
       <Title size="4">Dropdown menu</Title>
@@ -249,7 +249,7 @@ export const NavbarDropDownMenuExample: React.FunctionComponent = () => (
   </>
 )
 
-export const NavbarRightDropdownExample: React.FunctionComponent = () => (
+export const NavbarRightDropdownExample: React.FC = () => (
   <>
     <Section>
       <Title size="4">Right dropdown</Title>
@@ -293,7 +293,7 @@ export const NavbarRightDropdownExample: React.FunctionComponent = () => (
   </>
 )
 
-export const NavbarDropupExample: React.FunctionComponent = () => (
+export const NavbarDropupExample: React.FC = () => (
   <Section>
     <Title size="4">Dropup</Title>
     <Hero variant="primary">
@@ -323,7 +323,7 @@ export const NavbarDropupExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const DropdownWithOutArrowExample: React.FunctionComponent = () => (
+export const DropdownWithOutArrowExample: React.FC = () => (
   <Section>
     <Title size="4">Dropdown without arrow</Title>
     <NavbarItem dropDown>
@@ -339,7 +339,7 @@ export const DropdownWithOutArrowExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const DropdownMenuStylesExample: React.FunctionComponent = () => (
+export const DropdownMenuStylesExample: React.FC = () => (
   <>
     <Section>
       <Title size="4">Styles for the dropdown menu</Title>
@@ -435,7 +435,7 @@ export const DropdownMenuStylesExample: React.FunctionComponent = () => (
   </>
 )
 
-export const NavbarColorsExample: React.FunctionComponent = () => (
+export const NavbarColorsExample: React.FC = () => (
   <Section>
     <Title size="4">Colors</Title>
     <Navbar modifier="transparent" variant="primary">
@@ -930,7 +930,7 @@ export const NavbarColorsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const NavbarExample: React.FunctionComponent = () => (
+export const NavbarExample: React.FC = () => (
   <>
     <BasicNavbarExample />
     <NavbarBrandExample />

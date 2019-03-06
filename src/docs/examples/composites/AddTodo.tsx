@@ -20,7 +20,7 @@ export const AddTodoSchema: ObjectSchema<AddTodoValues> = object({
   done: boolean().required(),
 })
 
-export const SimpleAddTodo: React.FunctionComponent = () => (
+export const SimpleAddTodo: React.FC = () => (
   <Section>
     <Simple.Form
       initialValues={initialAddTodoValues}

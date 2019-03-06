@@ -17,7 +17,7 @@ import {
   Section,
 } from '../devfractal'
 
-export const PanelExample: React.FunctionComponent = () => (
+export const PanelExample: React.FC = () => (
   <Section>
     <Panel>
       <PanelHeading>repositories</PanelHeading>

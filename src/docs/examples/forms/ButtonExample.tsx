@@ -22,7 +22,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicButtonExample: React.FunctionComponent = () => {
+export const DynamicButtonExample: React.FC = () => {
   const [click, setClick] = useState(false)
   return (
     <Section>
@@ -34,14 +34,14 @@ export const DynamicButtonExample: React.FunctionComponent = () => {
   )
 }
 
-export const NormalButtonExample: React.FunctionComponent = () => (
+export const NormalButtonExample: React.FC = () => (
   <Section>
     <Title size="4">Normal button</Title>
     <Button>Button</Button>
   </Section>
 )
 
-export const TypesOfButtonExample: React.FunctionComponent = () => (
+export const TypesOfButtonExample: React.FC = () => (
   <Section>
     <Title size="4">Types of button</Title>
     <Field grouped>
@@ -53,7 +53,7 @@ export const TypesOfButtonExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ButtonColorsExample: React.FunctionComponent = () => (
+export const ButtonColorsExample: React.FC = () => (
   <Section>
     <Title size="4">Colors</Title>
     <Field grouped>
@@ -74,7 +74,7 @@ export const ButtonColorsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ButtonSizesExample: React.FunctionComponent = () => (
+export const ButtonSizesExample: React.FC = () => (
   <Section>
     <Title size="4">Sizes</Title>
     <Field grouped>
@@ -87,7 +87,7 @@ export const ButtonSizesExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ButtonStylesExample: React.FunctionComponent = () => (
+export const ButtonStylesExample: React.FC = () => (
   <Section>
     <Title size="4">Styles</Title>
     <Label>Outlined</Label>
@@ -174,7 +174,7 @@ export const ButtonStylesExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ButtonStatesExample: React.FunctionComponent = () => (
+export const ButtonStatesExample: React.FC = () => (
   <Section>
     <Title size="4">States</Title>
     <Label>Normal</Label>
@@ -267,14 +267,14 @@ export const ButtonStatesExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const StaticButtonExample: React.FunctionComponent = () => (
+export const StaticButtonExample: React.FC = () => (
   <Section>
     <Label>Static</Label>
     <Button state="static">Static</Button>
   </Section>
 )
 
-export const DisabledButtonExample: React.FunctionComponent = () => (
+export const DisabledButtonExample: React.FC = () => (
   <Section>
     <Label>Disabled</Label>
     <Field grouped>
@@ -300,7 +300,7 @@ export const DisabledButtonExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ButtonWithFontAwesomeIconsExample: React.FunctionComponent = () => (
+export const ButtonWithFontAwesomeIconsExample: React.FC = () => (
   <Section>
     <Title size="4">With Font Awesome icons</Title>
     <Field grouped>
@@ -351,7 +351,7 @@ export const ButtonWithFontAwesomeIconsExample: React.FunctionComponent = () => 
   </Section>
 )
 
-export const ButtonGroupExample: React.FunctionComponent = () => (
+export const ButtonGroupExample: React.FC = () => (
   <Section>
     <Title size="4">Button group</Title>
     <Field grouped>
@@ -362,7 +362,7 @@ export const ButtonGroupExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ButtonAddonsExample: React.FunctionComponent = () => (
+export const ButtonAddonsExample: React.FC = () => (
   <Section>
     <Title size="4">Button addons</Title>
     <Field addons>
@@ -382,7 +382,7 @@ export const ButtonAddonsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ButtonGroupWithAddonsExample: React.FunctionComponent = () => (
+export const ButtonGroupWithAddonsExample: React.FC = () => (
   <Section>
     <Title size="4">Button group with addons</Title>
     <Field addons>
@@ -415,7 +415,7 @@ export const ButtonGroupWithAddonsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ListOfButtonsExample: React.FunctionComponent = () => (
+export const ListOfButtonsExample: React.FC = () => (
   <Section>
     <Title size="4">List of buttons</Title>
     <ButtonsGroup>
@@ -496,7 +496,7 @@ export const ListOfButtonsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ButtonExample: React.FunctionComponent = () => (
+export const ButtonExample: React.FC = () => (
   <>
     <DynamicButtonExample />
     <NormalButtonExample />

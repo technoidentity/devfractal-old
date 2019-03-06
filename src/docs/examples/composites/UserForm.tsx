@@ -26,7 +26,7 @@ const initialLoginValues: LoginValues = {
   website: '',
 }
 
-export const UserForm: React.FunctionComponent = () => (
+export const UserForm: React.FC = () => (
   <Simple.Form
     initialValues={initialLoginValues}
     validationSchema={loginSchema}

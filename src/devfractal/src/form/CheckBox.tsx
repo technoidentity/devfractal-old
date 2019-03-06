@@ -6,10 +6,7 @@ export interface CheckBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     AllControlHelpers {}
 
-export const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
-  children,
-  ...props
-}) => (
+export const CheckBox: React.FC<CheckBoxProps> = ({ children, ...props }) => (
   <ControlWrapper {...props}>
     <label className="checkbox">
       <ControlDiv

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, Section, Text, Title } from '../devfractal'
 
-export const HelpersExample: React.FunctionComponent = () => (
+export const HelpersExample: React.FC = () => (
   <>
     <Section>
       <Title>Spacing</Title>

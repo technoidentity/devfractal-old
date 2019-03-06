@@ -2,7 +2,7 @@ import React from 'react'
 import { logger } from '../common'
 import { Section, SimpleRoutedTabs, SimpleTabs, Text } from '../devfractal'
 
-const SimpleTabsExample: React.FunctionComponent = () => (
+const SimpleTabsExample: React.FC = () => (
   <SimpleTabs
     name="simpleTab"
     values={['pictures', 'movies', 'music', 'documents']}
@@ -10,14 +10,14 @@ const SimpleTabsExample: React.FunctionComponent = () => (
   />
 )
 
-const SimpleRoutesTabsExample: React.FunctionComponent = () => (
+const SimpleRoutesTabsExample: React.FC = () => (
   <SimpleRoutedTabs
     to="/composites/simple"
     values={['pictures', 'movies', 'music', 'documents']}
   />
 )
 
-export const SimpleExamples: React.FunctionComponent = () => (
+export const SimpleExamples: React.FC = () => (
   <>
     <Section>
       <Text textSize="3">Tabs</Text>

@@ -10,10 +10,7 @@ export interface PanelProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const Panel: React.FunctionComponent<PanelProps> = ({
-  children,
-  ...props
-}) => {
+export const Panel: React.FC<PanelProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'panel')
   return (
     <Div as="nav" {...props} className={classes}>
@@ -26,7 +23,7 @@ export interface PanelHeadingProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const PanelHeading: React.FunctionComponent<PanelHeadingProps> = ({
+export const PanelHeading: React.FC<PanelHeadingProps> = ({
   children,
   ...props
 }) => {
@@ -45,7 +42,7 @@ export interface PanelBlockProps
   readonly wrapped?: boolean
 }
 
-export const PanelBlock: React.FunctionComponent<PanelBlockProps> = ({
+export const PanelBlock: React.FC<PanelBlockProps> = ({
   children,
   active,
   wrapped,
@@ -69,7 +66,7 @@ export interface PanelIconProps extends FontAwesomeIconProps, Helpers {
   readonly direction?: PanelIconDirection
 }
 
-export const PanelIcon: React.FunctionComponent<PanelIconProps> = ({
+export const PanelIcon: React.FC<PanelIconProps> = ({
   direction,
   children,
   ...props
@@ -91,7 +88,7 @@ export interface PanelTabsItemProps
   readonly active?: boolean
 }
 
-export const PanelTabsItem: React.FunctionComponent<PanelTabsItemProps> = ({
+export const PanelTabsItem: React.FC<PanelTabsItemProps> = ({
   active,
   children,
   ...props
@@ -110,10 +107,7 @@ export interface PanelTabsProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const PanelTabs: React.FunctionComponent<PanelTabsProps> = ({
-  children,
-  ...props
-}) => {
+export const PanelTabs: React.FC<PanelTabsProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'panel-tabs')
   return (
     <Div as="p" {...props} className={classes}>

@@ -13,7 +13,7 @@ import {
   Title,
 } from '../devfractal'
 
-const DropdownExampleTab: React.FunctionComponent = () => (
+const DropdownExampleTab: React.FC = () => (
   <>
     <Section>
       <Title size="4">Dropdown</Title>
@@ -31,7 +31,7 @@ const DropdownExampleTab: React.FunctionComponent = () => (
   </>
 )
 
-const DropdownContentExampleTab: React.FunctionComponent = () => (
+const DropdownContentExampleTab: React.FC = () => (
   <>
     <Section>
       <Title size="4">DropDown Content</Title>
@@ -55,7 +55,7 @@ const DropdownContentExampleTab: React.FunctionComponent = () => (
   </>
 )
 
-const HoverableDropdownExampleTab: React.FunctionComponent = () => (
+const HoverableDropdownExampleTab: React.FC = () => (
   <>
     <Section>
       <Title size="4">Hoverable </Title>
@@ -69,7 +69,7 @@ const HoverableDropdownExampleTab: React.FunctionComponent = () => (
   </>
 )
 
-const RightAlignableDropdownExampleTab: React.FunctionComponent = () => (
+const RightAlignableDropdownExampleTab: React.FC = () => (
   <div>
     <Section>
       <Level>
@@ -89,7 +89,7 @@ const RightAlignableDropdownExampleTab: React.FunctionComponent = () => (
   </div>
 )
 
-const LeftAlignableDropdownExampleTab: React.FunctionComponent = () => (
+const LeftAlignableDropdownExampleTab: React.FC = () => (
   <>
     <Level>
       <LevelItem direction="left">
@@ -111,7 +111,7 @@ const LeftAlignableDropdownExampleTab: React.FunctionComponent = () => (
   </>
 )
 
-const DropUpExampleTab: React.FunctionComponent = () => (
+const DropUpExampleTab: React.FC = () => (
   <>
     <Section>
       <Title size="4">Dropup</Title>
@@ -127,7 +127,7 @@ const DropUpExampleTab: React.FunctionComponent = () => (
   </>
 )
 
-export const DropdownExamplesTab: React.FunctionComponent = () => (
+export const DropdownExamplesTab: React.FC = () => (
   <RoutedTabs to="/components/dropdown" size="medium">
     <RoutedTabsItem value="dropdown">DropDown</RoutedTabsItem>
     <RoutedTabsItem value="content">Content</RoutedTabsItem>
@@ -138,11 +138,9 @@ export const DropdownExamplesTab: React.FunctionComponent = () => (
   </RoutedTabs>
 )
 
-export const DropdownExample: React.FunctionComponent = () => (
-  <DropdownExamplesTab />
-)
+export const DropdownExample: React.FC = () => <DropdownExamplesTab />
 
-export const DropdownExampleRoutes: React.FunctionComponent = () => (
+export const DropdownExampleRoutes: React.FC = () => (
   <>
     <Route
       exact

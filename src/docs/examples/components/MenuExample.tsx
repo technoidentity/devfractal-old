@@ -8,7 +8,7 @@ import {
   Section,
 } from '../devfractal'
 
-export const MenuExample: React.FunctionComponent = () => (
+export const MenuExample: React.FC = () => (
   <Section>
     <Box>
       <Menu>

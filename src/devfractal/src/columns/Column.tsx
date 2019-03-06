@@ -59,7 +59,7 @@ export interface ColumnProps
   readonly responsive?: ColumnResponsive
 }
 
-export const Column: React.FunctionComponent<ColumnProps> = ({
+export const Column: React.FC<ColumnProps> = ({
   size,
   gridSize,
   offsetSize,

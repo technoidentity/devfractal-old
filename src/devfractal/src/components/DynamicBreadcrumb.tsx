@@ -3,9 +3,9 @@ import { RouteComponentProps } from 'react-router'
 import { capitalize, chop, Null, WithRouter } from '../lib'
 import { Breadcrumb, BreadcrumbItem } from './internal'
 
-const DynamicBreadcrumbWithRouter: React.FunctionComponent<
-  RouteComponentProps
-> = ({ location }) => {
+const DynamicBreadcrumbWithRouter: React.FC<RouteComponentProps> = ({
+  location,
+}) => {
   const segments: string[] = chop(location.pathname).split('/')
 
   if (segments.length <= 1) {
@@ -28,6 +28,6 @@ const DynamicBreadcrumbWithRouter: React.FunctionComponent<
   )
 }
 
-export const DynamicBreadcrumb: React.FunctionComponent = () => (
+export const DynamicBreadcrumb: React.FC = () => (
   <WithRouter<{}> component={DynamicBreadcrumbWithRouter} />
 )

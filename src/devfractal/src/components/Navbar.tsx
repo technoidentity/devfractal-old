@@ -29,7 +29,7 @@ export interface NavbarProps
   readonly modifier?: NavbarModifier
 }
 
-export const Navbar: React.FunctionComponent<NavbarProps> = ({
+export const Navbar: React.FC<NavbarProps> = ({
   variant,
   modifier,
   children,
@@ -53,7 +53,7 @@ export interface NavbarBrandProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const NavbarBrand: React.FunctionComponent<NavbarBrandProps> = ({
+export const NavbarBrand: React.FC<NavbarBrandProps> = ({
   children,
   ...props
 }) => (
@@ -68,7 +68,7 @@ export interface NavbarBurgerProps
   readonly active?: boolean
 }
 
-export const NavbarBurger: React.FunctionComponent<NavbarBurgerProps> = ({
+export const NavbarBurger: React.FC<NavbarBurgerProps> = ({
   active,
   children,
   ...props
@@ -105,7 +105,7 @@ export interface NavbarItemsProps
   readonly modifier?: NavbarItemModifier
 }
 
-export const NavbarItem: React.FunctionComponent<NavbarItemsProps> = ({
+export const NavbarItem: React.FC<NavbarItemsProps> = ({
   href,
   active,
   as,
@@ -142,7 +142,7 @@ export interface NavbarMenuProps
   readonly active?: boolean
 }
 
-export const NavbarMenu: React.FunctionComponent<NavbarMenuProps> = ({
+export const NavbarMenu: React.FC<NavbarMenuProps> = ({
   active,
   children,
   ...props
@@ -170,7 +170,7 @@ export interface NavbarDropDownProps
   readonly boxed?: boolean
 }
 
-export const NavbarDropDown: React.FunctionComponent<NavbarDropDownProps> = ({
+export const NavbarDropDown: React.FC<NavbarDropDownProps> = ({
   boxed,
   children,
   ...props
@@ -191,7 +191,7 @@ export interface NavbarLinkProps
   readonly arrowLess?: boolean
 }
 
-export const NavbarLink: React.FunctionComponent<NavbarLinkProps> = ({
+export const NavbarLink: React.FC<NavbarLinkProps> = ({
   arrowLess,
   children,
   ...props
@@ -211,7 +211,7 @@ export interface NavbarStartProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const NavbarStart: React.FunctionComponent<NavbarStartProps> = ({
+export const NavbarStart: React.FC<NavbarStartProps> = ({
   children,
   ...props
 }) => (
@@ -224,10 +224,7 @@ export interface NavbarEndProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const NavbarEnd: React.FunctionComponent<NavbarEndProps> = ({
-  children,
-  ...props
-}) => (
+export const NavbarEnd: React.FC<NavbarEndProps> = ({ children, ...props }) => (
   <Div {...props} className={classNamesHelper(props, 'navbar-end')}>
     {children}
   </Div>
@@ -237,7 +234,7 @@ export interface NavbarDividerProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const NavbarDivider: React.FunctionComponent<NavbarDividerProps> = ({
+export const NavbarDivider: React.FC<NavbarDividerProps> = ({
   children,
   ...props
 }) => (

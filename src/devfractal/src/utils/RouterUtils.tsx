@@ -18,7 +18,7 @@ export interface SimpleRedirectProps {
   readonly exact?: boolean
 }
 
-export const SimpleRedirect: React.FunctionComponent<SimpleRedirectProps> = ({
+export const SimpleRedirect: React.FC<SimpleRedirectProps> = ({
   from,
   to,
   exact,

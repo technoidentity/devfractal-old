@@ -13,7 +13,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicDeleteExample: React.FunctionComponent = () => {
+export const DynamicDeleteExample: React.FC = () => {
   const [click, setDeleted] = useState('click Me!')
 
   return (
@@ -24,14 +24,14 @@ export const DynamicDeleteExample: React.FunctionComponent = () => {
   )
 }
 
-export const DefaultDeleteExample: React.FunctionComponent = () => (
+export const DefaultDeleteExample: React.FC = () => (
   <Section>
     <Title>Default Delete</Title>
     <Delete />
   </Section>
 )
 
-export const DeleteSizeExample: React.FunctionComponent = () => (
+export const DeleteSizeExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
@@ -43,7 +43,7 @@ export const DeleteSizeExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const DeleteCombinationsExample: React.FunctionComponent = () => (
+export const DeleteCombinationsExample: React.FC = () => (
   <Section>
     <Title>Combinations</Title>
     <Box>
@@ -82,7 +82,7 @@ export const DeleteCombinationsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const DeleteExample: React.FunctionComponent = () => (
+export const DeleteExample: React.FC = () => (
   <>
     <DynamicDeleteExample />
     <DefaultDeleteExample />

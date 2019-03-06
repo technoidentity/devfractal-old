@@ -9,7 +9,7 @@ export interface LabelProps
   readonly size?: LabelSize
 }
 
-export const Label: React.FunctionComponent<LabelProps> = args => {
+export const Label: React.FC<LabelProps> = args => {
   const { size, children, ...props } = args
 
   const classes: string = classNamesHelper(props, 'label', {

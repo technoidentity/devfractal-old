@@ -11,9 +11,7 @@ import {
 } from '../../devfractal'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
-const LoginFormInner: React.FunctionComponent<
-  FormikProps<LoginValues>
-> = () => (
+const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (
   <Container>
     <Form>
       <FieldGroup>
@@ -40,7 +38,7 @@ const LoginFormInner: React.FunctionComponent<
   </Container>
 )
 
-export const FieldsLoginForm: React.FunctionComponent = () => (
+export const FieldsLoginForm: React.FC = () => (
   <Formik
     initialValues={initialLoginValues}
     validationSchema={loginSchema}

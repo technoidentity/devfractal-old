@@ -24,7 +24,7 @@ export interface HeroProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly size?: HeroSize
 }
 
-export const Hero: React.FunctionComponent<HeroProps> = ({
+export const Hero: React.FC<HeroProps> = ({
   children,
   variant,
   bold,
@@ -47,10 +47,7 @@ export interface HeroHeadProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const HeroHead: React.FunctionComponent<HeroHeadProps> = ({
-  children,
-  ...props
-}) => (
+export const HeroHead: React.FC<HeroHeadProps> = ({ children, ...props }) => (
   <Div {...props} className={classNamesHelper(props, 'hero-head')}>
     {children}
   </Div>
@@ -60,10 +57,7 @@ export interface HeroBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const HeroBody: React.FunctionComponent<HeroBodyProps> = ({
-  children,
-  ...props
-}) => (
+export const HeroBody: React.FC<HeroBodyProps> = ({ children, ...props }) => (
   <Div {...props} className={classNamesHelper(props, 'hero-body')}>
     {children}
   </Div>
@@ -73,10 +67,7 @@ export interface HeroFootProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const HeroFoot: React.FunctionComponent<HeroFootProps> = ({
-  children,
-  ...props
-}) => (
+export const HeroFoot: React.FC<HeroFootProps> = ({ children, ...props }) => (
   <Div {...props} className={classNamesHelper(props, 'hero-foot')}>
     {children}
   </Div>

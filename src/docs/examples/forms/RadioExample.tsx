@@ -12,7 +12,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicRadioExample: React.FunctionComponent = () => {
+export const DynamicRadioExample: React.FC = () => {
   const [select, setSelect] = useState('red')
 
   return (
@@ -33,7 +33,7 @@ export const DynamicRadioExample: React.FunctionComponent = () => {
   )
 }
 
-export const RadioExamples: React.FunctionComponent = () => {
+export const RadioExamples: React.FC = () => {
   return (
     <Columns>
       <Column narrow>
@@ -116,7 +116,7 @@ export const RadioExamples: React.FunctionComponent = () => {
   )
 }
 
-export const RadioExample: React.FunctionComponent = () => (
+export const RadioExample: React.FC = () => (
   <>
     <DynamicRadioExample />
     <RadioExamples />

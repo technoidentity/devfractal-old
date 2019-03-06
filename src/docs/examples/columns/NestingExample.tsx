@@ -8,7 +8,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const NestingColumnExample: React.FunctionComponent = () => (
+export const NestingColumnExample: React.FC = () => (
   <div>
     <Section>
       <Container>

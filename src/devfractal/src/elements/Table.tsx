@@ -11,7 +11,7 @@ export interface TableProps
   readonly fullWidth?: boolean
 }
 
-export const Table: React.FunctionComponent<TableProps> = ({
+export const Table: React.FC<TableProps> = ({
   children,
   bordered,
   striped,
@@ -38,10 +38,7 @@ export interface TableHeadProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const TableHead: React.FunctionComponent<TableHeadProps> = ({
-  children,
-  ...props
-}) => {
+export const TableHead: React.FC<TableHeadProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props)
   return (
     <Div as="thead" {...props} className={classes}>
@@ -54,10 +51,7 @@ export interface TableBodyProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const TableBody: React.FunctionComponent<TableBodyProps> = ({
-  children,
-  ...props
-}) => {
+export const TableBody: React.FC<TableBodyProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props)
   return (
     <Div as="tbody" {...props} className={classes}>
@@ -70,10 +64,7 @@ export interface TableFootProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const TableFoot: React.FunctionComponent<TableFootProps> = ({
-  children,
-  ...props
-}) => {
+export const TableFoot: React.FC<TableFootProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props)
   return (
     <Div as="tfoot" {...props} className={classes}>
@@ -88,11 +79,7 @@ export interface TrProps
   readonly selected?: boolean
 }
 
-export const Tr: React.FunctionComponent<TrProps> = ({
-  selected,
-  children,
-  ...props
-}) => {
+export const Tr: React.FC<TrProps> = ({ selected, children, ...props }) => {
   const classes: string = classNamesHelper(props, 'tr', {
     'is-selected': selected,
   })
@@ -123,7 +110,7 @@ export interface ThProps
   readonly narrow?: boolean
 }
 
-export const Th: React.FunctionComponent<ThProps> = ({
+export const Th: React.FC<ThProps> = ({
   variant,
   selected,
   narrow,
@@ -162,7 +149,7 @@ export interface TdProps
   readonly narrow?: boolean
 }
 
-export const Td: React.FunctionComponent<TdProps> = ({
+export const Td: React.FC<TdProps> = ({
   variant,
   selected,
   narrow,

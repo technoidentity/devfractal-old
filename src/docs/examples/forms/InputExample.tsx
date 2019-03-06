@@ -12,7 +12,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicInputExample: React.FunctionComponent = () => {
+export const DynamicInputExample: React.FC = () => {
   const [change, setChange] = useState('')
   return (
     <Section>
@@ -28,14 +28,14 @@ export const DynamicInputExample: React.FunctionComponent = () => {
   )
 }
 
-export const NormalInputExample: React.FunctionComponent = () => (
+export const NormalInputExample: React.FC = () => (
   <Section>
     <Title size="4">Normal Input</Title>
     <Input type="text" placeholder="Text input" />
   </Section>
 )
 
-export const InputColorsExample: React.FunctionComponent = () => (
+export const InputColorsExample: React.FC = () => (
   <Section>
     <Title size="4">Colors</Title>
     <Input variant="primary" type="text" placeholder="Primary input" />
@@ -50,7 +50,7 @@ export const InputColorsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const InputSizesExample: React.FunctionComponent = () => (
+export const InputSizesExample: React.FC = () => (
   <Section>
     <Title size="4">Sizes</Title>
     <Input ctrlSize="small" type="text" placeholder="Small input" />
@@ -60,14 +60,14 @@ export const InputSizesExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const InputStyleExample: React.FunctionComponent = () => (
+export const InputStyleExample: React.FC = () => (
   <Section>
     <Title size="4">Styles</Title>
     <Input type="text" rounded placeholder="Rounded input" />
   </Section>
 )
 
-export const InputStateExample: React.FunctionComponent = () => (
+export const InputStateExample: React.FC = () => (
   <Section>
     <Title size="4">States</Title>
     <Text>Hover</Text>
@@ -79,7 +79,7 @@ export const InputStateExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const InputCombinationsExample: React.FunctionComponent = () => (
+export const InputCombinationsExample: React.FC = () => (
   <Section>
     <Input
       loading
@@ -103,14 +103,14 @@ export const InputCombinationsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const DisabledInputExample: React.FunctionComponent = () => (
+export const DisabledInputExample: React.FC = () => (
   <Section>
     <Text textSize="4">Disabled</Text>
     <Input disabled placeholder="disabled input" />
   </Section>
 )
 
-export const ReadonlyStaticInputsExample: React.FunctionComponent = () => (
+export const ReadonlyStaticInputsExample: React.FC = () => (
   <Section>
     <SubTitle size="4">Readonly and Static inputs</SubTitle>
     <Input type="text" value="This text is readonly" readOnly />
@@ -132,7 +132,7 @@ export const ReadonlyStaticInputsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const FontAwesomeIconsExample: React.FunctionComponent = () => (
+export const FontAwesomeIconsExample: React.FC = () => (
   <Section>
     <Title size="4">With Font Awesome icons</Title>
     <Input leftIcon={faUser} iconSize="small" type="text" placeholder="Name" />
@@ -147,7 +147,7 @@ export const FontAwesomeIconsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const MoreExamples: React.FunctionComponent = () => (
+export const MoreExamples: React.FC = () => (
   <Section>
     <Input
       leftIcon={faEnvelope}
@@ -183,7 +183,7 @@ export const MoreExamples: React.FunctionComponent = () => (
   </Section>
 )
 
-export const InputExample: React.FunctionComponent = () => (
+export const InputExample: React.FC = () => (
   <>
     <DynamicInputExample />
     <NormalInputExample />

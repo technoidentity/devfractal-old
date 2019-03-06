@@ -50,7 +50,7 @@ function matches(
   )
 }
 
-export const RoutedTabsItem: React.FunctionComponent<RoutedTabsItemProps> = ({
+export const RoutedTabsItem: React.FC<RoutedTabsItemProps> = ({
   value,
   children,
   ...props
@@ -83,7 +83,7 @@ export interface RoutedTabsProps
   readonly urlSeparator?: string
 }
 
-const RoutedTabsWithRouter: React.FunctionComponent<
+const RoutedTabsWithRouter: React.FC<
   RoutedTabsProps & RouteComponentProps
 > = args => {
   const {
@@ -119,6 +119,6 @@ const RoutedTabsWithRouter: React.FunctionComponent<
   )
 }
 
-export const RoutedTabs: React.FunctionComponent<RoutedTabsProps> = props => (
+export const RoutedTabs: React.FC<RoutedTabsProps> = props => (
   <WithRouter<RoutedTabsProps> {...props} component={RoutedTabsWithRouter} />
 )

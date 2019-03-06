@@ -53,7 +53,7 @@ export interface ControlWrapperProps
   extends React.HTMLAttributes<HTMLElement>,
     ControlHelpers {}
 
-export const ControlWrapper: React.FunctionComponent<ControlWrapperProps> = ({
+export const ControlWrapper: React.FC<ControlWrapperProps> = ({
   noControl,
   children,
   ...props

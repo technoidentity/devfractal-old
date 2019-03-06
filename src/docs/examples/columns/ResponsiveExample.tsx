@@ -8,7 +8,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const ResponsiveColumnExample: React.FunctionComponent = () => (
+export const ResponsiveColumnExample: React.FC = () => (
   <div>
     <Section>
       <Container>

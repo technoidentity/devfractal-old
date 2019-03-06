@@ -45,7 +45,7 @@ export interface ButtonProps
   readonly type?: ButtonType
 }
 
-export const Button: React.FunctionComponent<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   variant,
   size,
   modifier,

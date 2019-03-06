@@ -10,7 +10,7 @@ import {
 import React from 'react'
 import { Box, Icon, Section, State, Tabs, TabsItem, Title } from '../devfractal'
 
-export const TabsExamples: React.FunctionComponent = () => (
+export const TabsExamples: React.FC = () => (
   <>
     <Section>
       <Tabs name="basicTab50" selectedTab="pictures" readOnly>
@@ -23,7 +23,7 @@ export const TabsExamples: React.FunctionComponent = () => (
   </>
 )
 
-export const AlignmentTabExample: React.FunctionComponent = () => (
+export const AlignmentTabExample: React.FC = () => (
   <>
     <Title size="6">Centered</Title>
     <Tabs name="basicTab2" selectedTab="pictures" alignment="centered" readOnly>
@@ -42,7 +42,7 @@ export const AlignmentTabExample: React.FunctionComponent = () => (
   </>
 )
 
-export const IconsTabExample: React.FunctionComponent = () => (
+export const IconsTabExample: React.FC = () => (
   <>
     <Tabs name="basicTab4" selectedTab="pictures" alignment="centered" readOnly>
       <TabsItem value="pictures">
@@ -65,7 +65,7 @@ export const IconsTabExample: React.FunctionComponent = () => (
   </>
 )
 
-export const SizesTabExample: React.FunctionComponent = () => (
+export const SizesTabExample: React.FC = () => (
   <>
     <Tabs name="basicTab5" selectedTab="pictures" size="small" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
@@ -88,7 +88,7 @@ export const SizesTabExample: React.FunctionComponent = () => (
   </>
 )
 
-export const StyleTabsExample: React.FunctionComponent = () => (
+export const StyleTabsExample: React.FC = () => (
   <>
     <Title size="6">Boxed</Title>
     <Tabs name="basicTab8" selectedTab="pictures" tabsStyle="boxed" readOnly>
@@ -170,7 +170,7 @@ export const StyleTabsExample: React.FunctionComponent = () => (
   </>
 )
 
-export const CombiningTabsExample: React.FunctionComponent = () => (
+export const CombiningTabsExample: React.FC = () => (
   <>
     <Tabs
       name="basicTab20"
@@ -273,7 +273,7 @@ export const CombiningTabsExample: React.FunctionComponent = () => (
   </>
 )
 
-export const UncontrolledTabExample: React.FunctionComponent = () => (
+export const UncontrolledTabExample: React.FC = () => (
   <Section>
     <Tabs name="secondTab" defaultValue="documents" size="medium">
       <TabsItem value="pictures">Pictures</TabsItem>
@@ -284,7 +284,7 @@ export const UncontrolledTabExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const SelectedTabExample: React.FunctionComponent = () => (
+export const SelectedTabExample: React.FC = () => (
   <Section>
     <Tabs selectedTab="music" name="secondTab" size="medium" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
@@ -295,7 +295,7 @@ export const SelectedTabExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ControlledTabsExample: React.FunctionComponent = () => (
+export const ControlledTabsExample: React.FC = () => (
   <>
     <State
       initial={'music'}
@@ -323,7 +323,7 @@ export const ControlledTabsExample: React.FunctionComponent = () => (
   </>
 )
 
-export const StaticTabsExample: React.FunctionComponent = () => (
+export const StaticTabsExample: React.FC = () => (
   <Section>
     <Title textAlignment="centered">Static Tabs</Title>
     <Box>
@@ -353,7 +353,7 @@ export const StaticTabsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const DynamicTabsExample: React.FunctionComponent = () => (
+export const DynamicTabsExample: React.FC = () => (
   <Section>
     <Title textAlignment="centered">Dynamic Tabs</Title>
     <Box>
@@ -370,7 +370,7 @@ export const DynamicTabsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const TabsExample: React.FunctionComponent = () => (
+export const TabsExample: React.FC = () => (
   <>
     <DynamicTabsExample />
     <StaticTabsExample />

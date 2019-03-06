@@ -10,7 +10,7 @@ export interface TitleProps
   readonly spaced?: boolean
 }
 
-export const Title: React.FunctionComponent<TitleProps> = ({
+export const Title: React.FC<TitleProps> = ({
   size,
   spaced,
   children,

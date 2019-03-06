@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Delete, Notification, Section, Title } from '../devfractal'
 
-export const BasicNotificationExample: React.FunctionComponent = () => (
+export const BasicNotificationExample: React.FC = () => (
   <Section>
     <Title>Default Notification</Title>
     <Box>
@@ -14,7 +14,7 @@ export const BasicNotificationExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const NotificationColorExample: React.FunctionComponent = () => (
+export const NotificationColorExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
@@ -70,7 +70,7 @@ export const NotificationColorExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const NotificationExample: React.FunctionComponent = () => (
+export const NotificationExample: React.FC = () => (
   <>
     <BasicNotificationExample />
     <NotificationColorExample />

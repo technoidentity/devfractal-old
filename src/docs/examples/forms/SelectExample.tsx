@@ -2,7 +2,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import { Field, Section, Select, Text, Title } from '../devfractal'
 
-export const DynamicSelectExample: React.FunctionComponent = () => {
+export const DynamicSelectExample: React.FC = () => {
   const [select, setSelect] = useState('red')
   return (
     <Section>
@@ -17,7 +17,7 @@ export const DynamicSelectExample: React.FunctionComponent = () => {
   )
 }
 
-export const BasicSelectExample: React.FunctionComponent = () => (
+export const BasicSelectExample: React.FC = () => (
   <Section>
     <Title size="4">Select</Title>
     <Select>
@@ -29,7 +29,7 @@ export const BasicSelectExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const SelectColorExample: React.FunctionComponent = () => (
+export const SelectColorExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">Colors</Title>
@@ -65,7 +65,7 @@ export const SelectColorExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const SelectSizeExample: React.FunctionComponent = () => (
+export const SelectSizeExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">Sizes</Title>
@@ -95,7 +95,7 @@ export const SelectSizeExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const SelectStyleExample: React.FunctionComponent = () => (
+export const SelectStyleExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">Style</Title>
@@ -107,7 +107,7 @@ export const SelectStyleExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const SelectStateExample: React.FunctionComponent = () => (
+export const SelectStateExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">States</Title>
@@ -141,7 +141,7 @@ export const SelectStateExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const WithIconsExample: React.FunctionComponent = () => (
+export const WithIconsExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">With icons</Title>
@@ -168,7 +168,7 @@ export const WithIconsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const SelectExample: React.FunctionComponent = () => (
+export const SelectExample: React.FC = () => (
   <>
     <DynamicSelectExample />
     <BasicSelectExample />

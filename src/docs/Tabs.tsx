@@ -1,7 +1,7 @@
 import React from 'react'
 import { RoutedTabs, RoutedTabsItem } from '../devfractal'
 
-export const ColumnsTab: React.FunctionComponent = () => (
+export const ColumnsTab: React.FC = () => (
   <RoutedTabs to="/columns" size="medium">
     <RoutedTabsItem value="basics">Basics</RoutedTabsItem>
     <RoutedTabsItem value="size">Size</RoutedTabsItem>
@@ -12,7 +12,7 @@ export const ColumnsTab: React.FunctionComponent = () => (
   </RoutedTabs>
 )
 
-export const ComponentsTab: React.FunctionComponent = () => (
+export const ComponentsTab: React.FC = () => (
   <RoutedTabs to="/components" size="medium">
     <RoutedTabsItem value="card">Card</RoutedTabsItem>
     <RoutedTabsItem value="dropdown">DropDown</RoutedTabsItem>
@@ -27,7 +27,7 @@ export const ComponentsTab: React.FunctionComponent = () => (
   </RoutedTabs>
 )
 
-export const FormTab: React.FunctionComponent = () => (
+export const FormTab: React.FC = () => (
   <RoutedTabs to="/form" size="medium">
     <RoutedTabsItem value="general">General</RoutedTabsItem>
     <RoutedTabsItem value="input">Input</RoutedTabsItem>
@@ -40,7 +40,7 @@ export const FormTab: React.FunctionComponent = () => (
   </RoutedTabs>
 )
 
-export const CompositesTab: React.FunctionComponent = () => (
+export const CompositesTab: React.FC = () => (
   <RoutedTabs to="/composites" size="medium">
     <RoutedTabsItem value="simple">Simple</RoutedTabsItem>
     <RoutedTabsItem value="simple-form">Simple Form</RoutedTabsItem>
@@ -54,7 +54,7 @@ export const CompositesTab: React.FunctionComponent = () => (
   </RoutedTabs>
 )
 
-export const LayoutTab: React.FunctionComponent = () => (
+export const LayoutTab: React.FC = () => (
   <RoutedTabs to="/layout" size="medium">
     <RoutedTabsItem value="container">Container</RoutedTabsItem>
     <RoutedTabsItem value="level">Level</RoutedTabsItem>
@@ -66,7 +66,7 @@ export const LayoutTab: React.FunctionComponent = () => (
   </RoutedTabs>
 )
 
-export const ModifiersTab: React.FunctionComponent = () => (
+export const ModifiersTab: React.FC = () => (
   <RoutedTabs to="/modifiers" size="medium">
     <RoutedTabsItem value="helpers">Helpers</RoutedTabsItem>
     <RoutedTabsItem value="colors">Color Helpers</RoutedTabsItem>
@@ -74,7 +74,7 @@ export const ModifiersTab: React.FunctionComponent = () => (
   </RoutedTabs>
 )
 
-export const ElementsTab: React.FunctionComponent = () => (
+export const ElementsTab: React.FC = () => (
   <RoutedTabs to="/elements" size="medium">
     <RoutedTabsItem value="box">Box</RoutedTabsItem>
     <RoutedTabsItem value="content">Content</RoutedTabsItem>

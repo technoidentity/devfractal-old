@@ -9,7 +9,7 @@ export interface ModalProps
   onModalClosed?(): void
 }
 
-export const Modal: React.FunctionComponent<ModalProps> = ({
+export const Modal: React.FC<ModalProps> = ({
   active,
   noClose,
   children,
@@ -43,10 +43,7 @@ export interface ModalCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const ModalCard: React.FunctionComponent<ModalCardProps> = ({
-  children,
-  ...props
-}) => {
+export const ModalCard: React.FC<ModalCardProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'modal-card')
   return (
     <Div {...props} className={classes}>
@@ -59,7 +56,7 @@ export interface ModalCardHeadProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {}
 
-export const ModalCardHead: React.FunctionComponent<ModalCardHeadProps> = ({
+export const ModalCardHead: React.FC<ModalCardHeadProps> = ({
   children,
   ...props
 }) => {
@@ -75,7 +72,7 @@ export interface ModalCardTitleProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const ModalCardTitle: React.FunctionComponent<ModalCardTitleProps> = ({
+export const ModalCardTitle: React.FC<ModalCardTitleProps> = ({
   children,
   ...props
 }) => {
@@ -91,7 +88,7 @@ export interface ModalCardBodyProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const ModalCardBody: React.FunctionComponent<ModalCardBodyProps> = ({
+export const ModalCardBody: React.FC<ModalCardBodyProps> = ({
   children,
   ...props
 }) => {
@@ -107,7 +104,7 @@ export interface ModalCardFootProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const ModalCardFoot: React.FunctionComponent<ModalCardFootProps> = ({
+export const ModalCardFoot: React.FC<ModalCardFootProps> = ({
   children,
   ...props
 }) => {
@@ -123,7 +120,7 @@ export interface ModalBackgroundProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const ModalBackground: React.FunctionComponent<ModalBackgroundProps> = ({
+export const ModalBackground: React.FC<ModalBackgroundProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'modal-background')
@@ -134,7 +131,7 @@ export interface ModalContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
+export const ModalContent: React.FC<ModalContentProps> = ({
   children,
   ...props
 }) => {

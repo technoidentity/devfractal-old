@@ -9,14 +9,14 @@ import {
 import React from 'react'
 import { Icon, Section, Title } from '../devfractal'
 
-export const BasicIconExample: React.FunctionComponent = () => (
+export const BasicIconExample: React.FC = () => (
   <Section>
     <Title>Normal Icon</Title>
     <Icon icon={faHome} />
   </Section>
 )
 
-export const IconColorExample: React.FunctionComponent = () => (
+export const IconColorExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Icon icon={faCheck} textColor="success" />
@@ -26,7 +26,7 @@ export const IconColorExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const IconSizeExample: React.FunctionComponent = () => (
+export const IconSizeExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Icon icon={faUser} size="sm" />
@@ -58,28 +58,28 @@ export const IconSizeExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const FixedWidthIconExample: React.FunctionComponent = () => (
+export const FixedWidthIconExample: React.FC = () => (
   <Section>
     <Title>Fixed Width Icon</Title>
     <Icon icon={faHome} textColor="warning" fixedWidth />
   </Section>
 )
 
-export const BorderedIconExample: React.FunctionComponent = () => (
+export const BorderedIconExample: React.FC = () => (
   <Section>
     <Title>Bordered Icon</Title>
     <Icon icon={faUser} size="lg" textColor="info" border />
   </Section>
 )
 
-export const AnimatedIconExample: React.FunctionComponent = () => (
+export const AnimatedIconExample: React.FC = () => (
   <Section>
     <Title>Animated Icon</Title>
     <Icon icon={faHome} textColor="danger" spin />
   </Section>
 )
 
-export const RotatedFlippedIconsExample: React.FunctionComponent = () => (
+export const RotatedFlippedIconsExample: React.FC = () => (
   <Section>
     <Title>Rotated & Flipped</Title>
     <Icon icon={faHome} textColor="info" transform="rotate-90" />
@@ -90,7 +90,7 @@ export const RotatedFlippedIconsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const IconExample: React.FunctionComponent = () => (
+export const IconExample: React.FC = () => (
   <>
     <BasicIconExample />
     <IconColorExample />

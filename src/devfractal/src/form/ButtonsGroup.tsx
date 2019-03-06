@@ -8,7 +8,7 @@ export interface ButtonsGroupProps
   readonly addons?: boolean
 }
 
-export const ButtonsGroup: React.FunctionComponent<ButtonsGroupProps> = ({
+export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({
   addons,
   alignment,
   children,

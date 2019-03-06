@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Field, File, Section, Title } from '../devfractal'
 
-export const BasicFileExample: React.FunctionComponent = () => (
+export const BasicFileExample: React.FC = () => (
   <Section>
     <Title size="4">File</Title>
     <Field>
@@ -10,7 +10,7 @@ export const BasicFileExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const FileModifiersExample: React.FunctionComponent = () => (
+export const FileModifiersExample: React.FC = () => (
   <Section>
     <Title size="4">Modifiers</Title>
     <Box>
@@ -43,7 +43,7 @@ export const FileModifiersExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const FileColorExample: React.FunctionComponent = () => (
+export const FileColorExample: React.FC = () => (
   <Section>
     <Title size="4">Colors</Title>
     <Field>
@@ -71,7 +71,7 @@ export const FileColorExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const FileSizeExample: React.FunctionComponent = () => (
+export const FileSizeExample: React.FC = () => (
   <Section>
     <Title size="4">Sizes</Title>
     <Box>
@@ -128,7 +128,7 @@ export const FileSizeExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const FileAlignmentExample: React.FunctionComponent = () => (
+export const FileAlignmentExample: React.FC = () => (
   <Section>
     <Title size="4">Alignment</Title>
     <Box>
@@ -152,7 +152,7 @@ export const FileAlignmentExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const FileExample: React.FunctionComponent = () => (
+export const FileExample: React.FC = () => (
   <>
     <BasicFileExample />
     <FileModifiersExample />

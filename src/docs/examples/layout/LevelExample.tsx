@@ -11,7 +11,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const LevelLeftExample: React.FunctionComponent = () => (
+export const LevelLeftExample: React.FC = () => (
   <Section>
     <Title>Level left</Title>
     <Level>
@@ -30,7 +30,7 @@ export const LevelLeftExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const LevelRightExample: React.FunctionComponent = () => (
+export const LevelRightExample: React.FC = () => (
   <Section>
     <Title>Level Right</Title>
     <Level>
@@ -55,7 +55,7 @@ export const LevelRightExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const CenteredLevelExample: React.FunctionComponent = () => (
+export const CenteredLevelExample: React.FC = () => (
   <Section>
     <Title>Centered level</Title>
     <Level>
@@ -128,7 +128,7 @@ export const CenteredLevelExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const MobileLevelExample: React.FunctionComponent = () => (
+export const MobileLevelExample: React.FC = () => (
   <Section>
     <Title>Mobile level</Title>
     <Level className="is-mobile">
@@ -160,7 +160,7 @@ export const MobileLevelExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const LevelExample: React.FunctionComponent = () => (
+export const LevelExample: React.FC = () => (
   <>
     <LevelRightExample />
     <LevelLeftExample />

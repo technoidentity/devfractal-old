@@ -28,7 +28,7 @@ export interface FileProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly fileName?: boolean
 }
 
-export const File: React.FunctionComponent<FileProps> = ({
+export const File: React.FC<FileProps> = ({
   variant,
   size,
   alignment,

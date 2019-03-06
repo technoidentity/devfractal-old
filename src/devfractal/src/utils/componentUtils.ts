@@ -43,7 +43,7 @@ export const component: <
 >(
   propsValue: T,
   inner: React.ComponentType<P>,
-) => React.FunctionComponent<P> = (propsValue, inner) => props => {
+) => React.FC<P> = (propsValue, inner) => props => {
   const v: string = reporter(propsValue.decode(props)).join('\n')
   warning(v === '', v)
 
@@ -51,4 +51,4 @@ export const component: <
 }
 
 // tslint:disable-next-line: no-null-keyword
-export const Null: React.FunctionComponent = () => null
+export const Null: React.FC = () => null

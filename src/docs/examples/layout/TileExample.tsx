@@ -1,7 +1,7 @@
 import React from 'react'
 import { Content, Image, Section, SubTitle, Tile, Title } from '../devfractal'
 
-export const SimpleTilesExample: React.FunctionComponent = () => (
+export const SimpleTilesExample: React.FC = () => (
   <Section>
     <Title>Example</Title>
     <Tile tileType="ancestor">
@@ -79,7 +79,7 @@ export const SimpleTilesExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const TileModifiersExample: React.FunctionComponent = () => (
+export const TileModifiersExample: React.FC = () => (
   <Section>
     <Title>Modifiers</Title>
     <Tile tileType="ancestor">
@@ -132,7 +132,7 @@ export const TileModifiersExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const NestedTilesExample: React.FunctionComponent = () => (
+export const NestedTilesExample: React.FC = () => (
   <Section>
     <Title>Nesting requirements</Title>
     <Tile className="is-ancestor">
@@ -210,7 +210,7 @@ export const NestedTilesExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const TileExample: React.FunctionComponent = () => (
+export const TileExample: React.FC = () => (
   <>
     <SimpleTilesExample />
     <TileModifiersExample />

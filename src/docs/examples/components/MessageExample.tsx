@@ -9,7 +9,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimpleMessageExample: React.FunctionComponent = () => (
+export const SimpleMessageExample: React.FC = () => (
   <Section>
     <Title>Simple Message</Title>
     <Box>
@@ -30,7 +30,7 @@ export const SimpleMessageExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const MessageColorsExample: React.FunctionComponent = () => (
+export const MessageColorsExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
@@ -155,7 +155,7 @@ export const MessageColorsExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const MessageBodyExample: React.FunctionComponent = () => (
+export const MessageBodyExample: React.FC = () => (
   <Section>
     <Title>Message body only</Title>
     <Box>
@@ -253,7 +253,7 @@ export const MessageBodyExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const MessageSizesExample: React.FunctionComponent = () => (
+export const MessageSizesExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
@@ -313,7 +313,7 @@ export const MessageSizesExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const MessageExample: React.FunctionComponent = () => (
+export const MessageExample: React.FC = () => (
   <>
     <SimpleMessageExample />
     <MessageColorsExample />

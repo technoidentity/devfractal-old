@@ -9,7 +9,7 @@ import {
 } from '../../devfractal'
 import { initialLoginValues } from './common'
 
-export const SimpleLoginForm: React.FunctionComponent = () => (
+export const SimpleLoginForm: React.FC = () => (
   <Section>
     <Simple.Form initialValues={initialLoginValues} onSubmit={consoleSubmit(0)}>
       <Simple.Text

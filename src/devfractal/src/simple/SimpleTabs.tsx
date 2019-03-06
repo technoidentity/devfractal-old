@@ -16,7 +16,7 @@ export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {
   readonly values?: ReadonlyArray<string>
 }
 
-export const SimpleTabs: React.FunctionComponent<SimpleTabsProps> = ({
+export const SimpleTabs: React.FC<SimpleTabsProps> = ({
   name,
   values = [],
   ...props
@@ -53,9 +53,10 @@ export interface SimpleRoutedTabsProps
   readonly values?: ReadonlyArray<string>
 }
 
-export const SimpleRoutedTabs: React.FunctionComponent<
-  SimpleRoutedTabsProps
-> = ({ values = [], ...props }) => (
+export const SimpleRoutedTabs: React.FC<SimpleRoutedTabsProps> = ({
+  values = [],
+  ...props
+}) => (
   <RoutedTabs {...props}>
     {values.map(value => (
       <RoutedTabsItem key={value} value={value}>

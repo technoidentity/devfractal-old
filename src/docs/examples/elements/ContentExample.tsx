@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Content, Ol, Section, Text, Title } from '../devfractal'
 
-export const BasicContentExample: React.FunctionComponent = () => (
+export const BasicContentExample: React.FC = () => (
   <Section>
     <Title>Example</Title>
     <Content>
@@ -31,7 +31,7 @@ export const BasicContentExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ContentSizeExample: React.FunctionComponent = () => (
+export const ContentSizeExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Text textWeight="bold">Medium</Text>
@@ -124,7 +124,7 @@ export const ContentSizeExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ContentExample: React.FunctionComponent = () => (
+export const ContentExample: React.FC = () => (
   <>
     <BasicContentExample />
     <ContentSizeExample />

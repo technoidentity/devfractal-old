@@ -10,11 +10,11 @@ import {
   Title,
 } from '../lib'
 
-const SimpleHeader: React.FunctionComponent<{ readonly objectKey: string }> = ({
+const SimpleHeader: React.FC<{ readonly objectKey: string }> = ({
   objectKey,
 }) => <Title size="4">{camelCaseToPhrase(objectKey)}</Title>
 
-const SimpleValue: React.FunctionComponent<{
+const SimpleValue: React.FC<{
   readonly objectValue: string
 }> = ({ objectValue }) =>
   Boolean.is(objectValue) ? (

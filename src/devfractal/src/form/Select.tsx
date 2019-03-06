@@ -24,7 +24,7 @@ export interface SelectProps
   readonly noControl?: true
 }
 
-export const Select: React.FunctionComponent<SelectProps> = ({
+export const Select: React.FC<SelectProps> = ({
   noControl,
   variant,
   loading,

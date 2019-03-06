@@ -12,7 +12,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimplePaginationExample: React.FunctionComponent = () => (
+export const SimplePaginationExample: React.FC = () => (
   <>
     <Title>Pagination example</Title>
     <Section>
@@ -37,7 +37,7 @@ export const SimplePaginationExample: React.FunctionComponent = () => (
   </>
 )
 
-export const PaginationAlignmentExample: React.FunctionComponent = () => (
+export const PaginationAlignmentExample: React.FC = () => (
   <>
     <Title>Alignment</Title>
     <Section>
@@ -83,7 +83,7 @@ export const PaginationAlignmentExample: React.FunctionComponent = () => (
   </>
 )
 
-export const PaginationStylesExample: React.FunctionComponent = () => (
+export const PaginationStylesExample: React.FC = () => (
   <>
     <Title>Styles</Title>
     <Section>
@@ -108,7 +108,7 @@ export const PaginationStylesExample: React.FunctionComponent = () => (
   </>
 )
 
-export const PaginationSizesExample: React.FunctionComponent = () => (
+export const PaginationSizesExample: React.FC = () => (
   <>
     <Title>Sizes</Title>
     <Section>
@@ -194,7 +194,7 @@ export const PaginationSizesExample: React.FunctionComponent = () => (
   </>
 )
 
-export const DynamicPaginationExample: React.FunctionComponent = () => {
+export const DynamicPaginationExample: React.FC = () => {
   const [page, setPageChange] = useState(1)
   return (
     <>
@@ -208,7 +208,7 @@ export const DynamicPaginationExample: React.FunctionComponent = () => {
   )
 }
 
-export const PaginationExample: React.FunctionComponent = () => (
+export const PaginationExample: React.FC = () => (
   <Section>
     <DynamicPaginationExample />
     <SimplePaginationExample />

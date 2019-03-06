@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Section, Text, Title } from '../devfractal'
 
-export const TextColorExample: React.FunctionComponent = () => (
+export const TextColorExample: React.FC = () => (
   <Section>
     <Title>Text Color</Title>
     <Box>
@@ -27,7 +27,7 @@ export const TextColorExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const TextBackgroundColorExample: React.FunctionComponent = () => (
+export const TextBackgroundColorExample: React.FC = () => (
   <Section>
     <Title>Background Color</Title>
     <Box>
@@ -53,7 +53,7 @@ export const TextBackgroundColorExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ColorHelpersExample: React.FunctionComponent = () => (
+export const ColorHelpersExample: React.FC = () => (
   <>
     <TextColorExample />
     <TextBackgroundColorExample />

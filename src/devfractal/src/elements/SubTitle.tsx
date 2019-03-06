@@ -9,7 +9,7 @@ export interface SubTitleProps
   readonly size?: SubTitleSize
 }
 
-export const SubTitle: React.FunctionComponent<SubTitleProps> = ({
+export const SubTitle: React.FC<SubTitleProps> = ({
   size,
   children,
   ...props

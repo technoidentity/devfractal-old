@@ -27,13 +27,13 @@ export type FormikFieldConfig = Omit<FieldConfig, 'innerRef'>
 
 export type InputFieldProps = InputProps & FormikFieldConfig
 
-export const InputField: React.FunctionComponent<InputFieldProps> = props => (
+export const InputField: React.FC<InputFieldProps> = props => (
   <FormikField {...props} component={FormikInput} />
 )
 
 export type CheckboxFieldProps = CheckBoxProps & FormikFieldConfig
 
-export const CheckboxField: React.FunctionComponent<CheckboxFieldProps> = ({
+export const CheckboxField: React.FC<CheckboxFieldProps> = ({
   children,
   ...props
 }) => (
@@ -44,7 +44,7 @@ export const CheckboxField: React.FunctionComponent<CheckboxFieldProps> = ({
 
 export type RadioFieldProps = RadioGroupProps & FormikFieldConfig
 
-export const RadioGroupField: React.FunctionComponent<RadioFieldProps> = ({
+export const RadioGroupField: React.FC<RadioFieldProps> = ({
   children,
   ...props
 }) => (
@@ -55,7 +55,7 @@ export const RadioGroupField: React.FunctionComponent<RadioFieldProps> = ({
 
 export type SelectFieldProps = SelectProps & FormikFieldConfig
 
-export const SelectField: React.FunctionComponent<SelectFieldProps> = ({
+export const SelectField: React.FC<SelectFieldProps> = ({
   children,
   ...props
 }) => (
@@ -66,17 +66,17 @@ export const SelectField: React.FunctionComponent<SelectFieldProps> = ({
 
 export type TextAreaFieldProps = TextAreaProps & FormikFieldConfig
 
-export const TextAreaField: React.FunctionComponent<
-  TextAreaFieldProps
-> = props => <FormikField {...props} component={FormikTextArea} />
+export const TextAreaField: React.FC<TextAreaFieldProps> = props => (
+  <FormikField {...props} component={FormikTextArea} />
+)
 
 export type ErrorMessageProps = FormikErrorProps
 
-export const ErrorField: React.FunctionComponent<ErrorMessageProps> = props => (
+export const ErrorField: React.FC<ErrorMessageProps> = props => (
   <ErrorMessage {...props} component={FormikError} />
 )
 
-export const DebugField: React.FunctionComponent = () => (
+export const DebugField: React.FC = () => (
   <FormikConsumer>
     {({ values }) => <pre>{jsonStringify(values)}</pre>}
   </FormikConsumer>

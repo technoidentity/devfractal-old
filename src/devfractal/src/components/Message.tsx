@@ -22,7 +22,7 @@ export interface MessageProps
   readonly size?: MessageSize
 }
 
-export const Message: React.FunctionComponent<MessageProps> = ({
+export const Message: React.FC<MessageProps> = ({
   size,
   variant,
   children,
@@ -43,7 +43,7 @@ export interface MessageHeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const MessageHeader: React.FunctionComponent<MessageHeaderProps> = ({
+export const MessageHeader: React.FC<MessageHeaderProps> = ({
   children,
   ...props
 }) => {
@@ -59,7 +59,7 @@ export interface MessageBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const MessageBody: React.FunctionComponent<MessageBodyProps> = ({
+export const MessageBody: React.FC<MessageBodyProps> = ({
   children,
   ...props
 }) => {

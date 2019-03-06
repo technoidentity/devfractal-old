@@ -12,7 +12,7 @@ import {
   Tr,
 } from '../devfractal'
 
-export const BorderedTableExample: React.FunctionComponent = () => (
+export const BorderedTableExample: React.FC = () => (
   <Section>
     <Title>Bordered Table</Title>
     <Table bordered>
@@ -32,7 +32,7 @@ export const BorderedTableExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const StripedTableExample: React.FunctionComponent = () => (
+export const StripedTableExample: React.FC = () => (
   <Section>
     <Title>Striped Table</Title>
     <Table striped>
@@ -68,7 +68,7 @@ export const StripedTableExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const NarrowTableExample: React.FunctionComponent = () => (
+export const NarrowTableExample: React.FC = () => (
   <Section>
     <Title>Narrow Table</Title>
     <Table narrow>
@@ -104,7 +104,7 @@ export const NarrowTableExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const HoverableTableExample: React.FunctionComponent = () => (
+export const HoverableTableExample: React.FC = () => (
   <Section>
     <Title>Hoverable Table</Title>
     <Table hoverable>
@@ -140,7 +140,7 @@ export const HoverableTableExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const FullWidthTableExample: React.FunctionComponent = () => (
+export const FullWidthTableExample: React.FC = () => (
   <Section>
     <Title>FullWidth Table</Title>
     <Table fullWidth>
@@ -176,7 +176,7 @@ export const FullWidthTableExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const CombineAllModifiersExample: React.FunctionComponent = () => (
+export const CombineAllModifiersExample: React.FC = () => (
   <Section>
     <Title>Combine All Modifiers</Title>
     <Table bordered striped narrow hoverable fullWidth>
@@ -212,7 +212,7 @@ export const CombineAllModifiersExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const SelectedTdThExample: React.FunctionComponent = () => (
+export const SelectedTdThExample: React.FC = () => (
   <Section>
     <Title>Check selected for Td and Th</Title>
     <Table bordered>
@@ -236,7 +236,7 @@ export const SelectedTdThExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ColorForThExample: React.FunctionComponent = () => (
+export const ColorForThExample: React.FC = () => (
   <Section>
     <Title>Check variants for Th</Title>
     <Table bordered>
@@ -272,7 +272,7 @@ export const ColorForThExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ColorForTdExample: React.FunctionComponent = () => (
+export const ColorForTdExample: React.FC = () => (
   <Section>
     <Title>Check variants for Td</Title>
     <Table bordered>
@@ -308,7 +308,7 @@ export const ColorForTdExample: React.FunctionComponent = () => (
   </Section>
 )
 
-export const ExampleTable: React.FunctionComponent = () => (
+export const ExampleTable: React.FC = () => (
   <Section>
     <Title>Example</Title>
     <Table bordered striped>
@@ -872,7 +872,7 @@ export const ExampleTable: React.FunctionComponent = () => (
   </Section>
 )
 
-export const TableExample: React.FunctionComponent = () => (
+export const TableExample: React.FC = () => (
   <>
     <BorderedTableExample />
     <StripedTableExample />

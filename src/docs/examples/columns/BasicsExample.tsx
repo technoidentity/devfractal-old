@@ -8,7 +8,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const BasicColumnExample: React.FunctionComponent = () => (
+export const BasicColumnExample: React.FC = () => (
   <Section>
     <Container>
       <Title size="4">Basic columns</Title>

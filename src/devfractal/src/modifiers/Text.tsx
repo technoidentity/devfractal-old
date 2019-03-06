@@ -8,11 +8,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly as?: TextTags
 }
 
-export const Text: React.FunctionComponent<TextProps> = ({
-  as,
-  children,
-  ...props
-}) => (
+export const Text: React.FC<TextProps> = ({ as, children, ...props }) => (
   <Div as={as} {...props} className={classNamesHelper(props)}>
     {children}
   </Div>
