@@ -6,6 +6,7 @@ import {
   BooleanType,
   Errors,
   InterfaceType,
+  KeyofType,
   Mixed,
   number,
   NumberType,
@@ -22,7 +23,6 @@ import { reporter } from 'io-ts-reporters'
 import { DateType } from 'io-ts-types'
 import { String } from 'tcomb'
 import { invariant } from './invariant'
-import { warnProps } from './props'
 export type VT<T extends Props> = ReadonlyC<TypeC<T>>
 export type TVT<T extends Props> = TypeOf<VT<T>>
 
@@ -85,8 +85,9 @@ export function emptyFromType<T extends Props>(
           !(v instanceof InterfaceType || v instanceof ArrayType),
           `Everything must be readonly: ${v.name}`,
         )
-
-        if (v instanceof ReadonlyType) {
+        if (v instanceof KeyofType) {
+          value[prop] = Object.keys(v.keys)[0]
+        } else if (v instanceof ReadonlyType) {
           value[prop] = emptyFromType(v, undefined)
         } else if (v instanceof ReadonlyArrayType) {
           value[prop] = []
@@ -97,7 +98,7 @@ export function emptyFromType<T extends Props>(
     }
   })
 
-  warnProps(typeValue, value)
+  // warnProps(typeValue, value)
 
   return value
 }
