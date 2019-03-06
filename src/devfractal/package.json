@@ -12,14 +12,14 @@
     "formik": "^1.5.1",
     "formik-persist": "^1.1.0",
     "fp-ts": "^1.14.3",
-    "immer": "^2.1.0",
+    "immer": "^2.1.1",
     "io-ts": "^1.8.2",
     "io-ts-reporters": "^0.0.21",
     "io-ts-types": "^0.4.3",
     "jest-cli": "^24.1.0",
-    "react": "16.8.3",
+    "react": "16.8.4",
     "react-content-loader": "^4.0.1",
-    "react-dom": "16.8.3",
+    "react-dom": "16.8.4",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "react-use": "^5.5.5",
@@ -44,15 +44,15 @@
     "webpack-blocks": "^2.0.0-rc"
   },
   "peerDependencies": {
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "yup": "0.26.10"
   },
   "scripts": {
     "build": "microbundle --entry index.ts",
-    "clean": "rimraf build .rts2* node_modules yarn.lock",
+    "clean": "rimraf build .rts2* node_modules",
     "start": "microbundle watch  --entry index.ts --compress false --sourcemap true",
     "style": "styleguidist server",
     "style:build": "styleguidist build"
