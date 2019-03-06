@@ -1,24 +1,24 @@
 import Chance from 'chance'
 import {
+  ArrayC,
   ArrayType,
   BooleanType,
   InterfaceType,
+  KeyofType,
+  Mixed,
   NumberType,
   Props,
-  ReadonlyArrayC,
   ReadonlyArrayType,
-  ReadonlyC,
   ReadonlyType,
   StringType,
   TypeC,
   TypeOf,
 } from 'io-ts'
 import { DateType } from 'io-ts-types'
-import { invariant, range } from '../../../devfractal'
 
 const chance: Chance.Chance = new Chance()
 
-// tslint:disable typedef
+// tslint:disable typedef no-use-before-declare
 
 export const defaultOptions = {
   integer: { min: 100, max: 1000 },
@@ -29,59 +29,103 @@ export const defaultOptions = {
 
 type FakeOptions = typeof defaultOptions
 
-export const fakeArrayFromType: <T extends Props>(
-  typeValue: ReadonlyC<TypeC<T>>,
-  options: FakeOptions,
-) => TypeOf<ReadonlyArrayC<ReadonlyC<TypeC<T>>>> = (typeValue, options) =>
-  range(
-    chance.integer({
-      min: options.array.minLength,
-      max: options.array.maxLength,
-    }),
-    // tslint:disable-next-line no-use-before-declare
-  ).map(_ => fakeFromType(typeValue, options))
-
 const fakeFloat: (options: FakeOptions) => number = options =>
   chance.bool()
     ? chance.floating(options.floating)
     : chance.integer(options.integer)
 
-export const fakeFromType: <T extends Props>(
-  typeValue: ReadonlyC<TypeC<T>>,
-  options?: typeof defaultOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options = defaultOptions) => {
-  const props = typeValue.type.props
-  const value: any = {}
+const fakePrimitive: <T extends Mixed>(
+  typeValue: T,
+  options: FakeOptions,
+) => TypeOf<typeof typeValue> = (typeValue, options) => {
+  if (typeValue instanceof NumberType) {
+    return fakeFloat(options)
+  }
+  if (typeValue.name === 'Int') {
+    return chance.integer(options.integer)
+  }
+  if (typeValue instanceof StringType) {
+    return chance.sentence(options.sentence)
+  }
+  if (typeValue instanceof BooleanType) {
+    return chance.bool()
+  }
+  if (typeValue instanceof DateType) {
+    return chance.date()
+  }
+  if (typeValue instanceof KeyofType) {
+    return chance.pickone(Object.keys(typeValue.keys))
+  }
+  throw new Error(`Unsupported type: ${typeValue.name}`)
+}
 
-  // tslint:disable no-object-mutation
-  Object.keys(props).forEach(prop => {
-    if (props[prop] instanceof NumberType) {
-      value[prop] = fakeFloat(options)
-    } else if (props[prop].name === 'Int') {
-      value[prop] = chance.integer(options.integer)
-    } else if (props[prop] instanceof StringType) {
-      value[prop] = chance.sentence(options.sentence)
-    } else if (props[prop] instanceof BooleanType) {
-      value[prop] = chance.bool()
-    } else if (props[prop] instanceof DateType) {
-      value[prop] = chance.date()
-    } else {
-      // handle composite
-      const v = props[prop]
-      invariant(
-        !(v instanceof InterfaceType || v instanceof ArrayType),
-        `Everything must be readonly: ${v.name}`,
-      )
-      if (v instanceof ReadonlyType) {
-        value[prop] = fakeFromType(v)
-      } else if (v instanceof ReadonlyArrayType) {
-        value[prop] = fakeArrayFromType(v.type, options)
-      } else {
-        throw new Error(`Unknown type ${props[prop]}`)
-      }
-    }
+export const fakeArrayFromType: <T extends Mixed>(
+  typeValue: T,
+  options: FakeOptions,
+) => TypeOf<typeof typeValue> = (typeValue, options) => {
+  const n = chance.integer({
+    min: options.array.minLength,
+    max: options.array.maxLength,
   })
-  // tslint:enable no-object-mutation
 
+  const result: any = []
+  // tslint:disable-next-line:no-loop-statement
+  for (let i = 0; i < n; i += 1) {
+    result.push(fake(typeValue, options))
+  }
+  return result
+}
+
+const fakeArray: <T extends Mixed>(
+  typeValue: ArrayC<T>,
+  options: FakeOptions,
+) => TypeOf<typeof typeValue> = (typeValue, options) =>
+  fakeArrayFromType(typeValue.type, options)
+
+const fakeObject: <T extends Props>(
+  typeValue: TypeC<T>,
+  options: FakeOptions,
+) => TypeOf<typeof typeValue> = (typeValue, options) => {
+  const props = typeValue.props
+  const value: any = {}
+  // tslint:disable no-object-mutation
+  Object.keys(props).forEach(p => (value[p] = fake(props[p], options)))
   return value
 }
+
+export const fake: <T extends Mixed>(
+  typeValue: T,
+  options?: FakeOptions,
+) => TypeOf<typeof typeValue> = (typeValue, options = defaultOptions) => {
+  if (typeValue instanceof ReadonlyType) {
+    return fake(typeValue.type, options)
+  }
+  if (typeValue instanceof ReadonlyArrayType) {
+    return fakeArrayFromType(typeValue.type, options)
+  }
+  if (typeValue instanceof ArrayType) {
+    return fakeArray(typeValue.type, options)
+  }
+  if (typeValue instanceof InterfaceType) {
+    return fakeObject(typeValue, options)
+  }
+  return fakePrimitive(typeValue, options)
+}
+
+// console.log(
+//   fake(
+//     iots.readonly(
+//       iots.type({
+//         d: date,
+//         e: iots.keyof({ foo: 0, bar: 0 }),
+//         a: iots.readonlyArray(iots.string),
+//         o: iots.type({ x: iots.number, y: iots.number }),
+//         o2: iots.readonly(
+//           iots.type({
+//             fizz: iots.array(iots.readonly(iots.type({ buzz: iots.boolean }))),
+//           }),
+//         ),
+//       }),
+//     ),
+//   ),
+// )
