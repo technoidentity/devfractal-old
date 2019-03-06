@@ -82,7 +82,8 @@
     "all": "yarn validate && yarn start",
     "storybook": "start-storybook -p 9009 -s public",
     "storybook:build": "build-storybook -s public",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -112,6 +113,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "@storybook/react": "^5.0.0",
+    "@storybook/addon-actions": "^5.0.0",
+    "@storybook/addon-links": "^5.0.0",
+    "@storybook/addons": "^5.0.0",
+    "babel-loader": "^8.0.5"
   }
 }
