@@ -11,7 +11,7 @@ import {
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { PathReporter } from 'io-ts/lib/PathReporter'
+import { reporter } from 'io-ts-reporters'
 import { warning } from './internal'
 
 export const optionalProps: <P extends Props>(
@@ -37,6 +37,6 @@ export const warnProps: <Type extends Mixed, Value extends TypeOf<Type>>(
   type: Type,
   args: Value,
 ) => Value = (type, args) => {
-  warning(type.is(args), PathReporter.report(type.decode(args)).join('\n'))
+  warning(type.is(args), reporter(type.decode(args)).join('\n'))
   return args
 }

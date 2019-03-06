@@ -1,6 +1,7 @@
 export * from './Async'
 export * from './classNames'
 export * from './common'
+export * from './component'
 export * from './ImmerState'
 export * from './invariant'
 export * from './iotsUtils'
