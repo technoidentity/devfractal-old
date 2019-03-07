@@ -1,6 +1,6 @@
 import Chance from 'chance'
 import { Either } from 'fp-ts/lib/Either'
-import * as iots from 'io-ts'
+import * as t from 'io-ts'
 import {
   Array,
   ArrayC,
@@ -56,13 +56,13 @@ export const toPromise: <T>(
   decoded.isRight() ? decoded.value : rejected(decoded)
 
 const emptyValue: (v: unknown) => unknown = v => {
-  if (iots.number.is(v)) {
+  if (t.number.is(v)) {
     return 0
   }
-  if (iots.string.is(v)) {
+  if (t.string.is(v)) {
     return ''
   }
-  if (iots.boolean.is(v)) {
+  if (t.boolean.is(v)) {
     return false
   }
   if (Array.is(v)) {
@@ -217,15 +217,15 @@ export const fake: <T extends Mixed>(
 
 // console.log(
 //   fake(
-//     iots.readonly(
-//       iots.type({
+//     t.readonly(
+//       t.type({
 //         d: date,
-//         e: iots.keyof({ foo: 0, bar: 0 }),
-//         a: iots.readonlyArray(iots.string),
-//         o: iots.type({ x: iots.number, y: iots.number }),
-//         o2: iots.readonly(
-//           iots.type({
-//             fizz: iots.array(iots.readonly(iots.type({ buzz: iots.boolean }))),
+//         e: t.keyof({ foo: 0, bar: 0 }),
+//         a: t.readonlyArray(t.string),
+//         o: t.type({ x: t.number, y: t.number }),
+//         o2: t.readonly(
+//           t.type({
+//             fizz: t.array(t.readonly(t.type({ buzz: t.boolean }))),
 //           }),
 //         ),
 //       }),
@@ -235,16 +235,16 @@ export const fake: <T extends Mixed>(
 
 // console.log(
 //   emptyFromType(
-//     iots.readonly(
-//       iots.type({
-//         x: iots.number,
+//     t.readonly(
+//       t.type({
+//         x: t.number,
 //         d: date,
-//         e: iots.keyof({ foo: 0, bar: 0 }),
-//         a: iots.readonlyArray(iots.string),
-//         o: iots.readonly(iots.type({ x: iots.number, y: iots.number })),
-//         o2: iots.readonly(
-//           iots.type({
-//             fizz: iots.readonly(iots.type({ buzz: iots.boolean })),
+//         e: t.keyof({ foo: 0, bar: 0 }),
+//         a: t.readonlyArray(t.string),
+//         o: t.readonly(t.type({ x: t.number, y: t.number })),
+//         o2: t.readonly(
+//           t.type({
+//             fizz: t.readonly(t.type({ buzz: t.boolean })),
 //           }),
 //         ),
 //       }),

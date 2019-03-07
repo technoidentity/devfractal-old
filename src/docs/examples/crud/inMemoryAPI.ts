@@ -1,24 +1,31 @@
 import { Either } from 'fp-ts/lib/Either'
-import { Errors } from 'io-ts'
+import t from 'io-ts'
 import { assert, Number } from 'tcomb'
 import { rejected, Repository, toPromise } from '../devfractal'
 import { fakeTodoList } from './fakeTodoList'
-import { Todo, TodoListValue, TodoValue } from './types'
+import { Todo, TodoListRT, TodoRT } from './types'
 
 // tslint:disable no-let
 let staticTodoList: ReadonlyArray<Todo> = fakeTodoList(5)
 let nextID: number = 1000
 // tslint:enable no-let
 
-export const InMemoryAPI: Repository<Todo, 'id'> = {
-  all: async () => toPromise(TodoListValue.decode(staticTodoList)),
+export const inMemoryAPI: Repository<Todo, 'id'> = {
+  all: async () => toPromise(TodoListRT.decode(staticTodoList)),
 
   one: async id => {
-    return toPromise(TodoValue.decode(staticTodoList.find(t => t.id === +id)))
+    // tslint:disable-next-line:typedef
+    const di = TodoRT.type.props.id.decode(id)
+    if (di.isRight()) {
+      return toPromise(
+        TodoRT.decode(staticTodoList.find(t => t.id === di.value)),
+      )
+    }
+    throw new Error(`${id} must be of type: ${TodoRT.type.props.id.name}`)
   },
 
   create: async value => {
-    const todo: Either<Errors, Todo> = TodoValue.decode({
+    const todo: Either<t.Errors, Todo> = TodoRT.decode({
       id: nextID,
       ...value,
     })

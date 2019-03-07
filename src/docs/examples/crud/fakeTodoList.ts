@@ -1,13 +1,13 @@
 import Chance from 'chance'
 import tcomb, { assert } from 'tcomb'
-import { range } from '../../../devfractal'
+import { range } from '../devfractal'
 import { Todo, TodoList } from './types'
 
 const chance: Chance.Chance = new Chance()
 
 export const fakeTodo: () => Todo = () => ({
   id: chance.integer({ min: 1000, max: 10000 }),
-  title: chance.sentence({ min: 2, max: 4 }),
+  title: chance.sentence({ words: chance.integer({ min: 3, max: 8 }) }),
   done: chance.bool(),
 })
 

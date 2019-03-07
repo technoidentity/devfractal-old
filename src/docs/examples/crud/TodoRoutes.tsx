@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import { components, paths, Section, SimpleRedirect } from '../devfractal'
-import { InMemoryAPI } from './todoAPI'
-import { TodoValue } from './types'
+import { inMemoryAPI } from './inMemoryAPI'
+import { TodoRT } from './types'
 
 const resource: string = 'todos'
 const basePath: string = '/crud'
@@ -10,8 +10,8 @@ const basePath: string = '/crud'
 const { Create, List, Edit, View } = components({
   basePath,
   id: 'id',
-  api: InMemoryAPI,
-  value: TodoValue,
+  api: inMemoryAPI,
+  value: TodoRT,
   resource,
 })
 
