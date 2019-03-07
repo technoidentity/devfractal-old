@@ -1,12 +1,15 @@
+import * as t from 'io-ts'
 import { Props, ReadonlyC, TypeC } from 'io-ts'
 import { NumberFromString } from 'io-ts-types'
 import React from 'react'
 import { assert } from 'tcomb'
 import { api, Crud } from '../lib'
+
 export interface SimpleCrudProps<T extends Props> {
   readonly baseUrl: string
   readonly value: ReadonlyC<TypeC<T>>
   readonly id?: keyof T
+  readonly idDecoder: t.Type<t.TypeOf<T[keyof T]>, string>
   readonly resource?: string
   readonly basePath?: string
 }
@@ -20,8 +23,7 @@ export const SimpleCrud: <T extends Props>(
     <Crud
       api={api({
         id: id || 'id',
-        // @TODO: There must be StringFromString
-        idDecoder: NumberFromString,
+        idDecoder: t.union([NumberFromString, t.string]),
         resource: resource || props.value.name,
         ...props,
       })}
