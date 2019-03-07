@@ -1,4 +1,5 @@
 import { Props, ReadonlyC, TypeC } from 'io-ts'
+import { NumberFromString } from 'io-ts-types'
 import React from 'react'
 import { assert } from 'tcomb'
 import { api, Crud } from '../lib'
@@ -19,6 +20,8 @@ export const SimpleCrud: <T extends Props>(
     <Crud
       api={api({
         id: id || 'id',
+        // @TODO: There must be StringFromString
+        idDecoder: NumberFromString,
         resource: resource || props.value.name,
         ...props,
       })}

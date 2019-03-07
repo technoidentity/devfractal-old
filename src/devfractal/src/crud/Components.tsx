@@ -102,7 +102,7 @@ export function components<T extends Props, ID extends keyof T>(
       <CV.List
         list={all}
         onEdit={({ value }) =>
-          history.push(pathFns(resource, basePath).edit(+value.id))
+          history.push(pathFns(resource, basePath).edit(value.id))
         }
         onCreate={() => history.push(paths.create())}
       />

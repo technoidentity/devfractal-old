@@ -10,6 +10,7 @@ import t, {
 } from 'io-ts'
 import { Omit, toPromise, TVT, typeInvariant } from '../lib'
 import { idRT } from './internal'
+
 export interface URLs {
   all(): string
   create(): string
@@ -54,6 +55,7 @@ export interface APIArgs<T extends Props, ID extends keyof T> {
   readonly baseUrl: string
   readonly value: ReadonlyC<TypeC<T>>
   readonly id: ID
+  readonly idDecoder: t.Type<TypeOf<T[ID]>, string>
   readonly resource: string
   readonly listValue?: ReadonlyArrayC<ReadonlyC<TypeC<T>>>
   readonly urls?: URLs
@@ -73,12 +75,11 @@ export function api<T extends Props, ID extends keyof T>({
   baseUrl,
   value,
   id,
+  idDecoder,
   resource,
   listValue = readonlyArray(value),
   urls = apiURLs(baseUrl, resource),
 }: APIArgs<T, ID>): APIRepository<T, ID> {
-  // tslint:disable-next-line:typedef
-
   return {
     baseUrl,
     resource,
@@ -86,6 +87,7 @@ export function api<T extends Props, ID extends keyof T>({
     listValue,
     urls,
     id,
+    idDecoder,
 
     all: async () => {
       const result: TypeOf<typeof listValue> = await request(
@@ -99,7 +101,9 @@ export function api<T extends Props, ID extends keyof T>({
     one: async pid => {
       const result: TypeOf<typeof value> = await request(
         value,
-        axios.get<TypeOf<typeof value>>(urls.one(pid)),
+        axios.get<TypeOf<typeof value>>(
+          urls.one(typeInvariant(idDecoder, pid)),
+        ),
       )
       typeInvariant(value, result)
 
@@ -119,7 +123,6 @@ export function api<T extends Props, ID extends keyof T>({
 
     edit: async v => {
       typeInvariant(value, v)
-
       const result: TypeOf<typeof value> = await request(
         value,
         axios.put<TypeOf<typeof value>>(urls.edit(v.id), v),
@@ -132,7 +135,7 @@ export function api<T extends Props, ID extends keyof T>({
     remove: async pid => {
       const result: TypeOf<typeof value> = await request(
         value,
-        axios.delete(urls.remove(pid)),
+        axios.delete(urls.remove(typeInvariant(idDecoder, pid))),
       )
       typeInvariant(value, result)
 
