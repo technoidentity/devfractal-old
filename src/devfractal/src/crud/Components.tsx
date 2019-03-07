@@ -118,9 +118,8 @@ export function components<T extends Props, ID extends keyof T>(
     ),
 
     Edit: ({ history, match }) => (
-      // @TODO: handle id type in one?
       <CV.Edit
-        data={async () => one(match.params.id as any)}
+        data={async () => one(match.params.id)}
         onSubmit={async (values, actions) => {
           await formikSubmit(edit)(values, actions)
           history.push(paths.list())
@@ -129,8 +128,6 @@ export function components<T extends Props, ID extends keyof T>(
       />
     ),
 
-    View: ({ match }) => (
-      <CV.View data={async () => one(match.params.id as any)} />
-    ),
+    View: ({ match }) => <CV.View data={async () => one(match.params.id)} />,
   }
 }

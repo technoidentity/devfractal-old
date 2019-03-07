@@ -7,10 +7,9 @@ import t, {
   Type,
   TypeC,
   TypeOf,
-  union,
 } from 'io-ts'
 import { Omit, toPromise, TVT, typeInvariant } from '../lib'
-
+import { idRT } from './internal'
 export interface URLs {
   all(): string
   create(): string
@@ -27,18 +26,18 @@ export const apiURLs: (
 
   create: () => `${baseURL}/${resource}`,
 
-  one: (id: string | number) => {
-    typeInvariant(union([t.number, t.string]), id)
+  one: (id: string | t.Branded<number, t.IntBrand>) => {
+    typeInvariant(idRT, id)
     return `${baseURL}/${resource}/${id}`
   },
 
-  edit: (id: string | number) => {
-    typeInvariant(union([t.number, t.string]), id)
+  edit: (id: string | t.Branded<number, t.IntBrand>) => {
+    typeInvariant(idRT, id)
     return `${baseURL}/${resource}/${id}`
   },
 
-  remove: (id: string | number) => {
-    typeInvariant(union([t.number, t.string]), id)
+  remove: (id: string | t.Branded<number, t.IntBrand>) => {
+    typeInvariant(idRT, id)
     return `${baseURL}/${resource}/${id}`
   },
 })
@@ -98,8 +97,6 @@ export function api<T extends Props, ID extends keyof T>({
     },
 
     one: async pid => {
-      typeInvariant(value.type.props[id], pid)
-
       const result: TypeOf<typeof value> = await request(
         value,
         axios.get<TypeOf<typeof value>>(urls.one(pid)),
@@ -133,8 +130,6 @@ export function api<T extends Props, ID extends keyof T>({
     },
 
     remove: async pid => {
-      typeInvariant(value.type.props[id], pid)
-
       const result: TypeOf<typeof value> = await request(
         value,
         axios.delete(urls.remove(pid)),

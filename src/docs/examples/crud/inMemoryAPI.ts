@@ -13,16 +13,8 @@ let nextID: number = 1000
 export const inMemoryAPI: Repository<Todo, 'id'> = {
   all: async () => toPromise(TodoListRT.decode(staticTodoList)),
 
-  one: async id => {
-    // tslint:disable-next-line:typedef
-    const di = TodoRT.type.props.id.decode(id)
-    if (di.isRight()) {
-      return toPromise(
-        TodoRT.decode(staticTodoList.find(t => t.id === di.value)),
-      )
-    }
-    throw new Error(`${id} must be of type: ${TodoRT.type.props.id.name}`)
-  },
+  one: async id =>
+    toPromise(TodoRT.decode(staticTodoList.find(t => t.id === +id))),
 
   create: async value => {
     const todo: Either<t.Errors, Todo> = TodoRT.decode({
