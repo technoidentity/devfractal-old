@@ -95,6 +95,7 @@ export function api<T extends Props, ID extends keyof T>({
         axios.get<TypeOf<typeof listValue>>(urls.all()),
       )
       typeInvariant(listValue, result)
+
       return result
     },
 
