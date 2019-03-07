@@ -1,4 +1,4 @@
-import { Props } from 'io-ts'
+import { Props, ReadonlyC, TypeC } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { formikSubmit, TVT } from '../lib'
@@ -51,21 +51,24 @@ export const pathFns: (resource: string, basePath: string) => PathFns = (
   }
 }
 
-interface APIComponentsArgs<T extends Props, ID extends keyof T> {
-  readonly api: APIRepository<T, ID>
-  readonly Views?: CrudViewsResult<T, ID>
+interface ComponentsArgsBase<
+  T extends Props,
+  ID extends keyof T,
+  R extends Repository<TVT<T>, ID> = Repository<TVT<T>, ID>
+> {
+  readonly api: R
   readonly basePath: string
-  readonly id: ID
+  readonly Views?: CrudViewsResult<T, ID>
 }
-
-interface ComponentsArgs<T extends Props, ID extends keyof T> {
-  readonly api: Repository<TVT<T>, ID>
-  readonly Views?: CrudViewsResult<T, ID>
-  readonly basePath: string
+interface ComponentsArgs<T extends Props, ID extends keyof T>
+  extends ComponentsArgsBase<T, ID> {
+  readonly value: ReadonlyC<TypeC<T>>
   readonly id: ID
-  readonly value: APIRepository<T, ID>['value']
   readonly resource: string
 }
+
+interface APIComponentsArgs<T extends Props, ID extends keyof T>
+  extends ComponentsArgsBase<T, ID, APIRepository<T, ID>> {}
 
 export interface ComponentsResult {
   readonly List: FC<RouteComponentProps>
@@ -79,10 +82,19 @@ export function components<T extends Props, ID extends keyof T>(
 ): ComponentsResult {
   // tslint:disable typedef
   const { all, one, create, edit } = args.api
+
   const value = 'value' in args ? args.value : args.api.value
-  const resource = 'resource' in args ? args.resource : args.api.resource
-  const CV = args.Views || Views(value, args.id)
-  const paths = pathFns(resource, args.basePath)
+
+  const resource = 'value' in args ? args.resource : args.api.resource
+
+  const id = 'value' in args ? args.id : args.api.id
+
+  const CV = args.Views || Views(value, id)
+  // @TODO: only if 'name' is alphanumeric
+
+  const basePath = args.basePath
+
+  const paths = pathFns(resource, basePath)
   // tslint:enable typedef
 
   return {
@@ -90,7 +102,7 @@ export function components<T extends Props, ID extends keyof T>(
       <CV.List
         list={all}
         onEdit={({ value }) =>
-          history.push(pathFns(resource, args.basePath).edit(+value.id))
+          history.push(pathFns(resource, basePath).edit(+value.id))
         }
         onCreate={() => history.push(paths.create())}
       />

@@ -51,22 +51,18 @@ export interface Repository<T, ID extends keyof T> {
   remove(id: T[ID]): Promise<T>
 }
 
-export interface APIRepository<T extends Props, ID extends keyof T>
-  extends Repository<TVT<T>, ID> {
-  readonly baseUrl: string
-  readonly resource: string
-  readonly value: ReadonlyC<TypeC<T>>
-  readonly listValue: ReadonlyArrayC<ReadonlyC<TypeC<T>>>
-  readonly urls: URLs
-}
 export interface APIArgs<T extends Props, ID extends keyof T> {
   readonly baseUrl: string
-  readonly resource: string
-  readonly id: ID
   readonly value: ReadonlyC<TypeC<T>>
+  readonly id: ID
+  readonly resource: string
   readonly listValue?: ReadonlyArrayC<ReadonlyC<TypeC<T>>>
   readonly urls?: URLs
 }
+
+export interface APIRepository<T extends Props, ID extends keyof T>
+  extends Repository<TVT<T>, ID>,
+    Required<APIArgs<T, ID>> {}
 
 const request: <A>(
   value: Type<A>,
@@ -76,36 +72,76 @@ const request: <A>(
 
 export function api<T extends Props, ID extends keyof T>({
   baseUrl,
-  resource,
   value,
   id,
+  resource,
   listValue = readonlyArray(value),
   urls = apiURLs(baseUrl, resource),
 }: APIArgs<T, ID>): APIRepository<T, ID> {
+  // tslint:disable-next-line:typedef
+
   return {
     baseUrl,
     resource,
     value,
     listValue,
     urls,
+    id,
 
-    all: async () =>
-      request(listValue, axios.get<TypeOf<typeof listValue>>(urls.all())),
+    all: async () => {
+      const result: TypeOf<typeof listValue> = await request(
+        listValue,
+        axios.get<TypeOf<typeof listValue>>(urls.all()),
+      )
+      typeInvariant(listValue, result)
+      return result
+    },
 
     one: async pid => {
       typeInvariant(value.type.props[id], pid)
-      return request(value, axios.get<TypeOf<typeof value>>(urls.one(pid)))
+
+      const result: TypeOf<typeof value> = await request(
+        value,
+        axios.get<TypeOf<typeof value>>(urls.one(pid)),
+      )
+      typeInvariant(value, result)
+
+      return result
     },
 
-    create: async v =>
-      request(value, axios.post<TypeOf<typeof value>>(urls.create(), v)),
+    create: async v => {
+      // @TODO: typeInvariant(value without id, v)
+      const result: TypeOf<typeof value> = await request(
+        value,
+        axios.post<TypeOf<typeof value>>(urls.create(), v),
+      )
+      typeInvariant(value, result)
 
-    edit: async v =>
-      request(value, axios.put<TypeOf<typeof value>>(urls.edit(v.id), v)),
+      return result
+    },
+
+    edit: async v => {
+      typeInvariant(value, v)
+
+      const result: TypeOf<typeof value> = await request(
+        value,
+        axios.put<TypeOf<typeof value>>(urls.edit(v.id), v),
+      )
+      typeInvariant(value, result)
+
+      return result
+    },
 
     remove: async pid => {
       typeInvariant(value.type.props[id], pid)
-      return request(value, axios.delete(urls.remove(pid)))
+
+      const result: TypeOf<typeof value> = await request(
+        value,
+        axios.delete(urls.remove(pid)),
+      )
+      typeInvariant(value, result)
+
+      return result
     },
   }
 }

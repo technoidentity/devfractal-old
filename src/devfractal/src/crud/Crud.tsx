@@ -11,9 +11,8 @@ import {
 } from './internal'
 
 export interface CrudProps<T extends Props, ID extends keyof T> {
-  readonly basePath: string
   readonly api: APIRepository<T, ID>
-  readonly id: ID
+  readonly basePath: string
   readonly paths?: Paths
   readonly components?: ComponentsResult
 }
@@ -21,9 +20,8 @@ export interface CrudProps<T extends Props, ID extends keyof T> {
 export function Crud<T extends Props, ID extends keyof T>({
   basePath,
   api,
-  id,
   paths = ps(api.resource, basePath),
-  components = comps<T, ID>({ api, basePath, id }),
+  components = comps<T, ID>({ api, basePath }),
 }: CrudProps<T, ID>): JSX.Element {
   const { create, list, edit, view } = paths
   const { Create, List, Edit, View } = components
