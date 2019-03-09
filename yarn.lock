@@ -1492,6 +1492,13 @@
   resolved "https://registry.yarnpkg.com/@types/chance/-/chance-1.0.1.tgz#c10703020369602c40dd9428cc6e1437027116df"
   integrity sha512-jtV6Bv/j+xk4gcXeLlESwNc/m/I/dIZA0xrt29g0uKcjyPob8iisj/5z0ARE+Ldfx4MxjNFNECG0z++J7zJgqg==
 
+"@types/cleave.js@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@types/cleave.js/-/cleave.js-1.4.0.tgz#9b94145f2218560accb4ea1719e94ab360e39832"
+  integrity sha512-q7o9rhVZTVa+mRBHyfAGnD0s/OHK2KJdGCslpd+zzxy7ARkVnmVQ1pGK0xjdLyQTR9KdC0PUnHVrU8ilt7d/Ww==
+  dependencies:
+    "@types/react" "*"
+
 "@types/history@*":
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
@@ -3475,6 +3482,11 @@ clean-css@4.2.x:
   integrity sha512-4ZxI6dy4lrY6FHzfiy1aEOXgu4LIsW2MhwG0VBKdcoGoH/XLFgaHSdLTGr4O8Be6A8r3MOphEiI8Gc1n0ecf3g==
   dependencies:
     source-map "~0.6.0"
+
+cleave.js@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.4.7.tgz#5e94f4880946aa778b55ecaafc76d122600ff4d0"
+  integrity sha512-+fewLSc8Q5Bi6vYEaTEz1Qsl+z7KT3EmN0iNexszN36CZCmcZs5EAYsJB9ZvQoDoEudGF9Vb7/VF/f7ns/tCgA==
 
 cli-boxes@^1.0.0:
   version "1.0.0"
