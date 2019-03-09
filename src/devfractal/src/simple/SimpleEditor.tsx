@@ -1,16 +1,23 @@
+import { FormikActions } from 'formik'
 import React from 'react'
-import { Boolean, Number } from 'tcomb'
-import { Box, camelCaseToPhrase, Label, Section } from '../lib'
+import { Boolean, Function, Number } from 'tcomb'
+import { Async, camelCaseToPhrase, Label, Section } from '../lib'
 import { Simple } from './internal'
 
-export interface SimpleEditorProps {
-  readonly data: { readonly [index: string]: any }
+export interface SimpleEditorViewProps<T extends object> {
+  readonly data: T
+  readonly id?: keyof T
+  onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
-export const SimpleEditor: React.SFC<SimpleEditorProps> = ({ data }) => (
-  <Section>
-    <Box>
-      <Simple.Form initialValues={data}>
+export function SimpleEditorView<T extends object>({
+  data,
+  id,
+  onSubmit,
+}: SimpleEditorViewProps<T>): JSX.Element {
+  return (
+    <Section>
+      <Simple.Form initialValues={data} onSubmit={onSubmit}>
         {Object.keys(data).map(key => (
           <React.Fragment key={key}>
             {Boolean.is(data[key]) ? (
@@ -19,14 +26,52 @@ export const SimpleEditor: React.SFC<SimpleEditorProps> = ({ data }) => (
                 <Simple.Checkbox name={key} checked={data[key]} readOnly />
               </>
             ) : Number.is(data[key]) ? (
-              <Simple.Number label={camelCaseToPhrase(key)} name={key} />
+              <Simple.Number
+                label={camelCaseToPhrase(key)}
+                name={key}
+                readOnly={key === id}
+              />
             ) : (
-              <Simple.Text label={camelCaseToPhrase(key)} name={key} />
+              <Simple.Text
+                label={camelCaseToPhrase(key)}
+                name={key}
+                readOnly={key === id}
+              />
             )}
           </React.Fragment>
         ))}
         <Simple.FormButtons />
       </Simple.Form>
-    </Box>
-  </Section>
-)
+    </Section>
+  )
+}
+
+export interface SimpleEditorProps<T extends object> {
+  readonly data: T | (() => Promise<T>)
+  readonly id: keyof T
+  onSubmit?(values: T, actions: FormikActions<T>): void
+}
+
+export function SimpleEditor<T extends object>({
+  data,
+  onSubmit,
+  id,
+}: SimpleEditorProps<T>): JSX.Element {
+  if (Function.is(data)) {
+    return (
+      <Async asyncFn={data}>
+        {({ error, data }) => {
+          if (error) {
+            return <div style={{ color: 'red' }}>{`${error.message}`}</div>
+          } else if (data) {
+            return <SimpleEditorView id={id} data={data} onSubmit={onSubmit} />
+          } else {
+            return <div>Loading...</div>
+          }
+        }}
+      </Async>
+    )
+  }
+
+  return <SimpleEditorView id={id} data={data} onSubmit={onSubmit} />
+}

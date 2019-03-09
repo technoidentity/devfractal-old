@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Section, Text, Title } from '../devfractal'
 
-export const TextSizesExample: React.SFC = () => (
+export const TextSizesExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
@@ -16,7 +16,7 @@ export const TextSizesExample: React.SFC = () => (
   </Section>
 )
 
-export const TextResponsiveSizesExample: React.SFC = () => (
+export const TextResponsiveSizesExample: React.FC = () => (
   <Section>
     <Title>Responsive Size</Title>
     <Box>
@@ -42,7 +42,7 @@ export const TextResponsiveSizesExample: React.SFC = () => (
   </Section>
 )
 
-export const TextColorHelperExample: React.SFC = () => (
+export const TextColorHelperExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
@@ -68,7 +68,7 @@ export const TextColorHelperExample: React.SFC = () => (
   </Section>
 )
 
-export const TextAlignmentExample: React.SFC = () => (
+export const TextAlignmentExample: React.FC = () => (
   <Section>
     <Title>Alignment</Title>
     <Box>
@@ -80,7 +80,7 @@ export const TextAlignmentExample: React.SFC = () => (
   </Section>
 )
 
-export const TextResponsiveAlignmentExample: React.SFC = () => (
+export const TextResponsiveAlignmentExample: React.FC = () => (
   <Section>
     <Title>Responsive Alignment</Title>
     <Box>
@@ -106,7 +106,7 @@ export const TextResponsiveAlignmentExample: React.SFC = () => (
   </Section>
 )
 
-export const TextTransformationExample: React.SFC = () => (
+export const TextTransformationExample: React.FC = () => (
   <Section>
     <Title>Text Transformation</Title>
     <Box>
@@ -120,7 +120,7 @@ export const TextTransformationExample: React.SFC = () => (
   </Section>
 )
 
-export const TextWeightExample: React.SFC = () => (
+export const TextWeightExample: React.FC = () => (
   <Section>
     <Title>Text Weight</Title>
     <Box>
@@ -132,7 +132,7 @@ export const TextWeightExample: React.SFC = () => (
   </Section>
 )
 
-export const TypographyHelpersExample: React.SFC = () => (
+export const TypographyHelpersExample: React.FC = () => (
   <>
     <TextSizesExample />
     <TextAlignmentExample />

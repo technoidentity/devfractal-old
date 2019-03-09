@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { logger } from '../common'
 import { CheckBox, Field, Section, Title } from '../devfractal'
 
-export const DynamicCheckBoxExample: React.SFC = () => {
+export const DynamicCheckBoxExample: React.FC = () => {
   const [checked, setChecked] = useState(false)
   return (
     <Section>
@@ -19,7 +19,7 @@ export const DynamicCheckBoxExample: React.SFC = () => {
   )
 }
 
-export const BasicCheckBoxExample: React.SFC = () => (
+export const BasicCheckBoxExample: React.FC = () => (
   <Section>
     <Title size="4">Checkbox</Title>
     <CheckBox readOnly checked>
@@ -29,7 +29,7 @@ export const BasicCheckBoxExample: React.SFC = () => (
   </Section>
 )
 
-export const AddLinksExample: React.SFC = () => (
+export const AddLinksExample: React.FC = () => (
   <Section>
     <Title size="4">Add links </Title>
     <CheckBox
@@ -43,7 +43,7 @@ export const AddLinksExample: React.SFC = () => (
   </Section>
 )
 
-export const DisabledCheckBoxExample: React.SFC = () => (
+export const DisabledCheckBoxExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">Disabled </Title>
@@ -52,7 +52,7 @@ export const DisabledCheckBoxExample: React.SFC = () => (
   </Section>
 )
 
-export const CheckBoxExample: React.SFC = () => (
+export const CheckBoxExample: React.FC = () => (
   <>
     <DynamicCheckBoxExample />
     <BasicCheckBoxExample />

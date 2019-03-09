@@ -1,111 +1,146 @@
-import axios from 'axios'
-import {
-  Mixed,
+import axios, { AxiosPromise } from 'axios'
+import t, {
   Props,
   readonlyArray,
   ReadonlyArrayC,
   ReadonlyC,
+  Type,
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { Omit } from 'react-router'
-import { toPromise } from './internal'
+import { Omit, toPromise, TVT, typeInvariant } from '../lib'
+import { idRT } from './internal'
 
-export interface ApiUrls<IDType = unknown> {
+export interface URLs {
   all(): string
   create(): string
-  one(id: IDType): string
-  remove(id: IDType): string
+  one(id: string | number): string
+  edit(id: string | number): string
+  remove(id: string | number): string
 }
 
-export function apiUrls<IDType = unknown>(
-  baseUrl: string,
-  resource: string,
-): ApiUrls<IDType> {
-  return {
-    all: () => `${baseUrl}/${resource}`,
-    create: () => `${baseUrl}/${resource}`,
-    one: (id: IDType) => `${baseUrl}/${resource}/${id}`,
-    remove: (id: IDType) => `${baseUrl}/${resource}/${id}`,
-  }
+export const apiURLs: (
+  baseURL: string, // eg: 'https://localhost:3000'
+  resource: string, // eg: 'todos'
+) => URLs = (baseURL, resource) => ({
+  all: () => `${baseURL}/${resource}`,
+
+  create: () => `${baseURL}/${resource}`,
+
+  one: (id: string | t.Branded<number, t.IntBrand>) => {
+    typeInvariant(idRT, id)
+    return `${baseURL}/${resource}/${id}`
+  },
+
+  edit: (id: string | t.Branded<number, t.IntBrand>) => {
+    typeInvariant(idRT, id)
+    return `${baseURL}/${resource}/${id}`
+  },
+
+  remove: (id: string | t.Branded<number, t.IntBrand>) => {
+    typeInvariant(idRT, id)
+    return `${baseURL}/${resource}/${id}`
+  },
+})
+
+export interface Repository<T, ID extends keyof T> {
+  all(): Promise<ReadonlyArray<T>>
+  create(value: Omit<T, ID>): Promise<T>
+  one(id: T[ID]): Promise<T>
+  edit(value: T): Promise<T>
+  remove(id: T[ID]): Promise<T>
 }
 
-interface ApiValues<
-  T extends Props & { readonly id: any },
-  V extends Mixed = ReadonlyC<TypeC<T>>,
-  LV = ReadonlyArrayC<V>,
-  IDType = T['id']
-> {
+export interface APIArgs<T extends Props, ID extends keyof T> {
   readonly baseUrl: string
+  readonly value: ReadonlyC<TypeC<T>>
+  readonly id: ID
+  readonly idDecoder: t.Type<TypeOf<T[ID]>, string>
   readonly resource: string
-  readonly value: V
-  readonly listValue: LV
-  readonly urls: IDType
+  readonly listValue?: ReadonlyArrayC<ReadonlyC<TypeC<T>>>
+  readonly urls?: URLs
 }
 
-export interface Repository<
-  T extends { readonly id: any },
-  List = ReadonlyArray<T>,
-  IDType = T['id']
-> {
-  all(): Promise<List>
-  one(id: IDType): Promise<T>
-  create(value: Omit<T, 'id'>): Promise<T>
-  remove(id: IDType): Promise<T>
-}
+export interface APIRepository<T extends Props, ID extends keyof T>
+  extends Repository<TVT<T>, ID>,
+    Required<APIArgs<T, ID>> {}
 
-export type ApiRepository<T extends Props & { readonly id: any }> = Repository<
-  TypeOf<ReadonlyC<TypeC<T>>>
-> &
-  ApiValues<T>
+const request: <A>(
+  value: Type<A>,
+  promise: AxiosPromise<A>,
+) => Promise<A> = async (value, promise) =>
+  toPromise(value.decode((await promise).data))
 
-export interface APIArgs<
-  T extends Props & { readonly id: any },
-  V = ReadonlyC<TypeC<T>>,
-  LV = ReadonlyArrayC<ReadonlyC<TypeC<T>>>,
-  IDType = T['id']
-> {
-  readonly baseUrl: string
-  readonly resource: string
-  readonly value: V
-  readonly listValue?: LV
-  readonly urls?: IDType
-}
-
-export function api<T extends Props & { id: any }>({
+export function api<T extends Props, ID extends keyof T>({
   baseUrl,
-  resource,
   value,
+  id,
+  idDecoder,
+  resource,
   listValue = readonlyArray(value),
-  urls = apiUrls(baseUrl, resource),
-}: APIArgs<T>): ApiRepository<T> {
+  urls = apiURLs(baseUrl, resource),
+}: APIArgs<T, ID>): APIRepository<T, ID> {
   return {
     baseUrl,
     resource,
     value,
     listValue,
     urls,
-    all: async () =>
-      toPromise(
-        listValue.decode(
-          (await axios.get<TypeOf<typeof listValue>>(urls.all())).data,
+    id,
+    idDecoder,
+
+    all: async () => {
+      const result: TypeOf<typeof listValue> = await request(
+        listValue,
+        axios.get<TypeOf<typeof listValue>>(urls.all()),
+      )
+      typeInvariant(listValue, result)
+
+      return result
+    },
+
+    one: async pid => {
+      const result: TypeOf<typeof value> = await request(
+        value,
+        axios.get<TypeOf<typeof value>>(
+          urls.one(typeInvariant(idDecoder, pid)),
         ),
-      ),
-    one: async id =>
-      toPromise(
-        value.decode(
-          // @TODO: enforce correct type for id at runtime using 'value'
-          (await axios.get<TypeOf<typeof value>>(urls.one(id))).data,
-        ),
-      ),
-    create: async () =>
-      toPromise(
-        value.decode(
-          (await axios.post<TypeOf<typeof value>>(urls.create())).data,
-        ),
-      ),
-    remove: async id =>
-      // @TODO: data is any?!!!
-      toPromise(value.decode((await axios.delete(urls.remove(id))).data)),
+      )
+      typeInvariant(value, result)
+
+      return result
+    },
+
+    create: async v => {
+      // @TODO: typeInvariant(value without id, v)
+      const result: TypeOf<typeof value> = await request(
+        value,
+        axios.post<TypeOf<typeof value>>(urls.create(), v),
+      )
+      typeInvariant(value, result)
+
+      return result
+    },
+
+    edit: async v => {
+      typeInvariant(value, v)
+      const result: TypeOf<typeof value> = await request(
+        value,
+        axios.put<TypeOf<typeof value>>(urls.edit(v.id), v),
+      )
+      typeInvariant(value, result)
+
+      return result
+    },
+
+    remove: async pid => {
+      const result: TypeOf<typeof value> = await request(
+        value,
+        axios.delete(urls.remove(typeInvariant(idDecoder, pid))),
+      )
+      typeInvariant(value, result)
+
+      return result
+    },
   }
 }

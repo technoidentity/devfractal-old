@@ -26,7 +26,7 @@ export interface ControlDivProps
   readonly as?: ControlType
 }
 
-export const ControlDiv: React.SFC<ControlDivProps> = ({
+export const ControlDiv: React.FC<ControlDivProps> = ({
   as = 'input',
   className,
   children,

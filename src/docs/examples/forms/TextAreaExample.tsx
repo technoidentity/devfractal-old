@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Section, TextArea, Title } from '../devfractal'
 
-export const DynamicTextAreaExample: React.SFC = () => {
+export const DynamicTextAreaExample: React.FC = () => {
   const [change, setChange] = useState('')
   return (
     <Section>
@@ -16,14 +16,14 @@ export const DynamicTextAreaExample: React.SFC = () => {
   )
 }
 
-export const DefaultTextAreaExample: React.SFC = () => (
+export const DefaultTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Default Textarea</Title>
     <TextArea placeholder="Default textArea" />
   </Section>
 )
 
-export const TextAreaColorsExample: React.SFC = () => (
+export const TextAreaColorsExample: React.FC = () => (
   <Section>
     <Title size="4">Colors</Title>
     <TextArea variant="primary" placeholder="Primary textarea" />
@@ -37,7 +37,7 @@ export const TextAreaColorsExample: React.SFC = () => (
   </Section>
 )
 
-export const TextAreaSizesExample: React.SFC = () => (
+export const TextAreaSizesExample: React.FC = () => (
   <Section>
     <Title size="4">Sizes</Title>
     <TextArea ctrlSize="small" placeholder="Small textarea" />
@@ -47,7 +47,7 @@ export const TextAreaSizesExample: React.SFC = () => (
   </Section>
 )
 
-export const TextAreaStatesExample: React.SFC = () => (
+export const TextAreaStatesExample: React.FC = () => (
   <Section>
     <Title size="4">States</Title>
     <TextArea placeholder="Normal textarea" />
@@ -58,7 +58,7 @@ export const TextAreaStatesExample: React.SFC = () => (
   </Section>
 )
 
-export const CombineStylesOfTextAreaExample: React.SFC = () => (
+export const CombineStylesOfTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Resize Loading Spinner</Title>
     <TextArea loading ctrlSize="small" placeholder="Small loading textarea" />
@@ -68,35 +68,35 @@ export const CombineStylesOfTextAreaExample: React.SFC = () => (
   </Section>
 )
 
-export const DisabledTextAreaExample: React.SFC = () => (
+export const DisabledTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Disabled</Title>
     <TextArea disabled placeholder="Disabled textarea" />
   </Section>
 )
 
-export const FixedSizeTextAreaExample: React.SFC = () => (
+export const FixedSizeTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Fixed Size</Title>
     <TextArea fixedSize />
   </Section>
 )
 
-export const TextAreaRowSizeExample: React.SFC = () => (
+export const TextAreaRowSizeExample: React.FC = () => (
   <Section>
     <Title size="4">Height</Title>
     <TextArea rows={10} />
   </Section>
 )
 
-export const ReadonlyTextAreaExample: React.SFC = () => (
+export const ReadonlyTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Readonly</Title>
     <TextArea readOnly value="The content is Readonly" />
   </Section>
 )
 
-export const TextAreaExample: React.SFC = () => (
+export const TextAreaExample: React.FC = () => (
   <>
     <DynamicTextAreaExample />
     <DefaultTextAreaExample />

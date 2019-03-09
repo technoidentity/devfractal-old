@@ -1,7 +1,7 @@
 import React from 'react'
-import { Boolean } from 'tcomb'
+import { Boolean, Function } from 'tcomb'
 import {
-  Box,
+  Async,
   camelCaseToPhrase,
   CheckBox,
   Column,
@@ -10,38 +10,63 @@ import {
   Title,
 } from '../lib'
 
-const SimpleHeader: React.SFC<{ readonly objectKey: string }> = ({
+const SimpleHeader: React.FC<{ readonly objectKey: string }> = ({
   objectKey,
 }) => <Title size="4">{camelCaseToPhrase(objectKey)}</Title>
 
-const SimpleValue: React.SFC<{ readonly objectValue: string }> = ({
-  objectValue,
-}) =>
+const SimpleValue: React.FC<{
+  readonly objectValue: string
+}> = ({ objectValue }) =>
   Boolean.is(objectValue) ? (
     <CheckBox checked={objectValue} readOnly />
   ) : (
     <>{objectValue}</>
   )
 
-export interface SimpleViewerProps {
-  readonly data: { readonly [index: string]: any }
+export interface SimpleViewerViewProps<T extends object> {
+  readonly data: T
 }
 
-export const SimpleViewer: React.SFC<SimpleViewerProps> = ({ data }) => {
+export function SimpleViewerView<T extends object>({
+  data,
+}: SimpleViewerViewProps<T>): JSX.Element {
   return (
     <Section>
-      <Box>
-        {Object.keys(data).map(key => (
-          <Columns key={key}>
-            <Column>
-              <SimpleHeader objectKey={key} />
-            </Column>
-            <Column>
-              <SimpleValue objectValue={data[key]} />
-            </Column>
-          </Columns>
-        ))}
-      </Box>
+      {Object.keys(data).map(key => (
+        <Columns key={key}>
+          <Column>
+            <SimpleHeader objectKey={key} />
+          </Column>
+          <Column>
+            <SimpleValue objectValue={data[key]} />
+          </Column>
+        </Columns>
+      ))}
     </Section>
   )
+}
+
+export interface SimpleViewerProps<T extends object> {
+  readonly data: T | (() => Promise<T>)
+}
+
+export function SimpleViewer<T extends object>({
+  data,
+}: SimpleViewerProps<T>): JSX.Element {
+  if (Function.is(data)) {
+    return (
+      <Async asyncFn={data}>
+        {({ error, data }) => {
+          if (error) {
+            return <div style={{ color: 'red' }}>{`${error.message}`}</div>
+          } else if (data) {
+            return <SimpleViewerView data={data} />
+          } else {
+            return <div>Loading...</div>
+          }
+        }}
+      </Async>
+    )
+  }
+  return <SimpleViewerView data={data} />
 }

@@ -1,23 +1,17 @@
 import React from 'react'
-import {
-  Media,
-  MediaContent,
-  MediaLeft,
-  SubTitle,
-  Text,
-} from '../docs/examples/devfractal'
-import columnsicon from './images/columnsicon.png'
-import componentsicon from './images/componentsicon.png'
-import compositesicon from './images/compositesicon.png'
-import elementsicon from './images/elementsicon.png'
-import formicon from './images/formicon.png'
-import layouticon from './images/layouticon.png'
-import modifiersicon from './images/modifiersicon.png'
+import { Media, MediaContent, MediaLeft, SubTitle, Text } from '../devfractal'
+import columnsIcon from './images/columnsIcon.png'
+import componentsIcon from './images/componentsIcon.png'
+import compositesIcon from './images/compositesIcon.png'
+import elementsIcon from './images/elementsIcon.png'
+import formIcon from './images/formIcon.png'
+import layoutIcon from './images/layoutIcon.png'
+import modifiersIcon from './images/modifiersIcon.png'
 
-export const FormMedia: React.SFC = () => (
+export const FormMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={formicon} />
+      <img src={formIcon} />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -34,10 +28,10 @@ export const FormMedia: React.SFC = () => (
   </Media>
 )
 
-export const ColumnsMedia: React.SFC = () => (
+export const ColumnsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={columnsicon} />
+      <img src={columnsIcon} />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -54,10 +48,10 @@ export const ColumnsMedia: React.SFC = () => (
   </Media>
 )
 
-export const LayoutMedia: React.SFC = () => (
+export const LayoutMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={layouticon} />
+      <img src={layoutIcon} />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -74,10 +68,10 @@ export const LayoutMedia: React.SFC = () => (
   </Media>
 )
 
-export const ElementsMedia: React.SFC = () => (
+export const ElementsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={elementsicon} />
+      <img src={elementsIcon} />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -94,10 +88,10 @@ export const ElementsMedia: React.SFC = () => (
   </Media>
 )
 
-export const ComponentsMedia: React.SFC = () => (
+export const ComponentsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={componentsicon} />
+      <img src={componentsIcon} />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -114,10 +108,10 @@ export const ComponentsMedia: React.SFC = () => (
   </Media>
 )
 
-export const ModifiersMedia: React.SFC = () => (
+export const ModifiersMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={modifiersicon} />
+      <img src={modifiersIcon} />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -134,10 +128,10 @@ export const ModifiersMedia: React.SFC = () => (
   </Media>
 )
 
-export const CompositesMedia: React.SFC = () => (
+export const CompositesMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={compositesicon} />
+      <img src={compositesIcon} />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -154,10 +148,10 @@ export const CompositesMedia: React.SFC = () => (
   </Media>
 )
 
-export const CrudMedia: React.SFC = () => (
+export const CrudMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={compositesicon} />
+      <img src={compositesIcon} />
     </MediaLeft>
     <MediaContent>
       <Text

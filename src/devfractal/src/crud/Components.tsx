@@ -1,75 +1,133 @@
-import { Props } from 'io-ts'
+import { Props, ReadonlyC, TypeC } from 'io-ts'
 import React, { FC } from 'react'
-import { useAsync } from 'react-use'
-import {
-  Button,
-  Container,
-  Field,
-  RowClickEvent,
-  SimpleEditor,
-  SimpleTable,
-  SimpleViewer,
-  Text,
-} from '../lib'
-import { emptyFromType, TVT, VT } from './internal'
+import { RouteComponentProps } from 'react-router'
+import { formikSubmit, TVT } from '../lib'
+import { APIRepository, CrudViewsResult, Repository, Views } from './internal'
 
-interface ItemProps<T> {
-  asyncFn(): Promise<T>
+const base: (resource: string, basePath: string) => string = (
+  resource,
+  basePath,
+) => (basePath ? `${basePath}/${resource}` : `/${resource}`)
+
+export interface Paths {
+  readonly list: string
+  readonly create: string
+  readonly view: string
+  readonly edit: string
 }
 
-export interface ListProps<T> {
-  list(): Promise<ReadonlyArray<T>>
-  onCreate?(): void
-  onEdit?(value: RowClickEvent<T>): void
-  onDelete?(value: RowClickEvent<T>): void
+export const paths: (resource: string, basePath: string) => Paths = (
+  resource,
+  basePath,
+) => {
+  const path: string = base(resource, basePath)
+
+  return {
+    list: path,
+    create: `${path}/create`,
+    view: `${path}/:id`,
+    edit: `${path}/:id/edit`,
+  }
 }
 
-export type CrudComponentsResult<T extends Props, V = TVT<T>> = Readonly<{
-  readonly List: FC<ListProps<V>>
-  readonly Create: FC
-  readonly Edit: FC<ItemProps<V>>
-  readonly View: FC<ItemProps<V>>
-}>
+export interface PathFns {
+  view(id: unknown): string
+  edit(id: unknown): string
+  list(): string
+  create(): string
+}
 
-export const CrudComponents: <T extends Props>(
-  typeValue: VT<T>, // or pass to Create?
-) => CrudComponentsResult<T> = typeValue => ({
-  Create: () => <SimpleEditor data={emptyFromType(typeValue)} />,
+export const pathFns: (resource: string, basePath: string) => PathFns = (
+  resource,
+  basePath,
+) => {
+  const path: string = base(resource, basePath)
 
-  Edit: ({ asyncFn }) => {
-    const { value, loading, error } = useAsync(asyncFn)
-    return value ? (
-      // @TODO: typed SimpleEditor/Viewer/Table would be awesome!
-      <SimpleEditor data={value} />
-    ) : loading ? (
-      <h1>Loading...</h1>
-    ) : (
-      <Text textSize="4" textColor="danger">
-        >{error ? error.message : 'Unknown Error'}
-      </Text>
-    )
-  },
+  return {
+    list: () => path,
+    create: () => `${path}/create`,
+    view: (id: unknown) => `${path}/${id}`,
+    edit: (id: unknown) => `${path}/${id}/edit`,
+  }
+}
 
-  View: ({ asyncFn }) => {
-    const { value, loading, error } = useAsync(asyncFn)
-    return value ? (
-      <SimpleViewer data={value} />
-    ) : loading ? (
-      <h1>Loading...</h1>
-    ) : (
-      <h1>${error ? error.message : 'Unknown Error'}</h1>
-    )
-  },
+interface ComponentsArgsBase<
+  T extends Props,
+  ID extends keyof T,
+  R extends Repository<TVT<T>, ID> = Repository<TVT<T>, ID>
+> {
+  readonly api: R
+  readonly basePath: string
+  readonly Views?: CrudViewsResult<T, ID>
+}
+interface ComponentsArgs<T extends Props, ID extends keyof T>
+  extends ComponentsArgsBase<T, ID> {
+  readonly value: ReadonlyC<TypeC<T>>
+  readonly id: ID
+  readonly resource: string
+}
 
-  List: ({ list, onCreate, onEdit }) => (
-    <Container>
-      <Field groupModifier="grouped-right">
-        <Button variant="primary" onClick={onCreate}>
-          New
-        </Button>
-      </Field>
-      <SimpleTable data={list} onRowClicked={onEdit} />
-    </Container>
-  ),
-  // @TODO: remove
-})
+interface APIComponentsArgs<T extends Props, ID extends keyof T>
+  extends ComponentsArgsBase<T, ID, APIRepository<T, ID>> {}
+
+export interface ComponentsResult {
+  readonly List: FC<RouteComponentProps>
+  readonly Create: FC<RouteComponentProps>
+  readonly Edit: FC<RouteComponentProps<{ readonly id: string }>>
+  readonly View: FC<RouteComponentProps<{ readonly id: string }>>
+}
+
+export function components<T extends Props, ID extends keyof T>(
+  args: ComponentsArgs<T, ID> | APIComponentsArgs<T, ID>,
+): ComponentsResult {
+  // tslint:disable typedef
+  const { all, one, create, edit } = args.api
+
+  const value = 'value' in args ? args.value : args.api.value
+
+  const resource = 'value' in args ? args.resource : args.api.resource
+
+  const id = 'value' in args ? args.id : args.api.id
+
+  const CV = args.Views || Views(value, id)
+  // @TODO: only if 'name' is alphanumeric
+
+  const basePath = args.basePath
+
+  const paths = pathFns(resource, basePath)
+  // tslint:enable typedef
+
+  return {
+    List: ({ history }) => (
+      <CV.List
+        list={all}
+        onEdit={({ value }) =>
+          history.push(pathFns(resource, basePath).edit(value.id))
+        }
+        onCreate={() => history.push(paths.create())}
+      />
+    ),
+    Create: ({ history }) => (
+      <CV.Create
+        onSubmit={async (values, actions) => {
+          await formikSubmit(create)(values, actions)
+          history.push(paths.list())
+          // @TODO: handle error?
+        }}
+      />
+    ),
+
+    Edit: ({ history, match }) => (
+      <CV.Edit
+        data={async () => one(match.params.id)}
+        onSubmit={async (values, actions) => {
+          await formikSubmit(edit)(values, actions)
+          history.push(paths.list())
+          // @TODO: handle error?
+        }}
+      />
+    ),
+
+    View: ({ match }) => <CV.View data={async () => one(match.params.id)} />,
+  }
+}

@@ -15,7 +15,7 @@ import {
   SimpleRedirect,
 } from '../devfractal'
 
-export const BreadcrumbAlignmentsExample: React.SFC = () => (
+export const BreadcrumbAlignmentsExample: React.FC = () => (
   <>
     <Container>
       <Breadcrumb alignment="centered">
@@ -36,7 +36,7 @@ export const BreadcrumbAlignmentsExample: React.SFC = () => (
   </>
 )
 
-export const BreadcrumbIconsExample: React.SFC = () => (
+export const BreadcrumbIconsExample: React.FC = () => (
   <Container>
     <Breadcrumb>
       <BreadcrumbItem>
@@ -61,7 +61,7 @@ export const BreadcrumbIconsExample: React.SFC = () => (
   </Container>
 )
 
-export const BreadcrumbSizesExample: React.SFC = () => (
+export const BreadcrumbSizesExample: React.FC = () => (
   <Container>
     <Breadcrumb size="small">
       <BreadcrumbItem>Bulma</BreadcrumbItem>
@@ -84,7 +84,7 @@ export const BreadcrumbSizesExample: React.SFC = () => (
   </Container>
 )
 
-export const BreadcrumbSeparatorsExample: React.SFC = () => (
+export const BreadcrumbSeparatorsExample: React.FC = () => (
   <Container>
     <Breadcrumb separator="arrow">
       <BreadcrumbItem>Bulma</BreadcrumbItem>
@@ -113,7 +113,7 @@ export const BreadcrumbSeparatorsExample: React.SFC = () => (
   </Container>
 )
 
-export const BreadcrumbExample: React.SFC = () => (
+export const BreadcrumbExample: React.FC = () => (
   <>
     <Section>
       <Breadcrumb baseURL="/components/breadcrumb">

@@ -84,7 +84,7 @@ export const FormikTextArea: <V = unknown>(
 
 export type FormikErrorProps = Omit<FieldHelpProps, 'variant'>
 
-export const FormikError: React.SFC<FormikErrorProps> = ({
+export const FormikError: React.FC<FormikErrorProps> = ({
   children,
   ...props
 }) => (

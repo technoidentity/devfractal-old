@@ -19,7 +19,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimpleHeroExample: React.SFC = () => (
+export const SimpleHeroExample: React.FC = () => (
   <Section>
     <Title>Simple Hero</Title>
     <Hero>
@@ -33,7 +33,7 @@ export const SimpleHeroExample: React.SFC = () => (
   </Section>
 )
 
-export const HeroColorsExample: React.SFC = () => (
+export const HeroColorsExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Hero variant="primary">
@@ -95,7 +95,7 @@ export const HeroColorsExample: React.SFC = () => (
   </Section>
 )
 
-export const HeroGradientsExample: React.SFC = () => (
+export const HeroGradientsExample: React.FC = () => (
   <Section>
     <Title>Gradients</Title>
     <Hero variant="primary" bold>
@@ -157,7 +157,7 @@ export const HeroGradientsExample: React.SFC = () => (
   </Section>
 )
 
-export const HeroSizesExample: React.SFC = () => (
+export const HeroSizesExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Hero variant="primary" size="medium">
@@ -194,7 +194,7 @@ export const HeroSizesExample: React.SFC = () => (
   </Section>
 )
 
-export const MediumHeroExample: React.SFC = () => (
+export const MediumHeroExample: React.FC = () => (
   <Section>
     <Title>Medium Hero</Title>
     <Hero variant="primary" size="medium">
@@ -249,7 +249,7 @@ export const MediumHeroExample: React.SFC = () => (
   </Section>
 )
 
-export const LargeHeroExample: React.SFC = () => (
+export const LargeHeroExample: React.FC = () => (
   <Section>
     <Title>Large Hero</Title>
     <Hero variant="info" size="large">
@@ -307,7 +307,7 @@ export const LargeHeroExample: React.SFC = () => (
   </Section>
 )
 
-export const FullHeightHeroExample: React.SFC = () => (
+export const FullHeightHeroExample: React.FC = () => (
   <Section>
     <Title>FullHeight Hero</Title>
     <Hero variant="success" size="fullheight">
@@ -347,7 +347,7 @@ export const FullHeightHeroExample: React.SFC = () => (
   </Section>
 )
 
-export const ComplexHeroExample: React.SFC = () => (
+export const ComplexHeroExample: React.FC = () => (
   <Section>
     <Title>FullHeight hero in 3 parts</Title>
     <MediumHeroExample />
@@ -356,7 +356,7 @@ export const ComplexHeroExample: React.SFC = () => (
   </Section>
 )
 
-export const HeroExample: React.SFC = () => (
+export const HeroExample: React.FC = () => (
   <>
     <SimpleHeroExample />
     <HeroColorsExample />

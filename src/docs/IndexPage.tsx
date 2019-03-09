@@ -30,11 +30,11 @@ import {
   SubTitle,
   Text,
   Title,
-} from '../docs/examples/devfractal'
-import contentloader from './images/contentloader.png'
-import devfractalicon from './images/devfractalicon.png'
+} from '../devfractal'
+import contentLoader from './images/contentLoader.png'
+import devfractalIcon from './images/devfractalIcon.png'
 import logo from './images/logo.png'
-import uicomponents from './images/uicomponentsicon.png'
+import uiComponentsIcon from './images/uiComponentsIcon.png'
 import {
   ColumnsMedia,
   ComponentsMedia,
@@ -46,7 +46,7 @@ import {
   ModifiersMedia,
 } from './Medias'
 
-export const HeroBodySection: React.SFC = () => (
+export const HeroBodySection: React.FC = () => (
   <>
     <Section textAlignment="centered">
       <Title
@@ -74,7 +74,7 @@ export const HeroBodySection: React.SFC = () => (
       </ButtonsGroup>
     </Section>
     <img
-      src={contentloader}
+      src={contentLoader}
       style={{
         backgroundColor: '#004365',
         display: 'block',
@@ -86,14 +86,14 @@ export const HeroBodySection: React.SFC = () => (
   </>
 )
 
-export const IndexPageHeader: React.SFC = () => (
+export const IndexPageHeader: React.FC = () => (
   <>
     <Hero style={{ backgroundColor: '#004267' }}>
       <HeroHead>
         <Navbar>
           <NavbarBrand>
             <NavbarItem style={{ paddingLeft: '7rem' }}>
-              <img src={devfractalicon} />
+              <img src={devfractalIcon} />
               <Link to="/">
                 <Text textColor="white" textWeight="bold" textSize="5">
                   DEVFRACTAL
@@ -138,7 +138,7 @@ export const IndexPageHeader: React.SFC = () => (
   </>
 )
 
-export const UIComponentsOverview: React.SFC = () => (
+export const UIComponentsOverview: React.FC = () => (
   <>
     <Section style={{ backgroundColor: '#F5F5F5' }}>
       <Text
@@ -265,7 +265,7 @@ export const UIComponentsOverview: React.SFC = () => (
   </>
 )
 
-export const ExploreUIComponents: React.SFC = () => (
+export const ExploreUIComponents: React.FC = () => (
   <>
     <Section style={{ backgroundColor: '#004267' }}>
       <Title
@@ -322,7 +322,7 @@ export const ExploreUIComponents: React.SFC = () => (
             </Link>
           </Column>
           <img
-            src={uicomponents}
+            src={uiComponentsIcon}
             style={{
               marginLeft: 'auto',
               marginTop: 'auto',
@@ -334,7 +334,7 @@ export const ExploreUIComponents: React.SFC = () => (
   </>
 )
 
-export const BottomSection: React.SFC = () => (
+export const BottomSection: React.FC = () => (
   <>
     <Section textAlignment="centered" style={{ backgroundColor: '#F5F5F5' }}>
       <Text
@@ -422,7 +422,7 @@ export const BottomSection: React.SFC = () => (
   </>
 )
 
-export const FooterSection: React.SFC = () => (
+export const FooterSection: React.FC = () => (
   <>
     Copyright © 2019 TechnoIdentity Solutions.All rights reserved.
     <Ol style={{ float: 'right' }}>
@@ -435,7 +435,7 @@ export const FooterSection: React.SFC = () => (
   </>
 )
 
-export const IndexPage: React.SFC = () => (
+export const IndexPage: React.FC = () => (
   <Container>
     <IndexPageHeader />
     <UIComponentsOverview />
