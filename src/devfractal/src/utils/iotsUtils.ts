@@ -207,7 +207,7 @@ export const fake: <T extends Mixed>(
     return fakeArrayFromType(typeValue.type, options)
   }
   if (typeValue instanceof ArrayType) {
-    return fakeArray(typeValue.type, options)
+    return fakeArray(typeValue, options)
   }
   if (typeValue instanceof InterfaceType) {
     return fakeObject(typeValue, options)
