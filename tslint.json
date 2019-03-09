@@ -92,12 +92,10 @@
     "no-array-mutation": [
       true,
       "ignore-mutation-following-accessor",
-      { "ignore-local": true, "ignore-prefix": "draft" }
+      "ignore-local",
+      { "ignore-prefix": "draft" }
     ],
-    "no-object-mutation": [
-      true,
-      { "ignore-local": true, "ignore-prefix": "draft" }
-    ],
+    "no-object-mutation": [true, "ignore-local", { "ignore-prefix": "draft" }],
     "no-let": [true, "ignore-local"],
     "no-delete": true,
     "no-misused-new": true,
@@ -114,7 +112,7 @@
     "prefer-switch": true,
     "prefer-while": true,
     "number-literal-format": true,
-    "no-loop-statement": true,
+    //"no-loop-statement": true,
     "promise-function-async": true,
     "await-promise": true,
     "no-return-await": true,
