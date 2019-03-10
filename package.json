@@ -32,6 +32,7 @@
     "bulma": "^0.7.4",
     "chance": "^1.0.18",
     "date-fns": "^1.30.1",
+    "firebase": "^5.8.6",
     "formik": "^1.5.1",
     "formik-persist": "^1.1.0",
     "fp-ts": "^1.14.3",
@@ -113,11 +114,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "rimraf": "^2.6.3",
-    "@storybook/react": "^5.0.0",
     "@storybook/addon-actions": "^5.0.0",
     "@storybook/addon-links": "^5.0.0",
     "@storybook/addons": "^5.0.0",
-    "babel-loader": "^8.0.5"
+    "@storybook/react": "^5.0.0",
+    "babel-loader": "^8.0.5",
+    "rimraf": "^2.6.3"
   }
 }
