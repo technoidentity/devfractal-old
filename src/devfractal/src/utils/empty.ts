@@ -39,13 +39,11 @@ const emptyFromPrimitiveValue: (v: unknown) => any = v => {
   warning(false, `Unsupported value ${v}`)
 }
 
-export const emptyFromObjectValue: <T extends object>(
-  value: T,
-) => T = value => {
+const emptyFromObjectValue: <T extends Object>(value: T) => T = value => {
   const draft: any = {}
-  Object.keys(value).forEach(
-    k => (draft[k] = emptyFromPrimitiveValue(value[k])),
-  )
+  for (const k of Object.keys(value)) {
+    draft[k] = emptyFromPrimitiveValue(value[k])
+  }
   return draft
 }
 
@@ -55,7 +53,7 @@ export const emptyFromValue: <T>(value: T) => T = value => {
     return []
   }
   if (tcomb.Object.is(value)) {
-    return emptyFromValue(value)
+    return emptyFromObjectValue(value)
   }
   return emptyFromPrimitiveValue(value)
 }

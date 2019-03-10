@@ -8,6 +8,7 @@ import {
   Mixed,
   NumberType,
   Props,
+  ReadonlyArrayC,
   ReadonlyArrayType,
   ReadonlyType,
   StringType,
@@ -38,11 +39,11 @@ const fakePrimitive: <T extends Mixed>(
   typeValue: T,
   options: FakeOptions,
 ) => TypeOf<typeof typeValue> = (typeValue, options) => {
-  if (typeValue instanceof NumberType) {
-    return fakeFloat(options)
-  }
   if (typeValue.name === 'Int') {
     return chance.integer(options.integer)
+  }
+  if (typeValue instanceof NumberType) {
+    return fakeFloat(options)
   }
   if (typeValue instanceof StringType) {
     return chance.sentence(options.sentence)
@@ -59,25 +60,25 @@ const fakePrimitive: <T extends Mixed>(
   throw new Error(`Unsupported type: ${typeValue.name}`)
 }
 
-export const fakeArrayFromType: <T extends Mixed>(
+const fakeArrayFromType: <T extends Mixed>(
   typeValue: T,
   options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) => {
+) => ReadonlyArray<TypeOf<typeof typeValue>> = (typeValue, options) => {
   const n = chance.integer({
     min: options.array.minLength,
     max: options.array.maxLength,
   })
 
-  const result: any = []
-  // tslint:disable-next-line:no-loop-statement
+  const result: Array<TypeOf<typeof typeValue>> = []
   for (let i = 0; i < n; i += 1) {
+    // tslint:disable-next-line no-array-mutation
     result.push(fake(typeValue, options))
   }
   return result
 }
 
 const fakeArray: <T extends Mixed>(
-  typeValue: ArrayC<T>,
+  typeValue: ArrayC<T> | ReadonlyArrayC<T>,
   options: FakeOptions,
 ) => TypeOf<typeof typeValue> = (typeValue, options) =>
   fakeArrayFromType(typeValue.type, options)
@@ -88,8 +89,11 @@ const fakeObject: <T extends Props>(
 ) => TypeOf<typeof typeValue> = (typeValue, options) => {
   const props = typeValue.props
   const value: any = {}
-  // tslint:disable no-object-mutation
-  Object.keys(props).forEach(p => (value[p] = fake(props[p], options)))
+
+  for (const p of Object.keys(props)) {
+    // tslint:disable-next-line no-object-mutation
+    value[p] = fake(props[p], options)
+  }
   return value
 }
 
