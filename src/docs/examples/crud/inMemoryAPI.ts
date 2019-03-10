@@ -1,7 +1,7 @@
 import { Either } from 'fp-ts/lib/Either'
 import t from 'io-ts'
 import { assert, Number } from 'tcomb'
-import { rejected, Repository, toPromise } from '../devfractal'
+import { eitherToPromise, rejected, Repository } from '../devfractal'
 import { fakeTodoList } from './fakeTodoList'
 import { Todo, TodoListRT, TodoRT } from './types'
 
@@ -11,10 +11,10 @@ let nextID: number = 1000
 // tslint:enable no-let
 
 export const inMemoryAPI: Repository<Todo, 'id'> = {
-  all: async () => toPromise(TodoListRT.decode(staticTodoList)),
+  all: async () => eitherToPromise(TodoListRT.decode(staticTodoList)),
 
   one: async id =>
-    toPromise(TodoRT.decode(staticTodoList.find(t => t.id === +id))),
+    eitherToPromise(TodoRT.decode(staticTodoList.find(t => t.id === +id))),
 
   create: async value => {
     const todo: Either<t.Errors, Todo> = TodoRT.decode({
