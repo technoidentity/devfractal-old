@@ -31,7 +31,7 @@ import {
   TextAreaFieldProps,
 } from '../lib'
 
-export interface SimpleInputProps<S extends Schema<any>>
+export interface SimpleInputProps<S extends Schema<unknown>>
   extends InputFieldProps {
   readonly schema: S
   readonly label?: string
@@ -39,13 +39,13 @@ export interface SimpleInputProps<S extends Schema<any>>
   readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
-type GenericInputProps<S extends Schema<any> = StringSchema> = Omit<
+type GenericInputProps<S extends Schema<unknown> = StringSchema> = Omit<
   SimpleInputProps<S>,
   'type' | 'schema'
 >
 // & ValidationProps
 
-function validator<S extends Schema<any>>(
+function validator<S extends Schema<unknown>>(
   initialSchema: S,
   validations?: ReadonlyArray<(schema: S) => S>,
 ): <V>(value: V) => V | undefined {
@@ -66,7 +66,7 @@ function validator<S extends Schema<any>>(
   }
 }
 
-function SimpleInput<S extends Schema<any> = StringSchema>(
+function SimpleInput<S extends Schema<unknown> = StringSchema>(
   args: SimpleInputProps<S>,
 ): JSX.Element {
   const { schema, label, validations, ...props } = args
@@ -100,14 +100,18 @@ const SimpleUrl: React.FC<GenericInputProps> = props => (
 
 export interface SimpleCheckboxProps extends CheckboxFieldProps {
   readonly name: string
+  readonly noLabel?: boolean
 }
 
 const SimpleCheckbox: React.FC<SimpleCheckboxProps> = ({
   children,
+  noLabel,
   ...props
 }) => (
   <Field>
-    <CheckboxField {...props}>{children}</CheckboxField>
+    <CheckboxField {...props}>
+      {children || (noLabel && ` camelCaseToPhrase(props.name)`)}
+    </CheckboxField>
     <ErrorField name={props.name} />
   </Field>
 )
@@ -220,7 +224,6 @@ function SimpleForm<Values extends object>({
 export const Simple = {
   Form: SimpleForm,
   FormButtons: SimpleFormButtons,
-  Input: SimpleInput,
   Number: SimpleNumber,
   Text: SimpleText,
   Password: SimplePassword,
@@ -233,3 +236,17 @@ export const Simple = {
   Url: SimpleUrl,
   Debug: DebugField,
 }
+
+// export const Typed: {} = {
+//   Number: SimpleNumber,
+//   Text: SimpleText,
+//   Password: SimplePassword,
+//   Email: SimpleEmail,
+//   Telephone: SimpleTelephone,
+//   Checkbox: SimpleCheckbox,
+//   Select: SimpleSelect,
+//   TextArea: SimpleTextArea,
+//   RadioGroup: SimpleRadioGroup,
+//   Url: SimpleUrl,
+//   Debug: DebugField,
+// }
