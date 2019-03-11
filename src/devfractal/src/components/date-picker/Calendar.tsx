@@ -1,7 +1,6 @@
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import { isSameDay, isThisMonth } from 'date-fns'
 import React from 'react'
-import shortid from 'shortid'
 import {
   Button,
   Icon,
@@ -65,19 +64,20 @@ export const MonthDays: ({
 }: MonthDaysProps) => {
   return (
     // @TODO: index as key is a really bad idea!
-    <Tr key={shortid.generate()}>
+    <Tr>
       {week ? (
         week.map(date => {
-          const currentDate: Date = new Date(date.join('-'))
+          const dateStr: string = date.join('-')
+          const currentDate: Date = new Date(dateStr)
 
           return isSameDay(currentDate, new Date()) ? (
-            <Td key={shortid.generate()}>
+            <Td key={dateStr}>
               <Button variant="info" rounded className="is-size-7-mobile">
                 {currentDate.getDate()}
               </Button>
             </Td>
           ) : isThisMonth(currentDate) ? (
-            <Td key={shortid.generate()}>
+            <Td key={dateStr}>
               <Button
                 textColor="info"
                 rounded
@@ -88,7 +88,7 @@ export const MonthDays: ({
               </Button>
             </Td>
           ) : (
-            <Td key={shortid.generate()}>
+            <Td key={dateStr}>
               <Button
                 textColor="grey-darker"
                 rounded
@@ -120,24 +120,25 @@ export const MonthDaysList: ({
       <TableHead>
         <Tr>
           {weekDays.map(m => (
-            <Th
-              key={shortid.generate()}
-              textColor="info"
-              className="is-size-7-mobile"
-            >
+            <Th key={m} textColor="info" className="is-size-7-mobile">
               {m}
             </Th>
           ))}
         </Tr>
       </TableHead>
       <TableBody>
-        {weeksMonth.map(week => (
-          <MonthDays
-            key={shortid.generate()}
-            week={week}
-            onDateButtonClick={onDateButtonClick}
-          />
-        ))}
+        {weeksMonth.map(
+          (week: ReadonlyArray<ReadonlyArray<string | number>> | undefined) => {
+            const [first] = Array.of(week)
+            return (
+              <MonthDays
+                key={`week-${(first || []).join('-')}`}
+                week={week}
+                onDateButtonClick={onDateButtonClick}
+              />
+            )
+          },
+        )}
       </TableBody>
     </Table>
   </Section>
