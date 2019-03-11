@@ -31,21 +31,23 @@ import {
   TextAreaFieldProps,
 } from '../lib'
 
-export interface SimpleInputProps<S extends Schema<unknown>>
-  extends InputFieldProps {
+// @TODO: value must by typed!
+export interface SimpleInputProps<Values, S extends Schema<unknown>>
+  extends Omit<InputFieldProps, 'name'> {
   readonly schema: S
   readonly label?: string
-  readonly name: string
+  readonly name: keyof Values & string
   readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
-type GenericInputProps<S extends Schema<unknown> = StringSchema> = Omit<
-  SimpleInputProps<S>,
+type GenericInputProps<Values, S extends Schema<any> = StringSchema> = Omit<
+  SimpleInputProps<Values, S>,
   'type' | 'schema'
 >
+
 // & ValidationProps
 
-function validator<S extends Schema<unknown>>(
+function validator<S extends Schema<any>>(
   initialSchema: S,
   validations?: ReadonlyArray<(schema: S) => S>,
 ): <V>(value: V) => V | undefined {
@@ -66,8 +68,8 @@ function validator<S extends Schema<unknown>>(
   }
 }
 
-function SimpleInput<S extends Schema<unknown> = StringSchema>(
-  args: SimpleInputProps<S>,
+function SimpleInput<Values, S extends Schema<any> = StringSchema>(
+  args: SimpleInputProps<Values, S>,
 ): JSX.Element {
   const { schema, label, validations, ...props } = args
   return (
@@ -79,80 +81,103 @@ function SimpleInput<S extends Schema<unknown> = StringSchema>(
   )
 }
 
-const SimpleText: React.FC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="text" schema={string()} />
-)
-const SimpleNumber: React.FC<GenericInputProps<NumberSchema>> = props => (
-  <SimpleInput schema={number()} {...props} type="number" />
-)
-const SimplePassword: React.FC<GenericInputProps> = props => (
-  <SimpleInput schema={string()} {...props} type="password" />
-)
-const SimpleEmail: React.FC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="email" schema={string()} />
-)
-const SimpleTelephone: React.FC<GenericInputProps<NumberSchema>> = props => (
-  <SimpleInput schema={number()} {...props} type="tel" />
-)
-const SimpleUrl: React.FC<GenericInputProps> = props => (
-  <SimpleInput schema={string()} {...props} type="url" />
-)
+function SimpleText<Values>(props: GenericInputProps<Values>): JSX.Element {
+  return <SimpleInput<Values> {...props} type="text" schema={string()} />
+}
 
-export interface SimpleCheckboxProps extends CheckboxFieldProps {
-  readonly name: string
+function SimpleNumber<Values>(
+  props: GenericInputProps<Values, NumberSchema>,
+): JSX.Element {
+  return <SimpleInput schema={number()} {...props} type="number" />
+}
+
+function SimplePassword<Values>(props: GenericInputProps<Values>): JSX.Element {
+  return <SimpleInput schema={string()} {...props} type="password" />
+}
+
+function SimpleEmail<Values>(props: GenericInputProps<Values>): JSX.Element {
+  return <SimpleInput {...props} type="email" schema={string()} />
+}
+
+// @TODO: I think Telephone shouldn't be no?
+function SimpleTelephone<Values>(
+  props: GenericInputProps<Values, NumberSchema>,
+): JSX.Element {
+  return <SimpleInput schema={number()} {...props} type="tel" />
+}
+
+function SimpleUrl<Values>(props: GenericInputProps<Values>): JSX.Element {
+  return <SimpleInput schema={string()} {...props} type="url" />
+}
+
+export interface SimpleCheckboxProps<Values> extends CheckboxFieldProps {
+  readonly name: keyof Values & string
   readonly noLabel?: boolean
 }
 
-const SimpleCheckbox: React.FC<SimpleCheckboxProps> = ({
+function SimpleCheckbox<Values>({
   children,
   noLabel,
   ...props
-}) => (
-  <Field>
-    <CheckboxField {...props}>
-      {children || (noLabel && ` camelCaseToPhrase(props.name)`)}
-    </CheckboxField>
-    <ErrorField name={props.name} />
-  </Field>
-)
-
-export interface SimpleRadioGroupProps extends RadioFieldProps {
-  readonly name: string
+}: SimpleCheckboxProps<Values>): JSX.Element {
+  return (
+    <Field>
+      <CheckboxField {...props}>
+        {children || (noLabel && ` camelCaseToPhrase(props.name)`)}
+      </CheckboxField>
+      <ErrorField name={props.name} />
+    </Field>
+  )
+}
+export interface SimpleRadioGroupProps<Values> extends RadioFieldProps {
+  readonly name: keyof Values & string
 }
 
-const SimpleRadioGroup: React.FC<SimpleRadioGroupProps> = ({
+function SimpleRadioGroup<Values>({
   children,
   ...props
-}) => (
-  <Field>
-    <RadioGroupField {...props}>{children}</RadioGroupField>
-    <ErrorField name={props.name} />
-  </Field>
-)
-
-export interface SimpleSelectProps extends SelectFieldProps {
-  readonly name: string
+}: SimpleRadioGroupProps<Values>): JSX.Element {
+  return (
+    <Field>
+      <RadioGroupField {...props}>{children}</RadioGroupField>
+      <ErrorField name={props.name} />
+    </Field>
+  )
 }
 
-const SimpleSelect: React.FC<SimpleSelectProps> = ({ children, ...props }) => (
-  <Field>
-    <SelectField {...props}>{children}</SelectField>
-    <ErrorField name={props.name} />
-  </Field>
-)
+export interface SimpleSelectProps<Values> extends SelectFieldProps {
+  readonly name: keyof Values & string
+}
 
-export interface SimpleTextAreaProps extends TextAreaFieldProps {
-  readonly name: string
+function SimpleSelect<Values>({
+  children,
+  ...props
+}: SimpleSelectProps<Values>): JSX.Element {
+  return (
+    <Field>
+      <SelectField {...props}>{children}</SelectField>
+      <ErrorField name={props.name} />
+    </Field>
+  )
+}
+
+export interface SimpleTextAreaProps<Values> extends TextAreaFieldProps {
+  readonly name: keyof Values & string
   readonly label: string
 }
 
-const SimpleTextArea: React.FC<SimpleTextAreaProps> = ({ label, ...props }) => (
-  <Field>
-    <Label>{label}</Label>
-    <TextAreaField {...props} />
-    <ErrorField name={props.name} />
-  </Field>
-)
+function SimpleTextArea<Values>({
+  label,
+  ...props
+}: SimpleTextAreaProps<Values>): JSX.Element {
+  return (
+    <Field>
+      <Label>{label}</Label>
+      <TextAreaField {...props} />
+      <ErrorField name={props.name} />
+    </Field>
+  )
+}
 
 export interface SimpleFormButtonsProps {
   readonly submit?: boolean | string
@@ -237,16 +262,21 @@ export const Simple = {
   Debug: DebugField,
 }
 
-// export const Typed: {} = {
-//   Number: SimpleNumber,
-//   Text: SimpleText,
-//   Password: SimplePassword,
-//   Email: SimpleEmail,
-//   Telephone: SimpleTelephone,
-//   Checkbox: SimpleCheckbox,
-//   Select: SimpleSelect,
-//   TextArea: SimpleTextArea,
-//   RadioGroup: SimpleRadioGroup,
-//   Url: SimpleUrl,
-//   Debug: DebugField,
-// }
+// tslint:disable-next-line:typedef
+export function typedForm<Values>() {
+  // Number(props: GenericInputProps<Values, NumberSchema>): JSX.Element
+  // Password(props: GenericInputProps<Values>): JSX.Element
+  // Email(props: GenericInputProps<Values>): JSX.Element
+  // Telephone(props: GenericInputProps<Values>): JSX.Element
+  // Checkbox(props: GenericInputProps<Values>): JSX.Element
+  // Select(props: GenericInputProps<Values>): JSX.Element
+  // TextArea(props: GenericInputProps<Values>): JSX.Element
+  // RadioGroup(props: Props<Values>): JSX.Element
+  // Url(props: UrlProps<Values>): JSX.Element
+  // Debug(props: DebugProps<Values>): JSX.Element
+  return {
+    Text(props: GenericInputProps<Values>): JSX.Element {
+      return <SimpleInput<Values> {...props} type="text" schema={string()} />
+    },
+  }
+}
