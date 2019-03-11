@@ -1,0 +1,23 @@
+All types that need to be supported
+
+- Number
+- Integer
+- PositiveInteger
+- String
+- Boolean
+- Date
+- Time
+- DateTime
+- DateRange
+- Month
+- Week
+- Url
+- CreditCard
+- Phone number
+- Color
+- Enum
+- MultiEnum
+- File
+- Image
+- Password
+- Search
