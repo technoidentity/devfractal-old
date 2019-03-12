@@ -61,6 +61,7 @@
       "parameter",
       "property-declaration",
       "call-signature",
+      "variable-declaration",
       "member-variable-declaration"
     ],
     "variable-name": [
