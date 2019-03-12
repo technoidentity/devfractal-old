@@ -2,6 +2,8 @@ import * as iots from 'io-ts'
 import { DateType } from 'io-ts-types'
 import tcomb from 'tcomb'
 
+// tslint:disable no-use-before-declare
+
 const tcombFromPrimitiveRT: (value: iots.Mixed) => any = value => {
   if (value.name === 'Int') {
     return tcomb.Integer
@@ -34,29 +36,33 @@ const tcombFromPrimitiveRT: (value: iots.Mixed) => any = value => {
 
 const tcombFromObjectRT: <T extends iots.Props>(
   rt: iots.TypeC<T>,
-) => tcomb.Struct<T> = rt => {
+  options?: { readonly strict?: boolean },
+) => tcomb.Struct<T> = (rt, options = { strict: true }) => {
   const draft: any = {}
-  const props = rt.props
-  for (const prop of Object.keys(props)) {
-    // tslint:disable-next-line no-object-mutation no-use-before-declare
-    draft[prop] = tcombFromRT(props[prop])
+
+  for (const prop of Object.keys(rt.props)) {
+    draft[prop] = tcombFromRT(rt.props[prop])
   }
-  return tcomb.struct(draft, rt.name)
+  return tcomb.struct(draft, { name: rt.name, strict: options.strict })
 }
 
 export const tcombFromRT: (value: iots.Mixed) => any = value => {
+  if (value instanceof iots.ReadonlyType) {
+    return tcombFromRT(value.type)
+  }
   if (
     value instanceof iots.ArrayType ||
     value instanceof iots.ReadonlyArrayType
   ) {
     return tcomb.list(tcombFromRT(value.type))
   }
-  if (value instanceof iots.ReadonlyType) {
-    return tcombFromRT(value.type)
-  }
+
   if (value instanceof iots.InterfaceType) {
     return tcombFromObjectRT(value)
   }
+  // if (value instanceof iots.PartialType) {
+  //   return tcombFromObjectRT(value, { strict: false })
+  // }
   if (value instanceof iots.TupleType) {
     // @TODO: definitely wrong!
     return tcomb.tuple(tcombFromRT(value.types))
