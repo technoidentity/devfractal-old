@@ -34,3 +34,12 @@ export const range: (
   step?: number,
 ) => ReadonlyArray<number> = (start, stop, step) =>
   stop ? rangeInternal(start, stop, step) : rangeInternal(0, start)
+
+export function repeatedly<T>(n: number, f: () => T): ReadonlyArray<T> {
+  const result: T[] = []
+  for (let i = 0; i < n; i++) {
+    // tslint:disable-next-line: no-array-mutation
+    result.push(f())
+  }
+  return result
+}
