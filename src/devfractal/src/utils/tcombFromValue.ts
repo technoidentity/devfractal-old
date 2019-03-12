@@ -33,10 +33,13 @@ const tcombFromPrimitiveValue: (
   throw new Error(`Unsupported #{value}`)
 }
 
-const tcombFromArrayValue: <T extends ReadonlyArray<any>>(
+// This better typing of no use in practice!
+const tcombFromArrayValue: <V, T extends ReadonlyArray<V>>(
   value: T,
-) => any = value =>
-  value[0] !== undefined ? tcomb.list(tcombFromValue(value[0])) : tcomb.Array
+) => tcomb.List<tcomb.Type<V>> = value =>
+  value[0] !== undefined
+    ? tcomb.list(tcombFromValue(value[0]))
+    : tcomb.list(tcomb.Any)
 
 const tcombFromObjectValue: <T extends object>(
   value: T,
