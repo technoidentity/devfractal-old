@@ -8,17 +8,6 @@ export const jsonStringify: (obj: object) => string = obj => {
   return JSON.stringify(obj, null, 2)
 }
 
-export const debugAssert: (
-  condition: () => boolean,
-  message?: string,
-) => void = (condition, message) => {
-  if (process.env.NODE_ENV === 'development') {
-    if (!condition()) {
-      throw new Error(`assertion error: ${message}`)
-    }
-  }
-}
-
 export const nop: (...args: any[]) => any = () => {
   return undefined
 }
