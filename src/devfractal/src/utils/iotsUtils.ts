@@ -4,20 +4,20 @@ import { reporter } from 'io-ts-reporters'
 import { String } from 'tcomb'
 import { invariant, warning } from './internal'
 
-export const typeInvariant: <Type extends Mixed, Value extends TypeOf<Type>>(
+export function typeInvariant<Type extends Mixed, Value extends TypeOf<Type>>(
   type: Type,
   args: Value,
-) => Value = (type, args) => {
-  const decoded = type.decode(args)
+): Value {
+  const decoded: Either<Errors, Value> = type.decode(args)
   invariant(type.is(args), reporter(decoded).join('\n'))
   return decoded.getOrElse(args)
 }
 
-export const typeWarning: <Type extends Mixed, Value extends TypeOf<Type>>(
+export function typeWarning<Type extends Mixed, Value extends TypeOf<Type>>(
   type: Type,
   args: Value,
-) => Value = (type, args) => {
-  const decoded = type.decode(args)
+): Value {
+  const decoded: Either<Errors, Value> = type.decode(args)
   warning(type.is(args), reporter(decoded).join('\n'))
   return decoded.getOrElse(args)
 }
