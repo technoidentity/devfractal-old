@@ -37,7 +37,7 @@ export const range: (
 
 export function repeatedly<T>(n: number, f: () => T): ReadonlyArray<T> {
   const result: T[] = []
-  for (let i = 0; i < n; i++) {
+  for (let i: number = 0; i < n; i++) {
     // tslint:disable-next-line: no-array-mutation
     result.push(f())
   }
