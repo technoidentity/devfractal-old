@@ -4,7 +4,14 @@ import tcomb from 'tcomb'
 
 const tcombFromPrimitiveValue: (
   value: unknown,
-) => tcomb.Irreducible<any> = value => {
+) =>
+  | tcomb.Irreducible<number>
+  | tcomb.Irreducible<string>
+  | tcomb.Irreducible<boolean>
+  | tcomb.Irreducible<RegExp>
+  | tcomb.Irreducible<Function>
+  | tcomb.Irreducible<void | null>
+  | tcomb.Irreducible<Error> = value => {
   if (tcomb.Integer.is(value)) {
     return tcomb.Integer
   }
@@ -33,15 +40,14 @@ const tcombFromPrimitiveValue: (
   throw new Error(`Unsupported #{value}`)
 }
 
-// This better typing of no use in practice!
 const tcombFromArrayValue: <V, T extends ReadonlyArray<V>>(
   value: T,
-) => tcomb.List<tcomb.Type<V>> = value =>
+) => tcomb.List<ReadonlyArray<tcomb.Type<any>>> | tcomb.List<any> = value =>
   value[0] !== undefined
     ? tcomb.list(tcombFromValue(value[0]))
     : tcomb.list(tcomb.Any)
 
-const tcombFromObjectValue: <T extends object>(
+const tcombFromObjectValue: <T extends Object>(
   value: T,
 ) => tcomb.Struct<T> = value => {
   const draft: any = {}
@@ -51,7 +57,12 @@ const tcombFromObjectValue: <T extends object>(
   return tcomb.struct(draft)
 }
 
-export const tcombFromValue: (value: unknown) => any = value => {
+export const tcombFromValue: <T>(
+  value: T,
+) =>
+  | tcomb.Struct<T>
+  | ReturnType<typeof tcombFromArrayValue>
+  | ReturnType<typeof tcombFromPrimitiveValue> = value => {
   if (tcomb.Array.is(value)) {
     return tcombFromArrayValue(value)
   }
