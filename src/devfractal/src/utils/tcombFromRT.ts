@@ -4,7 +4,16 @@ import tcomb from 'tcomb'
 
 // tslint:disable no-use-before-declare
 
-const tcombFromPrimitiveRT: (value: iots.Mixed) => any = value => {
+const tcombFromPrimitiveRT: (
+  value: iots.Mixed,
+) =>
+  | tcomb.Irreducible<number>
+  | tcomb.Irreducible<string>
+  | tcomb.Irreducible<boolean>
+  | tcomb.Irreducible<Function>
+  | tcomb.Irreducible<Date>
+  | tcomb.Irreducible<void | null>
+  | tcomb.Enums = value => {
   if (value.name === 'Int') {
     return tcomb.Integer
   }
@@ -46,7 +55,14 @@ const tcombFromObjectRT: <T extends iots.Props>(
   return tcomb.struct(draft, { name: rt.name, strict: options.strict })
 }
 
-export const tcombFromRT: (value: iots.Mixed) => any = value => {
+export const tcombFromRT: (
+  value: iots.Mixed,
+) =>
+  | ReturnType<typeof tcombFromObjectRT>
+  | ReturnType<typeof tcombFromPrimitiveRT>
+  | tcomb.Tuple<any>
+  | tcomb.Maybe<any>
+  | tcomb.Struct<any> = value => {
   if (value instanceof iots.ReadonlyType) {
     return tcombFromRT(value.type)
   }
@@ -65,15 +81,15 @@ export const tcombFromRT: (value: iots.Mixed) => any = value => {
   // }
   if (value instanceof iots.TupleType) {
     // @TODO: definitely wrong!
-    return tcomb.tuple(tcombFromRT(value.types))
+    return tcomb.tuple(value.types.map(tcombFromRT))
   }
   if (value instanceof iots.PartialType) {
     // @TODO: almost definitely wrong!
-    return tcomb.maybe(tcombFromRT(value.props))
+    return tcomb.maybe(value.props.map(tcombFromRT))
   }
   if (value instanceof iots.StrictType) {
     // @TODO: may be wrong?
-    return tcomb.struct(tcombFromRT(value.props), {
+    return tcomb.struct(value.props.map(tcombFromRT), {
       name: value.name,
       strict: true,
     }) // wrong?
