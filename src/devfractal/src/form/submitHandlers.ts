@@ -27,7 +27,7 @@ interface APISubmitArgs<Values, Result extends Values> {
 
 const id: (x: unknown) => any = x => x
 
-type APISubmitResult<Values extends {}, Result extends Values> = (
+type APISubmitResult<Values extends {}, Result extends Values = Values> = (
   values: Values,
   actions: FormikActions<Values>,
 ) => Promise<Result>
@@ -63,6 +63,30 @@ export function apiSubmit<Values extends {}, Result extends Values = Values>({
       setErrors(err)
       setSubmitting(false)
       return Promise.reject(err)
+    }
+  }
+}
+
+export function formikSubmit<Values, Result extends Values>(
+  promise: (values: Values) => Promise<Result>,
+  resetOnSubmit: boolean = true,
+): APISubmitResult<Values, Result> {
+  return async (values, { setValues, setErrors, setSubmitting, resetForm }) => {
+    try {
+      const response: Result = await promise(values)
+
+      setValues(response)
+      setSubmitting(false)
+
+      if (resetOnSubmit) {
+        resetForm()
+      }
+
+      return response
+    } catch (errors) {
+      setErrors(errors)
+      setSubmitting(false)
+      throw errors
     }
   }
 }

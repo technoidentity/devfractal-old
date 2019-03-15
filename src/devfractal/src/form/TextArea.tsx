@@ -26,7 +26,7 @@ export interface TextAreaProps
   readonly rows?: number
 }
 
-export const TextArea: React.SFC<TextAreaProps> = ({
+export const TextArea: React.FC<TextAreaProps> = ({
   variant,
   fixedSize,
   fullWidth,

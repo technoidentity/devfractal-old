@@ -1,33 +1,26 @@
+import * as t from 'io-ts'
 import {
   Any,
-  intersection,
   IntersectionC,
   Mixed,
-  partial,
   PartialC,
   Props,
-  readonly,
   ReadonlyC,
-  type,
   TypeC,
-  TypeOf,
 } from 'io-ts'
 import { reporter } from 'io-ts-reporters'
-import { PathReporter } from 'io-ts/lib/PathReporter'
 import React from 'react'
 import { warning } from './internal'
-
-// tslint:disable-next-line: no-null-keyword
 
 export const optionalProps: <P extends Props>(
   props: P,
   name?: string,
-) => ReadonlyC<PartialC<P>> = props => readonly(partial(props))
+) => ReadonlyC<PartialC<P>> = props => t.readonly(t.partial(props))
 
 export const requiredProps: <P extends Props>(
   props: P,
   name?: string,
-) => ReadonlyC<TypeC<P>> = obj => readonly(type(obj))
+) => ReadonlyC<TypeC<P>> = obj => t.readonly(t.type(obj))
 
 export const props: <O extends Props, R extends Props>(
   optional: O,
@@ -36,15 +29,11 @@ export const props: <O extends Props, R extends Props>(
 ) => IntersectionC<[ReadonlyC<PartialC<O>>, ReadonlyC<TypeC<R>>]> = (
   optional,
   required,
-) => intersection([readonly(partial(optional)), readonly(type(required))])
-
-export const warnProps: <Type extends Mixed, Value extends TypeOf<Type>>(
-  type: Type,
-  args: Value,
-) => Value = (type, args) => {
-  warning(type.is(args), PathReporter.report(type.decode(args)).join('\n'))
-  return args
-}
+) =>
+  t.intersection([
+    t.readonly(t.partial(optional)),
+    t.readonly(t.type(required)),
+  ])
 
 export type Properties<C extends Any> = C['_A']
 
@@ -54,11 +43,12 @@ export const component: <
 >(
   propsValue: T,
   inner: React.ComponentType<P>,
-) => React.SFC<P> = (propsValue, inner) => props => {
+) => React.FC<P> = (propsValue, inner) => props => {
   const v: string = reporter(propsValue.decode(props)).join('\n')
   warning(v === '', v)
 
-  // tslint:disable-next-line: typedef
-  const Component = inner
-  return <Component {...props} />
+  return React.createElement(inner, props)
 }
+
+// tslint:disable-next-line: no-null-keyword
+export const Null: React.FC = () => null

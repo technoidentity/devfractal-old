@@ -27,13 +27,13 @@ export type FormikFieldConfig = Omit<FieldConfig, 'innerRef'>
 
 export type InputFieldProps = InputProps & FormikFieldConfig
 
-export const InputField: React.SFC<InputFieldProps> = props => (
+export const InputField: React.FC<InputFieldProps> = props => (
   <FormikField {...props} component={FormikInput} />
 )
 
 export type CheckboxFieldProps = CheckBoxProps & FormikFieldConfig
 
-export const CheckboxField: React.SFC<CheckboxFieldProps> = ({
+export const CheckboxField: React.FC<CheckboxFieldProps> = ({
   children,
   ...props
 }) => (
@@ -44,7 +44,7 @@ export const CheckboxField: React.SFC<CheckboxFieldProps> = ({
 
 export type RadioFieldProps = RadioGroupProps & FormikFieldConfig
 
-export const RadioGroupField: React.SFC<RadioFieldProps> = ({
+export const RadioGroupField: React.FC<RadioFieldProps> = ({
   children,
   ...props
 }) => (
@@ -55,7 +55,7 @@ export const RadioGroupField: React.SFC<RadioFieldProps> = ({
 
 export type SelectFieldProps = SelectProps & FormikFieldConfig
 
-export const SelectField: React.SFC<SelectFieldProps> = ({
+export const SelectField: React.FC<SelectFieldProps> = ({
   children,
   ...props
 }) => (
@@ -66,17 +66,17 @@ export const SelectField: React.SFC<SelectFieldProps> = ({
 
 export type TextAreaFieldProps = TextAreaProps & FormikFieldConfig
 
-export const TextAreaField: React.SFC<TextAreaFieldProps> = props => (
+export const TextAreaField: React.FC<TextAreaFieldProps> = props => (
   <FormikField {...props} component={FormikTextArea} />
 )
 
 export type ErrorMessageProps = FormikErrorProps
 
-export const ErrorField: React.SFC<ErrorMessageProps> = props => (
+export const ErrorField: React.FC<ErrorMessageProps> = props => (
   <ErrorMessage {...props} component={FormikError} />
 )
 
-export const DebugField: React.SFC = () => (
+export const DebugField: React.FC = () => (
   <FormikConsumer>
     {({ values }) => <pre>{jsonStringify(values)}</pre>}
   </FormikConsumer>

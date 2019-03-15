@@ -12,7 +12,7 @@ import {
   NavbarMenu,
 } from '../lib'
 
-const NavBurger: React.SFC<NavbarBurgerProps> = props => (
+const NavBurger: React.FC<NavbarBurgerProps> = props => (
   <NavbarBurger role="button" {...props}>
     <span aria-hidden="true" />
     <span aria-hidden="true" />
@@ -20,14 +20,14 @@ const NavBurger: React.SFC<NavbarBurgerProps> = props => (
   </NavbarBurger>
 )
 
-const NavBrand: React.SFC<NavbarBrandProps> = ({ children, ...props }) => (
+const NavBrand: React.FC<NavbarBrandProps> = ({ children, ...props }) => (
   <NavbarBrand {...props}>
     <NavLink to="/">{children}</NavLink>
     <NavBurger />
   </NavbarBrand>
 )
 
-const NavItem: React.SFC<NavbarItemsProps & { readonly to: string }> = ({
+const NavItem: React.FC<NavbarItemsProps & { readonly to: string }> = ({
   to,
   children,
   ...props

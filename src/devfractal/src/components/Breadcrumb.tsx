@@ -27,7 +27,7 @@ export interface BreadcrumbItemProps
   readonly href?: string
 }
 
-export const BreadcrumbItemWithRouter: React.SFC<
+export const BreadcrumbItemWithRouter: React.FC<
   BreadcrumbItemProps & RouteComponentProps
 > = args => {
   const { active, href, children, ...props } = removeRouteComponentProps(args)
@@ -46,7 +46,7 @@ export const BreadcrumbItemWithRouter: React.SFC<
   )
 }
 
-export const BreadcrumbItem: React.SFC<BreadcrumbItemProps> = props => (
+export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = props => (
   <WithRouter<BreadcrumbItemProps>
     {...props}
     component={BreadcrumbItemWithRouter}
@@ -62,7 +62,7 @@ export interface BreadcrumbProps
   readonly separator?: BreadcrumbSeparator
 }
 
-export const Breadcrumb: React.SFC<BreadcrumbProps> = ({
+export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   alignment,
   size,
   separator,

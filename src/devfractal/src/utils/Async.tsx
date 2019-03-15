@@ -1,43 +1,34 @@
-import React from 'react'
 import { useAsync } from 'react-use'
 import { nop } from './internal'
 
-export interface AsyncComponentProps {
+export interface AsyncComponentProps<T = any> {
   readonly isLoading: boolean
   readonly error?: Error
-  readonly data?: any
+  readonly data?: T
 }
 
-export interface AsyncProps {
-  children(props: AsyncComponentProps): JSX.Element
-  asyncFn(): Promise<{ readonly [index: string]: any }>
+export interface AsyncProps<T = any> {
+  children(props: AsyncComponentProps<T>): JSX.Element
+  asyncFn(): Promise<T>
 }
 
-export const Async: React.SFC<AsyncProps> = ({
-  asyncFn,
-  children,
-}): JSX.Element => {
-  const { value, error, loading } = useAsync(asyncFn)
-  return children({ data: value, error, isLoading: loading })
+export function Async<T>({ asyncFn, children }: AsyncProps<T>): JSX.Element {
+  const { value: data, error, loading: isLoading } = useAsync(asyncFn)
+
+  if (error) {
+    // tslint:disable-next-line:no-console
+    console.trace(error.message)
+  }
+
+  return children({ data, error, isLoading })
 }
-export const delay: (delay: number, f: () => void) => Promise<void> = async (
-  delay,
+
+export const delay: <T>(delay: number, f: () => T) => Promise<T> = async (
+  milliseconds,
   f = nop,
-) =>
-  new Promise(resolve =>
-    setTimeout(() => {
-      f()
-      resolve()
-    }, delay),
-  )
+) => new Promise(resolve => setTimeout(() => resolve(f()), milliseconds))
 
-export const interval: (
-  interval: number,
-  f: () => void,
-) => Promise<void> = async (interval, f = nop) =>
-  new Promise(resolve =>
-    setInterval(() => {
-      f()
-      resolve()
-    }, interval),
-  )
+export const interval: <T>(interval: number, f: () => T) => Promise<T> = async (
+  milliseconds,
+  f = nop,
+) => new Promise(resolve => setInterval(() => resolve(f()), milliseconds))

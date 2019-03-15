@@ -46,7 +46,7 @@ import {
   ModifiersMedia,
 } from './Medias'
 
-export const HeroBodySection: React.SFC = () => (
+export const HeroBodySection: React.FC = () => (
   <>
     <Section textAlignment="centered">
       <Title
@@ -86,7 +86,7 @@ export const HeroBodySection: React.SFC = () => (
   </>
 )
 
-export const IndexPageHeader: React.SFC = () => (
+export const IndexPageHeader: React.FC = () => (
   <>
     <Hero style={{ backgroundColor: '#004267' }}>
       <HeroHead>
@@ -138,7 +138,7 @@ export const IndexPageHeader: React.SFC = () => (
   </>
 )
 
-export const UIComponentsOverview: React.SFC = () => (
+export const UIComponentsOverview: React.FC = () => (
   <>
     <Section style={{ backgroundColor: '#F5F5F5' }}>
       <Text
@@ -265,7 +265,7 @@ export const UIComponentsOverview: React.SFC = () => (
   </>
 )
 
-export const ExploreUIComponents: React.SFC = () => (
+export const ExploreUIComponents: React.FC = () => (
   <>
     <Section style={{ backgroundColor: '#004267' }}>
       <Title
@@ -334,7 +334,7 @@ export const ExploreUIComponents: React.SFC = () => (
   </>
 )
 
-export const BottomSection: React.SFC = () => (
+export const BottomSection: React.FC = () => (
   <>
     <Section textAlignment="centered" style={{ backgroundColor: '#F5F5F5' }}>
       <Text
@@ -422,7 +422,7 @@ export const BottomSection: React.SFC = () => (
   </>
 )
 
-export const FooterSection: React.SFC = () => (
+export const FooterSection: React.FC = () => (
   <>
     Copyright © 2019 TechnoIdentity Solutions.All rights reserved.
     <Ol style={{ float: 'right' }}>
@@ -435,7 +435,7 @@ export const FooterSection: React.SFC = () => (
   </>
 )
 
-export const IndexPage: React.SFC = () => (
+export const IndexPage: React.FC = () => (
   <Container>
     <IndexPageHeader />
     <UIComponentsOverview />

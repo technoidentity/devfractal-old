@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, Section, Title } from '../devfractal'
 
-export const BasicImageExample: React.SFC = () => (
+export const BasicImageExample: React.FC = () => (
   <Section>
     <Title>Normal Image</Title>
     <Image
@@ -11,7 +11,7 @@ export const BasicImageExample: React.SFC = () => (
   </Section>
 )
 
-export const FixedSquareImageExample: React.SFC = () => (
+export const FixedSquareImageExample: React.FC = () => (
   <Section>
     <Title>Fixed square images</Title>
     <Section>
@@ -53,7 +53,7 @@ export const FixedSquareImageExample: React.SFC = () => (
   </Section>
 )
 
-export const RoundedImageExample: React.SFC = () => (
+export const RoundedImageExample: React.FC = () => (
   <Section>
     <Title>Rounded image</Title>
     <Image
@@ -64,7 +64,7 @@ export const RoundedImageExample: React.SFC = () => (
   </Section>
 )
 
-export const RetinaImageExample: React.SFC = () => (
+export const RetinaImageExample: React.FC = () => (
   <Section>
     <Title>Retina image</Title>
     <Image
@@ -74,7 +74,7 @@ export const RetinaImageExample: React.SFC = () => (
   </Section>
 )
 
-export const ResponsiveImagesWithRatiosExample: React.SFC = () => (
+export const ResponsiveImagesWithRatiosExample: React.FC = () => (
   <Section>
     <Title>Responsive images with ratios</Title>
     <Section>
@@ -170,7 +170,7 @@ export const ResponsiveImagesWithRatiosExample: React.SFC = () => (
   </Section>
 )
 
-export const ImageExample: React.SFC = () => (
+export const ImageExample: React.FC = () => (
   <>
     <BasicImageExample />
     <FixedSquareImageExample />

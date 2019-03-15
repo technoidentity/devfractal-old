@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, ProgressBar, Section, Title } from '../devfractal'
 
-export const BasicProgressBarExample: React.SFC = () => (
+export const BasicProgressBarExample: React.FC = () => (
   <Section>
     <Title>Default Progress bar</Title>
     <Box>
@@ -12,7 +12,7 @@ export const BasicProgressBarExample: React.SFC = () => (
   </Section>
 )
 
-export const ProgressBarColorExample: React.SFC = () => (
+export const ProgressBarColorExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
@@ -50,7 +50,7 @@ export const ProgressBarColorExample: React.SFC = () => (
   </Section>
 )
 
-export const ProgressBarSizeExample: React.SFC = () => (
+export const ProgressBarSizeExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
@@ -70,7 +70,7 @@ export const ProgressBarSizeExample: React.SFC = () => (
   </Section>
 )
 
-export const ProgressBarExample: React.SFC = () => (
+export const ProgressBarExample: React.FC = () => (
   <>
     <BasicProgressBarExample />
     <ProgressBarColorExample />

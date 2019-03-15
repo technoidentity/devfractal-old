@@ -20,7 +20,7 @@ export interface FieldProps
   readonly addonsModifier?: FieldAddonModifier
 }
 
-export const Field: React.SFC<FieldProps> = ({
+export const Field: React.FC<FieldProps> = ({
   grouped,
   addons,
   horizontal,
@@ -52,10 +52,7 @@ export interface FieldBodyProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {}
 
-export const FieldBody: React.SFC<FieldBodyProps> = ({
-  children,
-  ...props
-}) => (
+export const FieldBody: React.FC<FieldBodyProps> = ({ children, ...props }) => (
   <Div {...props} className={classNamesHelper(props, 'field-body')}>
     {children}
   </Div>
@@ -74,7 +71,7 @@ export interface FieldHelpProps
   readonly variant?: FieldHelpType
 }
 
-export const FieldHelp: React.SFC<FieldHelpProps> = ({
+export const FieldHelp: React.FC<FieldHelpProps> = ({
   variant,
   children,
   ...props
@@ -98,7 +95,7 @@ export interface FieldLabelProps
   readonly fieldLabelSize?: FieldLabelSize
 }
 
-export const FieldLabel: React.SFC<FieldLabelProps> = ({
+export const FieldLabel: React.FC<FieldLabelProps> = ({
   children,
   fieldLabelSize,
   ...props
@@ -120,7 +117,7 @@ export interface FormFieldProps extends FieldProps {
   readonly helpText?: string
 }
 
-export const FormField: React.SFC<FormFieldProps> = ({
+export const FormField: React.FC<FormFieldProps> = ({
   label,
   labelSize,
   helpType,

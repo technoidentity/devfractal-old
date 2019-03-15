@@ -10,7 +10,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const SizesColumnExample: React.SFC = () => (
+export const SizesColumnExample: React.FC = () => (
   <div>
     <Section>
       <Container>

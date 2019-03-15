@@ -16,7 +16,7 @@ interface FlexItemProps {
   readonly alignSelf?: alignSelf
 }
 
-export const FlexItem: React.SFC<FlexItemProps> = ({
+export const FlexItem: React.FC<FlexItemProps> = ({
   order,
   flexBasis,
   flexGrow,
