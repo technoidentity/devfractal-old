@@ -1,5 +1,4 @@
 import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
-import { Persist } from 'formik-persist'
 import React from 'react'
 import {
   number,
@@ -138,7 +137,6 @@ const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values
   readonly validationSchema?: ObjectSchema<Partial<Values>>
-  readonly persist?: string
   onSubmit?(values: Values, actions: FormikActions<Values>): void
 }
 
@@ -207,7 +205,6 @@ export function typedForm<Values extends object>(): TypedForm<Values> {
       initialValues,
       validationSchema,
       onSubmit = consoleSubmit<Values>(0),
-      persist,
       children,
     }) => (
       <Formik
@@ -215,12 +212,7 @@ export function typedForm<Values extends object>(): TypedForm<Values> {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {
-          <Form>
-            {children}
-            {persist && <Persist name={persist} />}
-          </Form>
-        }
+        <Form>{children}</Form>
       </Formik>
     ),
   }
