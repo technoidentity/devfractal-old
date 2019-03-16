@@ -1,36 +1,45 @@
+import * as t from 'io-ts'
 import React from 'react'
 import {
   consoleSubmit,
   email,
+  emptyFromType,
   max,
   min,
   required,
   Section,
   Simple,
   Title,
+  typeInvariant,
   url,
 } from '../../devfractal'
 
-interface LoginValues {
-  readonly name: string
-  readonly username: string
-  readonly email: string
-  readonly phone: number
-  readonly website: string
-}
+// tslint:disable typedef
 
-const initialLoginValues: LoginValues = {
-  name: '',
-  username: '',
-  email: '',
-  phone: 0,
-  website: '',
-}
+const UserRT = t.readonly(
+  t.type({
+    name: t.string,
+    username: t.string,
+    email: t.string,
+    phone: t.string,
+    website: t.string,
+  }),
+)
+
+type UserValues = t.TypeOf<typeof UserRT>
+
+const initialValues: UserValues = emptyFromType(UserRT)
 
 export const UserForm: React.SFC = () => (
   <Section>
     <Title>Users Form</Title>
-    <Simple.Form initialValues={initialLoginValues} onSubmit={consoleSubmit()}>
+    <Simple.Form
+      initialValues={initialValues}
+      onSubmit={async (values: UserValues, actions) => {
+        typeInvariant(UserRT, values)
+        await consoleSubmit(0)(values, actions)
+      }}
+    >
       <Simple.Text
         label="Name:"
         name="name"

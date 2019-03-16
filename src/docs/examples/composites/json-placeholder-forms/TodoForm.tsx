@@ -1,21 +1,30 @@
+import * as t from 'io-ts'
 import React from 'react'
-import { consoleSubmit, required, Section, Simple } from '../../devfractal'
+import {
+  consoleSubmit,
+  emptyFromType,
+  required,
+  Section,
+  Simple,
+  typeInvariant,
+} from '../../devfractal'
 
-interface TodoFormValues {
-  readonly title: string
-  readonly completed: boolean
-}
+// tslint:disable typedef
 
-const initialTodoFormValues: TodoFormValues = {
-  title: '',
-  completed: false,
-}
+const TodoRT = t.readonly(t.type({ title: t.string, completed: t.boolean }))
+
+type TodoValues = t.TypeOf<typeof TodoRT>
+
+const initialValues: TodoValues = emptyFromType(TodoRT)
 
 export const TodoForm: React.SFC = () => (
   <Section>
     <Simple.Form
-      initialValues={initialTodoFormValues}
-      onSubmit={consoleSubmit(0)}
+      initialValues={initialValues}
+      onSubmit={async (values: TodoValues, actions) => {
+        typeInvariant(TodoRT, values)
+        await consoleSubmit(0)(values, actions)
+      }}
     >
       <Simple.Text label="Title" name="title" validations={[required()]} />
       <Simple.Checkbox name="completed">Completed</Simple.Checkbox>

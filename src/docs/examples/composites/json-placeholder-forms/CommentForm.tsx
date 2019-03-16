@@ -1,33 +1,37 @@
+import * as t from 'io-ts'
 import React from 'react'
 import {
   consoleSubmit,
   email,
+  emptyFromType,
   max,
   min,
   required,
   Section,
   Simple,
   Title,
+  typeInvariant,
 } from '../../devfractal'
 
-interface CommentFormValues {
-  readonly name: string
-  readonly email: string
-  readonly body: string
-}
+// tslint:disable typedef
 
-const initialCommentFormValues: CommentFormValues = {
-  name: '',
-  email: '',
-  body: '',
-}
+const CommentRT = t.readonly(
+  t.type({ name: t.string, email: t.string, body: t.string }),
+)
+
+type CommentValues = t.TypeOf<typeof CommentRT>
+
+const initialValues: CommentValues = emptyFromType(CommentRT)
 
 export const CommentForm: React.SFC = () => (
   <Section>
     <Title>Comment Form</Title>
     <Simple.Form
-      initialValues={initialCommentFormValues}
-      onSubmit={consoleSubmit(0)}
+      initialValues={initialValues}
+      onSubmit={async (values: CommentValues, actions) => {
+        typeInvariant(CommentRT, values)
+        await consoleSubmit(0)(values, actions)
+      }}
     >
       <Simple.Text
         label="Name"

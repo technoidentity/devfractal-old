@@ -1,28 +1,32 @@
+import * as t from 'io-ts'
 import React from 'react'
 import {
   consoleSubmit,
+  emptyFromType,
   required,
   Section,
   Simple,
   Title,
+  typeInvariant,
 } from '../../devfractal'
 
-interface PostFormValues {
-  readonly title: string
-  readonly body: string
-}
+// tslint:disable typedef
 
-const initialPostFormValues: PostFormValues = {
-  title: '',
-  body: '',
-}
+const PostRT = t.readonly(t.type({ title: t.string, body: t.string }))
+
+type PostValues = t.TypeOf<typeof PostRT>
+
+const initialValues: PostValues = emptyFromType(PostRT)
 
 export const PostForm: React.SFC = () => (
   <Section>
     <Title>Post Form</Title>
     <Simple.Form
-      initialValues={initialPostFormValues}
-      onSubmit={consoleSubmit(0)}
+      initialValues={initialValues}
+      onSubmit={async (values: PostValues, actions) => {
+        typeInvariant(PostRT, values)
+        await consoleSubmit(0)(values, actions)
+      }}
     >
       <Simple.Text label="Title" name="title" validations={[required()]} />
       <Simple.TextArea label="Body" name="body" />
