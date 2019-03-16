@@ -64,6 +64,7 @@
     "tslint-react": "^3.6.0",
     "typescript": "^3.3.3",
     "typescript-tslint-plugin": "^0.3.1",
+    "utility-types": "^3.4.1",
     "yup": "^0.27.0"
   },
   "resolutions": {
