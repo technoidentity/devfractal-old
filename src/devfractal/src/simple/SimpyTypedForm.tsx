@@ -1,12 +1,13 @@
-import { Field, Form, Formik } from 'formik'
-import React from 'react'
+import { Form, Formik } from 'formik'
+import React, { Children } from 'react'
 import { Omit } from 'react-router'
-import yup from 'yup'
+import * as yup from 'yup'
 import {
   camelCaseToPhrase,
   CheckboxField,
   consoleSubmit,
   ErrorField,
+  Field,
   InputField,
   InputFieldProps,
   Label,
@@ -21,14 +22,16 @@ import {
   SimpleSelectProps,
   SimpleTextAreaProps,
 } from './internal'
-interface Named<Values extends object, Value> {
+import { Simple } from './SimpleForm'
+
+interface Named<Values extends Object, Value> {
   readonly name: keyof Values & string
   readonly value?: Value
 }
 
 // @TODO: value must by typed!
 interface SimpleInputProps<
-  Values extends object,
+  Values extends Object,
   Value extends string | number | ReadonlyArray<string>
 > extends Omit<InputFieldProps, 'name' | 'value'>, Named<Values, Value> {
   readonly schema: yup.Schema<Value>
@@ -39,25 +42,47 @@ interface SimpleInputProps<
 }
 
 interface GenericInputProps<
-  Values extends object,
+  Values extends Object,
   Value extends string | number | ReadonlyArray<string>
 > extends Omit<SimpleInputProps<Values, Value>, 'type' | 'schema'> {}
 
+function validator<S extends yup.Schema<any>>(
+  initialSchema: S,
+  validations?: ReadonlyArray<(schema: S) => S>,
+): <V>(value: V) => V | undefined {
+  return value => {
+    if (validations === undefined) {
+      return undefined
+    }
+
+    let schema: S = initialSchema
+    validations.forEach(v => (schema = v(schema)))
+
+    try {
+      schema.validateSync(value)
+      return undefined
+    } catch (err) {
+      return err.message
+    }
+  }
+}
 function SimpleInput<
-  Values extends object,
+  Values extends Object,
   Value extends string | number | string[]
 >(args: SimpleInputProps<Values, Value>): JSX.Element {
-  const { schema, label, validations, value, ...props } = args
+  const { schema, label, validations, ...props } = args
+  const names: ReadonlyArray<string> = props.name.split('.')
+
   return (
     <Field>
-      <Label>{label || camelCaseToPhrase(props.name)}</Label>
-      <InputField value={value} {...props} />
+      <Label>{label || camelCaseToPhrase(names[names.length - 1])}</Label>
+      <InputField {...props} validate={validator(schema, validations)} />
       <ErrorField name={props.name} />
     </Field>
   )
 }
 
-export interface TypedFormChildren<Values extends object> {
+export interface TypedFormChildren<Values extends Object> {
   readonly Text: React.FC<GenericInputProps<Values, string>>
   readonly Number: React.FC<GenericInputProps<Values, number>>
   readonly Password: React.FC<GenericInputProps<Values, string>>
@@ -68,73 +93,166 @@ export interface TypedFormChildren<Values extends object> {
   readonly RadioGroup: React.FC<SimpleRadioGroupProps<Values>>
   readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
   readonly Select: React.FC<SimpleSelectProps<Values>>
-  // readonly Nested: React.FC<SimpleFormProps<Values>>
+  readonly FormButtons: typeof Simple.FormButtons
+  nested<Name extends keyof Values>(
+    name: Name,
+  ): React.FC<Omit<NestedProps<Values, Name>, 'name'>>
 }
 
-export interface TypedFormProps<Values extends object>
-  extends SimpleFormProps<Values> {
-  children(simple: TypedFormChildren<Values>): React.ReactNode
+interface Children<Values extends Object> {
+  children(Simple: TypedFormChildren<Values>): React.ReactNode
 }
 
-export function TypedForm<Values extends object>(
+export interface TypedFormProps<Values extends Object>
+  extends SimpleFormProps<Values>,
+    Children<Values> {}
+
+interface NestedContext {
+  readonly names: ReadonlyArray<string>
+}
+
+const NestedContext: React.Context<NestedContext> = React.createContext<
+  NestedContext
+>({ names: [] })
+
+const childArgs: TypedFormChildren<any> = {
+  Text: props => {
+    return (
+      <NestedContext.Consumer>
+        {({ names }) => (
+          <SimpleInput
+            {...props}
+            name={[...names, props.name].join('.')}
+            type="text"
+            schema={yup.string()}
+          />
+        )}
+      </NestedContext.Consumer>
+    )
+  },
+
+  Number: props => (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <SimpleInput
+          schema={yup.number()}
+          {...props}
+          name={[...names, props.name].join('.')}
+          type="number"
+        />
+      )}
+    </NestedContext.Consumer>
+  ),
+
+  Password: props => (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <SimpleInput
+          schema={yup.string()}
+          {...props}
+          name={[...names, props.name].join('.')}
+          type="password"
+        />
+      )}
+    </NestedContext.Consumer>
+  ),
+
+  Email: props => (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <SimpleInput
+          {...props}
+          name={[...names, props.name].join('.')}
+          type="email"
+          schema={yup.string()}
+        />
+      )}
+    </NestedContext.Consumer>
+  ),
+
+  // @TODO: I think Telephone shouldn't be no?
+  Telephone: props => (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <SimpleInput
+          schema={yup.number()}
+          {...props}
+          name={[...names, props.name].join('.')}
+          type="tel"
+        />
+      )}
+    </NestedContext.Consumer>
+  ),
+
+  Url: props => (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <SimpleInput
+          schema={yup.string()}
+          {...props}
+          name={[...names, props.name].join('.')}
+          type="url"
+        />
+      )}
+    </NestedContext.Consumer>
+  ),
+
+  Checkbox: ({ children, noLabel, ...props }) => (
+    <Field>
+      <CheckboxField {...props}>
+        {children || ` ${camelCaseToPhrase(props.name)}`}
+      </CheckboxField>
+      <ErrorField name={props.name} />
+    </Field>
+  ),
+
+  RadioGroup: ({ children, ...props }) => (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <Field>
+          <RadioGroupField {...props} name={[...names, props.name].join('.')}>
+            {children}
+          </RadioGroupField>
+          <ErrorField name={props.name} />
+        </Field>
+      )}
+    </NestedContext.Consumer>
+  ),
+
+  Select: ({ children, ...props }) => (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <Field>
+          <SelectField {...props} name={[...names, props.name].join('.')}>
+            {children}
+          </SelectField>
+          <ErrorField name={props.name} />
+        </Field>
+      )}
+    </NestedContext.Consumer>
+  ),
+
+  TextArea: ({ label, ...props }) => (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <Field>
+          <Label>{label}</Label>
+          <TextAreaField {...props} name={[...names, props.name].join('.')} />
+          <ErrorField name={props.name} />
+        </Field>
+      )}
+    </NestedContext.Consumer>
+  ),
+
+  FormButtons: Simple.FormButtons,
+
+  nested: (name: any) => props => <Nested<any, any> name={name} {...props} />,
+}
+
+export function TypedForm<Values extends Object>(
   props: TypedFormProps<Values>,
 ): JSX.Element {
-  const childArgs: TypedFormChildren<Values> = {
-    Text: props => <SimpleInput {...props} type="text" schema={yup.string()} />,
-
-    Number: props => (
-      <SimpleInput schema={yup.number()} {...props} type="number" />
-    ),
-
-    Password: props => (
-      <SimpleInput schema={yup.string()} {...props} type="password" />
-    ),
-
-    Email: props => (
-      <SimpleInput {...props} type="email" schema={yup.string()} />
-    ),
-
-    // @TODO: I think Telephone shouldn't be no?
-    Telephone: props => (
-      <SimpleInput schema={yup.number()} {...props} type="tel" />
-    ),
-
-    Url: props => <SimpleInput schema={yup.string()} {...props} type="url" />,
-
-    Checkbox: ({ children, noLabel, ...props }) => (
-      <Field>
-        <CheckboxField {...props}>
-          {children || (noLabel && ` camelCaseToPhrase(props.name)`)}
-        </CheckboxField>
-        <ErrorField name={props.name} />
-      </Field>
-    ),
-
-    RadioGroup: ({ children, ...props }) => (
-      <Field>
-        <RadioGroupField {...props}>{children}</RadioGroupField>
-        <ErrorField name={props.name} />
-      </Field>
-    ),
-
-    Select: ({ children, ...props }) => (
-      <Field>
-        <SelectField {...props}>{children}</SelectField>
-        <ErrorField name={props.name} />
-      </Field>
-    ),
-
-    TextArea: ({ label, ...props }) => (
-      <Field>
-        <Label>{label}</Label>
-        <TextAreaField {...props} />
-        <ErrorField name={props.name} />
-      </Field>
-    ),
-  }
-
   const { initialValues, validationSchema, onSubmit, children } = props
-
   return (
     <Formik
       initialValues={initialValues}
@@ -146,21 +264,22 @@ export function TypedForm<Values extends object>(
   )
 }
 
-// // tslint:disable-next-line:typedef
-// const initialValues = { userName: '', password: '' }
+interface NestedProps<Values, Name extends keyof Values>
+  extends Children<Values[Name]> {
+  readonly name: Name
+}
 
-// const LoginForm: React.SFC = () => {
-//   return (
-//     <TypedForm
-//       initialValues={initialValues}
-//       onSubmit={values => console.log(values)}
-//     >
-//       {Simple => (
-//         <>
-//           <Simple.Text name="userName" />
-//           <Simple.Password name="password" />
-//         </>
-//       )}
-//     </TypedForm>
-//   )
-// }
+export function Nested<Values, Name extends keyof Values>({
+  name,
+  children,
+}: NestedProps<Values, Name>): JSX.Element {
+  return (
+    <NestedContext.Consumer>
+      {({ names }) => (
+        <NestedContext.Provider value={{ names: [...names, name as string] }}>
+          {children(childArgs)}
+        </NestedContext.Provider>
+      )}
+    </NestedContext.Consumer>
+  )
+}
