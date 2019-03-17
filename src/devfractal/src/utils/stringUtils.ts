@@ -55,3 +55,9 @@ export const extractSegment: (
   const s: number = p.indexOf(upto)
   return s === -1 ? p.trim() : p.slice(0, s).trim()
 }
+
+export const capitalizeAll: (str: string) => string = str =>
+  str
+    .split(' ')
+    .map(capitalize)
+    .join(' ')
