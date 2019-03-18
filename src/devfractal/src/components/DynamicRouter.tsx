@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { capitalizeAll, toLower } from '../lib'
+import { capitalizeAll, SimpleRedirect, toLower } from '../lib'
 import { RoutedTabs, RoutedTabsItem } from './internal'
 
 export interface DynamicRouterResult {
@@ -19,9 +19,10 @@ export function dynamicRouter<T extends object>(
 
   const Routes: React.FC = () => (
     <>
-      {/* {urls.length > 0 && (
-        <Route exact path={baseUrl} component={components[keys[0]]} />
-      )} */}
+      {urls.length > 0 && (
+        <SimpleRedirect exact from={baseUrl} to={`${baseUrl}/${urls[0]}`} />
+      )}
+
       {urls.map((url, i) => {
         const path = `${baseUrl}/${url}`
         return (
