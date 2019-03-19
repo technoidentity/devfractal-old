@@ -30,7 +30,7 @@ export interface TileProps
   readonly box?: boolean
 }
 
-export const Tile: React.SFC<TileProps> = ({
+export const Tile: React.FC<TileProps> = ({
   tileType,
   children,
   size,

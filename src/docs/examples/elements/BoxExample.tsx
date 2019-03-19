@@ -9,7 +9,7 @@ import {
   Section,
 } from '../devfractal'
 
-export const BoxExample: React.SFC = () => (
+export const BoxExample: React.FC = () => (
   <Section>
     <Box>
       <Media>

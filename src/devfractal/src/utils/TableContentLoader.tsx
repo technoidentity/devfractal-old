@@ -1,6 +1,8 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
+
 // tslint:disable
+
 const Loader = (props: any) => {
   return (
     <ContentLoader

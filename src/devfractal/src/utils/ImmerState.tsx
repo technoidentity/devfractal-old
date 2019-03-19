@@ -1,9 +1,9 @@
+import produce, { Draft } from 'immer'
 import React from 'react'
 import { Function } from 'tcomb'
-import { freeze, Mutable, mutative } from './internal'
-import { Null } from './internal'
+import { freeze, Null } from './internal'
 
-type ImmerSetArgs<T> = T | ((value: Mutable<T>) => void)
+type ImmerSetArgs<T> = T | ((value: Draft<T>) => void)
 
 interface ImmerStateRenderProps<T> {
   readonly value: T
@@ -35,7 +35,7 @@ export class ImmerState<T> extends React.Component<
   }
 
   readonly _set: (ƒv: ImmerSetArgs<T>) => void = fv => {
-    const value: T = Function.is(fv) ? mutative(this.state.value, fv) : fv
+    const value: T = Function.is(fv) ? produce(this.state.value, fv) : fv
 
     this.setState(
       { value },

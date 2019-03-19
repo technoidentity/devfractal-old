@@ -1,30 +1,40 @@
-import { produce } from 'immer'
+import { assert } from 'tcomb'
+
+// tslint:disable no-loop-statement no-array-mutation no-array-mutation no-null-keyword
 
 // @TODO: only in development
 export const freeze: <T>(v: T) => Readonly<T> = v => Object.freeze(v)
 
-export const jsonStringify: (obj: object) => string = obj => {
-  // tslint:disable-next-line:no-null-keyword
-  return JSON.stringify(obj, null, 2)
-}
+export const jsonStringify: (obj: object) => string = obj =>
+  JSON.stringify(obj, null, 2)
 
-export type Mutable<T> = { -readonly [P in keyof T]: Mutable<T[P]> } // Remove readonly
+export const nop: (...args: any[]) => any = () => undefined
 
-export function mutative<T>(obj: T, f: (draft: Mutable<T>) => void): T {
-  return produce(obj, f)
-}
+const rangeInternal: (
+  start: number,
+  stop: number,
+  step?: number,
+) => ReadonlyArray<number> = (start, stop, step = 1) => {
+  assert(step > 0)
 
-export const debugAssert: (
-  condition: () => boolean,
-  message?: string,
-) => void = (condition, message) => {
-  if (process.env.NODE_ENV === 'development') {
-    if (!condition()) {
-      throw new Error(`assertion error: ${message}`)
-    }
+  const result: number[] = []
+  for (let i: number = start; i < stop; i += step) {
+    result.push(i)
   }
+  return result
 }
 
-export const nop: (...args: any[]) => any = () => {
-  return undefined
+export const range: (
+  start: number,
+  stop?: number,
+  step?: number,
+) => ReadonlyArray<number> = (start, stop, step) =>
+  stop ? rangeInternal(start, stop, step) : rangeInternal(0, start)
+
+export function repeatedly<T>(n: number, f: () => T): ReadonlyArray<T> {
+  const result: T[] = []
+  for (let i: number = 0; i < n; i++) {
+    result.push(f())
+  }
+  return result
 }

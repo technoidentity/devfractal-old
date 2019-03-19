@@ -3,16 +3,18 @@ import { Route } from 'react-router-dom'
 import {
   Container,
   SimpleRedirect,
+  StepComponent,
   TableContentLoader,
-} from '../docs/examples/devfractal'
+} from '../devfractal'
 import {
-  BasicColumnExample,
   BoxExample,
   BreadcrumbExample,
   ButtonExample,
   CardExample,
   CheckBoxExample,
   ColorHelpersExample,
+  ColumnsLinks,
+  ColumnsRoutes,
   ContainerExample,
   ContentExample,
   Counter,
@@ -22,7 +24,6 @@ import {
   FieldsGeneralForm,
   FileExample,
   FooterExample,
-  GapColumnExample,
   GeneralExample,
   HelpersExample,
   HeroExample,
@@ -37,20 +38,16 @@ import {
   MessageExample,
   ModalExample,
   NavbarExample,
-  NestingColumnExample,
   NotificationExample,
-  OptionsColumnExample,
   PaginationExample,
   PanelExample,
   ProgressBarExample,
   RadioExample,
-  ResponsiveColumnExample,
   SectionExample,
   SelectExample,
   SimpleExamples,
   SimpleFormExample,
   SimpleTodo,
-  SizesColumnExample,
   TableExample,
   TabsExample,
   TagExample,
@@ -70,7 +67,6 @@ import {
   UIComponentsOverview,
 } from './IndexPage'
 import {
-  ColumnsTab,
   ComponentsTab,
   CompositesTab,
   ElementsTab,
@@ -79,7 +75,7 @@ import {
   ModifiersTab,
 } from './Tabs'
 
-export const FormRoutes: React.SFC = () => (
+export const FormRoutes: React.FC = () => (
   <>
     <SimpleRedirect exact from="/form" to="/form/general" />
     <Route path="/form/general" exact component={GeneralExample} />
@@ -93,7 +89,7 @@ export const FormRoutes: React.SFC = () => (
   </>
 )
 
-export const CompositesRoutes: React.SFC = () => (
+export const CompositesRoutes: React.FC = () => (
   <>
     <SimpleRedirect exact from="/composites" to="/composites/simple" />
     <Route path="/composites/simple" exact component={SimpleExamples} />
@@ -115,25 +111,9 @@ export const CompositesRoutes: React.SFC = () => (
   </>
 )
 
-export const CrudRoutes: React.SFC = () => <TodoRoutes />
+export const CrudRoutes: React.FC = () => <TodoRoutes />
 
-export const ColumnsRoutes: React.SFC = () => (
-  <>
-    <SimpleRedirect exact from="/columns" to="/columns/basics" />
-    <Route path="/columns/basics" exact component={BasicColumnExample} />
-    <Route path="/columns/size" exact component={SizesColumnExample} />
-    <Route
-      path="/columns/responsive"
-      exact
-      component={ResponsiveColumnExample}
-    />
-    <Route path="/columns/nesting" exact component={NestingColumnExample} />
-    <Route path="/columns/gap" exact component={GapColumnExample} />
-    <Route path="/columns/options" exact component={OptionsColumnExample} />
-  </>
-)
-
-export const LayoutRoutes: React.SFC = () => (
+export const LayoutRoutes: React.FC = () => (
   <>
     <SimpleRedirect exact from="/layout" to="/layout/container" />
     <Route path="/layout/container" exact component={ContainerExample} />
@@ -146,7 +126,7 @@ export const LayoutRoutes: React.SFC = () => (
   </>
 )
 
-export const ElementsRoutes: React.SFC = () => (
+export const ElementsRoutes: React.FC = () => (
   <>
     <SimpleRedirect exact from="/elements" to="elements/box" />
     <Route path="/elements/box" exact component={BoxExample} />
@@ -171,7 +151,7 @@ export const ElementsRoutes: React.SFC = () => (
   </>
 )
 
-export const ComponentsRoutes: React.SFC = () => (
+export const ComponentsRoutes: React.FC = () => (
   <>
     <SimpleRedirect exact from="/components" to="/components/card" />
     <Route path="/components/card" exact component={CardExample} />
@@ -184,10 +164,11 @@ export const ComponentsRoutes: React.SFC = () => (
     <Route path="/components/menu" exact component={MenuExample} />
     <Route path="/components/pagination" exact component={PaginationExample} />
     <Route path="/components/breadcrumb" component={BreadcrumbExample} />
+    <Route path="/components/step" component={StepComponent} />
   </>
 )
 
-export const ModifiersRoutes: React.SFC = () => (
+export const ModifiersRoutes: React.FC = () => (
   <>
     <SimpleRedirect exact from="/modifiers" to="/modifiers/helpers" />
     <Route path="/modifiers/helpers" exact component={HelpersExample} />
@@ -200,7 +181,7 @@ export const ModifiersRoutes: React.SFC = () => (
   </>
 )
 
-export const TabsRoutes: React.SFC = () => (
+export const TabsRoutes: React.FC = () => (
   <>
     <Route path="/form" component={FormTab} />
     <Route path="/composites" component={CompositesTab} />
@@ -208,11 +189,11 @@ export const TabsRoutes: React.SFC = () => (
     <Route path="/elements" component={ElementsTab} />
     <Route path="/modifiers" component={ModifiersTab} />
     <Route path="/layout" component={LayoutTab} />
-    <Route path="/columns" component={ColumnsTab} />
+    <Route path="/columns" component={ColumnsLinks} />
   </>
 )
 
-export const IndexRoutes: React.SFC = () => (
+export const IndexRoutes: React.FC = () => (
   <>
     <Route path="/" component={IndexPageHeader} />
     <Route exact path="/" component={UIComponentsOverview} />
@@ -222,7 +203,7 @@ export const IndexRoutes: React.SFC = () => (
   </>
 )
 
-export const Routes: React.SFC = () => (
+export const Routes: React.FC = () => (
   <Container>
     <IndexRoutes />
     <TabsRoutes />

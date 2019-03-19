@@ -7,7 +7,7 @@ export interface OlProps extends OlHTMLAttributes<HTMLOListElement>, Helpers {
   readonly modifier?: OlModifier
 }
 
-export const Ol: React.SFC<OlProps> = ({ modifier, children, ...props }) => {
+export const Ol: React.FC<OlProps> = ({ modifier, children, ...props }) => {
   const classes: string = classNamesHelper(props, {
     [`is-${modifier}`]: modifier,
   })

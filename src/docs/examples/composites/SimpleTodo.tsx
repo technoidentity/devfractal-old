@@ -26,7 +26,7 @@ const todoList: ReadonlyArray<Todo> = [
   },
 ]
 
-export const SimpleTodo: React.SFC = () => (
+export const SimpleTodo: React.FC = () => (
   <>
     <SimpleAddTodo />
     <SimpleViewer data={todoList[0]} />

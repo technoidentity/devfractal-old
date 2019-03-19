@@ -38,7 +38,7 @@ const simpleSchema: ObjectSchema<Partial<SimpleValues>> = object({
   message: string().required(),
 })
 
-export const SimpleFormExample: React.SFC = () => (
+export const SimpleFormExample: React.FC = () => (
   <Section>
     <Simple.Form
       initialValues={initialValues}

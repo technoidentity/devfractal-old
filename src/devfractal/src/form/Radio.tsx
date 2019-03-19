@@ -21,7 +21,7 @@ interface RadioGroupViewProps
   onBlur?(e: any): void
 }
 
-const RadioGroupView: React.SFC<RadioGroupViewProps> = ({
+const RadioGroupView: React.FC<RadioGroupViewProps> = ({
   name,
   selected,
   readOnly,
@@ -65,7 +65,7 @@ export interface RadioGroupProps extends RadioGroupViewProps {
   readonly defaultValue?: string
 }
 
-export const RadioGroup: React.SFC<RadioGroupProps> = ({
+export const RadioGroup: React.FC<RadioGroupProps> = ({
   defaultValue,
   children,
   ...props
@@ -105,7 +105,7 @@ interface RadioInternalProps extends RadioProps {
   readonly _selected?: string
 }
 
-export const Radio: React.SFC<RadioProps> = args => {
+export const Radio: React.FC<RadioProps> = args => {
   const { children, _selected, ...props } = args as RadioInternalProps
 
   return (

@@ -20,7 +20,7 @@ export const AddTodoSchema: ObjectSchema<AddTodoValues> = object({
   done: boolean().required(),
 })
 
-export const SimpleAddTodo: React.SFC = () => (
+export const SimpleAddTodo: React.FC = () => (
   <Section>
     <Simple.Form
       initialValues={initialAddTodoValues}
@@ -29,7 +29,7 @@ export const SimpleAddTodo: React.SFC = () => (
     >
       <Simple.Text label="Title:" name="title" />
       <Simple.TextArea label="Description:" name="description" />
-      <Simple.Checkbox name="done"> Done </Simple.Checkbox>
+      <Simple.Checkbox name="done" />
       <Simple.FormButtons />
       <Simple.Debug />
     </Simple.Form>

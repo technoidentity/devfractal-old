@@ -33,7 +33,7 @@ interface FlexProps {
   readonly alignContent?: AlignContent
 }
 
-export const Flex: React.SFC<FlexProps> = ({
+export const Flex: React.FC<FlexProps> = ({
   display,
   flexDirection,
   flexWrap,

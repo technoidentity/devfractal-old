@@ -9,8 +9,7 @@ import {
 } from 'io-ts'
 
 // tslint:disable typedef
-
-export const TodoValue = readonly(
+export const TodoRT = readonly(
   type({
     id: number,
     title: string,
@@ -18,8 +17,8 @@ export const TodoValue = readonly(
   }),
 )
 
-export const TodoListValue = readonlyArray(TodoValue)
+export const TodoListRT = readonlyArray(TodoRT)
 
-export type Todo = TypeOf<typeof TodoValue>
+export type Todo = TypeOf<typeof TodoRT>
 
-export type TodoList = TypeOf<typeof TodoListValue>
+export type TodoList = TypeOf<typeof TodoListRT>
