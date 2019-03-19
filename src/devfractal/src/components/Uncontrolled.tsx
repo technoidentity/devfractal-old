@@ -8,12 +8,13 @@ export interface ValueChangeEvent<Value> {
 }
 
 export interface ControlledProps<Value> {
+  readonly name?: string
   readonly value?: Value
   readonly readOnly?: boolean
   onChange?(event: ValueChangeEvent<Value>): void
 }
 
-type UncontrolledProps<Value, CP extends ControlledProps<Value>> = CP & {
+export type UncontrolledProps<Value, CP extends ControlledProps<Value>> = CP & {
   readonly defaultValue?: Value
   readonly component: React.FC<Omit<CP, 'defaultValue' | 'component'>>
 }
