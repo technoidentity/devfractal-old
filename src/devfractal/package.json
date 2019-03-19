@@ -19,8 +19,8 @@
     "react": "16.8.4",
     "react-content-loader": "^4.2.1",
     "react-dom": "16.8.4",
-    "react-router": "4.4.0",
-    "react-router-dom": "4.4.0",
+    "react-router": "5.0.0",
+    "react-router-dom": "5.0.0",
     "react-use": "^5.7.1",
     "tcomb": "^3.2.29",
     "yup": "^0.27.0"
@@ -46,8 +46,8 @@
   "peerDependencies": {
     "react": "16.8.4",
     "react-dom": "16.8.4",
-    "react-router": "4.4.0",
-    "react-router-dom": "4.4.0",
+    "react-router": "5.0.0",
+    "react-router-dom": "5.0.0",
     "yup": "0.27.0"
   },
   "scripts": {
