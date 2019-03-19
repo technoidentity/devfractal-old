@@ -13,7 +13,7 @@ import { Box, Icon, Section, State, Tabs, TabsItem, Title } from '../devfractal'
 export const TabsExamples: React.FC = () => (
   <>
     <Section>
-      <Tabs name="basicTab50" selectedTab="pictures" readOnly>
+      <Tabs name="basicTab50" value="pictures" readOnly>
         <TabsItem value="pictures">Pictures</TabsItem>
         <TabsItem value="music">Music</TabsItem>
         <TabsItem value="videos">Videos</TabsItem>
@@ -26,14 +26,14 @@ export const TabsExamples: React.FC = () => (
 export const AlignmentTabExample: React.FC = () => (
   <>
     <Title size="6">Centered</Title>
-    <Tabs name="basicTab2" selectedTab="pictures" alignment="centered" readOnly>
+    <Tabs name="basicTab2" value="pictures" alignment="centered" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
       <TabsItem value="documents">Documents</TabsItem>
     </Tabs>
     <Title size="6">Right</Title>
-    <Tabs name="basicTab3" selectedTab="pictures" alignment="right" readOnly>
+    <Tabs name="basicTab3" value="pictures" alignment="right" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
@@ -44,7 +44,7 @@ export const AlignmentTabExample: React.FC = () => (
 
 export const IconsTabExample: React.FC = () => (
   <>
-    <Tabs name="basicTab4" selectedTab="pictures" alignment="centered" readOnly>
+    <Tabs name="basicTab4" value="pictures" alignment="centered" readOnly>
       <TabsItem value="pictures">
         <Icon icon={faImage} />
         <span>Pictures</span>
@@ -67,19 +67,19 @@ export const IconsTabExample: React.FC = () => (
 
 export const SizesTabExample: React.FC = () => (
   <>
-    <Tabs name="basicTab5" selectedTab="pictures" size="small" readOnly>
+    <Tabs name="basicTab5" value="pictures" size="small" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
       <TabsItem value="documents">Documents</TabsItem>
     </Tabs>
-    <Tabs name="basicTab6" selectedTab="pictures" size="medium" readOnly>
+    <Tabs name="basicTab6" value="pictures" size="medium" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
       <TabsItem value="documents">Documents</TabsItem>
     </Tabs>
-    <Tabs name="basicTab7" selectedTab="pictures" size="large" readOnly>
+    <Tabs name="basicTab7" value="pictures" size="large" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
@@ -91,7 +91,7 @@ export const SizesTabExample: React.FC = () => (
 export const StyleTabsExample: React.FC = () => (
   <>
     <Title size="6">Boxed</Title>
-    <Tabs name="basicTab8" selectedTab="pictures" tabsStyle="boxed" readOnly>
+    <Tabs name="basicTab8" value="pictures" tabsStyle="boxed" readOnly>
       <TabsItem value="pictures">
         <Icon icon={faImage} />
         <span>Pictures</span>
@@ -110,7 +110,7 @@ export const StyleTabsExample: React.FC = () => (
       </TabsItem>
     </Tabs>
     <Title size="6">Toggle</Title>
-    <Tabs name="basicTab9" selectedTab="pictures" tabsStyle="toggle" readOnly>
+    <Tabs name="basicTab9" value="pictures" tabsStyle="toggle" readOnly>
       <TabsItem value="pictures">
         <Icon icon={faImage} />
         <span>Pictures</span>
@@ -131,7 +131,7 @@ export const StyleTabsExample: React.FC = () => (
     <Title size="6">Toggle-Rounded</Title>
     <Tabs
       name="basicTab10"
-      selectedTab="pictures"
+      value="pictures"
       tabsStyle="toggle-rounded"
       readOnly
     >
@@ -174,7 +174,7 @@ export const CombiningTabsExample: React.FC = () => (
   <>
     <Tabs
       name="basicTab20"
-      selectedTab="pictures"
+      value="pictures"
       tabsStyle="boxed"
       alignment="centered"
       readOnly
@@ -198,7 +198,7 @@ export const CombiningTabsExample: React.FC = () => (
     </Tabs>
     <Tabs
       name="basicTab12"
-      selectedTab="pictures"
+      value="pictures"
       tabsStyle="toggle"
       fullWidth
       readOnly
@@ -222,7 +222,7 @@ export const CombiningTabsExample: React.FC = () => (
     </Tabs>
     <Tabs
       name="basicTab30"
-      selectedTab="pictures"
+      value="pictures"
       tabsStyle="boxed"
       alignment="centered"
       size="medium"
@@ -247,7 +247,7 @@ export const CombiningTabsExample: React.FC = () => (
     </Tabs>
     <Tabs
       name="basicTab40"
-      selectedTab="pictures"
+      value="pictures"
       tabsStyle="toggle"
       fullWidth
       size="large"
@@ -286,7 +286,7 @@ export const UncontrolledTabExample: React.FC = () => (
 
 export const SelectedTabExample: React.FC = () => (
   <Section>
-    <Tabs selectedTab="music" name="secondTab" size="medium" readOnly>
+    <Tabs value="music" name="secondTab" size="medium" readOnly>
       <TabsItem value="pictures">Pictures</TabsItem>
       <TabsItem value="music">Music</TabsItem>
       <TabsItem value="videos">Videos</TabsItem>
@@ -304,8 +304,8 @@ export const ControlledTabsExample: React.FC = () => (
           <Box>
             <Title size="4">Controlled Tab({value})</Title>
             <Tabs
-              selectedTab={value}
-              onTabChange={({ value }) => {
+              value={value}
+              onChange={({ value }) => {
                 set(value || 'music')
               }}
               name="secondTab2"
@@ -362,7 +362,7 @@ export const DynamicTabsExample: React.FC = () => (
     </Box>
     <Box>
       <Title size="4">
-        'selectedTab' is provided, but not 'onTabChange' Tabs will be readonly
+        'value' is provided, but not 'onChange' Tabs will be readonly
       </Title>
       <SelectedTabExample />
     </Box>

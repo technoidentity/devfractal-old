@@ -1,14 +1,20 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Container, SimpleRedirect, TableContentLoader } from '../devfractal'
 import {
-  BasicColumnExample,
+  Container,
+  SimpleRedirect,
+  StepComponent,
+  TableContentLoader,
+} from '../devfractal'
+import {
   BoxExample,
   BreadcrumbExample,
   ButtonExample,
   CardExample,
   CheckBoxExample,
   ColorHelpersExample,
+  ColumnsLinks,
+  ColumnsRoutes,
   ContainerExample,
   ContentExample,
   Counter,
@@ -18,7 +24,6 @@ import {
   FieldsGeneralForm,
   FileExample,
   FooterExample,
-  GapColumnExample,
   GeneralExample,
   HelpersExample,
   HeroExample,
@@ -33,20 +38,16 @@ import {
   MessageExample,
   ModalExample,
   NavbarExample,
-  NestingColumnExample,
   NotificationExample,
-  OptionsColumnExample,
   PaginationExample,
   PanelExample,
   ProgressBarExample,
   RadioExample,
-  ResponsiveColumnExample,
   SectionExample,
   SelectExample,
   SimpleExamples,
   SimpleFormExample,
   SimpleTodo,
-  SizesColumnExample,
   TableExample,
   TabsExample,
   TagExample,
@@ -65,7 +66,6 @@ import {
   UIComponentsOverview,
 } from './IndexPage'
 import {
-  ColumnsTab,
   ComponentsTab,
   CompositesTab,
   ElementsTab,
@@ -110,22 +110,6 @@ export const CompositesRoutes: React.FC = () => (
 )
 
 export const CrudRoutes: React.FC = () => <TodoRoutes />
-
-export const ColumnsRoutes: React.FC = () => (
-  <>
-    <SimpleRedirect exact from="/columns" to="/columns/basics" />
-    <Route path="/columns/basics" exact component={BasicColumnExample} />
-    <Route path="/columns/size" exact component={SizesColumnExample} />
-    <Route
-      path="/columns/responsive"
-      exact
-      component={ResponsiveColumnExample}
-    />
-    <Route path="/columns/nesting" exact component={NestingColumnExample} />
-    <Route path="/columns/gap" exact component={GapColumnExample} />
-    <Route path="/columns/options" exact component={OptionsColumnExample} />
-  </>
-)
 
 export const LayoutRoutes: React.FC = () => (
   <>
@@ -178,6 +162,7 @@ export const ComponentsRoutes: React.FC = () => (
     <Route path="/components/menu" exact component={MenuExample} />
     <Route path="/components/pagination" exact component={PaginationExample} />
     <Route path="/components/breadcrumb" component={BreadcrumbExample} />
+    <Route path="/components/step" component={StepComponent} />
   </>
 )
 
@@ -202,7 +187,7 @@ export const TabsRoutes: React.FC = () => (
     <Route path="/elements" component={ElementsTab} />
     <Route path="/modifiers" component={ModifiersTab} />
     <Route path="/layout" component={LayoutTab} />
-    <Route path="/columns" component={ColumnsTab} />
+    <Route path="/columns" component={ColumnsLinks} />
   </>
 )
 

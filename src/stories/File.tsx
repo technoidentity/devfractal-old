@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Field, File } from '../docs/examples/devfractal'
+import { Field, File } from '../devfractal'
 
 storiesOf('File', module)
   .add('with variant', () => (

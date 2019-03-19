@@ -1,17 +1,6 @@
 import React from 'react'
 import { RoutedTabs, RoutedTabsItem } from '../devfractal'
 
-export const ColumnsTab: React.FC = () => (
-  <RoutedTabs to="/columns" size="medium">
-    <RoutedTabsItem value="basics">Basics</RoutedTabsItem>
-    <RoutedTabsItem value="size">Size</RoutedTabsItem>
-    <RoutedTabsItem value="responsive">Responsive</RoutedTabsItem>
-    <RoutedTabsItem value="nesting">Nesting</RoutedTabsItem>
-    <RoutedTabsItem value="gap">Gap</RoutedTabsItem>
-    <RoutedTabsItem value="options">Options</RoutedTabsItem>
-  </RoutedTabs>
-)
-
 export const ComponentsTab: React.FC = () => (
   <RoutedTabs to="/components" size="medium">
     <RoutedTabsItem value="card">Card</RoutedTabsItem>
@@ -24,6 +13,7 @@ export const ComponentsTab: React.FC = () => (
     <RoutedTabsItem value="pagination">Pagination</RoutedTabsItem>
     <RoutedTabsItem value="panel">Panel</RoutedTabsItem>
     <RoutedTabsItem value="tabs">Tabs</RoutedTabsItem>
+    <RoutedTabsItem value="step">Step</RoutedTabsItem>
   </RoutedTabs>
 )
 

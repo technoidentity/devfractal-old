@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Column, Columns, Select } from '../docs/examples/devfractal'
+import { Column, Columns, Select } from '../devfractal'
 
 storiesOf('Select', module)
   .add('with size', () => (

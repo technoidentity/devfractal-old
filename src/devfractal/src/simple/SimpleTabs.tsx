@@ -26,13 +26,13 @@ export const SimpleTabs: React.FC<SimpleTabsProps> = ({
     render={({ value, set }) => (
       <Tabs
         {...props}
-        selectedTab={value}
-        onTabChange={evt => {
+        value={value}
+        onChange={evt => {
           if (evt.value) {
             set(evt.value)
           }
-          if (props.onTabChange) {
-            props.onTabChange(evt)
+          if (props.onChange) {
+            props.onChange(evt)
           }
         }}
         name={name}

@@ -8,11 +8,11 @@ import {
   Field,
   Omit,
   RowClickEvent,
+  RTType,
   SimpleEditor,
   SimpleTable,
   SimpleViewer,
-  TVT,
-  VT,
+  TypeOfRT,
 } from '../lib'
 
 export interface EditProps<T> {
@@ -36,16 +36,16 @@ export interface ListProps<T> {
 }
 
 export interface CrudViewsResult<T extends Props, ID extends keyof T> {
-  readonly List: FC<ListProps<TVT<T>>>
-  readonly Create: FC<CreateProps<Omit<TVT<T>, ID>>>
-  readonly Edit: FC<EditProps<TVT<T>>>
-  readonly View: FC<ViewProps<TVT<T>>>
+  readonly List: FC<ListProps<TypeOfRT<T>>>
+  readonly Create: FC<CreateProps<Omit<TypeOfRT<T>, ID>>>
+  readonly Edit: FC<EditProps<TypeOfRT<T>>>
+  readonly View: FC<ViewProps<TypeOfRT<T>>>
 }
 
 export const Views: <T extends Props, ID extends keyof T>(
   // cannot pass this to create, as getting type from typeValue is easy,
   // not the other way round
-  typeValue: VT<T>,
+  typeValue: RTType<T>,
   id: keyof T,
 ) => CrudViewsResult<T, ID> = (typeValue, id) => ({
   Create: ({ onSubmit }) => (
