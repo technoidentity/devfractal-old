@@ -7,7 +7,7 @@ export interface MenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly size?: MenuSize
 }
 
-export const Menu: React.SFC<MenuProps> = ({ size, children, ...props }) => {
+export const Menu: React.FC<MenuProps> = ({ size, children, ...props }) => {
   const classes: string = classNamesHelper(props, 'menu', {
     [`is-${size}`]: size,
   })
@@ -22,10 +22,7 @@ export interface MenuLabelProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const MenuLabel: React.SFC<MenuLabelProps> = ({
-  children,
-  ...props
-}) => {
+export const MenuLabel: React.FC<MenuLabelProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'menu-label')
   return (
     <Div as="p" {...props} className={classes}>
@@ -38,7 +35,7 @@ export interface MenuListProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
-export const MenuList: React.SFC<MenuListProps> = ({ children, ...props }) => {
+export const MenuList: React.FC<MenuListProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'menu-list')
   return (
     <Div as="ul" {...props} className={classes}>
@@ -54,7 +51,7 @@ export interface MenuItemProps
   readonly active?: boolean
 }
 
-export const MenuItem: React.SFC<MenuItemProps> = ({
+export const MenuItem: React.FC<MenuItemProps> = ({
   active,
   children,
   ...props

@@ -1,9 +1,9 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { capitalize, chop, Null, WithRouter } from '../lib'
+import { capitalizeAll, chop, Null, WithRouter } from '../lib'
 import { Breadcrumb, BreadcrumbItem } from './internal'
 
-const DynamicBreadcrumbWithRouter: React.SFC<RouteComponentProps> = ({
+const DynamicBreadcrumbWithRouter: React.FC<RouteComponentProps> = ({
   location,
 }) => {
   const segments: string[] = chop(location.pathname).split('/')
@@ -21,13 +21,13 @@ const DynamicBreadcrumbWithRouter: React.SFC<RouteComponentProps> = ({
     <Breadcrumb>
       {segmentsPaths.map(([s, p]) => (
         <BreadcrumbItem key={p} href={p}>
-          {capitalize(s)}
+          {capitalizeAll(s, '-')}
         </BreadcrumbItem>
       ))}
     </Breadcrumb>
   )
 }
 
-export const DynamicBreadcrumb: React.SFC = () => (
+export const DynamicBreadcrumb: React.FC = () => (
   <WithRouter<{}> component={DynamicBreadcrumbWithRouter} />
 )

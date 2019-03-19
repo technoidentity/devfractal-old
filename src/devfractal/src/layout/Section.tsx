@@ -7,7 +7,7 @@ export interface SectionProps
   readonly modifier?: 'medium' | 'large'
 }
 
-export const Section: React.SFC<SectionProps> = ({
+export const Section: React.FC<SectionProps> = ({
   modifier,
   children,
   ...props

@@ -1,16 +1,12 @@
 import React from 'react'
 import { HashRouter } from 'react-router-dom'
-// import { Docs } from './docs'
+import { Docs } from './docs'
 import { ScrollToTop } from './docs'
 
-// import { StepComponent } from './devfractal/src/components/StepComponent/StepComponent'
-
-import { DatePicker } from './devfractal/src/components/date-picker/DatePicker'
-
-export const App: React.SFC = () => (
+export const App: React.FC = () => (
   <HashRouter>
     <ScrollToTop>
-      <DatePicker />
+      <Docs />
     </ScrollToTop>
   </HashRouter>
 )

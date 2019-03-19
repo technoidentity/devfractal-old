@@ -112,7 +112,7 @@
     "prefer-switch": true,
     "prefer-while": true,
     "number-literal-format": true,
-    "no-loop-statement": true,
+    //"no-loop-statement": true,
     "promise-function-async": true,
     "await-promise": true,
     "no-return-await": true,

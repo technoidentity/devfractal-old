@@ -1,24 +1,23 @@
 import { Either } from 'fp-ts/lib/Either'
-import { Errors } from 'io-ts'
+import t from 'io-ts'
 import { assert, Number } from 'tcomb'
-import { rejected, Repository, toPromise } from '../devfractal'
-import { fakeTodoList } from './fakeData'
-import { Todo, TodoListValue, TodoValue } from './types'
+import { eitherToPromise, rejected, Repository } from '../devfractal'
+import { fakeTodoList } from './fakeTodoList'
+import { Todo, TodoListRT, TodoRT } from './types'
 
 // tslint:disable no-let
-
 let staticTodoList: ReadonlyArray<Todo> = fakeTodoList(5)
 let nextID: number = 1000
+// tslint:enable no-let
 
-export const InMemoryAPI: Repository<Todo> = {
-  all: async () => toPromise(TodoListValue.decode(staticTodoList)),
+export const inMemoryAPI: Repository<Todo, 'id'> = {
+  all: async () => eitherToPromise(TodoListRT.decode(staticTodoList)),
 
-  one: async id => {
-    return toPromise(TodoValue.decode(staticTodoList.find(t => t.id === +id)))
-  },
+  one: async id =>
+    eitherToPromise(TodoRT.decode(staticTodoList.find(t => t.id === +id))),
 
   create: async value => {
-    const todo: Either<Errors, Todo> = TodoValue.decode({
+    const todo: Either<t.Errors, Todo> = TodoRT.decode({
       id: nextID,
       ...value,
     })
@@ -36,7 +35,11 @@ export const InMemoryAPI: Repository<Todo> = {
     if (i === -1) {
       return rejected(`no todo with id: ${nextID}`)
     }
-    staticTodoList = [value, ...staticTodoList.slice(1)]
+    staticTodoList = [
+      ...staticTodoList.slice(0, i),
+      value,
+      ...staticTodoList.slice(i + 1),
+    ]
     return value
   },
 

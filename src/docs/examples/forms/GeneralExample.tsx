@@ -25,7 +25,7 @@ import {
   TextArea,
 } from '../devfractal'
 
-export const GeneralExample: React.SFC = () => (
+export const GeneralExample: React.FC = () => (
   <>
     <Columns columnCentered>
       <Column size="half">

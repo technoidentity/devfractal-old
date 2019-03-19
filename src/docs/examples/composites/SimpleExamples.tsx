@@ -2,22 +2,22 @@ import React from 'react'
 import { logger } from '../common'
 import { Section, SimpleRoutedTabs, SimpleTabs, Text } from '../devfractal'
 
-const SimpleTabsExample: React.SFC = () => (
+const SimpleTabsExample: React.FC = () => (
   <SimpleTabs
     name="simpleTab"
     values={['pictures', 'movies', 'music', 'documents']}
-    onTabChange={({ name, value }) => logger(`${name} : ${value}`)}
+    onChange={({ name, value }) => logger(`${name} : ${value}`)}
   />
 )
 
-const SimpleRoutesTabsExample: React.SFC = () => (
+const SimpleRoutesTabsExample: React.FC = () => (
   <SimpleRoutedTabs
     to="/composites/simple"
     values={['pictures', 'movies', 'music', 'documents']}
   />
 )
 
-export const SimpleExamples: React.SFC = () => (
+export const SimpleExamples: React.FC = () => (
   <>
     <Section>
       <Text textSize="3">Tabs</Text>

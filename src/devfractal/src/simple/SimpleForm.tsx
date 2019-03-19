@@ -1,5 +1,4 @@
 import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
-import { Persist } from 'formik-persist'
 import React from 'react'
 import {
   number,
@@ -15,7 +14,6 @@ import {
   CheckboxField,
   CheckboxFieldProps,
   consoleSubmit,
-  Container,
   DebugField,
   ErrorField,
   Field,
@@ -31,18 +29,22 @@ import {
   TextAreaFieldProps,
 } from '../lib'
 
-export interface SimpleInputProps<S extends Schema<any>>
-  extends InputFieldProps {
+interface Named<Values extends object> {
+  readonly name: keyof Values & string
+}
+
+// @TODO: value must by typed!
+interface SimpleInputProps<Values extends object, S extends Schema<any>>
+  extends Omit<InputFieldProps, 'name'>,
+    Named<Values> {
   readonly schema: S
   readonly label?: string
-  readonly name: string
   readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
-type GenericInputProps<S extends Schema<any> = StringSchema> = Omit<
-  SimpleInputProps<S>,
-  'type' | 'schema'
->
+interface GenericInputProps<Values extends object, S extends Schema<any>>
+  extends Omit<SimpleInputProps<Values, S>, 'type' | 'schema'> {}
+
 // & ValidationProps
 
 function validator<S extends Schema<any>>(
@@ -66,8 +68,8 @@ function validator<S extends Schema<any>>(
   }
 }
 
-function SimpleInput<S extends Schema<any> = StringSchema>(
-  args: SimpleInputProps<S>,
+function SimpleInput<Values extends object, S extends Schema<any>>(
+  args: SimpleInputProps<Values, S>,
 ): JSX.Element {
   const { schema, label, validations, ...props } = args
   return (
@@ -79,86 +81,33 @@ function SimpleInput<S extends Schema<any> = StringSchema>(
   )
 }
 
-const SimpleText: React.SFC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="text" schema={string()} />
-)
-const SimpleNumber: React.SFC<GenericInputProps<NumberSchema>> = props => (
-  <SimpleInput schema={number()} {...props} type="number" />
-)
-const SimplePassword: React.SFC<GenericInputProps> = props => (
-  <SimpleInput schema={string()} {...props} type="password" />
-)
-const SimpleEmail: React.SFC<GenericInputProps> = props => (
-  <SimpleInput {...props} type="email" schema={string()} />
-)
-const SimpleTelephone: React.SFC<GenericInputProps<NumberSchema>> = props => (
-  <SimpleInput schema={number()} {...props} type="tel" />
-)
-const SimpleUrl: React.SFC<GenericInputProps> = props => (
-  <SimpleInput schema={string()} {...props} type="url" />
-)
-
-export interface SimpleCheckboxProps extends CheckboxFieldProps {
-  readonly name: string
+export interface SimpleCheckboxProps<Values extends object>
+  extends Omit<CheckboxFieldProps, 'name'>,
+    Named<Values> {
+  readonly noLabel?: boolean
 }
 
-const SimpleCheckbox: React.SFC<SimpleCheckboxProps> = ({
-  children,
-  ...props
-}) => (
-  <Field>
-    <CheckboxField {...props}>{children}</CheckboxField>
-    <ErrorField name={props.name} />
-  </Field>
-)
+export interface SimpleRadioGroupProps<Values extends object>
+  extends Omit<RadioFieldProps, 'name'>,
+    Named<Values> {}
 
-export interface SimpleRadioGroupProps extends RadioFieldProps {
-  readonly name: string
-}
+export interface SimpleSelectProps<Values extends object>
+  extends Omit<SelectFieldProps, 'name'>,
+    Named<Values> {}
 
-const SimpleRadioGroup: React.SFC<SimpleRadioGroupProps> = ({
-  children,
-  ...props
-}) => (
-  <Field>
-    <RadioGroupField {...props}>{children}</RadioGroupField>
-    <ErrorField name={props.name} />
-  </Field>
-)
-
-export interface SimpleSelectProps extends SelectFieldProps {
-  readonly name: string
-}
-
-const SimpleSelect: React.SFC<SimpleSelectProps> = ({ children, ...props }) => (
-  <Field>
-    <SelectField {...props}>{children}</SelectField>
-    <ErrorField name={props.name} />
-  </Field>
-)
-
-export interface SimpleTextAreaProps extends TextAreaFieldProps {
-  readonly name: string
+export interface SimpleTextAreaProps<Values extends object>
+  extends Omit<TextAreaFieldProps, 'name'>,
+    Named<Values> {
+  readonly name: keyof Values & string
   readonly label: string
 }
-
-const SimpleTextArea: React.SFC<SimpleTextAreaProps> = ({
-  label,
-  ...props
-}) => (
-  <Field>
-    <Label>{label}</Label>
-    <TextAreaField {...props} />
-    <ErrorField name={props.name} />
-  </Field>
-)
 
 export interface SimpleFormButtonsProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
 }
 
-const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
+const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
 }) => (
@@ -188,51 +137,90 @@ const SimpleFormButtons: React.SFC<SimpleFormButtonsProps> = ({
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values
   readonly validationSchema?: ObjectSchema<Partial<Values>>
-  readonly persist?: string
   onSubmit?(values: Values, actions: FormikActions<Values>): void
 }
 
-function SimpleForm<Values extends object>({
-  initialValues,
-  validationSchema,
-  onSubmit = consoleSubmit<Values>(0),
-  persist,
-  children,
-}: SimpleFormProps<Values> & {
-  readonly children: React.ReactNode
-}): JSX.Element {
-  return (
-    <Container>
+export interface TypedForm<Values extends object> {
+  readonly Text: React.FC<GenericInputProps<Values, StringSchema>>
+  readonly Number: React.FC<GenericInputProps<Values, NumberSchema>>
+  readonly Password: React.FC<GenericInputProps<Values, StringSchema>>
+  readonly Email: React.FC<GenericInputProps<Values, StringSchema>>
+  readonly Checkbox: React.FC<SimpleCheckboxProps<Values>>
+  readonly Telephone: React.FC<GenericInputProps<Values, NumberSchema>>
+  readonly Url: React.FC<GenericInputProps<Values, StringSchema>>
+  readonly RadioGroup: React.FC<SimpleRadioGroupProps<Values>>
+  readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
+  readonly Select: React.FC<SimpleSelectProps<Values>>
+  readonly Form: React.FC<SimpleFormProps<Values>>
+}
+
+export function typedForm<Values extends object>(): TypedForm<Values> {
+  return {
+    Text: props => <SimpleInput {...props} type="text" schema={string()} />,
+
+    Number: props => <SimpleInput schema={number()} {...props} type="number" />,
+
+    Password: props => (
+      <SimpleInput schema={string()} {...props} type="password" />
+    ),
+
+    Email: props => <SimpleInput {...props} type="email" schema={string()} />,
+
+    // @TODO: I think Telephone shouldn't be no?
+    Telephone: props => <SimpleInput schema={number()} {...props} type="tel" />,
+
+    Url: props => <SimpleInput schema={string()} {...props} type="url" />,
+
+    Checkbox: ({ children, noLabel, ...props }) => (
+      <Field>
+        <CheckboxField {...props}>
+          {children || (noLabel && ` camelCaseToPhrase(props.name)`)}
+        </CheckboxField>
+        <ErrorField name={props.name} />
+      </Field>
+    ),
+
+    RadioGroup: ({ children, ...props }) => (
+      <Field>
+        <RadioGroupField {...props}>{children}</RadioGroupField>
+        <ErrorField name={props.name} />
+      </Field>
+    ),
+
+    Select: ({ children, ...props }) => (
+      <Field>
+        <SelectField {...props}>{children}</SelectField>
+        <ErrorField name={props.name} />
+      </Field>
+    ),
+
+    TextArea: ({ label, ...props }) => (
+      <Field>
+        <Label>{label}</Label>
+        <TextAreaField {...props} />
+        <ErrorField name={props.name} />
+      </Field>
+    ),
+    Form: ({
+      initialValues,
+      validationSchema,
+      onSubmit = consoleSubmit<Values>(0),
+      children,
+    }) => (
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {
-          <Form>
-            {children}
-            {persist && <Persist name={persist} />}
-          </Form>
-        }
+        <Form>{children}</Form>
       </Formik>
-    </Container>
-  )
+    ),
+  }
 }
 
 // tslint:disable-next-line:typedef
 export const Simple = {
-  Form: SimpleForm,
+  ...typedForm<{ readonly [s: string]: any }>(),
   FormButtons: SimpleFormButtons,
-  Input: SimpleInput,
-  Number: SimpleNumber,
-  Text: SimpleText,
-  Password: SimplePassword,
-  Email: SimpleEmail,
-  Telephone: SimpleTelephone,
-  Checkbox: SimpleCheckbox,
-  Select: SimpleSelect,
-  TextArea: SimpleTextArea,
-  RadioGroup: SimpleRadioGroup,
-  Url: SimpleUrl,
   Debug: DebugField,
 }

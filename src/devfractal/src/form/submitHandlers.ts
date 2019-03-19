@@ -18,6 +18,7 @@ export function consoleSubmit<Values extends object>(
 
 interface APISubmitArgs<Values, Result extends Values> {
   readonly url: string
+  readonly action?: 'post' | 'put'
   readonly noResetOnSubmit?: boolean
   errorsTransformer?(errors: unknown): FormikErrors<Values>
   responseTransformer?(response: unknown): Result
@@ -26,14 +27,16 @@ interface APISubmitArgs<Values, Result extends Values> {
 
 const id: (x: unknown) => any = x => x
 
-type APISubmitResult<Values extends {}, Result extends Values> = (
+type APISubmitResult<Values extends {}, Result extends Values = Values> = (
   values: Values,
-  formikArgs: FormikActions<Values>,
+  actions: FormikActions<Values>,
 ) => Promise<Result>
 
+export type ApiSubmitAction = 'post' | 'put'
 // Need to create Either and AsynchronousEither
 export function apiSubmit<Values extends {}, Result extends Values = Values>({
   url,
+  action = 'post',
   noResetOnSubmit = false,
   valuesTransformer = id,
   responseTransformer = id,
@@ -42,11 +45,15 @@ export function apiSubmit<Values extends {}, Result extends Values = Values>({
   return async (values, { setValues, setErrors, setSubmitting, resetForm }) => {
     try {
       // Should handle the erroneous scenario, output keys aren't a subset of input
-      const response: Result = responseTransformer(
-        (await axios.post(url, valuesTransformer(values))).data,
-      )
+      const data: Values =
+        action === 'post'
+          ? (await axios.post(url, valuesTransformer(values))).data
+          : (await axios.put(url, valuesTransformer(values))).data
+
+      const response: Result = responseTransformer(data)
       setValues(response)
       setSubmitting(false)
+
       if (!noResetOnSubmit) {
         resetForm()
       }
@@ -56,6 +63,30 @@ export function apiSubmit<Values extends {}, Result extends Values = Values>({
       setErrors(err)
       setSubmitting(false)
       return Promise.reject(err)
+    }
+  }
+}
+
+export function formikSubmit<Values, Result extends Values>(
+  promise: (values: Values) => Promise<Result>,
+  resetOnSubmit: boolean = true,
+): APISubmitResult<Values, Result> {
+  return async (values, { setValues, setErrors, setSubmitting, resetForm }) => {
+    try {
+      const response: Result = await promise(values)
+
+      setValues(response)
+      setSubmitting(false)
+
+      if (resetOnSubmit) {
+        resetForm()
+      }
+
+      return response
+    } catch (errors) {
+      setErrors(errors)
+      setSubmitting(false)
+      throw errors
     }
   }
 }
