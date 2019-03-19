@@ -1,11 +1,13 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers, State, warning } from '../lib'
+import { classNamesHelper, Div, Helpers, warning } from '../lib'
 import { Omit } from '../types'
+import {
+  ControlledProps,
+  Uncontrolled,
+  ValueChangeEvent,
+} from './Uncontrolled'
 
-export interface TabsChangeEvent {
-  readonly name?: string
-  readonly value: string
-}
+export interface TabsChangeEvent extends ValueChangeEvent<string> {}
 
 type TabsSize = 'small' | 'medium' | 'large'
 
@@ -55,15 +57,19 @@ export const TabsItem: React.FC<TabsItemProps> = args => {
   )
 }
 
-interface TabsViewProps extends React.HTMLAttributes<HTMLDivElement>, Helpers {
+interface TabsViewProps
+  extends Omit<
+      React.HTMLAttributes<HTMLDivElement>,
+      'onChange' | 'name' | 'value'
+    >,
+    ControlledProps<string>,
+    Helpers {
   readonly size?: TabsSize
   readonly alignment?: TabsAlignment
   readonly fullWidth?: boolean
   readonly tabsStyle?: TabsStyle
-  readonly name?: string
-  readonly selectedTab?: string
-  readonly readOnly?: boolean
-  onTabChange?(evt: TabsChangeEvent): void
+
+  onChange?(evt: TabsChangeEvent): void
 }
 
 const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
@@ -72,8 +78,8 @@ const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
   fullWidth,
   tabsStyle,
   name,
-  selectedTab,
-  onTabChange,
+  value,
+  onChange,
   children,
   ...props
 }) => {
@@ -85,7 +91,7 @@ const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
     'is-fullwidth': fullWidth,
   })
   const selected: string =
-    selectedTab || ((children && children[0] && children[0].props.value) || '0')
+    value || ((children && children[0] && children[0].props.value) || '0')
   return (
     <Div {...props} className={classes}>
       <ul>
@@ -101,7 +107,7 @@ const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
             value,
             _active: selected === value,
             _setSelectedTab: ({ value }: TabsChangeEvent) =>
-              onTabChange && onTabChange({ name, value }),
+              onChange && onChange({ name, value }),
           })
         })}
       </ul>
@@ -113,32 +119,6 @@ export interface TabsProps extends TabsViewProps {
   readonly defaultValue?: string
 }
 
-export const Tabs: React.FC<TabsProps> = ({
-  defaultValue,
-  children,
-  ...props
-}) => {
-  warning(
-    !(props.selectedTab && !props.onTabChange && !props.readOnly),
-    `for Tabs ${
-      props.name
-    }, 'selectedTab' provided, but not 'onTabChange', make this component readOnly.`,
-  )
-
-  return props.selectedTab !== undefined ? (
-    <TabsView {...props}>{children}</TabsView>
-  ) : (
-    <State
-      initial={props.selectedTab || defaultValue}
-      render={({ value, set }) => (
-        <TabsView
-          {...props}
-          selectedTab={value}
-          onTabChange={({ value }) => set(value)}
-        >
-          {children}
-        </TabsView>
-      )}
-    />
-  )
-}
+export const Tabs: React.FC<TabsProps> = props => (
+  <Uncontrolled {...props} component={TabsView} />
+)
