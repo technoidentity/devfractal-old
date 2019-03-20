@@ -1,11 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import {
-  Container,
-  SimpleRedirect,
-  StepComponent,
-  TableContentLoader,
-} from '../devfractal'
+import { Container, SimpleRedirect, TableContentLoader } from '../devfractal'
 import {
   BoxExample,
   BreadcrumbExample,
@@ -48,6 +43,7 @@ import {
   SimpleExamples,
   SimpleFormExample,
   SimpleTodo,
+  StepComponent,
   TableExample,
   TabsExample,
   TagExample,
