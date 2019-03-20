@@ -8,7 +8,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const GapColumnExample: React.FC = () => (
+export const Gap: React.FC = () => (
   <div>
     <Section>
       <Container>
