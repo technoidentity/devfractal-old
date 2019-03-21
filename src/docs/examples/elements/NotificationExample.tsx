@@ -1,76 +1,82 @@
 import React from 'react'
-import { Box, Delete, Notification, Section, Title } from '../devfractal'
+import {
+  Box,
+  Delete,
+  Notification as NotificationComponent,
+  Section,
+  Title,
+} from '../devfractal'
 
-export const BasicNotificationExample: React.FC = () => (
+const BasicNotificationExample: React.FC = () => (
   <Section>
     <Title>Default Notification</Title>
     <Box>
-      <Notification>
+      <NotificationComponent>
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
-      </Notification>
+      </NotificationComponent>
     </Box>
   </Section>
 )
 
-export const NotificationColorExample: React.FC = () => (
+const NotificationColorExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
-      <Notification variant="primary">
+      <NotificationComponent variant="primary">
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
         <Delete />
-      </Notification>
-      <Notification variant="success">
+      </NotificationComponent>
+      <NotificationComponent variant="success">
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
         <Delete />
-      </Notification>
-      <Notification variant="warning">
+      </NotificationComponent>
+      <NotificationComponent variant="warning">
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
         <Delete />
-      </Notification>
-      <Notification variant="danger">
+      </NotificationComponent>
+      <NotificationComponent variant="danger">
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
         <Delete />
-      </Notification>
-      <Notification variant="white">
+      </NotificationComponent>
+      <NotificationComponent variant="white">
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
         <Delete />
-      </Notification>
-      <Notification variant="black">
+      </NotificationComponent>
+      <NotificationComponent variant="black">
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
         <Delete />
-      </Notification>
-      <Notification variant="dark">
+      </NotificationComponent>
+      <NotificationComponent variant="dark">
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
         <Delete />
-      </Notification>
-      <Notification variant="light">
+      </NotificationComponent>
+      <NotificationComponent variant="light">
         Bold notification blocks, to alert your users of something Bold
         notification blocks, to alert your users of something Bold notification
         blocks, to alert your users of something
         <Delete />
-      </Notification>
+      </NotificationComponent>
     </Box>
   </Section>
 )
 
-export const NotificationExample: React.FC = () => (
+export const Notification: React.FC = () => (
   <>
     <BasicNotificationExample />
     <NotificationColorExample />

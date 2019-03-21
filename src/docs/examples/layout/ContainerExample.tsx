@@ -1,52 +1,57 @@
 import React from 'react'
-import { Container, Notification, Section, Title } from '../devfractal'
+import {
+  Container as ContainerComponent,
+  Notification,
+  Section,
+  Title,
+} from '../devfractal'
 
-export const CenteredContainerExample: React.FC = () => (
+const CenteredContainerExample: React.FC = () => (
   <Section>
     <Title>Centered container</Title>
-    <Container>
+    <ContainerComponent>
       <Notification>This container is centered on desktop.</Notification>
-    </Container>
+    </ContainerComponent>
   </Section>
 )
 
-export const FluidContainerExample: React.FC = () => (
+const FluidContainerExample: React.FC = () => (
   <Section>
     <div className="is-fullwidth">
       <Title>Fluid container</Title>
-      <Container fluid>
+      <ContainerComponent fluid>
         <Notification>
           This container is <strong>fluid</strong>: it will have a 32px gap on
           either side, on any viewport size.
         </Notification>
-      </Container>
+      </ContainerComponent>
     </div>
   </Section>
 )
 
-export const ContainerBreakpointExample: React.FC = () => (
+const ContainerBreakpointExample: React.FC = () => (
   <Section>
     <div className="is-fullwidth">
       <Title>Breakpoint containers</Title>
-      <Container breakpoint="widescreen">
+      <ContainerComponent breakpoint="widescreen">
         <Notification>
           This container is <strong>fullwidth</strong> <em>until</em> the
           <code>$widescreen</code> breakpoint.
         </Notification>
-      </Container>
+      </ContainerComponent>
     </div>
     <Section>
-      <Container breakpoint="fullhd">
+      <ContainerComponent breakpoint="fullhd">
         <Notification>
           This container is <strong>fullwidth</strong> <em>until</em> the
           <code>$fullhd</code> breakpoint.
         </Notification>
-      </Container>
+      </ContainerComponent>
     </Section>
   </Section>
 )
 
-export const ContainerExample: React.FC = () => (
+export const Container: React.FC = () => (
   <>
     <CenteredContainerExample />
     <FluidContainerExample />

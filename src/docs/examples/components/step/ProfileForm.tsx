@@ -5,10 +5,10 @@ import {
   FieldBody,
   FieldLabel,
   Input,
-  ProfileFormPropType,
   Section,
-  StepItemComponent,
 } from '../../devfractal'
+import { StepItemComponent } from './internal'
+import { ProfileFormPropType } from './types'
 
 export const ProfileForm: ({
   initialValues,

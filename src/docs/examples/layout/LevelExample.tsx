@@ -3,7 +3,7 @@ import {
   Button,
   Field,
   Input,
-  Level,
+  Level as LevelComponent,
   LevelItem,
   Section,
   SubTitle,
@@ -11,10 +11,10 @@ import {
   Title,
 } from '../devfractal'
 
-export const LevelLeftExample: React.FC = () => (
+const LevelLeftExample: React.FC = () => (
   <Section>
     <Title>Level left</Title>
-    <Level>
+    <LevelComponent>
       <LevelItem direction="left">
         <LevelItem>
           <SubTitle size="5">123 posts</SubTitle>
@@ -26,14 +26,14 @@ export const LevelLeftExample: React.FC = () => (
           </Field>
         </LevelItem>
       </LevelItem>
-    </Level>
+    </LevelComponent>
   </Section>
 )
 
-export const LevelRightExample: React.FC = () => (
+const LevelRightExample: React.FC = () => (
   <Section>
     <Title>Level Right</Title>
-    <Level>
+    <LevelComponent>
       <LevelItem direction="right">
         <LevelItem>
           <strong>All</strong>
@@ -51,14 +51,14 @@ export const LevelRightExample: React.FC = () => (
           <Button variant="success">New</Button>
         </LevelItem>
       </LevelItem>
-    </Level>
+    </LevelComponent>
   </Section>
 )
 
-export const CenteredLevelExample: React.FC = () => (
+const CenteredLevelExample: React.FC = () => (
   <Section>
     <Title>Centered level</Title>
-    <Level>
+    <LevelComponent>
       <LevelItem>
         <Section>
           <Text textAlignment="centered">Tweets</Text>
@@ -83,8 +83,8 @@ export const CenteredLevelExample: React.FC = () => (
           <Title>789</Title>
         </Section>
       </LevelItem>
-    </Level>
-    <Level>
+    </LevelComponent>
+    <LevelComponent>
       <LevelItem>
         <Section>
           <Text textAlignment="centered" textColor="info">
@@ -124,14 +124,14 @@ export const CenteredLevelExample: React.FC = () => (
           </Text>
         </Section>
       </LevelItem>
-    </Level>
+    </LevelComponent>
   </Section>
 )
 
-export const MobileLevelExample: React.FC = () => (
+const MobileLevelExample: React.FC = () => (
   <Section>
     <Title>Mobile level</Title>
-    <Level className="is-mobile">
+    <LevelComponent className="is-mobile">
       <LevelItem>
         <Section>
           <Text textAlignment="centered">Tweets</Text>
@@ -156,11 +156,11 @@ export const MobileLevelExample: React.FC = () => (
           <Title>789</Title>
         </Section>
       </LevelItem>
-    </Level>
+    </LevelComponent>
   </Section>
 )
 
-export const LevelExample: React.FC = () => (
+export const Level: React.FC = () => (
   <>
     <LevelRightExample />
     <LevelLeftExample />

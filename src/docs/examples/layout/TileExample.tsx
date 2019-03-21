@@ -1,35 +1,42 @@
 import React from 'react'
-import { Content, Image, Section, SubTitle, Tile, Title } from '../devfractal'
+import {
+  Content,
+  Image,
+  Section,
+  SubTitle,
+  Tile as TileComponent,
+  Title,
+} from '../devfractal'
 
-export const SimpleTilesExample: React.FC = () => (
+const SimpleTilesExample: React.FC = () => (
   <Section>
     <Title>Example</Title>
-    <Tile tileType="ancestor">
-      <Tile vertical size="8">
-        <Tile>
-          <Tile tileType="parent" vertical>
-            <Tile tileType="child" notification variant="primary">
+    <TileComponent tileType="ancestor">
+      <TileComponent vertical size="8">
+        <TileComponent>
+          <TileComponent tileType="parent" vertical>
+            <TileComponent tileType="child" notification variant="primary">
               <Title>Vertical...</Title>
               <SubTitle>Top tile</SubTitle>
-            </Tile>
-            <Tile tileType="child" notification variant="warning">
+            </TileComponent>
+            <TileComponent tileType="child" notification variant="warning">
               <Title>...tiles</Title>
               <SubTitle>Bottom tile</SubTitle>
-            </Tile>
-          </Tile>
-          <Tile tileType="parent">
-            <Tile tileType="child" notification variant="info">
+            </TileComponent>
+          </TileComponent>
+          <TileComponent tileType="parent">
+            <TileComponent tileType="child" notification variant="info">
               <Title>Middle tile</Title>
               <SubTitle>With an image</SubTitle>
               <Image
                 responsiveImageRatio="5by3"
                 src="https://bulma.io/images/placeholders/640x480.png"
               />
-            </Tile>
-          </Tile>
-        </Tile>
-        <Tile tileType="parent">
-          <Tile tileType="child" notification variant="danger">
+            </TileComponent>
+          </TileComponent>
+        </TileComponent>
+        <TileComponent tileType="parent">
+          <TileComponent tileType="child" notification variant="danger">
             <Title>Wide tile</Title>
             <SubTitle>Aligned with the right tile</SubTitle>
             <Content>
@@ -40,11 +47,11 @@ export const SimpleTilesExample: React.FC = () => (
                 facilisis.
               </p>
             </Content>
-          </Tile>
-        </Tile>
-      </Tile>
-      <Tile tileType="parent">
-        <Tile tileType="child" notification variant="success">
+          </TileComponent>
+        </TileComponent>
+      </TileComponent>
+      <TileComponent tileType="parent">
+        <TileComponent tileType="child" notification variant="success">
           <Content>
             <Title>Tall tile</Title>
             <SubTitle>With even more content</SubTitle>
@@ -73,36 +80,36 @@ export const SimpleTilesExample: React.FC = () => (
               </p>
             </Content>
           </Content>
-        </Tile>
-      </Tile>
-    </Tile>
+        </TileComponent>
+      </TileComponent>
+    </TileComponent>
   </Section>
 )
 
-export const TileModifiersExample: React.FC = () => (
+const TileModifiersExample: React.FC = () => (
   <Section>
     <Title>Modifiers</Title>
-    <Tile tileType="ancestor">
-      <Tile size="4" vertical tileType="parent">
-        <Tile tileType="child" box>
+    <TileComponent tileType="ancestor">
+      <TileComponent size="4" vertical tileType="parent">
+        <TileComponent tileType="child" box>
           <Title>One</Title>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
             ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
             non massa sem. Etiam finibus odio quis feugiat facilisis.
           </p>
-        </Tile>
-        <Tile tileType="child" box>
+        </TileComponent>
+        <TileComponent tileType="child" box>
           <Title>Two</Title>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
             ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
             non massa sem. Etiam finibus odio quis feugiat facilisis.
           </p>
-        </Tile>
-      </Tile>
-      <Tile tileType="parent">
-        <Tile tileType="child" box>
+        </TileComponent>
+      </TileComponent>
+      <TileComponent tileType="parent">
+        <TileComponent tileType="child" box>
           <Title>Three</Title>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
@@ -126,41 +133,41 @@ export const TileModifiersExample: React.FC = () => (
             nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero.
             Quisque non semper leo.
           </p>
-        </Tile>
-      </Tile>
-    </Tile>
+        </TileComponent>
+      </TileComponent>
+    </TileComponent>
   </Section>
 )
 
-export const NestedTilesExample: React.FC = () => (
+const NestedTilesExample: React.FC = () => (
   <Section>
     <Title>Nesting requirements</Title>
-    <Tile className="is-ancestor">
-      <Tile vertical size="8">
-        <Tile>
-          <Tile tileType="parent" vertical>
-            <Tile tileType="child" box>
+    <TileComponent className="is-ancestor">
+      <TileComponent vertical size="8">
+        <TileComponent>
+          <TileComponent tileType="parent" vertical>
+            <TileComponent tileType="child" box>
               <Title>Vertical tiles</Title>
               <SubTitle>Top box</SubTitle>
-            </Tile>
-            <Tile tileType="child" box>
+            </TileComponent>
+            <TileComponent tileType="child" box>
               <Title>Vertical tiles</Title>
               <SubTitle>Bottom box</SubTitle>
-            </Tile>
-          </Tile>
-          <Tile tileType="parent">
-            <Tile tileType="child" box>
+            </TileComponent>
+          </TileComponent>
+          <TileComponent tileType="parent">
+            <TileComponent tileType="child" box>
               <Title>Middle box</Title>
               <SubTitle>With an image</SubTitle>
               <Image
                 responsiveImageRatio="5by3"
                 src="https://bulma.io/images/placeholders/640x480.png"
               />
-            </Tile>
-          </Tile>
-        </Tile>
-        <Tile tileType="parent">
-          <Tile tileType="child" box>
+            </TileComponent>
+          </TileComponent>
+        </TileComponent>
+        <TileComponent tileType="parent">
+          <TileComponent tileType="child" box>
             <Title>Wide Column</Title>
             <SubTitle>Aligned with the right Column</SubTitle>
             <Content>
@@ -171,11 +178,11 @@ export const NestedTilesExample: React.FC = () => (
                 facilisis.
               </p>
             </Content>
-          </Tile>
-        </Tile>
-      </Tile>
-      <Tile tileType="parent">
-        <Tile tileType="child" box>
+          </TileComponent>
+        </TileComponent>
+      </TileComponent>
+      <TileComponent tileType="parent">
+        <TileComponent tileType="child" box>
           <Content>
             <Title>Tall Column</Title>
             <SubTitle>With even more content</SubTitle>
@@ -204,13 +211,13 @@ export const NestedTilesExample: React.FC = () => (
               </p>
             </Content>
           </Content>
-        </Tile>
-      </Tile>
-    </Tile>
+        </TileComponent>
+      </TileComponent>
+    </TileComponent>
   </Section>
 )
 
-export const TileExample: React.FC = () => (
+export const Tile: React.FC = () => (
   <>
     <SimpleTilesExample />
     <TileModifiersExample />

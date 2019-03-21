@@ -6,9 +6,9 @@ import {
   FieldLabel,
   Input,
   Section,
-  SocialFormPropType,
-  StepItemComponent,
 } from '../../devfractal'
+import { StepItemComponent } from './internal'
+import { SocialFormPropType } from './types'
 
 export const SocialForm: ({
   initialValues,

@@ -5,149 +5,149 @@ import {
   Delete,
   Field,
   Section,
-  Tag,
+  Tag as TagComponent,
   Tags,
   Text,
   Title,
 } from '../devfractal'
 
-export const BasicTagExample: React.FC = () => (
+const BasicTagExample: React.FC = () => (
   <Section>
     <Title>Default Tag</Title>
-    <Tag>Tag label</Tag>
+    <TagComponent>Tag label</TagComponent>
   </Section>
 )
 
-export const TagColorExample: React.FC = () => (
+const TagColorExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
       <Tags>
-        <Tag variant="black">Black</Tag>
-        <Tag variant="dark">Dark</Tag>
-        <Tag variant="light">Light</Tag>
-        <Tag variant="primary">Primary</Tag>
-        <Tag variant="link">Link</Tag>
-        <Tag variant="info">Info</Tag>
-        <Tag variant="success">Success</Tag>
-        <Tag variant="warning">Warning</Tag>
-        <Tag variant="danger">Danger</Tag>
-        <Tag variant="white">White</Tag>
+        <TagComponent variant="black">Black</TagComponent>
+        <TagComponent variant="dark">Dark</TagComponent>
+        <TagComponent variant="light">Light</TagComponent>
+        <TagComponent variant="primary">Primary</TagComponent>
+        <TagComponent variant="link">Link</TagComponent>
+        <TagComponent variant="info">Info</TagComponent>
+        <TagComponent variant="success">Success</TagComponent>
+        <TagComponent variant="warning">Warning</TagComponent>
+        <TagComponent variant="danger">Danger</TagComponent>
+        <TagComponent variant="white">White</TagComponent>
       </Tags>
     </Box>
   </Section>
 )
 
-export const TagSizeExample: React.FC = () => (
+const TagSizeExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
       <Tags>
-        <Tag size="normal">Normal</Tag>
-        <Tag size="medium">Medium</Tag>
-        <Tag size="large">Large</Tag>
+        <TagComponent size="normal">Normal</TagComponent>
+        <TagComponent size="medium">Medium</TagComponent>
+        <TagComponent size="large">Large</TagComponent>
       </Tags>
     </Box>
   </Section>
 )
 
-export const TagModifiersExample: React.FC = () => (
+const TagModifiersExample: React.FC = () => (
   <Section>
     <Title>Modifiers</Title>
     <Box>
       <Tags>
-        <Tag modifier="rounded">Rounded</Tag>
-        <Tag modifier="delete" />
+        <TagComponent modifier="rounded">Rounded</TagComponent>
+        <TagComponent modifier="delete" />
       </Tags>
     </Box>
   </Section>
 )
 
-export const CombinationsExample: React.FC = () => (
+const CombinationsExample: React.FC = () => (
   <Section>
     <Title>Combinations</Title>
     <Box>
       <Tags>
-        <Tag variant="success">
+        <TagComponent variant="success">
           Bar
           <Delete size="small" />
-        </Tag>
-        <Tag variant="warning" size="medium">
+        </TagComponent>
+        <TagComponent variant="warning" size="medium">
           Hello
           <Delete size="small" />
-        </Tag>
-        <Tag variant="danger" size="large">
+        </TagComponent>
+        <TagComponent variant="danger" size="large">
           World
           <Delete size="large" />
-        </Tag>
+        </TagComponent>
       </Tags>
     </Box>
   </Section>
 )
 
-export const TagAlignmentExample: React.FC = () => (
+const TagAlignmentExample: React.FC = () => (
   <Section>
     <Title>Alignment</Title>
     <Box>
       <Text>Centered </Text>
       <Tags alignment="centered">
-        <Tag size="normal">Normal</Tag>
-        <Tag size="medium">Medium</Tag>
-        <Tag size="large">Large</Tag>
+        <TagComponent size="normal">Normal</TagComponent>
+        <TagComponent size="medium">Medium</TagComponent>
+        <TagComponent size="large">Large</TagComponent>
       </Tags>
       <Text> Right</Text>
       <Tags alignment="right">
-        <Tag size="normal">Normal</Tag>
-        <Tag size="medium">Medium</Tag>
-        <Tag size="large">Large</Tag>
+        <TagComponent size="normal">Normal</TagComponent>
+        <TagComponent size="medium">Medium</TagComponent>
+        <TagComponent size="large">Large</TagComponent>
       </Tags>
     </Box>
   </Section>
 )
 
-export const ListOfTagsExample: React.FC = () => (
+const ListOfTagsExample: React.FC = () => (
   <Section>
     <Title>List of Tags</Title>
     <Box>
       <Tags>
-        <Tag>One</Tag>
-        <Tag>Two</Tag>
-        <Tag>Three</Tag>
-        <Tag>Four</Tag>
-        <Tag>Five</Tag>
-        <Tag>Six</Tag>
-        <Tag>Seven</Tag>
-        <Tag>Eight</Tag>
-        <Tag>Nine</Tag>
-        <Tag>Ten</Tag>
-        <Tag>Eleven</Tag>
-        <Tag>Twelve</Tag>
+        <TagComponent>One</TagComponent>
+        <TagComponent>Two</TagComponent>
+        <TagComponent>Three</TagComponent>
+        <TagComponent>Four</TagComponent>
+        <TagComponent>Five</TagComponent>
+        <TagComponent>Six</TagComponent>
+        <TagComponent>Seven</TagComponent>
+        <TagComponent>Eight</TagComponent>
+        <TagComponent>Nine</TagComponent>
+        <TagComponent>Ten</TagComponent>
+        <TagComponent>Eleven</TagComponent>
+        <TagComponent>Twelve</TagComponent>
       </Tags>
     </Box>
   </Section>
 )
 
-export const AttachTagsTogetherExample: React.FC = () => (
+const AttachTagsTogetherExample: React.FC = () => (
   <Section>
     <Title>Attach Tags Together</Title>
     <Box>
       <Section>
         <Tags addons>
-          <Tag>Package</Tag>
-          <Tag variant="primary">Bulma</Tag>
+          <TagComponent>Package</TagComponent>
+          <TagComponent variant="primary">Bulma</TagComponent>
         </Tags>
         <Section>
           <Field groupedMultiline>
             <Control>
               <Tags addons>
-                <Tag variant="dark">npm</Tag>
-                <Tag variant="success">0.5.0</Tag>
+                <TagComponent variant="dark">npm</TagComponent>
+                <TagComponent variant="success">0.5.0</TagComponent>
               </Tags>
             </Control>
             <Control>
               <Tags addons>
-                <Tag variant="dark">Technology</Tag>
-                <Tag modifier="delete" />
+                <TagComponent variant="dark">Technology</TagComponent>
+                <TagComponent modifier="delete" />
               </Tags>
             </Control>
           </Field>
@@ -157,7 +157,7 @@ export const AttachTagsTogetherExample: React.FC = () => (
   </Section>
 )
 
-export const TagExample: React.FC = () => (
+export const Tag: React.FC = () => (
   <>
     <BasicTagExample />
     <TagColorExample />

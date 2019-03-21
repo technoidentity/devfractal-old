@@ -1,14 +1,14 @@
 import * as React from 'react'
 import {
-  AccountFormPropType,
   Button,
   Field,
   FieldBody,
   FieldLabel,
   Input,
   Section,
-  StepItemComponent,
 } from '../../devfractal'
+import { StepItemComponent } from './internal'
+import { AccountFormPropType } from './types'
 
 export const AccountForm: ({
   initialValues,

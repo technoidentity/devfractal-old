@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { logger } from '../common'
 import {
   Box,
-  Delete,
+  Delete as DeleteComponent,
   Message,
   MessageBody,
   MessageHeader,
@@ -13,48 +13,48 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicDeleteExample: React.FC = () => {
+const DynamicDeleteExample: React.FC = () => {
   const [click, setDeleted] = useState('click Me!')
 
   return (
     <Section>
       <Title>Dynamic Delete({click})</Title>
-      <Delete onClick={() => setDeleted('Deleted')} />
+      <DeleteComponent onClick={() => setDeleted('Deleted')} />
     </Section>
   )
 }
 
-export const DefaultDeleteExample: React.FC = () => (
+const DefaultDeleteExample: React.FC = () => (
   <Section>
     <Title>Default Delete</Title>
-    <Delete />
+    <DeleteComponent />
   </Section>
 )
 
-export const DeleteSizeExample: React.FC = () => (
+const DeleteSizeExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
-      <Delete size="small" />
-      <Delete />
-      <Delete size="medium" />
-      <Delete size="large" />
+      <DeleteComponent size="small" />
+      <DeleteComponent />
+      <DeleteComponent size="medium" />
+      <DeleteComponent size="large" />
     </Box>
   </Section>
 )
 
-export const DeleteCombinationsExample: React.FC = () => (
+const DeleteCombinationsExample: React.FC = () => (
   <Section>
     <Title>Combinations</Title>
     <Box>
       <Tags addons>
         <Tag variant="success">
           Hello World
-          <Delete />
+          <DeleteComponent />
         </Tag>
       </Tags>
       <Notification variant="danger">
-        <Delete
+        <DeleteComponent
           className="is-large"
           onClick={() => {
             logger('DeleteExample onClick')
@@ -66,7 +66,7 @@ export const DeleteCombinationsExample: React.FC = () => (
       <Message variant="info">
         <MessageHeader>
           Info
-          <Delete size="medium" />
+          <DeleteComponent size="medium" />
         </MessageHeader>
         <MessageBody>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
@@ -82,7 +82,7 @@ export const DeleteCombinationsExample: React.FC = () => (
   </Section>
 )
 
-export const DeleteExample: React.FC = () => (
+export const Delete: React.FC = () => (
   <>
     <DynamicDeleteExample />
     <DefaultDeleteExample />

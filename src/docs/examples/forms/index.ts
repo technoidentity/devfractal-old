@@ -1,8 +1,6 @@
-export * from './GeneralExample'
-export * from './SelectExample'
-export * from './InputExample'
-export * from './RadioExample'
-export * from './TextAreaExample'
-export * from './FileExample'
-export * from './ButtonExample'
-export * from './CheckBoxExample'
+import { dynamicRouter } from '../../../devfractal'
+import * as components from './internal'
+export const { Links: FormLinks, Routes: FormRoutes } = dynamicRouter(
+  components,
+  '/form',
+)

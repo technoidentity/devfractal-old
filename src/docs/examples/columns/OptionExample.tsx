@@ -8,7 +8,7 @@ import {
   Title,
 } from '../devfractal'
 
-export const OptionsColumnExample: React.FC = () => (
+export const Options: React.FC = () => (
   <div>
     <Section>
       <Container>

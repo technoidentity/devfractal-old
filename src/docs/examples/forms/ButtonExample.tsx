@@ -12,7 +12,7 @@ import {
 import React, { useState } from 'react'
 import {
   Box,
-  Button,
+  Button as ButtonComponent,
   ButtonsGroup,
   Field,
   Icon,
@@ -22,481 +22,481 @@ import {
   Title,
 } from '../devfractal'
 
-export const DynamicButtonExample: React.FC = () => {
+const DynamicButtonExample: React.FC = () => {
   const [click, setClick] = useState(false)
   return (
     <Section>
       <Title size="4">Dynamic Button</Title>
-      <Button onClick={() => setClick(!click)}>
+      <ButtonComponent onClick={() => setClick(!click)}>
         {click ? 'Done' : 'Click Me!'}
-      </Button>
+      </ButtonComponent>
     </Section>
   )
 }
 
-export const NormalButtonExample: React.FC = () => (
+const NormalButtonExample: React.FC = () => (
   <Section>
     <Title size="4">Normal button</Title>
-    <Button>Button</Button>
+    <ButtonComponent>Button</ButtonComponent>
   </Section>
 )
 
-export const TypesOfButtonExample: React.FC = () => (
+const TypesOfButtonExample: React.FC = () => (
   <Section>
     <Title size="4">Types of button</Title>
     <Field grouped>
-      <Button>Anchor</Button>
-      <Button>Button</Button>
-      <Button>Submit input</Button>
-      <Button>Reset input</Button>
+      <ButtonComponent>Anchor</ButtonComponent>
+      <ButtonComponent>Button</ButtonComponent>
+      <ButtonComponent>Submit input</ButtonComponent>
+      <ButtonComponent>Reset input</ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ButtonColorsExample: React.FC = () => (
+const ButtonColorsExample: React.FC = () => (
   <Section>
     <Title size="4">Colors</Title>
     <Field grouped>
-      <Button variant="white">White</Button>
-      <Button variant="light">Light</Button>
-      <Button variant="dark">Dark</Button>
-      <Button variant="black">Black</Button>
-      <Button variant="text">Text</Button>
+      <ButtonComponent variant="white">White</ButtonComponent>
+      <ButtonComponent variant="light">Light</ButtonComponent>
+      <ButtonComponent variant="dark">Dark</ButtonComponent>
+      <ButtonComponent variant="black">Black</ButtonComponent>
+      <ButtonComponent variant="text">Text</ButtonComponent>
     </Field>
     <Field grouped>
-      <Button variant="primary">primary</Button>
-      <Button variant="link">link</Button>
-      <Button variant="info">info</Button>
-      <Button variant="success">success</Button>
-      <Button variant="warning">warning</Button>
-      <Button variant="danger">Danger</Button>
+      <ButtonComponent variant="primary">primary</ButtonComponent>
+      <ButtonComponent variant="link">link</ButtonComponent>
+      <ButtonComponent variant="info">info</ButtonComponent>
+      <ButtonComponent variant="success">success</ButtonComponent>
+      <ButtonComponent variant="warning">warning</ButtonComponent>
+      <ButtonComponent variant="danger">Danger</ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ButtonSizesExample: React.FC = () => (
+const ButtonSizesExample: React.FC = () => (
   <Section>
     <Title size="4">Sizes</Title>
     <Field grouped>
-      <Button size="small">Small</Button>
-      <Button>Default</Button>
-      <Button size="normal">Normal</Button>
-      <Button size="medium">Medium</Button>
-      <Button size="large">Large</Button>
+      <ButtonComponent size="small">Small</ButtonComponent>
+      <ButtonComponent>Default</ButtonComponent>
+      <ButtonComponent size="normal">Normal</ButtonComponent>
+      <ButtonComponent size="medium">Medium</ButtonComponent>
+      <ButtonComponent size="large">Large</ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ButtonStylesExample: React.FC = () => (
+const ButtonStylesExample: React.FC = () => (
   <Section>
     <Title size="4">Styles</Title>
     <Label>Outlined</Label>
     <Field grouped>
-      <Button outlined>Outlined</Button>
-      <Button variant="primary" outlined>
+      <ButtonComponent outlined>Outlined</ButtonComponent>
+      <ButtonComponent variant="primary" outlined>
         Outlined
-      </Button>
-      <Button variant="link" outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="link" outlined>
         Outlined
-      </Button>
-      <Button variant="info" outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="info" outlined>
         Outlined
-      </Button>
-      <Button variant="success" outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="success" outlined>
         Outlined
-      </Button>
-      <Button variant="danger" outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="danger" outlined>
         Outlined
-      </Button>
+      </ButtonComponent>
     </Field>
 
     <Label>Inverted</Label>
     <Field grouped>
-      <Button inverted>inverted</Button>
-      <Button variant="primary" inverted>
+      <ButtonComponent inverted>inverted</ButtonComponent>
+      <ButtonComponent variant="primary" inverted>
         inverted
-      </Button>
-      <Button variant="link" inverted>
+      </ButtonComponent>
+      <ButtonComponent variant="link" inverted>
         inverted
-      </Button>
-      <Button variant="info" inverted>
+      </ButtonComponent>
+      <ButtonComponent variant="info" inverted>
         inverted
-      </Button>
-      <Button variant="success" inverted>
+      </ButtonComponent>
+      <ButtonComponent variant="success" inverted>
         inverted
-      </Button>
-      <Button variant="danger" inverted>
+      </ButtonComponent>
+      <ButtonComponent variant="danger" inverted>
         inverted
-      </Button>
+      </ButtonComponent>
     </Field>
 
     <Label>Invert Outlined</Label>
     <Field grouped>
-      <Button inverted outlined>
+      <ButtonComponent inverted outlined>
         inverted outlined
-      </Button>
-      <Button variant="primary" inverted outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="primary" inverted outlined>
         inverted outlined
-      </Button>
-      <Button variant="link" inverted outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="link" inverted outlined>
         inverted outlined
-      </Button>
-      <Button variant="info" inverted outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="info" inverted outlined>
         inverted outlined
-      </Button>
-      <Button variant="success" inverted outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="success" inverted outlined>
         inverted outlined
-      </Button>
-      <Button variant="danger" inverted outlined>
+      </ButtonComponent>
+      <ButtonComponent variant="danger" inverted outlined>
         inverted outlined
-      </Button>
+      </ButtonComponent>
     </Field>
 
     <Label>Rounded buttons</Label>
     <Field grouped>
-      <Button>Rounded</Button>
-      <Button variant="primary" rounded>
+      <ButtonComponent>Rounded</ButtonComponent>
+      <ButtonComponent variant="primary" rounded>
         Rounded
-      </Button>
-      <Button variant="link" rounded>
+      </ButtonComponent>
+      <ButtonComponent variant="link" rounded>
         Rounded
-      </Button>
-      <Button variant="dark" rounded>
+      </ButtonComponent>
+      <ButtonComponent variant="dark" rounded>
         Rounded
-      </Button>
-      <Button variant="success" rounded>
+      </ButtonComponent>
+      <ButtonComponent variant="success" rounded>
         Rounded
-      </Button>
-      <Button variant="danger" rounded>
+      </ButtonComponent>
+      <ButtonComponent variant="danger" rounded>
         Rounded
-      </Button>
+      </ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ButtonStatesExample: React.FC = () => (
+const ButtonStatesExample: React.FC = () => (
   <Section>
     <Title size="4">States</Title>
     <Label>Normal</Label>
     <Field grouped>
-      <Button>Normal</Button>
-      <Button variant="success">Normal</Button>
-      <Button variant="primary">Normal</Button>
-      <Button variant="success">Normal</Button>
-      <Button variant="warning">Normal</Button>
+      <ButtonComponent>Normal</ButtonComponent>
+      <ButtonComponent variant="success">Normal</ButtonComponent>
+      <ButtonComponent variant="primary">Normal</ButtonComponent>
+      <ButtonComponent variant="success">Normal</ButtonComponent>
+      <ButtonComponent variant="warning">Normal</ButtonComponent>
     </Field>
 
     <Label>Hover</Label>
     <Field grouped>
-      <Button state="hovered">Hover</Button>
-      <Button variant="success" state="hovered">
+      <ButtonComponent state="hovered">Hover</ButtonComponent>
+      <ButtonComponent variant="success" state="hovered">
         Hover
-      </Button>
-      <Button variant="primary" state="hovered">
+      </ButtonComponent>
+      <ButtonComponent variant="primary" state="hovered">
         Hover
-      </Button>
-      <Button variant="success" state="hovered">
+      </ButtonComponent>
+      <ButtonComponent variant="success" state="hovered">
         Hover
-      </Button>
-      <Button variant="warning" state="hovered">
+      </ButtonComponent>
+      <ButtonComponent variant="warning" state="hovered">
         Hover
-      </Button>
+      </ButtonComponent>
     </Field>
 
     <Label>Focus</Label>
 
     <Field grouped>
-      <Button state="focused">Focus</Button>
-      <Button variant="success" state="focused">
+      <ButtonComponent state="focused">Focus</ButtonComponent>
+      <ButtonComponent variant="success" state="focused">
         Focus
-      </Button>
-      <Button variant="primary" state="focused">
+      </ButtonComponent>
+      <ButtonComponent variant="primary" state="focused">
         Focus
-      </Button>
-      <Button variant="success" state="focused">
+      </ButtonComponent>
+      <ButtonComponent variant="success" state="focused">
         Focus
-      </Button>
-      <Button variant="warning" state="focused">
+      </ButtonComponent>
+      <ButtonComponent variant="warning" state="focused">
         Focus
-      </Button>
+      </ButtonComponent>
     </Field>
 
     <Label>Active</Label>
     <Field grouped>
-      <Button variant="primary" state="active">
+      <ButtonComponent variant="primary" state="active">
         active
-      </Button>
-      <Button variant="success" state="active">
+      </ButtonComponent>
+      <ButtonComponent variant="success" state="active">
         active
-      </Button>
-      <Button variant="link" state="active">
+      </ButtonComponent>
+      <ButtonComponent variant="link" state="active">
         active
-      </Button>
-      <Button variant="info" state="active">
+      </ButtonComponent>
+      <ButtonComponent variant="info" state="active">
         active
-      </Button>
-      <Button variant="warning" state="active">
+      </ButtonComponent>
+      <ButtonComponent variant="warning" state="active">
         active
-      </Button>
-      <Button variant="danger" state="active">
+      </ButtonComponent>
+      <ButtonComponent variant="danger" state="active">
         active
-      </Button>
+      </ButtonComponent>
     </Field>
 
     <Label>Loading</Label>
     <Field grouped>
-      <Button variant="primary" state="loading">
+      <ButtonComponent variant="primary" state="loading">
         loading
-      </Button>
-      <Button variant="success" state="loading">
+      </ButtonComponent>
+      <ButtonComponent variant="success" state="loading">
         loading
-      </Button>
-      <Button variant="link" state="loading">
+      </ButtonComponent>
+      <ButtonComponent variant="link" state="loading">
         loading
-      </Button>
-      <Button variant="info" state="loading">
+      </ButtonComponent>
+      <ButtonComponent variant="info" state="loading">
         loading
-      </Button>
-      <Button variant="warning" state="loading">
+      </ButtonComponent>
+      <ButtonComponent variant="warning" state="loading">
         loading
-      </Button>
-      <Button variant="danger" state="loading">
+      </ButtonComponent>
+      <ButtonComponent variant="danger" state="loading">
         loading
-      </Button>
+      </ButtonComponent>
     </Field>
   </Section>
 )
 
-export const StaticButtonExample: React.FC = () => (
+const StaticButtonExample: React.FC = () => (
   <Section>
     <Label>Static</Label>
-    <Button state="static">Static</Button>
+    <ButtonComponent state="static">Static</ButtonComponent>
   </Section>
 )
 
-export const DisabledButtonExample: React.FC = () => (
+const DisabledButtonExample: React.FC = () => (
   <Section>
     <Label>Disabled</Label>
     <Field grouped>
-      <Button variant="primary" disabled>
+      <ButtonComponent variant="primary" disabled>
         Disabled
-      </Button>
-      <Button variant="info" disabled>
+      </ButtonComponent>
+      <ButtonComponent variant="info" disabled>
         Disabled
-      </Button>
-      <Button variant="success" disabled>
+      </ButtonComponent>
+      <ButtonComponent variant="success" disabled>
         Disabled
-      </Button>
-      <Button variant="link" disabled>
+      </ButtonComponent>
+      <ButtonComponent variant="link" disabled>
         Disabled
-      </Button>
-      <Button variant="black" disabled>
+      </ButtonComponent>
+      <ButtonComponent variant="black" disabled>
         Disabled
-      </Button>
-      <Button variant="dark" disabled>
+      </ButtonComponent>
+      <ButtonComponent variant="dark" disabled>
         Disabled
-      </Button>
+      </ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ButtonWithFontAwesomeIconsExample: React.FC = () => (
+const ButtonWithFontAwesomeIconsExample: React.FC = () => (
   <Section>
     <Title size="4">With Font Awesome icons</Title>
     <Field grouped>
-      <Button>
+      <ButtonComponent>
         <Icon icon={faBold} />
-      </Button>
-      <Button>
+      </ButtonComponent>
+      <ButtonComponent>
         <Icon icon={faItalic} />
-      </Button>
-      <Button>
+      </ButtonComponent>
+      <ButtonComponent>
         <Icon icon={faUnderline} />
-      </Button>
+      </ButtonComponent>
     </Field>
 
     <Field grouped>
-      <Button>
+      <ButtonComponent>
         <Icon icon={faGithub} /> <Text>GitHub</Text>
-      </Button>
-      <Button variant="primary">
+      </ButtonComponent>
+      <ButtonComponent variant="primary">
         <Icon icon={faTwitter} />
         <Text>Twitter</Text>
-      </Button>
-      <Button variant="success">
+      </ButtonComponent>
+      <ButtonComponent variant="success">
         <Icon icon={faCheck} />
         <Text>Save</Text>
-      </Button>
-      <Button outlined variant="danger">
+      </ButtonComponent>
+      <ButtonComponent outlined variant="danger">
         <Icon icon={faTimes} />
         <Text>Delete</Text>
-      </Button>
+      </ButtonComponent>
     </Field>
 
     <Field grouped>
-      <Button size="small">
+      <ButtonComponent size="small">
         <Icon icon={faGithub} />
         <Text> GitHub</Text>
-      </Button>
-      <Button size="normal">
+      </ButtonComponent>
+      <ButtonComponent size="normal">
         <Icon icon={faGithub} /> <Text>GitHub</Text>
-      </Button>
-      <Button size="medium">
+      </ButtonComponent>
+      <ButtonComponent size="medium">
         <Icon icon={faGithub} /> <Text>GitHub</Text>
-      </Button>
-      <Button size="large">
+      </ButtonComponent>
+      <ButtonComponent size="large">
         <Icon icon={faGithub} /> <Text>GitHub</Text>
-      </Button>
+      </ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ButtonGroupExample: React.FC = () => (
+const ButtonGroupExample: React.FC = () => (
   <Section>
     <Title size="4">Button group</Title>
     <Field grouped>
-      <Button variant="link">save changes</Button>
-      <Button>Cancel</Button>
-      <Button variant="danger">Delete Post</Button>
+      <ButtonComponent variant="link">save changes</ButtonComponent>
+      <ButtonComponent>Cancel</ButtonComponent>
+      <ButtonComponent variant="danger">Delete Post</ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ButtonAddonsExample: React.FC = () => (
+const ButtonAddonsExample: React.FC = () => (
   <Section>
     <Title size="4">Button addons</Title>
     <Field addons>
-      <Button>
+      <ButtonComponent>
         <Icon icon={faAlignLeft} />
         <Text> Left</Text>
-      </Button>
-      <Button>
+      </ButtonComponent>
+      <ButtonComponent>
         <Icon icon={faAlignCenter} />
         <Text>Center</Text>
-      </Button>
-      <Button>
+      </ButtonComponent>
+      <ButtonComponent>
         <Icon icon={faAlignRight} />
         <Text>Right</Text>
-      </Button>
+      </ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ButtonGroupWithAddonsExample: React.FC = () => (
+const ButtonGroupWithAddonsExample: React.FC = () => (
   <Section>
     <Title size="4">Button group with addons</Title>
     <Field addons>
-      <Button>
+      <ButtonComponent>
         <Icon icon={faBold} />
         <Text>Bold</Text>
-      </Button>
-      <Button>
+      </ButtonComponent>
+      <ButtonComponent>
         <Icon icon={faItalic} />
         <Text>Italic</Text>
-      </Button>
-      <Button>
+      </ButtonComponent>
+      <ButtonComponent>
         <Icon icon={faUnderline} />
         <Text>Underline</Text>
-      </Button>
+      </ButtonComponent>
     </Field>
     <Field addons>
-      <Button>
+      <ButtonComponent>
         <Icon icon={faAlignLeft} /> <Text>Left</Text>
-      </Button>
-      <Button>
+      </ButtonComponent>
+      <ButtonComponent>
         <Icon icon={faAlignCenter} />
         <Text>Center</Text>
-      </Button>
-      <Button>
+      </ButtonComponent>
+      <ButtonComponent>
         <Icon icon={faAlignRight} />
         <Text>Right</Text>
-      </Button>
+      </ButtonComponent>
     </Field>
   </Section>
 )
 
-export const ListOfButtonsExample: React.FC = () => (
+const ListOfButtonsExample: React.FC = () => (
   <Section>
     <Title size="4">List of buttons</Title>
     <ButtonsGroup>
-      <Button variant="success">Save changes</Button>
-      <Button variant="info">Save and continue</Button>
-      <Button variant="danger">Cancel</Button>
+      <ButtonComponent variant="success">Save changes</ButtonComponent>
+      <ButtonComponent variant="info">Save and continue</ButtonComponent>
+      <ButtonComponent variant="danger">Cancel</ButtonComponent>
     </ButtonsGroup>
 
     <ButtonsGroup>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-      <Button>Four</Button>
-      <Button>Five</Button>
-      <Button>Six</Button>
-      <Button>Seven</Button>
-      <Button>Eight</Button>
-      <Button>Nine</Button>
-      <Button>Ten</Button>
-      <Button>Eleven</Button>
-      <Button>Twelve</Button>
-      <Button>Thirteen</Button>
-      <Button>Fourteen</Button>
-      <Button>Fifteen</Button>
-      <Button>Sixteen</Button>
-      <Button>Seventeen</Button>
-      <Button>Eighteen</Button>
-      <Button>Nineteen</Button>
-      <Button>Twenty</Button>
+      <ButtonComponent>One</ButtonComponent>
+      <ButtonComponent>Two</ButtonComponent>
+      <ButtonComponent>Three</ButtonComponent>
+      <ButtonComponent>Four</ButtonComponent>
+      <ButtonComponent>Five</ButtonComponent>
+      <ButtonComponent>Six</ButtonComponent>
+      <ButtonComponent>Seven</ButtonComponent>
+      <ButtonComponent>Eight</ButtonComponent>
+      <ButtonComponent>Nine</ButtonComponent>
+      <ButtonComponent>Ten</ButtonComponent>
+      <ButtonComponent>Eleven</ButtonComponent>
+      <ButtonComponent>Twelve</ButtonComponent>
+      <ButtonComponent>Thirteen</ButtonComponent>
+      <ButtonComponent>Fourteen</ButtonComponent>
+      <ButtonComponent>Fifteen</ButtonComponent>
+      <ButtonComponent>Sixteen</ButtonComponent>
+      <ButtonComponent>Seventeen</ButtonComponent>
+      <ButtonComponent>Eighteen</ButtonComponent>
+      <ButtonComponent>Nineteen</ButtonComponent>
+      <ButtonComponent>Twenty</ButtonComponent>
     </ButtonsGroup>
 
     <Box>
       <Label>Addons</Label>
       <ButtonsGroup addons>
-        <Button>Yes</Button>
-        <Button>Maybe</Button>
-        <Button>No</Button>
+        <ButtonComponent>Yes</ButtonComponent>
+        <ButtonComponent>Maybe</ButtonComponent>
+        <ButtonComponent>No</ButtonComponent>
       </ButtonsGroup>
       <Label>Addons centered</Label>
       <ButtonsGroup addons alignment="centered">
-        <Button>Yes</Button>
-        <Button>Maybe</Button>
-        <Button>No</Button>
+        <ButtonComponent>Yes</ButtonComponent>
+        <ButtonComponent>Maybe</ButtonComponent>
+        <ButtonComponent>No</ButtonComponent>
       </ButtonsGroup>
       <Label>Addons right</Label>
       <ButtonsGroup addons alignment="right">
-        <Button>Yes</Button>
-        <Button>Maybe</Button>
-        <Button>No</Button>
+        <ButtonComponent>Yes</ButtonComponent>
+        <ButtonComponent>Maybe</ButtonComponent>
+        <ButtonComponent>No</ButtonComponent>
       </ButtonsGroup>
     </Box>
 
     <Box>
       <ButtonsGroup addons>
-        <Button variant="success" state="selected">
+        <ButtonComponent variant="success" state="selected">
           Yes
-        </Button>
-        <Button>Maybe</Button>
-        <Button>No</Button>
+        </ButtonComponent>
+        <ButtonComponent>Maybe</ButtonComponent>
+        <ButtonComponent>No</ButtonComponent>
       </ButtonsGroup>
 
       <ButtonsGroup addons>
-        <Button>Yes</Button>
-        <Button variant="info" state="selected">
+        <ButtonComponent>Yes</ButtonComponent>
+        <ButtonComponent variant="info" state="selected">
           Maybe
-        </Button>
-        <Button>No</Button>
+        </ButtonComponent>
+        <ButtonComponent>No</ButtonComponent>
       </ButtonsGroup>
 
       <ButtonsGroup addons>
-        <Button>Yes</Button>
-        <Button>Maybe</Button>
-        <Button variant="danger" state="selected">
+        <ButtonComponent>Yes</ButtonComponent>
+        <ButtonComponent>Maybe</ButtonComponent>
+        <ButtonComponent variant="danger" state="selected">
           No
-        </Button>
+        </ButtonComponent>
       </ButtonsGroup>
     </Box>
   </Section>
 )
 
-export const ButtonExample: React.FC = () => (
+export const Button: React.FC = () => (
   <>
     <DynamicButtonExample />
     <NormalButtonExample />

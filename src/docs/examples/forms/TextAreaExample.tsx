@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Section, TextArea, Title } from '../devfractal'
+import { Section, TextArea as TextAreaComponent, Title } from '../devfractal'
 
-export const DynamicTextAreaExample: React.FC = () => {
+const DynamicTextAreaExample: React.FC = () => {
   const [change, setChange] = useState('')
   return (
     <Section>
       <Title size="4">Dynamic Textarea(Upper case)</Title>
-      <TextArea
+      <TextAreaComponent
         name="message"
         value={change}
         placeholder="Dynamic Textarea"
@@ -16,87 +16,99 @@ export const DynamicTextAreaExample: React.FC = () => {
   )
 }
 
-export const DefaultTextAreaExample: React.FC = () => (
+const DefaultTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Default Textarea</Title>
-    <TextArea placeholder="Default textArea" />
+    <TextAreaComponent placeholder="Default textArea" />
   </Section>
 )
 
-export const TextAreaColorsExample: React.FC = () => (
+const TextAreaColorsExample: React.FC = () => (
   <Section>
     <Title size="4">Colors</Title>
-    <TextArea variant="primary" placeholder="Primary textarea" />
-    <TextArea variant="info" placeholder="Info textarea" />
-    <TextArea variant="success" placeholder="Success textarea" />
-    <TextArea variant="warning" placeholder="Warning textarea" />
-    <TextArea variant="danger" placeholder="Danger textarea" />
-    <TextArea variant="light" placeholder="Light textarea" />
-    <TextArea variant="dark" placeholder="Dark textarea" />
-    <TextArea variant="black" placeholder="Black textarea" />
+    <TextAreaComponent variant="primary" placeholder="Primary textarea" />
+    <TextAreaComponent variant="info" placeholder="Info textarea" />
+    <TextAreaComponent variant="success" placeholder="Success textarea" />
+    <TextAreaComponent variant="warning" placeholder="Warning textarea" />
+    <TextAreaComponent variant="danger" placeholder="Danger textarea" />
+    <TextAreaComponent variant="light" placeholder="Light textarea" />
+    <TextAreaComponent variant="dark" placeholder="Dark textarea" />
+    <TextAreaComponent variant="black" placeholder="Black textarea" />
   </Section>
 )
 
-export const TextAreaSizesExample: React.FC = () => (
+const TextAreaSizesExample: React.FC = () => (
   <Section>
     <Title size="4">Sizes</Title>
-    <TextArea ctrlSize="small" placeholder="Small textarea" />
-    <TextArea placeholder="Normal textarea" />
-    <TextArea ctrlSize="medium" placeholder="Medium textarea" />
-    <TextArea ctrlSize="large" placeholder="Large textarea" />
+    <TextAreaComponent ctrlSize="small" placeholder="Small textarea" />
+    <TextAreaComponent placeholder="Normal textarea" />
+    <TextAreaComponent ctrlSize="medium" placeholder="Medium textarea" />
+    <TextAreaComponent ctrlSize="large" placeholder="Large textarea" />
   </Section>
 )
 
-export const TextAreaStatesExample: React.FC = () => (
+const TextAreaStatesExample: React.FC = () => (
   <Section>
     <Title size="4">States</Title>
-    <TextArea placeholder="Normal textarea" />
-    <TextArea state="active" placeholder="Active textarea" />
-    <TextArea state="hovered" placeholder="Hovered textarea" />
-    <TextArea state="focused" placeholder="Focused textarea" />
-    <TextArea loading placeholder="Loading textarea" />
+    <TextAreaComponent placeholder="Normal textarea" />
+    <TextAreaComponent state="active" placeholder="Active textarea" />
+    <TextAreaComponent state="hovered" placeholder="Hovered textarea" />
+    <TextAreaComponent state="focused" placeholder="Focused textarea" />
+    <TextAreaComponent loading placeholder="Loading textarea" />
   </Section>
 )
 
-export const CombineStylesOfTextAreaExample: React.FC = () => (
+const CombineStylesOfTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Resize Loading Spinner</Title>
-    <TextArea loading ctrlSize="small" placeholder="Small loading textarea" />
-    <TextArea loading placeholder="Normal loading textarea" />
-    <TextArea loading ctrlSize="medium" placeholder="Medium loading textarea" />
-    <TextArea loading ctrlSize="large" placeholder="Large loading textarea" />
+    <TextAreaComponent
+      loading
+      ctrlSize="small"
+      placeholder="Small loading textarea"
+    />
+    <TextAreaComponent loading placeholder="Normal loading textarea" />
+    <TextAreaComponent
+      loading
+      ctrlSize="medium"
+      placeholder="Medium loading textarea"
+    />
+    <TextAreaComponent
+      loading
+      ctrlSize="large"
+      placeholder="Large loading textarea"
+    />
   </Section>
 )
 
-export const DisabledTextAreaExample: React.FC = () => (
+const DisabledTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Disabled</Title>
-    <TextArea disabled placeholder="Disabled textarea" />
+    <TextAreaComponent disabled placeholder="Disabled textarea" />
   </Section>
 )
 
-export const FixedSizeTextAreaExample: React.FC = () => (
+const FixedSizeTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Fixed Size</Title>
-    <TextArea fixedSize />
+    <TextAreaComponent fixedSize />
   </Section>
 )
 
-export const TextAreaRowSizeExample: React.FC = () => (
+const TextAreaRowSizeExample: React.FC = () => (
   <Section>
     <Title size="4">Height</Title>
-    <TextArea rows={10} />
+    <TextAreaComponent rows={10} />
   </Section>
 )
 
-export const ReadonlyTextAreaExample: React.FC = () => (
+const ReadonlyTextAreaExample: React.FC = () => (
   <Section>
     <Title size="4">Readonly</Title>
-    <TextArea readOnly value="The content is Readonly" />
+    <TextAreaComponent readOnly value="The content is Readonly" />
   </Section>
 )
 
-export const TextAreaExample: React.FC = () => (
+export const TextArea: React.FC = () => (
   <>
     <DynamicTextAreaExample />
     <DefaultTextAreaExample />
