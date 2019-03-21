@@ -9,7 +9,6 @@ import {
 } from 'io-ts'
 
 // tslint:disable typedef
-
 export const TodoRT = readonly(
   type({
     id: number,

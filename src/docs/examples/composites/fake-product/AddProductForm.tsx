@@ -14,7 +14,7 @@ export const AddProductForm: React.SFC<AddProductFormProps> = ({
       <Title>AddProductForm</Title>
       <Simple.Form
         initialValues={{ title: '', price: 0 }}
-        onSubmit={async (values, actions) => {
+        onSubmit={async (values: Omit<Product, 'id'>, actions) => {
           await onAddProduct(values)
           actions.setSubmitting(false)
         }}

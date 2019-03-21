@@ -24,6 +24,7 @@ export const FSAddTodoView: React.SFC<AddTodoProps> = ({ onAddTodo }) => {
 }
 
 export const FSAddTodo: React.FC = () => {
+  // tslint:disable-next-line: typedef
   const handleAddTodo = async (
     todo: Omit<FSTodo, 'id'>,
     actions: FormikActions<typeof todo>,

@@ -29,7 +29,7 @@ export const SimpleAddTodo: React.FC = () => (
     >
       <Simple.Text label="Title:" name="title" />
       <Simple.TextArea label="Description:" name="description" />
-      <Simple.Checkbox name="done"> Done </Simple.Checkbox>
+      <Simple.Checkbox name="done" />
       <Simple.FormButtons />
       <Simple.Debug />
     </Simple.Form>

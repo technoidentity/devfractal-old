@@ -2,9 +2,9 @@ export const capitalize: (arg: string) => string = arg => {
   return arg.length === 0 ? '' : arg[0].toUpperCase() + arg.slice(1)
 }
 
-export const toLower: (arg: string, delimiter: string) => string = (
+export const toLower: (arg: string, delimiter?: string) => string = (
   arg,
-  delimiter,
+  delimiter = ' ',
 ) => {
   if (arg.length === 0) {
     return ''
@@ -55,3 +55,12 @@ export const extractSegment: (
   const s: number = p.indexOf(upto)
   return s === -1 ? p.trim() : p.slice(0, s).trim()
 }
+
+export const capitalizeAll: (str: string, delimiter?: string) => string = (
+  str,
+  delimiter = ' ',
+) =>
+  str
+    .split(delimiter)
+    .map(capitalize)
+    .join(' ')

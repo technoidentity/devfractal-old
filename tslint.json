@@ -61,6 +61,7 @@
       "parameter",
       "property-declaration",
       "call-signature",
+      "variable-declaration",
       "member-variable-declaration"
     ],
     "variable-name": [
@@ -92,10 +93,9 @@
     "no-array-mutation": [
       true,
       "ignore-mutation-following-accessor",
-      "ignore-local",
       { "ignore-prefix": "draft" }
     ],
-    "no-object-mutation": [true, "ignore-local", { "ignore-prefix": "draft" }],
+    "no-object-mutation": [true, { "ignore-prefix": "draft" }],
     "no-let": [true, "ignore-local"],
     "no-delete": true,
     "no-misused-new": true,

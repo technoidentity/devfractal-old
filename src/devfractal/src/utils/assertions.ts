@@ -25,6 +25,17 @@ export const warning: (condition: unknown, message: string) => void = (
   }
 }
 
+export const fatal: (message?: string) => never = message => {
+  if (process.env.NODE_ENV === 'production') {
+    // In production we strip the message but still throw
+    throw new Error('Invariant failed')
+  } else {
+    // When not in production we allow the message to pass through
+    // *This block will be removed in production builds*
+    throw new Error(`Invariant failed: ${message || ''}`)
+  }
+}
+
 // copied from tiny-invariant package
 export const invariant: (condition: unknown, message?: string) => void = (
   condition,
@@ -34,12 +45,5 @@ export const invariant: (condition: unknown, message?: string) => void = (
     return
   }
 
-  if (process.env.NODE_ENV === 'production') {
-    // In production we strip the message but still throw
-    throw new Error('Invariant failed')
-  } else {
-    // When not in production we allow the message to pass through
-    // *This block will be removed in production builds*
-    throw new Error(`Invariant failed: ${message || ''}`)
-  }
+  return fatal(message)
 }

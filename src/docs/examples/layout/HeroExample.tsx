@@ -293,7 +293,7 @@ export const LargeHeroExample: React.FC = () => (
       </HeroBody>
       <HeroFoot>
         <Container>
-          <Tabs selectedTab="layout">
+          <Tabs value="layout">
             <TabsItem value="overview">Overview</TabsItem>
             <TabsItem value="modifiers">Modifiers</TabsItem>
             <TabsItem value="grid">Grid</TabsItem>
@@ -314,7 +314,7 @@ export const FullHeightHeroExample: React.FC = () => (
       <HeroHead>
         <Navbar>
           <Container>
-            <Tabs selectedTab="overview" readOnly>
+            <Tabs value="overview" readOnly>
               <TabsItem value="overview">Overview</TabsItem>
               <TabsItem value="modifiers">Modifiers</TabsItem>
               <TabsItem value="grid">Grid</TabsItem>
@@ -333,7 +333,7 @@ export const FullHeightHeroExample: React.FC = () => (
       </HeroBody>
       <HeroFoot>
         <Container>
-          <Tabs selectedTab="grid">
+          <Tabs value="grid">
             <TabsItem value="overview">Overview</TabsItem>
             <TabsItem value="modifiers">Modifiers</TabsItem>
             <TabsItem value="grid">Grid</TabsItem>

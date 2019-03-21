@@ -23,7 +23,12 @@ export function SimpleEditorView<T extends object>({
             {Boolean.is(data[key]) ? (
               <>
                 <Label>{camelCaseToPhrase(key)}</Label>
-                <Simple.Checkbox name={key} checked={data[key]} readOnly />
+                <Simple.Checkbox
+                  name={key}
+                  checked={data[key]}
+                  readOnly
+                  noLabel
+                />
               </>
             ) : Number.is(data[key]) ? (
               <Simple.Number

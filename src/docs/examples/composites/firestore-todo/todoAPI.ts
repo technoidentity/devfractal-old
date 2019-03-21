@@ -1,6 +1,8 @@
 import { Omit } from '../../devfractal'
 import { db } from './firestore'
 
+// tslint:disable typedef
+
 export interface FSTodo {
   readonly id: string
   readonly title: string
@@ -56,9 +58,3 @@ export const remove: (id: string) => Promise<void> = async id =>
     .collection('todos')
     .doc(id)
     .delete()
-
-export const todo = {
-  id: '126',
-  title: 'agsudi',
-  done: false,
-}

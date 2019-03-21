@@ -1,6 +1,6 @@
-export * from './BasicsExample'
-export * from './GapExample'
-export * from './NestingExample'
-export * from './OptionExample'
-export * from './ResponsiveExample'
-export * from './SizesExample'
+import { dynamicRouter } from '../../../devfractal'
+import * as components from './internal'
+export const { Links: ColumnsLinks, Routes: ColumnsRoutes } = dynamicRouter(
+  components,
+  '/columns',
+)

@@ -6,7 +6,7 @@ const SimpleTabsExample: React.FC = () => (
   <SimpleTabs
     name="simpleTab"
     values={['pictures', 'movies', 'music', 'documents']}
-    onTabChange={({ name, value }) => logger(`${name} : ${value}`)}
+    onChange={({ name, value }) => logger(`${name} : ${value}`)}
   />
 )
 

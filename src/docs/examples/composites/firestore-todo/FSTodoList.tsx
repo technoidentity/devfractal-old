@@ -3,6 +3,8 @@ import { Async, Table, TableBody, TableHead, Th, Tr } from '../../devfractal'
 import { FSTodoItem } from './FSTodoItem'
 import { all, FSTodo, remove } from './todoAPI'
 
+// tslint:disable typedef
+
 export interface FSTodoListProps {
   readonly todoList: ReadonlyArray<FSTodo>
   onDeleteTodo(id: string): void

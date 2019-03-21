@@ -1,7 +1,7 @@
 import { Props, ReadonlyC, TypeC } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
-import { formikSubmit, TVT } from '../lib'
+import { formikSubmit, TypeOfRT } from '../lib'
 import { APIRepository, CrudViewsResult, Repository, Views } from './internal'
 
 const base: (resource: string, basePath: string) => string = (
@@ -54,7 +54,7 @@ export const pathFns: (resource: string, basePath: string) => PathFns = (
 interface ComponentsArgsBase<
   T extends Props,
   ID extends keyof T,
-  R extends Repository<TVT<T>, ID> = Repository<TVT<T>, ID>
+  R extends Repository<TypeOfRT<T>, ID> = Repository<TypeOfRT<T>, ID>
 > {
   readonly api: R
   readonly basePath: string

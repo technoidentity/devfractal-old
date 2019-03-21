@@ -8,7 +8,7 @@ import t, {
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { Omit, toPromise, TVT, typeInvariant } from '../lib'
+import { eitherToPromise, Omit, typeInvariant, TypeOfRT } from '../lib'
 import { idRT } from './internal'
 
 export interface URLs {
@@ -62,14 +62,14 @@ export interface APIArgs<T extends Props, ID extends keyof T> {
 }
 
 export interface APIRepository<T extends Props, ID extends keyof T>
-  extends Repository<TVT<T>, ID>,
+  extends Repository<TypeOfRT<T>, ID>,
     Required<APIArgs<T, ID>> {}
 
 const request: <A>(
   value: Type<A>,
   promise: AxiosPromise<A>,
 ) => Promise<A> = async (value, promise) =>
-  toPromise(value.decode((await promise).data))
+  eitherToPromise(value.decode((await promise).data))
 
 export function api<T extends Props, ID extends keyof T>({
   baseUrl,

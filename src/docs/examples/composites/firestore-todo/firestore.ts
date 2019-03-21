@@ -1,5 +1,7 @@
 import firebase from 'firebase'
 
+// tslint:disable typedef
+
 const config = {
   apiKey: 'AIzaSyBvuH7aN4Om5nuw6gFEyLfiiNK3P-_0sas',
   authDomain: 'todos-93f0e.firebaseapp.com',

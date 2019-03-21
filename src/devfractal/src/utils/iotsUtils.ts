@@ -1,253 +1,62 @@
-import Chance from 'chance'
 import { Either } from 'fp-ts/lib/Either'
 import * as t from 'io-ts'
-import {
-  Array,
-  ArrayC,
-  ArrayType,
-  BooleanType,
-  Errors,
-  InterfaceType,
-  KeyofType,
-  Mixed,
-  NumberType,
-  Props,
-  ReadonlyArrayType,
-  ReadonlyC,
-  ReadonlyType,
-  StringType,
-  TypeC,
-  TypeOf,
-} from 'io-ts'
 import { reporter } from 'io-ts-reporters'
-import { DateType } from 'io-ts-types'
 import { String } from 'tcomb'
-import { invariant, warning } from './internal'
+import { fatal, warning } from './internal'
 
-export const typeInvariant: <Type extends Mixed, Value extends TypeOf<Type>>(
-  type: Type,
-  args: Value,
-) => Value = (type, args) => {
-  invariant(type.is(args), reporter(type.decode(args)).join('\n'))
-  return args
+export function typeInvariant<
+  Type extends t.Mixed,
+  Value extends t.TypeOf<Type>
+>(type: Type, args: Value): Value {
+  const decoded: Either<t.Errors, Value> = type.decode(args)
+  return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
 }
 
-export const typeWarning: <Type extends Mixed, Value extends TypeOf<Type>>(
+export function typeWarning<Type extends t.Mixed, Value extends t.TypeOf<Type>>(
   type: Type,
   args: Value,
-) => Value = (type, args) => {
-  warning(type.is(args), reporter(type.decode(args)).join('\n'))
-  return args
+): Value {
+  const decoded: Either<t.Errors, Value> = type.decode(args)
+  warning(type.is(args), reporter(decoded).join('\n'))
+  return decoded.getOrElse(args)
 }
 
-export type VT<T extends Props> = ReadonlyC<TypeC<T>>
-export type TVT<T extends Props> = TypeOf<VT<T>>
+export type RTType<T extends t.Props> = t.ReadonlyC<t.TypeC<T>>
+export type TypeOfRT<T extends t.Props> = t.TypeOf<RTType<T>>
 
 export const rejected: <T>(
-  decoded: Either<Errors, T> | string,
+  decoded: Either<t.Errors, T> | string,
 ) => Promise<T> = async decoded =>
   Promise.reject(
     new Error(String.is(decoded) ? decoded : reporter(decoded).join('\n')),
   )
 
-export const toPromise: <T>(
-  decoded: Either<Errors, T>,
-) => Promise<T> = async decoded =>
-  decoded.isRight() ? decoded.value : rejected(decoded)
+export const eitherToPromise: <T>(
+  either: Either<t.Errors, T>,
+) => Promise<T> = async either =>
+  either.isRight() ? either.value : rejected(either)
 
-const emptyValue: (v: unknown) => unknown = v => {
-  if (t.number.is(v)) {
-    return 0
-  }
-  if (t.string.is(v)) {
-    return ''
-  }
-  if (t.boolean.is(v)) {
-    return false
-  }
-  if (Array.is(v)) {
-    return []
-  }
-  return {}
-}
+export const opt: <P extends t.Props>(
+  props: P,
+  name?: string,
+) => t.ReadonlyC<t.PartialC<P>> = (props, name) =>
+  t.readonly(t.partial(props), name)
 
-// tslint:disable no-object-mutation
-export const emptyFromValue: <T extends object>(value: T) => T = value => {
-  const result: any = {}
-  Object.keys(value).forEach(k => (result[k] = emptyValue(value[k])))
-  return result
-}
+export const req: <P extends t.Props>(
+  props: P,
+  name?: string,
+) => t.ReadonlyC<t.TypeC<P>> = (obj, name) => t.readonly(t.type(obj), name)
 
-export function emptyFromType<T extends Props>(
-  typeValue: ReadonlyC<TypeC<T>>,
-  id?: keyof T,
-): TypeOf<typeof typeValue> {
-  const props: T = typeValue.type.props
-  const value: any = {}
-
-  Object.keys(props).forEach(prop => {
-    if (prop !== id) {
-      if (props[prop] instanceof NumberType || props[prop].name === 'Int') {
-        value[prop] = 0
-      } else if (props[prop] instanceof StringType) {
-        value[prop] = ''
-      } else if (props[prop] instanceof BooleanType) {
-        value[prop] = false
-        // @TODO: handle array and object
-      } else if (props[prop] instanceof DateType) {
-        value[prop] = new Date()
-      } else {
-        const v: Mixed = props[prop]
-        invariant(
-          !(v instanceof InterfaceType || v instanceof ArrayType),
-          `Everything must be readonly: ${v.name}`,
-        )
-        if (v instanceof KeyofType) {
-          value[prop] = Object.keys(v.keys)[0]
-        } else if (v instanceof ReadonlyType) {
-          value[prop] = emptyFromType(v, undefined)
-        } else if (v instanceof ReadonlyArrayType) {
-          value[prop] = []
-        } else {
-          throw new Error(`Unknown type ${props[prop]}`)
-        }
-      }
-    }
-  })
-
-  // warnProps(typeValue, value)
-  return value
-}
-
-const chance: Chance.Chance = new Chance()
-
-// tslint:disable typedef no-use-before-declare
-
-export const defaultOptions = {
-  integer: { min: 100, max: 1000 },
-  floating: { min: 0, max: 100, fixed: 2 },
-  sentence: { words: 4 },
-  array: { minLength: 0, maxLength: 6 },
-}
-
-type FakeOptions = typeof defaultOptions
-
-const fakeFloat: (options: FakeOptions) => number = options =>
-  chance.bool()
-    ? chance.floating(options.floating)
-    : chance.integer(options.integer)
-
-const fakePrimitive: <T extends Mixed>(
-  typeValue: T,
-  options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) => {
-  if (typeValue instanceof NumberType) {
-    return fakeFloat(options)
-  }
-  if (typeValue.name === 'Int') {
-    return chance.integer(options.integer)
-  }
-  if (typeValue instanceof StringType) {
-    return chance.sentence(options.sentence)
-  }
-  if (typeValue instanceof BooleanType) {
-    return chance.bool()
-  }
-  if (typeValue instanceof DateType) {
-    return chance.date()
-  }
-  if (typeValue instanceof KeyofType) {
-    return chance.pickone(Object.keys(typeValue.keys))
-  }
-  throw new Error(`Unsupported type: ${typeValue.name}`)
-}
-
-export const fakeArrayFromType: <T extends Mixed>(
-  typeValue: T,
-  options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) => {
-  const n = chance.integer({
-    min: options.array.minLength,
-    max: options.array.maxLength,
-  })
-
-  const result: any = []
-  // tslint:disable-next-line:no-loop-statement
-  for (let i = 0; i < n; i += 1) {
-    result.push(fake(typeValue, options))
-  }
-  return result
-}
-
-const fakeArray: <T extends Mixed>(
-  typeValue: ArrayC<T>,
-  options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) =>
-  fakeArrayFromType(typeValue.type, options)
-
-const fakeObject: <T extends Props>(
-  typeValue: TypeC<T>,
-  options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) => {
-  const props = typeValue.props
-  const value: any = {}
-  // tslint:disable no-object-mutation
-  Object.keys(props).forEach(p => (value[p] = fake(props[p], options)))
-  return value
-}
-
-export const fake: <T extends Mixed>(
-  typeValue: T,
-  options?: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options = defaultOptions) => {
-  if (typeValue instanceof ReadonlyType) {
-    return fake(typeValue.type, options)
-  }
-  if (typeValue instanceof ReadonlyArrayType) {
-    return fakeArrayFromType(typeValue.type, options)
-  }
-  if (typeValue instanceof ArrayType) {
-    return fakeArray(typeValue, options)
-  }
-  if (typeValue instanceof InterfaceType) {
-    return fakeObject(typeValue, options)
-  }
-  return fakePrimitive(typeValue, options)
-}
-
-// console.log(
-//   fake(
-//     t.readonly(
-//       t.type({
-//         d: date,
-//         e: t.keyof({ foo: 0, bar: 0 }),
-//         a: t.readonlyArray(t.string),
-//         o: t.type({ x: t.number, y: t.number }),
-//         o2: t.readonly(
-//           t.type({
-//             fizz: t.array(t.readonly(t.type({ buzz: t.boolean }))),
-//           }),
-//         ),
-//       }),
-//     ),
-//   ),
-// )
-
-// console.log(
-//   emptyFromType(
-//     t.readonly(
-//       t.type({
-//         x: t.number,
-//         d: date,
-//         e: t.keyof({ foo: 0, bar: 0 }),
-//         a: t.readonlyArray(t.string),
-//         o: t.readonly(t.type({ x: t.number, y: t.number })),
-//         o2: t.readonly(
-//           t.type({
-//             fizz: t.readonly(t.type({ buzz: t.boolean })),
-//           }),
-//         ),
-//       }),
-//     ),
-//   ),
-// )
+export const props: <O extends t.Props, R extends t.Props>(
+  optional: O,
+  required: R,
+  name?: string,
+) => t.IntersectionC<[t.ReadonlyC<t.PartialC<O>>, t.ReadonlyC<t.TypeC<R>>]> = (
+  optional,
+  required,
+  name,
+) =>
+  t.intersection(
+    [t.readonly(t.partial(optional)), t.readonly(t.type(required))],
+    name,
+  )

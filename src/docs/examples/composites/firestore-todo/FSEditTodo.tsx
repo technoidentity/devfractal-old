@@ -25,6 +25,7 @@ export interface FSEditTodoProps {
   readonly id: string
 }
 
+// tslint:disable-next-line: typedef
 const handleEditTodo = async (
   todo: FSTodo,
   actions: FormikActions<typeof todo>,

@@ -74,7 +74,7 @@ const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = () => {
           </Field>
 
           <Field grouped>
-            <RadioGroupField name="radio" defaultValue="yes">
+            <RadioGroupField name="radio">
               <Radio value="yes"> Yes</Radio>
               <Radio value="no"> No </Radio>
             </RadioGroupField>
@@ -103,7 +103,7 @@ export const initialValues: GeneralFormProps = {
   select: '',
   message: '',
   agree: false,
-  radio: '',
+  radio: 'no',
 }
 
 const validationSchema: ObjectSchema<GeneralFormProps> = object({
