@@ -1,76 +1,81 @@
 import React from 'react'
-import { Box, ProgressBar, Section, Title } from '../devfractal'
+import {
+  Box,
+  ProgressBar as ProgressBarComponent,
+  Section,
+  Title,
+} from '../devfractal'
 
-export const BasicProgressBarExample: React.FC = () => (
+const BasicProgressBarExample: React.FC = () => (
   <Section>
     <Title>Default Progress bar</Title>
     <Box>
-      <ProgressBar value="15" max="100">
+      <ProgressBarComponent value="15" max="100">
         15%
-      </ProgressBar>
+      </ProgressBarComponent>
     </Box>
   </Section>
 )
 
-export const ProgressBarColorExample: React.FC = () => (
+const ProgressBarColorExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
-      <ProgressBar variant="primary" size="large" value="15" max="100">
+      <ProgressBarComponent variant="primary" size="large" value="15" max="100">
         15%
-      </ProgressBar>
-      <ProgressBar variant="link" value="30" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="link" value="30" max="100">
         30%
-      </ProgressBar>
-      <ProgressBar variant="info" value="45" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="info" value="45" max="100">
         45%
-      </ProgressBar>
-      <ProgressBar variant="success" value="60" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="success" value="60" max="100">
         60%
-      </ProgressBar>
-      <ProgressBar variant="warning" value="75" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="warning" value="75" max="100">
         75%
-      </ProgressBar>
-      <ProgressBar variant="danger" value="90" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="danger" value="90" max="100">
         90%
-      </ProgressBar>
-      <ProgressBar variant="light" value="30" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="light" value="30" max="100">
         90%
-      </ProgressBar>
-      <ProgressBar variant="dark" value="45" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="dark" value="45" max="100">
         90%
-      </ProgressBar>
-      <ProgressBar variant="white" value="60" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="white" value="60" max="100">
         90%
-      </ProgressBar>
-      <ProgressBar variant="black" value="75" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent variant="black" value="75" max="100">
         90%
-      </ProgressBar>
+      </ProgressBarComponent>
     </Box>
   </Section>
 )
 
-export const ProgressBarSizeExample: React.FC = () => (
+const ProgressBarSizeExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
-      <ProgressBar size="small" value="15" max="100">
+      <ProgressBarComponent size="small" value="15" max="100">
         15%
-      </ProgressBar>
-      <ProgressBar value="30" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent value="30" max="100">
         30%
-      </ProgressBar>
-      <ProgressBar size="medium" value="45" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent size="medium" value="45" max="100">
         45%
-      </ProgressBar>
-      <ProgressBar size="large" value="60" max="100">
+      </ProgressBarComponent>
+      <ProgressBarComponent size="large" value="60" max="100">
         60%
-      </ProgressBar>
+      </ProgressBarComponent>
     </Box>
   </Section>
 )
 
-export const ProgressBarExample: React.FC = () => (
+export const ProgressBar: React.FC = () => (
   <>
     <BasicProgressBarExample />
     <ProgressBarColorExample />

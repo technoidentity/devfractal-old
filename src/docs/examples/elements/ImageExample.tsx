@@ -1,51 +1,51 @@
 import React from 'react'
-import { Image, Section, Title } from '../devfractal'
+import { Image as ImageComponent, Section, Title } from '../devfractal'
 
-export const BasicImageExample: React.FC = () => (
+const BasicImageExample: React.FC = () => (
   <Section>
     <Title>Normal Image</Title>
-    <Image
+    <ImageComponent
       size="128x128"
       src="https://bulma.io/images/placeholders/128x128.png"
     />
   </Section>
 )
 
-export const FixedSquareImageExample: React.FC = () => (
+const FixedSquareImageExample: React.FC = () => (
   <Section>
     <Title>Fixed square images</Title>
     <Section>
-      <Image
+      <ImageComponent
         size="16x16"
         src="https://bulma.io/images/placeholders/128x128.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         size="24x24"
         src="https://bulma.io/images/placeholders/128x128.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         size="32x32"
         src="https://bulma.io/images/placeholders/128x128.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         size="48x48"
         src="https://bulma.io/images/placeholders/128x128.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         size="64x64"
         src="https://bulma.io/images/placeholders/128x128.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         size="128x128"
         src="https://bulma.io/images/placeholders/128x128.png"
       />
@@ -53,10 +53,10 @@ export const FixedSquareImageExample: React.FC = () => (
   </Section>
 )
 
-export const RoundedImageExample: React.FC = () => (
+const RoundedImageExample: React.FC = () => (
   <Section>
     <Title>Rounded image</Title>
-    <Image
+    <ImageComponent
       rounded
       size="96x96"
       src="https://bulma.io/images/placeholders/128x128.png"
@@ -64,105 +64,105 @@ export const RoundedImageExample: React.FC = () => (
   </Section>
 )
 
-export const RetinaImageExample: React.FC = () => (
+const RetinaImageExample: React.FC = () => (
   <Section>
     <Title>Retina image</Title>
-    <Image
+    <ImageComponent
       size="128x128"
       src="https://bulma.io/images/placeholders/256x256.png"
     />
   </Section>
 )
 
-export const ResponsiveImagesWithRatiosExample: React.FC = () => (
+const ResponsiveImagesWithRatiosExample: React.FC = () => (
   <Section>
     <Title>Responsive images with ratios</Title>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="1by1"
         src="https://bulma.io/images/placeholders/480x480.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="1by2"
         src="https://bulma.io/images/placeholders/320x640.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="1by3"
         src="https://bulma.io/images/placeholders/240x720.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="2by1"
         src="https://bulma.io/images/placeholders/640x320.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="3by1"
         src="https://bulma.io/images/placeholders/720x240.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="3by2"
         src="https://bulma.io/images/placeholders/480x320.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="2by3"
         src="https://bulma.io/images/placeholders/320x480.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="3by4"
         src="https://bulma.io/images/placeholders/480x640.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="3by5"
         src="https://bulma.io/images/placeholders/480x800.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="4by3"
         src="https://bulma.io/images/placeholders/640x480.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="4by5"
         src="https://bulma.io/images/placeholders/480x600.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="square"
         src="https://bulma.io/images/placeholders/480x480.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="5by3"
         src="https://bulma.io/images/placeholders/800x480.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="5by4"
         src="https://bulma.io/images/placeholders/600x480.png"
       />
     </Section>
     <Section>
-      <Image
+      <ImageComponent
         responsiveImageRatio="9by16"
         src="https://bulma.io/images/placeholders/360x640.png"
       />
@@ -170,7 +170,7 @@ export const ResponsiveImagesWithRatiosExample: React.FC = () => (
   </Section>
 )
 
-export const ImageExample: React.FC = () => (
+export const Image: React.FC = () => (
   <>
     <BasicImageExample />
     <FixedSquareImageExample />

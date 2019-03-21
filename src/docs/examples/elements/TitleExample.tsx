@@ -1,24 +1,24 @@
 import React from 'react'
-import { Box, Section, SubTitle, Title } from '../devfractal'
+import { Box, Section, SubTitle, Title as TitleComponent } from '../devfractal'
 
-export const TitleSizeExample: React.FC = () => (
+const TitleSizeExample: React.FC = () => (
   <Section>
-    <Title>Title Sizes</Title>
+    <TitleComponent>Title Sizes</TitleComponent>
     <Box>
-      <Title size="1">Title 1</Title>
-      <Title size="2">Title 2</Title>
-      <Title size="3">Title 3(default size)</Title>
-      <Title size="4">Title 4</Title>
-      <Title size="5">Title 5</Title>
-      <Title size="6">Title 6</Title>
-      <Title size="7">Title 7</Title>
+      <TitleComponent size="1">Title 1</TitleComponent>
+      <TitleComponent size="2">Title 2</TitleComponent>
+      <TitleComponent size="3">Title 3(default size)</TitleComponent>
+      <TitleComponent size="4">Title 4</TitleComponent>
+      <TitleComponent size="5">Title 5</TitleComponent>
+      <TitleComponent size="6">Title 6</TitleComponent>
+      <TitleComponent size="7">Title 7</TitleComponent>
     </Box>
   </Section>
 )
 
-export const SubtitleSizeExample: React.FC = () => (
+const SubtitleSizeExample: React.FC = () => (
   <Section>
-    <Title>Subtitle Sizes</Title>
+    <TitleComponent>Subtitle Sizes</TitleComponent>
     <Box>
       <SubTitle size="1">Subtitle 1</SubTitle>
       <SubTitle size="2">Subtitle 2</SubTitle>
@@ -31,41 +31,41 @@ export const SubtitleSizeExample: React.FC = () => (
   </Section>
 )
 
-export const CombinedExample: React.FC = () => (
+const CombinedExample: React.FC = () => (
   <Section>
-    <Title>Combined Example</Title>
+    <TitleComponent>Combined Example</TitleComponent>
     <Box>
-      <Title size="1">Title 1</Title>
+      <TitleComponent size="1">Title 1</TitleComponent>
       <SubTitle size="3">Subtitle 3</SubTitle>
-      <Title size="2">Title 2</Title>
+      <TitleComponent size="2">Title 2</TitleComponent>
       <SubTitle size="4">Subtitle 4</SubTitle>
-      <Title size="3">Title 3</Title>
+      <TitleComponent size="3">Title 3</TitleComponent>
       <SubTitle size="5">Subtitle 5</SubTitle>
     </Box>
   </Section>
 )
 
-export const WithSpacingExample: React.FC = () => (
+const WithSpacingExample: React.FC = () => (
   <Section>
-    <Title>With Spacing</Title>
+    <TitleComponent>With Spacing</TitleComponent>
     <Box>
-      <Title size="1" spaced>
+      <TitleComponent size="1" spaced>
         Title 1
-      </Title>
+      </TitleComponent>
       <SubTitle size="3">Subtitle 3</SubTitle>
-      <Title size="2" spaced>
+      <TitleComponent size="2" spaced>
         Title 2
-      </Title>
+      </TitleComponent>
       <SubTitle size="4">Subtitle 4</SubTitle>
-      <Title size="3" spaced>
+      <TitleComponent size="3" spaced>
         Title 3
-      </Title>
+      </TitleComponent>
       <SubTitle size="5">Subtitle 5</SubTitle>
     </Box>
   </Section>
 )
 
-export const TitleExample: React.FC = () => (
+export const Title: React.FC = () => (
   <>
     <TitleSizeExample />
     <SubtitleSizeExample />

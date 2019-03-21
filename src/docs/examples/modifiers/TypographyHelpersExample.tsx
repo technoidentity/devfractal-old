@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Section, Text, Title } from '../devfractal'
 
-export const TextSizesExample: React.FC = () => (
+const TextSizesExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
     <Box>
@@ -16,7 +16,7 @@ export const TextSizesExample: React.FC = () => (
   </Section>
 )
 
-export const TextResponsiveSizesExample: React.FC = () => (
+const TextResponsiveSizesExample: React.FC = () => (
   <Section>
     <Title>Responsive Size</Title>
     <Box>
@@ -42,7 +42,7 @@ export const TextResponsiveSizesExample: React.FC = () => (
   </Section>
 )
 
-export const TextColorHelperExample: React.FC = () => (
+const TextColorHelperExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
     <Box>
@@ -68,7 +68,7 @@ export const TextColorHelperExample: React.FC = () => (
   </Section>
 )
 
-export const TextAlignmentExample: React.FC = () => (
+const TextAlignmentExample: React.FC = () => (
   <Section>
     <Title>Alignment</Title>
     <Box>
@@ -80,7 +80,7 @@ export const TextAlignmentExample: React.FC = () => (
   </Section>
 )
 
-export const TextResponsiveAlignmentExample: React.FC = () => (
+const TextResponsiveAlignmentExample: React.FC = () => (
   <Section>
     <Title>Responsive Alignment</Title>
     <Box>
@@ -106,7 +106,7 @@ export const TextResponsiveAlignmentExample: React.FC = () => (
   </Section>
 )
 
-export const TextTransformationExample: React.FC = () => (
+const TextTransformationExample: React.FC = () => (
   <Section>
     <Title>Text Transformation</Title>
     <Box>
@@ -120,7 +120,7 @@ export const TextTransformationExample: React.FC = () => (
   </Section>
 )
 
-export const TextWeightExample: React.FC = () => (
+const TextWeightExample: React.FC = () => (
   <Section>
     <Title>Text Weight</Title>
     <Box>
@@ -132,7 +132,7 @@ export const TextWeightExample: React.FC = () => (
   </Section>
 )
 
-export const TypographyHelpersExample: React.FC = () => (
+export const Typography: React.FC = () => (
   <>
     <TextSizesExample />
     <TextAlignmentExample />

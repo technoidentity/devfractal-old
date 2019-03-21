@@ -2,7 +2,7 @@ import React from 'react'
 import { logger } from '../common'
 import {
   Section,
-  Table,
+  Table as TableComponent,
   TableBody,
   TableFoot,
   TableHead,
@@ -12,10 +12,10 @@ import {
   Tr,
 } from '../devfractal'
 
-export const BorderedTableExample: React.FC = () => (
+const BorderedTableExample: React.FC = () => (
   <Section>
     <Title>Bordered Table</Title>
-    <Table bordered>
+    <TableComponent bordered>
       <TableHead>
         <Tr>
           <Th>one</Th>
@@ -28,14 +28,14 @@ export const BorderedTableExample: React.FC = () => (
           <Td>four</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const StripedTableExample: React.FC = () => (
+const StripedTableExample: React.FC = () => (
   <Section>
     <Title>Striped Table</Title>
-    <Table striped>
+    <TableComponent striped>
       <TableHead>
         <Tr>
           <Th>one</Th>
@@ -64,14 +64,14 @@ export const StripedTableExample: React.FC = () => (
           <Td>twelve</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const NarrowTableExample: React.FC = () => (
+const NarrowTableExample: React.FC = () => (
   <Section>
     <Title>Narrow Table</Title>
-    <Table narrow>
+    <TableComponent narrow>
       <TableHead>
         <Tr>
           <Th>one</Th>
@@ -100,14 +100,14 @@ export const NarrowTableExample: React.FC = () => (
           <Td>twelve</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const HoverableTableExample: React.FC = () => (
+const HoverableTableExample: React.FC = () => (
   <Section>
     <Title>Hoverable Table</Title>
-    <Table hoverable>
+    <TableComponent hoverable>
       <TableHead>
         <Tr>
           <Th>one</Th>
@@ -136,14 +136,14 @@ export const HoverableTableExample: React.FC = () => (
           <Td>twelve</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const FullWidthTableExample: React.FC = () => (
+const FullWidthTableExample: React.FC = () => (
   <Section>
     <Title>FullWidth Table</Title>
-    <Table fullWidth>
+    <TableComponent fullWidth>
       <TableHead>
         <Tr>
           <Th>one</Th>
@@ -172,14 +172,14 @@ export const FullWidthTableExample: React.FC = () => (
           <Td>twelve</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const CombineAllModifiersExample: React.FC = () => (
+const CombineAllModifiersExample: React.FC = () => (
   <Section>
     <Title>Combine All Modifiers</Title>
-    <Table bordered striped narrow hoverable fullWidth>
+    <TableComponent bordered striped narrow hoverable fullWidth>
       <TableHead>
         <Tr>
           <Th>one</Th>
@@ -208,14 +208,14 @@ export const CombineAllModifiersExample: React.FC = () => (
           <Td>twelve</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const SelectedTdThExample: React.FC = () => (
+const SelectedTdThExample: React.FC = () => (
   <Section>
     <Title>Check selected for Td and Th</Title>
-    <Table bordered>
+    <TableComponent bordered>
       <TableHead>
         <Tr>
           <Th selected>one</Th>
@@ -232,14 +232,14 @@ export const SelectedTdThExample: React.FC = () => (
           <Td selected>six</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const ColorForThExample: React.FC = () => (
+const ColorForThExample: React.FC = () => (
   <Section>
     <Title>Check variants for Th</Title>
-    <Table bordered>
+    <TableComponent bordered>
       <TableHead>
         <Tr>
           <Th variant="primary">Primary</Th>
@@ -268,14 +268,14 @@ export const ColorForThExample: React.FC = () => (
           <Td>ten</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const ColorForTdExample: React.FC = () => (
+const ColorForTdExample: React.FC = () => (
   <Section>
     <Title>Check variants for Td</Title>
-    <Table bordered>
+    <TableComponent bordered>
       <TableHead>
         <Tr>
           <Th>Primary</Th>
@@ -304,14 +304,14 @@ export const ColorForTdExample: React.FC = () => (
           <Td variant="black">ten</Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const ExampleTable: React.FC = () => (
+const ExampleTable: React.FC = () => (
   <Section>
     <Title>Example</Title>
-    <Table bordered striped>
+    <TableComponent bordered striped>
       <TableHead>
         <Tr>
           <Th>
@@ -868,11 +868,11 @@ export const ExampleTable: React.FC = () => (
           </Td>
         </Tr>
       </TableBody>
-    </Table>
+    </TableComponent>
   </Section>
 )
 
-export const TableExample: React.FC = () => (
+export const Table: React.FC = () => (
   <>
     <BorderedTableExample />
     <StripedTableExample />

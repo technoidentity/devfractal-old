@@ -17,19 +17,6 @@ export const ComponentsTab: React.FC = () => (
   </RoutedTabs>
 )
 
-export const FormTab: React.FC = () => (
-  <RoutedTabs to="/form" size="medium">
-    <RoutedTabsItem value="general">General</RoutedTabsItem>
-    <RoutedTabsItem value="input">Input</RoutedTabsItem>
-    <RoutedTabsItem value="button">Button</RoutedTabsItem>
-    <RoutedTabsItem value="textarea">Textarea</RoutedTabsItem>
-    <RoutedTabsItem value="select">Select</RoutedTabsItem>
-    <RoutedTabsItem value="checkbox">Checkbox</RoutedTabsItem>
-    <RoutedTabsItem value="radio">Radio</RoutedTabsItem>
-    <RoutedTabsItem value="file">File</RoutedTabsItem>
-  </RoutedTabs>
-)
-
 export const CompositesTab: React.FC = () => (
   <RoutedTabs to="/composites" size="medium">
     <RoutedTabsItem value="simple">Simple</RoutedTabsItem>
@@ -42,41 +29,5 @@ export const CompositesTab: React.FC = () => (
     <RoutedTabsItem value="login-form-variants">
       Login Form Variants
     </RoutedTabsItem>
-  </RoutedTabs>
-)
-
-export const LayoutTab: React.FC = () => (
-  <RoutedTabs to="/layout" size="medium">
-    <RoutedTabsItem value="container">Container</RoutedTabsItem>
-    <RoutedTabsItem value="level">Level</RoutedTabsItem>
-    <RoutedTabsItem value="object">Media Object</RoutedTabsItem>
-    <RoutedTabsItem value="hero">Hero</RoutedTabsItem>
-    <RoutedTabsItem value="section">Section</RoutedTabsItem>
-    <RoutedTabsItem value="footer">Footer</RoutedTabsItem>
-    <RoutedTabsItem value="tiles">Tiles</RoutedTabsItem>
-  </RoutedTabs>
-)
-
-export const ModifiersTab: React.FC = () => (
-  <RoutedTabs to="/modifiers" size="medium">
-    <RoutedTabsItem value="helpers">Helpers</RoutedTabsItem>
-    <RoutedTabsItem value="colors">Color Helpers</RoutedTabsItem>
-    <RoutedTabsItem value="typography">Typography helpers</RoutedTabsItem>
-  </RoutedTabs>
-)
-
-export const ElementsTab: React.FC = () => (
-  <RoutedTabs to="/elements" size="medium">
-    <RoutedTabsItem value="box">Box</RoutedTabsItem>
-    <RoutedTabsItem value="content">Content</RoutedTabsItem>
-    <RoutedTabsItem value="delete">Delete</RoutedTabsItem>
-    <RoutedTabsItem value="icon">Icon</RoutedTabsItem>
-    <RoutedTabsItem value="image">Image</RoutedTabsItem>
-    <RoutedTabsItem value="notification">Notification</RoutedTabsItem>
-    <RoutedTabsItem value="bars">Progress bars</RoutedTabsItem>
-    <RoutedTabsItem value="table">Table</RoutedTabsItem>
-    <RoutedTabsItem value="tag">Tag</RoutedTabsItem>
-    <RoutedTabsItem value="title">Title</RoutedTabsItem>
-    <RoutedTabsItem value="table-content">Table Content Loader</RoutedTabsItem>
   </RoutedTabs>
 )

@@ -7,90 +7,90 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Icon, Section, Title } from '../devfractal'
+import { Icon as IconComponent, Section, Title } from '../devfractal'
 
-export const BasicIconExample: React.FC = () => (
+const BasicIconExample: React.FC = () => (
   <Section>
     <Title>Normal Icon</Title>
-    <Icon icon={faHome} />
+    <IconComponent icon={faHome} />
   </Section>
 )
 
-export const IconColorExample: React.FC = () => (
+const IconColorExample: React.FC = () => (
   <Section>
     <Title>Colors</Title>
-    <Icon icon={faCheck} textColor="success" />
-    <Icon icon={faExclamationTriangle} textColor="warning" />
-    <Icon icon={faBan} textColor="danger" />
-    <Icon icon={faInfoCircle} textColor="info" />
+    <IconComponent icon={faCheck} textColor="success" />
+    <IconComponent icon={faExclamationTriangle} textColor="warning" />
+    <IconComponent icon={faBan} textColor="danger" />
+    <IconComponent icon={faInfoCircle} textColor="info" />
   </Section>
 )
 
-export const IconSizeExample: React.FC = () => (
+const IconSizeExample: React.FC = () => (
   <Section>
     <Title>Sizes</Title>
-    <Icon icon={faUser} size="sm" />
-    <Icon icon={faUser} size="lg" />
-    <Icon icon={faUser} size="xs" />
-    <Icon icon={faUser} size="1x" />
-    <Icon icon={faUser} size="2x" />
+    <IconComponent icon={faUser} size="sm" />
+    <IconComponent icon={faUser} size="lg" />
+    <IconComponent icon={faUser} size="xs" />
+    <IconComponent icon={faUser} size="1x" />
+    <IconComponent icon={faUser} size="2x" />
     <Section>
-      <Icon icon={faUser} size="3x" />
+      <IconComponent icon={faUser} size="3x" />
     </Section>
     <Section>
-      <Icon icon={faUser} size="4x" />
+      <IconComponent icon={faUser} size="4x" />
     </Section>
     <Section>
-      <Icon icon={faUser} size="5x" />
+      <IconComponent icon={faUser} size="5x" />
     </Section>
     <Section>
-      <Icon icon={faUser} size="6x" />
+      <IconComponent icon={faUser} size="6x" />
     </Section>
     <Section>
-      <Icon icon={faUser} size="7x" />
+      <IconComponent icon={faUser} size="7x" />
     </Section>
     <Section>
-      <Icon icon={faUser} size="8x" />
+      <IconComponent icon={faUser} size="8x" />
     </Section>
     <Section>
-      <Icon icon={faUser} size="9x" />
+      <IconComponent icon={faUser} size="9x" />
     </Section>
   </Section>
 )
 
-export const FixedWidthIconExample: React.FC = () => (
+const FixedWidthIconExample: React.FC = () => (
   <Section>
     <Title>Fixed Width Icon</Title>
-    <Icon icon={faHome} textColor="warning" fixedWidth />
+    <IconComponent icon={faHome} textColor="warning" fixedWidth />
   </Section>
 )
 
-export const BorderedIconExample: React.FC = () => (
+const BorderedIconExample: React.FC = () => (
   <Section>
     <Title>Bordered Icon</Title>
-    <Icon icon={faUser} size="lg" textColor="info" border />
+    <IconComponent icon={faUser} size="lg" textColor="info" border />
   </Section>
 )
 
-export const AnimatedIconExample: React.FC = () => (
+const AnimatedIconExample: React.FC = () => (
   <Section>
     <Title>Animated Icon</Title>
-    <Icon icon={faHome} textColor="danger" spin />
+    <IconComponent icon={faHome} textColor="danger" spin />
   </Section>
 )
 
-export const RotatedFlippedIconsExample: React.FC = () => (
+const RotatedFlippedIconsExample: React.FC = () => (
   <Section>
     <Title>Rotated & Flipped</Title>
-    <Icon icon={faHome} textColor="info" transform="rotate-90" />
-    <Icon icon={faHome} textColor="info" transform="rotate-180" />
-    <Icon icon={faHome} textColor="info" transform="rotate-270" />
-    <Icon icon={faHome} textColor="info" transform="flip-h" />
-    <Icon icon={faHome} textColor="info" transform="flip-v" />
+    <IconComponent icon={faHome} textColor="info" transform="rotate-90" />
+    <IconComponent icon={faHome} textColor="info" transform="rotate-180" />
+    <IconComponent icon={faHome} textColor="info" transform="rotate-270" />
+    <IconComponent icon={faHome} textColor="info" transform="flip-h" />
+    <IconComponent icon={faHome} textColor="info" transform="flip-v" />
   </Section>
 )
 
-export const IconExample: React.FC = () => (
+export const Icon: React.FC = () => (
   <>
     <BasicIconExample />
     <IconColorExample />

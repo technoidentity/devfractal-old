@@ -5,14 +5,14 @@ import {
   FieldBody,
   FieldLabel,
   FormField,
-  Radio,
+  Radio as RadioComponent,
   RadioGroup,
   Section,
   State,
   Title,
 } from '../devfractal'
 
-export const DynamicRadioExample: React.FC = () => {
+const DynamicRadioExample: React.FC = () => {
   const [select, setSelect] = useState('red')
 
   return (
@@ -25,15 +25,15 @@ export const DynamicRadioExample: React.FC = () => {
           setSelect(evt.value || 'red')
         }}
       >
-        <Radio value="red"> Red</Radio>
-        <Radio value="green"> Green</Radio>
-        <Radio value="blue"> Blue</Radio>
+        <RadioComponent value="red"> Red</RadioComponent>
+        <RadioComponent value="green"> Green</RadioComponent>
+        <RadioComponent value="blue"> Blue</RadioComponent>
       </RadioGroup>
     </Section>
   )
 }
 
-export const RadioExamples: React.FC = () => {
+const RadioExamples: React.FC = () => {
   return (
     <Columns>
       <Column narrow>
@@ -43,8 +43,8 @@ export const RadioExamples: React.FC = () => {
             <FieldLabel>Gender</FieldLabel>
             <FieldBody>
               <RadioGroup name="gender">
-                <Radio> Male</Radio>
-                <Radio> Female</Radio>
+                <RadioComponent> Male</RadioComponent>
+                <RadioComponent> Female</RadioComponent>
               </RadioGroup>
             </FieldBody>
           </FormField>
@@ -59,8 +59,8 @@ export const RadioExamples: React.FC = () => {
             <FieldLabel>Gender</FieldLabel>
             <FieldBody>
               <RadioGroup name="gender2" defaultValue="female">
-                <Radio value="male"> Male</Radio>
-                <Radio value="female"> Female</Radio>
+                <RadioComponent value="male"> Male</RadioComponent>
+                <RadioComponent value="female"> Female</RadioComponent>
               </RadioGroup>
             </FieldBody>
           </FormField>
@@ -70,8 +70,8 @@ export const RadioExamples: React.FC = () => {
         <Section>
           <Title size="4">Disabled </Title>
           <RadioGroup name="going">
-            <Radio> Going</Radio>
-            <Radio disabled> May be</Radio>
+            <RadioComponent> Going</RadioComponent>
+            <RadioComponent disabled> May be</RadioComponent>
           </RadioGroup>
           <hr />
         </Section>
@@ -85,9 +85,9 @@ export const RadioExamples: React.FC = () => {
                 selected={value}
                 onChange={({ value }) => set(value || 'red')}
               >
-                <Radio value="red"> Red</Radio>
-                <Radio value="green"> Green</Radio>
-                <Radio value="blue"> Blue</Radio>
+                <RadioComponent value="red"> Red</RadioComponent>
+                <RadioComponent value="green"> Green</RadioComponent>
+                <RadioComponent value="blue"> Blue</RadioComponent>
               </RadioGroup>
             )}
           </State>
@@ -96,9 +96,9 @@ export const RadioExamples: React.FC = () => {
         <Section>
           <Title size="4">Controlled Readonly Radio</Title>
           <RadioGroup name="color2" selected="green" readOnly>
-            <Radio value="red"> Red</Radio>
-            <Radio value="green"> Green</Radio>
-            <Radio value="blue"> Blue</Radio>
+            <RadioComponent value="red"> Red</RadioComponent>
+            <RadioComponent value="green"> Green</RadioComponent>
+            <RadioComponent value="blue"> Blue</RadioComponent>
           </RadioGroup>
           <hr />
         </Section>
@@ -106,9 +106,9 @@ export const RadioExamples: React.FC = () => {
         <Section>
           <Title size="4">Uncontrolled Radio</Title>
           <RadioGroup name="color3">
-            <Radio value="red"> Red</Radio>
-            <Radio value="green"> Green</Radio>
-            <Radio value="blue"> Blue</Radio>
+            <RadioComponent value="red"> Red</RadioComponent>
+            <RadioComponent value="green"> Green</RadioComponent>
+            <RadioComponent value="blue"> Blue</RadioComponent>
           </RadioGroup>
         </Section>
       </Column>
@@ -116,7 +116,7 @@ export const RadioExamples: React.FC = () => {
   )
 }
 
-export const RadioExample: React.FC = () => (
+export const Radio: React.FC = () => (
   <>
     <DynamicRadioExample />
     <RadioExamples />

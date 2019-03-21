@@ -11,6 +11,7 @@ interface SimpleValues {
   readonly gender: string
   readonly select: string
   readonly message: string
+  readonly age: number
 }
 
 const initialValues: SimpleValues = {
@@ -22,6 +23,7 @@ const initialValues: SimpleValues = {
   gender: 'male',
   select: '',
   message: '',
+  age: 0,
 }
 
 const simpleSchema: ObjectSchema<Partial<SimpleValues>> = object({
@@ -36,6 +38,7 @@ const simpleSchema: ObjectSchema<Partial<SimpleValues>> = object({
     .required(),
   tel: number().required(),
   message: string().required(),
+  age: number().required(),
 })
 
 export const SimpleFormExample: React.FC = () => (
@@ -58,6 +61,7 @@ export const SimpleFormExample: React.FC = () => (
         <option value="associate">associate</option>
         <option value="assistant">assistant</option>
       </Simple.Select>
+      <Simple.Number label="Age" name="age" />
       <Simple.TextArea label="TextArea" name="message" />
       <Simple.FormButtons />
       <Simple.Debug />

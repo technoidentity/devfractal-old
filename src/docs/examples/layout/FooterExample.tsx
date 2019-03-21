@@ -1,9 +1,9 @@
 import React from 'react'
-import { Content, Footer, Section } from '../devfractal'
+import { Content, Footer as FooterComponent, Section } from '../devfractal'
 
-export const FooterExample: React.FC = () => (
+export const Footer: React.FC = () => (
   <Section>
-    <Footer>
+    <FooterComponent>
       <Content textAlignment="centered">
         <p>
           <strong>Bulma</strong> by
@@ -17,6 +17,6 @@ export const FooterExample: React.FC = () => (
           .
         </p>
       </Content>
-    </Footer>
+    </FooterComponent>
   </Section>
 )

@@ -10,7 +10,7 @@ import {
   Image,
   Level,
   LevelItem,
-  Media,
+  Media as MediaComponent,
   MediaContent,
   MediaLeft,
   MediaRight,
@@ -19,10 +19,10 @@ import {
   Title,
 } from '../devfractal'
 
-export const SimpleMediaObjectExample: React.FC = () => (
+const SimpleMediaObjectExample: React.FC = () => (
   <Section>
     <Title>Simple Media Object</Title>
-    <Media>
+    <MediaComponent>
       <MediaLeft>
         <Image
           size="64x64"
@@ -42,14 +42,14 @@ export const SimpleMediaObjectExample: React.FC = () => (
           </LevelItem>
         </Level>
       </MediaContent>
-    </Media>
+    </MediaComponent>
   </Section>
 )
 
-export const NestedMediaObjectExample: React.FC = () => (
+const NestedMediaObjectExample: React.FC = () => (
   <Section>
     <Title>Nesting</Title>
-    <Media>
+    <MediaComponent>
       <MediaLeft>
         <Image
           size="64x64"
@@ -68,7 +68,7 @@ export const NestedMediaObjectExample: React.FC = () => (
             <a>Like</a> · <a>Reply</a> · 3 hrs
           </small>
         </Content>
-        <Media>
+        <MediaComponent>
           <MediaLeft>
             <Image
               size="32x32"
@@ -88,16 +88,16 @@ export const NestedMediaObjectExample: React.FC = () => (
                 <a>Like</a> · <a>Reply</a> · 2 hrs
               </small>
             </Content>
-            <Media>
+            <MediaComponent>
               Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu
               lorem cursus ullamcorper sit amet nec massa.
-            </Media>
-            <Media>
+            </MediaComponent>
+            <MediaComponent>
               Morbi vitae diam et purus tincidunt porttitor vel vitae augue.
               Praesent malesuada metus sed pharetra euismod. Cras tellus odio,
               tincidunt iaculis diam non, porta aliquet tortor.
-            </Media>
-            <Media>
+            </MediaComponent>
+            <MediaComponent>
               <MediaLeft>
                 <Image
                   size="64x64"
@@ -119,8 +119,8 @@ export const NestedMediaObjectExample: React.FC = () => (
                   </small>
                 </Content>
               </MediaContent>
-            </Media>
-            <Media>
+            </MediaComponent>
+            <MediaComponent>
               <MediaLeft>
                 <Image
                   size="48x48"
@@ -135,18 +135,18 @@ export const NestedMediaObjectExample: React.FC = () => (
                   <Button>Post comment</Button>
                 </Field>
               </MediaContent>
-            </Media>
+            </MediaComponent>
           </MediaContent>
-        </Media>
+        </MediaComponent>
       </MediaContent>
-    </Media>
+    </MediaComponent>
   </Section>
 )
 
-export const ComplexMediaObjectExample: React.FC = () => (
+const ComplexMediaObjectExample: React.FC = () => (
   <Section>
     <Title>Media Object</Title>
-    <Media>
+    <MediaComponent>
       <MediaLeft>
         <Image
           size="64x64"
@@ -175,11 +175,11 @@ export const ComplexMediaObjectExample: React.FC = () => (
       <MediaRight>
         <Delete />
       </MediaRight>
-    </Media>
+    </MediaComponent>
   </Section>
 )
 
-export const MediaObjectExample: React.FC = () => (
+export const MediaObject: React.FC = () => (
   <>
     <SimpleMediaObjectExample />
     <ComplexMediaObjectExample />
