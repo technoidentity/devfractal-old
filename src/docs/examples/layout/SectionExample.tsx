@@ -1,35 +1,40 @@
 import React from 'react'
-import { Container, Section, SubTitle, Title } from '../devfractal'
+import {
+  Container,
+  Section as SectionComponent,
+  SubTitle,
+  Title,
+} from '../devfractal'
 
-export const LargeSectionExample: React.FC = () => (
-  <Section>
+const LargeSectionExample: React.FC = () => (
+  <SectionComponent>
     <Title>Section with large spacing</Title>
-    <Section modifier="large">
+    <SectionComponent modifier="large">
       <Container>
         <Title>Section</Title>
         <SubTitle>
           A simple container to divide your page into sections
         </SubTitle>
       </Container>
-    </Section>
-  </Section>
+    </SectionComponent>
+  </SectionComponent>
 )
 
-export const MediumSectionExample: React.FC = () => (
-  <Section>
+const MediumSectionExample: React.FC = () => (
+  <SectionComponent>
     <Title>Section with medium spacing</Title>
-    <Section modifier="medium">
+    <SectionComponent modifier="medium">
       <Container>
         <Title>Section</Title>
         <SubTitle>
           A simple container to divide your page into sections
         </SubTitle>
       </Container>
-    </Section>
-  </Section>
+    </SectionComponent>
+  </SectionComponent>
 )
 
-export const SectionExample: React.FC = () => (
+export const Section: React.FC = () => (
   <>
     <LargeSectionExample />
     <MediumSectionExample />
