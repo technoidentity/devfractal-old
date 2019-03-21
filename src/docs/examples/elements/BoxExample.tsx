@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Box,
+  Box as BoxComponent,
   Content,
   Image,
   Media,
@@ -9,9 +9,9 @@ import {
   Section,
 } from '../devfractal'
 
-export const BoxExample: React.FC = () => (
+export const Box: React.FC = () => (
   <Section>
-    <Box>
+    <BoxComponent>
       <Media>
         <MediaLeft>
           <Image
@@ -32,6 +32,6 @@ export const BoxExample: React.FC = () => (
           </Content>
         </MediaContent>
       </Media>
-    </Box>
+    </BoxComponent>
   </Section>
 )
