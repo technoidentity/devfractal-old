@@ -1,58 +1,38 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Container, SimpleRedirect, TableContentLoader } from '../devfractal'
+import { Container, SimpleRedirect } from '../devfractal'
 import {
-  BoxExample,
   BreadcrumbExample,
-  ButtonExample,
   CardExample,
-  CheckBoxExample,
-  ColorHelpersExample,
   ColumnsLinks,
   ColumnsRoutes,
-  ContainerExample,
-  ContentExample,
   Counter,
-  DeleteExample,
   DropdownExample,
   DropdownExampleRoutes,
+  ElementsLinks,
+  ElementsRoutes,
   FieldsGeneralForm,
-  FileExample,
-  FooterExample,
-  GeneralExample,
-  HelpersExample,
-  HeroExample,
-  IconExample,
-  ImageExample,
-  InputExample,
-  LevelExample,
+  FormLinks,
+  FormRoutes,
+  LayoutLinks,
+  LayoutRoutes,
   LoginFormVariants,
   LoginFormVariantsRoutes,
-  MediaObjectExample,
   MenuExample,
   MessageExample,
   ModalExample,
+  ModifiersLinks,
+  ModifiersRoutes,
   NavbarExample,
-  NotificationExample,
   PaginationExample,
   PanelExample,
-  ProgressBarExample,
-  RadioExample,
-  SectionExample,
-  SelectExample,
   SimpleExamples,
   SimpleFormExample,
   SimpleTodo,
   StepComponent,
-  TableExample,
   TabsExample,
-  TagExample,
-  TextAreaExample,
-  TileExample,
-  TitleExample,
   Todo,
   TreeViewStructure,
-  TypographyHelpersExample,
 } from './examples'
 import { TodoRoutes } from './examples/crud/TodoRoutes'
 import {
@@ -62,28 +42,7 @@ import {
   IndexPageHeader,
   UIComponentsOverview,
 } from './IndexPage'
-import {
-  ComponentsTab,
-  CompositesTab,
-  ElementsTab,
-  FormTab,
-  LayoutTab,
-  ModifiersTab,
-} from './Tabs'
-
-export const FormRoutes: React.FC = () => (
-  <>
-    <SimpleRedirect exact from="/form" to="/form/general" />
-    <Route path="/form/general" exact component={GeneralExample} />
-    <Route path="/form/input" exact component={InputExample} />
-    <Route path="/form/select" exact component={SelectExample} />
-    <Route path="/form/checkbox" exact component={CheckBoxExample} />
-    <Route path="/form/button" exact component={ButtonExample} />
-    <Route path="/form/radio" exact component={RadioExample} />
-    <Route path="/form/textarea" exact component={TextAreaExample} />
-    <Route path="/form/file" exact component={FileExample} />
-  </>
-)
+import { ComponentsTab, CompositesTab } from './Tabs'
 
 export const CompositesRoutes: React.FC = () => (
   <>
@@ -109,44 +68,6 @@ export const CompositesRoutes: React.FC = () => (
 
 export const CrudRoutes: React.FC = () => <TodoRoutes />
 
-export const LayoutRoutes: React.FC = () => (
-  <>
-    <SimpleRedirect exact from="/layout" to="/layout/container" />
-    <Route path="/layout/container" exact component={ContainerExample} />
-    <Route path="/layout/hero" exact component={HeroExample} />
-    <Route path="/layout/footer" exact component={FooterExample} />
-    <Route path="/layout/level" exact component={LevelExample} />
-    <Route path="/layout/object" exact component={MediaObjectExample} />
-    <Route path="/layout/section" exact component={SectionExample} />
-    <Route path="/layout/tiles" exact component={TileExample} />
-  </>
-)
-
-export const ElementsRoutes: React.FC = () => (
-  <>
-    <SimpleRedirect exact from="/elements" to="elements/box" />
-    <Route path="/elements/box" exact component={BoxExample} />
-    <Route
-      path="/elements/notification"
-      exact
-      component={NotificationExample}
-    />
-    <Route path="/elements/content" exact component={ContentExample} />
-    <Route path="/elements/title" exact component={TitleExample} />
-    <Route path="/elements/delete" exact component={DeleteExample} />
-    <Route path="/elements/icon" exact component={IconExample} />
-    <Route path="/elements/image" exact component={ImageExample} />
-    <Route path="/elements/bars" exact component={ProgressBarExample} />
-    <Route path="/elements/tag" exact component={TagExample} />
-    <Route path="/elements/table" exact component={TableExample} />
-    <Route
-      path="/elements/table-content"
-      exact
-      component={TableContentLoader}
-    />
-  </>
-)
-
 export const ComponentsRoutes: React.FC = () => (
   <>
     <SimpleRedirect exact from="/components" to="/components/card" />
@@ -164,27 +85,14 @@ export const ComponentsRoutes: React.FC = () => (
   </>
 )
 
-export const ModifiersRoutes: React.FC = () => (
-  <>
-    <SimpleRedirect exact from="/modifiers" to="/modifiers/helpers" />
-    <Route path="/modifiers/helpers" exact component={HelpersExample} />
-    <Route path="/modifiers/colors" exact component={ColorHelpersExample} />
-    <Route
-      path="/modifiers/typography"
-      exact
-      component={TypographyHelpersExample}
-    />
-  </>
-)
-
 export const TabsRoutes: React.FC = () => (
   <>
-    <Route path="/form" component={FormTab} />
+    <Route path="/form" component={FormLinks} />
     <Route path="/composites" component={CompositesTab} />
     <Route path="/components" component={ComponentsTab} />
-    <Route path="/elements" component={ElementsTab} />
-    <Route path="/modifiers" component={ModifiersTab} />
-    <Route path="/layout" component={LayoutTab} />
+    <Route path="/elements" component={ElementsLinks} />
+    <Route path="/modifiers" component={ModifiersLinks} />
+    <Route path="/layout" component={LayoutLinks} />
     <Route path="/columns" component={ColumnsLinks} />
   </>
 )
