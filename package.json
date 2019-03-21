@@ -36,7 +36,7 @@
     "chance": "^1.0.18",
     "cleave.js": "^1.4.10",
     "date-fns": "^1.30.1",
-    "font-awesome": "^4.7.0",
+    "firebase": "^5.8.6",
     "formik": "^1.5.1",
     "formik-persist": "^1.1.0",
     "fp-ts": "^1.15.0",
@@ -125,5 +125,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+ ]
 }
