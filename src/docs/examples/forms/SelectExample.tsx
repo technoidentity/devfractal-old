@@ -1,174 +1,183 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
-import { Field, Section, Select, Text, Title } from '../devfractal'
+import {
+  Field,
+  Section,
+  Select as SelectComponent,
+  Text,
+  Title,
+} from '../devfractal'
 
-export const DynamicSelectExample: React.FC = () => {
+const DynamicSelectExample: React.FC = () => {
   const [select, setSelect] = useState('red')
   return (
     <Section>
       <Title size="4">Dynamic Select({select})</Title>
-      <Select name={select} onChange={evt => setSelect(evt.target.value)}>
+      <SelectComponent
+        name={select}
+        onChange={evt => setSelect(evt.target.value)}
+      >
         <option value="red">Red</option>
         <option value="blue">Blue</option>
         <option value="green">Green</option>
         <option value="purple">Purple</option>
-      </Select>
+      </SelectComponent>
     </Section>
   )
 }
 
-export const BasicSelectExample: React.FC = () => (
+const BasicSelectExample: React.FC = () => (
   <Section>
     <Title size="4">Select</Title>
-    <Select>
+    <SelectComponent>
       <option>Red</option>
       <option>Blue</option>
       <option>Green</option>
       <option>Purple</option>
-    </Select>
+    </SelectComponent>
   </Section>
 )
 
-export const SelectColorExample: React.FC = () => (
+const SelectColorExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">Colors</Title>
-      <Select variant="primary">
+      <SelectComponent variant="primary">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select variant="info">
+      <SelectComponent variant="info">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select variant="success">
+      <SelectComponent variant="success">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select variant="warning">
+      <SelectComponent variant="warning">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select variant="danger">
+      <SelectComponent variant="danger">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
   </Section>
 )
 
-export const SelectSizeExample: React.FC = () => (
+const SelectSizeExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">Sizes</Title>
-      <Select ctrlSize="small">
+      <SelectComponent ctrlSize="small">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select ctrlSize="medium">
+      <SelectComponent ctrlSize="medium">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select ctrlSize="large">
+      <SelectComponent ctrlSize="large">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select>
+      <SelectComponent>
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
   </Section>
 )
 
-export const SelectStyleExample: React.FC = () => (
+const SelectStyleExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">Style</Title>
-      <Select rounded>
+      <SelectComponent rounded>
         <option>Rounded dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
   </Section>
 )
 
-export const SelectStateExample: React.FC = () => (
+const SelectStateExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">States</Title>
       <Field>
         <Text>Normal</Text>
-        <Select state="focused">
+        <SelectComponent state="focused">
           <option>Select dropdown</option>
           <option>With options</option>
-        </Select>
+        </SelectComponent>
       </Field>
       <Text>Hover</Text>
-      <Select state="hovered">
+      <SelectComponent state="hovered">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
       <Text>Focus</Text>
-      <Select state="focused">
+      <SelectComponent state="focused">
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
       <Text>Loading</Text>
-      <Select loading>
+      <SelectComponent loading>
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
   </Section>
 )
 
-export const WithIconsExample: React.FC = () => (
+const WithIconsExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">With icons</Title>
-      <Select leftIcon={faGlobe} ctrlSize="small">
+      <SelectComponent leftIcon={faGlobe} ctrlSize="small">
         <option>Country</option>
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select leftIcon={faGlobe}>
+      <SelectComponent leftIcon={faGlobe}>
         <option>Country</option>
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
     <Field>
-      <Select leftIcon={faGlobe} ctrlSize="medium">
+      <SelectComponent leftIcon={faGlobe} ctrlSize="medium">
         <option>Country</option>
         <option>Select dropdown</option>
         <option>With options</option>
-      </Select>
+      </SelectComponent>
     </Field>
   </Section>
 )
 
-export const SelectExample: React.FC = () => (
+export const Select: React.FC = () => (
   <>
     <DynamicSelectExample />
     <BasicSelectExample />

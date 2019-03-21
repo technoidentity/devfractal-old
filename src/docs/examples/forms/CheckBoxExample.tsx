@@ -1,58 +1,63 @@
 import React, { useState } from 'react'
 import { logger } from '../common'
-import { CheckBox, Field, Section, Title } from '../devfractal'
+import {
+  CheckBox as CheckBoxComponent,
+  Field,
+  Section,
+  Title,
+} from '../devfractal'
 
-export const DynamicCheckBoxExample: React.FC = () => {
+const DynamicCheckBoxExample: React.FC = () => {
   const [checked, setChecked] = useState(false)
   return (
     <Section>
       <Title size="4">Dynamic Checkbox</Title>
-      <CheckBox
+      <CheckBoxComponent
         name="checkbox"
         checked={checked}
         onChange={() => setChecked(!checked)}
       >
         {' '}
         {checked ? 'Checked' : 'UnChecked'}
-      </CheckBox>
+      </CheckBoxComponent>
     </Section>
   )
 }
 
-export const BasicCheckBoxExample: React.FC = () => (
+const BasicCheckBoxExample: React.FC = () => (
   <Section>
     <Title size="4">Checkbox</Title>
-    <CheckBox readOnly checked>
+    <CheckBoxComponent readOnly checked>
       {' '}
       Remember me
-    </CheckBox>
+    </CheckBoxComponent>
   </Section>
 )
 
-export const AddLinksExample: React.FC = () => (
+const AddLinksExample: React.FC = () => (
   <Section>
     <Title size="4">Add links </Title>
-    <CheckBox
+    <CheckBoxComponent
       onChange={() => {
         logger('CheckboxExample onChange')
       }}
     >
       {' '}
       I agree <a href="#">terms and conditions</a>
-    </CheckBox>
+    </CheckBoxComponent>
   </Section>
 )
 
-export const DisabledCheckBoxExample: React.FC = () => (
+const DisabledCheckBoxExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">Disabled </Title>
-      <CheckBox disabled> Save my Changes</CheckBox>
+      <CheckBoxComponent disabled> Save my Changes</CheckBoxComponent>
     </Field>
   </Section>
 )
 
-export const CheckBoxExample: React.FC = () => (
+export const CheckBox: React.FC = () => (
   <>
     <DynamicCheckBoxExample />
     <BasicCheckBoxExample />
