@@ -1,0 +1,120 @@
+{
+  "name": "technoidentity-devfractal",
+  "version": "0.3.6",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.16",
+    "@fortawesome/free-brands-svg-icons": "^5.8.0",
+    "@fortawesome/free-regular-svg-icons": "^5.8.0",
+    "@fortawesome/free-solid-svg-icons": "^5.8.0",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "axios": "^0.18.0",
+    "bulma": "^0.7.4",
+    "cleave.js": "^1.4.10",
+    "date-fns": "^1.30.1",
+    "firebase": "^5.9.0",
+    "formik": "^1.5.1",
+    "fp-ts": "^1.15.0",
+    "immer": "^2.1.4",
+    "io-ts": "^1.8.3",
+    "io-ts-reporters": "^0.0.21",
+    "io-ts-types": "^0.4.4",
+    "monocle-ts": "^1.7.1",
+    "newtype-ts": "^0.2.4",
+    "react": "16.8.4",
+    "react-content-loader": "^4.2.1",
+    "react-dom": "16.8.4",
+    "react-hanger": "^1.1.4",
+    "react-router": "5.0.0",
+    "react-router-dom": "5.0.0",
+    "react-use": "^5.10.0",
+    "rxjs": "^6.4.0",
+    "shortid": "^2.2.14",
+    "tcomb": "^3.2.29",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@types/chance": "^1.0.1",
+    "@types/cleave.js": "^1.4.0",
+    "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.8",
+    "@types/react-content-loader": "^3.1.4",
+    "@types/react-dom": "^16.8.3",
+    "@types/react-router": "^4.4.5",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/shortid": "^0.0.29",
+    "@types/yup": "^0.26.12",
+    "chance": "^1.0.18",
+    "husky": "^1.3.1",
+    "jest": "^24.5.0",
+    "jest-cli": "^24.5.0",
+    "jest-dom": "^3.1.3",
+    "json-schema-faker": "^0.5.0-rc16",
+    "json-server": "^0.14.2",
+    "lint-staged": "^8.1.5",
+    "microbundle": "^0.11.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.16.4",
+    "react-docgen-typescript": "^1.12.3",
+    "react-styleguidist": "^9.0.4",
+    "react-testing-library": "^6.0.2",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.14.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-immutable": "^5.5.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.4000",
+    "typescript-tslint-plugin": "^0.3.1",
+    "webpack": "^4.29.6",
+    "webpack-blocks": "^2.0.0-rc"
+  },
+  "peerDependencies": {
+    "firebase": "^5.9.0",
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
+    "react-router": "5.0.0",
+    "react-router-dom": "5.0.0",
+    "yup": "0.27.0"
+  },
+  "scripts": {
+    "site": "parcel index.html --open",
+    "build": "microbundle",
+    "clean": "rimraf build .rts2* node_modules",
+    "start": "microbundle watch--compress false",
+    "style": "styleguidist server",
+    "style:build": "styleguidist build",
+    "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
+    "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
+    "lint:fix": "yarn lint --fix",
+    "types": "tsc --noEmit -p tsconfig.commit.json",
+    "types:watch": "tsc --noEmit -p tsconfig.commit.json --watch",
+    "validate": "yarn lint && yarn types",
+    "all": "yarn validate && yarn start"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn validate",
+      "pre-build": "yarn validate",
+      "pre-publish": "yarn validate"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint:cmd --fix",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,js,jsx,json,css}": [
+      "yarn prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
