@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "dependencies": {
@@ -80,9 +80,9 @@
   },
   "scripts": {
     "site": "parcel index.html --open",
-    "build": "microbundle",
+    "build": "microbundle --entry src/index.ts",
     "clean": "rimraf build .rts2* node_modules",
-    "start": "microbundle watch--compress false",
+    "start": "microbundle --entry src/index.ts watch--compress false",
     "style": "styleguidist server",
     "style:build": "styleguidist build",
     "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
