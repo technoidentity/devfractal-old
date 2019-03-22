@@ -12356,10 +12356,10 @@ tcomb@^3.2.29:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-devfractal@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.4.5.tgz#8fd57cd99531c19e12b19879c974b6fdcf0e158f"
-  integrity sha512-KWvREnyRgtAxCWBQTZsEpCGynaRJWJdJ+5Zpa8kRaAeRdHVQ+DFkLz6CWhBA5e5xxwfdEY2wTUerm6p9ZxC2/Q==
+technoidentity-devfractal@^0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.4.6.tgz#ec5554797c3316e21e2133bafbb016aa2ebf03d0"
+  integrity sha512-FBmxOvcT9SNaemWN++wS05zjn3NkfbnwWUrMHWMbUK3Q9eAsO3cCqgJ9cRRRoCuGII+ztjUvFg86Pomu5o20fQ==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.17"
     "@fortawesome/free-brands-svg-icons" "^5.8.1"
@@ -12368,7 +12368,6 @@ technoidentity-devfractal@^0.4.5:
     "@fortawesome/react-fontawesome" "^0.1.4"
     axios "^0.18.0"
     bulma "^0.7.4"
-    cleave.js "^1.4.10"
     date-fns "^1.30.1"
     firebase "^5.9.1"
     formik "^1.5.1"
