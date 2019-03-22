@@ -11,7 +11,7 @@ import {
   Td,
   Th,
   Tr,
-} from '..'
+} from '../index'
 
 export interface RowClickEvent<T> {
   readonly value: T

@@ -8,8 +8,8 @@ import t, {
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { eitherToPromise, Omit, typeInvariant, TypeOfRT } from '..'
-import { idRT } from './internal'
+import { eitherToPromise, Omit, typeInvariant, TypeOfRT } from '../index'
+import { idRT } from './index'
 
 export interface URLs {
   all(): string

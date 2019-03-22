@@ -1,6 +1,6 @@
 import { FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
-import { Omit } from '../types'
+import { Omit } from '../utils'
 import {
   CheckBox,
   CheckBoxProps,
@@ -14,7 +14,7 @@ import {
   SelectProps,
   TextArea,
   TextAreaProps,
-} from './internal'
+} from './index'
 
 type OmitForm<T> = Omit<T, 'form'>
 

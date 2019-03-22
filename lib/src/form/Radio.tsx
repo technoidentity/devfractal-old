@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react'
-import { classNamesHelper, Div, Helpers, State, warning } from '..'
-import { Omit } from '../types'
-import { AllControlHelpers, ControlWrapper } from './internal'
+import { classNamesHelper, Div, Helpers, State, warning } from '../index'
+import { Omit } from '../utils'
+import { AllControlHelpers, ControlWrapper } from './index'
 
 export interface RadioChangeEvent {
   readonly name: string

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Async } from '..'
+import { Async } from '../index'
 
 // @TODO: Use react content loader
 export const Loading: React.FC = () => <h1>Loading...</h1>

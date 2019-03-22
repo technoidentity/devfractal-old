@@ -9,7 +9,7 @@ import {
   Tabs,
   TabsItem,
   TabsProps,
-} from '..'
+} from '../index'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {
   readonly name?: string

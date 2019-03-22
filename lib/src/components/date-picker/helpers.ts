@@ -6,7 +6,7 @@ import {
   isDate,
   isValid,
 } from 'date-fns'
-import { range } from '../..'
+import { range } from '../../index'
 
 export const currentYear: () => number = () => new Date().getFullYear()
 

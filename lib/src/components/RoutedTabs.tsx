@@ -8,7 +8,7 @@ import {
   Helpers,
   removeRouteComponentProps,
   WithRouter,
-} from '..'
+} from '../index'
 
 interface RoutedTabsContext {
   readonly baseURL?: string

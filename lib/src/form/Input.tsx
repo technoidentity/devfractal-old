@@ -1,6 +1,6 @@
 import React from 'react'
-import { classNamesHelper } from '..'
-import { AllControlHelpers, ControlDiv, ControlWrapper } from './internal'
+import { classNamesHelper } from '../index'
+import { AllControlHelpers, ControlDiv, ControlWrapper } from './index'
 
 type InputVariant =
   | 'primary'

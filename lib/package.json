@@ -11,7 +11,6 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "bulma": "^0.7.4",
-    "cleave.js": "^1.4.10",
     "date-fns": "^1.30.1",
     "firebase": "^5.9.1",
     "formik": "^1.5.1",
@@ -50,7 +49,6 @@
     "jest": "^24.5.0",
     "jest-cli": "^24.5.0",
     "jest-dom": "^3.1.3",
-    "json-schema-faker": "^0.5.0-rc16",
     "json-server": "^0.14.2",
     "lint-staged": "^8.1.5",
     "microbundle": "^0.11.0",
@@ -79,8 +77,8 @@
     "yup": "0.27.0"
   },
   "scripts": {
-    "site": "parcel index.html --open",
-    "start": "microbundle --entry src/index.ts watch--compress false",
+    "start": "parcel index.html --open",
+    "lib": "microbundle --entry src/index.ts watch--compress false",
     "build": "microbundle --entry src/index.ts",
     "clean": "rimraf build .rts2* node_modules .cache dist",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",

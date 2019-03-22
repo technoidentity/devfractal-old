@@ -15,14 +15,14 @@ import {
   Td,
   Th,
   Tr,
-} from '../..'
+} from '../../index'
 import {
   calendarMonths,
   calenderDates,
   nextMonth,
   previousMonth,
   weekDays,
-} from './internal'
+} from './index'
 
 const partitionArray: <T>(
   array: ReadonlyArray<ReadonlyArray<T>>,
