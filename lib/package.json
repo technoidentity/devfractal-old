@@ -80,23 +80,21 @@
   },
   "scripts": {
     "site": "parcel index.html --open",
-    "build": "microbundle --entry src/index.ts",
-    "clean": "rimraf build .rts2* node_modules",
     "start": "microbundle --entry src/index.ts watch--compress false",
-    "style": "styleguidist server",
-    "style:build": "styleguidist build",
-    "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
+    "build": "microbundle --entry src/index.ts",
+    "clean": "rimraf build .rts2* node_modules .cache dist",
+    "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
-    "types": "tsc --noEmit -p tsconfig.commit.json",
-    "types:watch": "tsc --noEmit -p tsconfig.commit.json --watch",
+    "types": "tsc --noEmit -p tsconfig.json",
+    "types:watch": "tsc --noEmit -p tsconfig.json --watch",
     "validate": "yarn lint && yarn types",
-    "all": "yarn validate && yarn start"
+    "style": "styleguidist server",
+    "style:build": "styleguidist build"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn validate",
+      "pre-commit": "lint-staged && yarn validate",
       "pre-build": "yarn validate",
       "pre-publish": "yarn validate"
     }
