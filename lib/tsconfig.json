@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "declaration": true,
     "sourceMap": true,
     "skipLibCheck": true,
     "lib": ["dom", "es2018"],
