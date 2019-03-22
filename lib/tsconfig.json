@@ -27,7 +27,7 @@
       "name": "typescript-tslint-plugin",
       "alwaysShowRuleFailuresAsWarnings": true,
       "ignoreDefinitionFiles": false,
-      "configFile": "./tslint.commit.json",
+      "configFile": "./tslint.json",
       "suppressWhileTypeErrorsPresent": true,
       "jsEnable": false,
       "mockTypeScriptVersion": false
