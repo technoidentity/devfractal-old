@@ -10,7 +10,7 @@ import {
   SimplePagerView,
   Text,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 export const SimplePaginationExample: React.FC = () => (
   <>

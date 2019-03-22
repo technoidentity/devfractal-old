@@ -1,6 +1,11 @@
 import React from 'react'
+import {
+  consoleSubmit,
+  Radio,
+  Section,
+  Simple,
+} from 'technoidentity-devfractal'
 import { number, object, ObjectSchema, string } from 'yup'
-import { consoleSubmit, Radio, Section, Simple } from '../devfractal'
 
 interface SimpleValues {
   readonly username: string

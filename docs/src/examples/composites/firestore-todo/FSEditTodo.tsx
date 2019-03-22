@@ -1,6 +1,6 @@
 import { FormikActions } from 'formik'
 import React from 'react'
-import { Async, Section, Simple } from '../../devfractal'
+import { Async, Section, Simple } from 'technoidentity-devfractal'
 import { FSTodo, one, update } from './todoAPI'
 
 export interface EditTodoViewProps {

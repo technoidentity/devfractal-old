@@ -1,7 +1,11 @@
 import { Either } from 'fp-ts/lib/Either'
 import t from 'io-ts'
 import { assert, Number } from 'tcomb'
-import { eitherToPromise, rejected, Repository } from '../devfractal'
+import {
+  eitherToPromise,
+  rejected,
+  Repository,
+} from 'technoidentity-devfractal'
 import { fakeTodoList } from './fakeTodoList'
 import { Todo, TodoListRT, TodoRT } from './types'
 

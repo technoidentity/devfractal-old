@@ -17,7 +17,7 @@ import {
   Tabs,
   TabsItem,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 const SimpleHeroExample: React.FC = () => (
   <Section>

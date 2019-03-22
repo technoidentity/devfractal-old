@@ -1,5 +1,12 @@
 import React from 'react'
-import { Async, Table, TableBody, TableHead, Th, Tr } from '../../devfractal'
+import {
+  Async,
+  Table,
+  TableBody,
+  TableHead,
+  Th,
+  Tr,
+} from 'technoidentity-devfractal'
 import { FSTodoItem } from './FSTodoItem'
 import { all, FSTodo, remove } from './todoAPI'
 

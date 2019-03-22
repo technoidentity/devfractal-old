@@ -1,7 +1,5 @@
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { boolean, object, ObjectSchema, string } from 'yup'
-import { logger } from '../common'
 import {
   Button,
   CheckboxField,
@@ -16,7 +14,9 @@ import {
   SelectField,
   Simple,
   TextAreaField,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
+import { boolean, object, ObjectSchema, string } from 'yup'
+import { logger } from '../common'
 
 interface GeneralFormProps {
   readonly name: string

@@ -11,7 +11,7 @@ import {
   RoutedTabsItem,
   Section,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 const DropdownExampleTab: React.FC = () => (
   <>

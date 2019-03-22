@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Section, Text, Title } from '../devfractal'
+import { Box, Section, Text, Title } from 'technoidentity-devfractal'
 
 const TextColorExample: React.FC = () => (
   <Section>

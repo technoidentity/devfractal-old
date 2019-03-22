@@ -1,6 +1,6 @@
 import React from 'react'
+import { consoleSubmit, Simple } from 'technoidentity-devfractal'
 import { number, object, ObjectSchema, string } from 'yup'
-import { consoleSubmit, Simple } from '../devfractal'
 
 interface LoginValues {
   readonly name: string

@@ -8,7 +8,7 @@ import {
   Simple,
   Title,
   typeInvariant,
-} from '../../devfractal'
+} from 'technoidentity-devfractal'
 
 // tslint:disable typedef
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Field, Section, Title } from '../../devfractal'
+import { Button, Field, Section, Title } from 'technoidentity-devfractal'
 import { StepItemComponent } from './internal'
 import { FinishFormPropType } from './types'
 

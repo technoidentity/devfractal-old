@@ -5,7 +5,7 @@ import {
   File as FileComponent,
   Section,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 const BasicFileExample: React.FC = () => (
   <Section>

@@ -1,6 +1,6 @@
 import React from 'react'
+import { consoleSubmit, Section, Simple } from 'technoidentity-devfractal'
 import { boolean, object, ObjectSchema, string } from 'yup'
-import { consoleSubmit, Section, Simple } from '../devfractal'
 
 export interface AddTodoValues {
   readonly title: string

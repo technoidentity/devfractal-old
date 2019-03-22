@@ -1,6 +1,11 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import { components, paths, Section, SimpleRedirect } from '../devfractal'
+import {
+  components,
+  paths,
+  Section,
+  SimpleRedirect,
+} from 'technoidentity-devfractal'
 import { inMemoryAPI } from './inMemoryAPI'
 import { TodoRT } from './types'
 

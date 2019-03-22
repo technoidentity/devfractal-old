@@ -1,6 +1,6 @@
 import { FormikActions } from 'formik'
 import React from 'react'
-import { Omit, Section, Simple, Title } from '../../devfractal'
+import { Omit, Section, Simple, Title } from 'technoidentity-devfractal'
 import { create, FSTodo } from './todoAPI'
 
 export interface AddTodoProps {

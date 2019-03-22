@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Container, SimpleRedirect } from '../devfractal'
+import { Container, SimpleRedirect } from 'technoidentity-devfractal'
 import {
   BreadcrumbExample,
   CardExample,

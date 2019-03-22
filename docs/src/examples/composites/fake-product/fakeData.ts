@@ -1,5 +1,5 @@
 import Chance from 'chance'
-import { range } from '../../devfractal'
+import { range } from 'technoidentity-devfractal'
 
 const chance: Chance.Chance = new Chance()
 

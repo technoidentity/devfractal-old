@@ -1,6 +1,11 @@
 import React from 'react'
+import {
+  Section,
+  SimpleRoutedTabs,
+  SimpleTabs,
+  Text,
+} from 'technoidentity-devfractal'
 import { logger } from '../common'
-import { Section, SimpleRoutedTabs, SimpleTabs, Text } from '../devfractal'
 
 const SimpleTabsExample: React.FC = () => (
   <SimpleTabs

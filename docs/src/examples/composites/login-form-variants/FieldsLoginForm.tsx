@@ -1,6 +1,5 @@
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { logger } from '../../common'
 import {
   Button,
   Container,
@@ -8,7 +7,8 @@ import {
   Field as FieldGroup,
   InputField,
   Label,
-} from '../../devfractal'
+} from 'technoidentity-devfractal'
+import { logger } from '../../common'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
 const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (

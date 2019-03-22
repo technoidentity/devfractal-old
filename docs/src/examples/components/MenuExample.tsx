@@ -6,7 +6,7 @@ import {
   MenuLabel,
   MenuList,
   Section,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 export const MenuExample: React.FC = () => (
   <Section>

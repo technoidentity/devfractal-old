@@ -4,7 +4,7 @@ import {
   ProgressBar as ProgressBarComponent,
   Section,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 const BasicProgressBarExample: React.FC = () => (
   <Section>

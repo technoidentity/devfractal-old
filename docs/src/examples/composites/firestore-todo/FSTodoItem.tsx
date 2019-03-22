@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, CheckBox, Td, Tr } from '../../devfractal'
+import { Button, CheckBox, Td, Tr } from 'technoidentity-devfractal'
 import { FSTodo } from './todoAPI'
 
 interface FSTodoItemProps {

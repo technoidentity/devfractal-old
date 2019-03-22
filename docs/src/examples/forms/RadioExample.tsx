@@ -10,7 +10,7 @@ import {
   Section,
   State,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 const DynamicRadioExample: React.FC = () => {
   const [select, setSelect] = useState('red')

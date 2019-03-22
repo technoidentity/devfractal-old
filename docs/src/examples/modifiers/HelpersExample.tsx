@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Section, Text, Title } from '../devfractal'
+import { Box, Button, Section, Text, Title } from 'technoidentity-devfractal'
 
 export const Helpers: React.FC = () => (
   <>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { logger } from '../common'
 import {
   Section,
   Table as TableComponent,
@@ -10,7 +9,8 @@ import {
   Th,
   Title,
   Tr,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
+import { logger } from '../common'
 
 const BorderedTableExample: React.FC = () => (
   <Section>

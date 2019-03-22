@@ -7,7 +7,11 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Icon as IconComponent, Section, Title } from '../devfractal'
+import {
+  Icon as IconComponent,
+  Section,
+  Title,
+} from 'technoidentity-devfractal'
 
 const BasicIconExample: React.FC = () => (
   <Section>

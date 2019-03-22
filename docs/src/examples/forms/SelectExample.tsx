@@ -6,7 +6,7 @@ import {
   Select as SelectComponent,
   Text,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 const DynamicSelectExample: React.FC = () => {
   const [select, setSelect] = useState('red')

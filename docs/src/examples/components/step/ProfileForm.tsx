@@ -6,7 +6,7 @@ import {
   FieldLabel,
   Input,
   Section,
-} from '../../devfractal'
+} from 'technoidentity-devfractal'
 import { StepItemComponent } from './internal'
 import { ProfileFormPropType } from './types'
 

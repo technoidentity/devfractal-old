@@ -1,5 +1,5 @@
 import React from 'react'
-import { RoutedTabs, RoutedTabsItem } from './devfractal'
+import { RoutedTabs, RoutedTabsItem } from 'technoidentity-devfractal'
 
 export const ComponentsTab: React.FC = () => (
   <RoutedTabs to="/components" size="medium">

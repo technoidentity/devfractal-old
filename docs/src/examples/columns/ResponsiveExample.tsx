@@ -6,7 +6,7 @@ import {
   Notification,
   Section,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 export const Responsive: React.FC = () => (
   <div>

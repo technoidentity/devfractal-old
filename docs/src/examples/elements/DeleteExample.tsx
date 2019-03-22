@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { logger } from '../common'
 import {
   Box,
   Delete as DeleteComponent,
@@ -11,7 +10,8 @@ import {
   Tag,
   Tags,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
+import { logger } from '../common'
 
 const DynamicDeleteExample: React.FC = () => {
   const [click, setDeleted] = useState('click Me!')

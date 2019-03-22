@@ -1,6 +1,6 @@
 import Chance from 'chance'
 import tcomb, { assert } from 'tcomb'
-import { range } from '../devfractal'
+import { range } from 'technoidentity-devfractal'
 import { Todo, TodoList } from './types'
 
 const chance: Chance.Chance = new Chance()

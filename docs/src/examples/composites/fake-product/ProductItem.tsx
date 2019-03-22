@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Td, Tr } from '../../devfractal'
+import { Button, Td, Tr } from 'technoidentity-devfractal'
 import { Product } from './fakeData'
 
 export interface ProductItemProps {

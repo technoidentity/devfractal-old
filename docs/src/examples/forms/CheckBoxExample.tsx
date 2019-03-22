@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { logger } from '../common'
 import {
   CheckBox as CheckBoxComponent,
   Field,
   Section,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
+import { logger } from '../common'
 
 const DynamicCheckBoxExample: React.FC = () => {
   const [checked, setChecked] = useState(false)

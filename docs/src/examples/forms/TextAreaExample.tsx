@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
-import { Section, TextArea as TextAreaComponent, Title } from '../devfractal'
+import {
+  Section,
+  TextArea as TextAreaComponent,
+  Title,
+} from 'technoidentity-devfractal'
 
 const DynamicTextAreaExample: React.FC = () => {
   const [change, setChange] = useState('')

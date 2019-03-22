@@ -12,7 +12,7 @@ import {
   Title,
   typeInvariant,
   url,
-} from '../../devfractal'
+} from 'technoidentity-devfractal'
 
 // tslint:disable typedef
 

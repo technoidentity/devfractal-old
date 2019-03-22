@@ -9,7 +9,7 @@ import {
   State,
   StateRenderProps,
   Text,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 export const CounterInner: React.FC<StateRenderProps<number>> = ({
   value: count,

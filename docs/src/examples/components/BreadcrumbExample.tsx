@@ -13,7 +13,7 @@ import {
   Icon,
   Section,
   SimpleRedirect,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 export const BreadcrumbAlignmentsExample: React.FC = () => (
   <>

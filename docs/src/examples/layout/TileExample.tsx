@@ -6,7 +6,7 @@ import {
   SubTitle,
   Tile as TileComponent,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 const SimpleTilesExample: React.FC = () => (
   <Section>

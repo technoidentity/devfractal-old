@@ -1,5 +1,9 @@
 import React from 'react'
-import { Image as ImageComponent, Section, Title } from '../devfractal'
+import {
+  Image as ImageComponent,
+  Section,
+  Title,
+} from 'technoidentity-devfractal'
 
 const BasicImageExample: React.FC = () => (
   <Section>

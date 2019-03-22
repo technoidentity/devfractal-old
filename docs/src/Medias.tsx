@@ -1,5 +1,11 @@
 import React from 'react'
-import { Media, MediaContent, MediaLeft, SubTitle, Text } from '../devfractal'
+import {
+  Media,
+  MediaContent,
+  MediaLeft,
+  SubTitle,
+  Text,
+} from 'technoidentity-devfractal'
 import columnsIcon from './images/columnsIcon.png'
 import componentsIcon from './images/componentsIcon.png'
 import compositesIcon from './images/compositesIcon.png'

@@ -1,5 +1,10 @@
 import React from 'react'
-import { Box, Section, SubTitle, Title as TitleComponent } from '../devfractal'
+import {
+  Box,
+  Section,
+  SubTitle,
+  Title as TitleComponent,
+} from 'technoidentity-devfractal'
 
 const TitleSizeExample: React.FC = () => (
   <Section>

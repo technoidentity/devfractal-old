@@ -18,7 +18,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 export const SimpleCardExample: React.FC = () => (
   <Section>

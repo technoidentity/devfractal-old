@@ -6,7 +6,7 @@ import {
   Section,
   SimpleRedirect,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 import {
   FieldsLoginForm,
   FormikLoginForm,

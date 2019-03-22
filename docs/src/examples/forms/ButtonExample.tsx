@@ -20,7 +20,7 @@ import {
   Section,
   Text,
   Title,
-} from '../devfractal'
+} from 'technoidentity-devfractal'
 
 const DynamicButtonExample: React.FC = () => {
   const [click, setClick] = useState(false)
