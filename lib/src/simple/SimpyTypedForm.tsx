@@ -21,7 +21,7 @@ import {
   SimpleRadioGroupProps,
   SimpleSelectProps,
   SimpleTextAreaProps,
-} from './index'
+} from '../index'
 import { Simple } from './SimpleForm'
 
 interface Named<Values extends Object, Value> {
@@ -71,7 +71,7 @@ function SimpleInput<
   Value extends string | number | string[]
 >(args: SimpleInputProps<Values, Value>): JSX.Element {
   const { schema, label, validations, ...props } = args
-  const names: ReadonlyArray<string> = props.name.split('./index')
+  const names: ReadonlyArray<string> = props.name.split('../index')
 
   return (
     <Field>
@@ -122,7 +122,7 @@ const childArgs: TypedFormChildren<any> = {
         {({ names }) => (
           <SimpleInput
             {...props}
-            name={[...names, props.name].join('./index')}
+            name={[...names, props.name].join('../index')}
             type="text"
             schema={yup.string()}
           />
@@ -137,7 +137,7 @@ const childArgs: TypedFormChildren<any> = {
         <SimpleInput
           schema={yup.number()}
           {...props}
-          name={[...names, props.name].join('./index')}
+          name={[...names, props.name].join('../index')}
           type="number"
         />
       )}
@@ -150,7 +150,7 @@ const childArgs: TypedFormChildren<any> = {
         <SimpleInput
           schema={yup.string()}
           {...props}
-          name={[...names, props.name].join('./index')}
+          name={[...names, props.name].join('../index')}
           type="password"
         />
       )}
@@ -162,7 +162,7 @@ const childArgs: TypedFormChildren<any> = {
       {({ names }) => (
         <SimpleInput
           {...props}
-          name={[...names, props.name].join('./index')}
+          name={[...names, props.name].join('../index')}
           type="email"
           schema={yup.string()}
         />
@@ -177,7 +177,7 @@ const childArgs: TypedFormChildren<any> = {
         <SimpleInput
           schema={yup.number()}
           {...props}
-          name={[...names, props.name].join('./index')}
+          name={[...names, props.name].join('../index')}
           type="tel"
         />
       )}
@@ -190,7 +190,7 @@ const childArgs: TypedFormChildren<any> = {
         <SimpleInput
           schema={yup.string()}
           {...props}
-          name={[...names, props.name].join('./index')}
+          name={[...names, props.name].join('../index')}
           type="url"
         />
       )}
@@ -212,7 +212,7 @@ const childArgs: TypedFormChildren<any> = {
         <Field>
           <RadioGroupField
             {...props}
-            name={[...names, props.name].join('./index')}
+            name={[...names, props.name].join('../index')}
           >
             {children}
           </RadioGroupField>
@@ -226,7 +226,10 @@ const childArgs: TypedFormChildren<any> = {
     <NestedContext.Consumer>
       {({ names }) => (
         <Field>
-          <SelectField {...props} name={[...names, props.name].join('./index')}>
+          <SelectField
+            {...props}
+            name={[...names, props.name].join('../index')}
+          >
             {children}
           </SelectField>
           <ErrorField name={props.name} />
@@ -242,7 +245,7 @@ const childArgs: TypedFormChildren<any> = {
           <Label>{label}</Label>
           <TextAreaField
             {...props}
-            name={[...names, props.name].join('./index')}
+            name={[...names, props.name].join('../index')}
           />
           <ErrorField name={props.name} />
         </Field>

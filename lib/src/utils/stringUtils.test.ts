@@ -6,7 +6,7 @@ import {
   extractSegment,
   range,
   toLower,
-} from './index'
+} from '../index'
 
 it('test for camelCaseToLower', () => {
   expect(toLower('userName', '-')).toBe('user-name')

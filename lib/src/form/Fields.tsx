@@ -7,7 +7,6 @@ import {
 } from 'formik'
 import React from 'react'
 import { jsonStringify } from '../index'
-import { Omit } from '../utils'
 import {
   CheckBoxProps,
   FormikCheckbox,
@@ -21,7 +20,8 @@ import {
   RadioGroupProps,
   SelectProps,
   TextAreaProps,
-} from './index'
+} from '../index'
+import { Omit } from '../utils'
 
 export type FormikFieldConfig = Omit<FieldConfig, 'innerRef'>
 

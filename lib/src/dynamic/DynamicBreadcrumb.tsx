@@ -1,7 +1,13 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { capitalizeAll, chop, Null, WithRouter } from '../index'
-import { Breadcrumb, BreadcrumbItem } from './index'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  capitalizeAll,
+  chop,
+  Null,
+  WithRouter,
+} from '../index'
 
 const DynamicBreadcrumbWithRouter: React.FC<RouteComponentProps> = ({
   location,

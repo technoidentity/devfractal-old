@@ -5,7 +5,7 @@ import {
   IconHelpers,
   removeControlHelpers,
   removeIconHelpers,
-} from './index'
+} from '../index'
 
 export interface AllControlHelpers
   extends Helpers,

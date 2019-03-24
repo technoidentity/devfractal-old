@@ -1,14 +1,14 @@
 import { Props } from 'io-ts'
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import { Section } from '../index'
 import {
   APIRepository,
   components as comps,
   ComponentsResult,
   Paths,
   paths as ps,
-} from './index'
+  Section,
+} from '../index'
 
 export interface CrudProps<T extends Props, ID extends keyof T> {
   readonly api: APIRepository<T, ID>

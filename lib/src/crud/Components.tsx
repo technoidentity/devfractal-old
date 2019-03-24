@@ -1,8 +1,14 @@
 import { Props, ReadonlyC, TypeC } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
-import { formikSubmit, TypeOfRT } from '../index'
-import { APIRepository, CrudViewsResult, Repository, Views } from './index'
+import {
+  APIRepository,
+  CrudViewsResult,
+  formikSubmit,
+  Repository,
+  TypeOfRT,
+  Views,
+} from '../index'
 
 const base: (resource: string, basePath: string) => string = (
   resource,

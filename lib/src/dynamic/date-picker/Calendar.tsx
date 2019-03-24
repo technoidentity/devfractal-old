@@ -22,7 +22,7 @@ import {
   nextMonth,
   previousMonth,
   weekDays,
-} from './index'
+} from './helpers'
 
 const partitionArray: <T>(
   array: ReadonlyArray<ReadonlyArray<T>>,

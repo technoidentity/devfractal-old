@@ -1,6 +1,6 @@
 import React from 'react'
 import { classNamesHelper } from '../index'
-import { AllControlHelpers, ControlDiv, ControlWrapper } from './index'
+import { AllControlHelpers, ControlDiv, ControlWrapper } from '../index'
 
 type ButtonType = 'button' | 'reset' | 'submit'
 

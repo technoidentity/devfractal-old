@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Button, Field, Section } from '../../index'
-import { CalendarComponent, toISODate } from './index'
+import { CalendarComponent } from './Calendar'
+import { toISODate } from './helpers'
 
 export const DatePicker: React.SFC = () => {
   const [calendarOpen, setCalendarOpen] = React.useState(false)
