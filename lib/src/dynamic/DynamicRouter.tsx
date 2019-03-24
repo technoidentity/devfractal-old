@@ -1,7 +1,12 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { capitalizeAll, SimpleRedirect, toLower } from '../lib'
-import { RoutedTabs, RoutedTabsItem } from '../lib'
+import {
+  capitalizeAll,
+  RoutedTabs,
+  RoutedTabsItem,
+  SimpleRedirect,
+  toLower,
+} from '../lib'
 
 export interface DynamicRouterResult {
   readonly Routes: React.FC

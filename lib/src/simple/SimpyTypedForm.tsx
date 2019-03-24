@@ -13,14 +13,12 @@ import {
   Label,
   RadioGroupField,
   SelectField,
-  TextAreaField,
-} from '../lib'
-import {
   SimpleCheckboxProps,
   SimpleFormProps,
   SimpleRadioGroupProps,
   SimpleSelectProps,
   SimpleTextAreaProps,
+  TextAreaField,
 } from '../lib'
 import { Simple } from './SimpleForm'
 

@@ -1,6 +1,11 @@
 import React from 'react'
-import { classNames, classNamesHelper } from '../lib'
-import { AllControlHelpers, ControlDiv, ControlWrapper } from '../lib'
+import {
+  AllControlHelpers,
+  classNames,
+  classNamesHelper,
+  ControlDiv,
+  ControlWrapper,
+} from '../lib'
 
 type SelectVariant =
   | 'primary'

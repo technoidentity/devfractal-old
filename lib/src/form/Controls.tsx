@@ -7,6 +7,7 @@ import {
   FieldHelpProps,
   Input,
   InputProps,
+  Omit,
   RadioGroup,
   RadioGroupProps,
   Select,
@@ -14,7 +15,6 @@ import {
   TextArea,
   TextAreaProps,
 } from '../lib'
-import { Omit } from '../utils'
 
 type OmitForm<T> = Omit<T, 'form'>
 

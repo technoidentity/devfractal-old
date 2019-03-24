@@ -1,6 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
-import { Label, LabelSize } from '../lib'
+import { classNamesHelper, Div, Helpers, Label, LabelSize } from '../lib'
 
 type FieldGroupModifier = 'grouped-centered' | 'grouped-right'
 

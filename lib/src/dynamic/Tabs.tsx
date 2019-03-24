@@ -1,11 +1,14 @@
 import React from 'react'
 import {
+  classNamesHelper,
   ControlledProps,
+  Div,
+  Helpers,
+  Omit,
   Uncontrolled,
   ValueChangeEvent,
-} from '../base/Uncontrolled'
-import { classNamesHelper, Div, Helpers, warning } from '../lib'
-import { Omit } from '../utils/types'
+  warning,
+} from '../lib'
 
 export interface TabsChangeEvent extends ValueChangeEvent<string> {}
 
