@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Field, Section } from '../../index'
+import { Button, Field, Section } from '../../lib'
 import { CalendarComponent } from './Calendar'
 import { toISODate } from './helpers'
 

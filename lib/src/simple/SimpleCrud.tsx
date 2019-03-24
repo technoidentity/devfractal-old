@@ -3,7 +3,7 @@ import { Props, ReadonlyC, TypeC } from 'io-ts'
 import { NumberFromString } from 'io-ts-types'
 import React from 'react'
 import { assert } from 'tcomb'
-import { api, Crud } from '../index'
+import { api, Crud } from '../lib'
 
 export interface SimpleCrudProps<T extends Props> {
   readonly baseUrl: string

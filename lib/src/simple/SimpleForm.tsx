@@ -27,7 +27,7 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from '../index'
+} from '../lib'
 
 interface Named<Values extends object> {
   readonly name: keyof Values & string

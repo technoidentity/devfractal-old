@@ -1,5 +1,5 @@
 import React from 'react'
-import { Omit, State, warning } from '../index'
+import { Omit, State, warning } from '../lib'
 
 export interface ValueChangeEvent<Value> {
   readonly name?: string

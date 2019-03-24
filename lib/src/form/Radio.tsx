@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react'
-import { classNamesHelper, Div, Helpers, State, warning } from '../index'
-import { AllControlHelpers, ControlWrapper } from '../index'
+import { classNamesHelper, Div, Helpers, State, warning } from '../lib'
+import { AllControlHelpers, ControlWrapper } from '../lib'
 import { Omit } from '../utils'
 
 export interface RadioChangeEvent {

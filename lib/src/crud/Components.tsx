@@ -8,7 +8,7 @@ import {
   Repository,
   TypeOfRT,
   Views,
-} from '../index'
+} from '../lib'
 
 const base: (resource: string, basePath: string) => string = (
   resource,

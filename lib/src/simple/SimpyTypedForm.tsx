@@ -14,14 +14,14 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from '../index'
+} from '../lib'
 import {
   SimpleCheckboxProps,
   SimpleFormProps,
   SimpleRadioGroupProps,
   SimpleSelectProps,
   SimpleTextAreaProps,
-} from '../index'
+} from '../lib'
 import { Simple } from './SimpleForm'
 
 interface Named<Values extends Object, Value> {

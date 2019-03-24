@@ -13,7 +13,7 @@ import {
   SelectProps,
   TextArea,
   TextAreaProps,
-} from '../index'
+} from '../lib'
 import { Omit } from '../utils'
 
 type OmitForm<T> = Omit<T, 'form'>

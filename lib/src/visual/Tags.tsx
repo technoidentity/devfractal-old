@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../index'
+import { classNamesHelper, Div, Helpers } from '../lib'
 
 type TagsAlignment = 'centered' | 'right'
 

@@ -1,5 +1,5 @@
 import { RouteComponentProps } from 'react-router'
-import { ClassNameArg, classNames, Omit, TextHelpers } from '../index'
+import { ClassNameArg, classNames, Omit, TextHelpers } from '../lib'
 
 export interface CommonHelpers {
   readonly floating?: 'clearfix' | 'pulled-left' | 'pulled-right'

@@ -7,7 +7,7 @@ import {
   chop,
   Null,
   WithRouter,
-} from '../index'
+} from '../lib'
 
 const DynamicBreadcrumbWithRouter: React.FC<RouteComponentProps> = ({
   location,

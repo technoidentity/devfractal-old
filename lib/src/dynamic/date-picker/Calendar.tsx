@@ -15,7 +15,7 @@ import {
   Td,
   Th,
   Tr,
-} from '../../index'
+} from '../../lib'
 import {
   calendarMonths,
   calenderDates,

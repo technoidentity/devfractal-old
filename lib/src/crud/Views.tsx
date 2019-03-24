@@ -13,7 +13,7 @@ import {
   SimpleTable,
   SimpleViewer,
   TypeOfRT,
-} from '../index'
+} from '../lib'
 
 export interface EditProps<T> {
   readonly data: T | (() => Promise<T>)

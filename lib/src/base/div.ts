@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helpers, removeHelpers } from '../index'
+import { Helpers, removeHelpers } from '../lib'
 
 export interface DivProps
   extends React.AllHTMLAttributes<HTMLElement>,

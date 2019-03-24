@@ -8,7 +8,7 @@ import {
   Paths,
   paths as ps,
   Section,
-} from '../index'
+} from '../lib'
 
 export interface CrudProps<T extends Props, ID extends keyof T> {
   readonly api: APIRepository<T, ID>

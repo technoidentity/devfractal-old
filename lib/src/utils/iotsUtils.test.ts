@@ -7,7 +7,7 @@ import {
   string,
   type,
 } from 'io-ts'
-import { emptyFromType } from '../index'
+import { emptyFromType } from '../lib'
 
 test('emptyFromType', () => {
   expect(

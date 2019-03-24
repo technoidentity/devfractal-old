@@ -8,7 +8,7 @@ import t, {
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { eitherToPromise, idRT, Omit, typeInvariant, TypeOfRT } from '../index'
+import { eitherToPromise, idRT, Omit, typeInvariant, TypeOfRT } from '../lib'
 
 export interface URLs {
   all(): string
