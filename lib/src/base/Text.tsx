@@ -1,15 +1,48 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, Div, Helpers, TextHelpers } from '../lib'
 
 type HeaderTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 type TextTags = HeaderTags | 'span' | 'div' | 'p'
+
 export interface TextProps extends React.HTMLAttributes<HTMLElement>, Helpers {
   readonly as?: TextTags
+
+  readonly color?: TextHelpers['textColor']
+  readonly backgroundColor?: TextHelpers['textColor']
+  readonly alignment?: TextHelpers['textAlignment']
+  readonly transformation?: TextHelpers['textTransformation']
+  readonly weight?: TextHelpers['textWeight']
+  readonly responsiveSize?: TextHelpers['textResponsiveSize']
+  readonly responsiveAlignment?: TextHelpers['textResponsiveAlignment']
 }
 
-export const Text: React.FC<TextProps> = ({ as, children, ...props }) => (
-  <Div as={as} {...props} className={classNamesHelper(props)}>
-    {children}
-  </Div>
-)
+export const Text: React.FC<TextProps> = ({
+  as,
+  children,
+  color,
+  backgroundColor,
+  alignment,
+  transformation,
+  weight,
+  responsiveSize,
+  responsiveAlignment,
+  ...props
+}) => {
+  // tslint:disable-next-line:typedef
+  const localProps = {
+    ...props,
+    textColor: color,
+    textBackgroundColor: backgroundColor,
+    textAlignment: alignment,
+    textTransformation: transformation,
+    textWeight: weight,
+    textResponsiveSize: responsiveSize,
+    textResponsiveAlignment: responsiveAlignment,
+  }
+  return (
+    <Div as={as} {...localProps} className={classNamesHelper(localProps)}>
+      {children}
+    </Div>
+  )
+}
