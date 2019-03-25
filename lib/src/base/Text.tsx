@@ -31,7 +31,6 @@ export const Text: React.FC<TextProps> = ({
 }) => {
   // tslint:disable-next-line:typedef
   const localProps = {
-    ...props,
     textColor: color,
     textBackgroundColor: backgroundColor,
     textAlignment: alignment,
@@ -39,6 +38,7 @@ export const Text: React.FC<TextProps> = ({
     textWeight: weight,
     textResponsiveSize: responsiveSize,
     textResponsiveAlignment: responsiveAlignment,
+    ...props,
   }
   return (
     <Div as={as} {...localProps} className={classNamesHelper(localProps)}>
