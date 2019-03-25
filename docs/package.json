@@ -52,7 +52,7 @@
     "rimraf": "^2.6.3",
     "shortid": "^2.2.14",
     "tcomb": "^3.2.29",
-    "technoidentity-devfractal": "^0.4.6",
+    "technoidentity-devfractal": "^0.4.7",
     "ts-jest": "^23.10.5",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
