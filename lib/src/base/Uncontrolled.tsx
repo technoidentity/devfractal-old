@@ -1,5 +1,5 @@
 import React from 'react'
-import { Omit, State, warning } from '../lib'
+import { Omit, warning } from '../lib'
 
 export interface ValueChangeEvent<Value> {
   readonly name?: string
@@ -21,33 +21,28 @@ export type UncontrolledProps<Value, CP extends ControlledProps<Value>> = CP & {
 export function Uncontrolled<Value, CP extends ControlledProps<Value>>(
   args: UncontrolledProps<Value, CP>,
 ): JSX.Element {
-  const { defaultValue, component: controlled, ...props } = args
+  const { defaultValue, component: Component, ...props } = args
 
   warning(
     !(props.value && !props.onChange && !props.readOnly),
     "'value' provided, but not 'onChange', make this component readOnly.",
   )
 
-  // tslint:disable-next-line:typedef
-  const Component = controlled
+  if (props.value !== undefined) {
+    return <Component {...props} />
+  }
 
-  return props.value !== undefined ? (
-    <Component {...props} />
-  ) : (
-    <State
-      initial={props.value || defaultValue}
-      render={({ value, set }) => (
-        <Component
-          {...props}
-          value={value}
-          onChange={(evt: any) => {
-            set(evt.value)
-            if (props.onChange) {
-              props.onChange(evt)
-            }
-          }}
-        />
-      )}
+  const [value, set] = React.useState(props.value || defaultValue)
+  return (
+    <Component
+      {...props}
+      value={value}
+      onChange={evt => {
+        set(evt.value)
+        if (props.onChange) {
+          props.onChange(evt)
+        }
+      }}
     />
   )
 }
