@@ -1,8 +1,5 @@
 // copied from tiny-warning package
-export const warning: (condition: unknown, message: string) => void = (
-  condition,
-  message,
-) => {
+export function warning(condition: unknown, message: string): void {
   if (!(process.env.NODE_ENV === 'production')) {
     if (condition) {
       return
@@ -25,7 +22,7 @@ export const warning: (condition: unknown, message: string) => void = (
   }
 }
 
-export const fatal: (message?: string) => never = message => {
+export function fatal(message?: string): never {
   if (process.env.NODE_ENV === 'production') {
     // In production we strip the message but still throw
     throw new Error('Invariant failed')
@@ -37,13 +34,8 @@ export const fatal: (message?: string) => never = message => {
 }
 
 // copied from tiny-invariant package
-export const invariant: (condition: unknown, message?: string) => void = (
-  condition,
-  message,
-) => {
-  if (condition) {
-    return
+export function invariant(condition: unknown, message?: string): void {
+  if (!condition) {
+    fatal(message)
   }
-
-  return fatal(message)
 }

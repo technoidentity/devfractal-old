@@ -3,11 +3,11 @@ import tcomb from 'tcomb'
 export type ClassNameArg =
   | string
   | ReadonlyArray<string>
-  | { readonly [index: string]: unknown }
+  | Record<string, unknown>
   | undefined
   | null
 
-export const classNames: (...args: ClassNameArg[]) => string = (...args) => {
+export function classNames(...args: ClassNameArg[]): string {
   const draft: string[] = []
 
   args.forEach(arg => {

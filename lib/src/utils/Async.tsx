@@ -23,12 +23,13 @@ export function Async<T>({ asyncFn, children }: AsyncProps<T>): JSX.Element {
   return children({ data, error, isLoading })
 }
 
-export const delay: <T>(delay: number, f: () => T) => Promise<T> = async (
-  milliseconds,
-  f = nop,
-) => new Promise(resolve => setTimeout(() => resolve(f()), milliseconds))
+export async function delay<T>(delay: number, f: () => T = nop): Promise<T> {
+  return new Promise(resolve => setTimeout(() => resolve(f()), delay))
+}
 
-export const interval: <T>(interval: number, f: () => T) => Promise<T> = async (
-  milliseconds,
-  f = nop,
-) => new Promise(resolve => setInterval(() => resolve(f()), milliseconds))
+export async function interval<T>(
+  interval: number,
+  f: () => T = nop,
+): Promise<T> {
+  return new Promise(resolve => setInterval(() => resolve(f()), interval))
+}
