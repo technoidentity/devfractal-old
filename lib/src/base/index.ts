@@ -1,4 +1,5 @@
 export * from './div'
 export * from './helpers'
-export * from './Text'
+export * from './routeHelpers'
+export * from './textHelpers'
 export * from './Uncontrolled'
