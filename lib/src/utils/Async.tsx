@@ -13,7 +13,7 @@ export interface AsyncProps<T = any> {
 }
 
 export function Async<T>({ asyncFn, children }: AsyncProps<T>): JSX.Element {
-  const { value: data, error, loading: isLoading } = useAsync(asyncFn)
+  const { value: data, error, loading: isLoading } = useAsync(asyncFn, [])
 
   if (error) {
     // tslint:disable-next-line:no-console
