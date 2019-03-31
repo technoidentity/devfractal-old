@@ -47,6 +47,7 @@ export const req: <P extends t.Props>(
   name?: string,
 ) => t.ReadonlyC<t.TypeC<P>> = (obj, name) => t.readonly(t.type(obj), name)
 
+// tslint:disable readonly-array
 export const props: <O extends t.Props, R extends t.Props>(
   optional: O,
   required: R,
@@ -60,3 +61,4 @@ export const props: <O extends t.Props, R extends t.Props>(
     [t.readonly(t.partial(optional)), t.readonly(t.type(required))],
     name,
   )
+// tslint:enable readonly-array
