@@ -2,7 +2,6 @@ import {
   ErrorMessage,
   ErrorMessageProps,
   Field as FormikField,
-  FieldConfig,
   FieldProps as FormikFieldProps,
   FormikConsumer,
 } from 'formik'
@@ -12,8 +11,6 @@ import {
   CheckBoxProps,
   FieldHelp,
   FieldHelpProps,
-  Input,
-  InputProps,
   jsonStringify,
   Omit,
   RadioGroup,
@@ -23,25 +20,7 @@ import {
   TextArea,
   TextAreaProps,
 } from '../../lib'
-
-type OmitForm<T> = Omit<T, 'form'>
-type FormikFieldConfig = Omit<FieldConfig, 'innerRef'>
-
-type InputInnerProps<V> = FormikFieldProps<V> & OmitForm<InputProps>
-
-function InputInner<V>({
-  form,
-  field,
-  ...props
-}: InputInnerProps<V>): JSX.Element {
-  return <Input {...props} {...field} />
-}
-
-export type InputFieldProps = InputProps & FormikFieldConfig
-
-export const InputField: React.FC<InputFieldProps> = props => (
-  <FormikField {...props} component={InputInner} />
-)
+import { FormikFieldConfig, OmitForm } from './types'
 
 type FormikCheckboxProps<V> = FormikFieldProps<V> & OmitForm<CheckBoxProps>
 
