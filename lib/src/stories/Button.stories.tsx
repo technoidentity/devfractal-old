@@ -1,25 +1,14 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Button, Field } from '../docs/examples/devfractal'
+import Button from '../form/Button'
+import { Field } from '../lib'
 
 storiesOf('Button ', module)
   .add('with variant', () => (
-    <Field grouped>
-      <Button variant="primary" onClick={action('onClick')}>
-        primary
-      </Button>
-      <Button variant="link">link</Button>
-      <Button variant="white">white</Button>
-      <Button variant="dark">dark</Button>
-      <Button variant="success">success</Button>
-      <Button variant="warning">warning</Button>
-      <Button variant="danger">danger</Button>
-      <Button variant="light">light</Button>
-      <Button variant="text">text</Button>
-      <Button variant="black">black</Button>
-      <Button variant="info">info</Button>
-    </Field>
+    <Button variant="primary" onClick={action('onClick')}>
+      primary
+    </Button>
   ))
   .add('with size', () => (
     <Field grouped>

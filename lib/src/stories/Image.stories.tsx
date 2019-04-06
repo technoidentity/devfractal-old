@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Field, Image } from '../devfractal'
+import { Field, Image } from '../lib'
 
 storiesOf('Image ', module)
   .add('fixed square images', () => (

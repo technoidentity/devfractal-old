@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Text } from '../devfractal'
+import { Text } from '../lib'
 
 storiesOf('Text', module)
   .add('with size', () => (

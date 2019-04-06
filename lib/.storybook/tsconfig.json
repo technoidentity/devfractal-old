@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "rootDirs": ["src", "stories"],
+    "baseUrl": "src",
+    "outDir": "build/lib",
+    "module": "esnext",
+    "target": "es5",
+    "skipLibCheck": true,
+    "lib": ["es2018", "dom"],
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}

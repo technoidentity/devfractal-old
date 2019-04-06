@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { CheckBox } from '../devfractal'
+import { CheckBox } from '../lib'
 
 storiesOf('CheckBox', module)
   .add('with action', () => (
