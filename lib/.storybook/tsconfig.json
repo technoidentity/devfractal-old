@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDirs": ["src", "stories"],
+    "rootDirs": ["src"],
     "baseUrl": "src",
     "outDir": "build/lib",
     "module": "esnext",
