@@ -101,9 +101,9 @@
     "types": "tsc --noEmit -p tsconfig.json",
     "types:watch": "tsc --noEmit -p tsconfig.json --watch",
     "validate": "yarn lint && yarn types",
-    "style": "styleguidist server",
-    "style:build": "styleguidist build",
-    "storybook": "start-storybook"
+    "sg": "styleguidist server",
+    "sg:build": "styleguidist build",
+    "sb": "start-storybook"
   },
   "husky": {
     "hooks": {
