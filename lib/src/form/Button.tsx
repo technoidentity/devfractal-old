@@ -23,8 +23,6 @@ type ButtonVariant =
 
 type ButtonSize = 'small' | 'normal' | 'medium' | 'large'
 
-type ButtonModifier = 'selected'
-
 type ButtonState =
   | 'normal'
   | 'hovered'
@@ -42,7 +40,6 @@ export interface ButtonProps
    * While the default size is the normal one, the normal modifier exists in case you need to reset the button to its normal size.
    */
   readonly size?: ButtonSize
-  readonly modifier?: ButtonModifier
   readonly state?: ButtonState
   readonly fullWidth?: boolean
   readonly rounded?: boolean
@@ -54,7 +51,6 @@ export interface ButtonProps
 export const Button: React.FC<ButtonProps> = ({
   variant,
   size,
-  modifier,
   state,
   fullWidth,
   rounded,
@@ -65,7 +61,6 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'button', {
     [`is-${variant}`]: variant,
-    [`is-${modifier}`]: modifier,
     [`is-${size}`]: size,
     [`is-${state}`]: state,
     'is-rounded': rounded,
