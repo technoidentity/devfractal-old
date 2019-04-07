@@ -33,5 +33,5 @@
       "mockTypeScriptVersion": false
     }
   ],
-  "include": ["src"]
+  "include": ["src", "stories"]
 }

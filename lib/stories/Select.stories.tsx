@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Column, Columns, Select } from '../lib'
+import { Column, Columns, Select } from '../src/lib'
 
 storiesOf('Select', module)
   .add('with size', () => (

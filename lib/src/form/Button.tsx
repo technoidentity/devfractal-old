@@ -37,6 +37,7 @@ type ButtonState =
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     AllControlHelpers {
+  /** HELLO WORLD */
   readonly variant?: ButtonVariant
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier

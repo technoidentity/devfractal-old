@@ -1,8 +1,8 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import Button from '../form/Button'
-import { Field } from '../lib'
+import Button from '../src/form/Button'
+import { Field } from '../src/lib'
 
 storiesOf('Button ', module)
   .add('with variant', () => (
