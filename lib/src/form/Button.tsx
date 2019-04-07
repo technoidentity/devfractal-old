@@ -37,8 +37,10 @@ type ButtonState =
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     AllControlHelpers {
-  /** HELLO WORLD */
   readonly variant?: ButtonVariant
+  /**
+   * While the default size is the normal one, the normal modifier exists in case you need to reset the button to its normal size.
+   */
   readonly size?: ButtonSize
   readonly modifier?: ButtonModifier
   readonly state?: ButtonState
