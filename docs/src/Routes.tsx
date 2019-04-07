@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { Container, SimpleRedirect } from 'technoidentity-devfractal'
 import {
   BreadcrumbExample,
+  CardApp,
   CardExample,
   ColumnsLinks,
   ColumnsRoutes,
@@ -58,6 +59,7 @@ export const CompositesRoutes: React.FC = () => (
     <Route path="/composites/todo" exact component={Todo} />
     <Route path="/composites/treeview" exact component={TreeViewStructure} />
     <Route path="/composites/simple-todo" exact component={SimpleTodo} />
+    <Route path="/composites/github-card" exact component={CardApp} />
     <Route
       path="/composites/login-form-variants"
       exact

@@ -25,6 +25,7 @@ export const CompositesTab: React.FC = () => (
     <RoutedTabsItem value="counter">Counter</RoutedTabsItem>
     <RoutedTabsItem value="treeview">TreeView</RoutedTabsItem>
     <RoutedTabsItem value="todo">Todo</RoutedTabsItem>
+    <RoutedTabsItem value="github-card">Github Card</RoutedTabsItem>
     <RoutedTabsItem value="simple-todo">Simple todo</RoutedTabsItem>
     <RoutedTabsItem value="login-form-variants">
       Login Form Variants
