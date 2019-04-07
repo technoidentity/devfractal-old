@@ -1,4 +1,4 @@
-import { useAsync } from 'react-use'
+import useAsync from 'react-use/lib/useAsync'
 import { nop } from '../lib'
 
 export interface AsyncComponentProps<T = any> {
