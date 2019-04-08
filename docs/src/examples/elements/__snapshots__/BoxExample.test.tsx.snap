@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box Example 1`] = `
+<section
+  className="section"
+>
+  <div
+    className="box"
+  >
+    <article
+      className="media"
+    >
+      <figure
+        className="media-left"
+      >
+        <figure
+          className="image is-64x64"
+        >
+          <img
+            className=""
+            src="https://bulma.io/images/placeholders/128x128.png"
+          />
+        </figure>
+      </figure>
+      <div
+        className="media-content"
+      >
+        <div
+          className="content"
+        >
+          <p>
+            <strong>
+              John Smith
+            </strong>
+             
+            <small>
+              @johnsmith
+            </small>
+            <small>
+              31m
+            </small>
+            <br />
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+`;
