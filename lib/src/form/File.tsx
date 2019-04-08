@@ -19,12 +19,31 @@ type FileSize = 'small' | 'medium' | 'large'
 type FileAlignment = 'centered' | 'right'
 
 export interface FileProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+  /**
+   * You can style the file element by appending color(variant) modifiers
+   */
   readonly variant?: FileVariant
   readonly size?: FileSize
+
+  /**
+   * To align CTA(call-to-action)
+   */
   readonly alignment?: FileAlignment
+  /**
+   * To have a boxed block
+   */
   readonly boxed?: boolean
+
+  /**
+   * To expand the name to fill up space
+   */
   readonly fullWidth?: boolean
+
   readonly fileLabel?: string
+
+  /**
+   * You can add a placeholder for the selected file name.
+   */
   readonly fileName?: boolean
 }
 
@@ -62,3 +81,6 @@ export const File: React.FC<FileProps> = ({
     </div>
   )
 }
+
+// tslint:disable no-default-export
+export default File
