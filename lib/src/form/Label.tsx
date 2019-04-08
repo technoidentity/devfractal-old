@@ -6,6 +6,9 @@ export type LabelSize = 'small' | 'medium' | 'large'
 export interface LabelProps
   extends React.LabelHTMLAttributes<HTMLLabelElement>,
     Helpers {
+  /**
+   * For resizing the Label
+   */
   readonly size?: LabelSize
 }
 
@@ -22,3 +25,6 @@ export const Label: React.FC<LabelProps> = args => {
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Label
