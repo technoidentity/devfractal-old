@@ -19,10 +19,13 @@ type TextAreaVariant =
 
 type TextAreaState = 'hovered' | 'focused' | 'static' | 'active'
 
+type TextAreaSize = 'small' | 'medium' | 'large'
+
 export interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     AllControlHelpers {
   readonly variant?: TextAreaVariant
+  readonly size?: TextAreaSize
   readonly fixedSize?: boolean
   readonly fullWidth?: boolean
   readonly inline?: boolean
@@ -32,6 +35,7 @@ export interface TextAreaProps
 
 export const TextArea: React.FC<TextAreaProps> = ({
   variant,
+  size,
   fixedSize,
   fullWidth,
   inline,
@@ -41,6 +45,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'textarea', {
     [`is-${variant}`]: variant,
+    [`is-${size}`]: size,
     'has-fixed-size': fixedSize,
     'is-fullwidth': fullWidth,
     'is-inline': inline,
