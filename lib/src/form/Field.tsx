@@ -10,12 +10,29 @@ type FieldSize = 'narrow' | 'expanded'
 export interface FieldProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  /**
+   * To group controls together
+   */
   readonly grouped?: boolean
+  /**
+   * To attach controls together
+   */
   readonly addons?: boolean
+  /**
+   * For horizontal form control
+   */
   readonly horizontal?: boolean
+
   readonly groupedMultiline?: boolean
   readonly size?: FieldSize
+
+  /**
+   * To alter the alignment along with grouped
+   */
   readonly groupModifier?: FieldGroupModifier
+  /**
+   * To alter the alignment along with addons.
+   */
   readonly addonsModifier?: FieldAddonModifier
 }
 
@@ -91,6 +108,9 @@ type FieldLabelSize = 'small' | 'normal' | 'medium' | 'large'
 export interface FieldLabelProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  /**
+   * For resizing the fieldLabel
+   */
   readonly fieldLabelSize?: FieldLabelSize
 }
 
@@ -110,8 +130,15 @@ export const FieldLabel: React.FC<FieldLabelProps> = ({
 }
 
 export interface FormFieldProps extends FieldProps {
+  /**
+   * Specify the given name as the label
+   */
   readonly label?: string
+  /**
+   * For resizing the label
+   */
   readonly labelSize?: LabelSize
+
   readonly helpType?: FieldHelpType
   readonly helpText?: string
 }
