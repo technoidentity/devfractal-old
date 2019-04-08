@@ -35,11 +35,23 @@ type InputState = 'hovered' | 'focused' | 'static' | 'active'
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     AllControlHelpers {
+  /**
+   * You can style the input element by appending color(variant) modifiers
+   */
   readonly variant?: InputVariant
+
   readonly rounded?: boolean
+  /**
+   * Specifies the width of the <Input> element
+   */
   readonly fullWidth?: boolean
+
   readonly inline?: boolean
   readonly state?: InputState
+
+  /**
+   * Specifies the type <Input> element to display.This is the most important attribute, as it determines everything else about how the <Input> element behaves.
+   */
   readonly type?: InputType
 }
 
@@ -67,3 +79,6 @@ export const Input: React.FC<InputProps> = ({
     </ControlWrapper>
   )
 }
+
+// tslint:disable no-default-export
+export default Input
