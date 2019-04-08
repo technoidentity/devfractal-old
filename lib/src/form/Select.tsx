@@ -23,8 +23,15 @@ type SelectState = 'hovered' | 'focused' | 'active'
 export interface SelectProps
   extends React.SelectHTMLAttributes<HTMLSelectElement>,
     AllControlHelpers {
+  /**
+   * You can style the select element by appending color(variant) modifiers
+   */
   readonly variant?: SelectVariant
+  /**
+   * The shape of the select will be rounded rectangle
+   */
   readonly rounded?: boolean
+
   readonly state?: SelectState
   readonly noControl?: true
 }
@@ -59,3 +66,6 @@ export const Select: React.FC<SelectProps> = ({
     </ControlWrapper>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Select
