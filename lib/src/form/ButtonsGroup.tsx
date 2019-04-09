@@ -4,7 +4,13 @@ import { classNamesHelper, Div, Helpers } from '../lib'
 export interface ButtonsGroupProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {
+  /**
+   * Specifies the alignment of the buttons
+   */
   readonly alignment?: 'centered' | 'right'
+  /**
+   * To attach buttons together
+   */
   readonly addons?: boolean
 }
 
@@ -25,3 +31,6 @@ export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default ButtonsGroup
