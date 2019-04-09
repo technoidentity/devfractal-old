@@ -46,3 +46,6 @@ export const Text: React.FC<TextProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Text
