@@ -1,0 +1,5 @@
+### Default Box
+
+```jsx
+;<Box />
+```
