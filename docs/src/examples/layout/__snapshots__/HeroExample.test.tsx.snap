@@ -1,0 +1,997 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Example 1`] = `
+Array [
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Simple Hero
+    </h1>
+    <section
+      className="hero"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Hero title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Hero subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Colors
+    </h1>
+    <section
+      className="hero is-primary"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Primary title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Primary subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-info"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Info title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Info subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-success"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Success title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Success subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-warning"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Warning title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Warning subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-danger"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Danger title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Danger subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-light"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Light title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Light subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-dark"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Dark title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Dark subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Gradients
+    </h1>
+    <section
+      className="hero is-primary is-bold"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Primary bold title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Primary bold subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-info is-bold"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Info bold title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Info bold subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-success is-bold"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Success bold title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Success bold subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-warning is-bold"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Warning title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Warning subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-danger is-bold"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Danger bold title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Danger bold subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-light is-bold"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Light bold title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Light bold subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-dark is-bold"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Dark bold title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Dark bold subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Sizes
+    </h1>
+    <section
+      className="hero is-primary is-medium"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Medium title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Medium subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-info is-large"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            Large title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            Large subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-success is-fullheight"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            FullHeight title
+          </h1>
+          <h1
+            className="subtitle"
+          >
+            FullHeight subtitle
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hero is-link is-fullheight-with-navbar"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <h1
+            className="title"
+          >
+            FullHeight hero with navbar
+          </h1>
+        </div>
+      </div>
+    </section>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      FullHeight hero in 3 parts
+    </h1>
+    <section
+      className="section"
+    >
+      <h1
+        className="title"
+      >
+        Medium Hero
+      </h1>
+      <section
+        className="hero is-primary is-medium"
+      >
+        <div
+          className="hero-head"
+        >
+          <div
+            className="navbar"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="navbar-brand"
+              >
+                <div
+                  aria-label="main navigation"
+                  className="navbar-item href"
+                  role="navigation"
+                >
+                  <img
+                    src="https://bulma.io/images/bulma-type-white.png"
+                  />
+                </div>
+                <a
+                  className="navbar-burger burger"
+                  data-target="navbarMenuHeroA"
+                  onClick={[Function]}
+                >
+                  <span />
+                  <span />
+                  <span />
+                </a>
+              </div>
+              <div
+                className="navbar-menu"
+                onClick={[Function]}
+              >
+                <div
+                  className="navbar-end"
+                >
+                  <div
+                    aria-label="main navigation"
+                    className="navbar-item href"
+                    role="navigation"
+                  >
+                    Home
+                  </div>
+                  <div
+                    aria-label="main navigation"
+                    className="navbar-item href"
+                    role="navigation"
+                  >
+                    Examples
+                  </div>
+                  <div
+                    aria-label="main navigation"
+                    className="navbar-item href"
+                    role="navigation"
+                  >
+                    Documentation
+                  </div>
+                  <div
+                    aria-label="main navigation"
+                    className="navbar-item href"
+                    role="navigation"
+                  >
+                    <div
+                      className="control"
+                    >
+                      <button
+                        className="button is-primary is-inverted"
+                      >
+                        <span>
+                          Download
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="hero-body"
+        >
+          <div
+            className="container has-text-centered"
+          >
+            <h1
+              className="title"
+            >
+              Title
+            </h1>
+            <h1
+              className="subtitle"
+            >
+              Subtitle
+            </h1>
+          </div>
+        </div>
+        <div
+          className="hero-foot"
+        >
+          <div
+            className="container"
+          >
+            <div
+              className="tabs"
+            >
+              <ul>
+                <li
+                  className="is-active"
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Overview
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Modifiers
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Grid
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Elements
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Components
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Layout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section
+      className="section"
+    >
+      <h1
+        className="title"
+      >
+        Large Hero
+      </h1>
+      <section
+        className="hero is-info is-large"
+      >
+        <div
+          className="hero-head"
+        >
+          <div
+            className="navbar"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="navbar-brand"
+              >
+                <div
+                  aria-label="main navigation"
+                  className="navbar-item href"
+                  role="navigation"
+                >
+                  <img
+                    alt="Logo"
+                    src="https://bulma.io/images/bulma-type-white.png"
+                  />
+                </div>
+                <a
+                  className="navbar-burger burger"
+                  data-target="navbarMenuHeroA"
+                  onClick={[Function]}
+                >
+                  <span />
+                  <span />
+                  <span />
+                </a>
+              </div>
+              <div
+                className="navbar-menu"
+                onClick={[Function]}
+              >
+                <div
+                  className="navbar-end"
+                >
+                  <div
+                    aria-label="main navigation"
+                    className="navbar-item href"
+                    role="navigation"
+                  >
+                    Home
+                  </div>
+                  <div
+                    aria-label="main navigation"
+                    className="navbar-item href"
+                    role="navigation"
+                  >
+                    Examples
+                  </div>
+                  <div
+                    aria-label="main navigation"
+                    className="navbar-item href"
+                    role="navigation"
+                  >
+                    Documentation
+                  </div>
+                  <div
+                    aria-label="main navigation"
+                    className="navbar-item href"
+                    role="navigation"
+                  >
+                    <div
+                      className="control"
+                    >
+                      <button
+                        className="button is-primary is-inverted"
+                      >
+                        <span>
+                          Download
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="hero-body"
+        >
+          <div
+            className="container has-text-centered"
+          >
+            <h1
+              className="title"
+            >
+              Title
+            </h1>
+            <h1
+              className="subtitle"
+            >
+              Subtitle
+            </h1>
+          </div>
+        </div>
+        <div
+          className="hero-foot"
+        >
+          <div
+            className="container"
+          >
+            <div
+              className="tabs"
+            >
+              <ul>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Overview
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Modifiers
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Grid
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Elements
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Components
+                  </a>
+                </li>
+                <li
+                  className="is-active"
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Layout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section
+      className="section"
+    >
+      <h1
+        className="title"
+      >
+        FullHeight Hero
+      </h1>
+      <section
+        className="hero is-success is-fullheight"
+      >
+        <div
+          className="hero-head"
+        >
+          <div
+            className="navbar"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="tabs"
+                readOnly={true}
+              >
+                <ul>
+                  <li
+                    className="is-active"
+                  >
+                    <a
+                      onClick={[Function]}
+                    >
+                      Overview
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                  >
+                    <a
+                      onClick={[Function]}
+                    >
+                      Modifiers
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                  >
+                    <a
+                      onClick={[Function]}
+                    >
+                      Grid
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                  >
+                    <a
+                      onClick={[Function]}
+                    >
+                      Elements
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                  >
+                    <a
+                      onClick={[Function]}
+                    >
+                      Components
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                  >
+                    <a
+                      onClick={[Function]}
+                    >
+                      Layout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="hero-body"
+        >
+          <div
+            className="container has-text-centered"
+          >
+            <h1
+              className="title"
+            >
+              Title
+            </h1>
+            <h1
+              className="subtitle"
+            >
+              Subtitle
+            </h1>
+          </div>
+        </div>
+        <div
+          className="hero-foot"
+        >
+          <div
+            className="container"
+          >
+            <div
+              className="tabs"
+            >
+              <ul>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Overview
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Modifiers
+                  </a>
+                </li>
+                <li
+                  className="is-active"
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Grid
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Elements
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Components
+                  </a>
+                </li>
+                <li
+                  className=""
+                >
+                  <a
+                    onClick={[Function]}
+                  >
+                    Layout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>,
+]
+`;
