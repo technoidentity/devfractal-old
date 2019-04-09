@@ -6,7 +6,13 @@ type TagsAlignment = 'centered' | 'right'
 export interface TagsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  /**
+   * alters the alignment of the tags
+   */
   readonly alignment?: TagsAlignment
+  /**
+   * attach tags together
+   */
   readonly addons?: boolean
 }
 
@@ -27,3 +33,6 @@ export const Tags: React.FC<TagsProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Tags
