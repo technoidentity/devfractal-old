@@ -31,8 +31,17 @@ type ResponsiveImageRatio =
 export interface ImageProps
   extends React.ImgHTMLAttributes<HTMLImageElement>,
     Helpers {
+  /**
+   * Resize the avatar
+   */
   readonly size?: FixedSquaredImageSize
+  /**
+   * If you don't know the exact dimensions but know the ratio instead, you can use this
+   */
   readonly responsiveImageRatio?: ResponsiveImageRatio
+  /**
+   * To make rounded images
+   */
   readonly rounded?: boolean
 }
 
@@ -58,3 +67,6 @@ export const Image: React.FC<ImageProps> = ({
     </figure>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Image
