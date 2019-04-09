@@ -7,7 +7,7 @@
 ### Title with all properties
 
 ```jsx
-import { SubTitle } from './SubTitle'
+import SubTitle from './SubTitle'
 ;<div>
   <Title size="2" spaced={false}>
     Title
