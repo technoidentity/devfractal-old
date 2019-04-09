@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section Example 1`] = `
+Array [
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Section with large spacing
+    </h1>
+    <section
+      className="section is-large"
+    >
+      <div
+        className="container"
+      >
+        <h1
+          className="title"
+        >
+          Section
+        </h1>
+        <h1
+          className="subtitle"
+        >
+          A simple container to divide your page into sections
+        </h1>
+      </div>
+    </section>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Section with medium spacing
+    </h1>
+    <section
+      className="section is-medium"
+    >
+      <div
+        className="container"
+      >
+        <h1
+          className="title"
+        >
+          Section
+        </h1>
+        <h1
+          className="subtitle"
+        >
+          A simple container to divide your page into sections
+        </h1>
+      </div>
+    </section>
+  </section>,
+]
+`;
