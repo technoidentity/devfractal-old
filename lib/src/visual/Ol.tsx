@@ -4,6 +4,9 @@ import { classNamesHelper, Div, Helpers } from '../lib'
 type OlModifier = 'lower-alpha' | 'lower-roman' | 'upper-alpha' | 'upper-roman'
 
 export interface OlProps extends OlHTMLAttributes<HTMLOListElement>, Helpers {
+  /**
+   * different types of items markers
+   */
   readonly modifier?: OlModifier
 }
 
@@ -17,3 +20,6 @@ export const Ol: React.FC<OlProps> = ({ modifier, children, ...props }) => {
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Ol
