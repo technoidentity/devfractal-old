@@ -1,5 +1,5 @@
 ### Default Box
 
 ```jsx
-;<Box />
+;<Box>A white box to contain other elements</Box>
 ```
