@@ -6,6 +6,9 @@ type ContentSize = 'small' | 'medium' | 'large'
 export interface ContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  /**
+   * For resizing the content
+   */
   readonly size?: ContentSize
 }
 
@@ -23,3 +26,6 @@ export const Content: React.FC<ContentProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Content
