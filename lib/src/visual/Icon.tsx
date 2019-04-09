@@ -26,3 +26,6 @@ export const Icon: React.FC<IconProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Icon
