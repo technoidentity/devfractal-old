@@ -16,6 +16,7 @@ type NotificationVariant =
 export interface NotificationProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  /** To style the notification element by appending color(variant) */
   readonly variant?: NotificationVariant
 }
 
@@ -33,3 +34,6 @@ export const Notification: React.FC<NotificationProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Notification
