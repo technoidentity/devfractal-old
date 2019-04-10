@@ -4,6 +4,9 @@ import { classNamesHelper, Div, Helpers } from '../lib'
 export interface SectionProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {
+  /**
+   * To change the spacing
+   */
   readonly modifier?: 'medium' | 'large'
 }
 
@@ -21,3 +24,6 @@ export const Section: React.FC<SectionProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Section
