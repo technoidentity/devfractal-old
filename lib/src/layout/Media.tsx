@@ -46,3 +46,6 @@ export const MediaContent: React.FC<MediaContentProps> = ({
     {children}
   </Div>
 )
+
+// tslint:disable-next-line: no-default-export
+export default MediaLeft
