@@ -23,8 +23,16 @@ export interface TileProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly tileType?: TileType
+
+  /**
+   * To resize any tile according to 12 column grid
+   */
   readonly size?: TileSize
+  /**
+   * To stack tiles vertically
+   */
   readonly vertical?: boolean
+
   readonly variant?: TileVariant
   readonly notification?: boolean
   readonly box?: boolean
@@ -54,3 +62,6 @@ export const Tile: React.FC<TileProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Tile
