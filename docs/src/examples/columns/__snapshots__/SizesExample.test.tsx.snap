@@ -1,0 +1,440 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sizes Example of columns 1`] = `
+<div>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title is-4"
+      >
+        Different sizes
+      </h1>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-four-fifths is-four-fifths"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-four-fifths
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-three-quarters is-three-quarters"
+        >
+           
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-three-quarters
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-two-thirds is-two-thirds"
+        >
+           
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-two-thirds
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-three-fifths is-three-fifths"
+        >
+           
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-three-fifths
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-half is-half"
+        >
+           
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-half
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-two-fifths is-two-fifths"
+        >
+           
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-two-fifths
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-one-third is-one-third"
+        >
+           
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-third
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-one-quarter is-one-quarter"
+        >
+           
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-quarter
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-one-fifth is-one-fifth"
+        >
+           
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-fifth
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-light has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title is-4"
+      >
+        Offset
+      </h1>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-half is-half is-offset-one-quarter"
+        >
+          <div>
+            <div
+              className="notification is-primary has-text-centered"
+            >
+              <code>
+                is-half is-offset-one-quarter
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-three-fifths is-three-fifths is-offset-one-fifth"
+        >
+          <div>
+            <div
+              className="notification is-primary has-text-centered"
+            >
+              <code>
+                is-three-fifths is-offset-one-fifth
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-4 is-offset-8"
+        >
+          <div>
+            <div
+              className="notification has-text-centered is-primary"
+            >
+              <code>
+                is-4 is-offset-8
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-11 is-offset-1"
+        >
+          <div>
+            <div
+              className="notification is-primary has-text-centered"
+            >
+              <code>
+                is-11 is-offset-1
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title is-4"
+      >
+        Narrow column
+      </h1>
+      <div
+        className="columns"
+      >
+        <div
+          className="column is-narrow"
+        >
+          <div
+            className="box"
+          >
+            <h1
+              className="title is-5"
+            >
+              Narrow column
+            </h1>
+            <h1
+              className="subtitle"
+            >
+              This column is only 200px wide.
+            </h1>
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="box"
+          >
+            <h1
+              className="title is-5"
+            >
+              Flexible column
+            </h1>
+            <h1
+              className="subtitle"
+            >
+              This column will take up the remaining space available.
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
