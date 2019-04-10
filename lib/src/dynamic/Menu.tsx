@@ -65,3 +65,6 @@ export const MenuItem: React.FC<MenuItemProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default MenuLabel
