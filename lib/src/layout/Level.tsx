@@ -3,16 +3,26 @@ import { classNamesHelper, Div, Helpers } from '../lib'
 
 type LevelItemDirection = 'left' | 'right'
 
-export interface LevelProps
-  extends React.HTMLAttributes<HTMLElement>,
-    Helpers {}
+type LevelModifier = 'mobile'
 
-export const Level: React.FC<LevelProps> = ({ children, ...props }) => (
-  <Div as="nav" {...props} className={classNamesHelper(props, 'level')}>
-    {children}
-  </Div>
-)
+export interface LevelProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+  readonly modifier?: LevelModifier
+}
 
+export const Level: React.FC<LevelProps> = ({
+  modifier,
+  children,
+  ...props
+}) => {
+  const classes: string = classNamesHelper(props, 'level', {
+    [`is-${modifier}`]: modifier,
+  })
+  return (
+    <Div as="nav" {...props} className={classes}>
+      {children}
+    </Div>
+  )
+}
 export interface LevelItemProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
@@ -36,3 +46,6 @@ export const LevelItem: React.FC<LevelItemProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default LevelItem
