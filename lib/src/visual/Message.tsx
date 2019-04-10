@@ -18,7 +18,13 @@ type MessageSize = 'small' | 'medium' | 'large'
 export interface MessageProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {
+  /**
+   * style the Message element by appending the color(variant)
+   */
   readonly variant?: MessageVariant
+  /**
+   * Resize the content of the message
+   */
   readonly size?: MessageSize
 }
 
@@ -70,3 +76,6 @@ export const MessageBody: React.FC<MessageBodyProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default MessageHeader
