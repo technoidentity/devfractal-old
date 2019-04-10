@@ -34,7 +34,7 @@ import { Table, TableBody, Tr, Th, Td } from './Table'
   bordered={true}
   striped={false}
   narrow={false}
-  hovered={false}
+  hoverable={false}
   fullWidth={false}
 >
   <TableHead>
