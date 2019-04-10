@@ -52,10 +52,25 @@ const getSizeResponsive: (
 export interface ColumnProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
+  /**
+   * Defines the size of each column individually
+   */
   readonly size?: ColumnSize
+  /**
+   * To resize  according to 12 column grid
+   */
   readonly gridSize?: ColumnGridSize
+  /**
+   * To create horizontal space around column elements
+   */
   readonly offsetSize?: ColumnOffsetSize
+  /**
+   * If you want a column to only take the space it needs. The other column(s) will fill up the remaining space.
+   */
   readonly narrow?: boolean
+  /**
+   *Display column based on each viewport size
+   */
   readonly responsive?: ColumnResponsive
 }
 
@@ -86,3 +101,6 @@ export const Column: React.FC<ColumnProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default Column
