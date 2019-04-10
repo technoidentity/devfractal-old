@@ -19,8 +19,17 @@ type HeroSize =
   | 'fullheight-with-navbar'
 
 export interface HeroProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+  /**
+   * To style the Hero Elements by colors
+   */
   readonly variant?: HeroVariant
+  /**
+   * To generate a subtle gradient
+   */
   readonly bold?: boolean
+  /**
+   * To resize the imposing banners
+   */
   readonly size?: HeroSize
 }
 
@@ -72,3 +81,6 @@ export const HeroFoot: React.FC<HeroFootProps> = ({ children, ...props }) => (
     {children}
   </Div>
 )
+
+// tslint:disable-next-line: no-default-export
+export default HeroHead
