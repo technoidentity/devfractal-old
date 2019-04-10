@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Responsive Example of columns 1`] = `
+<div>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title is-4"
+      >
+        Mobile columns
+      </h1>
+      <div
+        className="columns is-mobile-only"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            1
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            2
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            3
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            4
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title is-4"
+      >
+        Desktop columns
+      </h1>
+      <div
+        className="columns is-desktop-only"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            1
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            2
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            3
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            4
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
