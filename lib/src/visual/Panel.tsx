@@ -115,3 +115,6 @@ export const PanelTabs: React.FC<PanelTabsProps> = ({ children, ...props }) => {
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default PanelHeading
