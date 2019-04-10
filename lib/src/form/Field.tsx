@@ -109,7 +109,7 @@ export interface FieldLabelProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   /**
-   * For resizing the fieldLabel
+   * To preserve the vertical alignment of each labels with each type and size of control
    */
   readonly fieldLabelSize?: FieldLabelSize
 }
@@ -135,7 +135,7 @@ export interface FormFieldProps extends FieldProps {
    */
   readonly label?: string
   /**
-   * For resizing the label
+   * resize the label element
    */
   readonly labelSize?: LabelSize
 
@@ -157,3 +157,6 @@ export const FormField: React.FC<FormFieldProps> = ({
     <FieldHelp variant={helpType}>{helpText}</FieldHelp>
   </Field>
 )
+
+// tslint:disable-next-line: no-default-export
+export default FieldBody
