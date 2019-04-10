@@ -4,10 +4,25 @@ import { classNamesHelper, Div, Helpers } from '../lib'
 export interface TableProps
   extends React.TableHTMLAttributes<HTMLTableElement>,
     Helpers {
+  /**
+   * Add borders to all the cells
+   */
   readonly bordered?: boolean
+  /**
+   * Add stripes to the table
+   */
   readonly striped?: boolean
+  /**
+   * Makes the cells narrower
+   */
   readonly narrow?: boolean
+  /**
+   * Add hover effect on each row
+   */
   readonly hoverable?: boolean
+  /**
+   * For Fullwidth table
+   */
   readonly fullWidth?: boolean
 }
 
@@ -105,8 +120,17 @@ type ThVariant =
 export interface ThProps
   extends React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
     Helpers {
+  /**
+   * To style the Th element by appending color(variant)
+   */
   readonly variant?: ThVariant
+  /**
+   * To select the cell
+   */
   readonly selected?: boolean
+  /**
+   * Makes the cell narrower
+   */
   readonly narrow?: boolean
 }
 
@@ -144,8 +168,17 @@ type TdVariant =
 export interface TdProps
   extends React.TdHTMLAttributes<HTMLTableDataCellElement>,
     Helpers {
+  /**
+   * To style the Th element by appending color(variant)
+   */
   readonly variant?: TdVariant
+  /**
+   * To select the cell
+   */
   readonly selected?: boolean
+  /**
+   * Makes the cell narrower
+   */
   readonly narrow?: boolean
 }
 
@@ -167,3 +200,6 @@ export const Td: React.FC<TdProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default TableHead
