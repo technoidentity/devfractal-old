@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basics Example of Columns 1`] = `
+<section
+  className="section"
+>
+  <div
+    className="container"
+  >
+    <h1
+      className="title is-4"
+    >
+      Basic columns
+    </h1>
+    <div
+      className="columns"
+    >
+      <div
+        className="column"
+      >
+        <div
+          className="notification is-primary has-text-centered"
+        >
+          First column
+        </div>
+      </div>
+      <div
+        className="column"
+      >
+        <div
+          className="notification is-primary has-text-centered"
+        >
+          Second column
+        </div>
+      </div>
+      <div
+        className="column"
+      >
+        <div
+          className="notification is-primary has-text-centered"
+        >
+          Third column
+        </div>
+      </div>
+      <div
+        className="column"
+      >
+        <div
+          className="notification is-primary has-text-centered"
+        >
+          Fourth column
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;
