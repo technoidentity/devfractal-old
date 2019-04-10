@@ -4,7 +4,11 @@ import { classNamesHelper, Div, Helpers } from '../lib'
 export interface PaginationProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {
+  /**
+   * To have rounded pagination items
+   */
   readonly rounded?: boolean
+
   readonly size?: 'small' | 'medium' | 'large'
   readonly alignment?: 'centered' | 'right'
 }
@@ -131,3 +135,6 @@ export const PaginationNext: React.FC<PaginationNextProps> = ({
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default PaginationLink
