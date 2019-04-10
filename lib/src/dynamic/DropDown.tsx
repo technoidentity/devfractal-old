@@ -8,8 +8,18 @@ export interface DropDownProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
   readonly label?: string
+
+  /**
+   * when should be the Dropdown to be shown Up
+   */
   readonly modifier?: DropDownModifier
+  /**
+   * To have a right-aligned dropdown
+   */
   readonly rightAligned?: boolean
+  /**
+   * To have a dropdown menu that appears above the dropdown button
+   */
   readonly dropUp?: boolean
 }
 
@@ -84,3 +94,6 @@ export const DropDownDivider: React.FC<DropDownDividerProps> = ({
   const classes: string = classNamesHelper(props, 'dropdown-divider')
   return <Div as="hr" {...props} className={classes} />
 }
+
+// tslint:disable-next-line: no-default-export
+export default DropDownItem
