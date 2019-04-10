@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nesting Example of columns 1`] = `
+<div>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title is-4"
+      >
+        Nesting
+      </h1>
+      <div
+        className="columns"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-info has-text-centered"
+          >
+            First column
+          </div>
+          <div
+            className="columns"
+          >
+            <div
+              className="column"
+            >
+              <div
+                className="notification is-info has-text-centered"
+              >
+                First nested column
+              </div>
+            </div>
+            <div
+              className="column"
+            >
+              <div
+                className="notification is-info has-text-centered"
+              >
+                Second nested column
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification has-text-centered is-danger"
+          >
+            Second column
+          </div>
+          <div
+            className="columns"
+          >
+            <div
+              className="column"
+            >
+              <div
+                className="notification is-danger has-text-centered"
+              >
+                50%
+              </div>
+            </div>
+            <div
+              className="column"
+            >
+              <div
+                className="notification is-danger has-text-centered"
+              >
+                Auto
+              </div>
+            </div>
+            <div
+              className="column"
+            >
+              <div
+                className="notification is-danger has-text-centered"
+              >
+                Auto
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
