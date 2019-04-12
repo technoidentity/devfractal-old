@@ -2,13 +2,18 @@ import * as t from 'io-ts'
 import React from 'react'
 import { typeWarning } from './iotsUtils'
 
-export const component: <T extends t.Mixed, P extends t.TypeOf<T>>(
+export function component<
+  T extends t.Mixed,
+  P extends t.TypeOf<T> = t.TypeOf<T>
+>(
   // displayName?: string,
-  propsValue: T,
+  propsRT: T,
   inner: React.FC<P>,
-) => React.FC<P> = (propsValue, inner) => props => {
-  typeWarning(propsValue, props)
-  return React.createElement(inner, props)
+): React.FC<P> {
+  return props => {
+    typeWarning(propsRT, props)
+    return React.createElement(inner, props)
+  }
 }
 
 // tslint:disable-next-line: no-null-keyword
