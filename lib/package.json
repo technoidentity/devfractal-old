@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "dependencies": {
@@ -104,7 +104,7 @@
     "hooks": {
       "pre-commit": "lint-staged && yarn validate",
       "pre-build": "yarn validate",
-      "pre-publish": "yarn validate"
+      "pre-publish": "yarn clean && yarn && yarn validate"
     }
   },
   "lint-staged": {
