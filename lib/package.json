@@ -68,6 +68,7 @@
     "react-styleguidist": "^9.0.7",
     "react-testing-library": "^6.1.2",
     "rimraf": "^2.6.3",
+    "tcomb-validation": "^3.4.1",
     "ts-jest": "^24.0.2",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
@@ -88,6 +89,7 @@
   },
   "scripts": {
     "start": "parcel index.html --open",
+    "test": "jest",
     "lib": "microbundle watch  --output build --compress false",
     "build": "microbundle --output build",
     "clean": "rimraf build .rts2* .cache dist",
