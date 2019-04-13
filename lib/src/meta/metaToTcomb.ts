@@ -86,6 +86,7 @@ const toTcombArrayRefinements: (r: ArrayRefinements) => t.Type<any> = r => {
 function buildObject(obj: any, f: (key: any) => any): any {
   const result: any = {}
   for (const k of Object.keys(obj)) {
+    // tslint:disable-next-line:no-object-mutation
     result[k] = f(k as any)
   }
   return result
@@ -122,9 +123,6 @@ export const metaToTcomb: (meta: MT) => t.Type<any> = meta => {
 
     case 'enum':
       return t.enums.of(meta.values as string[])
-
-    case 'union':
-      return t.intersection(meta.values.map(metaToTcomb))
 
     case 'array':
       return meta.refinements

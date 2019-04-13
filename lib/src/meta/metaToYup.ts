@@ -4,7 +4,6 @@ import {
   bool,
   date,
   DateSchema,
-  mixed,
   number,
   NumberSchema,
   object,
@@ -93,6 +92,7 @@ const toYupArrayRefinements: (
 function buildObject(obj: any, f: (key: any) => any): any {
   const result: any = {}
   for (const k of Object.keys(obj)) {
+    // tslint:disable-next-line:no-object-mutation
     result[k] = f(k as any)
   }
   return result
@@ -125,11 +125,6 @@ export const metaToYup: (meta: MT) => Schema<any> = meta => {
       return string()
         .strict(true)
         .oneOf(meta.values as string[])
-
-    case 'union':
-      return mixed()
-        .strict(true)
-        .oneOf(meta.values as any[])
 
     case 'array':
       const as = array()

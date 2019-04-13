@@ -1,9 +1,7 @@
-import React from 'react'
-import { FieldMT, FieldsMT } from './types'
-import { Simple } from '../simple'
 import { FormikActions } from 'formik'
-import { Label } from '../form'
-import { DropDown } from '../dynamic'
+import React from 'react'
+import { Label, Simple } from '../lib'
+import { FieldMT, FieldsMT } from './types'
 
 export interface MetaFormProps {
   readonly fields: FieldsMT
@@ -52,14 +50,14 @@ const EnumEditor: React.FC<FieldEditorProps> = ({ data, field }) => (
   </>
 )
 
-const ArrayEditor: React.FC<FieldEditorProps> = ({ data, field }) => (
+const ArrayEditor: React.FC<FieldEditorProps> = ({ field }) => (
   <>
     <Label>{field.label}</Label>
     <h1>Complex Stuff Ahead</h1>
   </>
 )
 
-const ObjectEditor: React.FC<FieldEditorProps> = ({ data, field }) => (
+const ObjectEditor: React.FC<FieldEditorProps> = ({ field }) => (
   <>
     <Label>{field.label}</Label>
     <h1>Complex Stuff Ahead</h1>

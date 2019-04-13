@@ -135,9 +135,6 @@ export const validate: (meta: MT, obj: unknown) => boolean = (meta, obj) => {
     case 'enum':
       return String.is(obj) && meta.values.some(e => e === obj)
 
-    case 'union':
-      return meta.values.some(m => validate(m, obj))
-
     case 'array':
       if (!Array.is(obj)) {
         return false
