@@ -2,7 +2,8 @@
   "name": "technoidentity-devfractal",
   "version": "0.5.3",
   "source": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "main": "build/technoidentity-devfractal.js",
+  "types": "build/index.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-brands-svg-icons": "^5.8.1",
@@ -87,9 +88,9 @@
   },
   "scripts": {
     "start": "parcel index.html --open",
-    "lib": "microbundle watch --compress false",
-    "build": "microbundle",
-    "clean": "rimraf build .rts2* node_modules .cache dist",
+    "lib": "microbundle watch  --output build --compress false",
+    "build": "microbundle --output build",
+    "clean": "rimraf build .rts2* .cache dist",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
