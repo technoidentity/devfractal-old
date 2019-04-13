@@ -11,11 +11,6 @@
     "@fortawesome/free-regular-svg-icons": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@storybook/addon-actions": "^5.0.6",
-    "@storybook/addon-info": "^5.0.6",
-    "@storybook/addon-links": "^5.0.6",
-    "@storybook/addons": "^5.0.6",
-    "@storybook/react": "^5.0.6",
     "@types/chance": "^1.0.2",
     "@types/cleave.js": "^1.4.0",
     "@types/jest": "^24.0.11",
@@ -25,9 +20,6 @@
     "@types/react-router": "^4.4.5",
     "@types/react-router-dom": "^4.3.2",
     "@types/react-test-renderer": "^16.8.1",
-    "@types/storybook__addon-actions": "^3.4.2",
-    "@types/storybook__addon-links": "^3.3.4",
-    "@types/storybook__react": "^4.0.1",
     "@types/yup": "^0.26.12",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
@@ -81,10 +73,7 @@
     "types:watch": "tsc --noEmit -p tsconfig.json --watch",
     "validate": "yarn lint && yarn types",
     "all": "yarn validate && yarn start",
-    "storybook": "start-storybook -p 9009 -s public",
-    "storybook:build": "build-storybook -s public",
-    "eject": "react-scripts eject",
-    "build-storybook": "build-storybook -s public"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
