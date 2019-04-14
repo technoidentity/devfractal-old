@@ -81,7 +81,7 @@ export const metaToInitialValues: (meta: MT) => any = meta => {
       return false
 
     case 'date':
-      return Date.now()
+      return new Date()
 
     case 'enum':
       return meta.values[0]

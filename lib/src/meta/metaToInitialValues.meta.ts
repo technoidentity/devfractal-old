@@ -19,7 +19,7 @@ test('initialValues from bool meta', () => {
 })
 
 test('initialValues from date meta', () => {
-  expect(metaToInitialValues(dateEx)).toEqual(Date.now())
+  expect(metaToInitialValues(dateEx)).toEqual(new Date())
 })
 
 test('initialValues from enum meta', () => {

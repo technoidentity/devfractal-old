@@ -154,6 +154,7 @@ test('complex meta', () => {
       },
     },
   }
+
   // tslint:disable-next-line:typedef
   const customer = {
     name: 'foobar',
