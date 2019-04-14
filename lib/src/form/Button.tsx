@@ -64,6 +64,7 @@ export interface ButtonProps
 }
 
 export const Button: React.FC<ButtonProps> = ({
+  type = 'button',
   variant,
   size,
   state,
@@ -86,7 +87,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <ControlWrapper {...props}>
-      <ControlDiv as="button" {...props} className={classes}>
+      <ControlDiv as="button" {...props} type={type} className={classes}>
         {children}
       </ControlDiv>
     </ControlWrapper>
