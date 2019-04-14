@@ -1,5 +1,11 @@
-import { metaToInitialValues } from './metaToInitialValues'
-import { ArrayMT, EnumMT, MT, ObjectMT, SimpleMT } from './types'
+import {
+  ArrayMT,
+  EnumMT,
+  metaToInitialValues,
+  MT,
+  ObjectMT,
+  SimpleMT,
+} from './index'
 
 const noEx: SimpleMT = { kind: 'number' }
 const strEx: SimpleMT = { kind: 'string' }

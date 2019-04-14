@@ -1,4 +1,4 @@
-import { ArrayMT, EnumMT, MT, ObjectMT, SimpleMT } from './types'
+import { ArrayMT, EnumMT, MT, ObjectMT, SimpleMT } from './index'
 
 export const NumberMeta: SimpleMT = { kind: 'number' }
 export const StringMeta: SimpleMT = { kind: 'string' }

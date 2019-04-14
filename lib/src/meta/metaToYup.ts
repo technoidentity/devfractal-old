@@ -17,7 +17,7 @@ import {
   MT,
   NumberRefinements,
   StringRefinements,
-} from './types'
+} from './index'
 
 // tslint:disable typedef switch-default
 

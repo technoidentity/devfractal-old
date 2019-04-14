@@ -1,4 +1,4 @@
-import { ArrayMT, EnumMT, MT, ObjectMT, SimpleMT } from './types'
+import { ArrayMT, EnumMT, MT, ObjectMT, SimpleMT } from './index'
 import { validate } from './validate'
 
 const noEx: SimpleMT = { kind: 'number' }

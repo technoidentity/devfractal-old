@@ -1,4 +1,4 @@
-import { MT } from './types'
+import { MT } from './index'
 import { validate } from './validate'
 import {
   ArrayMeta,

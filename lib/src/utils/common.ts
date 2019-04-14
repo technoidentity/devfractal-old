@@ -38,3 +38,12 @@ export function repeatedly<T>(n: number, f: () => T): ReadonlyArray<T> {
   }
   return result
 }
+
+export function buildObject(obj: any, f: (key: any) => any): any {
+  const result: any = {}
+  for (const k of Object.keys(obj)) {
+    // tslint:disable-next-line:no-object-mutation
+    result[k] = f(k as any)
+  }
+  return result
+}
