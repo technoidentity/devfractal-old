@@ -10,17 +10,18 @@ export interface LabelProps
    * For resizing the Label
    */
   readonly size?: LabelSize
+  readonly as?: 'label' | 'div' | 'span'
 }
 
 export const Label: React.FC<LabelProps> = args => {
-  const { size, children, ...props } = args
+  const { size, as = 'label', children, ...props } = args
 
   const classes: string = classNamesHelper(props, 'label', {
     [`is-${size}`]: size,
   })
 
   return (
-    <Div as="label" {...props} className={classes}>
+    <Div as={as} {...props} className={classes}>
       {children}
     </Div>
   )
