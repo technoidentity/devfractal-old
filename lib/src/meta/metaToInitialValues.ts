@@ -1,4 +1,3 @@
-import * as t from 'tcomb'
 import { MT } from './types'
 
 // tslint:disable typedef switch-default
@@ -90,10 +89,8 @@ export const metaToInitialValues: (meta: MT) => any = meta => {
       return []
 
     case 'object':
-      return t.struct(
-        buildObject(meta.properties, p =>
-          metaToInitialValues(meta.properties[p]),
-        ),
+      return buildObject(meta.properties, key =>
+        metaToInitialValues(meta.properties[key]),
       )
   }
 }
