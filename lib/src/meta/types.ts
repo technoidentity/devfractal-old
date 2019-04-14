@@ -78,12 +78,13 @@ export interface ArrayMT {
 
 export interface ObjectMT {
   readonly kind: 'object'
+  readonly name?: string
   readonly properties: { readonly [prop: string]: MT }
 }
 
 export interface EnumMT {
   readonly kind: 'enum'
-  readonly name: string
+  readonly name?: string
   // readonly multi: boolean
   readonly values: ReadonlyArray<string>
 }
@@ -98,7 +99,7 @@ export interface EnumMT {
 export type MT = SimpleMT | EnumMT | ArrayMT | ObjectMT // | UnionMT
 
 export interface FieldMT {
-  readonly label?: string
+  readonly label?: string // should label with meta?
   readonly meta: MT // Actually MetaValue
 }
 
@@ -106,3 +107,5 @@ export interface FieldsMT {
   readonly label?: string
   readonly fields: ReadonlyArray<FieldMT>
 }
+
+//  @TODO: fields can be optional
