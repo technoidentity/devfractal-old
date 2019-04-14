@@ -12,12 +12,12 @@ const validate: (value: unknown, schema: Schema<any>) => boolean = (
   schema,
 ) => schema.isValidSync(value)
 
-test('number meta', () => {
+test('yup from number meta', () => {
   expect(validate(100, metaToYup(noEx))).toBeTruthy()
   expect(validate('100', metaToYup(noEx))).toBeFalsy()
 })
 
-test('number with refinements', () => {
+test('yup from number with refinements', () => {
   const noREx: SimpleMT = {
     kind: 'number',
     refinements: [
@@ -36,7 +36,7 @@ test('str meta', () => {
   expect(validate(100, metaToYup(strEx))).toBeFalsy()
 })
 
-test('str meta with refinements', () => {
+test('yup from str meta with refinements', () => {
   const strREx: SimpleMT = {
     kind: 'string',
     refinements: [
@@ -54,18 +54,18 @@ test('str meta with refinements', () => {
   ).toBeFalsy()
 })
 
-test('bool meta', () => {
+test('yup from bool meta', () => {
   expect(validate(true, metaToYup(boolEx))).toBeTruthy()
   expect(validate(false, metaToYup(boolEx))).toBeTruthy()
   expect(validate(100, metaToYup(boolEx))).toBeFalsy()
 })
 
-test('date meta', () => {
+test('yup from date meta', () => {
   expect(validate(new Date(), metaToYup(dateEx))).toBeTruthy()
   expect(validate('2000-12-2', metaToYup(dateEx))).toBeFalsy()
 })
 
-test('enum meta', () => {
+test('yup from enum meta', () => {
   const enumEx: EnumMT = {
     kind: 'enum',
     name: 'color',
@@ -78,14 +78,14 @@ test('enum meta', () => {
   expect(validate('GREEN', metaToYup(enumEx))).toBeFalsy()
 })
 
-test('array meta', () => {
+test('yup from array meta', () => {
   const arrNoEx: ArrayMT = { kind: 'array', of: noEx }
   expect(validate([], metaToYup(arrNoEx))).toBeTruthy()
   expect(validate([10, 20], metaToYup(arrNoEx))).toBeTruthy()
   expect(validate(['10', '20'], metaToYup(arrNoEx))).toBeFalsy()
 })
 
-test('array meta with refinements', () => {
+test('yup from array meta with refinements', () => {
   const arrNoREx: ArrayMT = {
     kind: 'array',
     of: noEx,
@@ -101,7 +101,7 @@ test('array meta with refinements', () => {
   expect(validate([], metaToYup(arrNoREx))).toBeFalsy()
 })
 
-test('array with differently typed elements', () => {
+test('yup from array with differently typed elements', () => {
   const arrStrEx: ArrayMT = { kind: 'array', of: strEx }
   expect(validate([], metaToYup(arrStrEx))).toBeTruthy()
   expect(validate([10, 20], metaToYup(arrStrEx))).toBeFalsy()
@@ -118,7 +118,7 @@ test('array with differently typed elements', () => {
   expect(validate(['10', '20'], metaToYup(arrDateEx))).toBeFalsy()
 })
 
-test('object meta', () => {
+test('yup from object meta', () => {
   const objEx: ObjectMT = {
     kind: 'object',
     properties: {
@@ -141,7 +141,7 @@ test('object meta', () => {
   ).toBeFalsy()
 })
 
-test('complex meta', () => {
+test('yup from complex meta', () => {
   const customerMeta: MT = {
     kind: 'object',
     properties: {

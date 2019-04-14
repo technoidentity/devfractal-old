@@ -7,12 +7,12 @@ const strEx: SimpleMT = { kind: 'string' }
 const boolEx: SimpleMT = { kind: 'boolean' }
 const dateEx: SimpleMT = { kind: 'date' }
 
-test('number meta', () => {
+test('tcomb from number meta', () => {
   expect(validate(100, metaToTcomb(noEx)).isValid()).toBeTruthy()
   expect(validate('100', metaToTcomb(noEx)).isValid()).toBeFalsy()
 })
 
-test('number with refinements', () => {
+test('tcomb from number with refinements', () => {
   const noREx: SimpleMT = {
     kind: 'number',
     refinements: [
@@ -26,12 +26,12 @@ test('number with refinements', () => {
   expect(validate(25, metaToTcomb(noREx)).isValid()).toBeFalsy()
 })
 
-test('str meta', () => {
+test('tcomb from str meta', () => {
   expect(validate('100', metaToTcomb(strEx)).isValid()).toBeTruthy()
   expect(validate(100, metaToTcomb(strEx)).isValid()).toBeFalsy()
 })
 
-test('str meta with refinements', () => {
+test('tcomb from str meta with refinements', () => {
   const strREx: SimpleMT = {
     kind: 'string',
     refinements: [
@@ -56,18 +56,18 @@ test('str meta with refinements', () => {
   ).toBeFalsy()
 })
 
-test('bool meta', () => {
+test('tcomb from bool meta', () => {
   expect(validate(true, metaToTcomb(boolEx)).isValid()).toBeTruthy()
   expect(validate(false, metaToTcomb(boolEx)).isValid()).toBeTruthy()
   expect(validate(100, metaToTcomb(boolEx)).isValid()).toBeFalsy()
 })
 
-test('date meta', () => {
+test('tcomb from date meta', () => {
   expect(validate(new Date(), metaToTcomb(dateEx)).isValid()).toBeTruthy()
   expect(validate('2000-12-2', metaToTcomb(dateEx)).isValid()).toBeFalsy()
 })
 
-test('enum meta', () => {
+test('tcomb from enum meta', () => {
   const enumEx: EnumMT = {
     kind: 'enum',
     name: 'color',
@@ -80,14 +80,14 @@ test('enum meta', () => {
   expect(validate('GREEN', metaToTcomb(enumEx)).isValid()).toBeFalsy()
 })
 
-test('array meta', () => {
+test('tcomb from array meta', () => {
   const arrNoEx: ArrayMT = { kind: 'array', of: noEx }
   expect(validate([], metaToTcomb(arrNoEx)).isValid()).toBeTruthy()
   expect(validate([10, 20], metaToTcomb(arrNoEx)).isValid()).toBeTruthy()
   expect(validate(['10', '20'], metaToTcomb(arrNoEx)).isValid()).toBeFalsy()
 })
 
-test('array meta with refinements', () => {
+test('tcomb from array meta with refinements', () => {
   const arrNoREx: ArrayMT = {
     kind: 'array',
     of: noEx,
@@ -103,7 +103,7 @@ test('array meta with refinements', () => {
   expect(validate([], metaToTcomb(arrNoREx)).isValid()).toBeFalsy()
 })
 
-test('array with differently typed elements', () => {
+test('tcomb from array with differently typed elements', () => {
   const arrStrEx: ArrayMT = { kind: 'array', of: strEx }
   expect(validate([], metaToTcomb(arrStrEx)).isValid()).toBeTruthy()
   expect(validate([10, 20], metaToTcomb(arrStrEx)).isValid()).toBeFalsy()
@@ -122,7 +122,7 @@ test('array with differently typed elements', () => {
   expect(validate(['10', '20'], metaToTcomb(arrDateEx)).isValid()).toBeFalsy()
 })
 
-test('object meta', () => {
+test('tcomb from object meta', () => {
   const objEx: ObjectMT = {
     kind: 'object',
     properties: {
@@ -157,7 +157,7 @@ test('object meta', () => {
   ).toBeFalsy()
 })
 
-test('complex meta', () => {
+test('tcomb from complex meta', () => {
   const customerMeta: MT = {
     kind: 'object',
     properties: {
