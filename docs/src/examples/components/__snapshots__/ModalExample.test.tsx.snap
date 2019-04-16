@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Example 1`] = `
+Array [
+  <section
+    className="section"
+  >
+    <div
+      className="control"
+    >
+      <button
+        className="button is-primary is-large"
+        onClick={[Function]}
+      >
+        Launch Media Modal
+      </button>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <div
+      className="control"
+    >
+      <button
+        className="button is-primary is-large"
+        onClick={[Function]}
+      >
+        Launch Image Modal
+      </button>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <div
+      className="control"
+    >
+      <button
+        className="button is-primary is-large"
+        onClick={[Function]}
+      >
+        Launch Card Modal
+      </button>
+    </div>
+  </section>,
+]
+`;
