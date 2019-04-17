@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fields login form 1`] = `
+<div
+  className="container"
+>
+  <form
+    onReset={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
+        Username
+      </label>
+      <div
+        className="control"
+      >
+        <input
+          className="input"
+          name="username"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
+        Password
+      </label>
+      <div
+        className="control"
+      >
+        <input
+          className="input"
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="field is-grouped is-grouped-centered"
+    >
+      <div
+        className="control"
+      >
+        <button
+          className="button is-info"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        className="control"
+      >
+        <button
+          className="button is-danger"
+          type="reset"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;
