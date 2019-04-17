@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Photo Form 1`] = `
+<section
+  className="section"
+>
+  <h1
+    className="title"
+  >
+    Photo Form
+  </h1>
+  <form
+    onReset={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
+        Title
+      </label>
+      <div
+        className="control"
+      >
+        <input
+          className="input"
+          name="title"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
+        Url
+      </label>
+      <div
+        className="control"
+      >
+        <input
+          className="input"
+          name="url"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="url"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
+        ThumbNailUrl
+      </label>
+      <div
+        className="control"
+      >
+        <input
+          className="input"
+          name="thumbnailUrl"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="url"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="field is-grouped is-grouped-centered"
+    >
+      <div
+        className="control"
+      >
+        <button
+          className="button is-info"
+          disabled={false}
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        className="control"
+      >
+        <button
+          className="button is-danger"
+          disabled={true}
+          onClick={[Function]}
+          type="reset"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+    <pre>
+      {
+  "title": "",
+  "url": "",
+  "thumbnailUrl": ""
+}
+    </pre>
+  </form>
+</section>
+`;
