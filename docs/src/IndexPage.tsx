@@ -34,7 +34,6 @@ import {
 import contentLoader from './images/contentLoader.png'
 import devfractalIcon from './images/devfractalIcon.png'
 import logo from './images/logo.png'
-import uiComponentsIcon from './images/uiComponentsIcon.png'
 import {
   ColumnsMedia,
   ComponentsMedia,
@@ -68,6 +67,7 @@ export const HeroBodySection: React.FC = () => (
           rounded
           style={{ backgroundColor: '#EB132D', border: 'none' }}
           textColor="white"
+          size="medium"
         >
           Get started
         </Button>
@@ -321,13 +321,7 @@ export const ExploreUIComponents: React.FC = () => (
               <CrudMedia />
             </Link>
           </Column>
-          <img
-            src={uiComponentsIcon}
-            style={{
-              marginLeft: 'auto',
-              marginTop: 'auto',
-            }}
-          />
+          <Column />
         </Columns>
       </Section>
     </Section>
