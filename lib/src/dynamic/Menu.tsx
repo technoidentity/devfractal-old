@@ -4,6 +4,9 @@ import { classNamesHelper, Div, Helpers } from '../lib'
 type MenuSize = 'small' | 'medium' | 'large'
 
 export interface MenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {
+  /**
+   * To resize the Menu Content
+   */
   readonly size?: MenuSize
 }
 
