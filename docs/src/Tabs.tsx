@@ -19,7 +19,6 @@ export const ComponentsTab: React.FC = () => (
 
 export const CompositesTab: React.FC = () => (
   <RoutedTabs to="/composites" size="medium">
-    <RoutedTabsItem value="simple">Simple</RoutedTabsItem>
     <RoutedTabsItem value="simple-form">Simple Form</RoutedTabsItem>
     <RoutedTabsItem value="general-form">General form</RoutedTabsItem>
     <RoutedTabsItem value="counter">Counter</RoutedTabsItem>
