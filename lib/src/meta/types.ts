@@ -36,11 +36,11 @@ export type StringRefinements =
 export type DateRefinements =
   | {
       readonly kind: 'min'
-      readonly value: Date // | string
+      readonly value: Date
     }
   | {
       readonly kind: 'max'
-      readonly value: Date // | string
+      readonly value: Date
     }
 
 export type ArrayRefinements =
@@ -53,27 +53,25 @@ export type ArrayRefinements =
       readonly value: number
     }
 
-export type Refinements<T> = ReadonlyArray<T>
-
-export type SimpleMT =
+export type PrimitiveMT =
   | {
       readonly kind: 'number'
-      readonly refinements?: Refinements<NumberRefinements>
+      readonly refinements?: ReadonlyArray<NumberRefinements>
     }
   | {
       readonly kind: 'string'
-      readonly refinements?: Refinements<StringRefinements>
+      readonly refinements?: ReadonlyArray<StringRefinements>
     }
   | { readonly kind: 'boolean' }
   | {
       readonly kind: 'date'
-      readonly refinements?: Refinements<DateRefinements>
+      readonly refinements?: ReadonlyArray<DateRefinements>
     }
 
 export interface ArrayMT {
   readonly kind: 'array'
   readonly of: MT
-  readonly refinements?: Refinements<ArrayRefinements>
+  readonly refinements?: ReadonlyArray<ArrayRefinements>
 }
 
 export interface ObjectMT {
@@ -96,7 +94,7 @@ export interface EnumMT {
 //   readonly values: ReadonlyArray<MT>
 // }
 
-export type MT = SimpleMT | EnumMT | ArrayMT | ObjectMT // | UnionMT
+export type MT = PrimitiveMT | EnumMT | ArrayMT | ObjectMT // | UnionMT
 
 export interface FieldMT {
   readonly label?: string // should label with meta?

@@ -8,7 +8,7 @@ import {
   metaToYup,
   MT,
   ObjectMT,
-  SimpleMT,
+  PrimitiveMT,
 } from './index'
 
 interface EditorProps {
@@ -59,7 +59,7 @@ const EnumEditor: React.FC<EnumEditorProps> = ({ label, name, meta }) => (
 interface SimpleMetaEditorProps {
   readonly name: string
   readonly label?: string
-  readonly meta: SimpleMT
+  readonly meta: PrimitiveMT
 }
 
 const SimpleMetaEditor: React.FC<SimpleMetaEditorProps> = ({

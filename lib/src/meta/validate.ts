@@ -1,11 +1,4 @@
-import {
-  Array,
-  Boolean,
-  Date as TDate,
-  Number,
-  Object as TObject,
-  String,
-} from 'tcomb'
+import * as t from 'tcomb'
 import * as yup from 'yup'
 import {
   ArrayRefinements,
@@ -106,37 +99,36 @@ const validateArrayRefinements: (
 }
 
 export const validate: (meta: MT, obj: unknown) => boolean = (meta, obj) => {
-  // tslint:disable-next-line:switch-default
   switch (meta.kind) {
     case 'number':
       return (
-        Number.is(obj) &&
+        t.Number.is(obj) &&
         (meta.refinements === undefined ||
           meta.refinements.every(r => validateNumberRefinements(r, obj)))
       )
 
     case 'string':
       return (
-        String.is(obj) &&
+        t.String.is(obj) &&
         (meta.refinements === undefined ||
           meta.refinements.every(r => validateStringRefinements(r, obj)))
       )
 
     case 'boolean':
-      return Boolean.is(obj)
+      return t.Boolean.is(obj)
 
     case 'date':
       return (
-        TDate.is(obj) &&
+        t.Date.is(obj) &&
         (meta.refinements === undefined ||
           meta.refinements.every(r => validateDateRefinements(r, obj)))
       )
 
     case 'enum':
-      return String.is(obj) && meta.values.some(e => e === obj)
+      return t.String.is(obj) && meta.values.some(e => e === obj)
 
     case 'array':
-      if (!Array.is(obj)) {
+      if (!t.Array.is(obj)) {
         return false
       }
       if (
@@ -155,7 +147,7 @@ export const validate: (meta: MT, obj: unknown) => boolean = (meta, obj) => {
       return true
 
     case 'object':
-      if (!TObject.is(obj)) {
+      if (!t.Object.is(obj)) {
         return false
       }
       for (const k of Object.keys(obj)) {

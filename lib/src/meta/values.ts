@@ -1,22 +1,21 @@
-import { ArrayMT, EnumMT, MT, ObjectMT, SimpleMT } from './index'
+import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './index'
 
-export const NumberMeta: SimpleMT = { kind: 'number' }
-export const StringMeta: SimpleMT = { kind: 'string' }
-export const BooleanMeta: SimpleMT = { kind: 'boolean' }
-export const DateMeta: SimpleMT = { kind: 'date' }
+export const MNumber: PrimitiveMT = { kind: 'number' }
 
-export const EnumMeta: (
-  values: ReadonlyArray<string>,
-  name: string,
-) => EnumMT = (values, name) => ({ kind: 'enum', name, values })
+export const MString: PrimitiveMT = { kind: 'string' }
 
-export const ArrayMeta: (of: MT) => ArrayMT = of => ({ kind: 'array', of })
+export const MBool: PrimitiveMT = { kind: 'boolean' }
 
-export const ObjectMeta: (
+export const MDate: PrimitiveMT = { kind: 'date' }
+
+export const MEnum: (values: ReadonlyArray<string>, name?: string) => EnumMT = (
+  values,
+  name,
+) => ({ kind: 'enum', name, values })
+
+export const MArray: (of: MT) => ArrayMT = of => ({ kind: 'array', of })
+
+export const MObject: (
   properties: Record<string, MT>,
   name?: string,
-) => ObjectMT = properties => ({
-  kind: 'object',
-  name,
-  properties,
-})
+) => ObjectMT = properties => ({ kind: 'object', name, properties })

@@ -1,10 +1,17 @@
 import { validate } from 'tcomb-validation'
-import { ArrayMT, EnumMT, metaToTcomb, MT, ObjectMT, SimpleMT } from './index'
+import {
+  ArrayMT,
+  EnumMT,
+  metaToTcomb,
+  MT,
+  ObjectMT,
+  PrimitiveMT,
+} from './index'
 
-const noEx: SimpleMT = { kind: 'number' }
-const strEx: SimpleMT = { kind: 'string' }
-const boolEx: SimpleMT = { kind: 'boolean' }
-const dateEx: SimpleMT = { kind: 'date' }
+const noEx: PrimitiveMT = { kind: 'number' }
+const strEx: PrimitiveMT = { kind: 'string' }
+const boolEx: PrimitiveMT = { kind: 'boolean' }
+const dateEx: PrimitiveMT = { kind: 'date' }
 
 test('tcomb from number meta', () => {
   expect(validate(100, metaToTcomb(noEx)).isValid()).toBeTruthy()
@@ -12,7 +19,7 @@ test('tcomb from number meta', () => {
 })
 
 test('tcomb from number with refinements', () => {
-  const noREx: SimpleMT = {
+  const noREx: PrimitiveMT = {
     kind: 'number',
     refinements: [
       { kind: 'integer' },
@@ -31,7 +38,7 @@ test('tcomb from str meta', () => {
 })
 
 test('tcomb from str meta with refinements', () => {
-  const strREx: SimpleMT = {
+  const strREx: PrimitiveMT = {
     kind: 'string',
     refinements: [
       { kind: 'email' },

@@ -1,27 +1,27 @@
 import { MT } from './index'
 import { validate } from './validate'
 import {
-  ArrayMeta,
-  BooleanMeta,
-  DateMeta,
-  EnumMeta,
-  NumberMeta,
-  ObjectMeta,
-  StringMeta,
+  MArray,
+  MBool,
+  MDate,
+  MEnum,
+  MNumber,
+  MObject,
+  MString,
 } from './values'
 
 test('create meta using values', () => {
-  const customerMeta: MT = ObjectMeta(
+  const customerMeta: MT = MObject(
     {
-      name: StringMeta,
-      type: EnumMeta(['manager', 'programmer', 'team-leader'], 'CustomerType'),
-      joined: DateMeta,
-      retired: BooleanMeta,
-      addresses: ArrayMeta(
-        ObjectMeta({
-          city: StringMeta,
-          zip: NumberMeta,
-          country: StringMeta,
+      name: MString,
+      type: MEnum(['manager', 'programmer', 'team-leader'], 'CustomerType'),
+      joined: MDate,
+      retired: MBool,
+      addresses: MArray(
+        MObject({
+          city: MString,
+          zip: MNumber,
+          country: MString,
         }),
       ),
     },

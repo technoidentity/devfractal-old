@@ -4,13 +4,13 @@ import {
   metaToInitialValues,
   MT,
   ObjectMT,
-  SimpleMT,
+  PrimitiveMT,
 } from './index'
 
-const noEx: SimpleMT = { kind: 'number' }
-const strEx: SimpleMT = { kind: 'string' }
-const boolEx: SimpleMT = { kind: 'boolean' }
-const dateEx: SimpleMT = { kind: 'date' }
+const noEx: PrimitiveMT = { kind: 'number' }
+const strEx: PrimitiveMT = { kind: 'string' }
+const boolEx: PrimitiveMT = { kind: 'boolean' }
+const dateEx: PrimitiveMT = { kind: 'date' }
 
 test('intialValues from number meta', () => {
   expect(metaToInitialValues(noEx)).toEqual(0)

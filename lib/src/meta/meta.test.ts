@@ -1,10 +1,10 @@
-import { ArrayMT, EnumMT, MT, ObjectMT, SimpleMT } from './index'
+import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './index'
 import { validate } from './validate'
 
-const noEx: SimpleMT = { kind: 'number' }
-const strEx: SimpleMT = { kind: 'string' }
-const boolEx: SimpleMT = { kind: 'boolean' }
-const dateEx: SimpleMT = { kind: 'date' }
+const noEx: PrimitiveMT = { kind: 'number' }
+const strEx: PrimitiveMT = { kind: 'string' }
+const boolEx: PrimitiveMT = { kind: 'boolean' }
+const dateEx: PrimitiveMT = { kind: 'date' }
 
 test('number meta', () => {
   expect(validate(noEx, 100)).toBeTruthy()
@@ -12,7 +12,7 @@ test('number meta', () => {
 })
 
 test('number with refinements', () => {
-  const noREx: SimpleMT = {
+  const noREx: PrimitiveMT = {
     kind: 'number',
     refinements: [
       { kind: 'integer' },
@@ -31,7 +31,7 @@ test('str meta', () => {
 })
 
 test('str meta with refinements', () => {
-  const strREx: SimpleMT = {
+  const strREx: PrimitiveMT = {
     kind: 'string',
     refinements: [
       { kind: 'email' },

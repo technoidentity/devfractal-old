@@ -59,7 +59,7 @@ export const SimpleMT = t.union([
   ),
 ])
 
-export type SimpleMT = t.TypeOf<typeof SimpleMT>
+export type PrimitiveMT = t.TypeOf<typeof SimpleMT>
 
 export const EnumMT = props(
   { name: t.string },
@@ -94,9 +94,8 @@ export const ObjectMT: t.Type<ObjectMT> = t.recursion('ObjectMT', () =>
   ),
 )
 
-export const MT: t.Type<SimpleMT | EnumMT | ArrayMT | ObjectMT> = t.recursion(
-  'MT',
-  () => t.union([SimpleMT, EnumMT, ArrayMT, ObjectMT]),
-)
+export const MT: t.Type<
+  PrimitiveMT | EnumMT | ArrayMT | ObjectMT
+> = t.recursion('MT', () => t.union([SimpleMT, EnumMT, ArrayMT, ObjectMT]))
 
 export type MT = t.TypeOf<typeof MT>

@@ -7,7 +7,7 @@ import {
   SimpleArrayField,
   Text,
 } from '../lib'
-import { SimpleMT } from './index'
+import { PrimitiveMT } from './index'
 
 export interface MetaBuildFormProps {
   onSubmit(values: any, formikActions: FormikActions<any>): void
@@ -15,7 +15,7 @@ export interface MetaBuildFormProps {
 
 interface Meta {
   readonly label: string
-  readonly kind: SimpleMT['kind']
+  readonly kind: PrimitiveMT['kind']
   readonly refinements: ReadonlyArray<any>
 }
 
