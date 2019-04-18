@@ -28,7 +28,6 @@ import {
   NavbarExample,
   PaginationExample,
   PanelExample,
-  SimpleExamples,
   SimpleFormExample,
   SimpleTodo,
   StepComponent,
@@ -48,8 +47,7 @@ import { ComponentsTab, CompositesTab } from './Tabs'
 
 export const CompositesRoutes: React.FC = () => (
   <>
-    <SimpleRedirect exact from="/composites" to="/composites/simple" />
-    <Route path="/composites/simple" exact component={SimpleExamples} />
+    <SimpleRedirect exact from="/composites" to="/composites/simple-form" />
     <Route path="/composites/simple-form" exact component={SimpleFormExample} />
     <Route
       path="/composites/general-form"
