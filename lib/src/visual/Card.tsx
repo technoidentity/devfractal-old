@@ -34,6 +34,9 @@ type HeaderTitleAlignment = 'centered'
 export interface CardHeaderTitleProps
   extends React.HTMLAttributes<HTMLHeadElement>,
     Helpers {
+  /**
+   * To align the Header title
+   */
   readonly alignment?: HeaderTitleAlignment
 }
 
@@ -127,3 +130,6 @@ export const CardImage: React.FC<CardImageProps> = ({ children, ...props }) => {
     </Div>
   )
 }
+
+// tslint:disable-next-line: no-default-export
+export default CardHeader
