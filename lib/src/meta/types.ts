@@ -25,33 +25,39 @@ export type StringRefinements =
       readonly value: number
     }
   | {
-      readonly kind: 'maxLength'
+      readonly kind: 'maxStringLength'
       readonly value: number
     }
   | {
-      readonly kind: 'minLength'
+      readonly kind: 'minStringLength'
       readonly value: number
     }
 
 export type DateRefinements =
   | {
-      readonly kind: 'min'
+      readonly kind: 'minDate'
       readonly value: Date
     }
   | {
-      readonly kind: 'max'
+      readonly kind: 'maxDate'
       readonly value: Date
     }
 
 export type ArrayRefinements =
   | {
-      readonly kind: 'maxLength'
+      readonly kind: 'maxArrayLength'
       readonly value: number
     }
   | {
-      readonly kind: 'minLength'
+      readonly kind: 'minArrayLength'
       readonly value: number
     }
+
+export type Refinements =
+  | NumberRefinements
+  | StringRefinements
+  | DateRefinements
+  | ArrayRefinements
 
 export type PrimitiveMT =
   | {

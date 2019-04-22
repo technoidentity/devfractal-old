@@ -1,5 +1,5 @@
 import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './index'
-import { validate } from './validate'
+import { isValid as validate } from './validate'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }
@@ -36,8 +36,8 @@ test('str meta with refinements', () => {
     refinements: [
       { kind: 'email' },
       { kind: 'lowercase' },
-      { kind: 'minLength', value: 10 },
-      { kind: 'maxLength', value: 20 },
+      { kind: 'minStringLength', value: 10 },
+      { kind: 'maxStringLength', value: 20 },
     ],
   }
   expect(validate(strREx, 'foobar@gmail.com')).toBeTruthy()
@@ -84,8 +84,8 @@ test('array meta with refinements', () => {
     kind: 'array',
     of: noEx,
     refinements: [
-      { kind: 'maxLength', value: 6 },
-      { kind: 'minLength', value: 2 },
+      { kind: 'maxArrayLength', value: 6 },
+      { kind: 'minArrayLength', value: 2 },
     ],
   }
   expect(validate(arrNoREx, [10, 20])).toBeTruthy()
@@ -147,7 +147,7 @@ test('complex meta', () => {
           kind: 'object',
           properties: {
             city: strEx,
-            zip: noEx, // Just an example, so zip as noFalsyne
+            zip: noEx,
             country: strEx,
           },
         },

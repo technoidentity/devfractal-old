@@ -54,9 +54,9 @@ const toTcombStringRefinements: (r: StringRefinements) => t.Type<any> = r => {
       return Lower
     case 'uppercase':
       return Upper
-    case 'maxLength':
+    case 'maxStringLength':
       return MaxLength(r.value)
-    case 'minLength':
+    case 'minStringLength':
       return MinLength(r.value)
     case 'length':
       return Length(r.value)
@@ -65,18 +65,18 @@ const toTcombStringRefinements: (r: StringRefinements) => t.Type<any> = r => {
 
 const toTcombDateRefinements: (r: DateRefinements) => t.Type<any> = r => {
   switch (r.kind) {
-    case 'max':
+    case 'maxDate':
       return MinDate(r.value)
-    case 'min':
+    case 'minDate':
       return MaxDate(r.value)
   }
 }
 
 const toTcombArrayRefinements: (r: ArrayRefinements) => t.Type<any> = r => {
   switch (r.kind) {
-    case 'maxLength':
+    case 'maxArrayLength':
       return ArrayMaxLength(r.value)
-    case 'minLength':
+    case 'minArrayLength':
       return ArrayMinLength(r.value)
   }
 }

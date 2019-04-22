@@ -56,9 +56,9 @@ const toYupStringRefinements: (
       return schema.lowercase()
     case 'uppercase':
       return schema.uppercase()
-    case 'maxLength':
+    case 'maxStringLength':
       return schema.max(r.value)
-    case 'minLength':
+    case 'minStringLength':
       return schema.min(r.value)
     case 'length':
       return schema.length(r.value)
@@ -70,9 +70,9 @@ const toYupDateRefinements: (
   r: DateRefinements,
 ) => DateSchema = (schema, r) => {
   switch (r.kind) {
-    case 'max':
+    case 'maxDate':
       return schema.max(r.value)
-    case 'min':
+    case 'minDate':
       return schema.min(r.value)
   }
 }
@@ -82,9 +82,9 @@ const toYupArrayRefinements: (
   r: ArrayRefinements,
 ) => ArraySchema<unknown> = (schema, r) => {
   switch (r.kind) {
-    case 'maxLength':
+    case 'maxArrayLength':
       return schema.max(r.value)
-    case 'minLength':
+    case 'minArrayLength':
       return schema.min(r.value)
   }
 }

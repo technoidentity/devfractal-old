@@ -47,3 +47,11 @@ export function buildObject(obj: any, f: (key: any) => any): any {
   }
   return result
 }
+
+interface Obj {
+  readonly [s: string]: unknown
+}
+
+export function keys<T extends Obj>(obj: T): ReadonlyArray<keyof T> {
+  return Object.keys(obj) as ReadonlyArray<keyof T>
+}

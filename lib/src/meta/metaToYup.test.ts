@@ -41,8 +41,8 @@ test('yup from str meta with refinements', () => {
     refinements: [
       { kind: 'email' },
       { kind: 'lowercase' },
-      { kind: 'minLength', value: 10 },
-      { kind: 'maxLength', value: 20 },
+      { kind: 'minStringLength', value: 10 },
+      { kind: 'maxStringLength', value: 20 },
     ],
   }
   expect(validate('foobar@gmail.com', metaToYup(strREx))).toBeTruthy()
@@ -89,8 +89,8 @@ test('yup from array meta with refinements', () => {
     kind: 'array',
     of: noEx,
     refinements: [
-      { kind: 'maxLength', value: 6 },
-      { kind: 'minLength', value: 2 },
+      { kind: 'maxArrayLength', value: 6 },
+      { kind: 'minArrayLength', value: 2 },
     ],
   }
   expect(validate([10, 20], metaToYup(arrNoREx))).toBeTruthy()
