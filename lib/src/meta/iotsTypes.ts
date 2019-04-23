@@ -77,6 +77,7 @@ export interface ArrayMT {
 export const ArrayMT: t.Type<ArrayMT> = t.recursion('ArrayMT', () =>
   props(
     { refinements: t.readonlyArray(ArrayRefinements) },
+    // tslint:disable-next-line: no-use-before-declare
     { kind: lit('array'), of: MT },
   ),
 )
