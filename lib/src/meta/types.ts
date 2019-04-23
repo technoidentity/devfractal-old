@@ -59,20 +59,25 @@ export type Refinements =
   | DateRefinements
   | ArrayRefinements
 
-export type PrimitiveMT =
-  | {
-      readonly kind: 'number'
-      readonly refinements?: ReadonlyArray<NumberRefinements>
-    }
-  | {
-      readonly kind: 'string'
-      readonly refinements?: ReadonlyArray<StringRefinements>
-    }
-  | { readonly kind: 'boolean' }
-  | {
-      readonly kind: 'date'
-      readonly refinements?: ReadonlyArray<DateRefinements>
-    }
+export interface NumberMT {
+  readonly kind: 'number'
+  readonly refinements?: ReadonlyArray<NumberRefinements>
+}
+
+export interface StringMT {
+  readonly kind: 'string'
+  readonly refinements?: ReadonlyArray<StringRefinements>
+}
+
+export interface DateMT {
+  readonly kind: 'date'
+  readonly refinements?: ReadonlyArray<DateRefinements>
+}
+export interface BooleanMT {
+  readonly kind: 'boolean'
+}
+
+export type PrimitiveMT = NumberMT | StringMT | BooleanMT | DateMT
 
 export interface ArrayMT {
   readonly kind: 'array'
