@@ -23,22 +23,22 @@ export const StringRefinements = t.union([
   req({ kind: lit('lowercase') }),
   req({ kind: lit('uppercase') }),
   req({ kind: lit('length'), value: t.number }),
-  req({ kind: lit('maxLength'), value: t.number }),
-  req({ kind: lit('minLength'), value: t.number }),
+  req({ kind: lit('maxStringLength'), value: t.number }),
+  req({ kind: lit('minStringLength'), value: t.number }),
 ])
 
 export type StringRefinements = t.TypeOf<typeof StringRefinements>
 
 export const DateRefinements = t.union([
-  req({ kind: lit('min'), value: date }),
-  req({ kind: lit('max'), value: date }),
+  req({ kind: lit('minDate'), value: date }),
+  req({ kind: lit('maxDate'), value: date }),
 ])
 
 export type DateRefinements = t.TypeOf<typeof DateRefinements>
 
 export const ArrayRefinements = t.union([
-  req({ kind: lit('maxLength'), value: t.number }),
-  req({ kind: lit('minLength'), value: t.number }),
+  req({ kind: lit('maxArrayLength'), value: t.number }),
+  req({ kind: lit('minArrayLength'), value: t.number }),
 ])
 
 export type ArrayRefinements = t.TypeOf<typeof ArrayRefinements>
@@ -90,6 +90,7 @@ export interface ObjectMT {
 export const ObjectMT: t.Type<ObjectMT> = t.recursion('ObjectMT', () =>
   props(
     { name: t.string },
+    // tslint:disable-next-line: no-use-before-declare
     { kind: lit('object'), properties: t.readonly(t.record(t.string, MT)) },
   ),
 )
