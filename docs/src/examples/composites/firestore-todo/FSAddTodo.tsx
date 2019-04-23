@@ -4,7 +4,10 @@ import { Omit, Section, Simple, Title } from 'technoidentity-devfractal'
 import { create, FSTodo } from './todoAPI'
 
 export interface AddTodoProps {
-  onAddTodo(todo: Omit<FSTodo, 'id'>, actions: FormikActions<typeof todo>): void
+  onAddTodo(
+    todo: Omit<FSTodo, 'id'>,
+    actions: FormikActions<Omit<FSTodo, 'id'>>,
+  ): void
 }
 
 export const FSAddTodoView: React.SFC<AddTodoProps> = ({ onAddTodo }) => {
