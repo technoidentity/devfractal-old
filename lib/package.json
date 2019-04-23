@@ -98,7 +98,7 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",
     "types:watch": "tsc --noEmit -p tsconfig.json --watch",
-    "validate": "yarn lint && yarn types",
+    "validate": "yarn lint && yarn types && yarn test",
     "sg": "styleguidist server",
     "sg:build": "styleguidist build",
     "sb": "start-storybook"
