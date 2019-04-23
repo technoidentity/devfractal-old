@@ -94,7 +94,7 @@
     "readonly-keyword": [true, "ignore-local", { "ignore-prefix": "mutable" }],
     "restrict-plus-operands": true,
     "return-undefined": true,
-    "switch-default": true,
+    "switch-default": false, // We are not using redux, so...
     "switch-final-break": true,
     "trailing-comma": true,
     "triple-equals": [true, "allow-null-check"],
