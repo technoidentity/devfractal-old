@@ -8,7 +8,6 @@ const lit = t.literal
 
 export const NumberRefinements = t.union([
   req({ kind: lit('integer') }),
-  req({ kind: lit('integer') }),
   req({ kind: lit('positive') }),
   req({ kind: lit('negative') }),
   req({ kind: lit('min'), value: t.number }),
