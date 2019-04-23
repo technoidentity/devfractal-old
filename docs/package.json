@@ -73,7 +73,7 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",
     "types:watch": "tsc --noEmit -p tsconfig.json --watch",
-    "validate": "yarn lint && yarn types",
+    "validate": "yarn lint && yarn types && yarn types",
     "all": "yarn validate && yarn start",
     "eject": "react-scripts eject"
   },
