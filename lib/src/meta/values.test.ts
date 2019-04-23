@@ -1,5 +1,5 @@
 import { MT } from './index'
-import { validate } from './validate'
+import { isValid } from './validate'
 import {
   MArray,
   MBool,
@@ -41,5 +41,5 @@ test('create meta using values', () => {
     ],
   }
 
-  expect(validate(customerMeta, customer)).toBeTruthy()
+  expect(isValid(customerMeta, customer)).toBeTruthy()
 })
