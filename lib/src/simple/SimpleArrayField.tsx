@@ -12,7 +12,7 @@ export interface SimpleArrayFieldProps<T> {
   readonly name: string
   readonly data: ReadonlyArray<T>
   readonly noRemove?: boolean
-  readonly children: React.FC<SimpleArrayFieldComponentProps<T>>
+  readonly render: React.FC<SimpleArrayFieldComponentProps<T>>
   onAdd?(): T
 }
 
@@ -21,7 +21,7 @@ export function SimpleArrayField<T>({
   data,
   noRemove,
   onAdd,
-  children: Component,
+  render: Component,
 }: SimpleArrayFieldProps<T>): JSX.Element {
   return (
     <FieldArray name={name}>

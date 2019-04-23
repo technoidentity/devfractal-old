@@ -5,6 +5,7 @@ import {
   Container,
   Simple,
   SimpleArrayField,
+  SimpleArrayFieldComponentProps,
   Text,
 } from '../lib'
 import { PrimitiveMT } from './index'
@@ -70,6 +71,22 @@ interface FieldProps {
   readonly name: string
 }
 
+function RefinementsSubForm({
+  data,
+  index,
+  name,
+}: SimpleArrayFieldComponentProps<any>): JSX.Element {
+  return (
+    <Simple.Select key={index} name={`${name}`}>
+      {data.map((r: string) => (
+        <option key="r" value="r">
+          {camelCaseToPhrase(r)}
+        </option>
+      ))}
+    </Simple.Select>
+  )
+}
+
 const AddField: React.FC<FieldProps> = ({ name, refinements }) => {
   return (
     <Container>
@@ -84,37 +101,36 @@ const AddField: React.FC<FieldProps> = ({ name, refinements }) => {
         name={`${name}.refinements`}
         data={refinements}
         onAdd={newRefinement}
-      >
-        {({ data, index, name }) => (
-          <Simple.Select key={index} name={`${name}`}>
-            {data.map((r: string) => (
-              <option key="r" value="r">
-                {camelCaseToPhrase(r)}
-              </option>
-            ))}
-          </Simple.Select>
-        )}
-      </SimpleArrayField>
+        render={RefinementsSubForm}
+      />
     </Container>
   )
 }
 
 const initialValues: { readonly meta: ReadonlyArray<Meta> } = { meta: [] }
 
+const AddFieldComponent: React.FC<SimpleArrayFieldComponentProps<any>> = ({
+  data,
+  name,
+}) => (
+  <>
+    <Text textAlignment="centered" textSize="3">
+      Add Field
+    </Text>
+    <AddField name={name} refinements={data.refinements} />
+  </>
+)
+
 export const MetaBuilderForm: React.FC<MetaBuildFormProps> = ({ onSubmit }) => (
   <Formik initialValues={initialValues} onSubmit={onSubmit}>
     {({ values }) => (
       <Form>
-        <SimpleArrayField name="meta" data={values.meta} onAdd={newMeta}>
-          {({ data, name }) => (
-            <>
-              <Text textAlignment="centered" textSize="3">
-                Add Field
-              </Text>
-              <AddField name={name} refinements={data.refinements} />
-            </>
-          )}
-        </SimpleArrayField>
+        <SimpleArrayField
+          name="meta"
+          data={values.meta}
+          onAdd={newMeta}
+          render={AddFieldComponent}
+        />
         <Simple.FormButtons />
       </Form>
     )}
