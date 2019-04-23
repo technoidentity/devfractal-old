@@ -1,6 +1,5 @@
-import { MT } from './index'
-import { isValid } from './validate'
 import {
+  isValid,
   MArray,
   MBool,
   MDate,
@@ -8,7 +7,8 @@ import {
   MNumber,
   MObject,
   MString,
-} from './values'
+  MT,
+} from './index'
 
 test('create meta using values', () => {
   const customerMeta: MT = MObject(
