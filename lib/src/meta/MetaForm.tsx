@@ -62,7 +62,7 @@ interface SimpleMetaEditorProps {
   readonly meta: PrimitiveMT
 }
 
-const SimpleMetaEditor: React.FC<SimpleMetaEditorProps> = ({
+const PrimitiveMetaEditor: React.FC<SimpleMetaEditorProps> = ({
   label,
   name,
   meta: { kind },
@@ -100,7 +100,7 @@ const ObjectMetaEditor: React.FC<ObjectMetaEditorProps> = ({ meta }) => (
           ) : props.kind === 'enum' ? (
             <EnumEditor name={key} meta={props} />
           ) : (
-            <SimpleMetaEditor name={key} meta={props} />
+            <PrimitiveMetaEditor name={key} meta={props} />
           )}
         </React.Fragment>
       )
