@@ -1,8 +1,12 @@
 import { Form, Formik, FormikActions } from 'formik'
 import React from 'react'
 import {
-  camelCaseToPhrase,
+  CheckBox,
+  Column,
+  Columns,
   Container,
+  Input,
+  Select,
   Simple,
   SimpleArrayField,
   SimpleArrayFieldComponentProps,
@@ -27,82 +31,207 @@ const newMeta: () => Meta = () => ({
   refinements: [],
 })
 
-const newRefinement: () => string = () => 'min'
+const NumberRefinementsSubForm: React.FC = () => {
+  return (
+    <>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column narrow>integer</Column>
+        <Column />
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column narrow>positive</Column>
+        <Column />
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column narrow>negative</Column>
+        <Column />
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>minimum</Column>
+        <Column>
+          <Input type="number" placeholder="Maximum Value" />
+        </Column>
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>maximum</Column>
+        <Column>
+          <Input type="number" placeholder="Minimum Value" />
+        </Column>
+      </Columns>
+    </>
+  )
+}
 
-// export const NR = ['integer', 'integer', 'positive', 'negative', 'min', 'max']
+const StringRefinementsSubForm: React.FC = () => {
+  return (
+    <>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column narrow>email</Column>
+        <Column />
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column narrow>url</Column>
+        <Column />
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column narrow>lowercase</Column>
+        <Column />
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column narrow>uppercase</Column>
+        <Column />
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>length</Column>
+        <Column>
+          <Input type="number" placeholder="Exact length" />
+        </Column>
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>minimum length</Column>
+        <Column>
+          <Input type="number" placeholder="Minimum length" />
+        </Column>
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>maximum length</Column>
+        <Column>
+          <Input type="number" placeholder="Maximum Value" />
+        </Column>
+      </Columns>
+    </>
+  )
+}
 
-// export const SR = [
-//   'email',
-//   'url',
-//   'lowercase',
-//   'uppercase',
-//   'length',
-//   'maxLength',
-//   'minLength',
-// ]
+const ArrayRefinementsSubForm: React.FC = () => {
+  return (
+    <>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>maximum array elements</Column>
+        <Column>
+          <Input type="number" placeholder="maximum array elements" />
+        </Column>
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>minimum array elements</Column>
+        <Column>
+          <Input type="number" placeholder="minimum array elements" />
+        </Column>
+      </Columns>
+    </>
+  )
+}
 
-// export const DR = ['min', 'max']
-// export const AR = ['maxLength', 'minLength']
+const DateRefinementsSubForm: React.FC = () => {
+  return (
+    <>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>maximum</Column>
+        <Column>
+          <Input type="number" placeholder="maximum" />
+        </Column>
+      </Columns>
+      <Columns>
+        <Column narrow>
+          <CheckBox />
+        </Column>
+        <Column>minimum</Column>
+        <Column>
+          <Input type="number" placeholder="minimum" />
+        </Column>
+      </Columns>
+    </>
+  )
+}
 
-// interface RefinementsFormProps {
-//   readonly kind: SimpleMT['kind']
-// }
+interface RefinementsSubFormProps {
+  readonly selectedType: 'number' | 'string' | 'date' | 'array'
+}
 
-// const RefinementsForm: React.FC<RefinementsFormProps> = ({ kind }) => (
-//   <SimpleArrayField
-//     name={`${name}.refinements`}
-//     data={refinements}
-//     onAdd={newRefinement}
-//   >
-//     {({ data, index, name }) => (
-//       <Simple.Select key={index} name={`${name}`}>
-//         {data.map((r: string) => (
-//           <option key="r" value="r">
-//             {camelCaseToPhrase(r)}
-//           </option>
-//         ))}
-//       </Simple.Select>
-//     )}
-//   </SimpleArrayField>
-// )
+const RefinementsSubForm: React.FC<RefinementsSubFormProps> = ({
+  selectedType,
+}) => {
+  switch (selectedType) {
+    case 'number':
+      return <NumberRefinementsSubForm />
+    case 'string':
+      return <StringRefinementsSubForm />
+    case 'array':
+      return <ArrayRefinementsSubForm />
+    case 'date':
+      return <DateRefinementsSubForm />
+  }
+}
 
 interface FieldProps {
   readonly refinements: ReadonlyArray<any>
   readonly name: string
 }
 
-function RefinementsSubForm({
-  data,
-  index,
-  name,
-}: SimpleArrayFieldComponentProps<any>): JSX.Element {
-  return (
-    <Simple.Select key={index} name={`${name}`}>
-      {data.map((r: string) => (
-        <option key="r" value="r">
-          {camelCaseToPhrase(r)}
-        </option>
-      ))}
-    </Simple.Select>
-  )
-}
-
-const AddField: React.FC<FieldProps> = ({ name, refinements }) => {
+const AddField: React.FC<FieldProps> = ({ name }) => {
+  const [selectedType, setSelectedType] = React.useState<
+    RefinementsSubFormProps['selectedType']
+  >('number')
   return (
     <Container>
       <Simple.Text name={`${name}.label`} label="Label" />
-      <Simple.Select name={`${name}.kind`}>
+      <Select
+        name={`${name}.kind`}
+        onChange={evt => {
+          setSelectedType(evt.target.value as any)
+        }}
+      >
         <option value="number">number</option>
         <option value="string">string</option>
-        <option value="boolean">boolean</option>
         <option value="date">date</option>
-      </Simple.Select>
-      <SimpleArrayField
-        name={`${name}.refinements`}
-        data={refinements}
-        onAdd={newRefinement}
-        render={RefinementsSubForm}
-      />
+        <option value="array">array</option>
+      </Select>
+      <RefinementsSubForm selectedType={selectedType} />
     </Container>
   )
 }
