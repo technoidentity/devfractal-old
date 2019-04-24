@@ -55,26 +55,28 @@ const TreeView: React.SFC<TreeViewProps> = ({
       {name ? <strong>&nbsp;&nbsp;{name}: </strong> : <span>&nbsp;&nbsp;</span>}
       {Array.isArray(data) ? '[' : '{'}
       {!isToggled && '...'}
-      {Object.keys(data).map((v, i, a) =>
-        typeof data[v] === 'object' ? (
-          <TreeView
-            data={data[v]}
-            isLast={i === a.length - 1}
-            name={Array.isArray(data) ? '' : v}
-            isChildElement
-            isParentToggled={isParentToggled && isToggled}
-          />
-        ) : (
-          <p
-            style={{ marginLeft: `16 + 'px'` }}
-            className={isToggled ? 'tree-element' : 'tree-element collapsed'}
-          >
-            {Array.isArray(data) ? '' : <strong>{v}: </strong>}
-            {data[v]}
-            {i === a.length - 1 ? '' : ','}
-          </p>
-        ),
-      )}
+      {Object.keys(data).map((v, i, a) => (
+        <React.Fragment key={i}>
+          {typeof data[v] === 'object' ? (
+            <TreeView
+              data={data[v]}
+              isLast={i === a.length - 1}
+              name={Array.isArray(data) ? '' : v}
+              isChildElement
+              isParentToggled={isParentToggled && isToggled}
+            />
+          ) : (
+            <p
+              style={{ marginLeft: `16 + 'px'` }}
+              className={isToggled ? 'tree-element' : 'tree-element collapsed'}
+            >
+              {Array.isArray(data) ? '' : <strong>{v}: </strong>}
+              {data[v]}
+              {i === a.length - 1 ? '' : ','}
+            </p>
+          )}
+        </React.Fragment>
+      ))}
       {Array.isArray(data) ? ']' : '}'}
       {!isLast ? ',' : ''}
     </div>
