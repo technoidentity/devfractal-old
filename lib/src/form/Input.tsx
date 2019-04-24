@@ -56,7 +56,6 @@ export interface InputProps
 }
 
 export const Input: React.FC<InputProps> = ({
-  noControl,
   variant,
   fullWidth,
   inline,

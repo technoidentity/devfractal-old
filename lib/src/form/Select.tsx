@@ -37,7 +37,6 @@ export interface SelectProps
 }
 
 export const Select: React.FC<SelectProps> = ({
-  noControl,
   variant,
   loading,
   fullWidth,
