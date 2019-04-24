@@ -1,6 +1,7 @@
 export * from './Button'
 export * from './ButtonsGroup'
 export * from './CheckBox'
+export * from './CleaveInput'
 export * from './Control'
 export * from './ControlDiv'
 export * from './ControlHelpers'
