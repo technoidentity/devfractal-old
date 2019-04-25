@@ -539,6 +539,7 @@ Array [
                     >
                       <button
                         className="button is-primary is-inverted"
+                        type="button"
                       >
                         <span>
                           Download
@@ -720,6 +721,7 @@ Array [
                     >
                       <button
                         className="button is-primary is-inverted"
+                        type="button"
                       >
                         <span>
                           Download

@@ -52,6 +52,7 @@ Array [
           >
             <button
               className="button is-success"
+              type="button"
             >
               New
             </button>
@@ -103,6 +104,7 @@ Array [
             >
               <button
                 className="button"
+                type="button"
               >
                 Search
               </button>

@@ -11,6 +11,7 @@ Array [
       <button
         className="button is-primary is-large"
         onClick={[Function]}
+        type="button"
       >
         Launch Media Modal
       </button>
@@ -25,6 +26,7 @@ Array [
       <button
         className="button is-primary is-large"
         onClick={[Function]}
+        type="button"
       >
         Launch Image Modal
       </button>
@@ -39,6 +41,7 @@ Array [
       <button
         className="button is-primary is-large"
         onClick={[Function]}
+        type="button"
       >
         Launch Card Modal
       </button>

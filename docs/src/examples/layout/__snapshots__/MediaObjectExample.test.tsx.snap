@@ -51,6 +51,7 @@ Array [
             >
               <button
                 className="button is-info"
+                type="button"
               >
                 Submit
               </button>
@@ -374,6 +375,7 @@ Array [
                   >
                     <button
                       className="button"
+                      type="button"
                     >
                       Post comment
                     </button>

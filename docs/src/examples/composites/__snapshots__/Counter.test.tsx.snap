@@ -13,6 +13,7 @@ exports[`Counter 1`] = `
       <button
         className="button is-info is-medium"
         onClick={[Function]}
+        type="button"
       >
         <span
           className="icon"
@@ -44,6 +45,7 @@ exports[`Counter 1`] = `
       <button
         className="button is-success is-medium"
         onClick={[Function]}
+        type="button"
       >
         <span
           className="icon"
@@ -75,6 +77,7 @@ exports[`Counter 1`] = `
     <button
       className="button is-danger is-medium"
       onClick={[Function]}
+      type="button"
     >
       Reset
     </button>
