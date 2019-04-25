@@ -66,7 +66,7 @@
   "scripts": {
     "start": "react-scripts start",
     "ps": "parcel index.html --open",
-    "build": "react-scripts build",
+    "build": "react-scripts build; cd ../lib && yarn styleguidist build",
     "test": "react-scripts test",
     "test:single": "CI=true react-scripts test",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",

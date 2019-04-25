@@ -116,18 +116,26 @@ export const IndexPageHeader: React.FC = () => (
                 paddingRight: '6rem',
               }}
             >
-              <NavbarItem textColor="white" textSize="6" textWeight="bold">
-                OVERVIEW
-              </NavbarItem>
-              <NavbarItem textColor="white" textSize="6" textWeight="bold">
-                COMPONENTS LIST
-              </NavbarItem>
-              <NavbarItem textColor="white" textSize="6" textWeight="bold">
-                RESOURCES
-              </NavbarItem>
-              <NavbarItem textColor="white" textSize="6" textWeight="bold">
-                DOWNLOAD
-              </NavbarItem>
+              <a>
+                <NavbarItem textColor="white" textSize="6" textWeight="bold">
+                  OVERVIEW
+                </NavbarItem>
+              </a>
+              <a href="styleguide">
+                <NavbarItem textColor="white" textSize="6" textWeight="bold">
+                  COMPONENTS LIST
+                </NavbarItem>
+              </a>
+              <a>
+                <NavbarItem textColor="white" textSize="6" textWeight="bold">
+                  RESOURCES
+                </NavbarItem>
+              </a>
+              <a>
+                <NavbarItem textColor="white" textSize="6" textWeight="bold">
+                  DOWNLOAD
+                </NavbarItem>
+              </a>
             </NavbarEnd>
           </NavbarMenu>
         </Navbar>
