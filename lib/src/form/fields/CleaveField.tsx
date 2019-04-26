@@ -10,7 +10,15 @@ function CleaveInputInner<V>({
   field,
   ...props
 }: CleaveInputInnerProps<V>): JSX.Element {
-  return <CleaveInput {...props} {...field} />
+  return (
+    <CleaveInput
+      {...props}
+      onChange={evt => form.setFieldValue(field.name, evt.currentTarget.value)}
+      name={field.name}
+      onBlur={field.onBlur}
+      value={field.value}
+    />
+  )
 }
 
 export type CleaveInputFieldProps = CleaveInputProps & FieldConfig

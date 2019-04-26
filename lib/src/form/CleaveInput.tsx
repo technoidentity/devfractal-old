@@ -21,6 +21,7 @@ export const CleaveInput: React.FC<CleaveInputProps> = ({
   inline,
   rounded,
   state,
+  options,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'input', {
@@ -36,8 +37,7 @@ export const CleaveInput: React.FC<CleaveInputProps> = ({
     <ControlWrapper {...props}>
       <Cleave
         {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
-        placeholder="Enter your credit card number"
-        options={{ creditCard: true }}
+        options={options}
         className={classes}
       />
     </ControlWrapper>
