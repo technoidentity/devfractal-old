@@ -267,6 +267,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-success"
+            type="button"
           >
             Submit
           </button>
@@ -276,6 +277,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-danger"
+            type="button"
           >
             Cancel
           </button>
@@ -428,6 +430,7 @@ exports[`General Example 1`] = `
           <button
             className="button"
             color="success"
+            type="button"
           >
             Login
           </button>
@@ -1074,6 +1077,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-info"
+            type="button"
           >
              Search
           </button>
@@ -1096,6 +1100,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-static"
+            type="button"
           >
             @gmail.com
           </button>
@@ -1139,6 +1144,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             Transfer
           </button>
@@ -1182,6 +1188,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             Transfer
           </button>
@@ -1288,6 +1295,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-primary"
+            type="button"
           >
             Transfer
           </button>
@@ -1331,6 +1339,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-primary"
+            type="button"
           >
             Transfer
           </button>
@@ -1348,6 +1357,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-primary"
+            type="button"
           >
             Submit
           </button>
@@ -1357,6 +1367,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-light"
+            type="button"
           >
             Cancel
           </button>
@@ -1370,6 +1381,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-primary"
+            type="button"
           >
             Submit
           </button>
@@ -1379,6 +1391,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-light"
+            type="button"
           >
             Cancel
           </button>
@@ -1392,6 +1405,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-primary"
+            type="button"
           >
             Submit
           </button>
@@ -1401,6 +1415,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-light"
+            type="button"
           >
             Cancel
           </button>
@@ -1423,6 +1438,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button is-info"
+            type="button"
           >
             Search
           </button>
@@ -1436,6 +1452,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             One
           </button>
@@ -1445,6 +1462,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             two
           </button>
@@ -1454,6 +1472,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             three
           </button>
@@ -1463,6 +1482,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             four
           </button>
@@ -1472,6 +1492,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             five
           </button>
@@ -1481,6 +1502,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             six
           </button>
@@ -1490,6 +1512,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             seven
           </button>
@@ -1499,6 +1522,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             eight
           </button>
@@ -1508,6 +1532,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             nine
           </button>
@@ -1517,6 +1542,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             ten
           </button>
@@ -1526,6 +1552,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             eleven
           </button>
@@ -1535,6 +1562,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             twelve
           </button>
@@ -1544,6 +1572,7 @@ exports[`General Example 1`] = `
         >
           <button
             className="button"
+            type="button"
           >
             thirteen
           </button>
@@ -1683,6 +1712,7 @@ exports[`General Example 1`] = `
               >
                 <button
                   className="button is-static"
+                  type="button"
                 >
                   +44
                 </button>
@@ -1881,6 +1911,7 @@ exports[`General Example 1`] = `
             >
               <button
                 className="button is-primary"
+                type="button"
               >
                 Send message
               </button>
@@ -1929,6 +1960,7 @@ exports[`General Example 1`] = `
           >
             <button
               className="button is-primary"
+              type="button"
             >
               Transfer
             </button>
@@ -1946,6 +1978,7 @@ exports[`General Example 1`] = `
           >
             <button
               className="button is-primary"
+              type="button"
             >
               Submit
             </button>
@@ -1955,6 +1988,7 @@ exports[`General Example 1`] = `
           >
             <button
               className="button is-light"
+              type="button"
             >
               Cancel
             </button>

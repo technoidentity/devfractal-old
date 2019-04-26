@@ -1,10 +1,20 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Button, Section } from './lib'
+import { Section } from './lib'
+// import { MBool, MDate, MEnum, MNumber, MObject, MString, Section } from './lib'
+import { MetaBuilderForm } from './meta/MetaBuildForm'
+
+// const meta = MObject({
+//   name: MString,
+//   age: MNumber,
+//   male: MBool,
+//   dateOfBirth: MDate,
+//   position: MEnum(['programmer', 'team leader', 'manager']),
+// })
 
 render(
   <Section>
-    <Button variant="danger">Hello</Button>
+    <MetaBuilderForm onSubmit={values => console.log(values)} />
   </Section>,
   document.getElementById('root'),
 )

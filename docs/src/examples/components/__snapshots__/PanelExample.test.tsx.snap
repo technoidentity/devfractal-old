@@ -260,6 +260,7 @@ exports[`Panel Example 1`] = `
       >
         <button
           className="button is-link is-outlined is-fullwidth"
+          type="button"
         >
           reset all filters
         </button>
