@@ -119,7 +119,13 @@ export const IndexPageHeader: React.FC = () => (
               <NavbarItem textColor="white" textSize="6" textWeight="bold">
                 OVERVIEW
               </NavbarItem>
-              <NavbarItem textColor="white" textSize="6" textWeight="bold">
+              <NavbarItem
+                as="a"
+                href="https://devfractal-styleguide.netlify.com/"
+                textColor="white"
+                textSize="6"
+                textWeight="bold"
+              >
                 COMPONENTS LIST
               </NavbarItem>
               <NavbarItem textColor="white" textSize="6" textWeight="bold">
