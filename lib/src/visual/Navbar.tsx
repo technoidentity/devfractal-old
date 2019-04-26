@@ -94,6 +94,7 @@ export const NavbarBurger: React.FC<NavbarBurgerProps> = ({
 type NavbarItemModifier = 'expanded' | 'tab' | 'hoverable'
 
 type NavbarItemTag = 'div' | 'a'
+
 export interface NavbarItemsProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Helpers {
@@ -116,7 +117,6 @@ export const NavbarItem: React.FC<NavbarItemsProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'navbar-item', {
-    href: { href },
     'is-active': active,
     'has-dropdown-up': dropUp,
     'has-dropdown': dropDown,
@@ -126,6 +126,7 @@ export const NavbarItem: React.FC<NavbarItemsProps> = ({
   return (
     <Div
       as={as}
+      href={href}
       {...props}
       className={classes}
       role="navigation"
