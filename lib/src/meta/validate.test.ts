@@ -1,5 +1,5 @@
 import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './index'
-import { isValid } from './validate'
+import { validate } from './validate'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }
@@ -7,8 +7,15 @@ const boolEx: PrimitiveMT = { kind: 'boolean' }
 const dateEx: PrimitiveMT = { kind: 'date' }
 
 test('number meta', () => {
-  expect(isValid(noEx, 100)).toMatchSnapshot()
-  expect(isValid(noEx, '100')).toMatchSnapshot()
+  expect(validate(noEx, 100)).toMatchInlineSnapshot(`undefined`)
+  expect(validate(noEx, '100')).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should be a number",
+      ],
+      "kind": "number",
+    }
+  `)
 })
 
 test('number with refinements', () => {
@@ -20,14 +27,35 @@ test('number with refinements', () => {
       { kind: 'max', value: 20 },
     ],
   }
-  expect(isValid(noREx, 15)).toMatchSnapshot()
-  expect(isValid(noREx, 5)).toMatchSnapshot()
-  expect(isValid(noREx, 25)).toMatchSnapshot()
+  expect(validate(noREx, 15)).toMatchInlineSnapshot(`undefined`)
+  expect(validate(noREx, 5)).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should not be smaller than 10",
+      ],
+      "kind": "number",
+    }
+  `)
+  expect(validate(noREx, 25)).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should not be larger than 20",
+      ],
+      "kind": "number",
+    }
+  `)
 })
 
 test('str meta', () => {
-  expect(isValid(strEx, '100')).toMatchSnapshot()
-  expect(isValid(strEx, 100)).toMatchSnapshot()
+  expect(validate(strEx, '100')).toMatchInlineSnapshot(`undefined`)
+  expect(validate(strEx, 100)).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should be a string",
+      ],
+      "kind": "string",
+    }
+  `)
 })
 
 test('str meta with refinements', () => {
@@ -40,23 +68,59 @@ test('str meta with refinements', () => {
       { kind: 'maxStringLength', value: 20 },
     ],
   }
-  expect(isValid(strREx, 'foobar@gmail.com')).toMatchSnapshot()
-  expect(isValid(strREx, 'foobaR@gmail.com')).toMatchSnapshot()
-  expect(isValid(strREx, 'f@g.com')).toMatchSnapshot()
-  expect(
-    isValid(strREx, 'foooooooooooooooooooooooooooooo@gmai.com'),
-  ).toMatchSnapshot()
+  expect(validate(strREx, 'foobar@gmail.com')).toMatchInlineSnapshot(
+    `undefined`,
+  )
+  expect(validate(strREx, 'foobaR@gmail.com')).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should be lower case ",
+      ],
+      "kind": "string",
+    }
+  `)
+  expect(validate(strREx, 'f@g.com')).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should have minimum length of 10",
+      ],
+      "kind": "string",
+    }
+  `)
+  expect(validate(strREx, 'foooooooooooooooooooooooooooooo@gmai.com'))
+    .toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should have maximum length of 20",
+      ],
+      "kind": "string",
+    }
+  `)
 })
 
 test('bool meta', () => {
-  expect(isValid(boolEx, true)).toMatchSnapshot()
-  expect(isValid(boolEx, false)).toMatchSnapshot()
-  expect(isValid(boolEx, 100)).toMatchSnapshot()
+  expect(validate(boolEx, true)).toMatchInlineSnapshot(`undefined`)
+  expect(validate(boolEx, false)).toMatchInlineSnapshot(`undefined`)
+  expect(validate(boolEx, 100)).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should be boolean",
+      ],
+      "kind": "boolean",
+    }
+  `)
 })
 
 test('date meta', () => {
-  expect(isValid(dateEx, new Date())).toMatchSnapshot()
-  expect(isValid(dateEx, '2000-12-2')).toMatchSnapshot()
+  expect(validate(dateEx, new Date())).toMatchInlineSnapshot(`undefined`)
+  expect(validate(dateEx, '2000-12-2')).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should be a date",
+      ],
+      "kind": "date",
+    }
+  `)
 })
 
 test('enum meta', () => {
@@ -65,18 +129,59 @@ test('enum meta', () => {
     name: 'color',
     values: ['red', 'green', 'blue'],
   }
-  expect(isValid(enumEx, 100)).toMatchSnapshot()
-  expect(isValid(enumEx, 'red')).toMatchSnapshot()
-  expect(isValid(enumEx, 'green')).toMatchSnapshot()
-  expect(isValid(enumEx, 'blue')).toMatchSnapshot()
-  expect(isValid(enumEx, 'GREEN')).toMatchSnapshot()
+  expect(validate(enumEx, 100)).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should be one of [
+      \\"red\\",
+      \\"green\\",
+      \\"blue\\"
+    ]",
+      ],
+      "kind": "enum",
+    }
+  `)
+  expect(validate(enumEx, 'red')).toMatchInlineSnapshot(`undefined`)
+  expect(validate(enumEx, 'green')).toMatchInlineSnapshot(`undefined`)
+  expect(validate(enumEx, 'blue')).toMatchInlineSnapshot(`undefined`)
+  expect(validate(enumEx, 'GREEN')).toMatchInlineSnapshot(`
+    Object {
+      "errors": Array [
+        "should be one of [
+      \\"red\\",
+      \\"green\\",
+      \\"blue\\"
+    ]",
+      ],
+      "kind": "enum",
+    }
+  `)
 })
 
 test('array meta', () => {
   const arrNoEx: ArrayMT = { kind: 'array', of: noEx }
-  expect(isValid(arrNoEx, [])).toMatchSnapshot()
-  expect(isValid(arrNoEx, [10, 20])).toMatchSnapshot()
-  expect(isValid(arrNoEx, ['10', '20'])).toMatchSnapshot()
+  expect(validate(arrNoEx, [])).toMatchInlineSnapshot(`undefined`)
+  expect(validate(arrNoEx, [10, 20])).toMatchInlineSnapshot(`undefined`)
+  expect(validate(arrNoEx, ['10', '20'])).toMatchInlineSnapshot(`
+    Object {
+      "elements": Array [
+        Object {
+          "errors": Array [
+            "should be a number",
+          ],
+          "kind": "number",
+        },
+        Object {
+          "errors": Array [
+            "should be a number",
+          ],
+          "kind": "number",
+        },
+      ],
+      "errors": undefined,
+      "kind": "array",
+    }
+  `)
 })
 
 test('array meta with refinements', () => {
@@ -88,26 +193,102 @@ test('array meta with refinements', () => {
       { kind: 'minArrayLength', value: 2 },
     ],
   }
-  expect(isValid(arrNoREx, [10, 20])).toMatchSnapshot()
-  expect(isValid(arrNoREx, [10, 20, 30, 40, 50, 60, 70])).toMatchSnapshot()
-  expect(isValid(arrNoREx, [])).toMatchSnapshot()
+  expect(validate(arrNoREx, [10, 20])).toMatchInlineSnapshot(`undefined`)
+  expect(validate(arrNoREx, [10, 20, 30, 40, 50, 60, 70]))
+    .toMatchInlineSnapshot(`
+    Object {
+      "elements": undefined,
+      "errors": Array [
+        "should have max length of 6",
+      ],
+      "kind": "array",
+    }
+  `)
+  expect(validate(arrNoREx, [])).toMatchInlineSnapshot(`
+    Object {
+      "elements": undefined,
+      "errors": Array [
+        "should have min length of 2",
+      ],
+      "kind": "array",
+    }
+  `)
 })
 
 test('array with differently typed elements', () => {
   const arrStrEx: ArrayMT = { kind: 'array', of: strEx }
-  expect(isValid(arrStrEx, [])).toMatchSnapshot()
-  expect(isValid(arrStrEx, [10, 20])).toMatchSnapshot()
-  expect(isValid(arrStrEx, ['10', '20'])).toMatchSnapshot()
+  expect(validate(arrStrEx, [])).toMatchInlineSnapshot(`undefined`)
+  expect(validate(arrStrEx, [10, 20])).toMatchInlineSnapshot(`
+    Object {
+      "elements": Array [
+        Object {
+          "errors": Array [
+            "should be a string",
+          ],
+          "kind": "string",
+        },
+        Object {
+          "errors": Array [
+            "should be a string",
+          ],
+          "kind": "string",
+        },
+      ],
+      "errors": undefined,
+      "kind": "array",
+    }
+  `)
+  expect(validate(arrStrEx, ['10', '20'])).toMatchInlineSnapshot(`undefined`)
 
   const arrBoolEx: ArrayMT = { kind: 'array', of: boolEx }
-  expect(isValid(arrBoolEx, [])).toMatchSnapshot()
-  expect(isValid(arrBoolEx, [true, false])).toMatchSnapshot()
-  expect(isValid(arrBoolEx, ['10', '20'])).toMatchSnapshot()
+  expect(validate(arrBoolEx, [])).toMatchInlineSnapshot(`undefined`)
+  expect(validate(arrBoolEx, [true, false])).toMatchInlineSnapshot(`undefined`)
+  expect(validate(arrBoolEx, ['10', '20'])).toMatchInlineSnapshot(`
+    Object {
+      "elements": Array [
+        Object {
+          "errors": Array [
+            "should be boolean",
+          ],
+          "kind": "boolean",
+        },
+        Object {
+          "errors": Array [
+            "should be boolean",
+          ],
+          "kind": "boolean",
+        },
+      ],
+      "errors": undefined,
+      "kind": "array",
+    }
+  `)
 
   const arrDateEx: ArrayMT = { kind: 'array', of: dateEx }
-  expect(isValid(arrDateEx, [])).toMatchSnapshot()
-  expect(isValid(arrDateEx, [new Date(), new Date()])).toMatchSnapshot()
-  expect(isValid(arrDateEx, ['10', '20'])).toMatchSnapshot()
+  expect(validate(arrDateEx, [])).toMatchInlineSnapshot(`undefined`)
+  expect(validate(arrDateEx, [new Date(), new Date()])).toMatchInlineSnapshot(
+    `undefined`,
+  )
+  expect(validate(arrDateEx, ['10', '20'])).toMatchInlineSnapshot(`
+    Object {
+      "elements": Array [
+        Object {
+          "errors": Array [
+            "should be a date",
+          ],
+          "kind": "date",
+        },
+        Object {
+          "errors": Array [
+            "should be a date",
+          ],
+          "kind": "date",
+        },
+      ],
+      "errors": undefined,
+      "kind": "array",
+    }
+  `)
 })
 
 test('object meta', () => {
@@ -120,17 +301,68 @@ test('object meta', () => {
     },
   }
   expect(
-    isValid(objEx, { name: 'iPhone', price: 700, inStock: true }),
-  ).toMatchSnapshot()
-  expect(
-    isValid(objEx, { name: 'iPhone', price: 700, inStock: 10 }),
-  ).toMatchSnapshot()
-  expect(
-    isValid(objEx, { name: 'iPhone', price: '700', inStock: 10 }),
-  ).toMatchSnapshot()
-  expect(
-    isValid(objEx, { name: 100, price: '700', inStock: 10 }),
-  ).toMatchSnapshot()
+    validate(objEx, { name: 'iPhone', price: 700, inStock: true }),
+  ).toMatchInlineSnapshot(`undefined`)
+  expect(validate(objEx, { name: 'iPhone', price: 700, inStock: 10 }))
+    .toMatchInlineSnapshot(`
+    Object {
+      "kind": "object",
+      "properties": Object {
+        "inStock": Object {
+          "errors": Array [
+            "should be boolean",
+          ],
+          "kind": "boolean",
+        },
+      },
+    }
+  `)
+  expect(validate(objEx, { name: 'iPhone', price: '700', inStock: 10 }))
+    .toMatchInlineSnapshot(`
+    Object {
+      "kind": "object",
+      "properties": Object {
+        "inStock": Object {
+          "errors": Array [
+            "should be boolean",
+          ],
+          "kind": "boolean",
+        },
+        "price": Object {
+          "errors": Array [
+            "should be a number",
+          ],
+          "kind": "number",
+        },
+      },
+    }
+  `)
+  expect(validate(objEx, { name: 100, price: '700', inStock: 10 }))
+    .toMatchInlineSnapshot(`
+    Object {
+      "kind": "object",
+      "properties": Object {
+        "inStock": Object {
+          "errors": Array [
+            "should be boolean",
+          ],
+          "kind": "boolean",
+        },
+        "name": Object {
+          "errors": Array [
+            "should be a string",
+          ],
+          "kind": "string",
+        },
+        "price": Object {
+          "errors": Array [
+            "should be a number",
+          ],
+          "kind": "number",
+        },
+      },
+    }
+  `)
 })
 
 test('complex meta', () => {
@@ -167,5 +399,5 @@ test('complex meta', () => {
     ],
   }
 
-  expect(isValid(customerMeta, customer)).toMatchSnapshot()
+  expect(validate(customerMeta, customer)).toMatchInlineSnapshot(`undefined`)
 })
