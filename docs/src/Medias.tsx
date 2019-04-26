@@ -1,3 +1,10 @@
+import columnsIcon from 'images/columnsIcon.png'
+import componentsIcon from 'images/componentsIcon.png'
+import compositesIcon from 'images/compositesIcon.png'
+import elementsIcon from 'images/elementsIcon.png'
+import formIcon from 'images/formIcon.png'
+import layoutIcon from 'images/layoutIcon.png'
+import modifiersIcon from 'images/modifiersIcon.png'
 import React from 'react'
 import {
   Media,
@@ -6,13 +13,6 @@ import {
   SubTitle,
   Text,
 } from 'technoidentity-devfractal'
-import columnsIcon from './images/columnsIcon.png'
-import componentsIcon from './images/componentsIcon.png'
-import compositesIcon from './images/compositesIcon.png'
-import elementsIcon from './images/elementsIcon.png'
-import formIcon from './images/formIcon.png'
-import layoutIcon from './images/layoutIcon.png'
-import modifiersIcon from './images/modifiersIcon.png'
 
 export const FormMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>

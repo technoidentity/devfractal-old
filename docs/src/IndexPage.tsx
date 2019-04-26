@@ -6,6 +6,9 @@ import {
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
+import contentLoader from 'images/contentLoader.png'
+import devfractalIcon from 'images/devfractalIcon.png'
+import logo from 'images/logo.png'
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import {
@@ -31,9 +34,6 @@ import {
   Text,
   Title,
 } from 'technoidentity-devfractal'
-import contentLoader from './images/contentLoader.png'
-import devfractalIcon from './images/devfractalIcon.png'
-import logo from './images/logo.png'
 import {
   ColumnsMedia,
   ComponentsMedia,

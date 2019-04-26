@@ -1,8 +1,8 @@
+import { Section } from 'layout'
+// import { MBool, MDate, MEnum, MNumber, MObject, MString, Section } from './lib'
+import { MetaBuilderForm } from 'meta'
 import React from 'react'
 import { render } from 'react-dom'
-import { Section } from './lib'
-// import { MBool, MDate, MEnum, MNumber, MObject, MString, Section } from './lib'
-import { MetaBuilderForm } from './meta/MetaBuildForm'
 
 // const meta = MObject({
 //   name: MString,
