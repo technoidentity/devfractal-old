@@ -18,4 +18,4 @@ export const MArray: (of: MT) => ArrayMT = of => ({ kind: 'array', of })
 export const MObject: (
   properties: Record<string, MT>,
   name?: string,
-) => ObjectMT = properties => ({ kind: 'object', name, properties })
+) => ObjectMT = (properties, name) => ({ kind: 'object', name, properties })
