@@ -5,7 +5,7 @@ import {
   MT,
   ObjectMT,
   PrimitiveMT,
-} from './index'
+} from 'meta'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }

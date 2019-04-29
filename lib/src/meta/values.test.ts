@@ -8,7 +8,7 @@ import {
   MObject,
   MString,
   MT,
-} from './index'
+} from 'meta'
 
 test('create meta using values', () => {
   const customerMeta: MT = MObject(

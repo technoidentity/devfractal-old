@@ -1,5 +1,5 @@
-import { buildObject } from '../lib'
-import { MT } from './index'
+import { MT } from 'meta'
+import { buildObject } from 'utils'
 
 // tslint:disable typedef switch-default
 

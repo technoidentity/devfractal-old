@@ -1,6 +1,3 @@
-import * as t from 'tcomb'
-import * as yup from 'yup'
-import { jsonStringify } from '../lib'
 import {
   ArrayMT,
   ArrayRefinements,
@@ -12,7 +9,10 @@ import {
   PrimitiveMT,
   Refinements,
   StringRefinements,
-} from './index'
+} from 'meta'
+import * as t from 'tcomb'
+import { jsonStringify } from 'utils'
+import * as yup from 'yup'
 
 // tslint:disable-next-line: typedef
 const errorMessages = {

@@ -1,4 +1,11 @@
 import {
+  ArrayRefinements,
+  DateRefinements,
+  MT,
+  NumberRefinements,
+  StringRefinements,
+} from 'meta'
+import {
   array,
   ArraySchema,
   bool,
@@ -11,13 +18,6 @@ import {
   string,
   StringSchema,
 } from 'yup'
-import {
-  ArrayRefinements,
-  DateRefinements,
-  MT,
-  NumberRefinements,
-  StringRefinements,
-} from './index'
 
 // tslint:disable typedef switch-default
 

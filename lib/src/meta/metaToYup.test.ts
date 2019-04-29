@@ -1,5 +1,5 @@
+import { ArrayMT, EnumMT, metaToYup, MT, ObjectMT, PrimitiveMT } from 'meta'
 import { Schema } from 'yup'
-import { ArrayMT, EnumMT, metaToYup, MT, ObjectMT, PrimitiveMT } from './index'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }

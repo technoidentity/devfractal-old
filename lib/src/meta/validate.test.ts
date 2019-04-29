@@ -1,5 +1,5 @@
 import { validate } from 'meta'
-import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './index'
+import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from 'meta'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }

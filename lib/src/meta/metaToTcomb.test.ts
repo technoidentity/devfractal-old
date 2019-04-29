@@ -1,12 +1,5 @@
+import { ArrayMT, EnumMT, metaToTcomb, MT, ObjectMT, PrimitiveMT } from 'meta'
 import { validate } from 'tcomb-validation'
-import {
-  ArrayMT,
-  EnumMT,
-  metaToTcomb,
-  MT,
-  ObjectMT,
-  PrimitiveMT,
-} from './index'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }

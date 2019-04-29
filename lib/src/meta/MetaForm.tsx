@@ -1,7 +1,5 @@
+import { Field, Label } from 'form'
 import { FormikActions } from 'formik'
-import React from 'react'
-import { ObjectSchema } from 'yup'
-import { camelCaseToPhrase, Field, Label, Simple } from '../lib'
 import {
   EnumMT,
   metaToInitialValues,
@@ -9,7 +7,11 @@ import {
   MT,
   ObjectMT,
   PrimitiveMT,
-} from './index'
+} from 'meta'
+import React from 'react'
+import { Simple } from 'simple'
+import { camelCaseToPhrase } from 'utils'
+import { ObjectSchema } from 'yup'
 
 interface EditorProps {
   readonly name: string

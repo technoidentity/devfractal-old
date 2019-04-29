@@ -1,4 +1,3 @@
-import * as t from 'tcomb'
 import {
   ArrayMaxLength,
   ArrayMinLength,
@@ -20,7 +19,8 @@ import {
   StringRefinements,
   Upper,
   Url,
-} from './index'
+} from 'meta'
+import * as t from 'tcomb'
 
 // tslint:disable typedef switch-default
 

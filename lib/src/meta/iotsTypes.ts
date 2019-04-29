@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { date } from 'io-ts-types'
-import { props, req } from '../lib'
+import { props, req } from 'utils'
 
 // tslint:disable typedef
 
