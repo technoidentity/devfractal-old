@@ -1,6 +1,6 @@
 import React from 'react'
 import { Function } from 'tcomb'
-import { warning } from '../lib'
+import { warning } from 'utils'
 
 interface RenderPropsProps<Props> {
   readonly component?: React.ComponentType<Props> | React.ReactNode

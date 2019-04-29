@@ -1,5 +1,5 @@
 import { RouteComponentProps } from 'react-router'
-import { Omit } from '../lib'
+import { Omit } from 'utils'
 
 export type RouteComponentPropsRemoved<T> = Omit<T, keyof RouteComponentProps>
 
