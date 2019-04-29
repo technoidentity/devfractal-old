@@ -2,8 +2,8 @@ import {
   FontAwesomeIcon,
   Props as FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
+import { classNamesHelper, Div, Helpers, removeHelpers } from 'base'
 import React from 'react'
-import { classNamesHelper, Div, Helpers, removeHelpers } from '../lib'
 
 type IconDirection = 'left' | 'right'
 

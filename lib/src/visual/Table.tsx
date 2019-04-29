@@ -1,5 +1,5 @@
+import { classNamesHelper, Div, Helpers } from 'base'
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
 
 export interface TableProps
   extends React.TableHTMLAttributes<HTMLTableElement>,
