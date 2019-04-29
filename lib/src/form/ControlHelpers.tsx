@@ -1,6 +1,7 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import React from 'react'
-import { classNames, Icon, Omit } from '../lib'
+import { classNames, Omit } from 'utils'
+import { Icon } from 'visual'
 
 export interface ControlHelpers {
   readonly loading?: boolean

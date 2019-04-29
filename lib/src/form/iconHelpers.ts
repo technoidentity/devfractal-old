@@ -1,6 +1,6 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { ControlSize } from '../lib'
-import { Omit } from '../utils'
+import { ControlSize } from 'form'
+import { Omit } from 'utils'
 
 export interface IconHelpers {
   readonly leftIcon?: IconDefinition

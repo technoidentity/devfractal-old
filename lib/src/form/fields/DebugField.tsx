@@ -1,6 +1,6 @@
 import { FormikConsumer } from 'formik'
 import React from 'react'
-import { jsonStringify } from '../../lib'
+import { jsonStringify } from 'utils'
 
 export const DebugField: React.FC = () => (
   <FormikConsumer>

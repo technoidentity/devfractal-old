@@ -1,7 +1,6 @@
+import { FormikFieldConfig, OmitForm, Select, SelectProps } from 'form'
 import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
-import { Select, SelectProps } from '../../lib'
-import { FormikFieldConfig, OmitForm } from './types'
 
 type FormikSelectProps<V> = FormikFieldProps<V> & OmitForm<SelectProps>
 

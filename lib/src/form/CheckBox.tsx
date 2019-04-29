@@ -1,10 +1,6 @@
+import { classNamesHelper } from 'base'
+import { AllControlHelpers, ControlDiv, ControlWrapper } from 'form'
 import React from 'react'
-import {
-  AllControlHelpers,
-  classNamesHelper,
-  ControlDiv,
-  ControlWrapper,
-} from '../lib'
 
 export interface CheckBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

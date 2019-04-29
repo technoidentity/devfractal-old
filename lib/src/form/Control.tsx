@@ -1,5 +1,6 @@
+import { ControlWrapper, ControlWrapperProps } from 'form'
 import React from 'react'
-import { ControlWrapper, ControlWrapperProps, Omit } from '../lib'
+import { Omit } from 'utils'
 
 export type ControlProps = Omit<ControlWrapperProps, 'noControl'>
 

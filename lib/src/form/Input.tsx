@@ -1,6 +1,6 @@
+import { classNamesHelper } from 'base'
+import { AllControlHelpers, ControlDiv, ControlWrapper } from 'form'
 import React from 'react'
-import { classNamesHelper } from '../lib'
-import { AllControlHelpers, ControlDiv, ControlWrapper } from '../lib'
 
 type InputVariant =
   | 'primary'
