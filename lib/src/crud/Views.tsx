@@ -1,20 +1,10 @@
+import { Button, Field } from 'form'
 import { FormikActions } from 'formik'
 import { Props } from 'io-ts'
+import { Container } from 'layout'
 import React, { FC } from 'react'
-import {
-  Button,
-  Container,
-  emptyFromType,
-  Field,
-  Omit,
-  RowClickEvent,
-  RTType,
-  SimpleEditor,
-  SimpleTable,
-  SimpleViewer,
-  TypeOfRT,
-} from '../lib'
-
+import { RowClickEvent, SimpleEditor, SimpleTable, SimpleViewer } from 'simple'
+import { emptyFromType, Omit, RTType, TypeOfRT } from 'utils'
 export interface EditProps<T> {
   readonly data: T | (() => Promise<T>)
   onSubmit?(values: T, actions: FormikActions<T>): void
