@@ -1,4 +1,4 @@
-import { toBoolean, toDate, toNumber } from './coercions'
+import { toBoolean, toDate, toNumber } from 'utils'
 
 it('Boolean from string', () => {
   expect(toBoolean('true')).toBe(true)

@@ -2,7 +2,7 @@ import { Either } from 'fp-ts/lib/Either'
 import * as t from 'io-ts'
 import { reporter } from 'io-ts-reporters'
 import { String } from 'tcomb'
-import { fatal, warning } from '../lib'
+import { fatal, warning } from 'utils'
 
 export function typeInvariant<
   Type extends t.Mixed,

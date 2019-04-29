@@ -1,4 +1,4 @@
-import { repeatedly } from '../lib'
+import { repeatedly } from 'utils'
 
 it('repeatedly', () => {
   const alwaysOne: () => number = () => 1

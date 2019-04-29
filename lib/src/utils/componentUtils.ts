@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { typeWarning } from './iotsUtils'
+import { typeWarning } from 'utils'
 
 export function component<
   T extends t.Mixed,
