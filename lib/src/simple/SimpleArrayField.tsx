@@ -1,6 +1,7 @@
+import { Button, Field } from 'form'
 import { FieldArray } from 'formik'
 import React from 'react'
-import { Button, Delete, Field, Notification } from '../lib'
+import { Delete, Notification } from 'visual'
 
 export interface SimpleArrayFieldComponentProps<T> {
   readonly name: string

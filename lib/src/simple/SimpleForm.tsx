@@ -1,5 +1,21 @@
+import { Button, consoleSubmit, Field, Label } from 'form'
+import {
+  CheckboxField,
+  CheckboxFieldProps,
+  DebugField,
+  ErrorField,
+  InputField,
+  InputFieldProps,
+  RadioFieldProps,
+  RadioGroupField,
+  SelectField,
+  SelectFieldProps,
+  TextAreaField,
+  TextAreaFieldProps,
+} from 'form/fields'
 import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import React from 'react'
+import { camelCaseToPhrase, Omit } from 'utils'
 import {
   number,
   NumberSchema,
@@ -8,26 +24,6 @@ import {
   string,
   StringSchema,
 } from 'yup'
-import {
-  Button,
-  camelCaseToPhrase,
-  CheckboxField,
-  CheckboxFieldProps,
-  consoleSubmit,
-  DebugField,
-  ErrorField,
-  Field,
-  InputField,
-  InputFieldProps,
-  Label,
-  Omit,
-  RadioFieldProps,
-  RadioGroupField,
-  SelectField,
-  SelectFieldProps,
-  TextAreaField,
-  TextAreaFieldProps,
-} from '../lib'
 
 interface Named<Values extends object> {
   readonly name: keyof Values & string

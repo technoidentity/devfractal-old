@@ -4,8 +4,10 @@ import {
   faStepBackward,
   faStepForward,
 } from '@fortawesome/free-solid-svg-icons'
+import { Button, Field } from 'form'
+import { Section } from 'layout'
 import React from 'react'
-import { Button, Field, Icon, Section } from '../lib'
+import { Icon } from 'visual'
 
 interface PagerViewProps {
   readonly currentPage: number

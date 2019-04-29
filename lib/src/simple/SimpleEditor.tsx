@@ -1,7 +1,10 @@
+import { Label } from 'form'
 import { FormikActions } from 'formik'
+import { Section } from 'layout'
 import React from 'react'
+import { Simple } from 'simple'
 import { Boolean, Function, Number } from 'tcomb'
-import { Async, camelCaseToPhrase, Label, Section, Simple } from '../lib'
+import { Async, camelCaseToPhrase } from 'utils'
 
 export interface SimpleEditorViewProps<T extends object> {
   readonly data: T

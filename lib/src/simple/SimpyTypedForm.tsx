@@ -1,25 +1,25 @@
+import { consoleSubmit, Field, Label } from 'form'
+import {
+  CheckboxField,
+  ErrorField,
+  InputField,
+  InputFieldProps,
+  RadioGroupField,
+  SelectField,
+  TextAreaField,
+} from 'form/fields'
 import { Form, Formik } from 'formik'
 import React, { Children } from 'react'
 import { Omit } from 'react-router'
-import * as yup from 'yup'
 import {
-  camelCaseToPhrase,
-  CheckboxField,
-  consoleSubmit,
-  ErrorField,
-  Field,
-  InputField,
-  InputFieldProps,
-  Label,
-  RadioGroupField,
-  SelectField,
   SimpleCheckboxProps,
   SimpleFormProps,
   SimpleRadioGroupProps,
   SimpleSelectProps,
   SimpleTextAreaProps,
-  TextAreaField,
-} from '../lib'
+} from 'simple'
+import { camelCaseToPhrase } from 'utils'
+import * as yup from 'yup'
 import { Simple } from './SimpleForm'
 
 interface Named<Values extends Object, Value> {

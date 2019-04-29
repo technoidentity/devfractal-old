@@ -1,5 +1,5 @@
 import React from 'react'
-import { Async } from '../lib'
+import { Async } from 'utils'
 
 // @TODO: Use react content loader
 export const Loading: React.FC = () => <h1>Loading...</h1>

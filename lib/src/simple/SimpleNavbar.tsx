@@ -10,7 +10,7 @@ import {
   NavbarItem,
   NavbarItemsProps,
   NavbarMenu,
-} from '../lib'
+} from 'visual'
 
 const NavBurger: React.FC<NavbarBurgerProps> = props => (
   <NavbarBurger role="button" {...props}>
