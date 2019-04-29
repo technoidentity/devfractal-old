@@ -1,14 +1,7 @@
+import { classNamesHelper, Div, Helpers, removeRouteComponentProps } from 'base'
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
-import {
-  chop,
-  classNamesHelper,
-  Div,
-  extractSegment,
-  Helpers,
-  removeRouteComponentProps,
-  WithRouter,
-} from '../lib'
+import { chop, extractSegment, WithRouter } from 'utils'
 
 interface RoutedTabsContext {
   readonly baseURL?: string
