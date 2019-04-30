@@ -1,5 +1,4 @@
 import axios, { AxiosPromise } from 'axios'
-import { idRT } from 'crud'
 import t, {
   Props,
   readonlyArray,
@@ -10,6 +9,7 @@ import t, {
   TypeOf,
 } from 'io-ts'
 import { eitherToPromise, Omit, typeInvariant, TypeOfRT } from 'utils'
+import { idRT } from './utils'
 
 export interface URLs {
   all(): string

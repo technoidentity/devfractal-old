@@ -1,9 +1,10 @@
-import { APIRepository, CrudViewsResult, Repository, Views } from 'crud'
 import { formikSubmit } from 'form'
 import { Props, ReadonlyC, TypeC } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { TypeOfRT } from 'utils'
+import { APIRepository, Repository } from './api'
+import { CrudViewsResult, Views } from './Views'
 
 const base: (resource: string, basePath: string) => string = (
   resource,
