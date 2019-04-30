@@ -1,5 +1,5 @@
-import { Helpers, removeHelpers } from 'base'
 import React from 'react'
+import { Helpers, removeHelpers } from './helpers'
 
 export interface DivProps
   extends React.AllHTMLAttributes<HTMLElement>,

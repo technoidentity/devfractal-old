@@ -1,10 +1,10 @@
+import { ClassNameArg, classNames, Omit } from 'utils'
 import {
   removeTextHelpers,
   TextHelpers,
   textHelpersClasses,
   TextHelpersRemoved,
-} from 'base'
-import { ClassNameArg, classNames, Omit } from 'utils'
+} from './textHelpers'
 
 interface CommonHelpers {
   readonly floating?: 'clearfix' | 'pulled-left' | 'pulled-right'
