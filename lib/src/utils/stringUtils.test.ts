@@ -1,12 +1,12 @@
+import { range } from './common'
 import {
   camelCaseToHyphenated,
   camelCaseToPhrase,
   camelCaseToSpaced,
   chop,
   extractSegment,
-  range,
   toLower,
-} from 'utils'
+} from './stringUtils'
 
 it('test for camelCaseToLower', () => {
   expect(toLower('userName', '-')).toBe('user-name')

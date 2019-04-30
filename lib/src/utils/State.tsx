@@ -1,7 +1,7 @@
 import React from 'react'
 import { Function } from 'tcomb'
-import { freeze, Null } from 'utils'
-
+import { freeze } from './common'
+import { Null } from './componentUtils'
 type SetArgs<T> = T | ((value: T) => T)
 
 export interface StateRenderProps<T> {

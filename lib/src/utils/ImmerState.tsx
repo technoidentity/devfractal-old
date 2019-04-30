@@ -1,8 +1,8 @@
 import produce, { Draft } from 'immer'
 import React from 'react'
 import { Function } from 'tcomb'
-import { freeze, Null } from 'utils'
-
+import { freeze } from './common'
+import { Null } from './componentUtils'
 type ImmerSetArgs<T> = T | ((value: Draft<T>) => void)
 
 interface ImmerStateRenderProps<T> {

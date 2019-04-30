@@ -7,7 +7,7 @@ import {
   IntegerFromString,
   NumberFromString,
 } from 'io-ts-types'
-import { fatal } from 'utils'
+import { fatal } from './assertions'
 
 export const toInt: (from: string) => number = from => {
   const decoded: Either<t.Errors, number> = IntegerFromString.decode(from)

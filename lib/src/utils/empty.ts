@@ -15,7 +15,8 @@ import {
 } from 'io-ts'
 import { DateType } from 'io-ts-types'
 import tcomb from 'tcomb'
-import { invariant, nop, warning } from 'utils'
+import { invariant, warning } from './assertions'
+import { nop } from './common'
 
 const emptyFromPrimitiveValue: (v: unknown) => any = v => {
   if (tcomb.Number.is(v)) {

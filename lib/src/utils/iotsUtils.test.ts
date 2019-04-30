@@ -7,7 +7,7 @@ import {
   string,
   type,
 } from 'io-ts'
-import { emptyFromType } from 'utils'
+import { emptyFromType } from './empty'
 
 test('emptyFromType', () => {
   expect(
