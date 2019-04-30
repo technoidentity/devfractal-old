@@ -1,11 +1,5 @@
-import {
-  ArrayMT,
-  EnumMT,
-  metaToInitialValues,
-  MT,
-  ObjectMT,
-  PrimitiveMT,
-} from 'meta'
+import { metaToInitialValues } from './metaToInitialValues'
+import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './types'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }

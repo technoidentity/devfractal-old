@@ -1,7 +1,6 @@
 import { CheckBox, Input, Select } from 'form'
 import { Form, Formik, FormikActions } from 'formik'
 import { Column, Columns, Container } from 'layout'
-import { PrimitiveMT } from 'meta'
 import React from 'react'
 import {
   Simple,
@@ -9,6 +8,7 @@ import {
   SimpleArrayFieldComponentProps,
 } from 'simple'
 import { Text } from 'visual'
+import { PrimitiveMT } from './types'
 
 export interface MetaBuildFormProps {
   onSubmit(values: any, formikActions: FormikActions<any>): void

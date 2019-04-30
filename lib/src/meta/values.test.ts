@@ -1,5 +1,6 @@
+import { MT } from './iotsTypes'
+import { isValid } from './validate'
 import {
-  isValid,
   MArray,
   MBool,
   MDate,
@@ -7,8 +8,7 @@ import {
   MNumber,
   MObject,
   MString,
-  MT,
-} from 'meta'
+} from './values'
 
 test('create meta using values', () => {
   const customerMeta: MT = MObject(

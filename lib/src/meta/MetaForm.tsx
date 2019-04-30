@@ -1,17 +1,12 @@
 import { Field, Label } from 'form'
 import { FormikActions } from 'formik'
-import {
-  EnumMT,
-  metaToInitialValues,
-  metaToYup,
-  MT,
-  ObjectMT,
-  PrimitiveMT,
-} from 'meta'
 import React from 'react'
 import { Simple } from 'simple'
 import { camelCaseToPhrase } from 'utils'
 import { ObjectSchema } from 'yup'
+import { metaToInitialValues } from './metaToInitialValues'
+import { metaToYup } from './metaToYup'
+import { EnumMT, MT, ObjectMT, PrimitiveMT } from './types'
 
 interface EditorProps {
   readonly name: string

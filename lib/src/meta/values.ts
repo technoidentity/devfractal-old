@@ -1,4 +1,4 @@
-import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from 'meta'
+import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './types'
 
 export const MNumber: PrimitiveMT = { kind: 'number' }
 

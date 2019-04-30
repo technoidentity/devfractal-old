@@ -1,8 +1,7 @@
+import * as t from 'tcomb'
 import {
   ArrayMaxLength,
   ArrayMinLength,
-  ArrayRefinements,
-  DateRefinements,
   Email,
   Length,
   Lower,
@@ -12,15 +11,18 @@ import {
   Min,
   MinDate,
   MinLength,
-  MT,
   Negative,
-  NumberRefinements,
   Positive,
-  StringRefinements,
   Upper,
   Url,
-} from 'meta'
-import * as t from 'tcomb'
+} from './tcombRefinements'
+import {
+  ArrayRefinements,
+  DateRefinements,
+  MT,
+  NumberRefinements,
+  StringRefinements,
+} from './types'
 
 // tslint:disable typedef switch-default
 
