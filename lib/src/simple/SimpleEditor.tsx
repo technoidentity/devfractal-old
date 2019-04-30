@@ -2,9 +2,9 @@ import { Label } from 'form'
 import { FormikActions } from 'formik'
 import { Section } from 'layout'
 import React from 'react'
-import { Simple } from 'simple'
 import { Boolean, Function, Number } from 'tcomb'
 import { Async, camelCaseToPhrase } from 'utils'
+import { Simple } from './SimpleForm'
 
 export interface SimpleEditorViewProps<T extends object> {
   readonly data: T

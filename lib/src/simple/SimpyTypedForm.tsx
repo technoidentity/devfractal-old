@@ -11,16 +11,16 @@ import {
 import { Form, Formik } from 'formik'
 import React, { Children } from 'react'
 import { Omit } from 'react-router'
+import { camelCaseToPhrase } from 'utils'
+import * as yup from 'yup'
 import {
+  Simple,
   SimpleCheckboxProps,
   SimpleFormProps,
   SimpleRadioGroupProps,
   SimpleSelectProps,
   SimpleTextAreaProps,
-} from 'simple'
-import { camelCaseToPhrase } from 'utils'
-import * as yup from 'yup'
-import { Simple } from './SimpleForm'
+} from './SimpleForm'
 
 interface Named<Values extends Object, Value> {
   readonly name: keyof Values & string
