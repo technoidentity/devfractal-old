@@ -1,6 +1,7 @@
-import { FormikFieldConfig, OmitForm, TextArea, TextAreaProps } from 'form'
 import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
+import { TextArea, TextAreaProps } from '../TextArea'
+import { FormikFieldConfig, OmitForm } from './types'
 
 type FormikTextAreaProps<V> = FormikFieldProps<V> & OmitForm<TextAreaProps>
 

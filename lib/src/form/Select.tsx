@@ -1,7 +1,8 @@
 import { classNamesHelper } from 'base'
-import { AllControlHelpers, ControlDiv, ControlWrapper } from 'form'
 import React from 'react'
 import { classNames } from 'utils'
+import { AllControlHelpers, ControlDiv } from './ControlDiv'
+import { ControlWrapper } from './ControlHelpers'
 
 type SelectVariant =
   | 'primary'

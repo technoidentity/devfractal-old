@@ -1,6 +1,7 @@
-import { FormikFieldConfig, OmitForm, RadioGroup, RadioGroupProps } from 'form'
 import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
+import { RadioGroup, RadioGroupProps } from '../Radio'
+import { FormikFieldConfig, OmitForm } from './types'
 
 type FormikRadioGroupProps<V> = FormikFieldProps<V> & OmitForm<RadioGroupProps>
 
