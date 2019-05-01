@@ -33,6 +33,7 @@ export const BasicNavbarExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -75,6 +76,7 @@ export const BasicNavbarExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -123,6 +125,7 @@ export const NavbarBrandExample: React.FC = () => (
           {/* TODO:: change this to Image*/}
           <img
             src="https://bulma.io/images/bulma-logo.png"
+            alt="bulma logo"
             width="112"
             height="28"
           />
@@ -157,6 +160,7 @@ export const TransparentNavbarExample: React.FC = () => (
           {/* TODO:: change this to Image*/}
           <img
             src="https://bulma.io/images/bulma-logo.png"
+            alt="bulma logo"
             width="112"
             height="28"
           />
@@ -347,6 +351,7 @@ export const DropdownMenuStylesExample: React.FC = () => (
         <NavbarItem>
           <img
             src="https://bulma.io/images/bulma-logo.png"
+            alt="bulma logo"
             width="112"
             height="28"
           />
@@ -376,6 +381,7 @@ export const DropdownMenuStylesExample: React.FC = () => (
         <NavbarItem>
           <img
             src="https://bulma.io/images/bulma-logo.png"
+            alt="bulma logo"
             width="112"
             height="28"
           />
@@ -406,6 +412,7 @@ export const DropdownMenuStylesExample: React.FC = () => (
         <NavbarItem>
           <img
             src="https://bulma.io/images/bulma-logo.png"
+            alt="bulma logo"
             width="112"
             height="28"
           />
@@ -444,6 +451,7 @@ export const NavbarColorsExample: React.FC = () => (
           {/* TODO:: change this to Image*/}
           <img
             src="https://bulma.io/images/bulma-logo.png"
+            alt=" bulma logo"
             width="112"
             height="28"
           />
@@ -492,6 +500,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -541,6 +550,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -590,6 +600,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -640,6 +651,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -689,6 +701,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -738,6 +751,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -787,6 +801,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -836,6 +851,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
@@ -885,6 +901,7 @@ export const NavbarColorsExample: React.FC = () => (
             {/* TODO:: change this to Image*/}
             <img
               src="https://bulma.io/images/bulma-logo.png"
+              alt="bulma logo"
               width="112"
               height="28"
             />
