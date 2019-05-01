@@ -1,11 +1,7 @@
 import { Helpers, removeHelpers } from 'base'
-import {
-  ControlHelpers,
-  IconHelpers,
-  removeControlHelpers,
-  removeIconHelpers,
-} from 'lib'
 import React from 'react'
+import { ControlHelpers, removeControlHelpers } from './ControlHelpers'
+import { IconHelpers, removeIconHelpers } from './iconHelpers'
 
 export interface AllControlHelpers
   extends Helpers,
