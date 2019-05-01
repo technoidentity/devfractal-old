@@ -39,13 +39,13 @@ const LevelRightExample: React.FC = () => (
           <strong>All</strong>
         </LevelItem>
         <LevelItem>
-          <a>Published</a>
+          <a href="#!">Published</a>
         </LevelItem>
         <LevelItem>
-          <a>Drafts</a>
+          <a href="#!">Drafts</a>
         </LevelItem>
         <LevelItem>
-          <a>Deleted</a>
+          <a href="#!">Deleted</a>
         </LevelItem>
         <LevelItem>
           <Button variant="success">New</Button>
@@ -88,14 +88,14 @@ const CenteredLevelExample: React.FC = () => (
       <LevelItem>
         <Section>
           <Text textAlignment="centered" textColor="info">
-            <a>Home</a>
+            <a href="#!">Home</a>
           </Text>
         </Section>
       </LevelItem>
       <LevelItem>
         <Section>
           <Text textAlignment="centered" textColor="info">
-            <a>Menu</a>
+            <a href="#!">Menu</a>
           </Text>
         </Section>
       </LevelItem>
@@ -105,6 +105,7 @@ const CenteredLevelExample: React.FC = () => (
             {/* @TODO: change this to Image and drop style*/}
             <img
               src="https://bulma.io/images/bulma-type.png"
+              alt="bulma logo"
               style={{ height: '30px' }}
             />
           </Text>
@@ -113,14 +114,14 @@ const CenteredLevelExample: React.FC = () => (
       <LevelItem>
         <Section>
           <Text textAlignment="centered" textColor="info">
-            <a>Reservations</a>
+            <a href="#!">Reservations</a>
           </Text>
         </Section>
       </LevelItem>
       <LevelItem>
         <Section>
           <Text textAlignment="centered" textColor="info">
-            <a>Contact</a>
+            <a href="#!">Contact</a>
           </Text>
         </Section>
       </LevelItem>
