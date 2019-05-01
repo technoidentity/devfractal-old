@@ -1,5 +1,18 @@
 import React from 'react'
 import { Redirect, Route, RouteComponentProps, withRouter } from 'react-router'
+import { Omit } from 'utils'
+
+export type RouteComponentPropsRemoved<T> = Omit<T, keyof RouteComponentProps>
+
+export const removeRouteComponentProps: <T extends RouteComponentProps>(
+  props: T,
+) => RouteComponentPropsRemoved<T> = ({
+  match,
+  location,
+  history,
+  staticContext,
+  ...result
+}) => result
 
 export type WithRouterProps<T> = T & {
   readonly children?: React.ReactNode
