@@ -15,51 +15,54 @@ export const MenuExample: React.FC = () => (
         <MenuLabel>General</MenuLabel>
         <MenuList>
           <MenuItem>
-            <a>Dashboard</a>
+            <a href="#!">Dashboard</a>
           </MenuItem>
           <MenuItem>
-            <a>Customers</a>
+            <a href="#!">Customers</a>
           </MenuItem>
         </MenuList>
         <MenuLabel>Administration</MenuLabel>
         <MenuList>
           <MenuItem>
-            <a>TeamSettings</a>
+            <a href="#!">TeamSettings</a>
           </MenuItem>
           <MenuItem>
-            <a className="is-active"> Manage your team</a>
+            <a className="is-active" href="#!">
+              {' '}
+              Manage your team
+            </a>
             <MenuList>
               <MenuItem>
-                <a>Members</a>
+                <a href="#!">Members</a>
               </MenuItem>
               <MenuItem>
-                <a>Plugins</a>
+                <a href="#!">Plugins</a>
               </MenuItem>
               <MenuItem>
-                <a>Add a member</a>
+                <a href="#!">Add a member</a>
               </MenuItem>
             </MenuList>
           </MenuItem>
           <MenuItem>
-            <a>invitations</a>
+            <a href="#!">invitations</a>
           </MenuItem>
           <MenuItem>
-            <a>cloudstorage</a>
+            <a href="#!">cloudstorage</a>
           </MenuItem>
           <MenuItem>
-            <a>invitations</a>
+            <a href="#!">invitations</a>
           </MenuItem>
           <MenuLabel>Transactions</MenuLabel>
         </MenuList>
         <MenuList>
           <MenuItem>
-            <a>payments</a>
+            <a href="#!">payments</a>
           </MenuItem>
           <MenuItem>
-            <a>transfers</a>
+            <a href="#!">transfers</a>
           </MenuItem>
           <MenuItem>
-            <a>balance</a>
+            <a href="#!">balance</a>
           </MenuItem>
         </MenuList>
       </Menu>
