@@ -43,7 +43,7 @@ export const removeControlHelpers: <T extends ControlHelpers>(
   loading,
   expanded,
   fullWidth,
-  ctrlSize: controlSize,
+  ctrlSize,
   leftIcon,
   rightIcon,
   noControl,

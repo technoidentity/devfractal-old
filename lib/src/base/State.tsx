@@ -2,6 +2,7 @@ import React from 'react'
 import { Function } from 'tcomb'
 import { freeze } from 'utils'
 import { Null } from './componentUtils'
+
 type SetArgs<T> = T | ((value: T) => T)
 
 export interface StateRenderProps<T> {
