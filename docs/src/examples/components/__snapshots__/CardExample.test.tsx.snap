@@ -67,18 +67,18 @@ Array [
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
           <a
-            href="#"
+            href="#!"
           >
             @bulmaio
           </a>
           . 
           <a
-            href="#"
+            href="#!"
           >
             #css
           </a>
           <a
-            href="#"
+            href="#!"
           >
             #responsive
           </a>
@@ -97,7 +97,7 @@ Array [
           className="card-footer-item"
         >
           <a
-            href="#"
+            href="#!"
           >
             save
           </a>
@@ -106,7 +106,7 @@ Array [
           className="card-footer-item"
         >
           <a
-            href="#"
+            href="#!"
           >
             edit
           </a>
@@ -115,7 +115,7 @@ Array [
           className="card-footer-item"
         >
           <a
-            href="#"
+            href="#!"
           >
             delete
           </a>
@@ -171,18 +171,18 @@ Array [
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
           <a
-            href="#"
+            href="#!"
           >
             @bulmaio
           </a>
           . 
           <a
-            href="#"
+            href="#!"
           >
             #css
           </a>
           <a
-            href="#"
+            href="#!"
           >
             #responsive
           </a>
@@ -201,7 +201,7 @@ Array [
           className="card-footer-item"
         >
           <a
-            href="#"
+            href="#!"
           >
             Save
           </a>
@@ -210,7 +210,7 @@ Array [
           className="card-footer-item"
         >
           <a
-            href="#"
+            href="#!"
           >
             Edit
           </a>
@@ -219,7 +219,7 @@ Array [
           className="card-footer-item"
         >
           <a
-            href="#"
+            href="#!"
           >
             Delete
           </a>
@@ -256,7 +256,7 @@ Array [
           <span>
             View on 
             <a
-              href="#"
+              href="#!"
             >
                Twitter
             </a>
@@ -268,7 +268,7 @@ Array [
           <span>
             Share on 
             <a
-              href="#"
+              href="#!"
             >
               Facebook
             </a>

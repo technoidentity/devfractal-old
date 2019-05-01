@@ -43,7 +43,7 @@ const AddLinksExample: React.FC = () => (
       }}
     >
       {' '}
-      I agree <a href="#">terms and conditions</a>
+      I agree <a href="#!">terms and conditions</a>
     </CheckBoxComponent>
   </Section>
 )

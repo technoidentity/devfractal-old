@@ -75,6 +75,7 @@ export const HeroBodySection: React.FC = () => (
     </Section>
     <img
       src={contentLoader}
+      alt="contentLoader"
       style={{
         backgroundColor: '#004365',
         display: 'block',
@@ -93,7 +94,7 @@ export const IndexPageHeader: React.FC = () => (
         <Navbar>
           <NavbarBrand>
             <NavbarItem style={{ paddingLeft: '7rem' }}>
-              <img src={devfractalIcon} />
+              <img src={devfractalIcon} alt="devfractal icon" />
               <Link to="/">
                 <Text textColor="white" textWeight="bold" textSize="5">
                   DEVFRACTAL
@@ -119,14 +120,13 @@ export const IndexPageHeader: React.FC = () => (
               <NavbarItem textColor="white" textSize="6" textWeight="bold">
                 OVERVIEW
               </NavbarItem>
-              <NavbarItem
-                as="a"
-                href="https://devfractal-styleguide.netlify.com/"
-                textColor="white"
-                textSize="6"
-                textWeight="bold"
-              >
-                COMPONENTS LIST
+              <NavbarItem textColor="white" textSize="6" textWeight="bold">
+                <a
+                  href="https://devfractal-styleguide.netlify.com/"
+                  style={{ color: 'white' }}
+                >
+                  COMPONENTS LIST
+                </a>
               </NavbarItem>
               <NavbarItem textColor="white" textSize="6" textWeight="bold">
                 RESOURCES
@@ -368,9 +368,15 @@ export const BottomSection: React.FC = () => (
           >
             COMPANY
           </Text>
-          <Ol textSize="6">About us</Ol>
-          <Ol textSize="6">Careers</Ol>
-          <Ol textSize="6">Contact us</Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>About us</li>
+          </Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Careers</li>
+          </Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Contact us</li>
+          </Ol>
         </Column>
         <Column>
           <Text
@@ -380,9 +386,15 @@ export const BottomSection: React.FC = () => (
           >
             LEARNING & SUPPORT
           </Text>
-          <Ol textSize="6">Demos</Ol>
-          <Ol textSize="6">Documentation</Ol>
-          <Ol textSize="6">Contact support</Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Demos</li>
+          </Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Documentation</li>
+          </Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Contact support</li>
+          </Ol>
         </Column>
         <Column>
           <Text
@@ -392,9 +404,15 @@ export const BottomSection: React.FC = () => (
           >
             RESOURCES
           </Text>
-          <Ol textSize="6">Knowledge Base</Ol>
-          <Ol textSize="6">Case Studies</Ol>
-          <Ol textSize="6">FAQ</Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Knowledge Base</li>
+          </Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Case Studies</li>
+          </Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>FAQ</li>
+          </Ol>
         </Column>
         <Column>
           <Text
@@ -404,13 +422,23 @@ export const BottomSection: React.FC = () => (
           >
             SUPPORT
           </Text>
-          <Ol textSize="6">support@technoidentity.com</Ol>
-          <Ol textSize="6">Privacy Policy</Ol>
-          <Ol textSize="6">Terms of Use</Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>support@technoidentity.com</li>
+          </Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Privacy Policy</li>
+          </Ol>
+          <Ol textSize="6">
+            <li style={{ listStyle: 'none' }}>Terms of Use</li>
+          </Ol>
         </Column>
         <Column>
           <Title>
-            <img src={logo} style={{ height: '28px', width: '112px' }} />
+            <img
+              src={logo}
+              alt="logo not found"
+              style={{ height: '28px', width: '112px' }}
+            />
           </Title>
           <SubTitle size="6">
             Devfractal is an open source project developed at Technoidentity
@@ -425,13 +453,13 @@ export const BottomSection: React.FC = () => (
 export const FooterSection: React.FC = () => (
   <>
     Copyright © 2019 TechnoIdentity Solutions.All rights reserved.
-    <Ol style={{ float: 'right' }}>
+    <div style={{ float: 'right' }}>
       <Icon icon={faFacebook} color="#004267" />
       <Icon icon={faTwitter} color="#004267" />
       <Icon icon={faLinkedin} color="#004267" />
       <Icon icon={faGooglePlus} color="#004267" />
       <Icon icon={faYoutube} color="#004267" />
-    </Ol>
+    </div>
   </>
 )
 

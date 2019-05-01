@@ -22,6 +22,7 @@ Array [
           role="navigation"
         >
           <img
+            alt="bulma logo"
             height="28"
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
@@ -166,6 +167,7 @@ Array [
           role="navigation"
         >
           <img
+            alt="bulma logo"
             height="28"
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
@@ -312,6 +314,7 @@ Array [
           role="navigation"
         >
           <img
+            alt="bulma logo"
             height="28"
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
@@ -355,6 +358,7 @@ Array [
           role="navigation"
         >
           <img
+            alt="bulma logo"
             height="28"
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
@@ -1036,6 +1040,7 @@ Array [
         role="navigation"
       >
         <img
+          alt="bulma logo"
           height="28"
           src="https://bulma.io/images/bulma-logo.png"
           width="112"
@@ -1123,6 +1128,7 @@ Array [
         role="navigation"
       >
         <img
+          alt="bulma logo"
           height="28"
           src="https://bulma.io/images/bulma-logo.png"
           width="112"
@@ -1215,6 +1221,7 @@ Array [
         role="navigation"
       >
         <img
+          alt="bulma logo"
           height="28"
           src="https://bulma.io/images/bulma-logo.png"
           width="112"
@@ -1310,6 +1317,7 @@ Array [
           role="navigation"
         >
           <img
+            alt=" bulma logo"
             height="28"
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
@@ -1512,6 +1520,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -1715,6 +1724,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -1918,6 +1928,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -2120,6 +2131,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -2323,6 +2335,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -2526,6 +2539,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -2729,6 +2743,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -2932,6 +2947,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -3135,6 +3151,7 @@ Array [
             role="navigation"
           >
             <img
+              alt="bulma logo"
               height="28"
               src="https://bulma.io/images/bulma-logo.png"
               width="112"

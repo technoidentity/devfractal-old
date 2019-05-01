@@ -26,21 +26,27 @@ Array [
         <div
           className="level-item"
         >
-          <a>
+          <a
+            href="#!"
+          >
             Published
           </a>
         </div>
         <div
           className="level-item"
         >
-          <a>
+          <a
+            href="#!"
+          >
             Drafts
           </a>
         </div>
         <div
           className="level-item"
         >
-          <a>
+          <a
+            href="#!"
+          >
             Deleted
           </a>
         </div>
@@ -210,7 +216,9 @@ Array [
           <div
             className="has-text-centered has-text-info"
           >
-            <a>
+            <a
+              href="#!"
+            >
               Home
             </a>
           </div>
@@ -225,7 +233,9 @@ Array [
           <div
             className="has-text-centered has-text-info"
           >
-            <a>
+            <a
+              href="#!"
+            >
               Menu
             </a>
           </div>
@@ -241,6 +251,7 @@ Array [
             className="has-text-centered"
           >
             <img
+              alt="bulma logo"
               src="https://bulma.io/images/bulma-type.png"
               style={
                 Object {
@@ -260,7 +271,9 @@ Array [
           <div
             className="has-text-centered has-text-info"
           >
-            <a>
+            <a
+              href="#!"
+            >
               Reservations
             </a>
           </div>
@@ -275,7 +288,9 @@ Array [
           <div
             className="has-text-centered has-text-info"
           >
-            <a>
+            <a
+              href="#!"
+            >
               Contact
             </a>
           </div>

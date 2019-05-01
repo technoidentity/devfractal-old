@@ -240,11 +240,15 @@ Array [
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
           <br />
           <small>
-            <a>
+            <a
+              href="#!"
+            >
               Like
             </a>
              · 
-            <a>
+            <a
+              href="#!"
+            >
               Reply
             </a>
              · 3 hrs
@@ -278,11 +282,15 @@ Array [
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
               <br />
               <small>
-                <a>
+                <a
+                  href="#!"
+                >
                   Like
                 </a>
                  · 
-                <a>
+                <a
+                  href="#!"
+                >
                   Reply
                 </a>
                  · 2 hrs
@@ -326,11 +334,15 @@ Array [
                   Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
                   <br />
                   <small>
-                    <a>
+                    <a
+                      href="#!"
+                    >
                       Like
                     </a>
                      · 
-                    <a>
+                    <a
+                      href="#!"
+                    >
                       Reply
                     </a>
                      · 2 hrs

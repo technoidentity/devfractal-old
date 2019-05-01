@@ -65,7 +65,7 @@ const NestedMediaObjectExample: React.FC = () => (
           mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
           <br />
           <small>
-            <a>Like</a> · <a>Reply</a> · 3 hrs
+            <a href="#!">Like</a> · <a href="#!">Reply</a> · 3 hrs
           </small>
         </Content>
         <MediaComponent>
@@ -85,7 +85,7 @@ const NestedMediaObjectExample: React.FC = () => (
               turpis.
               <br />
               <small>
-                <a>Like</a> · <a>Reply</a> · 2 hrs
+                <a href="#!">Like</a> · <a href="#!">Reply</a> · 2 hrs
               </small>
             </Content>
             <MediaComponent>
@@ -115,7 +115,7 @@ const NestedMediaObjectExample: React.FC = () => (
                   Phasellus lacinia non nisl id feugiat.
                   <br />
                   <small>
-                    <a>Like</a> · <a>Reply</a> · 2 hrs
+                    <a href="#!">Like</a> · <a href="#!">Reply</a> · 2 hrs
                   </small>
                 </Content>
               </MediaContent>

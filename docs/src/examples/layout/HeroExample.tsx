@@ -204,7 +204,10 @@ const MediumHeroExample: React.FC = () => (
             <NavbarBrand>
               <NavbarItem>
                 {/* @TODO: change this to Image */}
-                <img src="https://bulma.io/images/bulma-type-white.png" />
+                <img
+                  src="https://bulma.io/images/bulma-type-white.png"
+                  alt="bulma logo"
+                />
               </NavbarItem>
               <NavbarBurger data-target="navbarMenuHeroA">
                 <span />

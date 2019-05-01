@@ -220,7 +220,7 @@ exports[`General Example 1`] = `
              
             I agree to the 
             <a
-              href="#"
+              href="#!"
             >
               terms and conditions
             </a>

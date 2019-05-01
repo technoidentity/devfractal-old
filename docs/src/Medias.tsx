@@ -17,7 +17,7 @@ import {
 export const FormMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={formIcon} />
+      <img src={formIcon} alt="form icon" />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -37,7 +37,7 @@ export const FormMedia: React.FC = () => (
 export const ColumnsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={columnsIcon} />
+      <img src={columnsIcon} alt="columns icon" />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -57,7 +57,7 @@ export const ColumnsMedia: React.FC = () => (
 export const LayoutMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={layoutIcon} />
+      <img src={layoutIcon} alt="layout icon" />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -77,7 +77,7 @@ export const LayoutMedia: React.FC = () => (
 export const ElementsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={elementsIcon} />
+      <img src={elementsIcon} alt="elements icon" />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -97,7 +97,7 @@ export const ElementsMedia: React.FC = () => (
 export const ComponentsMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={componentsIcon} />
+      <img src={componentsIcon} alt="components icon" />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -117,7 +117,7 @@ export const ComponentsMedia: React.FC = () => (
 export const ModifiersMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={modifiersIcon} />
+      <img src={modifiersIcon} alt="modifiers icon" />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -137,7 +137,7 @@ export const ModifiersMedia: React.FC = () => (
 export const CompositesMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={compositesIcon} />
+      <img src={compositesIcon} alt="composites icon" />
     </MediaLeft>
     <MediaContent>
       <Text
@@ -157,7 +157,7 @@ export const CompositesMedia: React.FC = () => (
 export const CrudMedia: React.FC = () => (
   <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
-      <img src={compositesIcon} />
+      <img src={compositesIcon} alt="composites icon" />
     </MediaLeft>
     <MediaContent>
       <Text

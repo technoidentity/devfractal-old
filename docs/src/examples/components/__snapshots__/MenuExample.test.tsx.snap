@@ -21,14 +21,18 @@ exports[`Menu Example 1`] = `
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             Dashboard
           </a>
         </li>
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             Customers
           </a>
         </li>
@@ -44,7 +48,9 @@ exports[`Menu Example 1`] = `
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             TeamSettings
           </a>
         </li>
@@ -53,8 +59,10 @@ exports[`Menu Example 1`] = `
         >
           <a
             className="is-active"
+            href="#!"
           >
-             Manage your team
+             
+            Manage your team
           </a>
           <ul
             className="menu-list"
@@ -62,21 +70,27 @@ exports[`Menu Example 1`] = `
             <li
               className=""
             >
-              <a>
+              <a
+                href="#!"
+              >
                 Members
               </a>
             </li>
             <li
               className=""
             >
-              <a>
+              <a
+                href="#!"
+              >
                 Plugins
               </a>
             </li>
             <li
               className=""
             >
-              <a>
+              <a
+                href="#!"
+              >
                 Add a member
               </a>
             </li>
@@ -85,21 +99,27 @@ exports[`Menu Example 1`] = `
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             invitations
           </a>
         </li>
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             cloudstorage
           </a>
         </li>
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             invitations
           </a>
         </li>
@@ -115,21 +135,27 @@ exports[`Menu Example 1`] = `
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             payments
           </a>
         </li>
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             transfers
           </a>
         </li>
         <li
           className=""
         >
-          <a>
+          <a
+            href="#!"
+          >
             balance
           </a>
         </li>
