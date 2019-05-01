@@ -13,6 +13,7 @@ import {
   previousMonth,
   weekDays,
 } from './helpers'
+
 const partitionArray: <T>(
   array: ReadonlyArray<ReadonlyArray<T>>,
   size: number,
