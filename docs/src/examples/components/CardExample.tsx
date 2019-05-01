@@ -48,21 +48,21 @@ export const SimpleCardExample: React.FC = () => (
         <Content>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
           iaculis mauris.
-          <a href="#">@bulmaio</a>. <a href="#">#css</a>
-          <a href="#">#responsive</a>
+          <a href="#!">@bulmaio</a>. <a href="#!">#css</a>
+          <a href="#!">#responsive</a>
           <br />
           <time dateTime="2016-1-1">11:09 PM - 1 Jan</time>
         </Content>
       </CardContent>
       <CardFooter>
         <CardFooterItem>
-          <a href="#">save</a>
+          <a href="#!">save</a>
         </CardFooterItem>
         <CardFooterItem>
-          <a href="#">edit</a>
+          <a href="#!">edit</a>
         </CardFooterItem>
         <CardFooterItem>
-          <a href="#">delete</a>
+          <a href="#!">delete</a>
         </CardFooterItem>
       </CardFooter>
     </Card>
@@ -82,21 +82,21 @@ export const CardHeaderIconExample: React.FC = () => (
         <Content>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
           iaculis mauris.
-          <a href="#">@bulmaio</a>. <a href="#">#css</a>
-          <a href="#">#responsive</a>
+          <a href="#!">@bulmaio</a>. <a href="#!">#css</a>
+          <a href="#!">#responsive</a>
           <br />
           <time dateTime="2016-1-1"> 11:09 PM - 1 Jan 2016</time>
         </Content>
       </CardContent>
       <CardFooter>
         <CardFooterItem>
-          <a href="#">Save</a>
+          <a href="#!">Save</a>
         </CardFooterItem>
         <CardFooterItem>
-          <a href="#">Edit</a>
+          <a href="#!">Edit</a>
         </CardFooterItem>
         <CardFooterItem>
-          <a href="#">Delete</a>
+          <a href="#!">Delete</a>
         </CardFooterItem>
       </CardFooter>
     </Card>
@@ -116,12 +116,12 @@ export const CardContentExample: React.FC = () => (
       <CardFooter>
         <CardFooterItem>
           <span>
-            View on <a href="#"> Twitter</a>
+            View on <a href="#!"> Twitter</a>
           </span>
         </CardFooterItem>
         <CardFooterItem>
           <span>
-            Share on <a href="#">Facebook</a>
+            Share on <a href="#!">Facebook</a>
           </span>
         </CardFooterItem>
       </CardFooter>
