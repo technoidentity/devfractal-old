@@ -68,7 +68,7 @@ const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = () => {
             <CheckboxField name="agree">
               {' '}
               I agree to the
-              <a href="#"> terms and conditions</a>
+              <a href="#!"> terms and conditions</a>
             </CheckboxField>
             <ErrorField name="agree" />
           </Field>
