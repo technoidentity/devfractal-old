@@ -1,8 +1,14 @@
-import { classNamesHelper, Div, Helpers, removeRouteComponentProps } from 'base'
+import {
+  classNamesHelper,
+  Div,
+  Helpers,
+  removeRouteComponentProps,
+  WithRouter,
+} from 'base'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { NavLink } from 'react-router-dom'
-import { chop, WithRouter } from 'utils'
+import { chop } from 'utils'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 

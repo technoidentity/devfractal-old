@@ -1,9 +1,9 @@
+import { Async } from 'base'
 import { CheckBox } from 'form'
 import React from 'react'
 import { Boolean, Function } from 'tcomb'
-import { Async, camelCaseToPhrase } from 'utils'
+import { camelCaseToPhrase } from 'utils'
 import { Table, TableBody, TableHead, TableProps, Td, Th, Tr } from 'visual'
-
 export interface RowClickEvent<T> {
   readonly value: T
 }

@@ -1,9 +1,10 @@
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import { Null } from 'base'
 import { isSameDay, isThisMonth } from 'date-fns'
 import { Button } from 'form'
 import { Level, LevelItem, Section } from 'layout'
 import React from 'react'
-import { Null, range } from 'utils'
+import { range } from 'utils'
 import { Icon, Table, TableBody, TableHead, Td, Th, Tr } from 'visual'
 import {
   calendarMonths,
@@ -12,7 +13,6 @@ import {
   previousMonth,
   weekDays,
 } from './helpers'
-
 const partitionArray: <T>(
   array: ReadonlyArray<ReadonlyArray<T>>,
   size: number,

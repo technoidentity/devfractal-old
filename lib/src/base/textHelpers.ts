@@ -1,4 +1,5 @@
-import { classNames, Omit } from 'utils'
+import { Omit } from 'utils'
+import { classNames } from './classNames'
 
 type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 

@@ -1,3 +1,4 @@
+import { State } from 'base'
 import {
   RoutedTabs,
   RoutedTabsItem,
@@ -7,7 +8,7 @@ import {
   TabsProps,
 } from 'dynamic'
 import React from 'react'
-import { camelCaseToPhrase, Omit, State } from 'utils'
+import { camelCaseToPhrase, Omit } from 'utils'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {
   readonly name?: string

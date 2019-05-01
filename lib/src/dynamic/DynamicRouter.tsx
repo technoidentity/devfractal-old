@@ -1,7 +1,8 @@
+import { SimpleRedirect } from 'base'
 import { RoutedTabs, RoutedTabsItem } from 'dynamic'
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { capitalizeAll, SimpleRedirect, toLower } from 'utils'
+import { capitalizeAll, toLower } from 'utils'
 
 export interface DynamicRouterResult {
   readonly Routes: React.FC

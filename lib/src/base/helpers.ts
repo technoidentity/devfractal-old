@@ -1,4 +1,5 @@
-import { ClassNameArg, classNames, Omit } from 'utils'
+import { Omit } from 'utils'
+import { ClassNameArg, classNames } from './classNames'
 import {
   removeTextHelpers,
   TextHelpers,

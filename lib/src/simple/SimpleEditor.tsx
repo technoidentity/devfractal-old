@@ -1,9 +1,10 @@
+import { Async } from 'base'
 import { Label } from 'form'
 import { FormikActions } from 'formik'
 import { Section } from 'layout'
 import React from 'react'
 import { Boolean, Function, Number } from 'tcomb'
-import { Async, camelCaseToPhrase } from 'utils'
+import { camelCaseToPhrase } from 'utils'
 import { Simple } from './SimpleForm'
 
 export interface SimpleEditorViewProps<T extends object> {

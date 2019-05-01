@@ -1,6 +1,5 @@
-import { classNamesHelper, Div, Helpers } from 'base'
+import { classNames, classNamesHelper, Div, Helpers, Null } from 'base'
 import React from 'react'
-import { classNames, Null } from 'utils'
 
 export interface ModalProps
   extends React.HTMLAttributes<HTMLDivElement>,

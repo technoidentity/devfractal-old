@@ -1,5 +1,5 @@
+import { Async } from 'base'
 import React from 'react'
-import { Async } from 'utils'
 
 // @TODO: Use react content loader
 export const Loading: React.FC = () => <h1>Loading...</h1>

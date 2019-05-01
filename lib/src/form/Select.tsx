@@ -1,6 +1,5 @@
-import { classNamesHelper } from 'base'
+import { classNames, classNamesHelper } from 'base'
 import React from 'react'
-import { classNames } from 'utils'
 import { AllControlHelpers, ControlDiv } from './ControlDiv'
 import { ControlWrapper } from './ControlHelpers'
 

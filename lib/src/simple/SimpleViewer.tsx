@@ -1,8 +1,9 @@
+import { Async } from 'base'
 import { CheckBox } from 'form'
 import { Column, Columns, Section } from 'layout'
 import React from 'react'
 import { Boolean, Function } from 'tcomb'
-import { Async, camelCaseToPhrase } from 'utils'
+import { camelCaseToPhrase } from 'utils'
 import { Title } from 'visual'
 
 const SimpleHeader: React.FC<{ readonly objectKey: string }> = ({
