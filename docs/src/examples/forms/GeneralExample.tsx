@@ -72,7 +72,7 @@ export const General: React.FC = () => (
           <Field>
             <CheckBox>
               {' '}
-              I agree to the <a href="#">terms and conditions</a>
+              I agree to the <a href="#!">terms and conditions</a>
             </CheckBox>
           </Field>
           <Field grouped>
