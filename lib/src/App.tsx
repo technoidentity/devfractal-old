@@ -1,6 +1,4 @@
-import { Section } from 'layout'
-// import { MBool, MDate, MEnum, MNumber, MObject, MString, Section } from './lib'
-import { MetaBuilderForm } from 'meta'
+import { MetaBuilderForm, Section } from 'devfractal'
 import React from 'react'
 import { render } from 'react-dom'
 
