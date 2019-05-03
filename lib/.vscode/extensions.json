@@ -1,20 +1,18 @@
 {
   "recommendations": [
+    "coenraads.bracket-pair-colorizer",
+    "dsznajder.es7-react-js-snippets",
     "esbenp.prettier-vscode",
-    "ms-vscode.vscode-typescript-tslint-plugin",
-    "msjsdiag.debugger-for-chrome",
-    "streetsidesoftware.code-spell-checker",
     "formulahendry.auto-close-tag",
     "formulahendry.auto-rename-tag",
-    "coenraads.bracket-pair-colorizer",
-    "vincaslt.highlight-matching-tag",
-    "dsznajder.es7-react-js-snippets",
     "letrieu.expand-region",
-    "eamodio.gitlens",
-    "qezhu.gitlink",
-    "wayou.vscode-todo-highlight",
-    "ms-vsliveshare.vsliveshare",
+    "ms-vscode.vscode-typescript-tslint-plugin",
     "ms-vsliveshare.vsliveshare-audio",
-    "karigari.chat"
+    "ms-vsliveshare.vsliveshare",
+    "msjsdiag.debugger-for-chrome",
+    "orta.vscode-jest",
+    "streetsidesoftware.code-spell-checker",
+    "vincaslt.highlight-matching-tag",
+    "wayou.vscode-todo-highlight"
   ]
 }
