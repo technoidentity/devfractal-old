@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
+import { TextArea } from 'form'
 import React from 'react'
-import { TextArea } from '../src/lib'
 
 storiesOf('TextArea', module)
   .add('with variant', () => (

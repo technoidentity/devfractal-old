@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
+import { CheckBox } from 'form'
 import React from 'react'
-import { CheckBox } from '../src/lib'
 
 storiesOf('CheckBox', module)
   .add('with action', () => (

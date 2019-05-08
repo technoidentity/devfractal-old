@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Text } from '../src/lib'
+import { Text } from 'visual'
 
 storiesOf('Text', module)
   .add('with size', () => (

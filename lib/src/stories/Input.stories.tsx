@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
+import { Input } from 'form'
 import React from 'react'
-import { Input } from '../src/lib'
 
 storiesOf('Input', module)
   .add('with variant', () => (

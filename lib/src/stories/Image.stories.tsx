@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/react'
+import { Field } from 'form'
 import React from 'react'
-import { Field, Image } from '../src/lib'
+import { Image } from 'visual'
 
 storiesOf('Image ', module)
   .add('fixed square images', () => (
