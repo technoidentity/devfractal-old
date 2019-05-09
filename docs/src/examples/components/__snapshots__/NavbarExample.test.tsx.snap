@@ -18,7 +18,7 @@ Array [
       >
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           <img
@@ -53,21 +53,21 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Home
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Documentation
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href has-dropdown is-hoverable"
+            className="navbar-item has-dropdown is-hoverable"
             role="navigation"
           >
             <a
@@ -80,21 +80,21 @@ Array [
             >
               <div
                 aria-label="main navigation"
-                className="navbar-item href is-active"
+                className="navbar-item is-active"
                 role="navigation"
               >
                 About
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Jobs
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Contact
@@ -104,7 +104,7 @@ Array [
               />
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Report an issue
@@ -117,28 +117,28 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Home
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Documentation
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Jobs
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Contact
@@ -163,7 +163,7 @@ Array [
       >
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           <img
@@ -198,21 +198,21 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Home
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Documentation
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href has-dropdown is-hoverable"
+            className="navbar-item has-dropdown is-hoverable"
             role="navigation"
           >
             <a
@@ -225,21 +225,21 @@ Array [
             >
               <div
                 aria-label="main navigation"
-                className="navbar-item href is-active"
+                className="navbar-item is-active"
                 role="navigation"
               >
                 About
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Jobs
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Contact
@@ -249,7 +249,7 @@ Array [
               />
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Report an issue
@@ -262,7 +262,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <div
@@ -310,7 +310,7 @@ Array [
       >
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           <img
@@ -354,7 +354,7 @@ Array [
       >
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           <img
@@ -389,14 +389,14 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Home
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href has-dropdown is-hoverable"
+            className="navbar-item has-dropdown is-hoverable"
             role="navigation"
           >
             <a
@@ -409,35 +409,35 @@ Array [
             >
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Overview
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Modifiers
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Columns
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Layout
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Form
@@ -447,14 +447,14 @@ Array [
               />
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Elements
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href is-active"
+                className="navbar-item is-active"
                 role="navigation"
               >
                 Components
@@ -467,7 +467,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <div
@@ -613,7 +613,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href is-active has-dropdown-up"
+            className="navbar-item is-active has-dropdown-up"
             role="navigation"
           >
             <a
@@ -626,21 +626,21 @@ Array [
             >
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Overview
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Elements
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Components
@@ -650,7 +650,7 @@ Array [
               />
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Version 0.7.2
@@ -674,7 +674,7 @@ Array [
     >
       <div
         aria-label="main navigation"
-        className="navbar-item href is-active has-dropdown is-expanded"
+        className="navbar-item is-active has-dropdown is-expanded"
         role="navigation"
       >
         <a
@@ -687,21 +687,21 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Overview
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Elements
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Components
@@ -711,7 +711,7 @@ Array [
           />
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Version 0.7.2
@@ -728,7 +728,7 @@ Array [
     >
       <div
         aria-label="main navigation"
-        className="navbar-item href has-dropdown is-hoverable"
+        className="navbar-item has-dropdown is-hoverable"
         role="navigation"
       >
         <a
@@ -741,21 +741,21 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Overview
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Elements
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Components
@@ -765,7 +765,7 @@ Array [
           />
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Version 0.7.2
@@ -782,7 +782,7 @@ Array [
     >
       <div
         aria-label="main navigation"
-        className="navbar-item href has-dropdown"
+        className="navbar-item has-dropdown"
         role="navigation"
       >
         <a
@@ -795,21 +795,21 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Overview
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Elements
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Components
@@ -819,7 +819,7 @@ Array [
           />
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Version 0.7.2
@@ -848,7 +848,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href is-active has-dropdown"
+            className="navbar-item is-active has-dropdown"
             role="navigation"
           >
             <a
@@ -861,21 +861,21 @@ Array [
             >
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Overview
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Elements
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Components
@@ -885,7 +885,7 @@ Array [
               />
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Version 0.7.2
@@ -898,7 +898,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href is-active has-dropdown"
+            className="navbar-item is-active has-dropdown"
             role="navigation"
           >
             <a
@@ -911,21 +911,21 @@ Array [
             >
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Overview
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Elements
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Components
@@ -935,7 +935,7 @@ Array [
               />
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Version 0.7.2
@@ -978,7 +978,7 @@ Array [
     </h1>
     <div
       aria-label="main navigation"
-      className="navbar-item href has-dropdown"
+      className="navbar-item has-dropdown"
       role="navigation"
     >
       <a
@@ -991,21 +991,21 @@ Array [
       >
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           Overview
         </div>
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           Elements
         </div>
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           Components
@@ -1015,7 +1015,7 @@ Array [
         />
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           Version 0.7.2
@@ -1036,7 +1036,7 @@ Array [
     >
       <div
         aria-label="main navigation"
-        className="navbar-item href"
+        className="navbar-item"
         role="navigation"
       >
         <img
@@ -1048,7 +1048,7 @@ Array [
       </div>
       <div
         aria-label="main navigation"
-        className="navbar-item href is-active has-dropdown"
+        className="navbar-item is-active has-dropdown"
         role="navigation"
       >
         <a
@@ -1061,21 +1061,21 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Overview
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Elements
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Components
@@ -1085,7 +1085,7 @@ Array [
           />
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Version 0.7.2
@@ -1124,7 +1124,7 @@ Array [
     >
       <div
         aria-label="main navigation"
-        className="navbar-item href"
+        className="navbar-item"
         role="navigation"
       >
         <img
@@ -1136,7 +1136,7 @@ Array [
       </div>
       <div
         aria-label="main navigation"
-        className="navbar-item href is-active has-dropdown"
+        className="navbar-item is-active has-dropdown"
         role="navigation"
       >
         <a
@@ -1149,21 +1149,21 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Overview
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Elements
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Components
@@ -1173,7 +1173,7 @@ Array [
           />
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Version 0.7.2
@@ -1217,7 +1217,7 @@ Array [
     >
       <div
         aria-label="main navigation"
-        className="navbar-item href"
+        className="navbar-item"
         role="navigation"
       >
         <img
@@ -1229,7 +1229,7 @@ Array [
       </div>
       <div
         aria-label="main navigation"
-        className="navbar-item href is-active has-dropdown"
+        className="navbar-item is-active has-dropdown"
         role="navigation"
       >
         <a
@@ -1242,21 +1242,21 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Overview
           </div>
           <a
             aria-label="main navigation"
-            className="navbar-item href is-active"
+            className="navbar-item is-active"
             role="navigation"
           >
             Elements
           </a>
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Components
@@ -1266,7 +1266,7 @@ Array [
           />
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Version 0.7.2
@@ -1313,7 +1313,7 @@ Array [
       >
         <div
           aria-label="main navigation"
-          className="navbar-item href"
+          className="navbar-item"
           role="navigation"
         >
           <img
@@ -1348,14 +1348,14 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             Home
           </div>
           <div
             aria-label="main navigation"
-            className="navbar-item href has-dropdown is-hoverable"
+            className="navbar-item has-dropdown is-hoverable"
             role="navigation"
           >
             <a
@@ -1368,35 +1368,35 @@ Array [
             >
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Overview
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Modifiers
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Columns
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Layout
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Form
@@ -1406,14 +1406,14 @@ Array [
               />
               <div
                 aria-label="main navigation"
-                className="navbar-item href"
+                className="navbar-item"
                 role="navigation"
               >
                 Elements
               </div>
               <div
                 aria-label="main navigation"
-                className="navbar-item href is-active"
+                className="navbar-item is-active"
                 role="navigation"
               >
                 Components
@@ -1426,7 +1426,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <div
@@ -1516,7 +1516,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -1551,14 +1551,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -1571,35 +1571,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -1609,14 +1609,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -1629,7 +1629,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div
@@ -1720,7 +1720,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -1755,14 +1755,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -1775,35 +1775,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -1813,14 +1813,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -1833,7 +1833,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div
@@ -1924,7 +1924,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -1959,14 +1959,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -1979,35 +1979,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -2017,14 +2017,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -2037,7 +2037,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div
@@ -2127,7 +2127,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -2162,14 +2162,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -2182,35 +2182,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -2220,14 +2220,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -2240,7 +2240,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div
@@ -2331,7 +2331,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -2366,14 +2366,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -2386,35 +2386,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -2424,14 +2424,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -2444,7 +2444,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div
@@ -2535,7 +2535,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -2570,14 +2570,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -2590,35 +2590,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -2628,14 +2628,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -2648,7 +2648,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div
@@ -2739,7 +2739,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -2774,14 +2774,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -2794,35 +2794,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -2832,14 +2832,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -2852,7 +2852,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div
@@ -2943,7 +2943,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -2978,14 +2978,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -2998,35 +2998,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -3036,14 +3036,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -3056,7 +3056,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div
@@ -3147,7 +3147,7 @@ Array [
         >
           <div
             aria-label="main navigation"
-            className="navbar-item href"
+            className="navbar-item"
             role="navigation"
           >
             <img
@@ -3182,14 +3182,14 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               Home
             </div>
             <div
               aria-label="main navigation"
-              className="navbar-item href has-dropdown is-hoverable"
+              className="navbar-item has-dropdown is-hoverable"
               role="navigation"
             >
               <a
@@ -3202,35 +3202,35 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Overview
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Modifiers
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Columns
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Layout
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Form
@@ -3240,14 +3240,14 @@ Array [
                 />
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   Elements
                 </div>
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href is-active"
+                  className="navbar-item is-active"
                   role="navigation"
                 >
                   Components
@@ -3260,7 +3260,7 @@ Array [
           >
             <div
               aria-label="main navigation"
-              className="navbar-item href"
+              className="navbar-item"
               role="navigation"
             >
               <div

@@ -484,7 +484,7 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   <img
@@ -511,28 +511,28 @@ Array [
                 >
                   <div
                     aria-label="main navigation"
-                    className="navbar-item href"
+                    className="navbar-item"
                     role="navigation"
                   >
                     Home
                   </div>
                   <div
                     aria-label="main navigation"
-                    className="navbar-item href"
+                    className="navbar-item"
                     role="navigation"
                   >
                     Examples
                   </div>
                   <div
                     aria-label="main navigation"
-                    className="navbar-item href"
+                    className="navbar-item"
                     role="navigation"
                   >
                     Documentation
                   </div>
                   <div
                     aria-label="main navigation"
-                    className="navbar-item href"
+                    className="navbar-item"
                     role="navigation"
                   >
                     <div
@@ -666,7 +666,7 @@ Array [
               >
                 <div
                   aria-label="main navigation"
-                  className="navbar-item href"
+                  className="navbar-item"
                   role="navigation"
                 >
                   <img
@@ -693,28 +693,28 @@ Array [
                 >
                   <div
                     aria-label="main navigation"
-                    className="navbar-item href"
+                    className="navbar-item"
                     role="navigation"
                   >
                     Home
                   </div>
                   <div
                     aria-label="main navigation"
-                    className="navbar-item href"
+                    className="navbar-item"
                     role="navigation"
                   >
                     Examples
                   </div>
                   <div
                     aria-label="main navigation"
-                    className="navbar-item href"
+                    className="navbar-item"
                     role="navigation"
                   >
                     Documentation
                   </div>
                   <div
                     aria-label="main navigation"
-                    className="navbar-item href"
+                    className="navbar-item"
                     role="navigation"
                   >
                     <div
