@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "0.5.6",
+  "version": "0.5.8",
   "source": "src/index.ts",
   "main": "build/technoidentity-devfractal.js",
   "types": "build/index.d.ts",
