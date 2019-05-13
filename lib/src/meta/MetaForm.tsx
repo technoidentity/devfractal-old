@@ -6,7 +6,7 @@ import {
   EnumMT,
   metaToInitialValues,
   metaToYup,
-  MT,
+  Mixed,
   ObjectMT,
   PrimitiveMT,
 } from './index'
@@ -89,7 +89,7 @@ interface ObjectMetaEditorProps {
 const ObjectMetaEditor: React.FC<ObjectMetaEditorProps> = ({ meta }) => (
   <>
     {Object.keys(meta.properties).map(key => {
-      const props: MT = meta.properties[key]
+      const props: Mixed = meta.properties[key]
 
       return (
         <React.Fragment key={key}>

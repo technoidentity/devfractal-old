@@ -3,7 +3,7 @@ import {
   ArrayMT,
   EnumMT,
   metaToTcomb,
-  MT,
+  Mixed,
   ObjectMT,
   PrimitiveMT,
 } from './index'
@@ -164,7 +164,7 @@ test('tcomb from object meta', () => {
 })
 
 test('tcomb from complex meta', () => {
-  const customerMeta: MT = {
+  const customerMeta: Mixed = {
     kind: 'object',
     properties: {
       name: strEx,

@@ -2,56 +2,33 @@
 //   readonly kind: 'required'
 // }
 
-export type NumberRefinements =
-  | { readonly kind: 'integer' }
-  | { readonly kind: 'positive' }
-  | { readonly kind: 'negative' }
-  | {
-      readonly kind: 'min'
-      readonly value: number
-    }
-  | {
-      readonly kind: 'max'
-      readonly value: number
-    }
+export interface NumberRefinements {
+  readonly integer?: boolean
+  readonly positive?: boolean
+  readonly negative?: boolean
+  readonly min?: number
+  readonly max?: number
+}
 
-export type StringRefinements =
-  | { readonly kind: 'email' }
-  | { readonly kind: 'url' }
-  | { readonly kind: 'lowercase' }
-  | { readonly kind: 'uppercase' }
-  | {
-      readonly kind: 'length'
-      readonly value: number
-    }
-  | {
-      readonly kind: 'maxStringLength'
-      readonly value: number
-    }
-  | {
-      readonly kind: 'minStringLength'
-      readonly value: number
-    }
+export interface StringRefinements {
+  readonly email?: boolean
+  readonly url?: boolean
+  readonly lowercase?: boolean
+  readonly uppercase?: boolean
+  readonly length?: number
+  readonly maxStringLength?: number
+  readonly minStringLength?: number
+}
 
-export type DateRefinements =
-  | {
-      readonly kind: 'minDate'
-      readonly value: Date
-    }
-  | {
-      readonly kind: 'maxDate'
-      readonly value: Date
-    }
+export interface DateRefinements {
+  readonly minDate?: Date
+  readonly maxDate?: Date
+}
 
-export type ArrayRefinements =
-  | {
-      readonly kind: 'maxArrayLength'
-      readonly value: number
-    }
-  | {
-      readonly kind: 'minArrayLength'
-      readonly value: number
-    }
+export interface ArrayRefinements {
+  readonly minDate?: Date
+  readonly maxDate?: Date
+}
 
 export type Refinements =
   | NumberRefinements
@@ -61,17 +38,17 @@ export type Refinements =
 
 export interface NumberMT {
   readonly kind: 'number'
-  readonly refinements?: ReadonlyArray<NumberRefinements>
+  readonly refinements?: NumberRefinements
 }
 
 export interface StringMT {
   readonly kind: 'string'
-  readonly refinements?: ReadonlyArray<StringRefinements>
+  readonly refinements?: StringRefinements
 }
 
 export interface DateMT {
   readonly kind: 'date'
-  readonly refinements?: ReadonlyArray<DateRefinements>
+  readonly refinements?: DateRefinements
 }
 export interface BooleanMT {
   readonly kind: 'boolean'
@@ -81,14 +58,18 @@ export type PrimitiveMT = NumberMT | StringMT | BooleanMT | DateMT
 
 export interface ArrayMT {
   readonly kind: 'array'
-  readonly of: MT
-  readonly refinements?: ReadonlyArray<ArrayRefinements>
+  readonly of: Mixed
+  readonly refinements?: ArrayRefinements
 }
+
+export type PropertyMT = Mixed & { readonly optional?: true }
 
 export interface ObjectMT {
   readonly kind: 'object'
   readonly name?: string
-  readonly properties: { readonly [prop: string]: MT }
+  readonly properties: {
+    readonly [prop: string]: PropertyMT
+  }
 }
 
 export interface EnumMT {
@@ -105,11 +86,11 @@ export interface EnumMT {
 //   readonly values: ReadonlyArray<MT>
 // }
 
-export type MT = PrimitiveMT | EnumMT | ArrayMT | ObjectMT // | UnionMT
+export type Mixed = PrimitiveMT | EnumMT | ArrayMT | ObjectMT // | UnionMT
 
 export interface FieldMT {
   readonly label?: string // should label with meta?
-  readonly meta: MT // Actually MetaValue
+  readonly meta: Mixed // Actually MetaValue
 }
 
 export interface FieldsMT {

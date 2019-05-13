@@ -1,4 +1,4 @@
-import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './index'
+import { ArrayMT, EnumMT, Mixed, ObjectMT, PrimitiveMT } from './index'
 import { validate } from './validate'
 
 const noEx: PrimitiveMT = { kind: 'number' }
@@ -366,7 +366,7 @@ test('object meta', () => {
 })
 
 test('complex meta', () => {
-  const customerMeta: MT = {
+  const customerMeta: Mixed = {
     kind: 'object',
     properties: {
       name: strEx,

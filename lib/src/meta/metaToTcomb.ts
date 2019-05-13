@@ -13,7 +13,7 @@ import {
   Min,
   MinDate,
   MinLength,
-  MT,
+  Mixed,
   Negative,
   NumberRefinements,
   Positive,
@@ -90,7 +90,7 @@ function buildObject(obj: any, f: (key: any) => any): any {
   return result
 }
 
-export const metaToTcomb: (meta: MT) => t.Type<any> = meta => {
+export const metaToTcomb: (meta: Mixed) => t.Type<any> = meta => {
   switch (meta.kind) {
     case 'number':
       return meta.refinements

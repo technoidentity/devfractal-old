@@ -7,11 +7,11 @@ import {
   MNumber,
   MObject,
   MString,
-  MT,
+  Mixed,
 } from './index'
 
 test('create meta using values', () => {
-  const customerMeta: MT = MObject(
+  const customerMeta: Mixed = MObject(
     {
       name: MString,
       type: MEnum(['manager', 'programmer', 'team-leader'], 'CustomerType'),

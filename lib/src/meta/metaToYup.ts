@@ -14,7 +14,7 @@ import {
 import {
   ArrayRefinements,
   DateRefinements,
-  MT,
+  Mixed,
   NumberRefinements,
   StringRefinements,
 } from './index'
@@ -98,7 +98,7 @@ function buildObject(obj: any, f: (key: any) => any): any {
   return result
 }
 
-export const metaToYup: (meta: MT) => Schema<any> = meta => {
+export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
   switch (meta.kind) {
     case 'number':
       const ns = number().strict(true)

@@ -1,4 +1,4 @@
-import { ArrayMT, EnumMT, MT, ObjectMT, PrimitiveMT } from './index'
+import { ArrayMT, EnumMT, Mixed, ObjectMT, PrimitiveMT } from './index'
 
 export const MNumber: PrimitiveMT = { kind: 'number' }
 
@@ -13,9 +13,9 @@ export const MEnum: (values: ReadonlyArray<string>, name?: string) => EnumMT = (
   name,
 ) => ({ kind: 'enum', name, values })
 
-export const MArray: (of: MT) => ArrayMT = of => ({ kind: 'array', of })
+export const MArray: (of: Mixed) => ArrayMT = of => ({ kind: 'array', of })
 
 export const MObject: (
-  properties: Record<string, MT>,
+  properties: Record<string, Mixed>,
   name?: string,
 ) => ObjectMT = (properties, name) => ({ kind: 'object', name, properties })

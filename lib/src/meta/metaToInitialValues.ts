@@ -1,9 +1,9 @@
 import { buildObject } from '../lib'
-import { MT } from './index'
+import { Mixed } from './index'
 
 // tslint:disable typedef switch-default
 
-export const metaToInitialValues: (meta: MT) => any = meta => {
+export const metaToInitialValues: (meta: Mixed) => any = meta => {
   switch (meta.kind) {
     case 'number':
       return 0

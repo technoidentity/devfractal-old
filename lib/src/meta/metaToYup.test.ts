@@ -1,5 +1,12 @@
 import { Schema } from 'yup'
-import { ArrayMT, EnumMT, metaToYup, MT, ObjectMT, PrimitiveMT } from './index'
+import {
+  ArrayMT,
+  EnumMT,
+  metaToYup,
+  Mixed,
+  ObjectMT,
+  PrimitiveMT,
+} from './index'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }
@@ -141,7 +148,7 @@ test('yup from object meta', () => {
 })
 
 test('yup from complex meta', () => {
-  const customerMeta: MT = {
+  const customerMeta: Mixed = {
     kind: 'object',
     properties: {
       name: strEx,

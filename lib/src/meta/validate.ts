@@ -6,7 +6,7 @@ import {
   ArrayRefinements,
   DateRefinements,
   EnumMT,
-  MT,
+  Mixed,
   NumberRefinements,
   ObjectMT,
   PrimitiveMT,
@@ -108,7 +108,7 @@ function errorForRefinements(r: Refinements): string {
   }
 }
 
-function errorMessage(meta: MT): string {
+function errorMessage(meta: Mixed): string {
   switch (meta.kind) {
     case 'enum':
       return errorMessages.enum.message(meta.values)
@@ -352,7 +352,7 @@ function validateObject(
   return undefined
 }
 
-export function validate(meta: MT, obj: unknown): Errors | undefined {
+export function validate(meta: Mixed, obj: unknown): Errors | undefined {
   switch (meta.kind) {
     case 'number':
     case 'string':
@@ -371,6 +371,6 @@ export function validate(meta: MT, obj: unknown): Errors | undefined {
   }
 }
 
-export function isValid(meta: MT, obj: unknown): boolean {
+export function isValid(meta: Mixed, obj: unknown): boolean {
   return validate(meta, obj) === undefined
 }
