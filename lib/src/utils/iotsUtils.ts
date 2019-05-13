@@ -62,3 +62,5 @@ export const props: <O extends t.Props, R extends t.Props>(
     name,
   )
 // tslint:enable readonly-array
+
+export const lit: typeof t.literal = t.literal
