@@ -11,7 +11,7 @@ test('number meta', () => {
   expect(isValid(noEx, '100')).toBeFalsy()
 })
 
-test('number with refinements', () => {
+test('number meta with refinements', () => {
   const noREx: PrimitiveMT = {
     kind: 'number',
     refinements: [
@@ -58,6 +58,9 @@ test('date meta', () => {
   expect(isValid(dateEx, new Date())).toBeTruthy()
   expect(isValid(dateEx, '2000-12-2')).toBeFalsy()
 })
+
+// tslint:disable-next-line: no-empty
+test.skip('date meta with refinements', () => {})
 
 test('enum meta', () => {
   const enumEx: EnumMT = {
