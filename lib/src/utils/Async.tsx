@@ -23,7 +23,7 @@ export function Async<T>({ asyncFn, children }: AsyncProps<T>): JSX.Element {
   return children({ data, error, isLoading })
 }
 
-export async function delay<T>(delay: number, f: () => T = nop): Promise<T> {
+export async function timeout<T>(delay: number, f: () => T = nop): Promise<T> {
   return new Promise(resolve => setTimeout(() => resolve(f()), delay))
 }
 
