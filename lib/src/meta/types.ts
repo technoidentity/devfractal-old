@@ -26,8 +26,8 @@ export interface DateRefinements {
 }
 
 export interface ArrayRefinements {
-  readonly minDate?: Date
-  readonly maxDate?: Date
+  readonly minArrayLength?: number
+  readonly maxArrayLength?: number
 }
 
 export type Refinements =

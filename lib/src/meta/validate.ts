@@ -1,376 +1,437 @@
-import * as t from 'tcomb'
-import * as yup from 'yup'
-import { jsonStringify } from '../lib'
-import {
-  ArrayMT,
-  ArrayRefinements,
-  DateRefinements,
-  EnumMT,
-  Mixed,
-  NumberRefinements,
-  ObjectMT,
-  PrimitiveMT,
-  Refinements,
-  StringRefinements,
-} from './index'
+// import * as t from 'tcomb'
+// import * as yup from 'yup'
+// import { jsonStringify } from '../lib'
+// import {
+//   ArrayMT,
+//   ArrayRefinements,
+//   DateRefinements,
+//   EnumMT,
+//   Mixed,
+//   NumberRefinements,
+//   ObjectMT,
+//   PrimitiveMT,
+//   StringRefinements,
+// } from './index'
 
-// tslint:disable-next-line: typedef
-const errorMessages = {
-  number: {
-    message: 'should be a number',
+// // tslint:disable-next-line: typedef
+// const errorMessages = {
+//   number: {
+//     message: 'should be a number',
 
-    refinements: {
-      integer: 'should be an integer',
-      positive: 'should be positive',
-      negative: 'should be negative',
-      min: (value: number) => `should not be smaller than ${value}`,
-      max: (value: number) => `should not be larger than ${value}`,
-    },
-  },
+//     refinements: {
+//       integer: 'should be an integer',
+//       positive: 'should be positive',
+//       negative: 'should be negative',
+//       min: (value: number) => `should not be smaller than ${value}`,
+//       max: (value: number) => `should not be larger than ${value}`,
+//     },
+//   },
 
-  string: {
-    message: 'should be a string',
+//   string: {
+//     message: 'should be a string',
 
-    refinements: {
-      email: 'should be an email',
-      url: 'should be a URL',
-      lowercase: 'should be lower case ',
-      uppercase: 'should be upper case',
-      maxStringLength: (value: number) =>
-        `should have maximum length of ${value}`,
-      minStringLength: (value: number) =>
-        `should have minimum length of ${value}`,
-      length: (value: number) => `should have exact length of ${value}`,
-    },
-  },
+//     refinements: {
+//       email: 'should be an email',
+//       url: 'should be a URL',
+//       lowercase: 'should be lower case ',
+//       uppercase: 'should be upper case',
+//       maxStringLength: (value: number) =>
+//         `should have maximum length of ${value}`,
+//       minStringLength: (value: number) =>
+//         `should have minimum length of ${value}`,
+//       length: (value: number) => `should have exact length of ${value}`,
+//     },
+//   },
 
-  boolean: { message: 'should be boolean' },
+//   boolean: { message: 'should be boolean' },
 
-  date: {
-    message: 'should be a date',
+//   date: {
+//     message: 'should be a date',
 
-    refinements: {
-      maxDate: (value: Date) =>
-        `should not be larger than ${jsonStringify(value)}`,
-      minDate: (value: Date) =>
-        `should not be smaller than ${jsonStringify(value)}`,
-    },
-  },
+//     refinements: {
+//       maxDate: (value: Date) =>
+//         `should not be larger than ${jsonStringify(value)}`,
+//       minDate: (value: Date) =>
+//         `should not be smaller than ${jsonStringify(value)}`,
+//     },
+//   },
 
-  enum: {
-    message: (values: ReadonlyArray<string>) =>
-      `should be one of ${jsonStringify(values)}`,
-  },
+//   enum: {
+//     message: (values: ReadonlyArray<string>) =>
+//       `should be one of ${jsonStringify(values)}`,
+//   },
 
-  array: {
-    message: 'should be an array',
+//   array: {
+//     message: 'should be an array',
 
-    refinements: {
-      maxArrayLength: (value: number) => `should have max length of ${value}`,
-      minArrayLength: (value: number) => `should have min length of ${value}`,
-    },
-  },
+//     refinements: {
+//       maxArrayLength: (value: number) => `should have max length of ${value}`,
+//       minArrayLength: (value: number) => `should have min length of ${value}`,
+//     },
+//   },
 
-  object: {
-    message: 'should be an object',
-  },
-}
+//   object: {
+//     message: 'should be an object',
+//   },
+// }
 
-function errorForRefinements(r: Refinements): string {
-  switch (r.kind) {
-    case 'integer':
-    case 'positive':
-    case 'negative':
-      return errorMessages.number.refinements[r.kind]
+// // tslint:disable no-array-mutation
 
-    case 'max':
-    case 'min':
-      return errorMessages.number.refinements[r.kind](r.value)
+// function errorsForNumberRefinements(r: NumberRefinements): readonly string[] {
+//   const errors: string[] = []
 
-    case 'email':
-    case 'url':
-    case 'lowercase':
-    case 'uppercase':
-      return errorMessages.string.refinements[r.kind]
+//   // TODO: pick/pluck would do!
 
-    case 'maxStringLength':
-    case 'minStringLength':
-    case 'length':
-      return errorMessages.string.refinements[r.kind](r.value)
+//   if (r.integer) {
+//     errors.push(errorMessages.number.refinements.integer)
+//   }
+//   if (r.positive) {
+//     errors.push(errorMessages.number.refinements.positive)
+//   }
+//   if (r.negative) {
+//     errors.push(errorMessages.number.refinements.negative)
+//   }
 
-    case 'minDate':
-    case 'maxDate':
-      return errorMessages.date.refinements[r.kind](r.value)
+//   if (r.max) {
+//     errors.push(errorMessages.number.refinements.max(r.max))
+//   }
+//   if (r.min) {
+//     errors.push(errorMessages.number.refinements.min(r.min))
+//   }
 
-    case 'maxArrayLength':
-    case 'minArrayLength':
-      return errorMessages.array.refinements[r.kind](r.value)
-  }
-}
+//   return errors
+// }
 
-function errorMessage(meta: Mixed): string {
-  switch (meta.kind) {
-    case 'enum':
-      return errorMessages.enum.message(meta.values)
-    case 'number':
-    case 'string':
-    case 'boolean':
-    case 'date':
-    case 'array':
-    case 'object':
-      return errorMessages[meta.kind].message
-  }
-}
+// function errorsForStringRefinements(r: StringRefinements): readonly string[] {
+//   const errors: string[] = []
 
-interface ErrorsPrimitive {
-  readonly kind: PrimitiveMT['kind']
-  readonly errors?: ReadonlyArray<string>
-}
-interface ErrorsEnum {
-  readonly kind: EnumMT['kind']
-  readonly errors?: ReadonlyArray<string>
-}
-interface ErrorsArray {
-  readonly kind: ArrayMT['kind']
-  readonly errors?: ReadonlyArray<string>
-  readonly elements?: ReadonlyArray<Errors>
-}
+//   if (r.email) {
+//     errors.push(errorMessages.string.refinements.email)
+//   }
+//   if (r.url) {
+//     errors.push(errorMessages.string.refinements.url)
+//   }
+//   if (r.lowercase) {
+//     errors.push(errorMessages.string.refinements.lowercase)
+//   }
+//   if (r.uppercase) {
+//     errors.push(errorMessages.string.refinements.uppercase)
+//   }
+//   if (r.maxStringLength) {
+//     errors.push(
+//       errorMessages.string.refinements.maxStringLength(r.maxStringLength),
+//     )
+//   }
+//   if (r.minStringLength) {
+//     errors.push(
+//       errorMessages.string.refinements.minStringLength(r.minStringLength),
+//     )
+//   }
+//   if (r.length) {
+//     errors.push(errorMessages.string.refinements.length(r.length))
+//   }
 
-interface ErrorsObject {
-  readonly kind: ObjectMT['kind']
-  readonly errors?: ReadonlyArray<string>
-  readonly properties?: { readonly [s: string]: Errors }
-}
+//   return errors
+// }
 
-export type Errors = ErrorsPrimitive | ErrorsEnum | ErrorsArray | ErrorsObject
+// function errorsForDateRefinements(r: DateRefinements): readonly string[] {
+//   const errors: string[] = []
 
-// tslint:disable switch-default no-object-mutation
+//   if (r.minDate) {
+//     errors.push(errorMessages.date.refinements.minDate(r.minDate))
+//   }
+//   if (r.maxDate) {
+//     errors.push(errorMessages.date.refinements.maxDate(r.maxDate))
+//   }
 
-function validateNumberRefinements(
-  r: NumberRefinements,
-  value: number,
-): string | undefined {
-  let s: yup.NumberSchema = yup.number().strict(true)
+//   return errors
+// }
 
-  switch (r.kind) {
-    case 'max':
-    case 'min':
-      s = s[r.kind](r.value)
-      break
+// function errorsForArrayRefinements(r: ArrayRefinements): readonly string[] {
+//   const errors: string[] = []
 
-    case 'integer':
-    case 'positive':
-    case 'negative':
-      s = s[r.kind]()
-  }
+//   if (r.maxArrayLength) {
+//     errors.push(
+//       errorMessages.array.refinements.maxArrayLength(r.maxArrayLength),
+//     )
+//   }
+//   if (r.minArrayLength) {
+//     errors.push(
+//       errorMessages.array.refinements.minArrayLength(r.minArrayLength),
+//     )
+//   }
 
-  return s.isValidSync(value) ? undefined : errorForRefinements(r)
-}
+//   return errors
+// }
 
-function validateStringRefinements(
-  r: StringRefinements,
-  value: string,
-): string | undefined {
-  let s: yup.StringSchema = yup.string().strict(true)
+// function errorMessage(meta: Mixed): string {
+//   switch (meta.kind) {
+//     case 'enum':
+//       return errorMessages.enum.message(meta.values)
+//     case 'number':
+//     case 'string':
+//     case 'boolean':
+//     case 'date':
+//     case 'array':
+//     case 'object':
+//       return errorMessages[meta.kind].message
+//   }
+// }
 
-  switch (r.kind) {
-    case 'email':
-    case 'url':
-    case 'lowercase':
-    case 'uppercase':
-      s = s[r.kind]()
-      break
+// interface ErrorsPrimitive {
+//   readonly kind: PrimitiveMT['kind']
+//   readonly errors?: ReadonlyArray<string>
+// }
+// interface ErrorsEnum {
+//   readonly kind: EnumMT['kind']
+//   readonly errors?: ReadonlyArray<string>
+// }
+// interface ErrorsArray {
+//   readonly kind: ArrayMT['kind']
+//   readonly errors?: ReadonlyArray<string>
+//   readonly elements?: ReadonlyArray<Errors>
+// }
 
-    case 'maxStringLength':
-      s = s.max(r.value)
-      break
-    case 'minStringLength':
-      s = s.min(r.value)
-      break
-    case 'length':
-      s = s.length(r.value)
-  }
-  return s.isValidSync(value) ? undefined : errorForRefinements(r)
-}
+// interface ErrorsObject {
+//   readonly kind: ObjectMT['kind']
+//   readonly errors?: ReadonlyArray<string>
+//   readonly properties?: { readonly [s: string]: Errors }
+// }
 
-function validateDateRefinements(
-  r: DateRefinements,
-  value: Date,
-): string | undefined {
-  let s: yup.DateSchema = yup.date()
+// export type Errors = ErrorsPrimitive | ErrorsEnum | ErrorsArray | ErrorsObject
 
-  switch (r.kind) {
-    case 'maxDate':
-      s = s.max(r.value)
-      break
-    case 'minDate':
-      s = s.min(r.value)
-  }
+// // tslint:disable switch-default no-object-mutation
 
-  return s.isValidSync(value) ? undefined : errorForRefinements(r)
-}
+// function validateNumberRefinements(
+//   r: NumberRefinements,
+//   value: number,
+// ): readonly string[] | undefined {
+//   let s: yup.NumberSchema = yup.number().strict(true)
 
-function validateArrayRefinements(
-  r: ArrayRefinements,
-  value: ReadonlyArray<unknown>,
-): string | undefined {
-  let s: yup.ArraySchema<unknown> = yup.array()
+//   if (r.max) {
+//     s = s.max(r.max)
+//   }
+//   if (r.min) {
+//     s = s.min(r.min)
+//   }
 
-  switch (r.kind) {
-    case 'maxArrayLength':
-      s = s.max(r.value)
-      break
-    case 'minArrayLength':
-      s = s.min(r.value)
-  }
+//   if (r.integer) {
+//     s = s.integer()
+//   }
+//   if (r.positive) {
+//     s = s.positive()
+//   }
+//   if (r.negative) {
+//     s = s.negative()
+//   }
 
-  return s.isValidSync(value) ? undefined : errorForRefinements(r)
-}
+//   return s.isValidSync(value) ? undefined : errorsForNumberRefinements(r)
+// }
 
-// returns undefined if result is empty array
-function removeUndefined<T>(
-  rs: ReadonlyArray<T | undefined>,
-): ReadonlyArray<T> | undefined {
-  const result: ReadonlyArray<T> = rs.filter(
-    e => e !== undefined,
-  ) as ReadonlyArray<T>
+// function validateStringRefinements(
+//   r: StringRefinements,
+//   value: string,
+// ): string | undefined {
+//   let s: yup.StringSchema = yup.string().strict(true)
 
-  return result.length === 0 ? undefined : result
-}
+//   switch (r.kind) {
+//     case 'email':
+//     case 'url':
+//     case 'lowercase':
+//     case 'uppercase':
+//       s = s[r.kind]()
+//       break
 
-function validatePrimitive(
-  meta: PrimitiveMT,
-  obj: unknown,
-): ErrorsPrimitive | undefined {
-  switch (meta.kind) {
-    case 'number':
-      if (!t.Number.is(obj)) {
-        return { kind: meta.kind, errors: [errorMessage(meta)] }
-      }
-      if (meta.refinements) {
-        const errors: ReadonlyArray<string> | undefined = removeUndefined(
-          meta.refinements.map(r => validateNumberRefinements(r, obj)),
-        )
-        if (errors) {
-          return { kind: meta.kind, errors }
-        }
-      }
-      return undefined
+//     case 'maxStringLength':
+//       s = s.max(r.value)
+//       break
+//     case 'minStringLength':
+//       s = s.min(r.value)
+//       break
+//     case 'length':
+//       s = s.length(r.value)
+//   }
+//   return s.isValidSync(value) ? undefined : errorForRefinements(r)
+// }
 
-    case 'string':
-      if (!t.String.is(obj)) {
-        return { kind: meta.kind, errors: [errorMessage(meta)] }
-      }
-      if (meta.refinements) {
-        const errors: ReadonlyArray<string> | undefined = removeUndefined(
-          meta.refinements.map(r => validateStringRefinements(r, obj)),
-        )
-        if (errors) {
-          return {
-            kind: meta.kind,
-            errors,
-          }
-        }
-      }
-      return undefined
+// function validateDateRefinements(
+//   r: DateRefinements,
+//   value: Date,
+// ): string | undefined {
+//   let s: yup.DateSchema = yup.date()
 
-    case 'boolean':
-      if (!t.Boolean.is(obj)) {
-        return { kind: meta.kind, errors: [errorMessage(meta)] }
-      }
-      return undefined
+//   switch (r.kind) {
+//     case 'maxDate':
+//       s = s.max(r.value)
+//       break
+//     case 'minDate':
+//       s = s.min(r.value)
+//   }
 
-    case 'date':
-      if (!t.Date.is(obj)) {
-        return { kind: meta.kind, errors: [errorMessage(meta)] }
-      }
-      if (meta.refinements) {
-        const errors: ReadonlyArray<string> | undefined = removeUndefined(
-          meta.refinements.map(r => validateDateRefinements(r, obj)),
-        )
-        if (errors) {
-          return { kind: meta.kind, errors }
-        }
-      }
-      return undefined
-  }
-}
+//   return s.isValidSync(value) ? undefined : errorForRefinements(r)
+// }
 
-function validateEnum(meta: EnumMT, obj: unknown): ErrorsEnum | undefined {
-  if (t.String.is(obj) && meta.values.some(e => e === obj)) {
-    return undefined
-  } else {
-    return {
-      kind: meta.kind,
-      errors: [errorMessage(meta)], // TODO: wrong???
-    }
-  }
-}
+// function validateArrayRefinements(
+//   r: ArrayRefinements,
+//   value: ReadonlyArray<unknown>,
+// ): string | undefined {
+//   let s: yup.ArraySchema<unknown> = yup.array()
 
-function validateArray(meta: ArrayMT, obj: unknown): ErrorsArray | undefined {
-  if (!t.Array.is(obj)) {
-    return { kind: meta.kind, errors: [errorMessage(meta)] }
-  }
+//   switch (r.kind) {
+//     case 'maxArrayLength':
+//       s = s.max(r.value)
+//       break
+//     case 'minArrayLength':
+//       s = s.min(r.value)
+//   }
 
-  const elements: ReadonlyArray<Errors> | undefined = removeUndefined(
-    obj.map(e => validate(meta.of, e)),
-  )
+//   return s.isValidSync(value) ? undefined : errorForRefinements(r)
+// }
 
-  const errors: ReadonlyArray<string> | undefined =
-    meta.refinements &&
-    removeUndefined(meta.refinements.map(r => validateArrayRefinements(r, obj)))
+// // returns undefined if result is empty array
+// function removeUndefined<T>(
+//   rs: ReadonlyArray<T | undefined>,
+// ): ReadonlyArray<T> | undefined {
+//   const result: ReadonlyArray<T> = rs.filter(
+//     e => e !== undefined,
+//   ) as ReadonlyArray<T>
 
-  if (errors || elements) {
-    return { kind: meta.kind, errors, elements }
-  }
+//   return result.length === 0 ? undefined : result
+// }
 
-  return undefined
-}
+// function validatePrimitive(
+//   meta: PrimitiveMT,
+//   obj: unknown,
+// ): ErrorsPrimitive | undefined {
+//   switch (meta.kind) {
+//     case 'number':
+//       if (!t.Number.is(obj)) {
+//         return { kind: meta.kind, errors: [errorMessage(meta)] }
+//       }
+//       if (meta.refinements) {
+//         const errors: ReadonlyArray<string> | undefined = removeUndefined(
+//           meta.refinements.map(r => validateNumberRefinements(r, obj)),
+//         )
+//         if (errors) {
+//           return { kind: meta.kind, errors }
+//         }
+//       }
+//       return undefined
 
-function validateObject(
-  meta: ObjectMT,
-  obj: unknown,
-): ErrorsObject | undefined {
-  if (!t.Object.is(obj)) {
-    return { kind: 'object', errors: [errorMessage(meta)] }
-  }
+//     case 'string':
+//       if (!t.String.is(obj)) {
+//         return { kind: meta.kind, errors: [errorMessage(meta)] }
+//       }
+//       if (meta.refinements) {
+//         const errors: ReadonlyArray<string> | undefined = removeUndefined(
+//           meta.refinements.map(r => validateStringRefinements(r, obj)),
+//         )
+//         if (errors) {
+//           return {
+//             kind: meta.kind,
+//             errors,
+//           }
+//         }
+//       }
+//       return undefined
 
-  const properties: any = {}
-  for (const k of Object.keys(obj)) {
-    // tslint:disable-next-line: typedef
-    const error = validate(meta.properties[k], obj[k])
-    if (error) {
-      properties[k] = error
-    }
-  }
+//     case 'boolean':
+//       if (!t.Boolean.is(obj)) {
+//         return { kind: meta.kind, errors: [errorMessage(meta)] }
+//       }
+//       return undefined
 
-  if (
-    !(Object.keys(properties).length === 0 && properties.constructor === Object)
-  ) {
-    return { kind: 'object', properties }
-  }
-  return undefined
-}
+//     case 'date':
+//       if (!t.Date.is(obj)) {
+//         return { kind: meta.kind, errors: [errorMessage(meta)] }
+//       }
+//       if (meta.refinements) {
+//         const errors: ReadonlyArray<string> | undefined = removeUndefined(
+//           meta.refinements.map(r => validateDateRefinements(r, obj)),
+//         )
+//         if (errors) {
+//           return { kind: meta.kind, errors }
+//         }
+//       }
+//       return undefined
+//   }
+// }
 
-export function validate(meta: Mixed, obj: unknown): Errors | undefined {
-  switch (meta.kind) {
-    case 'number':
-    case 'string':
-    case 'boolean':
-    case 'date':
-      return validatePrimitive(meta, obj)
+// function validateEnum(meta: EnumMT, obj: unknown): ErrorsEnum | undefined {
+//   if (t.String.is(obj) && meta.values.some(e => e === obj)) {
+//     return undefined
+//   } else {
+//     return {
+//       kind: meta.kind,
+//       errors: [errorMessage(meta)], // TODO: wrong???
+//     }
+//   }
+// }
 
-    case 'enum':
-      return validateEnum(meta, obj)
+// function validateArray(meta: ArrayMT, obj: unknown): ErrorsArray | undefined {
+//   if (!t.Array.is(obj)) {
+//     return { kind: meta.kind, errors: [errorMessage(meta)] }
+//   }
 
-    case 'array':
-      return validateArray(meta, obj)
+//   const elements: ReadonlyArray<Errors> | undefined = removeUndefined(
+//     obj.map(e => validate(meta.of, e)),
+//   )
 
-    case 'object':
-      return validateObject(meta, obj)
-  }
-}
+//   const errors: ReadonlyArray<string> | undefined =
+//     meta.refinements &&
+//     removeUndefined(meta.refinements.map(r => validateArrayRefinements(r, obj)))
 
-export function isValid(meta: Mixed, obj: unknown): boolean {
-  return validate(meta, obj) === undefined
-}
+//   if (errors || elements) {
+//     return { kind: meta.kind, errors, elements }
+//   }
+
+//   return undefined
+// }
+
+// function validateObject(
+//   meta: ObjectMT,
+//   obj: unknown,
+// ): ErrorsObject | undefined {
+//   if (!t.Object.is(obj)) {
+//     return { kind: 'object', errors: [errorMessage(meta)] }
+//   }
+
+//   const properties: any = {}
+//   for (const k of Object.keys(obj)) {
+//     // tslint:disable-next-line: typedef
+//     const error = validate(meta.properties[k], obj[k])
+//     if (error) {
+//       properties[k] = error
+//     }
+//   }
+
+//   if (
+//     !(Object.keys(properties).length === 0 && properties.constructor === Object)
+//   ) {
+//     return { kind: 'object', properties }
+//   }
+//   return undefined
+// }
+
+// export function validate(meta: Mixed, obj: unknown): Errors | undefined {
+//   switch (meta.kind) {
+//     case 'number':
+//     case 'string':
+//     case 'boolean':
+//     case 'date':
+//       return validatePrimitive(meta, obj)
+
+//     case 'enum':
+//       return validateEnum(meta, obj)
+
+//     case 'array':
+//       return validateArray(meta, obj)
+
+//     case 'object':
+//       return validateObject(meta, obj)
+//   }
+// }
+
+// export function isValid(meta: Mixed, obj: unknown): boolean {
+//   return validate(meta, obj) === undefined
+// }

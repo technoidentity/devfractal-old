@@ -1,21 +1,47 @@
-import { ArrayMT, EnumMT, Mixed, ObjectMT, PrimitiveMT } from './index'
+import {
+  ArrayMT,
+  ArrayRefinements,
+  DateRefinements,
+  EnumMT,
+  Mixed,
+  NumberRefinements,
+  ObjectMT,
+  PrimitiveMT,
+  PropertyMT,
+  StringRefinements,
+} from './types'
 
-export const MNumber: PrimitiveMT = { kind: 'number' }
+export function MNumber(refinements?: NumberRefinements): PrimitiveMT {
+  return { kind: 'number', refinements }
+}
 
-export const MString: PrimitiveMT = { kind: 'string' }
+export function MString(refinements?: StringRefinements): PrimitiveMT {
+  return { kind: 'string', refinements }
+}
 
-export const MBool: PrimitiveMT = { kind: 'boolean' }
+export function MBool(): PrimitiveMT {
+  return { kind: 'boolean' }
+}
 
-export const MDate: PrimitiveMT = { kind: 'date' }
+export function MDate(refinements?: DateRefinements): PrimitiveMT {
+  return { kind: 'date', refinements }
+}
 
-export const MEnum: (values: ReadonlyArray<string>, name?: string) => EnumMT = (
-  values,
-  name,
-) => ({ kind: 'enum', name, values })
+export function MEnum(values: ReadonlyArray<string>, name?: string): EnumMT {
+  return { kind: 'enum', values, name }
+}
 
-export const MArray: (of: Mixed) => ArrayMT = of => ({ kind: 'array', of })
+export function MArray(of: Mixed, refinements?: ArrayRefinements): ArrayMT {
+  return { kind: 'array', of, refinements }
+}
 
-export const MObject: (
-  properties: Record<string, Mixed>,
+export function MObject(
+  properties: ObjectMT['properties'],
   name?: string,
-) => ObjectMT = (properties, name) => ({ kind: 'object', name, properties })
+): ObjectMT {
+  return { kind: 'object', properties, name }
+}
+
+export function maybe(meta: Mixed): PropertyMT {
+  return { ...meta, optional: true }
+}

@@ -14,9 +14,9 @@ export const Lower = t.refinement(t.String, s => s.toLowerCase() === s)
 export const Upper = t.refinement(t.String, s => s.toUpperCase() === s)
 export const Length = (len: number) =>
   t.refinement(t.String, s => s.length === len)
-export const MinLength = (min: number) =>
+export const MinStringLength = (min: number) =>
   t.refinement(t.String, s => s.length >= min)
-export const MaxLength = (max: number) =>
+export const MaxStringLength = (max: number) =>
   t.refinement(t.String, s => s.length <= max)
 
 // @TODO: Implement MinDate and MaxDate

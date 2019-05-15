@@ -2,86 +2,108 @@ import * as t from 'tcomb'
 import {
   ArrayMaxLength,
   ArrayMinLength,
-  ArrayRefinements,
-  DateRefinements,
   Email,
   Length,
   Lower,
   Max,
   MaxDate,
-  MaxLength,
+  MaxStringLength,
   Min,
   MinDate,
-  MinLength,
-  Mixed,
+  MinStringLength,
   Negative,
-  NumberRefinements,
   Positive,
-  StringRefinements,
   Upper,
   Url,
-} from './index'
+} from './tcombRefinements'
+import {
+  ArrayRefinements,
+  DateRefinements,
+  Mixed,
+  NumberRefinements,
+  StringRefinements,
+} from './types'
 
-// tslint:disable typedef switch-default
+// tslint:disable typedef no-array-mutation
 
-const toTcombNumberRefinements: (r: NumberRefinements) => t.Type<any> = r => {
-  switch (r.kind) {
-    case 'integer':
-      return t.Integer
+function toTcombNumberRefinements(r: NumberRefinements) {
+  const refinements = []
 
-    case 'max':
-      return Max(r.value)
-
-    case 'min':
-      return Min(r.value)
-      break
-
-    case 'positive':
-      return Positive
-
-    case 'negative':
-      return Negative
+  if (r.integer) {
+    refinements.push(t.Integer)
   }
+  if (r.positive) {
+    refinements.push(Positive)
+  }
+  if (r.negative) {
+    refinements.push(Negative)
+  }
+  if (r.max) {
+    refinements.push(Max(r.max))
+  }
+  if (r.min) {
+    refinements.push(Min(r.min))
+  }
+
+  return refinements
 }
 
-const toTcombStringRefinements: (r: StringRefinements) => t.Type<any> = r => {
-  switch (r.kind) {
-    case 'email':
-      return Email
-    case 'url':
-      return Url
-    case 'lowercase':
-      return Lower
-    case 'uppercase':
-      return Upper
-    case 'maxStringLength':
-      return MaxLength(r.value)
-    case 'minStringLength':
-      return MinLength(r.value)
-    case 'length':
-      return Length(r.value)
+function toTcombStringRefinements(r: StringRefinements) {
+  const refinements = []
+
+  if (r.email) {
+    refinements.push(Email)
   }
+  if (r.url) {
+    refinements.push(Url)
+  }
+  if (r.lowercase) {
+    refinements.push(Lower)
+  }
+  if (r.uppercase) {
+    refinements.push(Upper)
+  }
+  if (r.maxStringLength) {
+    refinements.push(MaxStringLength(r.maxStringLength))
+  }
+  if (r.minStringLength) {
+    refinements.push(MinStringLength(r.minStringLength))
+  }
+  if (r.length) {
+    refinements.push(Length(r.length))
+  }
+
+  return refinements
 }
 
-const toTcombDateRefinements: (r: DateRefinements) => t.Type<any> = r => {
-  switch (r.kind) {
-    case 'maxDate':
-      return MinDate(r.value)
-    case 'minDate':
-      return MaxDate(r.value)
+function toTcombDateRefinements(r: DateRefinements) {
+  const refinements = []
+
+  if (r.maxDate) {
+    refinements.push(MinDate(r.maxDate))
   }
+  if (r.minDate) {
+    refinements.push(MaxDate(r.minDate))
+  }
+  return refinements
 }
 
-const toTcombArrayRefinements: (r: ArrayRefinements) => t.Type<any> = r => {
-  switch (r.kind) {
-    case 'maxArrayLength':
-      return ArrayMaxLength(r.value)
-    case 'minArrayLength':
-      return ArrayMinLength(r.value)
+function toTcombArrayRefinements(r: ArrayRefinements) {
+  const refinements = []
+
+  if (r.maxArrayLength) {
+    refinements.push(ArrayMaxLength(r.maxArrayLength))
   }
+  if (r.minArrayLength) {
+    refinements.push(ArrayMinLength(r.minArrayLength))
+  }
+  return refinements
 }
 
-function buildObject(obj: any, f: (key: any) => any): any {
+function buildObject<T extends object, K extends keyof T, V>(
+  obj: T,
+  f: (key: K) => V,
+): Record<keyof T, V> {
   const result: any = {}
   for (const k of Object.keys(obj)) {
     // tslint:disable-next-line:no-object-mutation
@@ -96,7 +118,7 @@ export const metaToTcomb: (meta: Mixed) => t.Type<any> = meta => {
       return meta.refinements
         ? t.intersection([
             t.Number,
-            ...meta.refinements.map(toTcombNumberRefinements),
+            ...toTcombNumberRefinements(meta.refinements),
           ])
         : t.Number
 
@@ -104,7 +126,7 @@ export const metaToTcomb: (meta: Mixed) => t.Type<any> = meta => {
       return meta.refinements
         ? t.intersection([
             t.String,
-            ...meta.refinements.map(toTcombStringRefinements),
+            ...toTcombStringRefinements(meta.refinements),
           ])
         : t.String
 
@@ -113,10 +135,7 @@ export const metaToTcomb: (meta: Mixed) => t.Type<any> = meta => {
 
     case 'date':
       return meta.refinements
-        ? t.intersection([
-            t.Date,
-            ...meta.refinements.map(toTcombDateRefinements),
-          ])
+        ? t.intersection([t.Date, ...toTcombDateRefinements(meta.refinements)])
         : t.Date
 
     case 'enum':
@@ -126,13 +145,17 @@ export const metaToTcomb: (meta: Mixed) => t.Type<any> = meta => {
       return meta.refinements
         ? t.intersection([
             t.list(metaToTcomb(meta.of)),
-            ...meta.refinements.map(toTcombArrayRefinements),
+            ...toTcombArrayRefinements(meta.refinements),
           ])
         : t.list(metaToTcomb(meta.of))
 
     case 'object':
       return t.struct(
-        buildObject(meta.properties, p => metaToTcomb(meta.properties[p])),
+        buildObject(meta.properties, p => {
+          const mp = meta.properties[p]
+          const m = metaToTcomb(mp)
+          return mp.optional ? t.maybe(m) : m
+        }),
       )
   }
 }

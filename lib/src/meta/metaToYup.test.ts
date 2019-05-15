@@ -26,11 +26,11 @@ test('yup from number meta', () => {
 test('yup from number with refinements', () => {
   const noREx: PrimitiveMT = {
     kind: 'number',
-    refinements: [
-      { kind: 'integer' },
-      { kind: 'min', value: 10 },
-      { kind: 'max', value: 20 },
-    ],
+    refinements: {
+      integer: true,
+      min: 10,
+      max: 20,
+    },
   }
   expect(validate(15, metaToYup(noREx))).toBeTruthy()
   expect(validate(5, metaToYup(noREx))).toBeFalsy()
@@ -45,12 +45,12 @@ test('str meta', () => {
 test('yup from str meta with refinements', () => {
   const strREx: PrimitiveMT = {
     kind: 'string',
-    refinements: [
-      { kind: 'email' },
-      { kind: 'lowercase' },
-      { kind: 'minStringLength', value: 10 },
-      { kind: 'maxStringLength', value: 20 },
-    ],
+    refinements: {
+      email: true,
+      lowercase: true,
+      minStringLength: 10,
+      maxStringLength: 20,
+    },
   }
   expect(validate('foobar@gmail.com', metaToYup(strREx))).toBeTruthy()
   expect(validate('foobaR@gmail.com', metaToYup(strREx))).toBeFalsy()
@@ -95,10 +95,10 @@ test('yup from array meta with refinements', () => {
   const arrNoREx: ArrayMT = {
     kind: 'array',
     of: noEx,
-    refinements: [
-      { kind: 'maxArrayLength', value: 6 },
-      { kind: 'minArrayLength', value: 2 },
-    ],
+    refinements: {
+      maxArrayLength: 6,
+      minArrayLength: 2,
+    },
   }
   expect(validate([10, 20], metaToYup(arrNoREx))).toBeTruthy()
   expect(

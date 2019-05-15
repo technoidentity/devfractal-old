@@ -25,68 +25,90 @@ const toYupNumberRefinements: (
   schema: NumberSchema,
   r: NumberRefinements,
 ) => NumberSchema = (schema, r) => {
-  switch (r.kind) {
-    case 'integer':
-      return schema.integer()
+  let result: NumberSchema = schema
 
-    case 'max':
-      return schema.max(r.value)
-
-    case 'min':
-      return schema.min(r.value)
-
-    case 'positive':
-      return schema.positive()
-
-    case 'negative':
-      return schema.negative()
+  if (r.integer) {
+    result = result.integer()
   }
+
+  if (r.max) {
+    result = result.max(r.max)
+  }
+
+  if (r.min) {
+    result = result.min(r.min)
+  }
+
+  if (r.positive) {
+    result = result.positive()
+  }
+
+  if (r.negative) {
+    result = result.negative()
+  }
+  return result
 }
 
 const toYupStringRefinements: (
   schema: StringSchema,
   r: StringRefinements,
 ) => StringSchema = (schema, r) => {
-  switch (r.kind) {
-    case 'email':
-      return schema.email()
-    case 'url':
-      return schema.url()
-    case 'lowercase':
-      return schema.lowercase()
-    case 'uppercase':
-      return schema.uppercase()
-    case 'maxStringLength':
-      return schema.max(r.value)
-    case 'minStringLength':
-      return schema.min(r.value)
-    case 'length':
-      return schema.length(r.value)
+  let result: StringSchema = schema
+
+  if (r.email) {
+    result = result.email()
   }
+  if (r.url) {
+    result = result.url()
+  }
+  if (r.lowercase) {
+    result = result.lowercase()
+  }
+  if (r.uppercase) {
+    result = result.uppercase()
+  }
+  if (r.maxStringLength) {
+    result = result.max(r.maxStringLength)
+  }
+  if (r.minStringLength) {
+    result = result.min(r.minStringLength)
+  }
+  if (r.length) {
+    result = result.length(r.length)
+  }
+
+  return result
 }
 
 const toYupDateRefinements: (
   schema: DateSchema,
   r: DateRefinements,
 ) => DateSchema = (schema, r) => {
-  switch (r.kind) {
-    case 'maxDate':
-      return schema.max(r.value)
-    case 'minDate':
-      return schema.min(r.value)
+  let result: DateSchema = schema
+  if (r.maxDate) {
+    result = result.max(r.maxDate)
   }
+  if (r.minDate) {
+    result = result.min(r.minDate)
+  }
+
+  return result
 }
 
 const toYupArrayRefinements: (
   schema: ArraySchema<unknown>,
   r: ArrayRefinements,
 ) => ArraySchema<unknown> = (schema, r) => {
-  switch (r.kind) {
-    case 'maxArrayLength':
-      return schema.max(r.value)
-    case 'minArrayLength':
-      return schema.min(r.value)
+  let result: ArraySchema<unknown> = schema
+
+  if (r.maxArrayLength) {
+    result = result.max(r.maxArrayLength)
   }
+  if (r.minArrayLength) {
+    result = result.min(r.minArrayLength)
+  }
+
+  return result
 }
 
 function buildObject(obj: any, f: (key: any) => any): any {
@@ -103,13 +125,13 @@ export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
     case 'number':
       const ns = number().strict(true)
       return meta.refinements
-        ? meta.refinements.reduce(toYupNumberRefinements, ns)
+        ? toYupNumberRefinements(ns, meta.refinements)
         : ns
 
     case 'string':
       const ss = string().strict(true)
       return meta.refinements
-        ? meta.refinements.reduce(toYupStringRefinements, ss)
+        ? toYupStringRefinements(ss, meta.refinements)
         : ss
 
     case 'boolean':
@@ -117,9 +139,7 @@ export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
 
     case 'date':
       const ds = date().strict(true)
-      return meta.refinements
-        ? meta.refinements.reduce(toYupDateRefinements, ds)
-        : ds
+      return meta.refinements ? toYupDateRefinements(ds, meta.refinements) : ds
 
     case 'enum':
       return string()
@@ -130,9 +150,7 @@ export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
       const as = array()
         .strict(true)
         .of(metaToYup(meta.of))
-      return meta.refinements
-        ? meta.refinements.reduce(toYupArrayRefinements, as)
-        : as
+      return meta.refinements ? toYupArrayRefinements(as, meta.refinements) : as
 
     case 'object':
       return object(
