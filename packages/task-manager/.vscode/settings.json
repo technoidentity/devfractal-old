@@ -1,0 +1,30 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.tabCompletion": "on",
+  "editor.minimap.enabled": false,
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onFocusChange",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.validate.enable": false,
+  "typescript.suggest.completeFunctionCalls": true,
+  "javascript.suggest.completeFunctionCalls": true,
+  "tslint.configFile": "tslint.commit.json",
+  "tslint.alwaysShowRuleFailuresAsWarnings": true,
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "emmet.syntaxProfiles": { "javascript": "html" },
+  "emmet.triggerExpansionOnTab": true,
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "devfractal",
+    "eset",
+    "fontawesome",
+    "formik",
+    "fortawesome",
+    "powerplug",
+    "technoidentity",
+    "todos"
+  ]
+}

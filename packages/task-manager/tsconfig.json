@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "es5",
+    "allowJs": true,
+    "checkJs": false,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "plugins": [
+    {
+      "name": "typescript-tslint-plugin",
+      "alwaysShowRuleFailuresAsWarnings": true,
+      "ignoreDefinitionFiles": false,
+      "configFile": "./tslint.commit.json",
+      "suppressWhileTypeErrorsPresent": true,
+      "jsEnable": false,
+      "mockTypeScriptVersion": false
+    }
+  ],
+  "include": ["src"]
+}
