@@ -4922,7 +4922,7 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
-firebase@6.0.2, firebase@^6.0.1, firebase@^6.0.2:
+firebase@6.0.2, firebase@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-6.0.2.tgz#a2d1daa9a3f329aac2974349d521fbd923ee0f35"
   integrity sha512-KA4VviZQJCzCIkCEvt3sJEsNe/HpqQdNE+ajy3wELHCxNV8PK8eBa10qxWDQhNgEtorHHltgYw3VwS0rbSvWrQ==
@@ -5053,7 +5053,7 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
-fp-ts@^1.0.0, fp-ts@^1.0.1, fp-ts@^1.17.3:
+fp-ts@^1.0.0, fp-ts@^1.0.1, fp-ts@^1.18.1:
   version "1.18.1"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.18.1.tgz#c76ef38250125afbda5ad712a92750cc3e6ca6d9"
   integrity sha512-esfGgsuc0S9Q23YnoWQH4DrnBIJ7LCbA7AsUKFwawVsYmVZ7Cl+3cjd8nAhJLWwpUKDRsBsMJOf+uX4ZakZMsQ==
@@ -5750,7 +5750,7 @@ immer@1.10.0:
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.10.0.tgz#bad67605ba9c810275d91e1c2a47d4582e98286d"
   integrity sha512-O3sR1/opvCDGLEVcvrGTMtLac8GJ5IwZC4puPrLuRj3l7ICKvkmA0vGuU9OW8mV9WIBRnaxp5GJh9IEAaNOoYg==
 
-immer@^3.1.1:
+immer@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/immer/-/immer-3.1.2.tgz#1f24f2e25433f5ff168a1ff6c8c6366d2106e61a"
   integrity sha512-pi8JuvJ9c+98DlpDms/o0YLLg5khP8Qzjd8CtIGc4qVm2eoLdQGivJL266nWccofKT/oBSxnhAh/o+nmOXtLXw==
@@ -5920,7 +5920,7 @@ io-ts-types@^0.4.7:
   resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.4.7.tgz#f6280da7432d6dae593d8ff064837f51bd4b96ba"
   integrity sha512-VZ34RWV2ymbtboB0Ki6NPMiyhogGfRzHpyJrpez3auUMacTtX8b1UhW/ct+/zBYgXnE2txaeXowdQPt6BXY0wg==
 
-io-ts@^1.0.2, io-ts@^1.8.5, io-ts@^1.8.6:
+io-ts@^1.0.2, io-ts@^1.8.6:
   version "1.8.6"
   resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-1.8.6.tgz#43930e025b88bbb317cb193bd9af784322a6fed6"
   integrity sha512-0V0gbEfW5FnlEL++hO+j1cbxSvhH3f/i5Puz5AjmN6Q071vJONWTuOHttMSe60gi4DBHBTd2eHbSnHv37ptTnQ==
@@ -7554,7 +7554,7 @@ mock-require@^3.0.2:
     get-caller-file "^1.0.2"
     normalize-path "^2.1.1"
 
-monocle-ts@^1.7.1:
+monocle-ts@^1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/monocle-ts/-/monocle-ts-1.7.2.tgz#d9825ae18846ab63f915cb6f2194a78a40025610"
   integrity sha512-F08hPUzQ14vOtac2vOagnvXPr0R0MRKWXF6Bwd3gQ4XnV2qfU0MzPL+L18kX4dXBkat74pxbL88V1BjAj3YOWg==
@@ -9734,10 +9734,10 @@ react-testing-library@^7.0.0:
     "@babel/runtime" "^7.4.3"
     dom-testing-library "^4.0.0"
 
-react-use@^8.4.0:
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-8.4.0.tgz#9c674d8732b6d27db3c65e507390857a321a8801"
-  integrity sha512-oht/WBmkjMoRnlWMKxWs5mldu1xOln+4NBmT94WwJdW7caopY+eDYk2NyPhfKj8Fj9ggLkBMA9vaRDbvNpuC6A==
+react-use@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.0.0.tgz#142bec53fa465db2a6e43c68a8c9ef2acc000592"
+  integrity sha512-jlXJneB96yl4VvAXDKyE6cmdIeWk0cO7Gomh870Qu0vXZ9YM2JjjR09E9vIPPPI2M27RWo2dZKXspv44Wxtoog==
   dependencies:
     copy-to-clipboard "^3.1.0"
     nano-css "^5.1.0"
@@ -10188,7 +10188,7 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.5.1:
+rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.2.tgz#2e35ce815cd46d84d02a209fb4e5921e051dbec7"
   integrity sha512-HUb7j3kvb7p7eCUHE3FqjoDsC1xfZQ4AHFWfTKSpZ+sAhhz5X1WX0ZuUqWbzB2QhSLp3DoLUG+hMdEDKqWo2Zg==
@@ -11066,10 +11066,10 @@ tcomb@^3.2.29:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-devfractal@^0.5.8:
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.5.8.tgz#7104976a6874fde403d308cb26b4107b2e9b7c32"
-  integrity sha512-18imL9CvZPcGSADaPD4dUNczm6sqYdsW78FUds0BLIqPGYd5+ue6Km/O6UznqGRqkDyh2HLd72bBOSZav+mRZw==
+technoidentity-devfractal@^0.5.9:
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.5.9.tgz#a95634da70558c194cc00e6423d4a64c4475e3eb"
+  integrity sha512-FxQMu1urutZzquwc5C6HhgXJTy2XKPkEuYHau54e8Kdp9tnu3wKT2M36k4LWbvWqxrctOx/hU48PpRAm2i26DA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.18"
     "@fortawesome/free-brands-svg-icons" "^5.8.2"
@@ -11080,20 +11080,20 @@ technoidentity-devfractal@^0.5.8:
     bulma "^0.7.4"
     cleave.js "^1.4.10"
     date-fns "^1.30.1"
-    firebase "^6.0.1"
+    firebase "^6.0.2"
     formik "^1.5.4"
-    fp-ts "^1.17.3"
-    immer "^3.1.1"
-    io-ts "^1.8.5"
+    fp-ts "^1.18.1"
+    immer "^3.1.2"
+    io-ts "^1.8.6"
     io-ts-reporters "^0.0.21"
     io-ts-types "^0.4.7"
-    monocle-ts "^1.7.1"
+    monocle-ts "^1.7.2"
     react-content-loader "^4.2.1"
     react-hanger "^2.0.0"
     react-router "5.0.0"
     react-router-dom "5.0.0"
-    react-use "^8.4.0"
-    rxjs "^6.5.1"
+    react-use "^9.0.0"
+    rxjs "^6.5.2"
     shortid "^2.2.14"
     tcomb "^3.2.29"
 
