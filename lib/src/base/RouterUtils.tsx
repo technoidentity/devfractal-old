@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect, Route, RouteComponentProps, withRouter } from 'react-router'
+import { Omit } from '../lib'
 
 export type WithRouterProps<T> = T & {
   readonly children?: React.ReactNode
@@ -23,3 +24,15 @@ export const SimpleRedirect: React.FC<SimpleRedirectProps> = ({
   to,
   exact,
 }) => <Route exact={exact} path={from} render={() => <Redirect to={to} />} />
+
+export type RouteComponentPropsRemoved<T> = Omit<T, keyof RouteComponentProps>
+
+export const removeRouteComponentProps: <T extends RouteComponentProps>(
+  props: T,
+) => RouteComponentPropsRemoved<T> = ({
+  match,
+  location,
+  history,
+  staticContext,
+  ...result
+}) => result
