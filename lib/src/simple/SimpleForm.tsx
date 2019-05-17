@@ -99,7 +99,7 @@ export interface SimpleTextAreaProps<Values extends object>
   extends Omit<TextAreaFieldProps, 'name'>,
     Named<Values> {
   readonly name: keyof Values & string
-  readonly label: string
+  readonly label?: string
 }
 
 export interface SimpleFormButtonsProps {
@@ -196,7 +196,7 @@ export function typedForm<Values extends object>(): TypedForm<Values> {
 
     TextArea: ({ label, ...props }) => (
       <Field>
-        <Label>{label}</Label>
+        <Label>{label || camelCaseToPhrase(props.name)}</Label>
         <TextAreaField {...props} />
         <ErrorField name={props.name} />
       </Field>
