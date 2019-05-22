@@ -3,6 +3,7 @@ import * as mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import { Request, Response } from 'express'
 import Task from './tasks'
+import User from './user'
 import cors from 'cors'
 
 const port = 3000
@@ -65,6 +66,48 @@ app.put('/tasks/:id', async (req: Request, res: Response) => {
 app.delete('/tasks/:id', async (req: Request, res: Response) => {
   try {
     const one = await Task.deleteOne({ _id: req.params.id }).exec()
+    res.send(one)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
+
+app.get('/users', async (req: Request, res: Response) => {
+  try {
+    const users = await User.find().exec()
+    res.send(users)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
+
+app.post('/users', async (req: Request, res: Response) => {
+  try {
+    const newUser = new User(req.body)
+    const result = await newUser.save()
+    res.send(result)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
+
+app.put('/users/:id', async (req: Request, res: Response) => {
+  try {
+    const oneUser = await User.findById(req.params.id).exec()
+    if (oneUser !== null) {
+      oneUser.set(req.body)
+      const result = await oneUser.save()
+      res.send(result)
+    }
+    console.log('user with the given id has not found')
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
+
+app.delete('/users/:id', async (req: Request, res: Response) => {
+  try {
+    const one = await User.deleteOne({ _id: req.params.id }).exec()
     res.send(one)
   } catch (err) {
     res.status(500).send(err)
