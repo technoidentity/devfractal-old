@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React from 'react'
-import { TaskForm, TaskValues } from './TaskForm'
+import { User } from './SignIn'
+import { SignUpForm } from './SignUp'
+import { TaskValues } from './TaskForm'
 
 // const task = {
 //   title: 'gfaiu',
@@ -18,22 +20,29 @@ import { TaskForm, TaskValues } from './TaskForm'
 //     .catch(err => console.log(err))
 // }
 
-// const postData = (data: TaskValues) => {
-//   axios
-//     .post('http://localhost:3000/tasks', data)
-//     .then(res => console.log(res.data))
-//     .catch(err => console.log(err))
-// }
-
-const updateData = () => {
+const postData = (data: TaskValues) => {
   axios
-    .put('http://localhost:3000/tasks/5cdea4ef179562164bdbee0f', {
-      title: 'learn sass',
-      description: 'best tool for web design',
-    })
+    .post('http://localhost:3000/tasks', data)
     .then(res => console.log(res.data))
     .catch(err => console.log(err))
 }
-updateData()
 
-export const App = () => <h1>hello</h1>
+// const updateData = () => {
+//   axios
+//     .put('http://localhost:3000/tasks/5cdea4ef179562164bdbee0f', {
+//       title: 'learn sass',
+//       description: 'best tool for web design',
+//     })
+//     .then(res => console.log(res.data))
+//     .catch(err => console.log(err))
+// }
+// updateData()
+
+const postUser = (data: User) => {
+  axios
+    .post('http://localhost:3000/users', data)
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err))
+}
+
+export const App = () => <SignUpForm onUserSubmit={postUser} />
