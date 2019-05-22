@@ -39,11 +39,18 @@ export function repeatedly<T>(n: number, f: () => T): ReadonlyArray<T> {
   return result
 }
 
-export function buildObject(obj: any, f: (key: any) => any): any {
+export function buildObject<T, R>(
+  obj: T,
+  // tslint:disable-next-line: no-use-before-declare
+  f: (value: T[typeof key], key: keyof T) => R,
+): Record<keyof T, R> {
   const result: any = {}
-  for (const k of Object.keys(obj)) {
-    // tslint:disable-next-line:no-object-mutation
-    result[k] = f(k as any)
+  for (const k of keys(obj)) {
+    const v: any = f(obj[k], k)
+    if (v !== undefined) {
+      // tslint:disable-next-line:no-object-mutation
+      result[k] = v
+    }
   }
   return result
 }

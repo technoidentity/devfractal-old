@@ -16,6 +16,7 @@ import {
 import { DateType } from 'io-ts-types'
 import tcomb from 'tcomb'
 import { invariant, nop, warning } from '../lib'
+import { buildObject } from './common'
 
 const emptyFromPrimitiveValue: (v: unknown) => any = v => {
   if (tcomb.Number.is(v)) {
@@ -39,13 +40,8 @@ const emptyFromPrimitiveValue: (v: unknown) => any = v => {
   warning(false, `Unsupported value ${v}`)
 }
 
-const emptyFromObjectValue: <T extends Object>(value: T) => T = value => {
-  const draft: any = {}
-  for (const k of Object.keys(value)) {
-    draft[k] = emptyFromPrimitiveValue(value[k])
-  }
-  return draft
-}
+const emptyFromObjectValue: <T extends Object>(value: T) => T = value =>
+  buildObject(value, (_, v) => emptyFromPrimitiveValue(v))
 
 export const emptyFromValue: <T>(value: T) => T = value => {
   if (tcomb.Array.is(value)) {

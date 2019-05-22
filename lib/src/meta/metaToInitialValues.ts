@@ -24,8 +24,6 @@ export const metaToInitialValues: (meta: Mixed) => any = meta => {
       return []
 
     case 'object':
-      return buildObject(meta.properties, key =>
-        metaToInitialValues(meta.properties[key]),
-      )
+      return buildObject(meta.properties, metaToInitialValues)
   }
 }

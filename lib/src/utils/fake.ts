@@ -16,6 +16,7 @@ import {
   TypeOf,
 } from 'io-ts'
 import { DateType } from 'io-ts-types'
+import { buildObject } from './common'
 
 const chance: Chance.Chance = new Chance()
 
@@ -86,16 +87,8 @@ const fakeArray: <T extends Mixed>(
 const fakeObject: <T extends Props>(
   typeValue: TypeC<T>,
   options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) => {
-  const props = typeValue.props
-  const value: any = {}
-
-  for (const p of Object.keys(props)) {
-    // tslint:disable-next-line no-object-mutation
-    value[p] = fake(props[p], options)
-  }
-  return value
-}
+) => TypeOf<typeof typeValue> = (typeValue, options) =>
+  buildObject(typeValue.props, v => fake(v, options))
 
 export const fake: <T extends Mixed>(
   typeValue: T,

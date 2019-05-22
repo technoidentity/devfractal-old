@@ -1,6 +1,7 @@
 import { compareAsc } from 'date-fns'
 import * as t from 'tcomb'
 import { jsonStringify } from '../lib'
+import { buildObject } from '../utils'
 import {
   ArrayMT,
   ArrayRefinements,
@@ -343,21 +344,13 @@ function validateObject(
     return { kind: 'object', errors: [errorMessage(meta)] }
   }
 
-  const properties: any = {}
-  for (const k of Object.keys(value)) {
-    // tslint:disable-next-line: typedef
-    const error = validate(meta.properties[k], value[k])
-    if (error) {
-      // tslint:disable-next-line: no-object-mutation
-      properties[k] = error
-    }
+  // tslint:disable-next-line:typedef
+  const props = buildObject(value, (v, k) => validate(meta.properties[k], v))
+
+  if (!(Object.keys(props).length === 0 && props.constructor === Object)) {
+    return { kind: 'object', properties: props }
   }
 
-  if (
-    !(Object.keys(properties).length === 0 && properties.constructor === Object)
-  ) {
-    return { kind: 'object', properties }
-  }
   return undefined
 }
 

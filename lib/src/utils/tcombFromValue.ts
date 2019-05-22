@@ -1,4 +1,5 @@
 import tcomb from 'tcomb'
+import { buildObject } from './common'
 
 // tslint:disable no-use-before-declare
 
@@ -49,13 +50,8 @@ const tcombFromArrayValue: <V, T extends ReadonlyArray<V>>(
 
 const tcombFromObjectValue: <T extends Object>(
   value: T,
-) => tcomb.Struct<T> = value => {
-  const draft: any = {}
-  for (const k of Object.keys(value)) {
-    draft[k] = tcombFromValue(value[k])
-  }
-  return tcomb.struct(draft)
-}
+) => tcomb.Struct<T> = value =>
+  tcomb.struct(buildObject(value, (_, v) => tcombFromValue(v)))
 
 export const tcombFromValue: <T>(
   value: T,

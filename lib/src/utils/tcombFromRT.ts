@@ -1,6 +1,7 @@
 import * as iots from 'io-ts'
 import { DateType } from 'io-ts-types'
 import tcomb from 'tcomb'
+import { buildObject } from './common'
 
 // tslint:disable no-use-before-declare
 
@@ -46,14 +47,11 @@ const tcombFromPrimitiveRT: (
 const tcombFromObjectRT: <T extends iots.Props>(
   rt: iots.TypeC<T>,
   options?: { readonly strict?: boolean },
-) => tcomb.Struct<T> = (rt, options = { strict: true }) => {
-  const draft: any = {}
-
-  for (const prop of Object.keys(rt.props)) {
-    draft[prop] = tcombFromRT(rt.props[prop])
-  }
-  return tcomb.struct(draft, { name: rt.name, strict: options.strict })
-}
+) => tcomb.Struct<T> = (rt, options = { strict: true }) =>
+  tcomb.struct(buildObject(rt.props, tcombFromRT), {
+    name: rt.name,
+    strict: options.strict,
+  })
 
 export const tcombFromRT: (
   value: iots.Mixed,

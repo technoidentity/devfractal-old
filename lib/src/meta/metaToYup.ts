@@ -11,6 +11,7 @@ import {
   string,
   StringSchema,
 } from 'yup'
+import { buildObject } from '../utils'
 import {
   ArrayRefinements,
   DateRefinements,
@@ -111,15 +112,6 @@ const toYupArrayRefinements: (
   return result
 }
 
-function buildObject(obj: any, f: (key: any) => any): any {
-  const result: any = {}
-  for (const k of Object.keys(obj)) {
-    // tslint:disable-next-line:no-object-mutation
-    result[k] = f(k as any)
-  }
-  return result
-}
-
 export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
   switch (meta.kind) {
     case 'number':
@@ -153,8 +145,6 @@ export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
       return meta.refinements ? toYupArrayRefinements(as, meta.refinements) : as
 
     case 'object':
-      return object(
-        buildObject(meta.properties, p => metaToYup(meta.properties[p])),
-      ).strict(true)
+      return object(buildObject(meta.properties, metaToYup)).strict(true)
   }
 }
