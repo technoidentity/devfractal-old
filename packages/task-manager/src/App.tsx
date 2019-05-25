@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React from 'react'
+import { Async } from 'technoidentity-devfractal'
 import { User } from './SignIn'
-import { SignUpForm } from './SignUp'
 import { TaskValues } from './TaskForm'
+import { TaskList } from './TaskList'
 
 // const task = {
 //   title: 'gfaiu',
@@ -13,17 +14,15 @@ import { TaskValues } from './TaskForm'
 //   scheduled: Date.now(),
 // }
 
-// const getData = () => {
-//   axios
-//     .get('http://localhost:3000/tasks')
-//     .then(res => console.log(res.data))
-//     .catch(err => console.log(err))
-// }
+const getData = async () => {
+  const result = await axios.get('http://localhost:3000/tasks')
+  return result.data
+}
 
 const postData = (data: TaskValues) => {
   axios
     .post('http://localhost:3000/tasks', data)
-    .then(res => console.log(res.data))
+    .then(res => console.log(res.data, new Date(res.data.startsOn)))
     .catch(err => console.log(err))
 }
 
@@ -38,6 +37,30 @@ const postData = (data: TaskValues) => {
 // }
 // updateData()
 
+const taskList: ReadonlyArray<any> = [
+  {
+    title: 'hsgd',
+    description: 'jshu',
+    startsOn: new Date(),
+    deadLine: new Date(),
+    scheduled: new Date(),
+  },
+  {
+    title: 'xkjdfh',
+    description: 'jshu',
+    startsOn: new Date(),
+    deadLine: new Date(),
+    scheduled: new Date(),
+  },
+  {
+    title: 'zjuesa',
+    description: 'jshu',
+    startsOn: new Date(),
+    deadLine: new Date(),
+    scheduled: new Date(),
+  },
+]
+
 const postUser = (data: User) => {
   axios
     .post('http://localhost:3000/users', data)
@@ -45,4 +68,18 @@ const postUser = (data: User) => {
     .catch(err => console.log(err))
 }
 
-export const App = () => <SignUpForm onUserSubmit={postUser} />
+export const App = () => {
+  return (
+    <Async asyncFn={getData}>
+      {({ error, data }) => {
+        if (error) {
+          return <h1>error...</h1>
+        } else if (data) {
+          return <TaskList taskList={data} />
+        } else {
+          return <h1>is Loading....</h1>
+        }
+      }}
+    </Async>
+  )
+}
