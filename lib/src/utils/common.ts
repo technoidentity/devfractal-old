@@ -1,9 +1,9 @@
 import { assert } from 'tcomb'
 
-// tslint:disable no-loop-statement no-array-mutation no-array-mutation no-null-keyword
+// tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
 
-// @TODO: only in development
-export const freeze: <T>(v: T) => Readonly<T> = v => Object.freeze(v)
+export const freeze: <T>(v: T) => Readonly<T> = v =>
+  process.env.NODE_ENV === 'production' ? v : Object.freeze(v)
 
 export const jsonStringify: (obj: object) => string = obj =>
   JSON.stringify(obj, null, 2)
