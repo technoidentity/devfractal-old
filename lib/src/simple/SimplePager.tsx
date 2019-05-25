@@ -1,11 +1,11 @@
-import {
-  faAngleDoubleLeft,
-  faAngleDoubleRight,
-  faStepBackward,
-  faStepForward,
-} from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Button, Field, Icon, Section } from '../lib'
+import {
+  FaAngleDoubleLeft,
+  FaAngleDoubleRight,
+  FaStepBackward,
+  FaStepForward,
+} from 'react-icons/fa'
+import { Button, Field, Section } from '../lib'
 
 interface PagerViewProps {
   readonly currentPage: number
@@ -25,28 +25,28 @@ export const SimplePagerView: React.FC<PagerViewProps> = ({
         disabled={currentPage === 1}
         onClick={() => onPageChange(1)}
       >
-        <Icon icon={faStepBackward} />
+        <FaStepBackward />
       </Button>
       <Button
         variant="white"
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        <Icon icon={faAngleDoubleLeft} />
+        <FaAngleDoubleLeft />
       </Button>
       <Button
         variant="white"
         disabled={currentPage === maximumPages}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        <Icon icon={faAngleDoubleRight} />
+        <FaAngleDoubleRight />
       </Button>
       <Button
         variant="white"
         disabled={currentPage === maximumPages}
         onClick={() => onPageChange(maximumPages)}
       >
-        <Icon icon={faStepForward} />
+        <FaStepForward />
       </Button>
     </Field>
   </Section>

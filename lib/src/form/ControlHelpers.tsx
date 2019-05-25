@@ -1,14 +1,14 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import React from 'react'
-import { classNames, Icon, Omit } from '../lib'
+import { IconType } from 'react-icons'
+import { classNames, Omit } from '../lib'
 
 export interface ControlHelpers {
   readonly loading?: boolean
   readonly expanded?: boolean
   readonly fullWidth?: boolean
   readonly ctrlSize?: ControlSize
-  readonly leftIcon?: IconDefinition
-  readonly rightIcon?: IconDefinition
+  readonly leftIcon?: IconType
+  readonly rightIcon?: IconType
   readonly noControl?: true
 }
 
@@ -62,7 +62,7 @@ export const ControlWrapper: React.FC<ControlWrapperProps> = ({
   ) : (
     <div className={controlClasses(props)}>
       {children}
-      {props.leftIcon && <Icon icon={props.leftIcon} direction="left" />}
-      {props.rightIcon && <Icon icon={props.rightIcon} direction="right" />}
+      {props.leftIcon && <props.leftIcon direction="left" />}
+      {props.rightIcon && <props.rightIcon direction="right" />}
     </div>
   )

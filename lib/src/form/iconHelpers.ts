@@ -1,11 +1,11 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { IconType } from 'react-icons'
 import { ControlSize } from '../lib'
 import { Omit } from '../utils'
 
 export interface IconHelpers {
-  readonly leftIcon?: IconDefinition
+  readonly leftIcon?: IconType
   readonly iconSize?: ControlSize
-  readonly rightIcon?: IconDefinition
+  readonly rightIcon?: IconType
 }
 
 export type IconHelpersRemoved<T> = Omit<T, keyof IconHelpers>
