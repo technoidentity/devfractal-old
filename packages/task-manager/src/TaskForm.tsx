@@ -14,7 +14,11 @@ const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => {
 export interface TaskValues {
   readonly title: string
   readonly description: string
+  readonly startsOn: Date | undefined
+  readonly deadLine: Date | undefined
+  readonly scheduled: Date | undefined
 }
+
 export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
   return (
     <Form>
@@ -25,7 +29,7 @@ export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
       <label>Description</label>
       <Field type="text" name="description" />
       <br />
-      <label>startsOn</label>
+      <label>StartsOn</label>
       <Field name="startsOn" component={FormikDatePicker} />
       <br />
       <label>Deadline</label>
@@ -44,7 +48,13 @@ export interface TaskFormProps {
   onCreate(values: TaskValues): void
 }
 
-const initialValues: TaskValues = { title: '', description: '' }
+const initialValues: TaskValues = {
+  title: '',
+  description: '',
+  startsOn: undefined,
+  deadLine: undefined,
+  scheduled: undefined,
+}
 
 export const TaskForm: React.FC<TaskFormProps> = ({ onCreate, initial }) => {
   return (
