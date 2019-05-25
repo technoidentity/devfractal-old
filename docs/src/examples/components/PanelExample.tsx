@@ -1,9 +1,5 @@
-import {
-  faBook,
-  faCodeBranch,
-  faSearch,
-} from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { FaBook, FaCodeBranch, FaSearch } from 'react-icons/fa'
 import {
   Button,
   CheckBox,
@@ -26,7 +22,7 @@ export const PanelExample: React.FC = () => (
           type="text"
           placeholder="search"
           ctrlSize="small"
-          leftIcon={faSearch}
+          leftIcon={FaSearch}
         />
       </PanelBlock>
       <PanelTabs>
@@ -37,31 +33,31 @@ export const PanelExample: React.FC = () => (
         <PanelTabsItem>forks</PanelTabsItem>
       </PanelTabs>
       <PanelBlock active>
-        <PanelIcon icon={faBook} />
+        <PanelIcon icon={FaBook} />
         devfractal
       </PanelBlock>
 
       <PanelBlock>
-        <PanelIcon icon={faBook} /> marksheet
+        <PanelIcon icon={FaBook} /> marksheet
       </PanelBlock>
       <PanelBlock>
         {' '}
-        <PanelIcon icon={faBook} />
+        <PanelIcon icon={FaBook} />
         miniresetcss
       </PanelBlock>
       <PanelBlock>
         {' '}
-        <PanelIcon icon={faBook} />
+        <PanelIcon icon={FaBook} />
         jgthms.github.io
       </PanelBlock>
       <PanelBlock>
         {' '}
-        <PanelIcon icon={faCodeBranch} />
+        <PanelIcon icon={FaCodeBranch} />
         daniellowtw/infboard
       </PanelBlock>
       <PanelBlock>
         {' '}
-        <PanelIcon icon={faCodeBranch} />
+        <PanelIcon icon={FaCodeBranch} />
         mojs
       </PanelBlock>
       <PanelBlock>

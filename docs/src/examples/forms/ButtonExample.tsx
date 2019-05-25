@@ -1,21 +1,20 @@
-import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import {
-  faAlignCenter,
-  faAlignLeft,
-  faAlignRight,
-  faBold,
-  faCheck,
-  faItalic,
-  faTimes,
-  faUnderline,
-} from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
+import { FaGithub, FaTwitter } from 'react-icons/fa'
+import {
+  FaAlignCenter,
+  FaAlignLeft,
+  FaAlignRight,
+  FaBold,
+  FaCheck,
+  FaItalic,
+  FaTimes,
+  FaUnderline,
+} from 'react-icons/fa'
 import {
   Box,
   Button as ButtonComponent,
   ButtonsGroup,
   Field,
-  Icon,
   Label,
   Section,
   Text,
@@ -305,47 +304,47 @@ const ButtonWithFontAwesomeIconsExample: React.FC = () => (
     <Title size="4">With Font Awesome icons</Title>
     <Field grouped>
       <ButtonComponent>
-        <Icon icon={faBold} />
+        <FaBold />
       </ButtonComponent>
       <ButtonComponent>
-        <Icon icon={faItalic} />
+        <FaItalic />
       </ButtonComponent>
       <ButtonComponent>
-        <Icon icon={faUnderline} />
+        <FaUnderline />
       </ButtonComponent>
     </Field>
 
     <Field grouped>
       <ButtonComponent>
-        <Icon icon={faGithub} /> <Text>GitHub</Text>
+        <FaGithub /> <Text>GitHub</Text>
       </ButtonComponent>
       <ButtonComponent variant="primary">
-        <Icon icon={faTwitter} />
+        <FaTwitter />
         <Text>Twitter</Text>
       </ButtonComponent>
       <ButtonComponent variant="success">
-        <Icon icon={faCheck} />
+        <FaCheck />
         <Text>Save</Text>
       </ButtonComponent>
       <ButtonComponent outlined variant="danger">
-        <Icon icon={faTimes} />
+        <FaTimes />
         <Text>Delete</Text>
       </ButtonComponent>
     </Field>
 
     <Field grouped>
       <ButtonComponent size="small">
-        <Icon icon={faGithub} />
+        <FaGithub />
         <Text> GitHub</Text>
       </ButtonComponent>
       <ButtonComponent size="normal">
-        <Icon icon={faGithub} /> <Text>GitHub</Text>
+        <FaGithub /> <Text>GitHub</Text>
       </ButtonComponent>
       <ButtonComponent size="medium">
-        <Icon icon={faGithub} /> <Text>GitHub</Text>
+        <FaGithub /> <Text>GitHub</Text>
       </ButtonComponent>
       <ButtonComponent size="large">
-        <Icon icon={faGithub} /> <Text>GitHub</Text>
+        <FaGithub /> <Text>GitHub</Text>
       </ButtonComponent>
     </Field>
   </Section>
@@ -367,15 +366,15 @@ const ButtonAddonsExample: React.FC = () => (
     <Title size="4">Button addons</Title>
     <Field addons>
       <ButtonComponent>
-        <Icon icon={faAlignLeft} />
+        <FaAlignLeft />
         <Text> Left</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <Icon icon={faAlignCenter} />
+        <FaAlignCenter />
         <Text>Center</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <Icon icon={faAlignRight} />
+        <FaAlignRight />
         <Text>Right</Text>
       </ButtonComponent>
     </Field>
@@ -387,28 +386,28 @@ const ButtonGroupWithAddonsExample: React.FC = () => (
     <Title size="4">Button group with addons</Title>
     <Field addons>
       <ButtonComponent>
-        <Icon icon={faBold} />
+        <FaBold />
         <Text>Bold</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <Icon icon={faItalic} />
+        <FaItalic />
         <Text>Italic</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <Icon icon={faUnderline} />
+        <FaUnderline />
         <Text>Underline</Text>
       </ButtonComponent>
     </Field>
     <Field addons>
       <ButtonComponent>
-        <Icon icon={faAlignLeft} /> <Text>Left</Text>
+        <FaAlignLeft /> <Text>Left</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <Icon icon={faAlignCenter} />
+        <FaAlignCenter />
         <Text>Center</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <Icon icon={faAlignRight} />
+        <FaAlignRight />
         <Text>Right</Text>
       </ButtonComponent>
     </Field>

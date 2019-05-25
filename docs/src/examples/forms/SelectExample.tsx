@@ -1,5 +1,5 @@
-import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
+import { FaGlobe } from 'react-icons/fa'
 import {
   Field,
   Section,
@@ -154,21 +154,21 @@ const WithIconsExample: React.FC = () => (
   <Section>
     <Field>
       <Title size="4">With icons</Title>
-      <SelectComponent leftIcon={faGlobe} ctrlSize="small">
+      <SelectComponent leftIcon={FaGlobe} ctrlSize="small">
         <option>Country</option>
         <option>Select dropdown</option>
         <option>With options</option>
       </SelectComponent>
     </Field>
     <Field>
-      <SelectComponent leftIcon={faGlobe}>
+      <SelectComponent leftIcon={FaGlobe}>
         <option>Country</option>
         <option>Select dropdown</option>
         <option>With options</option>
       </SelectComponent>
     </Field>
     <Field>
-      <SelectComponent leftIcon={faGlobe} ctrlSize="medium">
+      <SelectComponent leftIcon={FaGlobe} ctrlSize="medium">
         <option>Country</option>
         <option>Select dropdown</option>
         <option>With options</option>

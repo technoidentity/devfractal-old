@@ -1,16 +1,15 @@
-import {
-  faAngleLeft,
-  faAngleRight,
-  faAngleUp,
-  faFileAlt,
-  faFilm,
-  faImage,
-  faMusic,
-} from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import {
+  FaAngleLeft,
+  FaAngleRight,
+  FaAngleUp,
+  FaFileAlt,
+  FaFilm,
+  FaImage,
+  FaMusic,
+} from 'react-icons/fa'
+import {
   Box,
-  Icon,
   Section,
   State,
   Tabs,
@@ -54,19 +53,19 @@ export const IconsTabExample: React.FC = () => (
   <>
     <Tabs name="basicTab4" value="pictures" alignment="centered" readOnly>
       <TabsItem value="pictures">
-        <Icon icon={faImage} />
+        <FaImage />
         <span>Pictures</span>
       </TabsItem>
       <TabsItem value="music">
-        <Icon icon={faMusic} />
+        <FaMusic />
         <span>Music</span>
       </TabsItem>
       <TabsItem value="videos">
-        <Icon icon={faFilm} />
+        <FaFilm />
         <span>Videos</span>
       </TabsItem>
       <TabsItem value="documents">
-        <Icon icon={faFileAlt} />
+        <FaFileAlt />
         <span>Documents</span>
       </TabsItem>
     </Tabs>
@@ -101,38 +100,38 @@ export const StyleTabsExample: React.FC = () => (
     <Title size="6">Boxed</Title>
     <Tabs name="basicTab8" value="pictures" tabsStyle="boxed" readOnly>
       <TabsItem value="pictures">
-        <Icon icon={faImage} />
+        <FaImage />
         <span>Pictures</span>
       </TabsItem>
       <TabsItem value="music">
-        <Icon icon={faMusic} />
+        <FaMusic />
         <span>Music</span>
       </TabsItem>
       <TabsItem value="videos">
-        <Icon icon={faFilm} />
+        <FaFilm />
         <span>Videos</span>
       </TabsItem>
       <TabsItem value="documents">
-        <Icon icon={faFileAlt} />
+        <FaFileAlt />
         <span>Documents</span>
       </TabsItem>
     </Tabs>
     <Title size="6">Toggle</Title>
     <Tabs name="basicTab9" value="pictures" tabsStyle="toggle" readOnly>
       <TabsItem value="pictures">
-        <Icon icon={faImage} />
+        <FaImage />
         <span>Pictures</span>
       </TabsItem>
       <TabsItem value="music">
-        <Icon icon={faMusic} />
+        <FaMusic />
         <span>Music</span>
       </TabsItem>
       <TabsItem value="videos">
-        <Icon icon={faFilm} />
+        <FaFilm />
         <span>Videos</span>
       </TabsItem>
       <TabsItem value="documents">
-        <Icon icon={faFileAlt} />
+        <FaFileAlt />
         <span>Documents</span>
       </TabsItem>
     </Tabs>
@@ -144,34 +143,34 @@ export const StyleTabsExample: React.FC = () => (
       readOnly
     >
       <TabsItem value="pictures">
-        <Icon icon={faImage} />
+        <FaImage />
         <span>Pictures</span>
       </TabsItem>
       <TabsItem value="music">
-        <Icon icon={faMusic} />
+        <FaMusic />
         <span>Music</span>
       </TabsItem>
       <TabsItem value="videos">
-        <Icon icon={faFilm} />
+        <FaFilm />
         <span>Videos</span>
       </TabsItem>
       <TabsItem value="documents">
-        <Icon icon={faFileAlt} />
+        <FaFileAlt />
         <span>Documents</span>
       </TabsItem>
     </Tabs>
     <Title size="6">Fullwidth</Title>
     <Tabs name="basicTab11" fullWidth readOnly>
       <TabsItem value="left">
-        <Icon icon={faAngleLeft} />
+        <FaAngleLeft />
         <span>Left</span>
       </TabsItem>
       <TabsItem value="up">
-        <Icon icon={faAngleUp} />
+        <FaAngleUp />
         <span>Up</span>
       </TabsItem>
       <TabsItem value="right">
-        <Icon icon={faAngleRight} />
+        <FaAngleRight />
         <span>Right</span>
       </TabsItem>
     </Tabs>
@@ -188,19 +187,19 @@ export const CombiningTabsExample: React.FC = () => (
       readOnly
     >
       <TabsItem value="pictures">
-        <Icon icon={faImage} />
+        <FaImage />
         <span>Pictures</span>
       </TabsItem>
       <TabsItem value="music">
-        <Icon icon={faMusic} />
+        <FaMusic />
         <span>Music</span>
       </TabsItem>
       <TabsItem value="videos">
-        <Icon icon={faFilm} />
+        <FaFilm />
         <span>Videos</span>
       </TabsItem>
       <TabsItem value="documents">
-        <Icon icon={faFileAlt} />
+        <FaFileAlt />
         <span>Documents</span>
       </TabsItem>
     </Tabs>
@@ -212,19 +211,19 @@ export const CombiningTabsExample: React.FC = () => (
       readOnly
     >
       <TabsItem value="pictures">
-        <Icon icon={faImage} />
+        <FaImage />
         <span>Pictures</span>
       </TabsItem>
       <TabsItem value="music">
-        <Icon icon={faMusic} />
+        <FaMusic />
         <span>Music</span>
       </TabsItem>
       <TabsItem value="videos">
-        <Icon icon={faFilm} />
+        <FaFilm />
         <span>Videos</span>
       </TabsItem>
       <TabsItem value="documents">
-        <Icon icon={faFileAlt} />
+        <FaFileAlt />
         <span>Documents</span>
       </TabsItem>
     </Tabs>
@@ -237,19 +236,19 @@ export const CombiningTabsExample: React.FC = () => (
       readOnly
     >
       <TabsItem value="pictures">
-        <Icon icon={faImage} />
+        <FaImage />
         <span>Pictures</span>
       </TabsItem>
       <TabsItem value="music">
-        <Icon icon={faMusic} />
+        <FaMusic />
         <span>Music</span>
       </TabsItem>
       <TabsItem value="videos">
-        <Icon icon={faFilm} />
+        <FaFilm />
         <span>Videos</span>
       </TabsItem>
       <TabsItem value="documents">
-        <Icon icon={faFileAlt} />
+        <FaFileAlt />
         <span>Documents</span>
       </TabsItem>
     </Tabs>
@@ -262,19 +261,19 @@ export const CombiningTabsExample: React.FC = () => (
       readOnly
     >
       <TabsItem value="pictures">
-        <Icon icon={faImage} />
+        <FaImage />
         <span>Pictures</span>
       </TabsItem>
       <TabsItem value="music">
-        <Icon icon={faMusic} />
+        <FaMusic />
         <span>Music</span>
       </TabsItem>
       <TabsItem value="videos">
-        <Icon icon={faFilm} />
+        <FaFilm />
         <span>Videos</span>
       </TabsItem>
       <TabsItem value="documents">
-        <Icon icon={faFileAlt} />
+        <FaFileAlt />
         <span>Documents</span>
       </TabsItem>
     </Tabs>
