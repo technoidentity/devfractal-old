@@ -6,6 +6,21 @@ import {
   extractSegment,
   toLower,
 } from '../lib'
+import { capitalize, capitalizeAll } from './stringUtils'
+
+it('test for capitalize', () => {
+  expect(capitalize('userName')).toBe('UserName')
+  expect(capitalize('')).toBe('')
+  expect(capitalize('helloworld')).toBe('Helloworld')
+  expect(capitalize('Email')).toBe('Email')
+})
+
+it('test for capitalizeAll', () => {
+  expect(capitalizeAll('user Name')).toBe('User Name')
+  expect(capitalizeAll('hello world')).toBe('Hello World')
+  expect(capitalizeAll('')).toBe('')
+  expect(capitalizeAll('HEllo')).toBe('HEllo')
+})
 
 it('test for camelCaseToLower', () => {
   expect(toLower('userName', '-')).toBe('user-name')
