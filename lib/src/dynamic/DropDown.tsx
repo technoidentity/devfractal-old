@@ -43,7 +43,7 @@ export const DropDown: React.FC<DropDownProps> = ({
       <Div className="dropdown-trigger">
         <Button onClick={() => setActive(!active)}>
           <span>{label}</span>
-          {dropUp ? <FaAngleUp /> : <FaAngleDown />} />
+          {dropUp ? <FaAngleUp /> : <FaAngleDown />}
         </Button>
       </Div>
       <Div className="dropdown-menu" role="menu">
