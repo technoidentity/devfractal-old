@@ -5,8 +5,9 @@ import { Request, Response } from 'express'
 import Task from './tasks'
 import User from './user'
 import cors from 'cors'
+import { task1 } from './tasks'
 
-const port = 3000
+const port = 9999
 
 const uri: string = 'mongodb://localhost/mydatabase'
 
@@ -56,10 +57,11 @@ app.put('/tasks/:id', async (req: Request, res: Response) => {
       task.set(req.body)
       const result = await task.save()
       res.send(result)
+    } else {
+      console.log('task with the given id has not found')
     }
-    console.log('task with the given id has not found')
   } catch (err) {
-    res.send(500).status(err)
+    res.status(500).send(err)
   }
 })
 
@@ -81,6 +83,15 @@ app.get('/users', async (req: Request, res: Response) => {
   }
 })
 
+app.get('/users/:id', async (req: Request, res: Response) => {
+  try {
+    const one = await User.findById(req.params.id).exec()
+    res.send(one)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
+
 app.post('/users', async (req: Request, res: Response) => {
   try {
     const newUser = new User(req.body)
@@ -93,13 +104,14 @@ app.post('/users', async (req: Request, res: Response) => {
 
 app.put('/users/:id', async (req: Request, res: Response) => {
   try {
-    const oneUser = await User.findById(req.params.id).exec()
-    if (oneUser !== null) {
-      oneUser.set(req.body)
-      const result = await oneUser.save()
-      res.send(result)
+    const user = await User.findById({ _id: req.params.id }).exec()
+    if (user !== null) {
+      user.set(req.body)
+      const result = await user.save()
+      res.send({ foo: 'bar' })
+    } else {
+      console.log('task with the given id has not found')
     }
-    console.log('user with the given id has not found')
   } catch (err) {
     res.status(500).send(err)
   }
@@ -113,3 +125,5 @@ app.delete('/users/:id', async (req: Request, res: Response) => {
     res.status(500).send(err)
   }
 })
+
+console.log(task1)
