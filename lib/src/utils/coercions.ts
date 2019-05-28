@@ -24,7 +24,7 @@ export function toNumber(from: string): number {
   return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
 }
 
-export function toDate(from: string): Date {
-  const decoded: Either<t.Errors, Date> = DateFromISOString.decode(from)
+export function toDate(isoDate: string): Date {
+  const decoded: Either<t.Errors, Date> = DateFromISOString.decode(isoDate)
   return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
 }

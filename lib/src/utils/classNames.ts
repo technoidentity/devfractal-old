@@ -3,6 +3,7 @@ import tcomb from 'tcomb'
 export type ClassNameArg =
   | string
   | ReadonlyArray<string>
+  // TODO: boolean | undefined instead of unknown?
   | Record<string, unknown>
   | undefined
   | null
