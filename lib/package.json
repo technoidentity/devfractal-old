@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "0.5.9",
+  "version": "0.6.1",
   "source": "src/index.ts",
   "main": "build/technoidentity-devfractal.js",
   "types": "build/index.d.ts",
@@ -12,7 +12,7 @@
     "@fortawesome/react-fontawesome": "0.1.4",
     "axios": "0.18.0",
     "bulma": "0.7.5",
-    "cleave.js": "1.4.10",
+    "cleave.js": "1.5.0",
     "date-fns": "1.30.1",
     "firebase": "6.0.4",
     "formik": "1.5.7",
@@ -78,7 +78,7 @@
     "tslint-react": "4.0.0",
     "typescript": "3.4.5",
     "typescript-tslint-plugin": "0.4.0",
-    "webpack": "4.32.0",
+    "webpack": "4.32.2",
     "webpack-blocks": "2.0.0",
     "yup": "0.27.0"
   },
