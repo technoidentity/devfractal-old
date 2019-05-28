@@ -1,5 +1,5 @@
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema'
-import { Mixed, NumberRefinements } from './types'
+import { Mixed, NumberRefinements, StringRefinements } from './types'
 
 function toJsonSchemaNumberRefinements(r: NumberRefinements): JSONSchema7 {
   const schema: JSONSchema7 = {}
@@ -23,6 +23,28 @@ function toJsonSchemaNumberRefinements(r: NumberRefinements): JSONSchema7 {
   return schema
 }
 
+function toJsonSchemaStringRefinements(r: StringRefinements): JSONSchema7 {
+  const schema: JSONSchema7 = {}
+
+  if (r.email) {
+    schema.format = 'email'
+  }
+  if (r.url) {
+    schema.format = 'uri'
+  }
+  if (r.maxStringLength) {
+    schema.maxLength = r.maxStringLength
+  }
+  if (r.minStringLength) {
+    schema.minLength = r.minStringLength
+  }
+  if (r.length) {
+    schema.maxLength = r.length
+  }
+
+  return schema
+}
+
 export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
   switch (meta.kind) {
     case 'number':
@@ -31,7 +53,9 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
         : { type: 'number' }
 
     case 'string':
-      return { type: 'string' }
+      return meta.refinements
+        ? { type: 'string', ...toJsonSchemaStringRefinements(meta.refinements) }
+        : { type: 'string' }
   }
   return true
 }

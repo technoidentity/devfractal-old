@@ -29,3 +29,22 @@ test('json schema from str meta', () => {
   expect(ajv().validate(metaToJsonSchema(strEx), '100')).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(strEx), 100)).toBeFalsy()
 })
+
+test('json schema from str meta with refinements', () => {
+  const strREx: PrimitiveMT = {
+    kind: 'string',
+    refinements: {
+      email: true,
+      lowercase: true,
+      minStringLength: 10,
+      maxStringLength: 20,
+    },
+  }
+  expect(
+    ajv().validate(metaToJsonSchema(strREx), 'foobar@gmail.com'),
+  ).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(strREx), 'f@g.com')).toBeFalsy()
+  expect(
+    ajv().validate(metaToJsonSchema(strREx), 'foooooooooooooooooooo@g.com'),
+  ).toBeFalsy()
+})
