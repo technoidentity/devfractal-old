@@ -2,6 +2,7 @@ import { Field, FieldProps, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import Yup from 'yup'
 
 const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => {
   const handleChange = (date: Date) => {
@@ -14,10 +15,22 @@ const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => {
 export interface TaskValues {
   readonly title: string
   readonly description: string
-  readonly startsOn: Date | undefined
-  readonly deadLine: Date | undefined
+  readonly started: Date | undefined
+  readonly deadline: Date | undefined
   readonly scheduled: Date | undefined
+  readonly completed: Date | undefined
 }
+
+const validationSchema = Yup.object().shape({
+  title: Yup.string()
+    .required()
+    .min(5)
+    .max(100),
+  description: Yup.string()
+    .required()
+    .min(10)
+    .max(200),
+})
 
 export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
   return (
@@ -29,14 +42,16 @@ export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
       <label>Description</label>
       <Field type="text" name="description" />
       <br />
-      <label>StartsOn</label>
-      <Field name="startsOn" component={FormikDatePicker} />
+      <label>Started</label>
+      <Field name="started" component={FormikDatePicker} />
       <br />
       <label>Deadline</label>
-      <Field name="deadLine" component={FormikDatePicker} />
+      <Field name="deadline" component={FormikDatePicker} />
       <br />
       <label>Scheduled</label>
       <Field name="scheduled" component={FormikDatePicker} />
+      <label>Completed</label>
+      <Field name="completed" component={FormikDatePicker} />
       <br />
       <button type="submit">Creat</button>
     </Form>
@@ -51,15 +66,17 @@ export interface TaskFormProps {
 const initialValues: TaskValues = {
   title: '',
   description: '',
-  startsOn: undefined,
-  deadLine: undefined,
+  started: undefined,
+  deadline: undefined,
   scheduled: undefined,
+  completed: undefined,
 }
 
 export const TaskForm: React.FC<TaskFormProps> = ({ onCreate, initial }) => {
   return (
     <Formik
       initialValues={initial || initialValues}
+      validationSchema={validationSchema}
       component={InnerTaskForm}
       onSubmit={(values, actions) => {
         console.log(values)
