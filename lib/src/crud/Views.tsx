@@ -42,34 +42,36 @@ export interface CrudViewsResult<T extends Props, ID extends keyof T> {
   readonly View: FC<ViewProps<TypeOfRT<T>>>
 }
 
-export const Views: <T extends Props, ID extends keyof T>(
+export function Views<T extends Props, ID extends keyof T>(
   // cannot pass this to create, as getting type from typeValue is easy,
   // not the other way round
   typeValue: RTType<T>,
   id: keyof T,
-) => CrudViewsResult<T, ID> = (typeValue, id) => ({
-  Create: ({ onSubmit }) => (
-    <SimpleEditor
-      id={id}
-      data={emptyFromType(typeValue, id)}
-      onSubmit={onSubmit}
-    />
-  ),
+): CrudViewsResult<T, ID> {
+  return {
+    Create: ({ onSubmit }) => (
+      <SimpleEditor
+        id={id}
+        data={emptyFromType(typeValue, id)}
+        onSubmit={onSubmit}
+      />
+    ),
 
-  Edit: ({ data, onSubmit }) => (
-    <SimpleEditor id={id} data={data} onSubmit={onSubmit} />
-  ),
+    Edit: ({ data, onSubmit }) => (
+      <SimpleEditor id={id} data={data} onSubmit={onSubmit} />
+    ),
 
-  View: ({ data }) => <SimpleViewer data={data} />,
+    View: ({ data }) => <SimpleViewer data={data} />,
 
-  List: ({ list, onCreate, onEdit }) => (
-    <Container>
-      <Field groupModifier="grouped-right">
-        <Button variant="primary" onClick={onCreate}>
-          New
-        </Button>
-      </Field>
-      <SimpleTable data={list} onRowClicked={onEdit} />
-    </Container>
-  ),
-})
+    List: ({ list, onCreate, onEdit }) => (
+      <Container>
+        <Field groupModifier="grouped-right">
+          <Button variant="primary" onClick={onCreate}>
+            New
+          </Button>
+        </Field>
+        <SimpleTable data={list} onRowClicked={onEdit} />
+      </Container>
+    ),
+  }
+}

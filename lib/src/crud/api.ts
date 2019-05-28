@@ -18,29 +18,31 @@ export interface URLs {
   remove(id: string | number): string
 }
 
-export const apiURLs: (
+export function apiURLs(
   baseURL: string, // eg: 'https://localhost:3000'
   resource: string, // eg: 'todos'
-) => URLs = (baseURL, resource) => ({
-  all: () => `${baseURL}/${resource}`,
+): URLs {
+  return {
+    all: () => `${baseURL}/${resource}`,
 
-  create: () => `${baseURL}/${resource}`,
+    create: () => `${baseURL}/${resource}`,
 
-  one: (id: string | t.Branded<number, t.IntBrand>) => {
-    typeInvariant(idRT, id)
-    return `${baseURL}/${resource}/${id}`
-  },
+    one: (id: string | t.Branded<number, t.IntBrand>) => {
+      typeInvariant(idRT, id)
+      return `${baseURL}/${resource}/${id}`
+    },
 
-  edit: (id: string | t.Branded<number, t.IntBrand>) => {
-    typeInvariant(idRT, id)
-    return `${baseURL}/${resource}/${id}`
-  },
+    edit: (id: string | t.Branded<number, t.IntBrand>) => {
+      typeInvariant(idRT, id)
+      return `${baseURL}/${resource}/${id}`
+    },
 
-  remove: (id: string | t.Branded<number, t.IntBrand>) => {
-    typeInvariant(idRT, id)
-    return `${baseURL}/${resource}/${id}`
-  },
-})
+    remove: (id: string | t.Branded<number, t.IntBrand>) => {
+      typeInvariant(idRT, id)
+      return `${baseURL}/${resource}/${id}`
+    },
+  }
+}
 
 export interface Repository<T, ID extends keyof T> {
   all(): Promise<ReadonlyArray<T>>
