@@ -55,7 +55,7 @@ export const emptyFromValue: <T>(value: T) => T = value => {
   return emptyFromPrimitiveValue(value)
 }
 
-export function emptyFromType<T extends Props>(
+export function empty<T extends Props>(
   typeValue: ReadonlyC<TypeC<T>>,
   id?: keyof T,
 ): TypeOf<typeof typeValue> {
@@ -82,7 +82,7 @@ export function emptyFromType<T extends Props>(
         if (v instanceof KeyofType) {
           draft[prop] = Object.keys(v.keys)[0]
         } else if (v instanceof ReadonlyType) {
-          draft[prop] = emptyFromType(v, undefined)
+          draft[prop] = empty(v, undefined)
         } else if (v instanceof ReadonlyArrayType) {
           draft[prop] = []
         } else {

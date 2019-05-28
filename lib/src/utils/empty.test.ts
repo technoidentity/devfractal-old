@@ -7,11 +7,11 @@ import {
   string,
   type,
 } from 'io-ts'
-import { emptyFromType } from '../lib'
+import { empty } from '../lib'
 
 test('emptyFromType', () => {
   expect(
-    emptyFromType(
+    empty(
       readonly(
         type({
           i: number,
