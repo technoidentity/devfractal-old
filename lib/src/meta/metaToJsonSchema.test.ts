@@ -7,3 +7,20 @@ test('json schema from number meta', () => {
   expect(ajv().validate(metaToJsonSchema(noEx), 100)).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(noEx), '100')).toBeFalsy()
 })
+
+test('json schema from number with refinements', () => {
+  const noREx: PrimitiveMT = {
+    kind: 'number',
+    refinements: {
+      integer: true,
+      min: 10,
+      max: 20,
+    },
+  }
+  expect(ajv().validate(metaToJsonSchema(noREx), 15)).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(noREx), 5)).toBeFalsy()
+  expect(ajv().validate(metaToJsonSchema(noREx), 25)).toBeFalsy()
+  expect(ajv().validate(metaToJsonSchema(noREx), 10)).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(noREx), 20)).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(noREx), 15.01)).toBeFalsy()
+})
