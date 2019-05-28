@@ -1,4 +1,4 @@
-export const capitalize: (arg: string) => string = arg => {
+export function capitalize(arg: string): string {
   return arg.length === 0 ? '' : arg[0].toUpperCase() + arg.slice(1)
 }
 
@@ -23,14 +23,17 @@ export const toLower: (arg: string, delimiter?: string) => string = (
   return result
 }
 
-export const camelCaseToHyphenated: (arg: string) => string = arg =>
-  toLower(arg, '-')
+export function camelCaseToHyphenated(arg: string): string {
+  return toLower(arg, '-')
+}
 
-export const camelCaseToSpaced: (arg: string) => string = arg =>
-  toLower(arg, ' ')
+export function camelCaseToSpaced(arg: string): string {
+  return toLower(arg, ' ')
+}
 
-export const camelCaseToPhrase: (arg: string) => string = arg =>
-  capitalize(toLower(arg, ' '))
+export function camelCaseToPhrase(arg: string): string {
+  return capitalize(toLower(arg, ' '))
+}
 
 export const chop: (arg: string, delimiter?: string) => string = (
   arg,
@@ -42,11 +45,11 @@ export const chop: (arg: string, delimiter?: string) => string = (
   return arg[arg.length - 1] === delimiter ? arg.slice(0, arg.length - 1) : arg
 }
 
-export const extractSegment: (
+export function extractSegment(
   arg: string,
   fromIndex: number,
   upto: string,
-) => string = (arg: string, fromIndex: number, upto: string) => {
+): string {
   if (arg.length === 0) {
     return ''
   }

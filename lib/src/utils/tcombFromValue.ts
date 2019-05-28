@@ -3,16 +3,16 @@ import { buildObject } from './common'
 
 // tslint:disable no-use-before-declare
 
-const tcombFromPrimitiveValue: (
+export function tcombFromPrimitiveValue(
   value: unknown,
-) =>
+):
   | tcomb.Irreducible<number>
   | tcomb.Irreducible<string>
   | tcomb.Irreducible<boolean>
   | tcomb.Irreducible<RegExp>
   | tcomb.Irreducible<Function>
   | tcomb.Irreducible<void | null>
-  | tcomb.Irreducible<Error> = value => {
+  | tcomb.Irreducible<Error> {
   if (tcomb.Integer.is(value)) {
     return tcomb.Integer
   }
@@ -41,24 +41,26 @@ const tcombFromPrimitiveValue: (
   throw new Error(`Unsupported #{value}`)
 }
 
-const tcombFromArrayValue: <V, T extends ReadonlyArray<V>>(
+export function tcombFromArrayValue<V, T extends ReadonlyArray<V>>(
   value: T,
-) => tcomb.List<ReadonlyArray<tcomb.Type<any>>> | tcomb.List<any> = value =>
-  value[0] !== undefined
+): tcomb.List<ReadonlyArray<tcomb.Type<any>>> | tcomb.List<any> {
+  return value[0] !== undefined
     ? tcomb.list(tcombFromValue(value[0]))
     : tcomb.list(tcomb.Any)
+}
 
-const tcombFromObjectValue: <T extends Object>(
+export function tcombFromObjectValue<T extends Object>(
   value: T,
-) => tcomb.Struct<T> = value =>
-  tcomb.struct(buildObject(value, (_, v) => tcombFromValue(v)))
+): tcomb.Struct<T> {
+  return tcomb.struct(buildObject(value, (_, v) => tcombFromValue(v)))
+}
 
-export const tcombFromValue: <T>(
+export function tcombFromValue<T>(
   value: T,
-) =>
+):
   | tcomb.Struct<T>
   | ReturnType<typeof tcombFromArrayValue>
-  | ReturnType<typeof tcombFromPrimitiveValue> = value => {
+  | ReturnType<typeof tcombFromPrimitiveValue> {
   if (tcomb.Array.is(value)) {
     return tcombFromArrayValue(value)
   }

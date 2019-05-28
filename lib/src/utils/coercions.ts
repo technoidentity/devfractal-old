@@ -9,22 +9,22 @@ import {
 } from 'io-ts-types'
 import { fatal } from '../lib'
 
-export const toInt: (from: string) => number = from => {
+export function toInt(from: string): number {
   const decoded: Either<t.Errors, number> = IntegerFromString.decode(from)
   return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
 }
 
-export const toBoolean: (from: string) => boolean = from => {
+export function toBoolean(from: string): boolean {
   const decoded: Either<t.Errors, boolean> = BooleanFromString.decode(from)
   return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
 }
 
-export const toNumber: (from: string) => number = from => {
+export function toNumber(from: string): number {
   const decoded: Either<t.Errors, number> = NumberFromString.decode(from)
   return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
 }
 
-export const toDate: (from: string) => Date = from => {
+export function toDate(from: string): Date {
   const decoded: Either<t.Errors, Date> = DateFromISOString.decode(from)
   return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
 }

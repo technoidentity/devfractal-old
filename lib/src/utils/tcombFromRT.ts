@@ -5,16 +5,16 @@ import { buildObject } from './common'
 
 // tslint:disable no-use-before-declare
 
-const tcombFromPrimitiveRT: (
+export function tcombFromPrimitiveRT(
   value: iots.Mixed,
-) =>
+):
   | tcomb.Irreducible<number>
   | tcomb.Irreducible<string>
   | tcomb.Irreducible<boolean>
   | tcomb.Irreducible<Function>
   | tcomb.Irreducible<Date>
   | tcomb.Irreducible<void | null>
-  | tcomb.Enums = value => {
+  | tcomb.Enums {
   if (value.name === 'Int') {
     return tcomb.Integer
   }
@@ -53,14 +53,14 @@ const tcombFromObjectRT: <T extends iots.Props>(
     strict: options.strict,
   })
 
-export const tcombFromRT: (
+export function tcombFromRT(
   value: iots.Mixed,
-) =>
+):
   | ReturnType<typeof tcombFromObjectRT>
   | ReturnType<typeof tcombFromPrimitiveRT>
   | tcomb.Tuple<any>
   | tcomb.Maybe<any>
-  | tcomb.Struct<any> = value => {
+  | tcomb.Struct<any> {
   if (value instanceof iots.ReadonlyType) {
     return tcombFromRT(value.type)
   }

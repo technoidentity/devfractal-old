@@ -18,7 +18,7 @@ import tcomb from 'tcomb'
 import { invariant, nop, warning } from '../lib'
 import { buildObject } from './common'
 
-const emptyFromPrimitiveValue: (v: unknown) => any = v => {
+export function emptyFromPrimitiveValue(v: unknown): any {
   if (tcomb.Number.is(v)) {
     return 0
   }
@@ -40,8 +40,9 @@ const emptyFromPrimitiveValue: (v: unknown) => any = v => {
   warning(false, `Unsupported value ${v}`)
 }
 
-const emptyFromObjectValue: <T extends Object>(value: T) => T = value =>
-  buildObject(value, (_, v) => emptyFromPrimitiveValue(v))
+export function emptyFromObjectValue<T extends Object>(value: T): T {
+  return buildObject(value, (_, v) => emptyFromPrimitiveValue(v))
+}
 
 export const emptyFromValue: <T>(value: T) => T = value => {
   if (tcomb.Array.is(value)) {

@@ -2,19 +2,21 @@ import { assert } from 'tcomb'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
 
-export const freeze: <T>(v: T) => Readonly<T> = v =>
-  process.env.NODE_ENV === 'production' ? v : Object.freeze(v)
+export function freeze<T>(v: T): Readonly<T> {
+  return process.env.NODE_ENV === 'production' ? v : Object.freeze(v)
+}
 
-export const jsonStringify: (obj: object) => string = obj =>
-  JSON.stringify(obj, null, 2)
+export function jsonStringify(obj: object): string {
+  return JSON.stringify(obj, null, 2)
+}
 
 export const nop: (...args: any[]) => any = () => undefined
 
-const rangeInternal: (
+export function rangeInternal(
   start: number,
   stop: number,
-  step?: number,
-) => ReadonlyArray<number> = (start, stop, step = 1) => {
+  step: number = 1,
+): ReadonlyArray<number> {
   assert(step > 0)
 
   const result: number[] = []
@@ -24,12 +26,13 @@ const rangeInternal: (
   return result
 }
 
-export const range: (
+export function range(
   start: number,
   stop?: number,
   step?: number,
-) => ReadonlyArray<number> = (start, stop, step) =>
-  stop ? rangeInternal(start, stop, step) : rangeInternal(0, start)
+): ReadonlyArray<number> {
+  return stop ? rangeInternal(start, stop, step) : rangeInternal(0, start)
+}
 
 export function repeatedly<T>(n: number, f: () => T): ReadonlyArray<T> {
   const result: T[] = []

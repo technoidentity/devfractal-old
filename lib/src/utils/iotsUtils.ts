@@ -24,23 +24,26 @@ export function typeWarning<Type extends t.Mixed, Value extends t.TypeOf<Type>>(
 export type RTType<T extends t.Props> = t.ReadonlyC<t.TypeC<T>>
 export type TypeOfRT<T extends t.Props> = t.TypeOf<RTType<T>>
 
-export const rejected: <T>(
+export async function rejected<T>(
   decoded: Either<t.Errors, T> | string,
-) => Promise<T> = async decoded =>
-  Promise.reject(
+): Promise<T> {
+  return Promise.reject(
     new Error(String.is(decoded) ? decoded : reporter(decoded).join('\n')),
   )
+}
 
-export const eitherToPromise: <T>(
+export async function eitherToPromise<T>(
   either: Either<t.Errors, T>,
-) => Promise<T> = async either =>
-  either.isRight() ? either.value : rejected(either)
+): Promise<T> {
+  return either.isRight() ? either.value : rejected(either)
+}
 
-export const opt: <P extends t.Props>(
+export function opt<P extends t.Props>(
   props: P,
   name?: string,
-) => t.ReadonlyC<t.PartialC<P>> = (props, name) =>
-  t.readonly(t.partial(props), name)
+): t.ReadonlyC<t.PartialC<P>> {
+  return t.readonly(t.partial(props), name)
+}
 
 export const req: <P extends t.Props>(
   props: P,
@@ -48,19 +51,16 @@ export const req: <P extends t.Props>(
 ) => t.ReadonlyC<t.TypeC<P>> = (obj, name) => t.readonly(t.type(obj), name)
 
 // tslint:disable readonly-array
-export const props: <O extends t.Props, R extends t.Props>(
+export function props<O extends t.Props, R extends t.Props>(
   optional: O,
   required: R,
   name?: string,
-) => t.IntersectionC<[t.ReadonlyC<t.PartialC<O>>, t.ReadonlyC<t.TypeC<R>>]> = (
-  optional,
-  required,
-  name,
-) =>
-  t.intersection(
+): t.IntersectionC<[t.ReadonlyC<t.PartialC<O>>, t.ReadonlyC<t.TypeC<R>>]> {
+  return t.intersection(
     [t.readonly(t.partial(optional)), t.readonly(t.type(required))],
     name,
   )
+}
 // tslint:enable readonly-array
 
 export const lit: typeof t.literal = t.literal
