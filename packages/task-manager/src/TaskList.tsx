@@ -19,8 +19,8 @@ export const TaskItem: React.FC<TaskItemProps> = ({ taskItem }) => {
     <Tr>
       <Td>{taskItem.title}</Td>
       <Td>{taskItem.description}</Td>
-      <Td>{taskItem.startsOn && format(taskItem.startsOn, 'DD/MM/YYYY')}</Td>
-      <Td>{taskItem.deadLine && format(taskItem.deadLine, 'DD/MM/YYYY')}</Td>
+      <Td>{taskItem.started && format(taskItem.started, 'DD/MM/YYYY')}</Td>
+      <Td>{taskItem.deadline && format(taskItem.deadline, 'DD/MM/YYYY')}</Td>
       <Td>{taskItem.scheduled && format(taskItem.scheduled, 'DD/MM/YYYY')}</Td>
     </Tr>
   )
