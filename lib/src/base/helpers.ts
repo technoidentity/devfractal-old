@@ -45,6 +45,7 @@ export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
 
 type CommonHelpersRemoved<T> = Omit<T, keyof CommonHelpers>
 
+// TODO: Use io-ts to automate this
 const removeCommonHelpers: <T extends CommonHelpers>(
   props: T,
 ) => CommonHelpersRemoved<T> = ({
