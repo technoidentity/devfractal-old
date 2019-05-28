@@ -1,10 +1,18 @@
 import { Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
+import Yup from 'yup'
 
 export interface User {
   readonly name: string
   readonly email: string
 }
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required(),
+  email: Yup.string()
+    .email()
+    .required(),
+})
 
 export const initialValues = { name: '', email: '' }
 
@@ -27,10 +35,11 @@ export interface FormValues {
 export const SignInForm: React.FC<FormValues> = ({ onUserSubmit }) => (
   <Formik
     initialValues={initialValues}
+    validationSchema={validationSchema}
     onSubmit={(values, actions) => {
       onUserSubmit(values)
       actions.setSubmitting(false)
     }}
-    render={InnerSignInForm}
+    component={InnerSignInForm}
   />
 )
