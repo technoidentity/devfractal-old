@@ -27,5 +27,12 @@
     "technoidentity",
     "todos",
     "truthy"
+  ],
+  // "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": false },
+    { "language": "typescriptreact", "autoFix": false }
   ]
 }
