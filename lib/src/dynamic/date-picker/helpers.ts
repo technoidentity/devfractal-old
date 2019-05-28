@@ -8,9 +8,13 @@ import {
 } from 'date-fns'
 import { range } from '../../lib'
 
-export const currentYear: () => number = () => new Date().getFullYear()
+export function currentYear(): number {
+  return new Date().getFullYear()
+}
 
-export const currentMonth: () => number = () => new Date().getMonth() + 1
+export function currentMonth(): number {
+  return new Date().getMonth() + 1
+}
 
 export const calendarMonths: ReadonlyArray<string> = [
   'Jan',
@@ -39,25 +43,23 @@ export const weekDays: ReadonlyArray<string> = [
 
 export const calendarWeeks: number = 6
 
-export const zeroPad: (value: number, length: number) => string = (
-  value,
-  length,
-) => `${value}`.padStart(length, '0')
+export function zeroPad(value: number, length: number): string {
+  return `${value}`.padStart(length, '0')
+}
 
-export const daysInMonth: (month: number, year: number) => number = (
-  month,
-  year,
-) => getDaysInMonth(new Date(year, month - 1))
+export function daysInMonth(month: number, year: number): number {
+  return getDaysInMonth(new Date(year, month - 1))
+}
 
-export const firstDayOfMonth: (month: number, year: number) => number = (
-  month,
-  year,
-) => new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
+export function firstDayOfMonth(month: number, year: number): number {
+  return new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1
+}
 
-export const isValidDate: (date: Date) => boolean = date =>
-  isDate(date) && isValid(date)
+export function isValidDate(date: Date): boolean {
+  return isDate(date) && isValid(date)
+}
 
-export const toISODate: (date: Date) => string | undefined = date => {
+export function toISODate(date: Date): string | undefined {
   return isValidDate(date)
     ? [
         getISOYear(date),
