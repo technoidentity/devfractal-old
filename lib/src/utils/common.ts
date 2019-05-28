@@ -2,19 +2,21 @@ import { assert } from 'tcomb'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
 
-export const freeze: <T>(v: T) => Readonly<T> = v =>
-  process.env.NODE_ENV === 'production' ? v : Object.freeze(v)
+export function freeze<T>(v: T): Readonly<T> {
+  return process.env.NODE_ENV === 'production' ? v : Object.freeze(v)
+}
 
-export const jsonStringify: (obj: object) => string = obj =>
-  JSON.stringify(obj, null, 2)
+export function jsonStringify(obj: object): string {
+  return JSON.stringify(obj, null, 2)
+}
 
 export const nop: (...args: any[]) => any = () => undefined
 
-const rangeInternal: (
+export function rangeInternal(
   start: number,
   stop: number,
-  step?: number,
-) => ReadonlyArray<number> = (start, stop, step = 1) => {
+  step: number = 1,
+): ReadonlyArray<number> {
   assert(step > 0)
 
   const result: number[] = []
@@ -24,33 +26,26 @@ const rangeInternal: (
   return result
 }
 
-export const range: (
+export function range(
   start: number,
   stop?: number,
   step?: number,
-) => ReadonlyArray<number> = (start, stop, step) =>
-  stop ? rangeInternal(start, stop, step) : rangeInternal(0, start)
+): ReadonlyArray<number> {
+  return stop ? rangeInternal(start, stop, step) : rangeInternal(0, start)
+}
 
-export function repeatedly<T>(n: number, f: () => T): ReadonlyArray<T> {
+export function repeatedly<T>(
+  n: number,
+  f: (index: number) => T,
+): ReadonlyArray<T> {
   const result: T[] = []
   for (let i: number = 0; i < n; i++) {
-    result.push(f())
+    result.push(f(i))
   }
   return result
 }
 
-export function buildArray<T, R>(
-  arr: ReadonlyArray<T>,
-  f: (value: T, index: number) => R,
-): ReadonlyArray<R> {
-  const result: R[] = []
-
-  for (let i: number = 0; i < arr.length; i += 1) {
-    result.push(f(arr[i], i))
-  }
-
-  return result
-}
+export const buildArray: typeof repeatedly = repeatedly
 
 export function buildObject<T, R>(
   obj: T,

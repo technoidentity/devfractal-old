@@ -16,7 +16,7 @@ import {
   TypeOf,
 } from 'io-ts'
 import { DateType } from 'io-ts-types'
-import { buildObject } from './common'
+import { buildObject, repeatedly } from './common'
 
 const chance: Chance.Chance = new Chance()
 
@@ -31,15 +31,16 @@ export const defaultOptions = {
 
 type FakeOptions = typeof defaultOptions
 
-const fakeFloat: (options: FakeOptions) => number = options =>
-  chance.bool()
+export function fakeFloat(options: FakeOptions): number {
+  return chance.bool()
     ? chance.floating(options.floating)
     : chance.integer(options.integer)
+}
 
-const fakePrimitive: <T extends Mixed>(
+export function fakePrimitive<T extends Mixed>(
   typeValue: T,
   options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) => {
+): TypeOf<typeof typeValue> {
   if (typeValue.name === 'Int') {
     return chance.integer(options.integer)
   }
@@ -61,39 +62,36 @@ const fakePrimitive: <T extends Mixed>(
   throw new Error(`Unsupported type: ${typeValue.name}`)
 }
 
-const fakeArrayFromType: <T extends Mixed>(
+export function fakeArrayFromType<T extends Mixed>(
   typeValue: T,
   options: FakeOptions,
-) => ReadonlyArray<TypeOf<typeof typeValue>> = (typeValue, options) => {
+): ReadonlyArray<TypeOf<typeof typeValue>> {
   const n = chance.integer({
     min: options.array.minLength,
     max: options.array.maxLength,
   })
 
-  const result: Array<TypeOf<typeof typeValue>> = []
-  for (let i = 0; i < n; i += 1) {
-    // tslint:disable-next-line no-array-mutation
-    result.push(fake(typeValue, options))
-  }
-  return result
+  return repeatedly(n, () => fake(typeValue, options))
 }
 
-const fakeArray: <T extends Mixed>(
+export function fakeArray<T extends Mixed>(
   typeValue: ArrayC<T> | ReadonlyArrayC<T>,
   options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) =>
-  fakeArrayFromType(typeValue.type, options)
+): TypeOf<typeof typeValue> {
+  return fakeArrayFromType(typeValue.type, options)
+}
 
-const fakeObject: <T extends Props>(
+export function fakeObject<T extends Props>(
   typeValue: TypeC<T>,
   options: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options) =>
-  buildObject(typeValue.props, v => fake(v, options))
+): TypeOf<typeof typeValue> {
+  return buildObject(typeValue.props, v => fake(v, options))
+}
 
-export const fake: <T extends Mixed>(
+export function fake<T extends Mixed>(
   typeValue: T,
-  options?: FakeOptions,
-) => TypeOf<typeof typeValue> = (typeValue, options = defaultOptions) => {
+  options: FakeOptions = defaultOptions,
+): TypeOf<typeof typeValue> {
   if (typeValue instanceof ReadonlyType) {
     return fake(typeValue.type, options)
   }

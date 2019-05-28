@@ -20,7 +20,7 @@ interface CommonHelpers {
   readonly srOnly?: boolean
 }
 
-export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
+export function commonHelpersClasses({
   floating,
   marginLess,
   paddingLess,
@@ -30,8 +30,8 @@ export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
   unSelectable,
   invisible,
   srOnly,
-}) =>
-  classNames({
+}: CommonHelpers): string {
+  return classNames({
     [`is-${floating}`]: floating,
     'is-marginless': marginLess,
     'is-paddingless': paddingLess,
@@ -42,23 +42,28 @@ export const commonHelpersClasses: (helpers: CommonHelpers) => string = ({
     'is-invisible': invisible,
     'is-sr-only': srOnly,
   })
+}
 
 type CommonHelpersRemoved<T> = Omit<T, keyof CommonHelpers>
 
-const removeCommonHelpers: <T extends CommonHelpers>(
+// TODO: Use io-ts to automate this
+export function removeCommonHelpers<T extends CommonHelpers>(
   props: T,
-) => CommonHelpersRemoved<T> = ({
-  floating,
-  marginLess,
-  paddingLess,
-  clipped,
-  radiusLess,
-  shadowLess,
-  unSelectable,
-  invisible,
-  srOnly,
-  ...result
-}) => result
+): CommonHelpersRemoved<T> {
+  const {
+    floating,
+    marginLess,
+    paddingLess,
+    clipped,
+    radiusLess,
+    shadowLess,
+    unSelectable,
+    invisible,
+    srOnly,
+    ...result
+  } = props
+  return result
+}
 
 type Display = 'block' | 'flex' | 'inline' | 'inline-block' | 'inline-flex'
 
@@ -79,11 +84,11 @@ interface ResponsiveHelpers {
   readonly responsiveVisibility?: boolean
 }
 
-export const responsiveClass: (helpers: ResponsiveHelpers) => string = ({
+export function responsiveClass({
   display,
   breakpoint,
   responsiveVisibility,
-}) => {
+}: ResponsiveHelpers): string {
   const hiddenClass: string = responsiveVisibility
     ? `-${responsiveVisibility}`
     : ''

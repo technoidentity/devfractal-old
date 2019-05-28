@@ -10,10 +10,9 @@ import {
   Views,
 } from '../lib'
 
-const base: (resource: string, basePath: string) => string = (
-  resource,
-  basePath,
-) => (basePath ? `${basePath}/${resource}` : `/${resource}`)
+export function base(resource: string, basePath: string): string {
+  return basePath ? `${basePath}/${resource}` : `/${resource}`
+}
 
 export interface Paths {
   readonly list: string
@@ -22,12 +21,8 @@ export interface Paths {
   readonly edit: string
 }
 
-export const paths: (resource: string, basePath: string) => Paths = (
-  resource,
-  basePath,
-) => {
+export function paths(resource: string, basePath: string): Paths {
   const path: string = base(resource, basePath)
-
   return {
     list: path,
     create: `${path}/create`,
@@ -43,12 +38,8 @@ export interface PathFns {
   create(): string
 }
 
-export const pathFns: (resource: string, basePath: string) => PathFns = (
-  resource,
-  basePath,
-) => {
+export function pathFns(resource: string, basePath: string): PathFns {
   const path: string = base(resource, basePath)
-
   return {
     list: () => path,
     create: () => `${path}/create`,
