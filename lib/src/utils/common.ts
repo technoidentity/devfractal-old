@@ -34,26 +34,18 @@ export function range(
   return stop ? rangeInternal(start, stop, step) : rangeInternal(0, start)
 }
 
-export function repeatedly<T>(n: number, f: () => T): ReadonlyArray<T> {
+export function repeatedly<T>(
+  n: number,
+  f: (index: number) => T,
+): ReadonlyArray<T> {
   const result: T[] = []
   for (let i: number = 0; i < n; i++) {
-    result.push(f())
+    result.push(f(i))
   }
   return result
 }
 
-export function buildArray<T, R>(
-  arr: ReadonlyArray<T>,
-  f: (value: T, index: number) => R,
-): ReadonlyArray<R> {
-  const result: R[] = []
-
-  for (let i: number = 0; i < arr.length; i += 1) {
-    result.push(f(arr[i], i))
-  }
-
-  return result
-}
+export const buildArray: typeof repeatedly = repeatedly
 
 export function buildObject<T, R>(
   obj: T,
