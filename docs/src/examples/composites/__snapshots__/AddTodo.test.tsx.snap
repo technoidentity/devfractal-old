@@ -67,6 +67,7 @@ exports[`AddTodo 1`] = `
             type="checkbox"
             value={false}
           />
+           Done
         </label>
       </div>
     </div>

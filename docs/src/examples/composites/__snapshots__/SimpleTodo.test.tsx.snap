@@ -68,6 +68,7 @@ Array [
               type="checkbox"
               value={false}
             />
+             Done
           </label>
         </div>
       </div>
