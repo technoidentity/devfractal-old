@@ -29,6 +29,9 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
       return meta.refinements
         ? { type: 'number', ...toJsonSchemaNumberRefinements(meta.refinements) }
         : { type: 'number' }
+
+    case 'string':
+      return { type: 'string' }
   }
   return true
 }
