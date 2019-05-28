@@ -22,10 +22,10 @@ import {
 
 // tslint:disable typedef switch-default
 
-const toYupNumberRefinements: (
+function toYupNumberRefinements(
   schema: NumberSchema,
   r: NumberRefinements,
-) => NumberSchema = (schema, r) => {
+): NumberSchema {
   let result: NumberSchema = schema
 
   if (r.integer) {
@@ -50,10 +50,10 @@ const toYupNumberRefinements: (
   return result
 }
 
-const toYupStringRefinements: (
+function toYupStringRefinements(
   schema: StringSchema,
   r: StringRefinements,
-) => StringSchema = (schema, r) => {
+): StringSchema {
   let result: StringSchema = schema
 
   if (r.email) {
@@ -81,10 +81,10 @@ const toYupStringRefinements: (
   return result
 }
 
-const toYupDateRefinements: (
+function toYupDateRefinements(
   schema: DateSchema,
   r: DateRefinements,
-) => DateSchema = (schema, r) => {
+): DateSchema {
   let result: DateSchema = schema
   if (r.maxDate) {
     result = result.max(r.maxDate)
@@ -96,10 +96,10 @@ const toYupDateRefinements: (
   return result
 }
 
-const toYupArrayRefinements: (
+export function toYupArrayRefinements(
   schema: ArraySchema<unknown>,
   r: ArrayRefinements,
-) => ArraySchema<unknown> = (schema, r) => {
+): ArraySchema<unknown> {
   let result: ArraySchema<unknown> = schema
 
   if (r.maxArrayLength) {
@@ -112,7 +112,7 @@ const toYupArrayRefinements: (
   return result
 }
 
-export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
+export function metaToYup(meta: Mixed): Schema<any> {
   switch (meta.kind) {
     case 'number':
       const ns = number().strict(true)

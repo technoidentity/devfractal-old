@@ -3,7 +3,7 @@ import { Mixed } from './index'
 
 // tslint:disable typedef switch-default
 
-export const metaToInitialValues: (meta: Mixed) => any = meta => {
+export function metaToInitialValues(meta: Mixed): any {
   switch (meta.kind) {
     case 'number':
       return 0

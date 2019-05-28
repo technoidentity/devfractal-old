@@ -101,7 +101,7 @@ function toTcombArrayRefinements(r: ArrayRefinements) {
   return refinements
 }
 
-export const metaToTcomb: (meta: Mixed) => t.Type<any> = meta => {
+export function metaToTcomb(meta: Mixed): t.Type<any> {
   switch (meta.kind) {
     case 'number':
       return meta.refinements
