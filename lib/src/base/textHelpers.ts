@@ -56,7 +56,7 @@ export interface TextHelpers {
   readonly textResponsiveAlignment?: TextResponsiveAlignment
 }
 
-export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
+export function textHelpersClasses({
   textColor,
   textBackgroundColor,
   textSize,
@@ -65,7 +65,7 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
   textWeight,
   textResponsiveSize,
   textResponsiveAlignment,
-}) => {
+}: TextHelpers): string {
   const cnSize: string = textResponsiveSize
     ? `is-size-${textSize}-${textResponsiveSize}`
     : textSize
@@ -89,16 +89,19 @@ export const textHelpersClasses: (textHelpers: TextHelpers) => string = ({
 
 export type TextHelpersRemoved<T> = Omit<T, keyof TextHelpers>
 
-export const removeTextHelpers: <T extends TextHelpers>(
+export function removeTextHelpers<T extends TextHelpers>(
   props: T,
-) => TextHelpersRemoved<T> = ({
-  textColor,
-  textBackgroundColor,
-  textSize,
-  textAlignment,
-  textTransformation,
-  textWeight,
-  textResponsiveSize,
-  textResponsiveAlignment,
-  ...result
-}) => result
+): TextHelpersRemoved<T> {
+  const {
+    textColor,
+    textBackgroundColor,
+    textSize,
+    textAlignment,
+    textTransformation,
+    textWeight,
+    textResponsiveSize,
+    textResponsiveAlignment,
+    ...result
+  } = props
+  return result
+}
