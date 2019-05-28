@@ -1,6 +1,8 @@
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema'
 import { Mixed, NumberRefinements, StringRefinements } from './types'
 
+// tslint:disable no-object-mutation
+
 function toJsonSchemaNumberRefinements(r: NumberRefinements): JSONSchema7 {
   const schema: JSONSchema7 = {}
 
