@@ -1,5 +1,6 @@
 import { Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
+import Yup from 'yup'
 
 export interface User {
   readonly name: string
@@ -14,6 +15,18 @@ export const initialValues = {
   password: '',
   confirmPassword: '',
 }
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string()
+    .required()
+    .min(2)
+    .max(15),
+  email: Yup.string()
+    .email()
+    .required(),
+  password: Yup.string().required(),
+  confirmPassword: Yup.string().required(),
+})
 
 const InnerSignUpForm: React.FC<FormikProps<User>> = () => {
   return (
@@ -42,10 +55,11 @@ export interface FormValues {
 export const SignUpForm: React.FC<FormValues> = ({ onUserSubmit }) => (
   <Formik
     initialValues={initialValues}
+    validationSchema={validationSchema}
     onSubmit={(values, actions) => {
       onUserSubmit(values)
       actions.setSubmitting(false)
     }}
-    render={InnerSignUpForm}
+    component={InnerSignUpForm}
   />
 )
