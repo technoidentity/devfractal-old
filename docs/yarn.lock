@@ -1213,47 +1213,6 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.20.tgz#d8b25b23e532c67bd56c614025b24cb2a65e25db"
   integrity sha512-TpqR1qCn117fY4mrxSGqv/CT/iAM58sHdlS8ujj0Roa7DoleAHJzqOhNNoHCNncwvNDWcvygLsEiTBuDQZsv3A==
 
-"@fortawesome/fontawesome-common-types@^0.2.18":
-  version "0.2.18"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.18.tgz#c0d8f073a5116b2de0a2c8a7aba66093a6956ce7"
-  integrity sha512-834DrzO2Ne3upCW+mJJPC/E6BsFcj+2Z1HmPIhbpbj8UaKmXWum4NClqLpUiMetugRlHuG4jbIHNdv2/lc3c1Q==
-
-"@fortawesome/fontawesome-svg-core@1.2.18":
-  version "1.2.18"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.18.tgz#c26cbded461895ebe260f0dea771ca29d8cb3517"
-  integrity sha512-1vyLWVQqxQ8q8bA2zgZcljk3RkeELlDJ757ymLk+ebK019AFgEFH5kTnR5OMN1SFsTwW1OHlFQO3VufdeCg/Gg==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.18"
-
-"@fortawesome/free-brands-svg-icons@5.8.2":
-  version "5.8.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.8.2.tgz#e68a509c986d5d197cc5bd9ae8d966eff513468d"
-  integrity sha512-nhEWctDOP6f+Ka10LXAFoF+6mtWidC2iQgTBGRGgydmhBtcIEwyxWVx5wQHa86A1zAMi5TnipDAYQs2qn7DD6A==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.18"
-
-"@fortawesome/free-regular-svg-icons@5.8.2":
-  version "5.8.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.8.2.tgz#f61c603c73695a41bcee9d6f9d44e2ca4829f151"
-  integrity sha512-499WODlsDcXA9hM+Y3ZqoWj1kKhVLCHS8PnJs3zEaoPr5W6yrE9Jnp3C9Hb9KpwnRMh3IRXZ3XqxyUaQFMMRFw==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.18"
-
-"@fortawesome/free-solid-svg-icons@5.8.2":
-  version "5.8.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.8.2.tgz#aa2f042f73aca43eb4a26149907e63bf26d2e31c"
-  integrity sha512-5tF6WOFlqqO95zY5ukSB6jliDa3jnk1p5L4K/a58ccDFsbjSkhfGuvZkRkeWxH8uMms81pZd6yQTwQrkedeJmg==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.18"
-
-"@fortawesome/react-fontawesome@0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.4.tgz#18d61d9b583ca289a61aa7dccc05bd164d6bc9ad"
-  integrity sha512-GwmxQ+TK7PEdfSwvxtGnMCqrfEm0/HbRHArbUudsYiy9KzVCwndxa2KMcfyTQ8El0vROrq8gOOff09RF1oQe8g==
-  dependencies:
-    humps "^2.0.1"
-    prop-types "^15.5.10"
-
 "@grpc/proto-loader@^0.5.0":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.5.1.tgz#48492b53cdda353110b51a4b02f465974729c76f"
@@ -5666,11 +5625,6 @@ https-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
-humps@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/humps/-/humps-2.0.1.tgz#dd02ea6081bd0568dc5d073184463957ba9ef9aa"
-  integrity sha1-3QLqYIG9BWjcXQcxhEY5V7qe+ao=
-
 husky@2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-2.3.0.tgz#8b78ed24d763042df7fd899991985d65a976dd13"
@@ -9352,7 +9306,7 @@ prompts@^2.0.1:
     kleur "^3.0.2"
     sisteransi "^1.0.0"
 
-prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -11097,16 +11051,11 @@ tcomb@3.2.29:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-devfractal@0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.6.1.tgz#a275965d74cb52035f1dc914492db5e9dba21a02"
-  integrity sha512-n8IcRlCQXVe4nDn2q4/b5uarMHlDYuzkrABwyCeqIvqge6/IMpKj37op1bNJZFzjYmykpYwXA6YTfM3mr2xGAQ==
+technoidentity-devfractal@0.6.2-alpha:
+  version "0.6.2-alpha"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.6.2-alpha.tgz#add45a0ef2ac5fc65adb0342148c207a354fe7c9"
+  integrity sha512-SiWEHE3NmKF+kAcj003UhzPLnuJirzaZ7AUTnn09b28iBsPLtSG7lxWAVycL/08FUOpOKmqDSriCfwWcmHWHgQ==
   dependencies:
-    "@fortawesome/fontawesome-svg-core" "1.2.18"
-    "@fortawesome/free-brands-svg-icons" "5.8.2"
-    "@fortawesome/free-regular-svg-icons" "5.8.2"
-    "@fortawesome/free-solid-svg-icons" "5.8.2"
-    "@fortawesome/react-fontawesome" "0.1.4"
     axios "0.18.0"
     bulma "0.7.5"
     cleave.js "1.5.0"
@@ -11121,6 +11070,7 @@ technoidentity-devfractal@0.6.1:
     monocle-ts "1.7.2"
     react-content-loader "4.2.1"
     react-hanger "2.0.0"
+    react-icons "^3.7.0"
     react-router "5.0.0"
     react-router-dom "5.0.0"
     react-use "9.1.2"
