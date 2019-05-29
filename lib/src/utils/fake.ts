@@ -16,7 +16,7 @@ import {
   TypeOf,
 } from 'io-ts'
 import { DateType } from 'io-ts-types'
-import { buildObject } from './common'
+import { buildObject, repeatedly } from './common'
 
 const chance: Chance.Chance = new Chance()
 
@@ -71,12 +71,7 @@ export function fakeArrayFromType<T extends Mixed>(
     max: options.array.maxLength,
   })
 
-  const result: Array<TypeOf<typeof typeValue>> = []
-  for (let i = 0; i < n; i += 1) {
-    // tslint:disable-next-line no-array-mutation
-    result.push(fake(typeValue, options))
-  }
-  return result
+  return repeatedly(n, () => fake(typeValue, options))
 }
 
 export function fakeArray<T extends Mixed>(

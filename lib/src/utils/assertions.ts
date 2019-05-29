@@ -1,6 +1,6 @@
 // copied from tiny-warning package
 export function warning(condition: unknown, message: string): void {
-  if (!(process.env.NODE_ENV === 'production')) {
+  if (process.env.NODE_ENV !== 'production') {
     if (condition) {
       return
     }
