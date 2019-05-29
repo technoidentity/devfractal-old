@@ -61,6 +61,9 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
 
     case 'boolean':
       return { type: 'boolean' }
+
+    case 'date':
+      return { type: 'string', format: 'date' }
   }
   return true
 }

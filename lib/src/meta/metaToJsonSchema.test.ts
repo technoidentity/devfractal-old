@@ -4,6 +4,7 @@ import { metaToJsonSchema, PrimitiveMT } from './index'
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }
 const boolEx: PrimitiveMT = { kind: 'boolean' }
+const dateEx: PrimitiveMT = { kind: 'date' }
 
 test('json schema from number meta', () => {
   expect(ajv().validate(metaToJsonSchema(noEx), 100)).toBeTruthy()
@@ -55,4 +56,9 @@ test('json schema from bool meta', () => {
   expect(ajv().validate(metaToJsonSchema(boolEx), true)).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(boolEx), false)).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(boolEx), '100')).toBeFalsy()
+})
+
+test('json schema from date meta', () => {
+  expect(ajv().validate(metaToJsonSchema(dateEx), new Date())).toBeFalsy()
+  expect(ajv().validate(metaToJsonSchema(dateEx), '2000-12-02')).toBeTruthy()
 })
