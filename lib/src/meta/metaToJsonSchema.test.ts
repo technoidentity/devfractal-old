@@ -98,3 +98,24 @@ test('json schema from array meta with refinements', () => {
   ).toBeFalsy()
   expect(ajv().validate(metaToJsonSchema(arrNoREx), [])).toBeFalsy()
 })
+
+test('json schema from array with differently typed elements', () => {
+  const arrStrEx: ArrayMT = { kind: 'array', of: strEx }
+  expect(ajv().validate(metaToJsonSchema(arrStrEx), [])).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(arrStrEx), [10, 20])).toBeFalsy()
+  expect(ajv().validate(metaToJsonSchema(arrStrEx), ['10', '20'])).toBeTruthy()
+
+  const arrBoolEx: ArrayMT = { kind: 'array', of: boolEx }
+  expect(ajv().validate(metaToJsonSchema(arrBoolEx), [])).toBeTruthy()
+  expect(
+    ajv().validate(metaToJsonSchema(arrBoolEx), [true, false]),
+  ).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(arrBoolEx), ['10', '20'])).toBeFalsy()
+
+  const arrDateEx: ArrayMT = { kind: 'array', of: dateEx }
+  expect(ajv().validate(metaToJsonSchema(arrDateEx), [])).toBeTruthy()
+  expect(
+    ajv().validate(metaToJsonSchema(arrDateEx), ['2000-12-02', '2011-01-31']),
+  ).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(arrDateEx), ['10', '20'])).toBeFalsy()
+})
