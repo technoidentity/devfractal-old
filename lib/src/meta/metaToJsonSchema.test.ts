@@ -82,3 +82,19 @@ test('json schema from array meta', () => {
   expect(ajv().validate(metaToJsonSchema(arrNoEx), [10, 20])).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(arrNoEx), ['10', '20'])).toBeFalsy()
 })
+
+test('json schema from array meta with refinements', () => {
+  const arrNoREx: ArrayMT = {
+    kind: 'array',
+    of: noEx,
+    refinements: {
+      maxArrayLength: 6,
+      minArrayLength: 2,
+    },
+  }
+  expect(ajv().validate(metaToJsonSchema(arrNoREx), [10, 20])).toBeTruthy()
+  expect(
+    ajv().validate(metaToJsonSchema(arrNoREx), [10, 20, 30, 40, 50, 60, 70]),
+  ).toBeFalsy()
+  expect(ajv().validate(metaToJsonSchema(arrNoREx), [])).toBeFalsy()
+})

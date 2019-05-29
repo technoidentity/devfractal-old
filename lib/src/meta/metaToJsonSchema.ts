@@ -1,5 +1,10 @@
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema'
-import { Mixed, NumberRefinements, StringRefinements } from './types'
+import {
+  ArrayRefinements,
+  Mixed,
+  NumberRefinements,
+  StringRefinements,
+} from './types'
 
 // tslint:disable no-object-mutation
 
@@ -47,6 +52,19 @@ function toJsonSchemaStringRefinements(r: StringRefinements): JSONSchema7 {
   return schema
 }
 
+function toJsonSchemaArrayRefinements(r: ArrayRefinements) {
+  const schema: JSONSchema7 = {}
+
+  if (r.maxArrayLength) {
+    schema.maxItems = r.maxArrayLength
+  }
+  if (r.minArrayLength) {
+    schema.minItems = r.minArrayLength
+  }
+
+  return schema
+}
+
 export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
   switch (meta.kind) {
     case 'number':
@@ -69,7 +87,13 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
       return { type: 'string', enum: [...meta.values] }
 
     case 'array':
-      return { type: 'array', items: metaToJsonSchema(meta.of) }
+      return meta.refinements
+        ? {
+            type: 'array',
+            items: metaToJsonSchema(meta.of),
+            ...toJsonSchemaArrayRefinements(meta.refinements),
+          }
+        : { type: 'array', items: metaToJsonSchema(meta.of) }
   }
   return true
 }
