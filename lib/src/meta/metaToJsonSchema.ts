@@ -67,6 +67,9 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
 
     case 'enum':
       return { type: 'string', enum: [...meta.values] }
+
+    case 'array':
+      return { type: 'array', items: metaToJsonSchema(meta.of) }
   }
   return true
 }

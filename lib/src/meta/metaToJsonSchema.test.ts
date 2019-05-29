@@ -1,5 +1,5 @@
 import ajv from 'ajv'
-import { EnumMT, metaToJsonSchema, PrimitiveMT } from './index'
+import { ArrayMT, EnumMT, metaToJsonSchema, PrimitiveMT } from './index'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }
@@ -74,4 +74,11 @@ test('json schema from enum meta', () => {
   expect(ajv().validate(metaToJsonSchema(enumEx), 'green')).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(enumEx), 'blue')).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(enumEx), 'GREEN')).toBeFalsy()
+})
+
+test('json schema from array meta', () => {
+  const arrNoEx: ArrayMT = { kind: 'array', of: noEx }
+  expect(ajv().validate(metaToJsonSchema(arrNoEx), [])).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(arrNoEx), [10, 20])).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(arrNoEx), ['10', '20'])).toBeFalsy()
 })
