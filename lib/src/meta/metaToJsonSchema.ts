@@ -1,4 +1,5 @@
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema'
+import { buildObject } from '../utils'
 import {
   ArrayRefinements,
   Mixed,
@@ -52,7 +53,7 @@ function toJsonSchemaStringRefinements(r: StringRefinements): JSONSchema7 {
   return schema
 }
 
-function toJsonSchemaArrayRefinements(r: ArrayRefinements) {
+function toJsonSchemaArrayRefinements(r: ArrayRefinements): JSONSchema7 {
   const schema: JSONSchema7 = {}
 
   if (r.maxArrayLength) {
@@ -94,6 +95,12 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
             ...toJsonSchemaArrayRefinements(meta.refinements),
           }
         : { type: 'array', items: metaToJsonSchema(meta.of) }
+
+    case 'object':
+      return {
+        type: 'object',
+        properties: buildObject(meta.properties, metaToJsonSchema),
+      }
   }
   return true
 }

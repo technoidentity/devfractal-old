@@ -1,5 +1,12 @@
 import ajv from 'ajv'
-import { ArrayMT, EnumMT, metaToJsonSchema, PrimitiveMT } from './index'
+import {
+  ArrayMT,
+  EnumMT,
+  metaToJsonSchema,
+  Mixed,
+  ObjectMT,
+  PrimitiveMT,
+} from './index'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }
@@ -118,4 +125,80 @@ test('json schema from array with differently typed elements', () => {
     ajv().validate(metaToJsonSchema(arrDateEx), ['2000-12-02', '2011-01-31']),
   ).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(arrDateEx), ['10', '20'])).toBeFalsy()
+})
+
+test('json schema from object meta', () => {
+  const objEx: ObjectMT = {
+    kind: 'object',
+    properties: {
+      name: strEx,
+      price: noEx,
+      inStock: boolEx,
+    },
+  }
+  expect(
+    ajv().validate(metaToJsonSchema(objEx), {
+      name: 'iPhone',
+      price: 700,
+      inStock: true,
+    }),
+  ).toBeTruthy()
+  expect(
+    ajv().validate(metaToJsonSchema(objEx), {
+      name: 'iPhone',
+      price: 700,
+      inStock: 10,
+    }),
+  ).toBeFalsy()
+  expect(
+    ajv().validate(metaToJsonSchema(objEx), {
+      name: 'iPhone',
+      price: '700',
+      inStock: 10,
+    }),
+  ).toBeFalsy()
+  expect(
+    ajv().validate(metaToJsonSchema(objEx), {
+      name: 100,
+      price: '700',
+      inStock: 10,
+    }),
+  ).toBeFalsy()
+})
+
+test('json schema from complex meta', () => {
+  const customerMeta: Mixed = {
+    kind: 'object',
+    properties: {
+      name: strEx,
+      type: {
+        kind: 'enum',
+        name: 'CustomerType',
+        values: ['manager', 'programmer', 'team-leader'],
+      },
+      addresses: {
+        kind: 'array',
+        of: {
+          kind: 'object',
+          properties: {
+            city: strEx,
+            zip: noEx,
+            country: strEx,
+          },
+        },
+      },
+    },
+  }
+
+  // tslint:disable-next-line:typedef
+  const customer = {
+    name: 'foobar',
+    type: 'team-leader',
+    addresses: [
+      { city: 'hyderabad', zip: 500018, country: 'india' },
+      { city: 'chennai', zip: 500038, country: 'india' },
+    ],
+  }
+
+  expect(ajv().validate(metaToJsonSchema(customerMeta), customer)).toBeTruthy()
 })
