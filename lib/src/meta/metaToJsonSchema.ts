@@ -64,6 +64,9 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
 
     case 'date':
       return { type: 'string', format: 'date' }
+
+    case 'enum':
+      return { type: 'string', enum: [...meta.values] }
   }
   return true
 }
