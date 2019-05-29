@@ -58,6 +58,9 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
       return meta.refinements
         ? { type: 'string', ...toJsonSchemaStringRefinements(meta.refinements) }
         : { type: 'string' }
+
+    case 'boolean':
+      return { type: 'boolean' }
   }
   return true
 }

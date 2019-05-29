@@ -3,6 +3,8 @@ import { metaToJsonSchema, PrimitiveMT } from './index'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }
+const boolEx: PrimitiveMT = { kind: 'boolean' }
+
 test('json schema from number meta', () => {
   expect(ajv().validate(metaToJsonSchema(noEx), 100)).toBeTruthy()
   expect(ajv().validate(metaToJsonSchema(noEx), '100')).toBeFalsy()
@@ -47,4 +49,10 @@ test('json schema from str meta with refinements', () => {
   expect(
     ajv().validate(metaToJsonSchema(strREx), 'foooooooooooooooooooo@g.com'),
   ).toBeFalsy()
+})
+
+test('json schema from bool meta', () => {
+  expect(ajv().validate(metaToJsonSchema(boolEx), true)).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(boolEx), false)).toBeTruthy()
+  expect(ajv().validate(metaToJsonSchema(boolEx), '100')).toBeFalsy()
 })
