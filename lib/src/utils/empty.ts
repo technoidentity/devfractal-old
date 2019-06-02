@@ -80,9 +80,9 @@ export function empty<T extends Props>(
           `Everything must be readonly: ${v.name}`,
         )
         if (v instanceof KeyofType) {
-          draft[prop] = Object.keys(v.keys)[0]
+          draft[prop] = Object.keys(v.keys)
         } else if (v instanceof ReadonlyType) {
-          draft[prop] = empty(v, undefined)
+          draft[prop] = empty(v)
         } else if (v instanceof ReadonlyArrayType) {
           draft[prop] = []
         } else {

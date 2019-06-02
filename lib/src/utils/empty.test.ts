@@ -7,6 +7,7 @@ import {
   string,
   type,
 } from 'io-ts'
+import { date } from 'io-ts-types'
 import { empty } from '../lib'
 
 test('emptyFromType', () => {
@@ -17,7 +18,7 @@ test('emptyFromType', () => {
           i: number,
           s: string,
           b: boolean,
-          // d: date,
+          d: date,
           a: readonlyArray(boolean),
           e: keyof({
             foo: 1,
@@ -31,16 +32,23 @@ test('emptyFromType', () => {
         }),
       ),
     ),
-  ).toMatchInlineSnapshot(`
-Object {
-  "a": Array [],
-  "b": false,
-  "e": "foo",
-  "i": 0,
-  "o": Object {
-    "fizz": Array [],
-  },
-  "s": "",
-}
-`)
+  ).toMatchInlineSnapshot(
+    { d: expect.any(Date) },
+    `
+    Object {
+      "a": Array [],
+      "b": false,
+      "d": Any<Date>,
+      "e": Array [
+        "foo",
+        "bar",
+      ],
+      "i": 0,
+      "o": Object {
+        "fizz": Array [],
+      },
+      "s": "",
+    }
+  `,
+  )
 })
