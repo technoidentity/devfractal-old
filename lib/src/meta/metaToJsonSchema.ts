@@ -1,5 +1,5 @@
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema'
-import { buildObject } from '../utils'
+import { buildObject, keys } from '../utils'
 import {
   ArrayRefinements,
   Mixed,
@@ -97,9 +97,14 @@ export function metaToJsonSchema(meta: Mixed): JSONSchema7Definition {
         : { type: 'array', items: metaToJsonSchema(meta.of) }
 
     case 'object':
+      const requiredProps: Array<string | number> = keys(
+        meta.properties,
+      ).filter(k => !meta.properties[k].optional)
+
       return {
         type: 'object',
         properties: buildObject(meta.properties, metaToJsonSchema),
+        required: requiredProps as string[],
       }
   }
   return true

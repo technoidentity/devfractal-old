@@ -6,6 +6,7 @@ import {
   Mixed,
   ObjectMT,
   PrimitiveMT,
+  PropertyMT,
 } from './index'
 
 const noEx: PrimitiveMT = { kind: 'number' }
@@ -128,14 +129,24 @@ test('json schema from array with differently typed elements', () => {
 })
 
 test('json schema from object meta', () => {
+  const strOptEx: PropertyMT = { kind: 'string', optional: true }
   const objEx: ObjectMT = {
     kind: 'object',
     properties: {
       name: strEx,
       price: noEx,
       inStock: boolEx,
+      description: strOptEx,
     },
   }
+  expect(
+    ajv().validate(metaToJsonSchema(objEx), {
+      name: 'iPhone',
+      price: 700,
+      inStock: true,
+      description: 'iPhone 8 plus',
+    }),
+  ).toBeTruthy()
   expect(
     ajv().validate(metaToJsonSchema(objEx), {
       name: 'iPhone',
@@ -162,6 +173,12 @@ test('json schema from object meta', () => {
       name: 100,
       price: '700',
       inStock: 10,
+    }),
+  ).toBeFalsy()
+  expect(
+    ajv().validate(metaToJsonSchema(objEx), {
+      name: 'iPhone',
+      price: 700,
     }),
   ).toBeFalsy()
 })
