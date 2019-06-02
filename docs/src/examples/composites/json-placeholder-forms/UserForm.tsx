@@ -3,7 +3,7 @@ import React from 'react'
 import {
   consoleSubmit,
   email,
-  emptyFromType,
+  empty as emptyFromType,
   max,
   min,
   required,

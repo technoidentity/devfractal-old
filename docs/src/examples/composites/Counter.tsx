@@ -1,11 +1,10 @@
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { FaMinus, FaPlus } from 'react-icons/fa'
 import {
   Box,
   Button,
   Column,
   Columns,
-  Icon,
   State,
   StateRenderProps,
   Text,
@@ -25,7 +24,7 @@ export const CounterInner: React.FC<StateRenderProps<number>> = ({
           onClick={eset(+count + 1)}
           noControl
         >
-          <Icon icon={faPlus} />
+          <FaPlus />
         </Button>
         <Text as="h1" textSize="2">
           {count}
@@ -36,7 +35,7 @@ export const CounterInner: React.FC<StateRenderProps<number>> = ({
           onClick={eset(+count - 1)}
           noControl
         >
-          <Icon icon={faMinus} />
+          <FaMinus />
         </Button>
       </Box>
     </Column>

@@ -2,7 +2,7 @@ import * as t from 'io-ts'
 import React from 'react'
 import {
   consoleSubmit,
-  emptyFromType,
+  empty as emptyFromType,
   required,
   Section,
   Simple,

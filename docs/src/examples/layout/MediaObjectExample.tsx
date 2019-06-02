@@ -1,12 +1,11 @@
-import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { FaHeart, FaReply, FaRetweet } from 'react-icons/fa'
 import {
   Button,
   CheckBox,
   Content,
   Delete,
   Field,
-  Icon,
   Image,
   Level,
   LevelItem,
@@ -166,9 +165,9 @@ const ComplexMediaObjectExample: React.FC = () => (
         </Content>
         <Level className="is-mobile">
           <LevelItem direction="left">
-            <Icon icon={faReply} />
-            <Icon icon={faRetweet} />
-            <Icon icon={faHeart} />
+            <FaReply />
+            <FaRetweet />
+            <FaHeart />
           </LevelItem>
         </Level>
       </MediaContent>

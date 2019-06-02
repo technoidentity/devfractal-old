@@ -1,6 +1,6 @@
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
-import { Button, classNamesHelper, Div, Helpers, Icon } from '../lib'
+import React from 'react'
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
+import { Button, classNamesHelper, Div, Helpers } from '../lib'
 
 type DropDownModifier = 'hoverable' | 'active'
 
@@ -31,7 +31,7 @@ export const DropDown: React.FC<DropDownProps> = ({
   children,
   ...props
 }) => {
-  const [active, setActive] = useState(modifier === 'active')
+  const [active, setActive] = React.useState(modifier === 'active')
   const classes: string = classNamesHelper(props, 'dropdown', {
     [`is-hoverable`]: modifier === 'hoverable',
     [`is-active`]: modifier !== 'hoverable' && active,
@@ -43,7 +43,7 @@ export const DropDown: React.FC<DropDownProps> = ({
       <Div className="dropdown-trigger">
         <Button onClick={() => setActive(!active)}>
           <span>{label}</span>
-          <Icon icon={dropUp ? faAngleUp : faAngleDown} />
+          {dropUp ? <FaAngleUp /> : <FaAngleDown />}
         </Button>
       </Div>
       <Div className="dropdown-menu" role="menu">

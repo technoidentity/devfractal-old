@@ -1,5 +1,5 @@
-import { faCheck, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
+import { FaCheck, FaEnvelope, FaUser } from 'react-icons/fa'
 import {
   Container,
   FieldBody,
@@ -141,14 +141,14 @@ const FontAwesomeIconsExample: React.FC = () => (
   <Section>
     <Title size="4">With Font Awesome icons</Title>
     <InputComponent
-      leftIcon={faUser}
+      leftIcon={FaUser}
       iconSize="small"
       type="text"
       placeholder="Name"
     />
     <InputComponent
-      leftIcon={faEnvelope}
-      rightIcon={faCheck}
+      leftIcon={FaEnvelope}
+      rightIcon={FaCheck}
       iconSize="small"
       variant="success"
       type="email"
@@ -160,31 +160,31 @@ const FontAwesomeIconsExample: React.FC = () => (
 const MoreExamples: React.FC = () => (
   <Section>
     <InputComponent
-      leftIcon={faEnvelope}
-      rightIcon={faCheck}
+      leftIcon={FaEnvelope}
+      rightIcon={FaCheck}
       ctrlSize="small"
       variant="primary"
       type="email"
       placeholder="Email"
     />
     <InputComponent
-      leftIcon={faEnvelope}
-      rightIcon={faCheck}
+      leftIcon={FaEnvelope}
+      rightIcon={FaCheck}
       variant="info"
       type="email"
       placeholder="Email"
     />
     <InputComponent
-      leftIcon={faEnvelope}
-      rightIcon={faCheck}
+      leftIcon={FaEnvelope}
+      rightIcon={FaCheck}
       ctrlSize="medium"
       variant="warning"
       type="email"
       placeholder="Email"
     />
     <InputComponent
-      leftIcon={faEnvelope}
-      rightIcon={faCheck}
+      leftIcon={FaEnvelope}
+      rightIcon={FaCheck}
       ctrlSize="large"
       variant="danger"
       type="email"

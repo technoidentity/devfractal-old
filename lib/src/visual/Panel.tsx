@@ -1,9 +1,5 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import {
-  FontAwesomeIcon,
-  Props as FontAwesomeIconProps,
-} from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { IconType } from 'react-icons'
 import { classNamesHelper, Div, Helpers, removeHelpers } from '../lib'
 
 export interface PanelProps
@@ -61,13 +57,14 @@ export const PanelBlock: React.FC<PanelBlockProps> = ({
 
 type PanelIconDirection = 'left' | 'right'
 
-export interface PanelIconProps extends FontAwesomeIconProps, Helpers {
-  readonly icon: IconDefinition
+export interface PanelIconProps extends Helpers {
+  readonly icon: IconType
   readonly direction?: PanelIconDirection
 }
 
 export const PanelIcon: React.FC<PanelIconProps> = ({
   direction,
+  icon: Icon,
   children,
   ...props
 }) => {
@@ -77,7 +74,7 @@ export const PanelIcon: React.FC<PanelIconProps> = ({
 
   return (
     <Div as="span" className={classes}>
-      <FontAwesomeIcon {...removeHelpers(props)}>{children}</FontAwesomeIcon>
+      <Icon {...removeHelpers(props)}>{children}</Icon>
     </Div>
   )
 }

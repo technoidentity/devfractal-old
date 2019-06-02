@@ -1,16 +1,10 @@
-import {
-  faBook,
-  faHome,
-  faPuzzlePiece,
-  faThumbsUp,
-} from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { FaBook, FaHome, FaPuzzlePiece, FaThumbsUp } from 'react-icons/fa'
 import { Route } from 'react-router'
 import {
   Breadcrumb,
   BreadcrumbItem,
   Container,
-  Icon,
   Section,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
@@ -40,21 +34,21 @@ export const BreadcrumbIconsExample: React.FC = () => (
   <Container>
     <Breadcrumb>
       <BreadcrumbItem>
-        <Icon icon={faHome} />
+        <FaHome />
         Bulma
       </BreadcrumbItem>
       <BreadcrumbItem>
-        <Icon icon={faBook} />
+        <FaBook />
         Documentation
       </BreadcrumbItem>
 
       <BreadcrumbItem>
-        <Icon icon={faPuzzlePiece} />
+        <FaPuzzlePiece />
         Components
       </BreadcrumbItem>
 
       <BreadcrumbItem active>
-        <Icon icon={faThumbsUp} />
+        <FaThumbsUp />
         Breadcrumb
       </BreadcrumbItem>
     </Breadcrumb>
