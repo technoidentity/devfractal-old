@@ -3,7 +3,7 @@ import { Task } from './taskSchema'
 const app = express()
 const router = express.Router()
 
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (_: Request, res: Response) => {
   try {
     const tasks = await Task.find().exec()
     res.send(tasks)
@@ -57,5 +57,3 @@ router.delete('/:id', async (req: Request, res: Response) => {
 })
 
 export default router
-
-// users //
