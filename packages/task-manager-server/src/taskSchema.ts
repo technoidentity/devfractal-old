@@ -4,7 +4,7 @@ import * as mongoose from 'mongoose'
 const dateSchema = new mongoose.Schema({
   started: { type: Date, required: true },
   deadline: { type: Date, required: true },
-  completed: { type: Date, required: true },
+  completed: { type: Date },
   scheduled: { type: Date, required: true },
 })
 
@@ -14,7 +14,7 @@ export interface ITask extends mongoose.Document {
   readonly dateInfo: {
     readonly started: Date
     readonly deadline: Date
-    readonly completed: Date
+    readonly completed?: Date
     readonly scheduled: Date
   }
 }
@@ -30,6 +30,9 @@ const deadlineValidator2 = (value: ITask['dateInfo']): boolean => {
 }
 
 const completedValidator = (value: ITask['dateInfo']): boolean => {
+  if (value.completed === undefined) {
+    return true
+  }
   return compareAsc(value.completed, value.started) >= 0
 }
 
