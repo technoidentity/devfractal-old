@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import User from './user'
+import User from './userSchema'
 const app = express()
 const router = express.Router()
 
