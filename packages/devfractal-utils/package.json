@@ -1,0 +1,40 @@
+{
+  "name": "devfractal-utils",
+  "version": "0.0.1",
+  "description": "utils for all devfractal libs",
+  "main": "dist/index.js",
+  "umd:main": "dist/devfractal-utils.umd.production.js",
+  "module": "dist/devfractal-utils.es.production.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Pervez Iqbal",
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "jest",
+    "clean": "rimraf dist build .rts2_cache_*",
+    "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
+    "lint": "yarn lint:cmd 'src/**/*.ts'",
+    "lint:fix": "yarn lint --fix",
+    "types": "tsc --noEmit -p .",
+    "types:watch": "yarn types --watch",
+    "validate": "yarn lint && yarn types && yarn test"
+  },
+  "peerDependencies": {
+    "io-ts": "1.8.6",
+    "io-ts-types": "0.4.7",
+    "tcomb": "3.2.29"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "io-ts": "1.8.6",
+    "io-ts-types": "0.4.7",
+    "jest": "24.8.0",
+    "jest-cli": "24.8.0",
+    "tcomb": "3.2.29",
+    "ts-jest": "24.0.2",
+    "tsdx": "^0.6.1"
+  }
+}

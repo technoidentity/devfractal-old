@@ -1,0 +1,10 @@
+{
+  "src/**/*.{ts,tsx}": [
+    "yarn lint:cmd --fix",
+    "git add"
+  ],
+  "src/**/*.{ts,tsx,js,jsx,json,css}": [
+    "yarn prettier --write",
+    "git add"
+  ]
+}
