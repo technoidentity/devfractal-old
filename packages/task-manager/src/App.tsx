@@ -1,23 +1,8 @@
 import axios from 'axios'
 import React from 'react'
-import { Async } from 'technoidentity-devfractal'
 import { User } from './SignIn'
 import { TaskValues } from './TaskForm'
 import { TaskList } from './TaskList'
-
-// const task = {
-//   title: 'gfaiu',
-//   description: 'ajgsdAOAIS',
-//   startsOn: Date.now(),
-//   deadline: Date.now(),
-//   completed: Date.now(),
-//   scheduled: Date.now(),
-// }
-
-const getData = async () => {
-  const result = await axios.get('http://localhost:3000/tasks')
-  return result.data
-}
 
 const postData = (data: TaskValues) => {
   axios
@@ -37,30 +22,6 @@ const postData = (data: TaskValues) => {
 // }
 // updateData()
 
-const taskList: ReadonlyArray<any> = [
-  {
-    title: 'hsgd',
-    description: 'jshu',
-    startsOn: new Date(),
-    deadLine: new Date(),
-    scheduled: new Date(),
-  },
-  {
-    title: 'xkjdfh',
-    description: 'jshu',
-    startsOn: new Date(),
-    deadLine: new Date(),
-    scheduled: new Date(),
-  },
-  {
-    title: 'zjuesa',
-    description: 'jshu',
-    startsOn: new Date(),
-    deadLine: new Date(),
-    scheduled: new Date(),
-  },
-]
-
 const postUser = (data: User) => {
   axios
     .post('http://localhost:3000/users', data)
@@ -68,18 +29,79 @@ const postUser = (data: User) => {
     .catch(err => console.log(err))
 }
 
+// export const App = () => {
+//   return (
+//     <Async asyncFn={getData}>
+//       {({ error, data }) => {
+//         if (error) {
+//           return <h1>error...</h1>
+//         } else if (data) {
+//           return <TaskList taskList={data} />
+//         } else {
+//           return <h1>is Loading....</h1>
+//         }
+//       }}
+//     </Async>
+//   )
+// }
+
+const allList = async () => {
+  const result = await axios.get('http://localhost:9999/tasks')
+  return result.data
+}
+
+const completedList = async () => {
+  const result = await axios.get('http://localhost:9999/tasks/completed')
+  return result.data
+}
+
+const pendingList = async () => {
+  const result = await axios.get('http://localhost:9999/tasks/pending')
+  return result.data
+}
+
+type ListType = 'all' | 'completed' | 'pending'
+
 export const App = () => {
-  return (
-    <Async asyncFn={getData}>
-      {({ error, data }) => {
-        if (error) {
-          return <h1>error...</h1>
-        } else if (data) {
-          return <TaskList taskList={data} />
-        } else {
-          return <h1>is Loading....</h1>
-        }
-      }}
-    </Async>
-  )
+  const [type, setType] = React.useState<ListType>('all')
+  const [data, setData] = React.useState<TaskValues[] | undefined>(undefined)
+  const [error, setError] = React.useState(undefined)
+  React.useEffect(() => {
+    if (type === 'all') {
+      allList()
+        .then(setData)
+        .catch(setError)
+    }
+    if (type === 'completed') {
+      completedList()
+        .then(data => {
+          setData(data)
+        })
+        .catch(setError)
+    }
+    if (type === 'pending') {
+      pendingList()
+        .then(setData)
+        .catch(setError)
+    }
+  }, [type])
+
+  if (error) {
+    return <h1>error...</h1>
+  }
+
+  if (data) {
+    return (
+      <TaskList
+        taskList={data}
+        onCompleted={() => {
+          setType('completed')
+        }}
+        onPending={() => {
+          setType('pending')
+        }}
+      />
+    )
+  }
+  return <h1>is Loading....</h1>
 }
