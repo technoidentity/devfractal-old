@@ -1,11 +1,16 @@
 import { format } from 'date-fns'
 import React from 'react'
 import {
+  Button,
+  ButtonsGroup,
+  Field,
+  Section,
   Table,
   TableBody,
   TableHead,
   Td,
   Th,
+  Title,
   Tr,
 } from 'technoidentity-devfractal'
 import { TaskValues } from './TaskForm'
@@ -19,35 +24,68 @@ export const TaskItem: React.FC<TaskItemProps> = ({ taskItem }) => {
     <Tr>
       <Td>{taskItem.title}</Td>
       <Td>{taskItem.description}</Td>
-      <Td>{taskItem.started && format(taskItem.started, 'DD/MM/YYYY')}</Td>
-      <Td>{taskItem.deadline && format(taskItem.deadline, 'DD/MM/YYYY')}</Td>
-      <Td>{taskItem.scheduled && format(taskItem.scheduled, 'DD/MM/YYYY')}</Td>
+      <Td>
+        {taskItem.dateInfo.started &&
+          format(taskItem.dateInfo.started, 'DD/MM/YYYY')}
+      </Td>
+      <Td>
+        {taskItem.dateInfo.deadline &&
+          format(taskItem.dateInfo.deadline, 'DD/MM/YYYY')}
+      </Td>
+      <Td>
+        {taskItem.dateInfo.scheduled &&
+          format(taskItem.dateInfo.scheduled, 'DD/MM/YYYY')}
+      </Td>
+      <Td>
+        {taskItem.dateInfo.completed &&
+          format(taskItem.dateInfo.completed, 'DD/MM/YYYY')}
+      </Td>
     </Tr>
   )
 }
 
 export interface TaskListProps {
   readonly taskList: ReadonlyArray<TaskValues>
+  onCompleted(): void
+  onPending(): void
 }
 
-export const TaskList: React.FC<TaskListProps> = ({ taskList }) => {
+export const TaskList: React.FC<TaskListProps> = ({
+  taskList,
+  onCompleted,
+  onPending,
+}) => {
   return (
-    <Table>
-      <TableHead>
-        <Tr>
-          <Th>Title</Th>
-          <Th>Description</Th>
-          <Th>StartOn</Th>
-          <Th>Deadline</Th>
-          <Th>Scheduled</Th>
-          <Th />
-        </Tr>
-      </TableHead>
-      <TableBody>
-        {taskList.map(task => (
-          <TaskItem key={task.title} taskItem={task} />
-        ))}
-      </TableBody>
-    </Table>
+    <Section>
+      <Title textAlignment="centered">Task Management</Title>
+      <ButtonsGroup alignment="right">
+        <Button variant="primary">Add</Button>
+      </ButtonsGroup>
+      <Table striped bordered fullWidth>
+        <TableHead>
+          <Tr>
+            <Th>Title</Th>
+            <Th>Description</Th>
+            <Th>Started</Th>
+            <Th>Deadline</Th>
+            <Th>Scheduled</Th>
+            <Th>Completed</Th>
+          </Tr>
+        </TableHead>
+        <TableBody>
+          {taskList.map(task => (
+            <TaskItem key={(task as any)._id} taskItem={task} />
+          ))}
+        </TableBody>
+      </Table>
+      <Field grouped groupModifier="grouped-centered">
+        <Button variant="success" onClick={onCompleted}>
+          completed
+        </Button>
+        <Button variant="info" onClick={onPending}>
+          pending
+        </Button>
+      </Field>
+    </Section>
   )
 }
