@@ -6,6 +6,7 @@ import {
   Mixed,
   NumberType,
   Props,
+  readonly,
   ReadonlyArrayType,
   ReadonlyC,
   ReadonlyType,
@@ -15,8 +16,8 @@ import {
 } from 'io-ts'
 import { DateType } from 'io-ts-types'
 import tcomb from 'tcomb'
-import { invariant, nop, warning } from '../lib'
-import { buildObject } from './common'
+import { nop, warning } from '../lib'
+import { buildObject, keys } from './common'
 
 export function emptyFromPrimitiveValue(v: unknown): any {
   if (tcomb.Number.is(v)) {
@@ -55,45 +56,58 @@ export const emptyFromValue: <T>(value: T) => T = value => {
   return emptyFromPrimitiveValue(value)
 }
 
-export function empty<T extends Props>(
+export function emptyPrimitive<T extends Mixed>(
+  typeValue: T,
+): TypeOf<typeof typeValue> {
+  if (typeValue.name === 'Int' || typeValue instanceof NumberType) {
+    return 0
+  }
+  if (typeValue instanceof StringType) {
+    return ''
+  }
+  if (typeValue instanceof BooleanType) {
+    return false
+  }
+  if (typeValue instanceof DateType) {
+    return new Date()
+  }
+  if (typeValue instanceof KeyofType) {
+    return Object.keys(typeValue.keys)
+  }
+  throw new Error(`Unsupported type: ${typeValue.name}`)
+}
+
+export function emptyFromType<T extends Props>(
   typeValue: ReadonlyC<TypeC<T>>,
   id?: keyof T,
 ): TypeOf<typeof typeValue> {
   const props: T = typeValue.type.props
   const draft: any = {}
-
-  Object.keys(props).forEach(prop => {
+  keys(props).forEach(prop => {
     if (prop !== id) {
-      if (props[prop] instanceof NumberType || props[prop].name === 'Int') {
-        draft[prop] = 0
-      } else if (props[prop] instanceof StringType) {
-        draft[prop] = ''
-      } else if (props[prop] instanceof BooleanType) {
-        draft[prop] = false
-        // @TODO: handle array and object
-      } else if (props[prop] instanceof DateType) {
-        draft[prop] = new Date()
-      } else {
-        const v: Mixed = props[prop]
-        invariant(
-          !(v instanceof InterfaceType || v instanceof ArrayType),
-          `Everything must be readonly: ${v.name}`,
-        )
-        if (v instanceof KeyofType) {
-          draft[prop] = Object.keys(v.keys)
-        } else if (v instanceof ReadonlyType) {
-          draft[prop] = empty(v)
-        } else if (v instanceof ReadonlyArrayType) {
-          draft[prop] = []
-        } else {
-          throw new Error(`Unknown type ${props[prop]}`)
-        }
-      }
+      draft[prop] = empty(props[prop])
     }
   })
-
-  // warnProps(typeValue, value)
   return draft
+}
+
+export function empty<T extends Mixed>(
+  typeValue: T,
+  id?: T extends Props ? keyof T : any,
+): TypeOf<typeof typeValue> {
+  if (typeValue instanceof ReadonlyType) {
+    return emptyFromType(typeValue, id)
+  }
+  if (typeValue instanceof InterfaceType) {
+    return emptyFromType(readonly(typeValue), id)
+  }
+  if (
+    typeValue instanceof ReadonlyArrayType ||
+    typeValue instanceof ArrayType
+  ) {
+    return []
+  }
+  return emptyPrimitive(typeValue)
 }
 
 // console.log(
