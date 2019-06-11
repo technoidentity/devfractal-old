@@ -14,6 +14,7 @@ import {
   Tr,
 } from 'technoidentity-devfractal'
 import { TaskValues } from './TaskForm'
+import { Link } from 'react-router-dom'
 
 export interface TaskItemProps {
   readonly taskItem: TaskValues
@@ -59,7 +60,9 @@ export const TaskList: React.FC<TaskListProps> = ({
     <Section>
       <Title textAlignment="centered">Task Management</Title>
       <ButtonsGroup alignment="right">
-        <Button variant="primary">Add</Button>
+        <Link to="/add" className="button is-link">
+          Add
+        </Link>
       </ButtonsGroup>
       <Table striped bordered fullWidth>
         <TableHead>
