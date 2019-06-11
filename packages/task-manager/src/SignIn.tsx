@@ -1,6 +1,6 @@
 import { Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import Yup from 'yup'
+import * as Yup from 'yup'
 
 export interface User {
   readonly name: string
