@@ -1,37 +1,14 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "isolatedModules": false,
     "jsx": "react",
-    "lib": ["dom", "es2018"],
     "module": "esnext",
     "moduleResolution": "node",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
+    "noEmit": false,
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5"
   },
-  "plugins": [
-    {
-      "name": "typescript-tslint-plugin",
-      "alwaysShowRuleFailuresAsWarnings": true,
-      "ignoreDefinitionFiles": false,
-      "configFile": "./tslint.json",
-      "suppressWhileTypeErrorsPresent": true,
-      "jsEnable": false,
-      "mockTypeScriptVersion": false
-    }
-  ],
   "include": ["src"]
 }
