@@ -1,24 +1,35 @@
+import 'bulma/css/bulma.css'
 import { Field, FieldProps, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import Yup from 'yup'
+import { ErrorField, Section } from 'technoidentity-devfractal'
+import * as Yup from 'yup'
 
 const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => {
   const handleChange = (date: Date) => {
     form.setFieldValue(field.name, date)
   }
   return (
-    <DatePicker {...field} selected={field.value} onChange={handleChange} />
+    <div className="control">
+      <DatePicker
+        {...field}
+        selected={field.value}
+        onChange={handleChange}
+        className="input"
+      />
+    </div>
   )
 }
 export interface TaskValues {
   readonly title: string
   readonly description: string
-  readonly started: Date | undefined
-  readonly deadline: Date | undefined
-  readonly scheduled: Date | undefined
-  readonly completed: Date | undefined
+  readonly dateInfo: {
+    readonly started: Date | undefined
+    readonly deadline: Date | undefined
+    readonly completed: Date | undefined
+    readonly scheduled: Date | undefined
+  }
 }
 
 const validationSchema = Yup.object().shape({
@@ -30,31 +41,122 @@ const validationSchema = Yup.object().shape({
     .required()
     .min(10)
     .max(200),
+  dateInfo: Yup.object().shape({
+    started: Yup.date().required(),
+    deadline: Yup.date().required(),
+    scheduled: Yup.date().required(),
+    completed: Yup.date(),
+  }),
 })
 
 export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
   return (
-    <Form>
-      <h1>Creat Task</h1>
-      <label>Title</label>
-      <Field type="text" name="title" />
-      <br />
-      <label>Description</label>
-      <Field type="text" name="description" />
-      <br />
-      <label>Started</label>
-      <Field name="started" component={FormikDatePicker} />
-      <br />
-      <label>Deadline</label>
-      <Field name="deadline" component={FormikDatePicker} />
-      <br />
-      <label>Scheduled</label>
-      <Field name="scheduled" component={FormikDatePicker} />
-      <label>Completed</label>
-      <Field name="completed" component={FormikDatePicker} />
-      <br />
-      <button type="submit">Creat</button>
-    </Form>
+    <Section>
+      <Form>
+        <h1 className="title has-text-centered">Creat Task</h1>
+        <div className="field">
+          <label className="label">Title</label>
+          <div className="control">
+            <Field
+              type="text"
+              name="title"
+              className="input "
+              placeholder="Title"
+            />
+          </div>
+          <div className="help is-danger">
+            <ErrorField name="title" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Description</label>
+          <div className="control">
+            <Field
+              type="text"
+              name="description"
+              className="input "
+              placeholder="Description"
+            />
+          </div>
+          <div className="help is-danger">
+            <ErrorField name="description" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Started</label>
+          <div className="control">
+            <Field
+              type="text"
+              name="dateInfo.started"
+              className="input "
+              component={FormikDatePicker}
+            />
+          </div>
+          <div className="help is-danger">
+            <ErrorField name="dateInfo.started" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Deadline</label>
+          <div className="control">
+            <Field
+              type="text"
+              name="dateInfo.deadline"
+              className="input"
+              component={FormikDatePicker}
+            />
+          </div>
+          <div className="help is-danger">
+            <ErrorField name="dateInfo.deadline" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Scheduled</label>
+          <div className="control">
+            <Field
+              type="text"
+              name="dateInfo.scheduled"
+              className="input "
+              component={FormikDatePicker}
+            />
+          </div>
+          <div className="help is-danger">
+            <ErrorField name="dateInfo.scheduled" />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Completed</label>
+          <div className="control">
+            <Field
+              type="text"
+              name="dateInfo.completed"
+              className="input"
+              component={FormikDatePicker}
+            />
+          </div>
+          <div className="help is-danger">
+            <ErrorField name="dateInfo.completed" />
+          </div>
+        </div>
+
+        <div className="field is-grouped is-grouped-centered">
+          <p className="control">
+            <button className="button is-primary" type="submit">
+              Create
+            </button>
+          </p>
+          <p className="control">
+            <button className="button is-info" type="reset">
+              Reset
+            </button>
+          </p>
+        </div>
+      </Form>
+    </Section>
   )
 }
 
@@ -66,10 +168,12 @@ export interface TaskFormProps {
 const initialValues: TaskValues = {
   title: '',
   description: '',
-  started: undefined,
-  deadline: undefined,
-  scheduled: undefined,
-  completed: undefined,
+  dateInfo: {
+    started: undefined,
+    deadline: undefined,
+    scheduled: undefined,
+    completed: undefined,
+  },
 }
 
 export const TaskForm: React.FC<TaskFormProps> = ({ onCreate, initial }) => {
