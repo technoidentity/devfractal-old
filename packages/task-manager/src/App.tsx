@@ -1,15 +1,13 @@
 import axios from 'axios'
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  RouteComponentProps,
+} from 'react-router-dom'
 import { User } from './SignIn'
-import { TaskValues } from './TaskForm'
+import { TaskForm, TaskValues } from './TaskForm'
 import { TaskList } from './TaskList'
-
-const postData = (data: TaskValues) => {
-  axios
-    .post('http://localhost:3000/tasks', data)
-    .then(res => console.log(res.data, new Date(res.data.startsOn)))
-    .catch(err => console.log(err))
-}
 
 // const updateData = () => {
 //   axios
@@ -24,7 +22,7 @@ const postData = (data: TaskValues) => {
 
 const postUser = (data: User) => {
   axios
-    .post('http://localhost:3000/users', data)
+    .post('http://localhost:9999/users', data)
     .then(res => console.log(res.data))
     .catch(err => console.log(err))
 }
@@ -45,6 +43,26 @@ const postUser = (data: User) => {
 //   )
 // }
 
+const postData = (data: TaskValues) => {
+  return axios
+    .post('http://localhost:9999/tasks', data)
+    .then(res => {
+      console.log('res', res.data)
+      return res.data
+    })
+    .catch(err => console.log(err))
+}
+
+export const CreateForm: React.FC<RouteComponentProps> = ({ history }) => {
+  return (
+    <TaskForm
+      onCreate={data => {
+        postData(data).then(() => history.push('/'))
+      }}
+    />
+  )
+}
+
 const allList = async () => {
   const result = await axios.get('http://localhost:9999/tasks')
   return result.data
@@ -62,12 +80,14 @@ const pendingList = async () => {
 
 type ListType = 'all' | 'completed' | 'pending'
 
-export const App = () => {
+export const Tasks = () => {
   const [type, setType] = React.useState<ListType>('all')
   const [data, setData] = React.useState<TaskValues[] | undefined>(undefined)
-  const [error, setError] = React.useState(undefined)
+  const [error, setError] = React.useState<Error | undefined>(undefined)
+
   React.useEffect(() => {
     if (type === 'all') {
+      console.log('helo')
       allList()
         .then(setData)
         .catch(setError)
@@ -87,21 +107,32 @@ export const App = () => {
   }, [type])
 
   if (error) {
-    return <h1>error...</h1>
+    return <h1>{error.message}</h1>
   }
 
   if (data) {
     return (
-      <TaskList
-        taskList={data}
-        onCompleted={() => {
-          setType('completed')
-        }}
-        onPending={() => {
-          setType('pending')
-        }}
-      />
+      <>
+        <TaskList
+          taskList={data}
+          onCompleted={() => {
+            setType('completed')
+          }}
+          onPending={() => {
+            setType('pending')
+          }}
+        />
+      </>
     )
   }
   return <h1>is Loading....</h1>
+}
+
+export const App: React.FC = () => {
+  return (
+    <Router>
+      <Route exact path="/" component={Tasks} />
+      <Route path="/add" component={CreateForm} />
+    </Router>
+  )
 }
