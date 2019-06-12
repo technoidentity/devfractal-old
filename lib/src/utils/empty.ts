@@ -6,9 +6,7 @@ import {
   Mixed,
   NumberType,
   Props,
-  readonly,
   ReadonlyArrayType,
-  ReadonlyC,
   ReadonlyType,
   StringType,
   TypeC,
@@ -17,9 +15,9 @@ import {
 import { DateType } from 'io-ts-types'
 import tcomb from 'tcomb'
 import { nop, warning } from '../lib'
-import { buildObject, keys } from './common'
+import { buildObject } from './common'
 
-export function emptyFromPrimitiveValue(v: unknown): any {
+function emptyFromPrimitiveValue(v: unknown): any {
   if (tcomb.Number.is(v)) {
     return 0
   }
@@ -41,7 +39,7 @@ export function emptyFromPrimitiveValue(v: unknown): any {
   warning(false, `Unsupported value ${v}`)
 }
 
-export function emptyFromObjectValue<T extends Object>(value: T): T {
+function emptyFromObjectValue<T extends Object>(value: T): T {
   return buildObject(value, (_, v) => emptyFromPrimitiveValue(v))
 }
 
@@ -56,9 +54,7 @@ export const emptyFromValue: <T>(value: T) => T = value => {
   return emptyFromPrimitiveValue(value)
 }
 
-export function emptyPrimitive<T extends Mixed>(
-  typeValue: T,
-): TypeOf<typeof typeValue> {
+function emptyFromPrimitive<T extends Mixed>(typeValue: T): TypeOf<T> {
   if (typeValue.name === 'Int' || typeValue instanceof NumberType) {
     return 0
   }
@@ -72,34 +68,23 @@ export function emptyPrimitive<T extends Mixed>(
     return new Date()
   }
   if (typeValue instanceof KeyofType) {
-    return Object.keys(typeValue.keys)
+    return Object.keys(typeValue.keys)[0]
   }
   throw new Error(`Unsupported type: ${typeValue.name}`)
 }
 
-export function emptyFromType<T extends Props>(
-  typeValue: ReadonlyC<TypeC<T>>,
-  id?: keyof T,
-): TypeOf<typeof typeValue> {
-  const props: T = typeValue.type.props
-  const draft: any = {}
-  keys(props).forEach(prop => {
-    if (prop !== id) {
-      draft[prop] = empty(props[prop])
-    }
-  })
-  return draft
+function emptyFromObject<T extends Props>(
+  typeValue: TypeC<T>,
+): TypeOf<TypeC<T>> {
+  return buildObject(typeValue.props, emptyFromType)
 }
 
-export function empty<T extends Mixed>(
-  typeValue: T,
-  id?: T extends Props ? keyof T : any,
-): TypeOf<typeof typeValue> {
+export function emptyFromType<T extends Mixed>(typeValue: T): TypeOf<T> {
   if (typeValue instanceof ReadonlyType) {
-    return emptyFromType(typeValue, id)
+    return emptyFromObject(typeValue.type)
   }
   if (typeValue instanceof InterfaceType) {
-    return emptyFromType(readonly(typeValue), id)
+    return emptyFromObject(typeValue)
   }
   if (
     typeValue instanceof ReadonlyArrayType ||
@@ -107,7 +92,7 @@ export function empty<T extends Mixed>(
   ) {
     return []
   }
-  return emptyPrimitive(typeValue)
+  return emptyFromPrimitive(typeValue)
 }
 
 // console.log(

@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 import {
   Button,
   Container,
-  empty,
+  emptyFromType,
   Field,
   Omit,
   RowClickEvent,
@@ -50,7 +50,11 @@ export function Views<T extends Props, ID extends keyof T>(
 ): CrudViewsResult<T, ID> {
   return {
     Create: ({ onSubmit }) => (
-      <SimpleEditor id={id} data={empty(typeValue, id)} onSubmit={onSubmit} />
+      <SimpleEditor
+        id={id}
+        data={emptyFromType(typeValue)}
+        onSubmit={onSubmit}
+      />
     ),
 
     Edit: ({ data, onSubmit }) => (

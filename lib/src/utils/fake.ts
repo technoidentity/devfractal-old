@@ -31,13 +31,7 @@ export const defaultOptions = {
 
 type FakeOptions = typeof defaultOptions
 
-export function fakeFloat(options: FakeOptions): number {
-  return chance.bool()
-    ? chance.floating(options.floating)
-    : chance.integer(options.integer)
-}
-
-export function fakePrimitive<T extends Mixed>(
+function fakePrimitive<T extends Mixed>(
   typeValue: T,
   options: FakeOptions,
 ): TypeOf<typeof typeValue> {
@@ -45,7 +39,7 @@ export function fakePrimitive<T extends Mixed>(
     return chance.integer(options.integer)
   }
   if (typeValue instanceof NumberType) {
-    return fakeFloat(options)
+    return chance.floating(options.floating)
   }
   if (typeValue instanceof StringType) {
     return chance.sentence(options.sentence)
@@ -62,7 +56,7 @@ export function fakePrimitive<T extends Mixed>(
   throw new Error(`Unsupported type: ${typeValue.name}`)
 }
 
-export function fakeArrayFromType<T extends Mixed>(
+function fakeArrayFromType<T extends Mixed>(
   typeValue: T,
   options: FakeOptions,
 ): ReadonlyArray<TypeOf<typeof typeValue>> {
@@ -74,14 +68,14 @@ export function fakeArrayFromType<T extends Mixed>(
   return repeatedly(n, () => fake(typeValue, options))
 }
 
-export function fakeArray<T extends Mixed>(
+function fakeArray<T extends Mixed>(
   typeValue: ArrayC<T> | ReadonlyArrayC<T>,
   options: FakeOptions,
 ): TypeOf<typeof typeValue> {
   return fakeArrayFromType(typeValue.type, options)
 }
 
-export function fakeObject<T extends Props>(
+function fakeObject<T extends Props>(
   typeValue: TypeC<T>,
   options: FakeOptions,
 ): TypeOf<typeof typeValue> {
