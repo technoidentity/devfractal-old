@@ -1,20 +1,49 @@
-import { Field, Form, FormikProps } from 'formik'
+import axios from 'axios'
 import React from 'react'
-import { TaskValues } from './TaskForm'
+import { toDate } from 'technoidentity-devfractal'
+import { TaskForm, TaskValues } from './TaskForm'
 
 export interface EditTaskFormProps {
-  onEditTask(id: string): void
+  readonly id: string
 }
 
- const InnerEditTaskForm: React.FC<FormikProps<TaskValues>> = () => {
-  return (
-    <Form>
-      <Field name="title" type="text" />
-      <Field name="description" type="text" />
-      <button type="submit">Submit</button>
-    </Form>
-  )
+const getTask = async (id: string) => {
+  const result = await axios.get(`http://localhost:9999/tasks/${id}`)
+  return result.data
 }
 
+const putTask = async (id: string, data: TaskValues | undefined) => {
+  const result = await axios.put(`http://localhost:9999/tasks/${id}`, data)
+  return result.data
+}
+export const EditTaskForm: React.FC<EditTaskFormProps> = ({ id }) => {
+  const [values, setValues] = React.useState<TaskValues | undefined>(undefined)
+  const [error, setError] = React.useState<Error | undefined>(undefined)
 
-export
+  React.useEffect(() => {
+    getTask(id)
+      .then(data => {
+        const values = {
+          title: data.title,
+          description: data.description,
+          dateInfo: {
+            started: toDate(data.dateInfo.started),
+            deadline: toDate(data.dateInfo.deadline),
+            scheduled: toDate(data.dateInfo.scheduled),
+            completed:
+              data.dateInfo.completed && toDate(data.dateInfo.completed),
+          },
+        }
+        setValues(values)
+      })
+
+      .catch(setError)
+  }, [id])
+  if (error) {
+    return <h1>{error.message}</h1>
+  }
+  if (values) {
+    return <TaskForm onCreate={data => putTask(id, data)} initial={values} />
+  }
+  return <h1>is Loading....</h1>
+}
