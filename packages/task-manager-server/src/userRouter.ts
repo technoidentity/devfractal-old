@@ -37,7 +37,7 @@ router.put('/:id', async (req: Request, res: Response) => {
     if (user !== null) {
       user.set(req.body)
       const result = await user.save()
-      res.send({ foo: 'bar' })
+      res.send(result)
     } else {
       console.log('task with the given id has not found')
     }
