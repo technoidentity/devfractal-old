@@ -1,30 +1,31 @@
 import axios from 'axios'
 import React from 'react'
 import {
-  BrowserRouter as Router,
-  Route,
   RouteComponentProps,
 } from 'react-router-dom'
+import { EditTaskForm } from './EditTaskForm'
 import { User } from './SignIn'
 import { TaskForm, TaskValues } from './TaskForm'
 import { TaskList } from './TaskList'
 
-// const updateData = () => {
-//   axios
-//     .put('http://localhost:3000/tasks/5cdea4ef179562164bdbee0f', {
-//       title: 'learn sass',
-//       description: 'best tool for web design',
-//     })
-//     .then(res => console.log(res.data))
-//     .catch(err => console.log(err))
-// }
-// updateData()
+const updateData = async (id: string, data: TaskValues) => {
+  const result = await axios.put(`http://localhost:9999/tasks/${id}`, data)
+  return result.data
+}
 
 const postUser = (data: User) => {
   axios
     .post('http://localhost:9999/users', data)
+
     .then(res => console.log(res.data))
     .catch(err => console.log(err))
+}
+
+const getOneUser = async () => {
+  return axios
+    .get('http://localhost:9999/tasks/5cf4e807c6b9b813825062a4')
+    .then(res => res.data)
+    .catch(err => console.log(err.message))
 }
 
 // export const App = () => {
@@ -44,13 +45,7 @@ const postUser = (data: User) => {
 // }
 
 const postData = (data: TaskValues) => {
-  return axios
-    .post('http://localhost:9999/tasks', data)
-    .then(res => {
-      console.log('res', res.data)
-      return res.data
-    })
-    .catch(err => console.log(err))
+  return axios.post('http://localhost:9999/tasks', data).then(res => res.data)
 }
 
 export const CreateForm: React.FC<RouteComponentProps> = ({ history }) => {
@@ -87,7 +82,6 @@ export const Tasks = () => {
 
   React.useEffect(() => {
     if (type === 'all') {
-      console.log('helo')
       allList()
         .then(setData)
         .catch(setError)
@@ -128,11 +122,26 @@ export const Tasks = () => {
   return <h1>is Loading....</h1>
 }
 
+// export const App: React.FC = () => {
+//   return (
+//     <Router>
+//       <Route exact path="/" component={Tasks} />
+//       <Route path="/add" component={CreateForm} />
+//     </Router>
+//   )
+// }
+
+const initialValuesOne = {
+  title: 'programming',
+  description: 'learn functional programming to write accurate code',
+  dateInfo: {
+    started: new Date(),
+    deadline: new Date(),
+    scheduled: new Date(),
+    completed: new Date(),
+  },
+}
+
 export const App: React.FC = () => {
-  return (
-    <Router>
-      <Route exact path="/" component={Tasks} />
-      <Route path="/add" component={CreateForm} />
-    </Router>
-  )
+  return <EditTaskForm id="5cf4ed226f2f961489f91e51" />
 }
