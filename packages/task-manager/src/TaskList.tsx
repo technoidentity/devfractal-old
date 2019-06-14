@@ -1,5 +1,6 @@
 import { format } from 'date-fns'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Button,
   ButtonsGroup,
@@ -14,7 +15,6 @@ import {
   Tr,
 } from 'technoidentity-devfractal'
 import { TaskValues } from './TaskForm'
-import { Link } from 'react-router-dom'
 
 export interface TaskItemProps {
   readonly taskItem: TaskValues
@@ -85,7 +85,7 @@ export const TaskList: React.FC<TaskListProps> = ({
         <Button variant="success" onClick={onCompleted}>
           completed
         </Button>
-        <Button variant="info" onClick={onPending}>
+        <Button variant="danger" onClick={onPending}>
           pending
         </Button>
       </Field>
