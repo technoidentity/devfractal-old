@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { ErrorField, Section } from 'technoidentity-devfractal'
 import * as Yup from 'yup'
 
-const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => {
+export const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => {
   const handleChange = (date: Date) => {
     form.setFieldValue(field.name, date)
   }
@@ -183,7 +183,6 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onCreate, initial }) => {
       validationSchema={validationSchema}
       component={InnerTaskForm}
       onSubmit={(values, actions) => {
-        console.log(values)
         onCreate(values)
         actions.setSubmitting(false)
       }}
