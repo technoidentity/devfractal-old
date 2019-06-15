@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type TitleSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
@@ -28,9 +28,9 @@ export const Title: React.FC<TitleProps> = ({
   })
 
   return (
-    <Div as="h1" {...props} className={classes}>
+    <El as="h1" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

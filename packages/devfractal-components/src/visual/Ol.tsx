@@ -1,5 +1,5 @@
 import React, { OlHTMLAttributes } from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type OlModifier = 'lower-alpha' | 'lower-roman' | 'upper-alpha' | 'upper-roman'
 
@@ -15,9 +15,9 @@ export const Ol: React.FC<OlProps> = ({ modifier, children, ...props }) => {
     [`is-${modifier}`]: modifier,
   })
   return (
-    <Div as="ol" {...props} className={classes}>
+    <El as="ol" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

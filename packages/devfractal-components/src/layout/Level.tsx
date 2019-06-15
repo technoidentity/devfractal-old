@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type LevelItemDirection = 'left' | 'right'
 
@@ -18,9 +18,9 @@ export const Level: React.FC<LevelProps> = ({
     [`is-${modifier}`]: modifier,
   })
   return (
-    <Div as="nav" {...props} className={classes}>
+    <El as="nav" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 export interface LevelItemProps
@@ -41,9 +41,9 @@ export const LevelItem: React.FC<LevelItemProps> = ({
     'is-flexible': flexible,
   })
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

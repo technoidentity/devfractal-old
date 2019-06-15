@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames, classNamesHelper, Div, Helpers, Null } from '../lib'
+import { classNames, classNamesHelper, El, Helpers, Null } from '../lib'
 
 export interface ModalProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -20,19 +20,19 @@ export const Modal: React.FC<ModalProps> = ({
 
   if (active) {
     return (
-      <Div {...props} className={classes}>
+      <El {...props} className={classes}>
         {children}
         {noClose ? (
           ''
         ) : (
-          <Div
+          <El
             as="button"
             onClick={onModalClosed}
             {...props}
             className={classNames('modal-close')}
           />
         )}
-      </Div>
+      </El>
     )
   }
 
@@ -46,9 +46,9 @@ export interface ModalCardProps
 export const ModalCard: React.FC<ModalCardProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'modal-card')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -62,9 +62,9 @@ export const ModalCardHead: React.FC<ModalCardHeadProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'modal-card-head')
   return (
-    <Div as="header" {...props} className={classes}>
+    <El as="header" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -78,9 +78,9 @@ export const ModalCardTitle: React.FC<ModalCardTitleProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'modal-card-title')
   return (
-    <Div as="p" {...props} className={classes}>
+    <El as="p" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -94,9 +94,9 @@ export const ModalCardBody: React.FC<ModalCardBodyProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'modal-card-body')
   return (
-    <Div as="section" {...props} className={classes}>
+    <El as="section" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -110,9 +110,9 @@ export const ModalCardFoot: React.FC<ModalCardFootProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'modal-card-foot')
   return (
-    <Div as="footer" {...props} className={classes}>
+    <El as="footer" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -124,7 +124,7 @@ export const ModalBackground: React.FC<ModalBackgroundProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'modal-background')
-  return <Div {...props} className={classes} />
+  return <El {...props} className={classes} />
 }
 
 export interface ModalContentProps
@@ -137,9 +137,9 @@ export const ModalContent: React.FC<ModalContentProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'modal-content')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

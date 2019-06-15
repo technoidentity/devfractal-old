@@ -3,7 +3,7 @@ import { NavLink, RouteComponentProps } from 'react-router-dom'
 import {
   chop,
   classNamesHelper,
-  Div,
+  El,
   extractSegment,
   Helpers,
   removeRouteComponentProps,
@@ -57,7 +57,7 @@ export const RoutedTabsItem: React.FC<RoutedTabsItemProps> = ({
 }) => (
   <RoutedTabsContext.Consumer>
     {({ baseURL, separator, currentLocation }) => (
-      <Div
+      <El
         as="li"
         {...props}
         className={classNamesHelper(props, {
@@ -67,7 +67,7 @@ export const RoutedTabsItem: React.FC<RoutedTabsItemProps> = ({
         <NavLink to={baseURL ? `${baseURL}${separator}${value}` : ''}>
           {children}
         </NavLink>
-      </Div>
+      </El>
     )}
   </RoutedTabsContext.Consumer>
 )
@@ -112,9 +112,9 @@ const RoutedTabsWithRouter: React.FC<
         currentLocation: args.location.pathname,
       }}
     >
-      <Div {...props} className={classes}>
+      <El {...props} className={classes}>
         <ul>{children}</ul>
-      </Div>
+      </El>
     </RoutedTabsContext.Provider>
   )
 }

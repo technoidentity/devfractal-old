@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 export interface ButtonsGroupProps
   extends React.HTMLAttributes<HTMLElement>,
@@ -26,9 +26,9 @@ export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({
   })
 
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

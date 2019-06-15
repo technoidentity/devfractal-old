@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
-import { Button, classNamesHelper, Div, Helpers } from '../lib'
+import { Button, classNamesHelper, El, Helpers } from '../lib'
 
 type DropDownModifier = 'hoverable' | 'active'
 
@@ -39,23 +39,23 @@ export const DropDown: React.FC<DropDownProps> = ({
     'is-up': dropUp,
   })
   return (
-    <Div {...props} className={classes}>
-      <Div className="dropdown-trigger">
+    <El {...props} className={classes}>
+      <El className="dropdown-trigger">
         <Button onClick={() => setActive(!active)}>
           <span>{label}</span>
           {dropUp ? <FaAngleUp /> : <FaAngleDown />}
         </Button>
-      </Div>
-      <Div className="dropdown-menu" role="menu">
-        <Div
+      </El>
+      <El className="dropdown-menu" role="menu">
+        <El
           {...props}
           className="dropdown-content"
           onClick={() => setActive(false)}
         >
           {children}
-        </Div>
-      </Div>
-    </Div>
+        </El>
+      </El>
+    </El>
   )
 }
 
@@ -78,9 +78,9 @@ export const DropDownItem: React.FC<DropDownItemProps> = ({
     'is-active': active,
   })
   return (
-    <Div as={as} {...props} className={classes}>
+    <El as={as} {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -92,7 +92,7 @@ export const DropDownDivider: React.FC<DropDownDividerProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'dropdown-divider')
-  return <Div as="hr" {...props} className={classes} />
+  return <El as="hr" {...props} className={classes} />
 }
 
 // tslint:disable-next-line: no-default-export

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 interface NavbarContext {
   readonly visible?: boolean
@@ -42,9 +42,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   })
   return (
     <NavbarContext.Provider value={{ visible, setVisible }}>
-      <Div {...props} className={classes}>
+      <El {...props} className={classes}>
         {children}
-      </Div>
+      </El>
     </NavbarContext.Provider>
   )
 }
@@ -57,9 +57,9 @@ export const NavbarBrand: React.FC<NavbarBrandProps> = ({
   children,
   ...props
 }) => (
-  <Div {...props} className={classNamesHelper(props, 'navbar-brand')}>
+  <El {...props} className={classNamesHelper(props, 'navbar-brand')}>
     {children}
-  </Div>
+  </El>
 )
 
 export interface NavbarBurgerProps
@@ -80,14 +80,14 @@ export const NavbarBurger: React.FC<NavbarBurgerProps> = ({
   })
 
   return (
-    <Div
+    <El
       as="a"
       {...props}
       className={classes}
       onClick={() => setVisible && setVisible(!visible)}
     >
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -124,7 +124,7 @@ export const NavbarItem: React.FC<NavbarItemsProps> = ({
   })
 
   return (
-    <Div
+    <El
       as={as}
       href={href}
       {...props}
@@ -133,7 +133,7 @@ export const NavbarItem: React.FC<NavbarItemsProps> = ({
       aria-label="main navigation"
     >
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -155,13 +155,13 @@ export const NavbarMenu: React.FC<NavbarMenuProps> = ({
   })
 
   return (
-    <Div
+    <El
       {...props}
       className={classes}
       onClick={() => setVisible && setVisible(!visible)}
     >
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -180,9 +180,9 @@ export const NavbarDropDown: React.FC<NavbarDropDownProps> = ({
     [`is-boxed`]: boxed,
   })
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -202,9 +202,9 @@ export const NavbarLink: React.FC<NavbarLinkProps> = ({
   })
 
   return (
-    <Div as="a" {...props} className={classes}>
+    <El as="a" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -216,9 +216,9 @@ export const NavbarStart: React.FC<NavbarStartProps> = ({
   children,
   ...props
 }) => (
-  <Div {...props} className={classNamesHelper(props, 'navbar-start')}>
+  <El {...props} className={classNamesHelper(props, 'navbar-start')}>
     {children}
-  </Div>
+  </El>
 )
 
 export interface NavbarEndProps
@@ -226,9 +226,9 @@ export interface NavbarEndProps
     Helpers {}
 
 export const NavbarEnd: React.FC<NavbarEndProps> = ({ children, ...props }) => (
-  <Div {...props} className={classNamesHelper(props, 'navbar-end')}>
+  <El {...props} className={classNamesHelper(props, 'navbar-end')}>
     {children}
-  </Div>
+  </El>
 )
 
 export interface NavbarDividerProps
@@ -239,9 +239,9 @@ export const NavbarDivider: React.FC<NavbarDividerProps> = ({
   children,
   ...props
 }) => (
-  <Div as="hr" {...props} className={classNamesHelper(props, 'navbar-divider')}>
+  <El as="hr" {...props} className={classNamesHelper(props, 'navbar-divider')}>
     {children}
-  </Div>
+  </El>
 )
 
 // tslint:disable-next-line: no-default-export

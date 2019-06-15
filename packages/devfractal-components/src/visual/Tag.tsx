@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type TagVariant =
   | 'black'
@@ -48,9 +48,9 @@ export const Tag: React.FC<TagProps> = ({
   })
 
   return (
-    <Div as="span" {...props} className={classes}>
+    <El as="span" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

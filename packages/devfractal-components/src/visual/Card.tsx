@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -8,9 +8,9 @@ export interface CardProps
 export const Card: React.FC<CardProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'card')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -24,9 +24,9 @@ export const CardHeader: React.FC<CardHeaderProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'card-header')
   return (
-    <Div as="header" {...props} className={classes}>
+    <El as="header" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -49,9 +49,9 @@ export const CardHeaderTitle: React.FC<CardHeaderTitleProps> = ({
     [`is-${alignment}`]: alignment,
   })
   return (
-    <Div as="p" {...props} className={classes}>
+    <El as="p" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -65,9 +65,9 @@ export const CardHeaderIcon: React.FC<CardHeaderIconProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'card-header-icon')
   return (
-    <Div as="a" {...props} className={classes}>
+    <El as="a" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -81,9 +81,9 @@ export const CardContent: React.FC<CardContentProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'card-content')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -97,9 +97,9 @@ export const CardFooter: React.FC<CardFooterProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'card-footer')
   return (
-    <Div as="footer" {...props} className={classes}>
+    <El as="footer" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 export interface CardFooterItemProps
@@ -112,9 +112,9 @@ export const CardFooterItem: React.FC<CardFooterItemProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'card-footer-item')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -125,9 +125,9 @@ export interface CardImageProps
 export const CardImage: React.FC<CardImageProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'card-image')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

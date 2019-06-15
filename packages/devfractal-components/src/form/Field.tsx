@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers, Label, LabelSize } from '../lib'
+import { classNamesHelper, El, Helpers, Label, LabelSize } from '../lib'
 
 type FieldGroupModifier = 'grouped-centered' | 'grouped-right'
 
@@ -58,9 +58,9 @@ export const Field: React.FC<FieldProps> = ({
   })
 
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -69,9 +69,9 @@ export interface FieldBodyProps
     Helpers {}
 
 export const FieldBody: React.FC<FieldBodyProps> = ({ children, ...props }) => (
-  <Div {...props} className={classNamesHelper(props, 'field-body')}>
+  <El {...props} className={classNamesHelper(props, 'field-body')}>
     {children}
-  </Div>
+  </El>
 )
 
 export type FieldHelpType =
@@ -97,9 +97,9 @@ export const FieldHelp: React.FC<FieldHelpProps> = ({
   })
 
   return (
-    <Div as="p" {...props} className={classes}>
+    <El as="p" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -123,9 +123,9 @@ export const FieldLabel: React.FC<FieldLabelProps> = ({
     [`is-${fieldLabelSize}`]: fieldLabelSize,
   })
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       <Label>{children}</Label>
-    </Div>
+    </El>
   )
 }
 

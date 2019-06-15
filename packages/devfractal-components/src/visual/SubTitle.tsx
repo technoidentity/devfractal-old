@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type SubTitleSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
@@ -22,9 +22,9 @@ export const SubTitle: React.FC<SubTitleProps> = ({
   })
 
   return (
-    <Div as="h1" {...props} className={classes}>
+    <El as="h1" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

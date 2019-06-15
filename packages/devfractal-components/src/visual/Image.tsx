@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames, classNamesHelper, Div, Helpers } from '../lib'
+import { classNames, classNamesHelper, El, Helpers } from '../lib'
 
 type FixedSquaredImageSize =
   | '16x16'
@@ -63,7 +63,7 @@ export const Image: React.FC<ImageProps> = ({
 
   return (
     <figure className={classes}>
-      <Div as="img" {...props} className={imgClasses} />
+      <El as="img" {...props} className={imgClasses} />
     </figure>
   )
 }

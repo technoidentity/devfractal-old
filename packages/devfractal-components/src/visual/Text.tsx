@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers, TextHelpers } from '../lib'
+import { classNamesHelper, El, Helpers, TextHelpers } from '../lib'
 
 type HeaderTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
@@ -41,9 +41,9 @@ export const Text: React.FC<TextProps> = ({
     ...props,
   }
   return (
-    <Div as={as} {...localProps} className={classNamesHelper(localProps)}>
+    <El as={as} {...localProps} className={classNamesHelper(localProps)}>
       {children}
-    </Div>
+    </El>
   )
 }
 

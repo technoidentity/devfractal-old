@@ -1,14 +1,14 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 export interface MediaProps
   extends React.HTMLAttributes<HTMLElement>,
     Helpers {}
 
 export const Media: React.FC<MediaProps> = ({ children, ...props }) => (
-  <Div as="article" {...props} className={classNamesHelper(props, 'media')}>
+  <El as="article" {...props} className={classNamesHelper(props, 'media')}>
     {children}
-  </Div>
+  </El>
 )
 
 export interface MediaLeftProps
@@ -16,9 +16,9 @@ export interface MediaLeftProps
     Helpers {}
 
 export const MediaLeft: React.FC<MediaLeftProps> = ({ children, ...props }) => (
-  <Div as="figure" {...props} className={classNamesHelper(props, 'media-left')}>
+  <El as="figure" {...props} className={classNamesHelper(props, 'media-left')}>
     {children}
-  </Div>
+  </El>
 )
 
 export interface MediaRightProps
@@ -29,9 +29,9 @@ export const MediaRight: React.FC<MediaRightProps> = ({
   children,
   ...props
 }) => (
-  <Div {...props} className={classNamesHelper(props, 'media-right')}>
+  <El {...props} className={classNamesHelper(props, 'media-right')}>
     {children}
-  </Div>
+  </El>
 )
 
 export interface MediaContentProps
@@ -42,9 +42,9 @@ export const MediaContent: React.FC<MediaContentProps> = ({
   children,
   ...props
 }) => (
-  <Div {...props} className={classNamesHelper(props, 'media-content')}>
+  <El {...props} className={classNamesHelper(props, 'media-content')}>
     {children}
-  </Div>
+  </El>
 )
 
 // tslint:disable-next-line: no-default-export

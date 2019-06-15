@@ -7,10 +7,6 @@ export interface DivProps
   readonly as?: keyof React.ReactHTML
 }
 
-export function Div({
-  as = 'div',
-  className,
-  ...props
-}: DivProps): JSX.Element {
+export function El({ as = 'div', className, ...props }: DivProps): JSX.Element {
   return React.createElement(as, { ...removeHelpers(props), className })
 }

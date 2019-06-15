@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import {
   chop,
   classNamesHelper,
-  Div,
+  El,
   Helpers,
   removeRouteComponentProps,
   WithRouter,
@@ -33,7 +33,7 @@ export const BreadcrumbItemWithRouter: React.FC<
   const { active, href, children, ...props } = removeRouteComponentProps(args)
 
   return (
-    <Div
+    <El
       as="li"
       {...props}
       className={classNamesHelper(props, {
@@ -42,7 +42,7 @@ export const BreadcrumbItemWithRouter: React.FC<
       })}
     >
       {<NavLink to={href || '#'}>{children}</NavLink>}
-    </Div>
+    </El>
   )
 }
 
@@ -77,7 +77,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   })
 
   return (
-    <Div as="nav" {...props} className={classes}>
+    <El as="nav" {...props} className={classes}>
       <ul>
         {React.Children.map(children, (child: any) =>
           React.cloneElement(
@@ -86,6 +86,6 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
           ),
         )}
       </ul>
-    </Div>
+    </El>
   )
 }

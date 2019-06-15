@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconType } from 'react-icons'
-import { classNamesHelper, Div, Helpers, removeHelpers } from '../lib'
+import { classNamesHelper, El, Helpers, removeHelpers } from '../lib'
 
 export interface PanelProps
   extends React.HTMLAttributes<HTMLElement>,
@@ -9,9 +9,9 @@ export interface PanelProps
 export const Panel: React.FC<PanelProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'panel')
   return (
-    <Div as="nav" {...props} className={classes}>
+    <El as="nav" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -25,9 +25,9 @@ export const PanelHeading: React.FC<PanelHeadingProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'panel-heading')
   return (
-    <Div as="p" {...props} className={classes}>
+    <El as="p" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -49,9 +49,9 @@ export const PanelBlock: React.FC<PanelBlockProps> = ({
     'is-wrapped': wrapped,
   })
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -73,9 +73,9 @@ export const PanelIcon: React.FC<PanelIconProps> = ({
   })
 
   return (
-    <Div as="span" className={classes}>
+    <El as="span" className={classes}>
       <Icon {...removeHelpers(props)}>{children}</Icon>
-    </Div>
+    </El>
   )
 }
 
@@ -94,9 +94,9 @@ export const PanelTabsItem: React.FC<PanelTabsItemProps> = ({
     'is-active': active,
   })
   return (
-    <Div as="a" {...props} className={classes}>
+    <El as="a" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -107,9 +107,9 @@ export interface PanelTabsProps
 export const PanelTabs: React.FC<PanelTabsProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'panel-tabs')
   return (
-    <Div as="p" {...props} className={classes}>
+    <El as="p" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

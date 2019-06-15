@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type MenuSize = 'small' | 'medium' | 'large'
 
@@ -15,9 +15,9 @@ export const Menu: React.FC<MenuProps> = ({ size, children, ...props }) => {
     [`is-${size}`]: size,
   })
   return (
-    <Div as="aside" {...props} className={classes}>
+    <El as="aside" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -28,9 +28,9 @@ export interface MenuLabelProps
 export const MenuLabel: React.FC<MenuLabelProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'menu-label')
   return (
-    <Div as="p" {...props} className={classes}>
+    <El as="p" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -41,9 +41,9 @@ export interface MenuListProps
 export const MenuList: React.FC<MenuListProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props, 'menu-list')
   return (
-    <Div as="ul" {...props} className={classes}>
+    <El as="ul" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -63,9 +63,9 @@ export const MenuItem: React.FC<MenuItemProps> = ({
     'is-active': active,
   })
   return (
-    <Div as="li" {...props} className={classes}>
+    <El as="li" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

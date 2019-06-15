@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 export interface PaginationProps
   extends React.HTMLAttributes<HTMLElement>,
@@ -31,7 +31,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     'is-rounded': rounded,
   })
   return (
-    <Div
+    <El
       as="nav"
       {...props}
       className={classes}
@@ -39,7 +39,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       aria-label="pagination"
     >
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -67,9 +67,9 @@ export const PaginationLink: React.FC<PaginationLinkProps> = ({
   })
   return (
     <li>
-      <Div as="a" {...props} disabled={disabled} className={classes}>
+      <El as="a" {...props} disabled={disabled} className={classes}>
         {children}
-      </Div>
+      </El>
     </li>
   )
 }
@@ -84,9 +84,9 @@ export const PaginationList: React.FC<PaginationListProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'pagination-list')
   return (
-    <Div as="ul" {...props} className={classes}>
+    <El as="ul" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 export interface PaginationEllipsisProps
@@ -125,9 +125,9 @@ export const PaginationPrevious: React.FC<PaginationPreviousProps> = ({
     'pagination-previous',
   )
   return (
-    <Div as="a" {...props} disabled={disabled} className={classes}>
+    <El as="a" {...props} disabled={disabled} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -147,9 +147,9 @@ export const PaginationNext: React.FC<PaginationNextProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'pagination-next')
   return (
-    <Div as="a" {...props} disabled={disabled} className={classes}>
+    <El as="a" {...props} disabled={disabled} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type TileType = 'ancestor' | 'parent' | 'child'
 
@@ -57,9 +57,9 @@ export const Tile: React.FC<TileProps> = ({
     box,
   })
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

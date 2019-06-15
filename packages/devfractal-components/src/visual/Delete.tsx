@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type DeleteSize = 'small' | 'medium' | 'large'
 
@@ -16,7 +16,7 @@ export const Delete: React.FC<DeleteProps> = ({ size, ...props }) => {
   const classes: string = classNamesHelper(props, 'delete', {
     [`is-${size}`]: size,
   })
-  return <Div as="a" {...props} className={classes} />
+  return <El as="a" {...props} className={classes} />
 }
 
 // tslint:disable-next-line: no-default-export

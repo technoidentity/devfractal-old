@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 export interface SectionProps
   extends React.HTMLAttributes<HTMLElement>,
@@ -19,9 +19,9 @@ export const Section: React.FC<SectionProps> = ({
     [`is-${modifier}`]: modifier,
   })
   return (
-    <Div as="section" {...props} className={classes}>
+    <El as="section" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

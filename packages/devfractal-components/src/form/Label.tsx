@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 export type LabelSize = 'small' | 'medium' | 'large'
 
@@ -21,9 +21,9 @@ export const Label: React.FC<LabelProps> = args => {
   })
 
   return (
-    <Div as={as} {...props} className={classes}>
+    <El as={as} {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

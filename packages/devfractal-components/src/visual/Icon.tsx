@@ -3,7 +3,7 @@ import {
   Props as FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { classNamesHelper, Div, Helpers, removeHelpers } from '../lib'
+import { classNamesHelper, El, Helpers, removeHelpers } from '../lib'
 
 type IconDirection = 'left' | 'right'
 
@@ -21,9 +21,9 @@ export const Icon: React.FC<IconProps> = ({
   })
 
   return (
-    <Div as="span" className={classes}>
+    <El as="span" className={classes}>
       <FontAwesomeIcon {...removeHelpers(props)}>{children}</FontAwesomeIcon>
-    </Div>
+    </El>
   )
 }
 

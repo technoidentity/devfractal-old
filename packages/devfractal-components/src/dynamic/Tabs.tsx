@@ -2,7 +2,7 @@ import React from 'react'
 import {
   classNamesHelper,
   ControlledProps,
-  Div,
+  El,
   Helpers,
   Omit,
   Uncontrolled,
@@ -42,7 +42,7 @@ export const TabsItem: React.FC<TabsItemProps> = args => {
   } = args as TabsItemInternalProps
 
   return (
-    <Div
+    <El
       as="li"
       {...props}
       className={classNamesHelper(props, { 'is-active': _active })}
@@ -56,7 +56,7 @@ export const TabsItem: React.FC<TabsItemProps> = args => {
       >
         {children}
       </a>
-    </Div>
+    </El>
   )
 }
 
@@ -96,7 +96,7 @@ const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
   const selected: string =
     value || ((children && children[0] && children[0].props.value) || '0')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       <ul>
         {React.Children.map(children, (child: any, i: number) => {
           warning(
@@ -114,7 +114,7 @@ const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
           })
         })}
       </ul>
-    </Div>
+    </El>
   )
 }
 

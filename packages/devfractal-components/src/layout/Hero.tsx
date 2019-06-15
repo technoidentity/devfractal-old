@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type HeroVariant =
   | 'primary'
@@ -46,9 +46,9 @@ export const Hero: React.FC<HeroProps> = ({
     [`is-${size}`]: size,
   })
   return (
-    <Div as="section" {...props} className={classes}>
+    <El as="section" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -57,9 +57,9 @@ export interface HeroHeadProps
     Helpers {}
 
 export const HeroHead: React.FC<HeroHeadProps> = ({ children, ...props }) => (
-  <Div {...props} className={classNamesHelper(props, 'hero-head')}>
+  <El {...props} className={classNamesHelper(props, 'hero-head')}>
     {children}
-  </Div>
+  </El>
 )
 
 export interface HeroBodyProps
@@ -67,9 +67,9 @@ export interface HeroBodyProps
     Helpers {}
 
 export const HeroBody: React.FC<HeroBodyProps> = ({ children, ...props }) => (
-  <Div {...props} className={classNamesHelper(props, 'hero-body')}>
+  <El {...props} className={classNamesHelper(props, 'hero-body')}>
     {children}
-  </Div>
+  </El>
 )
 
 export interface HeroFootProps
@@ -77,9 +77,9 @@ export interface HeroFootProps
     Helpers {}
 
 export const HeroFoot: React.FC<HeroFootProps> = ({ children, ...props }) => (
-  <Div {...props} className={classNamesHelper(props, 'hero-foot')}>
+  <El {...props} className={classNamesHelper(props, 'hero-foot')}>
     {children}
-  </Div>
+  </El>
 )
 
 // tslint:disable-next-line: no-default-export

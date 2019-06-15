@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type NotificationVariant =
   | 'primary'
@@ -29,9 +29,9 @@ export const Notification: React.FC<NotificationProps> = ({
     [`is-${variant}`]: variant,
   })
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

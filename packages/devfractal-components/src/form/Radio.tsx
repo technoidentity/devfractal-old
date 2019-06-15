@@ -3,7 +3,7 @@ import {
   AllControlHelpers,
   classNamesHelper,
   ControlWrapper,
-  Div,
+  El,
   Helpers,
   Omit,
   State,
@@ -117,7 +117,7 @@ export const Radio: React.FC<RadioProps> = args => {
 
   return (
     <label className={classNamesHelper(props, 'radio')}>
-      <Div
+      <El
         as="input"
         {...props}
         checked={_selected === props.value}

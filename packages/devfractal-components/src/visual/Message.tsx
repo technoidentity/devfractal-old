@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type MessageVariant =
   | 'dark'
@@ -39,9 +39,9 @@ export const Message: React.FC<MessageProps> = ({
     [`is-${variant}`]: variant,
   })
   return (
-    <Div as="article" {...props} className={classes}>
+    <El as="article" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -55,9 +55,9 @@ export const MessageHeader: React.FC<MessageHeaderProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'message-header')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -71,9 +71,9 @@ export const MessageBody: React.FC<MessageBodyProps> = ({
 }) => {
   const classes: string = classNamesHelper(props, 'message-body')
   return (
-    <Div {...props} className={classes}>
+    <El {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

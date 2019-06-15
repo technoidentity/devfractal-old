@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 export interface TableProps
   extends React.TableHTMLAttributes<HTMLTableElement>,
@@ -43,9 +43,9 @@ export const Table: React.FC<TableProps> = ({
     'is-fullwidth': fullWidth,
   })
   return (
-    <Div as="table" {...props} className={classes}>
+    <El as="table" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -56,9 +56,9 @@ export interface TableHeadProps
 export const TableHead: React.FC<TableHeadProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props)
   return (
-    <Div as="thead" {...props} className={classes}>
+    <El as="thead" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -69,9 +69,9 @@ export interface TableBodyProps
 export const TableBody: React.FC<TableBodyProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props)
   return (
-    <Div as="tbody" {...props} className={classes}>
+    <El as="tbody" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -82,9 +82,9 @@ export interface TableFootProps
 export const TableFoot: React.FC<TableFootProps> = ({ children, ...props }) => {
   const classes: string = classNamesHelper(props)
   return (
-    <Div as="tfoot" {...props} className={classes}>
+    <El as="tfoot" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -100,9 +100,9 @@ export const Tr: React.FC<TrProps> = ({ selected, children, ...props }) => {
   })
 
   return (
-    <Div as="tr" {...props} className={classes}>
+    <El as="tr" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -148,9 +148,9 @@ export const Th: React.FC<ThProps> = ({
   })
 
   return (
-    <Div as="th" {...props} className={classes}>
+    <El as="th" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 
@@ -195,9 +195,9 @@ export const Td: React.FC<TdProps> = ({
     'is-narrow': narrow,
   })
   return (
-    <Div as="td" {...props} className={classes}>
+    <El as="td" {...props} className={classes}>
       {children}
-    </Div>
+    </El>
   )
 }
 

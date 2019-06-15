@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, Div, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type ProgressBarVariant =
   | 'primary'
@@ -48,9 +48,9 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   })
 
   return (
-    <Div as="progress" {...props} className={classes} value={value} max={max}>
+    <El as="progress" {...props} className={classes} value={value} max={max}>
       {children}
-    </Div>
+    </El>
   )
 }
 
