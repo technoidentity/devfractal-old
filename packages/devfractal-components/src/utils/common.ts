@@ -52,14 +52,15 @@ export function buildObject<T, R>(
   // tslint:disable-next-line: no-use-before-declare
   f: (value: T[typeof key], key: keyof T) => R,
 ): Record<keyof T, R> {
-  const result: any = {}
+  const result: Partial<Record<keyof T, R>> = {}
   for (const k of keys(obj)) {
-    const v: any = f(obj[k], k)
+    const v: R = f(obj[k], k)
+    // @TODO: needed, but not properly typed?!
     if (v !== undefined) {
       result[k] = v
     }
   }
-  return result
+  return result as Record<keyof T, R>
 }
 
 export function keys<T extends Object>(obj: T): ReadonlyArray<keyof T> {

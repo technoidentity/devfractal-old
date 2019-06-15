@@ -35,7 +35,7 @@ it('classNames for complex args', () => {
       'foo',
       'bar',
       {},
-      // [[], { x: 1, y: 0 }, 'abc', ['def', { w: 1, z: 0 }], {}],
+      [{ x: 1, y: 0 }, 'abc', 'def', { w: 1, z: 0 }, {}],
       {
         a: true,
         b: false,
@@ -43,7 +43,7 @@ it('classNames for complex args', () => {
       },
       [],
     ),
-  ).toEqual('foo bar a c')
+  ).toEqual('foo bar x abc def w a c')
 })
 
 it('classNames throws for wrong arguments', () => {

@@ -2,8 +2,8 @@ import tcomb from 'tcomb'
 
 export type ClassNameArg =
   | string
-  | ReadonlyArray<string>
-  // TODO: boolean | undefined instead of unknown?
+  // typescript needs to support self referential types!
+  | ReadonlyArray<string | null | undefined | Record<string, unknown>>
   | Record<string, unknown>
   | undefined
   | null
