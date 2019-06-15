@@ -1,6 +1,6 @@
 export * from './Async'
 export * from './componentUtils'
-export * from './div'
+export * from './el'
 export * from './helpers'
 export * from './RouterUtils'
 export * from './textHelpers'
