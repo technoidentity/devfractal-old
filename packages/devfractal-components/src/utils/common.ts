@@ -62,8 +62,6 @@ export function buildObject<T, R>(
   return result
 }
 
-export function keys<T extends Record<string, unknown>>(
-  obj: T,
-): ReadonlyArray<keyof T> {
+export function keys<T extends Object>(obj: T): ReadonlyArray<keyof T> {
   return Object.keys(obj) as ReadonlyArray<keyof T>
 }

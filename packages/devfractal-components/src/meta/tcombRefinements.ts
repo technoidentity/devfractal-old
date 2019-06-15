@@ -2,8 +2,8 @@ import * as t from 'tcomb'
 
 // tslint:disable typedef
 
-export const Positive = t.refinement(Number, n => n >= 0, 'Positive')
-export const Negative = t.refinement(Number, n => n <= 0, 'Negative')
+export const Positive = t.refinement(t.Number, n => n >= 0, 'Positive')
+export const Negative = t.refinement(t.Number, n => n <= 0, 'Negative')
 export function Min(min: number) {
   return t.refinement(t.Number, n => n >= min)
 }

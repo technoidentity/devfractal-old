@@ -35,7 +35,7 @@ it('classNames for complex args', () => {
       'foo',
       'bar',
       {},
-      [[], { x: 1, y: 0 }, 'abc', ['def', { w: 1, z: 0 }], {}],
+      // [[], { x: 1, y: 0 }, 'abc', ['def', { w: 1, z: 0 }], {}],
       {
         a: true,
         b: false,
