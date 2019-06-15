@@ -18,11 +18,11 @@
     "typescript-tslint-plugin": "0.5.0"
   },
   "scripts": {
-    "clean": "yarn run lerna run clean",
-    "build": "yarn run lerna run build",
-    "validate": "yarn run lerna run validate",
-    "types": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn run lerna run --parallel types:watch",
-    "start": "yarn run lerna run start"
+    "clean": "lerna run clean",
+    "build": "lerna run build",
+    "validate": "lerna run validate",
+    "types": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling lerna run --parallel types:watch",
+    "start": "lerna run start"
   },
   "husky": {
     "hooks": {
