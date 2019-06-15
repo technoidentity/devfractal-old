@@ -1,15 +1,14 @@
+import { buildObject, jsonStringify } from '@technoidentity/utils'
 import { compareAsc } from 'date-fns'
 import * as t from 'tcomb'
-import { jsonStringify } from 'devfractal-utils'
-import { buildObject } from 'devfractal-utils'
 import {
   ArrayMT,
   ArrayRefinements,
   DateRefinements,
   EnumMT,
   Mixed,
-  NumberRefinements,
   MT,
+  NumberRefinements,
   PrimitiveMT,
   StringRefinements,
 } from './index'

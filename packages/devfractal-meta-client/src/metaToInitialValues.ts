@@ -1,5 +1,5 @@
-import { Mixed } from 'devfractal-meta-core'
-import { buildObject } from 'devfractal-utils'
+import { Mixed } from '@technoidentity/meta-core'
+import { buildObject } from '@technoidentity/utils'
 
 // tslint:disable typedef switch-default
 

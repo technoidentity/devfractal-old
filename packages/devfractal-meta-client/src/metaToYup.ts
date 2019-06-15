@@ -4,7 +4,7 @@ import {
   Mixed,
   NumberRefinements,
   StringRefinements,
-} from 'devfractal-meta-core'
+} from '@technoidentity/meta-core'
 import {
   array,
   ArraySchema,
@@ -18,6 +18,7 @@ import {
   string,
   StringSchema,
 } from 'yup'
+import { buildObject } from 'technoidentity-devfractal'
 
 // tslint:disable typedef switch-default
 
@@ -114,15 +115,6 @@ const toYupArrayRefinements: (
   return result
 }
 
-function buildObject(obj: any, f: (key: any) => any): any {
-  const result: any = {}
-  for (const k of Object.keys(obj)) {
-    // tslint:disable-next-line:no-object-mutation
-    result[k] = f(k as any)
-  }
-  return result
-}
-
 export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
   switch (meta.kind) {
     case 'number':
@@ -157,7 +149,7 @@ export const metaToYup: (meta: Mixed) => Schema<any> = meta => {
 
     case 'object':
       return object(
-        buildObject(meta.properties, p => metaToYup(meta.properties[p])),
+        buildObject(meta.properties, (_, p) => metaToYup(meta.properties[p])),
       ).strict(true)
   }
 }

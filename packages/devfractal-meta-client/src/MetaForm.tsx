@@ -1,4 +1,4 @@
-import { EnumMT, Mixed, MT, PrimitiveMT } from 'devfractal-meta-core'
+import { EnumMT, Mixed, MT, PrimitiveMT } from '@technoidentity/meta-core'
 import { FormikActions } from 'formik'
 import React from 'react'
 import {

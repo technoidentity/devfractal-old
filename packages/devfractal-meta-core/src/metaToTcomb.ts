@@ -15,7 +15,7 @@ import {
   Positive,
   Upper,
   Url,
-} from 'devfractal-utils'
+} from '@technoidentity/utils'
 import {
   ArrayRefinements,
   DateRefinements,
@@ -23,6 +23,7 @@ import {
   NumberRefinements,
   StringRefinements,
 } from './meta'
+import { buildObject } from '@technoidentity/utils'
 
 // tslint:disable typedef switch-default
 
@@ -102,18 +103,6 @@ function toTcombArrayRefinements(r: ArrayRefinements) {
   return refinements
 }
 
-function buildObject<T extends object, K extends keyof T, V>(
-  obj: T,
-  f: (key: K) => V,
-): Record<keyof T, V> {
-  const result: any = {}
-  for (const k of Object.keys(obj)) {
-    // tslint:disable-next-line:no-object-mutation
-    result[k] = f(k as any)
-  }
-  return result
-}
-
 export const metaToTcomb: (meta: Mixed) => t.Type<any> = meta => {
   switch (meta.kind) {
     case 'number':
@@ -153,8 +142,8 @@ export const metaToTcomb: (meta: Mixed) => t.Type<any> = meta => {
 
     case 'object':
       return t.struct(
-        buildObject(meta.properties, p => {
-          const mp = meta.properties[p]
+        buildObject(meta.properties, v => {
+          const mp = v
           const m = metaToTcomb(mp)
           return mp.optional ? t.maybe(m) : m
         }),

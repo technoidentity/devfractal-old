@@ -1,4 +1,10 @@
-import { ArrayMT, EnumMT, Mixed, MT, PrimitiveMT } from 'devfractal-meta-core'
+import {
+  ArrayMT,
+  EnumMT,
+  Mixed,
+  MT,
+  PrimitiveMT,
+} from '@technoidentity/meta-core'
 import { Schema } from 'yup'
 import { metaToYup } from './metaToYup'
 

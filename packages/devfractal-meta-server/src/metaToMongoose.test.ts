@@ -6,7 +6,7 @@ import {
   MMT,
   MNumber,
   MString,
-} from 'devfractal-meta-core'
+} from '@technoidentity/meta-core'
 
 test('metaToModel', () => {
   const meta = MMT({

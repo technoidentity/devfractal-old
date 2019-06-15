@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import { DateType } from 'io-ts-types'
 import { Document, model, Model, Schema } from 'mongoose'
-import { buildObject } from 'devfractal-utils'
+import { buildObject } from '@technoidentity/utils'
 
 const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
   if (value.name === 'Int') {

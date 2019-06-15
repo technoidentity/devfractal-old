@@ -1,6 +1,6 @@
 import { Document, model, Model, Schema, SchemaDefinition } from 'mongoose'
-import { MT, PropertyMT } from 'devfractal-meta-core'
-import { buildObject } from 'devfractal-utils'
+import { MT, PropertyMT } from '@technoidentity/meta-core'
+import { buildObject } from '@technoidentity/utils'
 
 function mtToMongoSchema(meta: PropertyMT): any {
   switch (meta.kind) {

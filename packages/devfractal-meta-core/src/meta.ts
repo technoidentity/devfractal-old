@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { date } from 'io-ts-types'
-import { lit, opt, props, req } from 'devfractal-utils'
+import { lit, opt, props, req } from '@technoidentity/utils'
 
 export const NumberRefinements = opt({
   sign: t.keyof({ negative: 1, positive: 2 }),
