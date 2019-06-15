@@ -1,7 +1,6 @@
 import {
   ClassNameArg,
   classNames,
-  Omit,
   removeTextHelpers,
   TextHelpers,
   textHelpersClasses,

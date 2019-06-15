@@ -8,7 +8,7 @@
 //   TypeC,
 //   TypeOf,
 // } from 'io-ts'
-// import { eitherToPromise, idRT, Omit, typeInvariant, TypeOfRT } from '../lib'
+// import { eitherToPromise, idRT, typeInvariant, TypeOfRT } from '../lib'
 
 // export interface URLs {
 //   all(): string

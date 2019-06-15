@@ -5,7 +5,6 @@ import {
   classNamesHelper,
   ControlWrapper,
   InputProps,
-  Omit,
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,

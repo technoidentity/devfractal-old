@@ -4,7 +4,6 @@ import {
   ControlledProps,
   El,
   Helpers,
-  Omit,
   Uncontrolled,
   ValueChangeEvent,
   warning,

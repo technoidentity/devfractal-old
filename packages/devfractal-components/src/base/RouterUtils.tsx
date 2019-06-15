@@ -1,6 +1,5 @@
 import React from 'react'
 import { Redirect, Route, RouteComponentProps, withRouter } from 'react-router'
-import { Omit } from '../lib'
 
 export type WithRouterProps<T> = T & {
   readonly children?: React.ReactNode

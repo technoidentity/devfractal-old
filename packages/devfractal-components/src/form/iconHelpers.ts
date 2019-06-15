@@ -1,6 +1,5 @@
 import { IconType } from 'react-icons'
 import { ControlSize } from '../lib'
-import { Omit } from '../utils'
 
 export interface IconHelpers {
   readonly leftIcon?: IconType

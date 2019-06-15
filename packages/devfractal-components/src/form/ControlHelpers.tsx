@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconType } from 'react-icons'
-import { classNames, Omit } from '../lib'
+import { classNames } from '../lib'
 
 export interface ControlHelpers {
   readonly loading?: boolean
