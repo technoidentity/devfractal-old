@@ -1,5 +1,6 @@
 {
   "name": "devfractal-project",
+  "version": "0.0.1",
   "private": true,
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -38,6 +39,7 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "react-scripts": "3.0.1",
+    "react-test-render": "1.1.1",
     "react-test-renderer": "16.8.6",
     "react-testing-library": "8.0.1",
     "rimraf": "2.6.3",
