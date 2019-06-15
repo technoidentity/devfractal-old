@@ -18,21 +18,13 @@ export type UncontrolledProps<Value, CP extends ControlledProps<Value>> = CP & {
   readonly component: React.FC<Omit<CP, 'defaultValue' | 'component'>>
 }
 
-export function Uncontrolled<Value, CP extends ControlledProps<Value>>(
+function UncontrolledInner<Value, CP extends ControlledProps<Value>>(
   args: UncontrolledProps<Value, CP>,
 ): JSX.Element {
   const { defaultValue, component: Component, ...props } = args
 
-  warning(
-    !(props.value && !props.onChange && !props.readOnly),
-    "'value' provided, but not 'onChange', make this component readOnly.",
-  )
-
-  if (props.value !== undefined) {
-    return <Component {...props} />
-  }
-
   const [value, set] = React.useState(props.value || defaultValue)
+
   return (
     <Component
       {...props}
@@ -44,5 +36,21 @@ export function Uncontrolled<Value, CP extends ControlledProps<Value>>(
         }
       }}
     />
+  )
+}
+export function Uncontrolled<Value, CP extends ControlledProps<Value>>(
+  args: UncontrolledProps<Value, CP>,
+): JSX.Element {
+  const { defaultValue, component: Component, ...props } = args
+
+  warning(
+    !(props.value && !props.onChange && !props.readOnly),
+    "'value' provided, but not 'onChange', make this component readOnly.",
+  )
+
+  return props.value !== undefined ? (
+    <Component {...props} />
+  ) : (
+    <UncontrolledInner {...args} />
   )
 }

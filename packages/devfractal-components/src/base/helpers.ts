@@ -19,7 +19,7 @@ interface CommonHelpers {
   readonly srOnly?: boolean
 }
 
-export function commonHelpersClasses({
+function commonHelpersClasses({
   floating,
   marginLess,
   paddingLess,
@@ -46,7 +46,7 @@ export function commonHelpersClasses({
 type CommonHelpersRemoved<T> = Omit<T, keyof CommonHelpers>
 
 // TODO: Use io-ts to automate this
-export function removeCommonHelpers<T extends CommonHelpers>(
+function removeCommonHelpers<T extends CommonHelpers>(
   props: T,
 ): CommonHelpersRemoved<T> {
   const {
@@ -83,7 +83,7 @@ interface ResponsiveHelpers {
   readonly responsiveVisibility?: boolean
 }
 
-export function responsiveClass({
+function responsiveClass({
   display,
   breakpoint,
   responsiveVisibility,

@@ -1,13 +1,13 @@
 import useAsync from 'react-use/lib/useAsync'
 import { nop } from '../lib'
 
-export interface AsyncComponentProps<T = any> {
+export interface AsyncComponentProps<T> {
   readonly isLoading: boolean
   readonly error?: Error
   readonly data?: T
 }
 
-export interface AsyncProps<T = any> {
+export interface AsyncProps<T> {
   children(props: AsyncComponentProps<T>): JSX.Element
   asyncFn(): Promise<T>
 }

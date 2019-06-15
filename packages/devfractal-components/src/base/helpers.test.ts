@@ -1,8 +1,8 @@
-import { commonHelpersClasses, responsiveClass } from '../lib'
+import { helpersClasses } from '../lib'
 
 it('helper classes', () => {
   expect(
-    commonHelpersClasses({
+    helpersClasses({
       floating: 'pulled-left',
       marginLess: true,
       srOnly: true,
@@ -11,13 +11,13 @@ it('helper classes', () => {
 })
 
 it('responsiveClass', () => {
-  expect(responsiveClass({ display: 'inline-flex' }) === 'is-inline-flex')
+  expect(helpersClasses({ display: 'inline-flex' }) === 'is-inline-flex')
   expect(
-    responsiveClass({ display: 'flex', breakpoint: 'tablet-only' }) ===
+    helpersClasses({ display: 'flex', breakpoint: 'tablet-only' }) ===
       'is-flex-tablet-only',
   )
   expect(
-    responsiveClass({
+    helpersClasses({
       display: 'flex',
       breakpoint: 'tablet-only',
       responsiveVisibility: true,
