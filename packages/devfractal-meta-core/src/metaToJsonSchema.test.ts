@@ -7,7 +7,7 @@ import {
   ObjectMT,
   PrimitiveMT,
   PropertyMT,
-} from './index'
+} from '@technoidentity/meta-core'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }

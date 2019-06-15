@@ -1,11 +1,11 @@
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema'
-import { buildObject, keys } from '../utils'
+import { buildObject, keys } from '@technoidentity/utils'
 import {
   ArrayRefinements,
   Mixed,
   NumberRefinements,
   StringRefinements,
-} from './types'
+} from '../../devfractal-components/src/meta/types'
 
 // tslint:disable no-object-mutation
 
