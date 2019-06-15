@@ -1,0 +1,42 @@
+{
+  "name": "devfractal-meta-server",
+  "version": "0.0.1",
+  "description": "Meta utilities for server.",
+  "main": "build/main.js",
+  "author": "Pervez Iqbal",
+  "private": true,
+  "scripts": {
+    "test": "NODE_ENV=test jest",
+    "clean": "rimraf build",
+    "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
+    "lint": "yarn lint:cmd 'src/**/*.ts'",
+    "lint:fix": "yarn lint --fix",
+    "types": "tsc --noEmit -p .",
+    "types:watch": "yarn types --watch",
+    "validate": "yarn lint && yarn types && yarn test"
+  },
+  "dependencies": {
+    "devfractal-utils": "0.0.1",
+    "devfractal-meta-core": "0.0.1",
+    "express": "4.17.1",
+    "fp-ts": "1.18.2",
+    "io-ts": "1.9.0",
+    "io-ts-types": "0.4.7",
+    "mongodb": "3.2.7",
+    "mongoose": "5.6.0",
+    "monocle-ts": "1.7.2",
+    "tcomb": "3.2.29",
+    "tcomb-validation": "3.4.1"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.0",
+    "@types/jest": "24.0.14",
+    "@types/mongodb": "3.1.28",
+    "@types/mongoose": "5.5.6",
+    "babel-jest": "24.8.0",
+    "jest": "24.8.0",
+    "jest-cli": "24.8.0",
+    "supertest": "4.0.2",
+    "ts-jest": "24.0.2"
+  }
+}

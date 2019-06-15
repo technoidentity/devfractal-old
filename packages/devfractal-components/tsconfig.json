@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "isolatedModules": false,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es5"
+  },
+  "include": ["src"]
+}
