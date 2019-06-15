@@ -4,7 +4,7 @@ import React from 'react'
 import { CalendarComponent } from '../Calendar'
 import { calendarMonths, currentMonth, currentYear } from '../helpers'
 
-import { fireEvent, render } from 'react-testing-library'
+import { fireEvent, render } from '@testing-library/react'
 
 import 'react-testing-library/cleanup-after-each'
 
