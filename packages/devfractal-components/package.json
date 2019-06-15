@@ -1,10 +1,10 @@
 {
   "name": "@technoidentity/devfractal",
-  "version": "0.6.32-alpha",
+  "version": "0.6.4",
   "source": "src/index.ts",
-  "main": "build/technoidentity-devfractal.js",
-  "umd:main": "build/technoidentity-devfractal.umd.production.js",
-  "module": "build/technoidentity-devfractal.es.production.js",
+  "main": "build/devfractal.js",
+  "umd:main": "build/devfractal.umd.production.js",
+  "module": "build/devfractal.es.production.js",
   "types": "build/index.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.19",

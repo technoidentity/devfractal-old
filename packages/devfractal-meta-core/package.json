@@ -1,5 +1,5 @@
 {
-  "name": "@technoidentity/devfractal-meta-core",
+  "name": "@technoidentity/meta-core",
   "version": "0.0.1",
   "description": "meta data, similar to json schema",
   "main": "dist/index.js",
@@ -30,7 +30,7 @@
     "tcomb-validation": "3.4.1"
   },
   "dependencies": {
-    "devfractal-utils": "0.0.1"
+    "@technoidentity/utils": "0.0.1"
   },
   "devDependencies": {
     "@types/jest": "24.0.14",

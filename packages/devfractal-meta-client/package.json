@@ -1,13 +1,14 @@
 {
-  "name": "@technoidentity/devfractal-meta-client",
+  "name": "@technoidentity/meta-client",
   "version": "0.5.9",
   "source": "src/index.ts",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "dependencies": {
     "date-fns": "1.30.1",
-    "devfractal-meta-core": "0.0.1",
-    "devfractal-utils": "0.0.1",
+    "@technoidentity/meta-core": "0.0.1",
+    "@technoidentity/utils": "0.0.1",
+    "@technoidentity/devfractal": "0.6.4",
     "formik": "1.5.7",
     "fp-ts": "1.18.2",
     "immer": "3.1.3",
@@ -19,7 +20,6 @@
     "react-router-dom": "5.0.1",
     "shortid": "2.2.14",
     "tcomb": "3.2.29",
-    "technoidentity-devfractal": "0.6.1",
     "yup": "0.27.0"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 {
-  "name": "@technoidentity/devfractal-utils",
+  "name": "@technoidentity/utils",
   "version": "0.0.1",
   "description": "utils for all devfractal libs",
   "main": "dist/index.js",
