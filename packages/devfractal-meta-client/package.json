@@ -1,5 +1,5 @@
 {
-  "name": "devfractal-meta-client",
+  "name": "@technoidentity/devfractal-meta-client",
   "version": "0.5.9",
   "source": "src/index.ts",
   "main": "build/index.js",

@@ -1,10 +1,10 @@
 {
-  "name": "devfractal-utils",
+  "name": "@technoidentity/devfractal-utils",
   "version": "0.0.1",
   "description": "utils for all devfractal libs",
   "main": "dist/index.js",
-  "umd:main": "dist/devfractal-utils.umd.production.js",
-  "module": "dist/devfractal-utils.es.production.js",
+  "umd:main": "dist/index.umd.production.js",
+  "module": "dist/index.es.production.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"

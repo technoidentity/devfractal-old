@@ -94,7 +94,7 @@
     "readonly-keyword": [true, "ignore-local", { "ignore-prefix": "mutable" }],
     "restrict-plus-operands": true,
     "return-undefined": true,
-    "switch-default": false, // We are not using redux, so...
+    "switch-default": false,
     "switch-final-break": true,
     "trailing-comma": true,
     "triple-equals": [true, "allow-null-check"],
@@ -146,13 +146,9 @@
       true,
       "ignore-mutation-following-accessor",
       { "ignore-prefix": "draft" }
-    ]
-    // "no-unsafe-any": true,
-    // "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
-    // "no-this": true,
-    // "no-class": true
+    ],
+    "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }]
   },
-
   "linterOptions": {
     "exclude": ["build/**", ".rts2*/**", "node_modules/**"]
   },

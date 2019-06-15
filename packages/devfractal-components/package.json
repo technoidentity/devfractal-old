@@ -1,10 +1,10 @@
 {
-  "name": "technoidentity-devfractal",
-  "version": "0.6.2-alpha",
+  "name": "@technoidentity/devfractal",
+  "version": "0.6.32-alpha",
   "source": "src/index.ts",
   "main": "build/technoidentity-devfractal.js",
-  "umd:main": "dist/technoidentity-devfractal.umd.production.js",
-  "module": "dist/technoidentity-devfractal.es.production.js",
+  "umd:main": "build/technoidentity-devfractal.umd.production.js",
+  "module": "build/technoidentity-devfractal.es.production.js",
   "types": "build/index.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.19",
@@ -98,7 +98,7 @@
   "scripts": {
     "start": "parcel index.html --open",
     "test": "jest",
-    "lib": "microbundle watch  --output build --compress false",
+    "lib": "microbundle watch --output build --compress false",
     "build": "microbundle --output build",
     "clean": "rimraf build .rts2* .cache dist",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",

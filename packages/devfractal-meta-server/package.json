@@ -1,8 +1,9 @@
 {
-  "name": "devfractal-meta-server",
+  "name": "@technoidentity/devfractal-meta-server",
   "version": "0.0.1",
   "description": "Meta utilities for server.",
   "main": "build/main.js",
+  "typings": "build/index.d.ts",
   "author": "Pervez Iqbal",
   "private": true,
   "scripts": {

@@ -1,10 +1,10 @@
 {
-  "name": "devfractal-meta-core",
+  "name": "@technoidentity/devfractal-meta-core",
   "version": "0.0.1",
   "description": "meta data, similar to json schema",
   "main": "dist/index.js",
-  "umd:main": "dist/mylib.umd.production.js",
-  "module": "dist/mylib.es.production.js",
+  "umd:main": "dist/index.umd.production.js",
+  "module": "dist/index.es.production.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
