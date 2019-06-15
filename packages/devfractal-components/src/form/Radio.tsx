@@ -5,8 +5,6 @@ import {
   ControlWrapper,
   El,
   Helpers,
-  Omit,
-  State,
   warning,
 } from '../lib'
 
@@ -72,35 +70,39 @@ export interface RadioGroupProps extends RadioGroupViewProps {
   readonly defaultValue?: string
 }
 
-export const RadioGroup: React.FC<RadioGroupProps> = ({
+function RadioGroupInner({
   defaultValue,
   children,
   ...props
-}) => {
+}: RadioGroupProps): JSX.Element {
+  const [value, set] = React.useState(props.selected || defaultValue)
+
+  return (
+    <RadioGroupView
+      {...props}
+      selected={value}
+      onChange={({ value }) => set(value)}
+    >
+      {children}
+    </RadioGroupView>
+  )
+}
+
+export const RadioGroup: React.FC<RadioGroupProps> = args => {
+  const { defaultValue, children, ...props } = args
+
   warning(
     !(props.selected && !props.onChange && !props.readOnly),
-    `For Radio ${
-      props.name
-    } 'selected' provided, but not 'onChange', make this component readOnly.`,
+    `For Radio ${props.name} 'selected' provided, but not 'onChange', make this component readOnly.`,
   )
 
   return props.selected !== undefined ? (
     <RadioGroupView {...props}>{children}</RadioGroupView>
   ) : (
-    <State
-      initial={props.selected || defaultValue}
-      render={({ value, set }) => (
-        <RadioGroupView
-          {...props}
-          selected={value}
-          onChange={({ value }) => set(value)}
-        >
-          {children}
-        </RadioGroupView>
-      )}
-    />
+    <RadioGroupInner {...args} />
   )
 }
+
 export interface RadioProps
   extends Omit<
       React.InputHTMLAttributes<HTMLInputElement>,

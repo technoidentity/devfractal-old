@@ -1,11 +1,9 @@
 import React from 'react'
 import {
   camelCaseToPhrase,
-  Omit,
   RoutedTabs,
   RoutedTabsItem,
   RoutedTabsProps,
-  State,
   Tabs,
   TabsItem,
   TabsProps,
@@ -20,32 +18,30 @@ export const SimpleTabs: React.FC<SimpleTabsProps> = ({
   name,
   values = [],
   ...props
-}) => (
-  <State
-    initial={values[0]}
-    render={({ value, set }) => (
-      <Tabs
-        {...props}
-        value={value}
-        onChange={evt => {
-          if (evt.value) {
-            set(evt.value)
-          }
-          if (props.onChange) {
-            props.onChange(evt)
-          }
-        }}
-        name={name}
-      >
-        {values.map(value => (
-          <TabsItem key={value} value={value}>
-            {camelCaseToPhrase(value)}
-          </TabsItem>
-        ))}
-      </Tabs>
-    )}
-  />
-)
+}) => {
+  const [value, set] = React.useState(values[0])
+  return (
+    <Tabs
+      {...props}
+      value={value}
+      onChange={evt => {
+        if (evt.value) {
+          set(evt.value)
+        }
+        if (props.onChange) {
+          props.onChange(evt)
+        }
+      }}
+      name={name}
+    >
+      {values.map(value => (
+        <TabsItem key={value} value={value}>
+          {camelCaseToPhrase(value)}
+        </TabsItem>
+      ))}
+    </Tabs>
+  )
+}
 
 export interface SimpleRoutedTabsProps
   extends Omit<RoutedTabsProps, 'selectedTab'> {
