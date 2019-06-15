@@ -6,7 +6,7 @@ import { calendarMonths, currentMonth, currentYear } from '../helpers'
 
 import { fireEvent, render } from '@testing-library/react'
 
-import 'react-testing-library/cleanup-after-each'
+import '@testing-library/react/cleanup-after-each'
 
 describe('Calendar Component', () => {
   test('clicks on Previous button', () => {
