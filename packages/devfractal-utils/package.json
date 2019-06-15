@@ -23,13 +23,13 @@
     "validate": "yarn lint && yarn types && yarn test"
   },
   "peerDependencies": {
-    "io-ts": "1.8.6",
+    "io-ts": "1.9.0",
     "io-ts-types": "0.4.7",
     "tcomb": "3.2.29"
   },
   "devDependencies": {
-    "@types/jest": "24.0.13",
-    "io-ts": "1.8.6",
+    "@types/jest": "24.0.14",
+    "io-ts": "1.9.0",
     "io-ts-types": "0.4.7",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
