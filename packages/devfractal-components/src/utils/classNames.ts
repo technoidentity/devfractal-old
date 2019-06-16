@@ -2,11 +2,12 @@ import tcomb from 'tcomb'
 
 export type ClassNameArg =
   | string
-  // typescript needs to support self referential types!
-  | ReadonlyArray<string | null | undefined | Record<string, unknown>>
-  | Record<string, unknown>
   | undefined
   | null
+  | ArrayCNA
+  | Record<string, unknown>
+
+interface ArrayCNA extends Array<ClassNameArg> {}
 
 export function classNames(...args: ClassNameArg[]): string {
   const draft: string[] = []
