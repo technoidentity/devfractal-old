@@ -148,11 +148,10 @@
       true,
       "ignore-mutation-following-accessor",
       { "ignore-prefix": "draft" }
-    ]
-    // "no-unsafe-any": true,
-    // "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
-    // "no-this": true,
-    // "no-class": true
+    ],
+    "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
+    "no-this": true,
+    "no-class": true
   },
 
   "linterOptions": {

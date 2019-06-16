@@ -1,3 +1,5 @@
+// tslint:disable file-name-casing
+
 import 'bulma/css/bulma.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
