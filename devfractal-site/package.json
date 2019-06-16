@@ -37,7 +37,6 @@
     "react-icons": "^3.7.0",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "react-scripts": "^3.0.1",
     "react-test-render": "1.1.1",
     "react-test-renderer": "16.8.6",
     "react-testing-library": "8.0.1",
@@ -63,22 +62,16 @@
     "yup": "0.27.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "ps": "parcel index.html --open",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:single": "CI=true react-scripts test",
+    "start": "parcel index.html --open",
+    "build": "parcel build",
+    "test": "jest --env=jsdom",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",
     "types:watch": "tsc --noEmit -p tsconfig.json --watch",
     "validate": "yarn lint && yarn types && yarn types",
-    "all": "yarn validate && yarn start",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "all": "yarn validate && yarn start"
   },
   "husky": {
     "hooks": {
