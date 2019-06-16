@@ -35,7 +35,7 @@ import {
   Todo,
   TreeViewStructure,
 } from './examples'
-import { TodoRoutes } from './examples/crud/TodoRoutes'
+// import { TodoRoutes } from './examples/crud/TodoRoutes'
 import {
   BottomSection,
   ExploreUIComponents,
@@ -68,7 +68,7 @@ export const CompositesRoutes: React.FC = () => (
   </>
 )
 
-export const CrudRoutes: React.FC = () => <TodoRoutes />
+// export const CrudRoutes: React.FC = () => <TodoRoutes />
 
 export const ComponentsRoutes: React.FC = () => (
   <>
@@ -115,7 +115,7 @@ export const Routes: React.FC = () => (
     <TabsRoutes />
     <FormRoutes />
     <CompositesRoutes />
-    <TodoRoutes />
+    {/* <TodoRoutes /> */}
     <ElementsRoutes />
     <ComponentsRoutes />
     <LayoutRoutes />

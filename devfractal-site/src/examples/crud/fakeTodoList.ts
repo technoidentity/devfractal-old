@@ -1,22 +1,24 @@
-import Chance from 'chance'
-import tcomb, { assert } from 'tcomb'
-import { range } from 'technoidentity-devfractal'
-import { Todo, TodoList } from './types'
+export const ghiklm: number = 10
 
-const chance: Chance.Chance = new Chance()
+// import Chance from 'chance'
+// import tcomb, { assert } from 'tcomb'
+// import { range } from 'technoidentity-devfractal'
+// import { Todo, TodoList } from './types'
 
-export const fakeTodo: () => Todo = () => ({
-  id: chance.integer({ min: 1000, max: 10000 }),
-  title: chance.sentence({ words: chance.integer({ min: 3, max: 8 }) }),
-  done: chance.bool(),
-})
+// const chance: Chance.Chance = new Chance()
 
-export const fakeTodoList: (n: number) => TodoList = n => {
-  assert(tcomb.Integer.is(n) && n >= 0)
+// export const fakeTodo: () => Todo = () => ({
+//   id: chance.integer({ min: 1000, max: 10000 }),
+//   title: chance.sentence({ words: chance.integer({ min: 3, max: 8 }) }),
+//   done: chance.bool(),
+// })
 
-  const result: Todo[] = []
-  // tslint:disable no-array-mutation
-  range(n).forEach(_ => result.push(fakeTodo()))
+// export const fakeTodoList: (n: number) => TodoList = n => {
+//   assert(tcomb.Integer.is(n) && n >= 0)
 
-  return result
-}
+//   const result: Todo[] = []
+//   // tslint:disable no-array-mutation
+//   range(n).forEach(_ => result.push(fakeTodo()))
+
+//   return result
+// }

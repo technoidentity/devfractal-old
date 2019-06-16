@@ -36,17 +36,17 @@
     "prettier": "1.18.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-<<<<<<< HEAD:docs/package.json
     "react-icons": "^3.7.0",
-    "react-router": "5.0.0",
-    "react-router-dom": "5.0.0",
-=======
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
->>>>>>> develop:devfractal-site/package.json
     "react-scripts": "3.0.1",
     "react-test-render": "1.1.1",
     "react-test-renderer": "16.8.6",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-immutable": "^6.0.0",
+    "typescript": "^3.5.2",
+    "typescript-tslint-plugin": "^0.5.0",
     "react-testing-library": "8.0.1",
     "rimraf": "2.6.3",
     "shortid": "2.2.14",
