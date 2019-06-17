@@ -73,6 +73,7 @@
     "prebuild": "rimraf dist/",
     "build": "parcel build index.html",
     "test": "jest",
+    "clean": "rimraf .cache dist",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
