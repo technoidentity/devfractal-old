@@ -30,7 +30,6 @@
     "hooks": {
       "pre-commit": "lerna run --concurrency 1 --stream precommit",
       "pre-push": "yarn validate",
-      "pre-build": "yarn validate",
       "pre-publish": "yarn validate"
     }
   }

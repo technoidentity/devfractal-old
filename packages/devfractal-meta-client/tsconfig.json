@@ -7,17 +7,6 @@
     "noEmit": false,
     "suppressImplicitAnyIndexErrors": true
   },
-  "plugins": [
-    {
-      "name": "typescript-tslint-plugin",
-      "alwaysShowRuleFailuresAsWarnings": true,
-      "ignoreDefinitionFiles": false,
-      "configFile": "./tslint.json",
-      "suppressWhileTypeErrorsPresent": true,
-      "jsEnable": false,
-      "mockTypeScriptVersion": false
-    }
-  ],
   "references": [
     { "path": "../devfractal-utils" },
     { "path": "../devfractal-meta-core" }
