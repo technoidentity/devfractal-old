@@ -8,7 +8,10 @@
   "private": true,
   "scripts": {
     "test": "NODE_ENV=test jest",
+    "test:watch": "NODE_ENV=test jest:watch",
     "clean": "rimraf dist .cache build .rts2_cache_*",
+    "clean:dist": "rimraf node_modules yarn.lock",
+    "refresh": "yarn clean && yarn clean:dist && yarn",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",

@@ -96,11 +96,14 @@
     "yup": "0.27.0"
   },
   "scripts": {
-    "start": "parcel index.html --open",
+    "start": "microbundle watch --output build --compress false",
+    "dev": "parcel index.html --open",
     "test": "jest",
-    "lib": "microbundle watch --output build --compress false",
+    "test:watch": "jest --watch",
     "build": "microbundle --output build",
     "clean": "rimraf dist .cache build .rts2_cache_*",
+    "clean:dist": "rimraf node_modules yarn.lock",
+    "refresh": "yarn clean && yarn clean:dist && yarn",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",
     "elint:fix": "yarn elint --quiet --fix",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",

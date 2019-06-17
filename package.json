@@ -18,11 +18,13 @@
     "typescript-tslint-plugin": "0.5.0"
   },
   "scripts": {
-    "clean": "lerna run clean",
+    "start": "lerna run start",
     "build": "lerna run build",
-    "validate": "lerna run validate",
+    "clean": "lerna run clean",
+    "lint": "lerna run lint",
+    "refresh": "lerna run refresh && lerna run build",
     "types": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling lerna run --parallel types:watch",
-    "start": "lerna run start"
+    "validate": "lerna run validate"
   },
   "husky": {
     "hooks": {

@@ -70,17 +70,19 @@
   },
   "scripts": {
     "start": "parcel index.html --open",
-    "prebuild": "rimraf dist/",
+    "prebuild": "yarn clean",
     "build": "parcel build index.html",
     "test": "jest",
+    "test:watch": "jest --watch",
     "clean": "rimraf dist .cache build .rts2_cache_*",
+    "clean:dist": "rimraf node_modules yarn.lock",
+    "refresh": "yarn clean && yarn clean:dist && yarn",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",
     "types:watch": "tsc --noEmit -p tsconfig.json --watch",
-    "validate": "yarn lint && yarn types && yarn types",
-    "all": "yarn validate && yarn start"
+    "validate": "yarn lint && yarn types && yarn types"
   },
   "husky": {
     "hooks": {
