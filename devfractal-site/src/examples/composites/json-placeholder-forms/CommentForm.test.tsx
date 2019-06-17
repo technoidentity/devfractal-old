@@ -1,4 +1,4 @@
-export const CommentFormTest: number = 100
+it.todo('dummy')
 // import React from 'react'
 // import renderer, { ReactTestRenderer } from 'react-test-renderer'
 // import { CommentForm } from './CommentForm'
