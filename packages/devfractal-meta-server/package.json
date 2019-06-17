@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "test": "NODE_ENV=test jest",
-    "clean": "rimraf build",
+    "clean": "rimraf dist .cache build .rts2_cache_*",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",

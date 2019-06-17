@@ -14,7 +14,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "jest",
-    "clean": "rimraf dist build .rts2_cache_*",
+    "clean": "rimraf dist .cache build .rts2_cache_*",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
