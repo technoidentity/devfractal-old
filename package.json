@@ -21,6 +21,7 @@
     "start": "lerna run start",
     "build": "lerna run build",
     "clean": "lerna run clean",
+    "test": "lerna run test",
     "lint": "lerna run lint",
     "refresh": "lerna run refresh && lerna run build",
     "types": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling lerna run --parallel types:watch",
