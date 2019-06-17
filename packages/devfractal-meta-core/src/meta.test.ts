@@ -1,15 +1,15 @@
 import { Type, validate } from 'tcomb-validation'
-import { metaToTcomb } from './metaToTcomb'
 import { ArrayMT, EnumMT, MT, PrimitiveMT } from './meta'
+import { metaToTcomb } from './metaToTcomb'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }
 const boolEx: PrimitiveMT = { kind: 'boolean' }
 const dateEx: PrimitiveMT = { kind: 'date' }
 
-const isValid = <T>(type: Type<T>, value: any) =>
-  validate(value, type).isValid()
-
+function isValid<T>(type: Type<T>, value: any): boolean {
+  return validate(value, type).isValid()
+}
 test('number meta', () => {
   expect(isValid(metaToTcomb(noEx), 100)).toBeTruthy()
   expect(isValid(metaToTcomb(noEx), '100')).toBeFalsy()

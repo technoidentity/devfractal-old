@@ -1,6 +1,6 @@
 import { validate } from 'tcomb-validation'
-import { metaToTcomb } from './metaToTcomb'
 import { ArrayMT, EnumMT, MT, PrimitiveMT } from './meta'
+import { metaToTcomb } from './metaToTcomb'
 
 const noEx: PrimitiveMT = { kind: 'number' }
 const strEx: PrimitiveMT = { kind: 'string' }

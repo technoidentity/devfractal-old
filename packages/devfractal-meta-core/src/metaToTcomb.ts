@@ -1,7 +1,7 @@
-import * as t from 'tcomb'
 import {
   ArrayMaxLength,
   ArrayMinLength,
+  buildObject,
   Email,
   Length,
   Lower,
@@ -16,6 +16,7 @@ import {
   Upper,
   Url,
 } from '@technoidentity/utils'
+import * as t from 'tcomb'
 import {
   ArrayRefinements,
   DateRefinements,
@@ -23,9 +24,8 @@ import {
   NumberRefinements,
   StringRefinements,
 } from './meta'
-import { buildObject } from '@technoidentity/utils'
 
-// tslint:disable typedef switch-default
+// tslint:disable typedef switch-default no-array-mutation
 
 function toTcombNumberRefinements(r: NumberRefinements) {
   const refinements = []

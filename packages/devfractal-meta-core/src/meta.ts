@@ -1,6 +1,8 @@
+import { lit, opt, props, req } from '@technoidentity/utils'
 import * as t from 'io-ts'
 import { date } from 'io-ts-types'
-import { lit, opt, props, req } from '@technoidentity/utils'
+
+// tslint:disable typedef
 
 export const NumberRefinements = opt({
   sign: t.keyof({ negative: 1, positive: 2 }),

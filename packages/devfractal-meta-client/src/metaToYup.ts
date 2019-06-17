@@ -5,6 +5,7 @@ import {
   NumberRefinements,
   StringRefinements,
 } from '@technoidentity/meta-core'
+import { buildObject } from 'technoidentity-devfractal'
 import {
   array,
   ArraySchema,
@@ -18,7 +19,6 @@ import {
   string,
   StringSchema,
 } from 'yup'
-import { buildObject } from 'technoidentity-devfractal'
 
 // tslint:disable typedef switch-default
 

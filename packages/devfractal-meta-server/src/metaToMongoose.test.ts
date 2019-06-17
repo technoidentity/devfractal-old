@@ -1,4 +1,3 @@
-import { metaToModel } from './metaToMongoose'
 import {
   MArray,
   MBool,
@@ -7,6 +6,9 @@ import {
   MNumber,
   MString,
 } from '@technoidentity/meta-core'
+import { metaToModel } from './metaToMongoose'
+
+// tslint:disable typedef no-object-mutation
 
 test('metaToModel', () => {
   const meta = MMT({

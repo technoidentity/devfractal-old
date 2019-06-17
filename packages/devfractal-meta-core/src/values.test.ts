@@ -1,16 +1,18 @@
 import { validate } from 'tcomb-validation'
-import { metaToTcomb } from './metaToTcomb'
 import { MT } from './meta'
+import { metaToTcomb } from './metaToTcomb'
 import {
   MArray,
   maybe,
   MBool,
   MDate,
   MEnum,
+  MMT,
   MNumber,
   MString,
-  MMT,
 } from './values'
+
+// tslint:disable typedef
 
 test('create meta using values', () => {
   const customerMeta: MT = MMT(
