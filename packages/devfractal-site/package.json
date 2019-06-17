@@ -1,5 +1,5 @@
 {
-  "name": "devfractal-project",
+  "name": "@technoidentity/devfractal-site",
   "version": "0.0.1",
   "private": true,
   "main": "build/index.js",
@@ -50,6 +50,8 @@
     "react-test-renderer": "16.8.6",
     "react-testing-library": "8.0.1",
     "rimraf": "2.6.3",
+    "serve": "^11.0.1",
+    "server": "^1.0.19",
     "ts-jest": "24.0.2",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
@@ -68,7 +70,8 @@
   },
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build",
+    "prebuild": "rimraf dist/",
+    "build": "parcel build index.html",
     "test": "jest",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
