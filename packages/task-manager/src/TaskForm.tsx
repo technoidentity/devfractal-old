@@ -1,5 +1,12 @@
 import 'bulma/css/bulma.css'
-import { Field, FieldProps, Form, Formik, FormikProps } from 'formik'
+import {
+  ErrorMessage,
+  Field,
+  FieldProps,
+  Form,
+  Formik,
+  FormikProps,
+} from 'formik'
 import React from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -22,6 +29,7 @@ export const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => {
     </div>
   )
 }
+const currentDate = new Date()
 
 const validationSchema = Yup.object().shape({
   title: Yup.string()
@@ -33,10 +41,32 @@ const validationSchema = Yup.object().shape({
     .min(10)
     .max(200),
   dateInfo: Yup.object().shape({
-    started: Yup.date().required(),
-    deadline: Yup.date().required(),
-    scheduled: Yup.date().required(),
-    completed: Yup.date(),
+    started: Yup.date().min(
+      currentDate,
+      'started date should be greater than or equal to current date',
+    ),
+    deadline: Yup.date()
+      .required()
+      .when('scheduled', (scheduled: Date, schema: Yup.DateSchema) => {
+        return schema.min(
+          scheduled,
+          'deadline date should be greater than scheduled date',
+        )
+      }),
+    scheduled: Yup.date()
+      .required()
+      .when('started', (started: Date, schema: Yup.DateSchema) => {
+        return schema.min(
+          started,
+          'scheduled date should be greater than started date',
+        )
+      }),
+    completed: Yup.date().when(
+      'started',
+      (started: Date, schema: Yup.DateSchema) => {
+        return schema.min(started, 'deadline should be greater than started')
+      },
+    ),
   }),
 })
 
@@ -56,7 +86,7 @@ export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
             />
           </div>
           <div className="help is-danger">
-            <ErrorField name="title" />
+            <ErrorMessage name="title" />
           </div>
         </div>
 
@@ -86,7 +116,7 @@ export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
             />
           </div>
           <div className="help is-danger">
-            <ErrorField name="dateInfo.started" />
+            <ErrorMessage name="dateInfo.started" />
           </div>
         </div>
 
