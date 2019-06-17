@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "isolatedModules": false,
+    "jsx": "react",
+    "noEmit": false,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "references": [
+    { "path": "../devfractal-utils" },
+    { "path": "../devfractal-meta-core" }
+  ],
+  "include": ["src"]
+}

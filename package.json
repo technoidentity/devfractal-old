@@ -1,0 +1,37 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "husky": "2.4.1",
+    "json-server": "0.15.0",
+    "lerna": "3.15.0",
+    "lint-staged": "8.2.1",
+    "tslint": "5.17.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-immutable": "6.0.0",
+    "tslint-react": "4.0.0",
+    "typescript": "3.5.2",
+    "typescript-tslint-plugin": "0.5.0"
+  },
+  "scripts": {
+    "start": "lerna run start",
+    "build": "lerna run build",
+    "clean": "lerna run clean",
+    "test": "lerna run test",
+    "lint": "lerna run lint",
+    "refresh": "lerna run refresh && lerna run build",
+    "types": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling lerna run --parallel types:watch",
+    "validate": "lerna run validate"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run --concurrency 1 --stream precommit",
+      "pre-push": "yarn validate",
+      "pre-publish": "yarn validate"
+    }
+  }
+}

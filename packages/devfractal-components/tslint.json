@@ -1,0 +1,16 @@
+{
+  "extends": ["tslint-react", "../../tslint.json"],
+  "rules": {
+    "jsx-boolean-value": false,
+    "jsx-key": true,
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "jsx-wrap-multiline": false,
+    "jsx-no-string-ref": true,
+    "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }]
+  },
+  "linterOptions": {
+    "exclude": ["build/**", ".rts2*/**", "node_modules/**"]
+  },
+  "defaultSeverity": "warn"
+}

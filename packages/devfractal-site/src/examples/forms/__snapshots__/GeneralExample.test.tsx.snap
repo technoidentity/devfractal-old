@@ -1,0 +1,2155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`General Example 1`] = `
+<div
+  className="columns is-centered"
+>
+  <div
+    className="column is-half is-half"
+  >
+    <section
+      className="section"
+    >
+      <div
+        className="field"
+      >
+        <label
+          className="label"
+        >
+          Name
+        </label>
+        <div
+          className="control"
+        >
+          <input
+            className="input"
+            placeholder="Text input"
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          className="label"
+        >
+          Username
+        </label>
+        <div
+          className="control has-icons-left has-icons-right"
+        >
+          <input
+            className="input"
+            placeholder="Text input"
+            type="text"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-user fa-w-14 "
+              data-icon="user"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+        <p
+          className="help is-success"
+        >
+          This username is available
+        </p>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          className="label"
+        >
+          Email
+        </label>
+        <div
+          className="control has-icons-left has-icons-right"
+        >
+          <input
+            className="input"
+            placeholder="Email input"
+            readOnly={true}
+            type="email"
+            value="hello@"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-exclamation-triangle fa-w-18 "
+              data-icon="exclamation-triangle"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 576 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+        <p
+          className="help is-danger"
+        >
+          This email is invalid
+        </p>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          className="label"
+        >
+          Subject
+        </label>
+        <div
+          className="control"
+        >
+          <div
+            className="select"
+          >
+            <select
+              className=""
+            >
+              <option>
+                Select dropdown
+              </option>
+              <option>
+                With options
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          className="label"
+        >
+          Message
+        </label>
+        <div
+          className="control"
+        >
+          <textarea
+            className="textarea"
+            placeholder="Textarea"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control"
+        >
+          <label
+            className="checkbox"
+          >
+            <input
+              className="checkbox"
+              type="checkbox"
+            />
+             
+            I agree to the 
+            <a
+              href="#!"
+            >
+              terms and conditions
+            </a>
+          </label>
+        </div>
+      </div>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <label
+            className="radio"
+          >
+            <input
+              checked={true}
+              name="terms"
+              onChange={[Function]}
+              type="radio"
+              value="0"
+            />
+             Yes
+          </label>
+          <label
+            className="radio"
+          >
+            <input
+              checked={false}
+              name="terms"
+              onChange={[Function]}
+              type="radio"
+              value="1"
+            />
+             No
+          </label>
+        </div>
+      </div>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success"
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <div
+        className="field"
+      >
+        <label
+          className="label"
+        >
+          Label
+        </label>
+        <div
+          className="control"
+        >
+          <input
+            className="input"
+            placeholder="Text input"
+            type="text"
+          />
+        </div>
+        <p
+          className="help"
+        >
+          This is a help text
+        </p>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control"
+        >
+          <div
+            className="select"
+          >
+            <select
+              className=""
+            >
+              <option>
+                Select dropdown
+              </option>
+              <option>
+                With options
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control has-icons-left has-icons-right"
+        >
+          <input
+            className="input"
+            placeholder="Email"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control has-icons-left"
+        >
+          <input
+            className="input"
+            placeholder="Password"
+            type="password"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-lock fa-w-14 "
+              data-icon="lock"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            color="success"
+            type="button"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control has-icons-left"
+        >
+          <div
+            className="select"
+          >
+            <select
+              className=""
+            >
+              <option>
+                Country
+              </option>
+              <option>
+                Select dropdown
+              </option>
+              <option>
+                With options
+              </option>
+            </select>
+          </div>
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-globe fa-w-16 "
+              data-icon="globe"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 496 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <div
+        className="field"
+      >
+        <label
+          className="label is-small"
+        >
+          Small input
+        </label>
+        <div
+          className="control has-icons-left has-icons-right"
+        >
+          <input
+            className="input"
+            placeholder="Small input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          className="label"
+        >
+          Normal input
+        </label>
+        <div
+          className="control has-icons-left has-icons-right"
+        >
+          <input
+            className="input"
+            placeholder="Normal input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control has-icons-left has-icons-right"
+        >
+          <input
+            className="input"
+            placeholder="Normal input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          className="label is-medium"
+        >
+          Medium input
+        </label>
+        <div
+          className="control is-medium has-icons-left has-icons-right"
+        >
+          <input
+            className="input is-medium"
+            placeholder="Medium input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control is-medium has-icons-left has-icons-right"
+        >
+          <input
+            className="input is-medium"
+            placeholder="Medium input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control is-medium has-icons-left has-icons-right"
+        >
+          <input
+            className="input is-medium"
+            placeholder="Medium input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          className="label is-large"
+        >
+          Large input
+        </label>
+        <div
+          className="control is-large has-icons-left has-icons-right"
+        >
+          <input
+            className="input is-large"
+            placeholder="Large input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control is-large has-icons-left has-icons-right"
+        >
+          <input
+            className="input is-large"
+            placeholder="Large input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control is-large has-icons-left has-icons-right"
+        >
+          <input
+            className="input is-large"
+            placeholder="Large input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="control is-large has-icons-left has-icons-right"
+        >
+          <input
+            className="input is-large"
+            placeholder="Large input"
+            type="email"
+          />
+          <span
+            className="icon is-left"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-envelope fa-w-16 "
+              data-icon="envelope"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+          <span
+            className="icon is-right"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-check fa-w-16 "
+              data-icon="check"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control is-expanded"
+        >
+          <input
+            className="input"
+            placeholder="Find a repository"
+            type="text"
+          />
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-info"
+            type="button"
+          >
+             Search
+          </button>
+        </div>
+      </div>
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control"
+        >
+          <input
+            className="input"
+            placeholder="Your email"
+            type="text"
+          />
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-static"
+            type="button"
+          >
+            @gmail.com
+          </button>
+        </div>
+      </div>
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control"
+        >
+          <div
+            className="select"
+          >
+            <select
+              className=""
+            >
+              <option>
+                $
+              </option>
+              <option>
+                £
+              </option>
+              <option>
+                €
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          className="control"
+        >
+          <input
+            className="input"
+            placeholder="Amount of money"
+            type="text"
+          />
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Transfer
+          </button>
+        </div>
+      </div>
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control"
+        >
+          <div
+            className="select"
+          >
+            <select
+              className=""
+            >
+              <option>
+                $
+              </option>
+              <option>
+                £
+              </option>
+              <option>
+                €
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          className="control is-expanded"
+        >
+          <input
+            className="input"
+            placeholder="Amount of money"
+            type="text"
+          />
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Transfer
+          </button>
+        </div>
+      </div>
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control is-expanded"
+        >
+          <div
+            className="select is-fullwidth"
+          >
+            <select
+              className=""
+              name="country"
+            >
+              <option>
+                Argentina
+              </option>
+              <option>
+                Bolivia
+              </option>
+              <option>
+                Brazil
+              </option>
+              <option>
+                Chile
+              </option>
+              <option>
+                Colombia
+              </option>
+              <option>
+                Ecuador
+              </option>
+              <option>
+                Guyana
+              </option>
+              <option>
+                Paraguay
+              </option>
+              <option>
+                Peru
+              </option>
+              <option>
+                Suriname
+              </option>
+              <option>
+                Uruguay
+              </option>
+              <option>
+                Venezuela
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="submit"
+          >
+            Choose
+          </button>
+        </div>
+      </div>
+      <div
+        className="field has-addons has-addons-centered"
+      >
+        <div
+          className="control"
+        >
+          <div
+            className="select"
+          >
+            <select
+              className=""
+            >
+              <option>
+                $
+              </option>
+              <option>
+                £
+              </option>
+              <option>
+                €
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          className="control"
+        >
+          <input
+            className="input"
+            placeholder="Amount of money"
+            type="text"
+          />
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="button"
+          >
+            Transfer
+          </button>
+        </div>
+      </div>
+      <div
+        className="field has-addons has-addons-right"
+      >
+        <div
+          className="control"
+        >
+          <div
+            className="select"
+          >
+            <select
+              className=""
+            >
+              <option>
+                $
+              </option>
+              <option>
+                £
+              </option>
+              <option>
+                €
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          className="control"
+        >
+          <input
+            className="input"
+            placeholder="Amount of money"
+            type="text"
+          />
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="button"
+          >
+            Transfer
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-light"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div
+        className="field is-grouped is-grouped-centered"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-light"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div
+        className="field is-grouped is-grouped-right"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-light"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control is-expanded"
+        >
+          <input
+            className="input"
+            placeholder="Find a repository"
+            type="text"
+          />
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-info"
+            type="button"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+      <div
+        className="field is-grouped is-grouped-multiline"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            One
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            two
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            three
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            four
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            five
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            six
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            seven
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            eight
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            nine
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            ten
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            eleven
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            twelve
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            thirteen
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label is-normal"
+        >
+          <label
+            className="label"
+          >
+            From 
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control has-icons-left"
+            >
+              <input
+                className="input"
+                placeholder="Name"
+                type="text"
+              />
+              <span
+                className="icon is-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-user fa-w-14 "
+                  data-icon="user"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            className="field"
+          >
+            <div
+              className="control has-icons-left has-icons-right"
+            >
+              <input
+                className="input is-success"
+                placeholder="Email"
+                type="email"
+              />
+              <span
+                className="icon is-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-envelope fa-w-16 "
+                  data-icon="envelope"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </span>
+              <span
+                className="icon is-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-check fa-w-16 "
+                  data-icon="check"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label"
+        >
+          <label
+            className="label"
+          />
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field is-expanded"
+          >
+            <div
+              className="field has-addons"
+            >
+              <div
+                className="control"
+              >
+                <button
+                  className="button is-static"
+                  type="button"
+                >
+                  +44
+                </button>
+              </div>
+              <div
+                className="control"
+              >
+                <input
+                  className="input"
+                  placeholder="Your phone number"
+                  type="tel"
+                />
+              </div>
+            </div>
+            <p
+              className="help"
+            >
+              Do not enter the first zero
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label is-normal"
+        >
+          <label
+            className="label"
+          >
+            Department
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field is-narrow"
+          >
+            <div
+              className="control"
+            >
+              <div
+                className="select is-fullwidth"
+              >
+                <select
+                  className=""
+                >
+                  <option>
+                    Business development
+                  </option>
+                  <option>
+                    Marketing
+                  </option>
+                  <option>
+                    Sales
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label"
+        >
+          <label
+            className="label"
+          >
+            Already a member? 
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control"
+            >
+              <label
+                className="radio"
+              >
+                <input
+                  checked={true}
+                  name="member"
+                  onChange={[Function]}
+                  type="radio"
+                  value="0"
+                />
+                 Yes
+              </label>
+              <label
+                className="radio"
+              >
+                <input
+                  checked={false}
+                  name="member"
+                  onChange={[Function]}
+                  type="radio"
+                  value="1"
+                />
+                 No
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label is-normal"
+        >
+          <label
+            className="label"
+          >
+            Subject
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control"
+            >
+              <input
+                className="input is-danger"
+                placeholder="e.g. Partnership opportunity"
+                type="text"
+              />
+            </div>
+            <p
+              className="help is-danger"
+            >
+              This field is required
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label is-normal"
+        >
+          <label
+            className="label"
+          >
+            Question 
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control"
+            >
+              <textarea
+                className="textarea"
+                placeholder="Explain how we can help you"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label"
+        >
+          <label
+            className="label"
+          />
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control"
+            >
+              <button
+                className="button is-primary"
+                type="button"
+              >
+                Send message
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section
+        className="section"
+      >
+        <div
+          className="field has-addons has-addons-centered"
+        >
+          <div
+            className="control"
+          >
+            <div
+              className="select"
+            >
+              <select
+                className=""
+              >
+                <option>
+                  $
+                </option>
+                <option>
+                  £
+                </option>
+                <option>
+                  €
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            className="control"
+          >
+            <input
+              className="input"
+              placeholder="Amount of money"
+              type="text"
+            />
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button is-primary"
+              type="button"
+            >
+              Transfer
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        className="section"
+      >
+        <div
+          className="field is-grouped is-grouped-centered"
+        >
+          <div
+            className="control"
+          >
+            <button
+              className="button is-primary"
+              type="button"
+            >
+              Submit
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button is-light"
+              type="button"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </section>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label"
+        >
+          <label
+            className="label"
+          >
+            No padding 
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control"
+            >
+              <label
+                className="checkbox"
+              >
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                />
+                 Checkbox
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label is-small"
+        >
+          <label
+            className="label"
+          >
+            Small padding
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control is-small"
+            >
+              <input
+                className="input is-small"
+                placeholder="Small sized input"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label is-normal"
+        >
+          <label
+            className="label"
+          >
+            Normal label 
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control"
+            >
+              <input
+                className="input"
+                placeholder="Normal sized input"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label is-medium"
+        >
+          <label
+            className="label"
+          >
+            Medium label
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control is-medium"
+            >
+              <input
+                className="input is-medium"
+                placeholder="Medium sized input"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <div
+          className="field-label is-large"
+        >
+          <label
+            className="label"
+          >
+            Large label 
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="control is-large"
+            >
+              <input
+                className="input is-large"
+                placeholder="Large sized input"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;
