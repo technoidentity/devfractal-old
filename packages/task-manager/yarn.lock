@@ -6050,6 +6050,13 @@ invert-kv@^2.0.0:
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-2.0.0.tgz#7393f5afa59ec9ff5f67a27620d11c226e3eec02"
   integrity sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpCBCDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==
 
+io-ts-promise@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/io-ts-promise/-/io-ts-promise-1.1.1.tgz#74e9c0156ebd4a2938375a45292fb43b5f7914e9"
+  integrity sha512-UUvSe16kcbccl17RGhQC2Ij3PiXNxactxsGtF6vBHqGm84R3jX75KDGOKb0omd18eJoAXOUvJUjafy4F3hEDgA==
+  dependencies:
+    deep-equal "^1.0.1"
+
 io-ts-reporters@^0.0.21:
   version "0.0.21"
   resolved "https://registry.yarnpkg.com/io-ts-reporters/-/io-ts-reporters-0.0.21.tgz#b0be3eec37a3d7da77aeafa257c68bd2afbbc4af"
