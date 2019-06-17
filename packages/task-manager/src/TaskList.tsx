@@ -14,7 +14,7 @@ import {
   Title,
   Tr,
 } from 'technoidentity-devfractal'
-import { TaskValues } from './TaskForm'
+import { TaskValues } from './TaskValues'
 
 export interface TaskItemProps {
   readonly taskItem: TaskValues
@@ -40,6 +40,14 @@ export const TaskItem: React.FC<TaskItemProps> = ({ taskItem }) => {
       <Td>
         {taskItem.dateInfo.completed &&
           format(taskItem.dateInfo.completed, 'DD/MM/YYYY')}
+      </Td>
+      <Td>
+        <Link
+          to={`/edit/${taskItem._id}`}
+          className="button is-primary is-link"
+        >
+          Edit
+        </Link>
       </Td>
     </Tr>
   )
@@ -73,6 +81,7 @@ export const TaskList: React.FC<TaskListProps> = ({
             <Th>Deadline</Th>
             <Th>Scheduled</Th>
             <Th>Completed</Th>
+            <Th />
           </Tr>
         </TableHead>
         <TableBody>
