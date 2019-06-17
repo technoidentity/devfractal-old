@@ -1,12 +1,12 @@
-import React from 'react'
 import {
-  FaFacebook,
-  FaGooglePlus,
-  FaLinkedin,
-  FaQuoteLeft,
-  FaTwitter,
-  FaYoutube,
-} from 'react-icons/fa'
+  faFacebook,
+  faGooglePlus,
+  faLinkedin,
+  faTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons'
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import {
   Button,
@@ -17,6 +17,7 @@ import {
   DynamicBreadcrumb,
   Hero,
   HeroHead,
+  Icon,
   Navbar,
   NavbarBrand,
   NavbarBurger,
@@ -341,7 +342,8 @@ export const BottomSection: React.FC = () => (
         style={{ color: '#595959' }}
         className="is-size-4-desktop is-size-4-tablet is-size-5-mobile"
       >
-        <FaQuoteLeft
+        <Icon
+          icon={faQuoteLeft}
           size="2x"
           style={{ color: '#c3c3c3', marginRight: '2rem' }}
         />
@@ -452,11 +454,11 @@ export const FooterSection: React.FC = () => (
   <>
     Copyright © 2019 TechnoIdentity Solutions.All rights reserved.
     <div style={{ float: 'right' }}>
-      <FaFacebook color="#004267" />
-      <FaTwitter color="#004267" />
-      <FaLinkedin color="#004267" />
-      <FaGooglePlus color="#004267" />
-      <FaYoutube color="#004267" />
+      <Icon icon={faFacebook} color="#004267" />
+      <Icon icon={faTwitter} color="#004267" />
+      <Icon icon={faLinkedin} color="#004267" />
+      <Icon icon={faGooglePlus} color="#004267" />
+      <Icon icon={faYoutube} color="#004267" />
     </div>
   </>
 )

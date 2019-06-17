@@ -1,11 +1,13 @@
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { FaDownload, FaTwitter } from 'react-icons/fa'
 import {
   Button,
   ButtonsGroup,
   Field,
   Hero,
   HeroBody,
+  Icon,
   Navbar,
   NavbarBrand,
   NavbarBurger,
@@ -190,10 +192,10 @@ export const TransparentNavbarExample: React.FC = () => (
           <NavbarItem>
             <Field grouped>
               <Button variant="info">
-                <FaTwitter /> <span>Twitter</span>
+                <Icon icon={faTwitter} /> <span>Twitter</span>
               </Button>
               <Button variant="primary">
-                <FaDownload /> <span>Download</span>
+                <Icon icon={faDownload} /> <span>Download</span>
               </Button>
             </Field>
           </NavbarItem>
@@ -481,10 +483,10 @@ export const NavbarColorsExample: React.FC = () => (
           <NavbarItem>
             <Field grouped>
               <Button variant="info">
-                <FaTwitter /> <span>Twitter</span>
+                <Icon icon={faTwitter} /> <span>Twitter</span>
               </Button>
               <Button variant="primary">
-                <FaDownload /> <span>Download</span>
+                <Icon icon={faDownload} /> <span>Download</span>
               </Button>
             </Field>
           </NavbarItem>
@@ -530,10 +532,10 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter /> <span>Twitter</span>
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -580,10 +582,10 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter /> <span>Twitter</span>
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -630,11 +632,11 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter />
+                  <Icon icon={faTwitter} />
                   <span> Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -681,10 +683,10 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter /> <span>Twitter</span>
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -731,10 +733,10 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter /> <span>Twitter</span>
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -781,10 +783,10 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter /> <span>Twitter</span>
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -831,10 +833,10 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter /> <span>Twitter</span>
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -881,10 +883,10 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter /> <span>Twitter</span>
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>
@@ -931,10 +933,10 @@ export const NavbarColorsExample: React.FC = () => (
             <NavbarItem>
               <Field grouped>
                 <Button variant="info">
-                  <FaTwitter /> <span>Twitter</span>
+                  <Icon icon={faTwitter} /> <span>Twitter</span>
                 </Button>
                 <Button variant="primary">
-                  <FaDownload /> <span>Download</span>
+                  <Icon icon={faDownload} /> <span>Download</span>
                 </Button>
               </Field>
             </NavbarItem>

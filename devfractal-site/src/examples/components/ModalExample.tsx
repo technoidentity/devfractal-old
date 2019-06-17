@@ -1,10 +1,11 @@
+import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
-import { FaHeart, FaReply, FaRetweet } from 'react-icons/fa'
 import {
   Box,
   Button,
   Content,
   Delete,
+  Icon,
   Image,
   Level,
   LevelItem,
@@ -77,9 +78,9 @@ export const MediaModalExample: React.FC = () => {
                 </Content>
                 <Level className="is-mobile">
                   <LevelItem direction="left">
-                    <FaReply />
-                    <FaRetweet />
-                    <FaHeart />
+                    <Icon icon={faReply} />
+                    <Icon icon={faRetweet} />
+                    <Icon icon={faHeart} />
                   </LevelItem>
                 </Level>
               </MediaContent>

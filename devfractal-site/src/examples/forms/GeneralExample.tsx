@@ -1,12 +1,12 @@
-import React from 'react'
 import {
-  FaCheck,
-  FaEnvelope,
-  FaExclamationTriangle,
-  FaGlobe,
-  FaLock,
-  FaUser,
-} from 'react-icons/fa'
+  faCheck,
+  faEnvelope,
+  faExclamationTriangle,
+  faGlobe,
+  faLock,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import {
   Button,
   CheckBox,
@@ -37,8 +37,8 @@ export const General: React.FC = () => (
           <Field>
             <Label>Username</Label>
             <Input
-              leftIcon={FaUser}
-              rightIcon={FaCheck}
+              leftIcon={faUser}
+              rightIcon={faCheck}
               iconSize="small"
               type="text"
               placeholder="Text input"
@@ -48,8 +48,8 @@ export const General: React.FC = () => (
           <Field>
             <Label>Email</Label>
             <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaExclamationTriangle}
+              leftIcon={faEnvelope}
+              rightIcon={faExclamationTriangle}
               iconSize="small"
               type="email"
               placeholder="Email input"
@@ -102,15 +102,15 @@ export const General: React.FC = () => (
           <Field>
             <Input
               iconSize="small"
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               type="email"
               placeholder="Email"
             />
           </Field>
           <Field>
             <Input
-              leftIcon={FaLock}
+              leftIcon={faLock}
               iconSize="small"
               type="password"
               placeholder="Password"
@@ -120,7 +120,7 @@ export const General: React.FC = () => (
             <Button color="success">Login</Button>
           </Field>
           <Field>
-            <Select leftIcon={FaGlobe} iconSize="small">
+            <Select leftIcon={faGlobe} iconSize="small">
               <option>Country</option>
               <option>Select dropdown</option>
               <option>With options</option>
@@ -131,8 +131,8 @@ export const General: React.FC = () => (
           <Field>
             <Label size="small">Small input</Label>
             <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               iconSize="small"
               type="email"
               placeholder="Small input"
@@ -141,16 +141,16 @@ export const General: React.FC = () => (
           <Field>
             <Label>Normal input</Label>
             <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               type="email"
               placeholder="Normal input"
             />
           </Field>
           <Field>
             <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               type="email"
               placeholder="Normal input"
             />
@@ -158,8 +158,8 @@ export const General: React.FC = () => (
           <Field>
             <Label size="medium">Medium input</Label>
             <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               ctrlSize="medium"
               iconSize="small"
               type="email"
@@ -168,8 +168,8 @@ export const General: React.FC = () => (
           </Field>
           <Field>
             <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               ctrlSize="medium"
               iconSize="small"
               type="email"
@@ -178,8 +178,8 @@ export const General: React.FC = () => (
           </Field>
           <Field>
             <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               ctrlSize="medium"
               type="email"
               placeholder="Medium input"
@@ -189,8 +189,8 @@ export const General: React.FC = () => (
             <Label size="large">Large input</Label>
             <Input
               ctrlSize="large"
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               iconSize="small"
               type="email"
               placeholder="Large input"
@@ -198,18 +198,8 @@ export const General: React.FC = () => (
           </Field>
           <Field>
             <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
-              iconSize="small"
-              ctrlSize="large"
-              type="email"
-              placeholder="Large input"
-            />
-          </Field>
-          <Field>
-            <Input
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               iconSize="small"
               ctrlSize="large"
               type="email"
@@ -218,9 +208,19 @@ export const General: React.FC = () => (
           </Field>
           <Field>
             <Input
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
+              iconSize="small"
               ctrlSize="large"
-              leftIcon={FaEnvelope}
-              rightIcon={FaCheck}
+              type="email"
+              placeholder="Large input"
+            />
+          </Field>
+          <Field>
+            <Input
+              ctrlSize="large"
+              leftIcon={faEnvelope}
+              rightIcon={faCheck}
               type="email"
               placeholder="Large input"
             />
@@ -334,7 +334,7 @@ export const General: React.FC = () => (
             <FieldBody>
               <Field>
                 <Input
-                  leftIcon={FaUser}
+                  leftIcon={faUser}
                   iconSize="small"
                   type="text"
                   placeholder="Name"
@@ -342,8 +342,8 @@ export const General: React.FC = () => (
               </Field>
               <Field>
                 <Input
-                  leftIcon={FaEnvelope}
-                  rightIcon={FaCheck}
+                  leftIcon={faEnvelope}
+                  rightIcon={faCheck}
                   iconSize="small"
                   variant="success"
                   type="email"

@@ -1,5 +1,5 @@
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { FaAngleDown } from 'react-icons/fa'
 import {
   Card,
   CardContent,
@@ -10,6 +10,7 @@ import {
   CardHeaderTitle,
   CardImage,
   Content,
+  Icon,
   Image,
   Media,
   MediaContent,
@@ -74,7 +75,7 @@ export const CardHeaderIconExample: React.FC = () => (
       <CardHeader>
         <CardHeaderTitle>Component</CardHeaderTitle>
         <CardHeaderIcon>
-          <FaAngleDown />
+          <Icon icon={faAngleDown} />
         </CardHeaderIcon>
       </CardHeader>
       <CardContent>

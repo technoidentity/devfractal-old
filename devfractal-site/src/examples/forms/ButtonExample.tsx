@@ -1,20 +1,21 @@
-import React, { useState } from 'react'
-import { FaGithub, FaTwitter } from 'react-icons/fa'
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import {
-  FaAlignCenter,
-  FaAlignLeft,
-  FaAlignRight,
-  FaBold,
-  FaCheck,
-  FaItalic,
-  FaTimes,
-  FaUnderline,
-} from 'react-icons/fa'
+  faAlignCenter,
+  faAlignLeft,
+  faAlignRight,
+  faBold,
+  faCheck,
+  faItalic,
+  faTimes,
+  faUnderline,
+} from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react'
 import {
   Box,
   Button as ButtonComponent,
   ButtonsGroup,
   Field,
+  Icon,
   Label,
   Section,
   Text,
@@ -304,47 +305,47 @@ const ButtonWithFontAwesomeIconsExample: React.FC = () => (
     <Title size="4">With Font Awesome icons</Title>
     <Field grouped>
       <ButtonComponent>
-        <FaBold />
+        <Icon icon={faBold} />
       </ButtonComponent>
       <ButtonComponent>
-        <FaItalic />
+        <Icon icon={faItalic} />
       </ButtonComponent>
       <ButtonComponent>
-        <FaUnderline />
+        <Icon icon={faUnderline} />
       </ButtonComponent>
     </Field>
 
     <Field grouped>
       <ButtonComponent>
-        <FaGithub /> <Text>GitHub</Text>
+        <Icon icon={faGithub} /> <Text>GitHub</Text>
       </ButtonComponent>
       <ButtonComponent variant="primary">
-        <FaTwitter />
+        <Icon icon={faTwitter} />
         <Text>Twitter</Text>
       </ButtonComponent>
       <ButtonComponent variant="success">
-        <FaCheck />
+        <Icon icon={faCheck} />
         <Text>Save</Text>
       </ButtonComponent>
       <ButtonComponent outlined variant="danger">
-        <FaTimes />
+        <Icon icon={faTimes} />
         <Text>Delete</Text>
       </ButtonComponent>
     </Field>
 
     <Field grouped>
       <ButtonComponent size="small">
-        <FaGithub />
+        <Icon icon={faGithub} />
         <Text> GitHub</Text>
       </ButtonComponent>
       <ButtonComponent size="normal">
-        <FaGithub /> <Text>GitHub</Text>
+        <Icon icon={faGithub} /> <Text>GitHub</Text>
       </ButtonComponent>
       <ButtonComponent size="medium">
-        <FaGithub /> <Text>GitHub</Text>
+        <Icon icon={faGithub} /> <Text>GitHub</Text>
       </ButtonComponent>
       <ButtonComponent size="large">
-        <FaGithub /> <Text>GitHub</Text>
+        <Icon icon={faGithub} /> <Text>GitHub</Text>
       </ButtonComponent>
     </Field>
   </Section>
@@ -366,15 +367,15 @@ const ButtonAddonsExample: React.FC = () => (
     <Title size="4">Button addons</Title>
     <Field addons>
       <ButtonComponent>
-        <FaAlignLeft />
+        <Icon icon={faAlignLeft} />
         <Text> Left</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <FaAlignCenter />
+        <Icon icon={faAlignCenter} />
         <Text>Center</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <FaAlignRight />
+        <Icon icon={faAlignRight} />
         <Text>Right</Text>
       </ButtonComponent>
     </Field>
@@ -386,28 +387,28 @@ const ButtonGroupWithAddonsExample: React.FC = () => (
     <Title size="4">Button group with addons</Title>
     <Field addons>
       <ButtonComponent>
-        <FaBold />
+        <Icon icon={faBold} />
         <Text>Bold</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <FaItalic />
+        <Icon icon={faItalic} />
         <Text>Italic</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <FaUnderline />
+        <Icon icon={faUnderline} />
         <Text>Underline</Text>
       </ButtonComponent>
     </Field>
     <Field addons>
       <ButtonComponent>
-        <FaAlignLeft /> <Text>Left</Text>
+        <Icon icon={faAlignLeft} /> <Text>Left</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <FaAlignCenter />
+        <Icon icon={faAlignCenter} />
         <Text>Center</Text>
       </ButtonComponent>
       <ButtonComponent>
-        <FaAlignRight />
+        <Icon icon={faAlignRight} />
         <Text>Right</Text>
       </ButtonComponent>
     </Field>
