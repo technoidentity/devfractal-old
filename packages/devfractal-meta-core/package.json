@@ -37,10 +37,13 @@
   },
   "devDependencies": {
     "@types/jest": "24.0.14",
+    "@types/json-schema": "7.0.3",
+    "ajv": "6.10.0",
     "io-ts": "1.9.0",
     "io-ts-types": "0.4.7",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
+    "json-schema": "0.2.3",
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1",
     "ts-jest": "24.0.2",
