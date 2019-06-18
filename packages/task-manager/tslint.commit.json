@@ -5,8 +5,7 @@
     "no-unused-variable": true,
     "ban-ts-ignore": true,
     "no-empty-interface": true,
-    "no-debugger": true,
-    "no-console": true
+    "no-debugger": true
   },
 
   "defaultSeverity": "error"
