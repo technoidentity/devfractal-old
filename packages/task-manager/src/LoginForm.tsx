@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
 
 export const initialValues = { name: '', email: '' }
 
-const InnerSignInForm: React.FC<FormikProps<User>> = () => {
+const InnerLoginForm: React.FC<FormikProps<User>> = () => {
   return (
     <Form>
       <label>Name</label>
@@ -28,11 +28,11 @@ const InnerSignInForm: React.FC<FormikProps<User>> = () => {
   )
 }
 
-export interface FormValues {
+export interface LoginFormValues {
   onUserSubmit(values: User): void
 }
 
-export const SignInForm: React.FC<FormValues> = ({ onUserSubmit }) => (
+export const LoginForm: React.FC<LoginFormValues> = ({ onUserSubmit }) => (
   <Formik
     initialValues={initialValues}
     validationSchema={validationSchema}
@@ -40,6 +40,6 @@ export const SignInForm: React.FC<FormValues> = ({ onUserSubmit }) => (
       onUserSubmit(values)
       actions.setSubmitting(false)
     }}
-    component={InnerSignInForm}
+    component={InnerLoginForm}
   />
 )
