@@ -14,10 +14,10 @@ import {
   Title,
   Tr,
 } from 'technoidentity-devfractal'
-import { TaskValues } from './TaskValues'
+import { Task } from './types'
 
 export interface TaskItemProps {
-  readonly taskItem: TaskValues
+  readonly taskItem: Task
 }
 
 export const TaskItem: React.FC<TaskItemProps> = ({ taskItem }) => {
@@ -54,7 +54,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ taskItem }) => {
 }
 
 export interface TaskListProps {
-  readonly taskList: ReadonlyArray<TaskValues>
+  readonly taskList: ReadonlyArray<Task>
   onCompleted(): void
   onPending(): void
 }
