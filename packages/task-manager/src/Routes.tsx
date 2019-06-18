@@ -7,22 +7,20 @@ import { TaskListView } from './TaskListView'
 import { allTasks, completedList, createTask, pendingList } from './tasksAPI'
 import { Task } from './types'
 
-export const CreateFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
-  return (
-    <Section>
-      <h1 className="title has-text-centered">Create Task</h1>
-      <TaskForm
-        onCreate={data => {
-          createTask(data)
-            .then(() => history.push('/'))
-            .catch(err => console.log(err))
-        }}
-      />
-    </Section>
-  )
-}
+export const CreateTaskRoute: React.FC<RouteComponentProps> = ({ history }) => (
+  <Section>
+    <h1 className="title has-text-centered">Create Task</h1>
+    <TaskForm
+      onCreate={data => {
+        createTask(data)
+          .then(() => history.push('/'))
+          .catch(err => console.log(err))
+      }}
+    />
+  </Section>
+)
 
-export const EditTaskFormRoute: React.FC<
+export const EditTaskRoute: React.FC<
   RouteComponentProps<{ readonly id: string }>
 > = ({ match, history }) => (
   <section className="section">
@@ -61,7 +59,7 @@ export const TaskListRoute = () => {
   }, [type])
 
   if (error) {
-    return <h1>{error.message}</h1>
+    return <h1 className="is-text is-size-1 is-danger">{error.message}</h1>
   }
 
   if (data) {
@@ -79,5 +77,6 @@ export const TaskListRoute = () => {
       </>
     )
   }
-  return <h1>is Loading....</h1>
+
+  return <h1 className="is-text is-size-1">is Loading....</h1>
 }
