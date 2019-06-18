@@ -1,22 +1,23 @@
 import { Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import * as Yup from 'yup'
+import * as yup from 'yup'
 
-export interface User {
+interface LoginValues {
   readonly name: string
   readonly email: string
 }
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required(),
-  email: Yup.string()
+const schema = yup.object().shape({
+  name: yup.string().required(),
+  email: yup
+    .string()
     .email()
     .required(),
 })
 
-export const initialValues = { name: '', email: '' }
+export const initialValues: LoginValues = { name: '', email: '' }
 
-const InnerLoginForm: React.FC<FormikProps<User>> = () => {
+const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => {
   return (
     <Form>
       <label>Name</label>
@@ -28,14 +29,14 @@ const InnerLoginForm: React.FC<FormikProps<User>> = () => {
   )
 }
 
-export interface LoginFormValues {
-  onUserSubmit(values: User): void
+export interface LoginFormProps {
+  onUserSubmit(values: LoginValues): void
 }
 
-export const LoginForm: React.FC<LoginFormValues> = ({ onUserSubmit }) => (
+export const LoginForm: React.FC<LoginFormProps> = ({ onUserSubmit }) => (
   <Formik
     initialValues={initialValues}
-    validationSchema={validationSchema}
+    validationSchema={schema}
     onSubmit={(values, actions) => {
       onUserSubmit(values)
       actions.setSubmitting(false)
