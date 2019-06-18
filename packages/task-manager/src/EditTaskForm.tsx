@@ -1,6 +1,6 @@
 import React from 'react'
 import { TaskForm } from './TaskForm'
-import { getTask, putTask } from './tasksAPI'
+import { getTask, updateTask } from './tasksAPI'
 import { Task } from './types'
 
 export interface EditTaskFormProps {
@@ -24,7 +24,7 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ id, onEdit }) => {
   if (values) {
     return (
       <TaskForm
-        onCreate={data => putTask(id, data).then(() => onEdit(data))}
+        onCreate={data => updateTask(id, data).then(() => onEdit(data))}
         initial={values}
       />
     )

@@ -4,7 +4,21 @@ import { Task, TaskRT } from './types'
 
 const taskApi = api('http://localhost:9999/tasks/', TaskRT)
 
-export const allList = () => taskApi.all()
+export async function createTask(data: Task): Promise<Task> {
+  return taskApi.create(data)
+}
+
+export async function getTask(id: string): Promise<Task> {
+  return taskApi.one(id)
+}
+
+export async function updateTask(id: string, data: Task): Promise<Task> {
+  return taskApi.update(id, data)
+}
+
+export async function allTasks(): Promise<ReadonlyArray<Task>> {
+  return taskApi.all()
+}
 
 export const completedList = async () => {
   const result = await axios.get('http://localhost:9999/tasks/completed')
@@ -15,10 +29,3 @@ export const pendingList = async () => {
   const result = await axios.get('http://localhost:9999/tasks/pending')
   return result.data
 }
-
-export const postData = (data: Task) => taskApi.create(data)
-
-export const getTask = (id: string) => taskApi.one(id)
-
-export const putTask = async (id: string, data: Task) =>
-  taskApi.update(id, data)

@@ -4,7 +4,7 @@ import { Section } from 'technoidentity-devfractal'
 import { EditTaskForm } from './EditTaskForm'
 import { TaskForm } from './TaskForm'
 import { TaskListView } from './TaskListView'
-import { allList, completedList, pendingList, postData } from './tasksAPI'
+import { allTasks, completedList, createTask, pendingList } from './tasksAPI'
 import { Task } from './types'
 
 export const CreateFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
@@ -13,7 +13,7 @@ export const CreateFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
       <h1 className="title has-text-centered">Create Task</h1>
       <TaskForm
         onCreate={data => {
-          postData(data)
+          createTask(data)
             .then(() => history.push('/'))
             .catch(err => console.log(err))
         }}
@@ -42,7 +42,7 @@ export const TaskListRoute = () => {
 
   React.useEffect(() => {
     if (type === 'all') {
-      allList()
+      allTasks()
         .then(setData)
         .catch(setError)
     }
