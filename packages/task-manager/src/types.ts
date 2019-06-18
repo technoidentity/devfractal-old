@@ -12,7 +12,7 @@ const dateInfoPartial = opt({
   completed: DateFromISOString,
 })
 
-const taskPartial = req({ _id: string })
+const taskPartial = opt({ _id: string })
 
 const taskRequired = req({
   title: string,
