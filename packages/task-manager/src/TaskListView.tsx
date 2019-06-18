@@ -20,27 +20,19 @@ interface TaskItemProps {
   readonly taskItem: Task
 }
 
+function formatDate(date: Date | undefined): string | undefined {
+  return date && format(date, 'DD/MM/YYYY')
+}
+
 const TaskItem: React.FC<TaskItemProps> = ({ taskItem }) => {
   return (
     <Tr>
       <Td>{taskItem.title}</Td>
       <Td>{taskItem.description}</Td>
-      <Td>
-        {taskItem.dateInfo.started &&
-          format(taskItem.dateInfo.started, 'DD/MM/YYYY')}
-      </Td>
-      <Td>
-        {taskItem.dateInfo.deadline &&
-          format(taskItem.dateInfo.deadline, 'DD/MM/YYYY')}
-      </Td>
-      <Td>
-        {taskItem.dateInfo.scheduled &&
-          format(taskItem.dateInfo.scheduled, 'DD/MM/YYYY')}
-      </Td>
-      <Td>
-        {taskItem.dateInfo.completed &&
-          format(taskItem.dateInfo.completed, 'DD/MM/YYYY')}
-      </Td>
+      <Td>{formatDate(taskItem.dateInfo.started)}</Td>
+      <Td>{formatDate(taskItem.dateInfo.deadline)}</Td>
+      <Td>{formatDate(taskItem.dateInfo.scheduled)}</Td>
+      <Td>{formatDate(taskItem.dateInfo.completed)}</Td>
       <Td>
         <Link
           to={`/edit/${taskItem._id}`}
@@ -86,16 +78,16 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
         </TableHead>
         <TableBody>
           {taskList.map(task => (
-            <TaskItem key={(task as any)._id} taskItem={task} />
+            <TaskItem key={task._id} taskItem={task} />
           ))}
         </TableBody>
       </Table>
       <Field grouped groupModifier="grouped-centered">
         <Button variant="success" onClick={onCompleted}>
-          completed
+          Completed
         </Button>
         <Button variant="danger" onClick={onPending}>
-          pending
+          Pending
         </Button>
       </Field>
     </Section>
