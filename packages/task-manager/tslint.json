@@ -111,13 +111,9 @@
     "type-literal-delimiter": false,
     "trailing-comma": true,
     "no-null-keyword": true,
-    "no-void-expression": true,
     "no-this": true,
     "no-class": true,
     "no-unsafe-finally": true
-    // "strict-boolean-expressions": true,
-    // "no-unsafe-any": true,
-    // "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
   },
 
   "defaultSeverity": "warn"
