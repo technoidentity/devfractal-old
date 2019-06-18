@@ -18,7 +18,7 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ id, onEdit }) => {
       .catch(setError)
   }, [id])
   if (error) {
-    return <h1 style={{ color: 'red' }}>{error.message}</h1>
+    return <h1 className="is-text is-size-1 is-danger">{error.message}</h1>
   }
 
   if (values) {
@@ -29,5 +29,5 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ id, onEdit }) => {
       />
     )
   }
-  return <h1>is Loading....</h1>
+  return <h1 className="is-text is-size-1 is-info">is Loading....</h1>
 }
