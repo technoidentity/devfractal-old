@@ -9,10 +9,11 @@ import { EditTaskForm } from './EditTaskForm'
 import { User } from './SignIn'
 import { TaskForm } from './TaskForm'
 import { TaskList } from './TaskList'
-import { getOneTask, TaskValues } from './TaskValues'
-import { getOneUser } from './user'
+import { allList, completedList, pendingList, postData } from './tasksAPI'
+import { getOneTask, Task } from './types'
+import { Section } from 'technoidentity-devfractal'
 
-const updateData = async (id: string, data: TaskValues) => {
+const updateData = async (id: string, data: Task) => {
   const result = await axios.put(`http://localhost:9999/tasks/${id}`, data)
   return result.data
 }
@@ -48,46 +49,35 @@ const postUser = (data: User) => {
 //   )
 // }
 
-export const postData = (data: TaskValues) => {
-  return axios.post('http://localhost:9999/tasks', data).then(res => res.data)
-}
-
-export const CreateForm: React.FC<RouteComponentProps> = ({ history }) => {
+export const CreateFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
   return (
-    <TaskForm
-      onCreate={data => {
-        postData(data).then(() => history.push('/'))
-      }}
-    />
+    <Section>
+      <h1 className="title has-text-centered">Create Task</h1>
+      <TaskForm
+        onCreate={data => {
+          postData(data).then(() => history.push('/'))
+        }}
+      />
+    </Section>
   )
 }
 
-export const EditTask: React.FC<
+export const EditTaskFormRoute: React.FC<
   RouteComponentProps<{ readonly id: string }>
 > = ({ match, history }) => (
-  <EditTaskForm id={match.params.id} onEdit={() => history.push('/')} />
+  <section className="section">
+    <h1 className="title has-text-centered">Edit Task</h1>
+    <EditTaskForm id={match.params.id} onEdit={() => history.push('/')} />
+  </section>
 )
-
-const allList = async () => {
-  const result = await axios.get('http://localhost:9999/tasks')
-  return result.data
-}
-
-const completedList = async () => {
-  const result = await axios.get('http://localhost:9999/tasks/completed')
-  return result.data
-}
-
-const pendingList = async () => {
-  const result = await axios.get('http://localhost:9999/tasks/pending')
-  return result.data
-}
 
 type ListType = 'all' | 'completed' | 'pending'
 
-export const Tasks = () => {
+export const TaskListRoute = () => {
   const [type, setType] = React.useState<ListType>('all')
-  const [data, setData] = React.useState<TaskValues[] | undefined>(undefined)
+  const [data, setData] = React.useState<ReadonlyArray<Task> | undefined>(
+    undefined,
+  )
   const [error, setError] = React.useState<Error | undefined>(undefined)
 
   React.useEffect(() => {
@@ -135,9 +125,9 @@ export const Tasks = () => {
 export const App: React.FC = () => {
   return (
     <Router>
-      <Route exact path="/" component={Tasks} />
-      <Route path="/add" component={CreateForm} />
-      <Route path="/edit/:id" component={EditTask} />
+      <Route exact path="/" component={TaskListRoute} />
+      <Route path="/add" component={CreateFormRoute} />
+      <Route path="/edit/:id" component={EditTaskFormRoute} />
     </Router>
   )
 }
@@ -152,11 +142,5 @@ const initialValuesOne = {
     completed: new Date(),
   },
 }
-
-getOneUser()
-
-// export const App: React.FC = () => {
-//   return <EditTaskForm id="5cf4ed226f2f961489f91e51" />
-// }
 
 getOneTask()
