@@ -3,14 +3,17 @@ import * as t from 'io-ts'
 import * as tp from 'io-ts-promise'
 import { reporter } from 'io-ts-reporters'
 
-interface API<I, A, T extends t.Mixed & t.Decoder<I, A>> {
+interface API<A> {
   all(): Promise<readonly A[]>
   create(data: Pick<A, Exclude<keyof A, '_id'>>): Promise<A>
   one(id: string): Promise<A>
   update(id: string, data: A): Promise<A>
 }
 
-export function api<I, A>(url: string, type: t.Mixed & t.Decoder<I, A>) {
+export function api<I, A>(
+  url: string,
+  type: t.Mixed & t.Decoder<I, A>,
+): API<A> {
   return {
     async all(): Promise<ReadonlyArray<A>> {
       return axios
