@@ -1,11 +1,11 @@
 {
-  "extends": ["../../tslint.json", "tslint-react"],
+  "extends": ["../../tslint.base.json", "tslint-react"],
   "rules": {
+    "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
     "jsx-boolean-value": false,
     "jsx-key": true,
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
-    "jsx-no-string-ref": true,
-    "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }]
+    "jsx-no-string-ref": true
   }
 }
