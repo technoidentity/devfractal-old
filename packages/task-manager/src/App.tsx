@@ -5,13 +5,13 @@ import {
   Route,
   RouteComponentProps,
 } from 'react-router-dom'
+import { Section } from 'technoidentity-devfractal'
 import { EditTaskForm } from './EditTaskForm'
 import { User } from './SignIn'
 import { TaskForm } from './TaskForm'
 import { TaskList } from './TaskList'
 import { allList, completedList, pendingList, postData } from './tasksAPI'
 import { getOneTask, Task } from './types'
-import { Section } from 'technoidentity-devfractal'
 
 const updateData = async (id: string, data: Task) => {
   const result = await axios.put(`http://localhost:9999/tasks/${id}`, data)
