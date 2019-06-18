@@ -12,7 +12,19 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { ErrorField, Section } from 'technoidentity-devfractal'
 import * as Yup from 'yup'
-import { TaskValues } from './TaskValues'
+import { Task } from './types'
+
+export interface TaskValues {
+  readonly _id?: string
+  readonly title: string
+  readonly description: string
+  readonly dateInfo: {
+    readonly started?: Date
+    readonly deadline: Date
+    readonly completed?: Date
+    readonly scheduled: Date
+  }
+}
 
 export const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => {
   const handleChange = (date: Date) => {
@@ -70,11 +82,10 @@ const validationSchema = Yup.object().shape({
   }),
 })
 
-export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
+export const InnerTaskForm: React.FC<FormikProps<Task>> = () => {
   return (
     <Section>
       <Form>
-        <h1 className="title has-text-centered">Creat Task</h1>
         <div className="field">
           <label className="label">Title</label>
           <div className="control">
@@ -182,8 +193,8 @@ export const InnerTaskForm: React.FC<FormikProps<TaskValues>> = () => {
 }
 
 export interface TaskFormProps {
-  readonly initial?: TaskValues
-  onCreate(values: TaskValues): void
+  readonly initial?: Task
+  onCreate(values: Task): void
 }
 
 const initialValues: TaskValues = {
