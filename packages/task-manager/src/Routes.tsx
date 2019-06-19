@@ -2,7 +2,14 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Section } from 'technoidentity-devfractal'
 import { EditTaskForm } from './EditTaskForm'
-import { allTasks, completedList, createTask, pendingList } from './taskAPI'
+import {
+  allTasks,
+  completedList,
+  createTask,
+  deadlineToday,
+  pendingList,
+  scheduledToday,
+} from './taskAPI'
 import { TaskForm } from './TaskForm'
 import { TaskListView } from './TaskListView'
 import { Task } from './types'
@@ -29,7 +36,7 @@ export const EditTaskRoute: React.FC<
   </section>
 )
 
-type TaskFilter = 'all' | 'completed' | 'pending'
+type TaskFilter = 'all' | 'completed' | 'pending' | 'today' | 'deadline'
 
 export const TaskListRoute = () => {
   const [filter, setFilter] = React.useState<TaskFilter>('all')
@@ -58,6 +65,16 @@ export const TaskListRoute = () => {
         .then(setTasks)
         .catch(setError)
     }
+    if (filter === 'today') {
+      scheduledToday()
+        .then(setTasks)
+        .catch(setError)
+    }
+    if (filter === 'deadline') {
+      deadlineToday()
+        .then(setTasks)
+        .catch(setError)
+    }
   }, [filter])
 
   if (error) {
@@ -71,6 +88,8 @@ export const TaskListRoute = () => {
           taskList={tasks}
           onCompleted={() => setFilter('completed')}
           onPending={() => setFilter('pending')}
+          onToday={() => setFilter('today')}
+          onDeadline={() => setFilter('deadline')}
         />
       </>
     )
