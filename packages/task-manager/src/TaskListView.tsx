@@ -49,12 +49,16 @@ export interface TaskListViewProps {
   readonly taskList: ReadonlyArray<Task>
   onCompleted(): void
   onPending(): void
+  onToday(): void
+  onDeadline(): void
 }
 
 export const TaskListView: React.FC<TaskListViewProps> = ({
   taskList,
   onCompleted,
   onPending,
+  onToday,
+  onDeadline,
 }) => (
   <Section>
     <Title textAlignment="centered">Task Management</Title>
@@ -82,11 +86,17 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
       </TableBody>
     </Table>
     <Field grouped groupModifier="grouped-centered">
+      <Button variant="info" onClick={onToday}>
+        Scheduled Today
+      </Button>
       <Button variant="success" onClick={onCompleted}>
         Completed
       </Button>
       <Button variant="danger" onClick={onPending}>
         Pending
+      </Button>
+      <Button variant="warning" onClick={onDeadline}>
+        Deadline Today
       </Button>
     </Field>
   </Section>
