@@ -26,3 +26,11 @@ export async function completedList(): Promise<ReadonlyArray<Task>> {
 export async function pendingList(): Promise<ReadonlyArray<Task>> {
   return taskApi.many({ paths: 'pending' })
 }
+
+export const scheduledToday = async () => {
+  return taskApi.many({ paths: 'today' })
+}
+
+export const deadlineToday = async () => {
+  return taskApi.many({ paths: 'deadline' })
+}
