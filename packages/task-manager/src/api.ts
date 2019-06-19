@@ -17,8 +17,14 @@ interface API<A> {
   update(id: string, data: A): Promise<A>
 }
 
-function buildPath(s?: string): string {
-  return s === undefined ? '' : `/${s}`
+function buildPath(s?: string | ReadonlyArray<string>): string {
+  if (s === undefined) {
+    return ''
+  } else if (t.Array.is(s)) {
+    return `/${s.join('/')}`
+  } else {
+    return `/${s}`
+  }
 }
 
 function buildQueryString(query?: string | Object): string {
