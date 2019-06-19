@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { api } from './api'
 import { Task, TaskRT } from './types'
 
@@ -20,12 +19,10 @@ export async function allTasks(): Promise<ReadonlyArray<Task>> {
   return taskApi.many()
 }
 
-export const completedList = async () => {
-  const result = await axios.get('http://localhost:9999/tasks/completed')
-  return result.data
+export async function completedList(): Promise<ReadonlyArray<Task>> {
+  return taskApi.many({ paths: 'completed' })
 }
 
-export const pendingList = async () => {
-  const result = await axios.get('http://localhost:9999/tasks/pending')
-  return result.data
+export async function pendingList(): Promise<ReadonlyArray<Task>> {
+  return taskApi.many({ paths: 'pending' })
 }

@@ -6,7 +6,7 @@ import queryString from 'query-string'
 import { String } from 'tcomb'
 
 interface Options {
-  readonly path?: string
+  readonly paths?: string
   readonly query?: string | Object
 }
 interface API<A> {
@@ -36,7 +36,7 @@ function buildQueryString(query?: string | Object): string {
 function buildUrl(baseUrl: string, options?: Options): string {
   return options === undefined
     ? baseUrl
-    : `${baseUrl}${buildPath(options.path)}?${buildQueryString(options.query)}`
+    : `${baseUrl}${buildPath(options.paths)}?${buildQueryString(options.query)}`
 }
 
 export function api<I, A>(
@@ -64,7 +64,7 @@ export function api<I, A>(
   }
 
   async function get(id: string): Promise<A> {
-    return one({ path: id })
+    return one({ paths: id })
   }
 
   async function update(id: string, data: A): Promise<A> {
@@ -73,7 +73,7 @@ export function api<I, A>(
       throw new Error(reporter(decoded).join('\n'))
     }
     return axios
-      .put(buildUrl(baseUrl, { path: id }), data)
+      .put(buildUrl(baseUrl, { paths: id }), data)
       .then(res => tp.decode(type, res.data))
   }
 
