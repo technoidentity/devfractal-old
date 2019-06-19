@@ -11,7 +11,7 @@ export const CreateTaskRoute: React.FC<RouteComponentProps> = ({ history }) => (
   <Section>
     <h1 className="title has-text-centered">Create Task</h1>
     <TaskForm
-      onCreate={data => {
+      onSubmit={data => {
         createTask(data)
           .then(() => history.push('/'))
           .catch(err => console.log(err))
@@ -29,50 +29,48 @@ export const EditTaskRoute: React.FC<
   </section>
 )
 
-type ListType = 'all' | 'completed' | 'pending'
+type TaskFilter = 'all' | 'completed' | 'pending'
 
 export const TaskListRoute = () => {
-  const [type, setType] = React.useState<ListType>('all')
-  const [data, setData] = React.useState<ReadonlyArray<Task> | undefined>(
+  const [filter, setFilter] = React.useState<TaskFilter>('all')
+  const [tasks, setTasks] = React.useState<ReadonlyArray<Task> | undefined>(
     undefined,
   )
   const [error, setError] = React.useState<Error | undefined>(undefined)
 
   React.useEffect(() => {
-    if (type === 'all') {
+    if (filter === 'all') {
       allTasks()
-        .then(setData)
+        .then(setTasks)
         .catch(setError)
     }
-    if (type === 'completed') {
+
+    if (filter === 'completed') {
       completedList()
         .then(data => {
-          setData(data)
+          setTasks(data)
         })
         .catch(setError)
     }
-    if (type === 'pending') {
+
+    if (filter === 'pending') {
       pendingList()
-        .then(setData)
+        .then(setTasks)
         .catch(setError)
     }
-  }, [type])
+  }, [filter])
 
   if (error) {
     return <h1 className="is-text is-size-1 is-danger">{error.message}</h1>
   }
 
-  if (data) {
+  if (tasks) {
     return (
       <>
         <TaskListView
-          taskList={data}
-          onCompleted={() => {
-            setType('completed')
-          }}
-          onPending={() => {
-            setType('pending')
-          }}
+          taskList={tasks}
+          onCompleted={() => setFilter('completed')}
+          onPending={() => setFilter('pending')}
         />
       </>
     )

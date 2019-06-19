@@ -1,6 +1,6 @@
 import { Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import Yup from 'yup'
+import yup from 'yup'
 
 export interface SignUpValues {
   readonly name: string
@@ -16,16 +16,21 @@ const initialValues: SignUpValues = {
   confirmPassword: '',
 }
 
-const schema = Yup.object().shape({
-  name: Yup.string()
+const schema = yup.object().shape({
+  name: yup
+    .string()
     .required()
     .min(2)
     .max(15),
-  email: Yup.string()
+
+  email: yup
+    .string()
     .email()
     .required(),
-  password: Yup.string().required(),
-  confirmPassword: Yup.string().required(),
+
+  password: yup.string().required(),
+
+  confirmPassword: yup.string().required(),
 })
 
 const InnerSignUpForm: React.FC<FormikProps<SignUpValues>> = () => (
@@ -47,15 +52,15 @@ const InnerSignUpForm: React.FC<FormikProps<SignUpValues>> = () => (
 )
 
 export interface SignUpFormProps {
-  onUserSubmit(values: SignUpValues): void
+  onSignUp(values: SignUpValues): void
 }
 
-export const SignUpForm: React.FC<SignUpFormProps> = ({ onUserSubmit }) => (
+export const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUp }) => (
   <Formik
     initialValues={initialValues}
     validationSchema={schema}
     onSubmit={(values, actions) => {
-      onUserSubmit(values)
+      onSignUp(values)
       actions.setSubmitting(false)
       // @TODO: handle the error case
     }}

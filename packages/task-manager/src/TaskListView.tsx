@@ -55,41 +55,39 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
   taskList,
   onCompleted,
   onPending,
-}) => {
-  return (
-    <Section>
-      <Title textAlignment="centered">Task Management</Title>
-      <ButtonsGroup alignment="right">
-        <Link to="/add" className="button is-link">
-          Add
-        </Link>
-      </ButtonsGroup>
-      <Table striped bordered fullWidth>
-        <TableHead>
-          <Tr>
-            <Th>Title</Th>
-            <Th>Description</Th>
-            <Th>Started</Th>
-            <Th>Deadline</Th>
-            <Th>Scheduled</Th>
-            <Th>Completed</Th>
-            <Th />
-          </Tr>
-        </TableHead>
-        <TableBody>
-          {taskList.map(task => (
-            <TaskItem key={task._id} taskItem={task} />
-          ))}
-        </TableBody>
-      </Table>
-      <Field grouped groupModifier="grouped-centered">
-        <Button variant="success" onClick={onCompleted}>
-          Completed
-        </Button>
-        <Button variant="danger" onClick={onPending}>
-          Pending
-        </Button>
-      </Field>
-    </Section>
-  )
-}
+}) => (
+  <Section>
+    <Title textAlignment="centered">Task Management</Title>
+    <ButtonsGroup alignment="right">
+      <Link to="/add" className="button is-link">
+        Add
+      </Link>
+    </ButtonsGroup>
+    <Table striped bordered fullWidth>
+      <TableHead>
+        <Tr>
+          <Th>Title</Th>
+          <Th>Description</Th>
+          <Th>Started</Th>
+          <Th>Deadline</Th>
+          <Th>Scheduled</Th>
+          <Th>Completed</Th>
+          <Th />
+        </Tr>
+      </TableHead>
+      <TableBody>
+        {taskList.map(task => (
+          <TaskItem key={task._id} taskItem={task} />
+        ))}
+      </TableBody>
+    </Table>
+    <Field grouped groupModifier="grouped-centered">
+      <Button variant="success" onClick={onCompleted}>
+        Completed
+      </Button>
+      <Button variant="danger" onClick={onPending}>
+        Pending
+      </Button>
+    </Field>
+  </Section>
+)

@@ -18,12 +18,10 @@ import { CreateTaskRoute, EditTaskRoute, TaskListRoute } from './Routes'
 //   )
 // }
 
-export const App: React.FC = () => {
-  return (
-    <Router>
-      <Route exact path="/" component={TaskListRoute} />
-      <Route path="/add" component={CreateTaskRoute} />
-      <Route path="/edit/:id" component={EditTaskRoute} />
-    </Router>
-  )
-}
+export const App: React.FC = () => (
+  <Router>
+    <Route exact path="/" component={TaskListRoute} />
+    <Route path="/add" component={CreateTaskRoute} />
+    <Route path="/edit/:id" component={EditTaskRoute} />
+  </Router>
+)

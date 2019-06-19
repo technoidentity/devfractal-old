@@ -186,7 +186,7 @@ export const InnerTaskForm: React.FC<FormikProps<Task>> = () => (
 
 export interface TaskFormProps {
   readonly initial?: Task
-  onCreate(values: Task): void
+  onSubmit(values: Task): void
 }
 
 const initialValues: Task = {
@@ -200,13 +200,13 @@ const initialValues: Task = {
   },
 }
 
-export const TaskForm: React.FC<TaskFormProps> = ({ onCreate, initial }) => (
+export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initial }) => (
   <Formik
     initialValues={initial || initialValues}
     validationSchema={validationSchema}
     component={InnerTaskForm}
     onSubmit={(values, actions) => {
-      onCreate(values)
+      onSubmit(values)
       actions.setSubmitting(false)
     }}
   />
