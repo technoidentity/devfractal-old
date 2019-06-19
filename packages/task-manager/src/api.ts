@@ -3,7 +3,6 @@ import * as t from 'io-ts'
 import * as tp from 'io-ts-promise'
 import { reporter } from 'io-ts-reporters'
 import queryString from 'query-string'
-import { String } from 'tcomb'
 
 interface Options {
   readonly paths?: string
@@ -30,7 +29,7 @@ function buildPath(s?: string | ReadonlyArray<string>): string {
 function buildQueryString(query?: string | Object): string {
   return query === undefined
     ? ''
-    : `?${String.is(query) ? query : queryString.stringify(query)}`
+    : `?${t.string.is(query) ? query : queryString.stringify(query)}`
 }
 
 function buildUrl(baseUrl: string, options?: Options): string {
