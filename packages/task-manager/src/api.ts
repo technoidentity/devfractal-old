@@ -72,7 +72,9 @@ export function api<I, A>(
     if (decoded.isLeft()) {
       throw new Error(reporter(decoded).join('\n'))
     }
-    return axios.put(baseUrl + id, data).then(res => tp.decode(type, res.data))
+    return axios
+      .put(buildUrl(baseUrl, { path: id }), data)
+      .then(res => tp.decode(type, res.data))
   }
 
   return { one, many, get, update, create }
