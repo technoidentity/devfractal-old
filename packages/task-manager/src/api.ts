@@ -29,7 +29,7 @@ function buildQueryString(query?: string | Object): string {
 
 function buildUrl(baseUrl: string, options?: Options): string {
   return options === undefined
-    ? ''
+    ? baseUrl
     : `${baseUrl}${buildPath(options.path)}?${buildQueryString(options.query)}`
 }
 
