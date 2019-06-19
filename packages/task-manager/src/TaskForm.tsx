@@ -1,4 +1,5 @@
 import 'bulma/css/bulma.css'
+import { format } from 'date-fns'
 import {
   ErrorMessage,
   Field,
@@ -25,7 +26,7 @@ export const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => (
   </div>
 )
 
-const currentDate = new Date()
+const currentDate = format(new Date(), 'YYYY-MM-DD')
 
 const validationSchema = yup.object().shape({
   title: yup
