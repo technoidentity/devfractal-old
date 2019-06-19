@@ -52,15 +52,15 @@ const InnerSignUpForm: React.FC<FormikProps<SignUpValues>> = () => (
 )
 
 export interface SignUpFormProps {
-  onSignUp(values: SignUpValues): void
+  onSignUp(values: SignUpValues): Promise<void>
 }
 
 export const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUp }) => (
   <Formik
     initialValues={initialValues}
     validationSchema={schema}
-    onSubmit={(values, actions) => {
-      onSignUp(values)
+    onSubmit={async (values, actions) => {
+      await onSignUp(values)
       actions.setSubmitting(false)
       // @TODO: handle the error case
     }}

@@ -29,15 +29,15 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
 )
 
 export interface LoginFormProps {
-  onLogin(values: LoginValues): void
+  onLogin(values: LoginValues): Promise<void>
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => (
   <Formik
     initialValues={initialValues}
     validationSchema={schema}
-    onSubmit={(values, actions) => {
-      onLogin(values)
+    onSubmit={async (values, actions) => {
+      await onLogin(values)
       actions.setSubmitting(false)
     }}
     component={InnerLoginForm}

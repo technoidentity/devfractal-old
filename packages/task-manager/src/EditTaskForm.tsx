@@ -5,7 +5,7 @@ import { Task } from './types'
 
 export interface EditTaskFormProps {
   readonly id: string
-  onEdit(values: Task): void
+  onEdit(values: Task): Promise<void>
 }
 
 // @TODO: yup validation
@@ -33,5 +33,5 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ id, onEdit }) => {
     )
   }
 
-  return <h1 className="is-text is-size-1 is-info">is Loading....</h1>
+  return <h1 className="is-text is-size-1 is-info">Loading....</h1>
 }

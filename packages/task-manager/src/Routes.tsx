@@ -11,11 +11,11 @@ export const CreateTaskRoute: React.FC<RouteComponentProps> = ({ history }) => (
   <Section>
     <h1 className="title has-text-centered">Create Task</h1>
     <TaskForm
-      onSubmit={data => {
+      onSubmit={async data =>
         createTask(data)
           .then(() => history.push('/'))
           .catch(err => console.log(err))
-      }}
+      }
     />
   </Section>
 )
@@ -25,7 +25,7 @@ export const EditTaskRoute: React.FC<
 > = ({ match, history }) => (
   <section className="section">
     <h1 className="title has-text-centered">Edit Task</h1>
-    <EditTaskForm id={match.params.id} onEdit={() => history.push('/')} />
+    <EditTaskForm id={match.params.id} onEdit={async () => history.push('/')} />
   </section>
 )
 
