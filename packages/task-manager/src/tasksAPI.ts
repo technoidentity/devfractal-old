@@ -2,7 +2,7 @@ import axios from 'axios'
 import { api } from './api'
 import { Task, TaskRT } from './types'
 
-const taskApi = api('http://localhost:9999/tasks/', TaskRT)
+const taskApi = api('http://localhost:9999/tasks', TaskRT)
 
 export async function createTask(data: Task): Promise<Task> {
   return taskApi.create(data)
