@@ -19,11 +19,11 @@ interface API<A> {
 function buildPath(s?: string | ReadonlyArray<string>): string {
   if (s === undefined) {
     return ''
-  } else if (t.Array.is(s)) {
-    return `/${s.join('/')}`
-  } else {
-    return `/${s}`
   }
+  if (t.Array.is(s)) {
+    return `/${s.join('/')}`
+  }
+  return `/${s}`
 }
 
 function buildQueryString(query?: string | Object): string {
@@ -45,13 +45,15 @@ export function api<I, A>(
   async function many(options?: Options): Promise<ReadonlyArray<A>> {
     return axios
       .get(buildUrl(baseUrl, options))
-      .then(res => tp.decode(t.readonlyArray(type), res.data))
+      .then(res => res.data)
+      .then(tp.decode(t.readonlyArray(type)))
   }
 
   async function one(options?: Options): Promise<A> {
     return axios
       .get(buildUrl(baseUrl, options))
-      .then(res => tp.decode(type, res.data))
+      .then(res => res.data)
+      .then(tp.decode(type))
   }
 
   async function create(data: A): Promise<A> {
@@ -59,7 +61,11 @@ export function api<I, A>(
     if (decoded.isLeft()) {
       throw new Error(reporter(decoded).join('\n'))
     }
-    return axios.post(baseUrl, data).then(res => tp.decode(type, res.data))
+
+    return axios
+      .post(baseUrl, data)
+      .then(res => res.data)
+      .then(tp.decode(type))
   }
 
   async function get(id: string): Promise<A> {
@@ -71,9 +77,11 @@ export function api<I, A>(
     if (decoded.isLeft()) {
       throw new Error(reporter(decoded).join('\n'))
     }
+
     return axios
       .put(buildUrl(baseUrl, { paths: id }), data)
-      .then(res => tp.decode(type, res.data))
+      .then(res => res.data)
+      .then(tp.decode(type))
   }
 
   return { one, many, get, update, create }
