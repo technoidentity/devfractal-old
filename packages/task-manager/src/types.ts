@@ -1,15 +1,17 @@
-import { intersection, string, TypeOf } from 'io-ts'
-import { DateFromISOString } from 'io-ts-types'
+import { intersection, string, TypeOf, union } from 'io-ts'
+import { date, DateFromISOString } from 'io-ts-types'
 import { opt, req } from 'technoidentity-devfractal'
 
+const ISODate = union([date, DateFromISOString])
+
 const dateInfoRequired = req({
-  deadline: DateFromISOString,
-  scheduled: DateFromISOString,
+  deadline: ISODate,
+  scheduled: ISODate,
 })
 
 const dateInfoPartial = opt({
-  started: DateFromISOString,
-  completed: DateFromISOString,
+  started: ISODate,
+  completed: ISODate,
 })
 
 const taskPartial = opt({ _id: string })
