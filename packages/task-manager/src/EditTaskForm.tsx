@@ -1,6 +1,6 @@
 import React from 'react'
+import { getTask, updateTask } from './taskAPI'
 import { TaskForm } from './TaskForm'
-import { getTask, updateTask } from './tasksAPI'
 import { Task } from './types'
 
 export interface EditTaskFormProps {

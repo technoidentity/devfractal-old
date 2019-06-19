@@ -2,9 +2,9 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Section } from 'technoidentity-devfractal'
 import { EditTaskForm } from './EditTaskForm'
+import { allTasks, completedList, createTask, pendingList } from './taskAPI'
 import { TaskForm } from './TaskForm'
 import { TaskListView } from './TaskListView'
-import { allTasks, completedList, createTask, pendingList } from './tasksAPI'
 import { Task } from './types'
 
 export const CreateTaskRoute: React.FC<RouteComponentProps> = ({ history }) => (
