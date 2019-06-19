@@ -9,7 +9,7 @@ export async function createTask(data: Task): Promise<Task> {
 }
 
 export async function getTask(id: string): Promise<Task> {
-  return taskApi.one(id)
+  return taskApi.get(id)
 }
 
 export async function updateTask(id: string, data: Task): Promise<Task> {
@@ -17,7 +17,7 @@ export async function updateTask(id: string, data: Task): Promise<Task> {
 }
 
 export async function allTasks(): Promise<ReadonlyArray<Task>> {
-  return taskApi.all()
+  return taskApi.many()
 }
 
 export const completedList = async () => {
