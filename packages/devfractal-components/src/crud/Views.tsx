@@ -12,7 +12,7 @@ import {
   SimpleViewer,
 } from '../lib'
 
-export interface EditProps<T extends Object> {
+export interface EditProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
