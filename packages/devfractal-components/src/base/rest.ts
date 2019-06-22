@@ -2,7 +2,7 @@ import { Either } from 'fp-ts/lib/Either'
 import { Decoder, Errors, Mixed, readonlyArray } from 'io-ts'
 import { reporter } from 'io-ts-reporters'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
-
+import { produce } from 'immer'
 interface API<A extends Record<string, any>> {
   many(options?: MethodArgs): Promise<readonly A[]>
   create(data: Partial<A>): Promise<A>
@@ -10,6 +10,17 @@ interface API<A extends Record<string, any>> {
   one(options?: MethodArgs): Promise<A>
   update(id: string, data: Partial<A>): Promise<A>
 }
+
+const appendId = (options: MethodArgs, id: string) =>
+  produce(options, draft => {
+    if (draft.path === undefined) {
+      draft.path = id
+    } else if (Array.is(draft.path)) {
+      draft.path.push(id)
+    } else {
+      draft.path = [draft.path, id]
+    }
+  })
 
 export function rest<I, A>(
   options: RequestConfig,
@@ -21,30 +32,30 @@ export function rest<I, A>(
     return http.get(options, readonlyArray(type))
   }
 
-  async function one(options: MethodArgs): Promise<A> {
-    return http.get(options, type)
+  async function one(options: MethodArgs, id: string): Promise<A> {
+    return http.get(appendId(options, id), type)
   }
 
-  async function create(data: A): Promise<A> {
+  async function create(options: MethodArgs, data: A): Promise<A> {
     const decoded: Either<Errors, A> = type.decode(data)
     if (decoded.isLeft()) {
       throw new Error(reporter(decoded).join('\n'))
     }
 
-    return http.post(data, type)
+    return http.post(options, data, type)
   }
 
-  async function get(id: string): Promise<A> {
-    return one({ path: id })
+  async function get(options: MethodArgs, id: string): Promise<A> {
+    return one(appendId(options, id))
   }
 
-  async function update(id: string, data: I): Promise<A> {
+  async function update(options: MethodArgs, id: string, data: I): Promise<A> {
     const decoded: Either<Errors, A> = type.decode(data)
     if (decoded.isLeft()) {
       throw new Error(reporter(decoded).join('\n'))
     }
 
-    return http.put({ path: id }, data, type)
+    return http.put(appendId(options, id), data, type)
   }
 
   return { one, many, get, update, create }
