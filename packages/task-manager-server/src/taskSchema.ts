@@ -1,4 +1,4 @@
-import { compareAsc } from 'date-fns'
+import { compareAsc, startOfDay, format } from 'date-fns'
 import * as mongoose from 'mongoose'
 
 const dateSchema = new mongoose.Schema({
@@ -19,29 +19,31 @@ export interface ITask extends mongoose.Document {
   }
 }
 
-const currentDate: Date = new Date()
+const currentDate: Date | string = format(new Date(), 'YYYY-MM-DD')
 
 const deadlineValidator = (value: ITask['dateInfo']): boolean => {
-  return compareAsc(value.deadline, value.started) >= 0
+  return compareAsc(startOfDay(value.deadline), startOfDay(value.started)) >= 0
 }
 
 const deadlineValidator2 = (value: ITask['dateInfo']): boolean => {
-  return compareAsc(value.deadline, value.scheduled) >= 0
+  return (
+    compareAsc(startOfDay(value.deadline), startOfDay(value.scheduled)) >= 0
+  )
 }
 
 const completedValidator = (value: ITask['dateInfo']): boolean => {
   if (value.completed === undefined) {
     return true
   }
-  return compareAsc(value.completed, value.started) >= 0
+  return compareAsc(startOfDay(value.completed), startOfDay(value.started)) >= 0
 }
 
 const startedValidator = (value: ITask['dateInfo']): boolean => {
-  return compareAsc(value.started, currentDate) >= 0
+  return compareAsc(startOfDay(value.started), startOfDay(currentDate)) >= 0
 }
 
 const scheduledValidator4 = (value: ITask['dateInfo']): boolean => {
-  return compareAsc(value.scheduled, value.started) >= 0
+  return compareAsc(startOfDay(value.scheduled), startOfDay(value.started)) >= 0
 }
 
 const taskSchema = new mongoose.Schema<ITask>(
