@@ -1,5 +1,8 @@
+import { format, startOfDay, startOfToday } from 'date-fns'
 import express, { Request, Response } from 'express'
+import { auth } from './auth'
 import { Task } from './taskSchema'
+
 const app = express()
 const router = express.Router()
 
@@ -12,7 +15,7 @@ router.get('/', async (_: Request, res: Response) => {
   }
 })
 
-router.get('/completed', async (_: Request, res: Response) => {
+router.get('/completed', auth, async (_: Request, res: Response) => {
   try {
     const completed = await Task.find({
       'dateInfo.completed': { $exists: true },
@@ -30,14 +33,39 @@ router.get('/pending', async (_: Request, res: Response) => {
     }).exec()
     res.send(pendingTasks)
   } catch (err) {
-    res.send(500).send(err)
+    res.send(err)
+  }
+})
+
+router.get('/today', async (_: Request, res: Response) => {
+  try {
+    const todayTasks = await Task.find({
+      'dateInfo.scheduled': {
+        $eq: format(startOfDay(startOfToday()), 'YYYY-MM-DD'),
+      },
+    }).exec()
+    res.send(todayTasks)
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+router.get('/deadline', async (_: Request, res: Response) => {
+  try {
+    const deadlineToday = await Task.find({
+      'dateInfo.deadline': {
+        $eq: format(startOfDay(startOfToday()), 'YYYY-MM-DD'),
+      },
+    }).exec()
+    res.send(deadlineToday)
+  } catch (err) {
+    console.log(err.message)
   }
 })
 
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const one = await Task.findById(req.params.id).exec()
-    console.log(one)
     res.send(one)
   } catch (err) {
     res.status(500).send(err)
@@ -65,6 +93,7 @@ router.put('/:id', async (req: Request, res: Response) => {
       console.log('task with the given id has not found')
     }
   } catch (err) {
+    console.error(err)
     res.status(500).send(err)
   }
 })
