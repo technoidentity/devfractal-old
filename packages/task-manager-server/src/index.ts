@@ -1,13 +1,18 @@
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import { format } from 'date-fns'
 import express from 'express'
 import * as mongoose from 'mongoose'
 import tasks from './taskRouter'
 import users from './userRouter'
+import session from 'express-session'
+import login from './sessionRouter'
 
 const port = 9999
 
 const uri: string = 'mongodb://localhost/mydatabase'
+
+const currentDate = format(new Date(), 'YYYY/MM/DD')
 
 // tslint:disable-next-line: no-floating-promises
 mongoose.connect(uri, { useNewUrlParser: true }, (err: any) => {
@@ -20,10 +25,19 @@ mongoose.connect(uri, { useNewUrlParser: true }, (err: any) => {
 const app = (() => {
   const app = express()
   app.use(bodyParser.json())
-  app.use(cors({ methods: ['GET', 'POST', 'PUT', 'DELETE'] }))
+  app.use(
+    cors({
+      origin: true,
+      credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    }),
+  )
+
+  app.use(session({ secret: '343ji43j4n3jn4jk3n', cookie: { secure: true } }))
 
   app.use('/tasks', tasks)
   app.use('/users', users)
+  app.use('/session', login)
 
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}!`)
