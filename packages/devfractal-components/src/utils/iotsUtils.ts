@@ -21,9 +21,6 @@ export function typeWarning<Type extends t.Mixed, Value extends t.TypeOf<Type>>(
   return decoded.getOrElse(args)
 }
 
-export type RTType<T extends t.Props> = t.ReadonlyC<t.TypeC<T>>
-export type TypeOfRT<T extends t.Props> = t.TypeOf<RTType<T>>
-
 export async function rejected<T>(
   decoded: Either<t.Errors, T> | string,
 ): Promise<T> {

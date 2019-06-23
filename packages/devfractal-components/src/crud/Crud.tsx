@@ -1,39 +1,39 @@
-// import { Props } from 'io-ts'
-// import React from 'react'
-// import { Route, Switch } from 'react-router'
-// import {
-//   APIRepository,
-//   components as comps,
-//   ComponentsResult,
-//   Paths,
-//   paths as ps,
-//   Section,
-// } from '../lib'
+import { Mixed, Props } from 'io-ts'
+import React from 'react'
+import { Route, Switch } from 'react-router'
+import {
+  APIRepository,
+  components as comps,
+  ComponentsResult,
+  Paths,
+  paths as ps,
+  Section,
+} from '../lib'
 
-// export interface CrudProps<T extends Props, ID extends keyof T> {
-//   readonly api: APIRepository<T, ID>
-//   readonly basePath: string
-//   readonly paths?: Paths
-//   readonly components?: ComponentsResult
-// }
+export interface CrudProps<RT extends Props & Mixed, ID extends keyof RT> {
+  readonly api: APIRepository<RT, ID>
+  readonly basePath: string
+  readonly paths?: Paths
+  readonly components?: ComponentsResult
+}
 
-// export function Crud<T extends Props, ID extends keyof T>({
-//   basePath,
-//   api,
-//   paths = ps(api.resource, basePath),
-//   components = comps<T, ID>({ api, basePath }),
-// }: CrudProps<T, ID>): JSX.Element {
-//   const { create, list, edit, view } = paths
-//   const { Create, List, Edit, View } = components
+export function Crud<RT extends Props & Mixed, ID extends keyof RT>({
+  basePath,
+  api,
+  paths = ps(api.resource, basePath),
+  components = comps<RT, ID>({ api, basePath }),
+}: CrudProps<RT, ID>): JSX.Element {
+  const { create, list, edit, view } = paths
+  const { Create, List, Edit, View } = components
 
-//   return (
-//     <Section>
-//       <Switch>
-//         <Route path={create} component={Create} />
-//         <Route path={edit} component={Edit} />
-//         <Route path={view} component={View} />
-//         <Route path={list} component={List} />
-//       </Switch>
-//     </Section>
-//   )
-// }
+  return (
+    <Section>
+      <Switch>
+        <Route path={create} component={Create} />
+        <Route path={edit} component={Edit} />
+        <Route path={view} component={View} />
+        <Route path={list} component={List} />
+      </Switch>
+    </Section>
+  )
+}

@@ -27,7 +27,7 @@
     "validate": "yarn lint && yarn types && yarn test"
   },
   "peerDependencies": {
-    "io-ts": "1.9.0",
+    "io-ts": "1.10.0",
     "io-ts-types": "0.4.7",
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1"
@@ -36,10 +36,10 @@
     "@technoidentity/utils": "0.0.1"
   },
   "devDependencies": {
-    "@types/jest": "24.0.14",
+    "@types/jest": "24.0.15",
     "@types/json-schema": "7.0.3",
     "ajv": "6.10.0",
-    "io-ts": "1.9.0",
+    "io-ts": "1.10.0",
     "io-ts-types": "0.4.7",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
@@ -47,6 +47,6 @@
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1",
     "ts-jest": "24.0.2",
-    "tsdx": "0.6.1"
+    "tsdx": "0.7.2"
   }
 }
