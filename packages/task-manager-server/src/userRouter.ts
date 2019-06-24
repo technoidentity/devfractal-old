@@ -1,9 +1,9 @@
 import express, { Request, Response } from 'express'
 import User from './userSchema'
-const app = express()
+
 const router = express.Router()
 
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (_: Request, res: Response) => {
   try {
     const users = await User.find().exec()
     res.send(users)

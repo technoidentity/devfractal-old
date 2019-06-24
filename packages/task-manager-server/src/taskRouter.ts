@@ -3,7 +3,6 @@ import express, { Request, Response } from 'express'
 import { auth } from './auth'
 import { Task } from './taskSchema'
 
-const app = express()
 const router = express.Router()
 
 router.get('/', async (_: Request, res: Response) => {
