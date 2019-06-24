@@ -7,6 +7,7 @@ import * as mongoose from 'mongoose'
 import login from './sessionRouter'
 import tasks from './taskRouter'
 import users from './userRouter'
+import UserModel from './userSchema'
 
 const port = 9999
 
@@ -53,3 +54,11 @@ const app = (() => {
 })()
 
 export default app
+
+export const isUserValid = async (
+  name: string,
+  password: string,
+): Promise<boolean> => {
+  const users = await UserModel.find({ name, password }).exec()
+  return users.length !== 0
+}
