@@ -1,13 +1,11 @@
 import bodyParser from 'body-parser'
-import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import express from 'express'
 import session from 'express-session'
-import * as mongoose from 'mongoose'
-import { router as login } from './sessionRouter'
-import { router as tasks } from './taskRouter'
-import { router as users } from './userRouter'
-import { UserModel } from './userSchema'
+import mongoose from 'mongoose'
+import { sessionRouter } from './sessionRouter'
+import { taskRouter } from './taskRouter'
+import { userRouter } from './userRouter'
 
 const port = 9999
 
@@ -32,29 +30,19 @@ export const app = (() => {
     }),
   )
 
-  app.use(cookieParser())
   app.use(
     session({
       secret: '343ji43j4n3jn4jk3n',
       resave: false,
-      saveUninitialized: true,
-      cookie: { secure: false, httpOnly: false },
+      saveUninitialized: false,
     }),
   )
 
-  app.use('/tasks', tasks)
-  app.use('/users', users)
-  app.use('/session', login)
+  app.use('/tasks', taskRouter)
+  app.use('/users', userRouter)
+  app.use('/session', sessionRouter)
 
   app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
   return app
 })()
-
-export const isUserValid = async (
-  name: string,
-  password: string,
-): Promise<boolean> => {
-  const users = await UserModel.find({ name, password }).exec()
-  return users.length !== 0
-}

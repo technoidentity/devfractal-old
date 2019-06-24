@@ -7,17 +7,17 @@ import {
 } from 'http-status-codes'
 import { AuthSession, Request, Response } from './types'
 
-export const router = express.Router()
+export const sessionRouter = express.Router()
 
 interface AuthSegment {
   authenticated: boolean
 }
 
-router.get('/', (req: Request, res: Response<AuthSegment>) => {
+sessionRouter.get('/', (req: Request, res: Response<AuthSegment>) => {
   return res.send({ authenticated: req.session !== undefined })
 })
 
-router.post(
+sessionRouter.post(
   '/',
   async (
     req: Request<unknown, unknown, AuthSession>,
@@ -36,7 +36,7 @@ router.post(
   },
 )
 
-router.delete('/', (req: Request, res: Response) => {
+sessionRouter.delete('/', (req: Request, res: Response) => {
   if (req.session) {
     req.session.destroy(err => {
       if (err) {

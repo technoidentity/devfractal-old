@@ -3,9 +3,9 @@ import { BAD_REQUEST, NO_CONTENT } from 'http-status-codes'
 import { Request, Response } from './types'
 import { User, UserModel } from './userSchema'
 
-export const router = express.Router()
+export const userRouter = express.Router()
 
-router.get('/', async (_: Request, res: Response<User[]>) => {
+userRouter.get('/', async (_: Request, res: Response<User[]>) => {
   try {
     const users = await UserModel.find().exec()
     res.send(users)
@@ -14,7 +14,7 @@ router.get('/', async (_: Request, res: Response<User[]>) => {
   }
 })
 
-router.get('/:id', async (req: Request, res: Response<User>) => {
+userRouter.get('/:id', async (req: Request, res: Response<User>) => {
   try {
     await UserModel.findById(req.params.id).exec()
     res.sendStatus(NO_CONTENT)
@@ -23,7 +23,7 @@ router.get('/:id', async (req: Request, res: Response<User>) => {
   }
 })
 
-router.post('/', async (req: Request, res: Response<User>) => {
+userRouter.post('/', async (req: Request, res: Response<User>) => {
   try {
     const newUser = new UserModel(req.body)
     const result = await newUser.save()
@@ -33,7 +33,7 @@ router.post('/', async (req: Request, res: Response<User>) => {
   }
 })
 
-router.put('/:id', async (req: Request, res: Response<User>) => {
+userRouter.put('/:id', async (req: Request, res: Response<User>) => {
   try {
     const user = await UserModel.findById({ _id: req.params.id }).exec()
     if (user !== undefined && user !== null) {
@@ -50,7 +50,7 @@ router.put('/:id', async (req: Request, res: Response<User>) => {
   }
 })
 
-router.delete('/:id', async (req: Request, res: Response) => {
+userRouter.delete('/:id', async (req: Request, res: Response) => {
   try {
     await UserModel.deleteOne({ _id: req.params.id }).exec()
     res.sendStatus(NO_CONTENT)

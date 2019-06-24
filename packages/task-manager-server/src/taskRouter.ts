@@ -5,9 +5,9 @@ import { auth } from './auth'
 import { Task, TaskModel } from './taskSchema'
 import { Request, Response } from './types'
 
-export const router = express.Router()
+export const taskRouter = express.Router()
 
-router.get('/', auth, async (_: Request, res: Response<Task[]>) => {
+taskRouter.get('/', auth, async (_: Request, res: Response<Task[]>) => {
   try {
     const tasks = await TaskModel.find().exec()
     res.send(tasks)
@@ -16,18 +16,22 @@ router.get('/', auth, async (_: Request, res: Response<Task[]>) => {
   }
 })
 
-router.get('/completed', auth, async (_: Request, res: Response<Task[]>) => {
-  try {
-    const completed = await TaskModel.find({
-      'dateInfo.completed': { $exists: true },
-    }).exec()
-    res.send(completed)
-  } catch (err) {
-    res.status(BAD_REQUEST).send(err)
-  }
-})
+taskRouter.get(
+  '/completed',
+  auth,
+  async (_: Request, res: Response<Task[]>) => {
+    try {
+      const completed = await TaskModel.find({
+        'dateInfo.completed': { $exists: true },
+      }).exec()
+      res.send(completed)
+    } catch (err) {
+      res.status(BAD_REQUEST).send(err)
+    }
+  },
+)
 
-router.get('/pending', async (_: Request, res: Response<Task[]>) => {
+taskRouter.get('/pending', async (_: Request, res: Response<Task[]>) => {
   try {
     const pendingTasks = await TaskModel.find({
       'dateInfo.completed': { $exists: false },
@@ -38,7 +42,7 @@ router.get('/pending', async (_: Request, res: Response<Task[]>) => {
   }
 })
 
-router.get('/today', async (_: Request, res: Response<Task[]>) => {
+taskRouter.get('/today', async (_: Request, res: Response<Task[]>) => {
   try {
     const todayTasks = await TaskModel.find({
       'dateInfo.scheduled': {
@@ -51,7 +55,7 @@ router.get('/today', async (_: Request, res: Response<Task[]>) => {
   }
 })
 
-router.get('/deadline', async (_: Request, res: Response<Task[]>) => {
+taskRouter.get('/deadline', async (_: Request, res: Response<Task[]>) => {
   try {
     const deadlineToday = await TaskModel.find({
       'dateInfo.deadline': {
@@ -64,7 +68,7 @@ router.get('/deadline', async (_: Request, res: Response<Task[]>) => {
   }
 })
 
-router.get('/:id', async (req: Request, res: Response<Task>) => {
+taskRouter.get('/:id', async (req: Request, res: Response<Task>) => {
   try {
     const one = await TaskModel.findById(req.params.id).exec()
     if (one === null || one === undefined) {
@@ -77,7 +81,7 @@ router.get('/:id', async (req: Request, res: Response<Task>) => {
   }
 })
 
-router.post('/', async (req: Request, res: Response<Task>) => {
+taskRouter.post('/', async (req: Request, res: Response<Task>) => {
   try {
     const newTask = new TaskModel(req.body)
     const result = await newTask.save()
@@ -87,7 +91,7 @@ router.post('/', async (req: Request, res: Response<Task>) => {
   }
 })
 
-router.put('/:id', async (req: Request, res: Response<Task>) => {
+taskRouter.put('/:id', async (req: Request, res: Response<Task>) => {
   try {
     const task = await TaskModel.findById(req.params.id).exec()
     if (task !== null) {
@@ -103,7 +107,7 @@ router.put('/:id', async (req: Request, res: Response<Task>) => {
   }
 })
 
-router.delete('/:id', async (req: Request, res: Response<Task>) => {
+taskRouter.delete('/:id', async (req: Request, res: Response<Task>) => {
   try {
     await TaskModel.deleteOne({ _id: req.params.id }).exec()
     res.sendStatus(NO_CONTENT)
