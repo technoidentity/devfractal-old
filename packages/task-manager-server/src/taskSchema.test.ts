@@ -32,24 +32,24 @@ it('Invalid task object', () => {
   const error = task1.validateSync()
   console.log(error.errors)
   expect(task1.validateSync().errors).toMatchInlineSnapshot(`
-    Object {
-      "dateInfo": [ValidatorError: started date should be equal to or greater than current date],
-      "description": [ValidatorError: Path \`description\` (\`react\`) is shorter than the minimum allowed length (10).],
-      "title": [ValidatorError: Path \`title\` (\`hfjs\`) is shorter than the minimum allowed length (5).],
-    }
-  `)
+        Object {
+          "dateInfo": [ValidatorError: started date should be equal to or greater than current date],
+          "description": [ValidatorError: Path \`description\` (\`react\`) is shorter than the minimum allowed length (10).],
+          "title": [ValidatorError: Path \`title\` (\`hfjs\`) is shorter than the minimum allowed length (5).],
+        }
+    `)
 })
 
 it('empty task object', () => {
   const task1 = new TaskModel({})
 
   expect(task1.validateSync().errors).toMatchInlineSnapshot(`
-                    Object {
-                      "dateInfo": [ValidatorError: Path \`dateInfo\` is required.],
-                      "description": [ValidatorError: Path \`description\` is required.],
-                      "title": [ValidatorError: Path \`title\` is required.],
-                    }
-          `)
+                        Object {
+                          "dateInfo": [ValidatorError: Path \`dateInfo\` is required.],
+                          "description": [ValidatorError: Path \`description\` is required.],
+                          "title": [ValidatorError: Path \`title\` is required.],
+                        }
+            `)
 })
 
 it('empty dateInfo in task object', () => {
@@ -60,12 +60,11 @@ it('empty dateInfo in task object', () => {
   })
 
   expect(task1.validateSync().errors).toMatchInlineSnapshot(`
-                        Object {
-                          "dateInfo": [ValidationError: Validation failed: scheduled: Path \`scheduled\` is required., completed: Path \`completed\` is required., deadline: Path \`deadline\` is required., started: Path \`started\` is required.],
-                          "dateInfo.completed": [ValidatorError: Path \`completed\` is required.],
-                          "dateInfo.deadline": [ValidatorError: Path \`deadline\` is required.],
-                          "dateInfo.scheduled": [ValidatorError: Path \`scheduled\` is required.],
-                          "dateInfo.started": [ValidatorError: Path \`started\` is required.],
-                        }
-            `)
+    Object {
+      "dateInfo": [ValidationError: Validation failed: scheduled: Path \`scheduled\` is required., deadline: Path \`deadline\` is required., started: Path \`started\` is required.],
+      "dateInfo.deadline": [ValidatorError: Path \`deadline\` is required.],
+      "dateInfo.scheduled": [ValidatorError: Path \`scheduled\` is required.],
+      "dateInfo.started": [ValidatorError: Path \`started\` is required.],
+    }
+  `)
 })
