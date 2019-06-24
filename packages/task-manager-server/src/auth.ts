@@ -1,4 +1,5 @@
 import express from 'express'
+import { UNAUTHORIZED } from 'http-status-codes'
 import { AuthSession, Request } from './types'
 
 export const auth = async (
@@ -9,6 +10,8 @@ export const auth = async (
   if (req.session && req.session.loggedIn) {
     next()
   } else {
-    res.status(401).send({ errors: 'Not authorized to access this resource' })
+    res
+      .status(UNAUTHORIZED)
+      .send({ errors: 'Not authorized to access this resource' })
   }
 }

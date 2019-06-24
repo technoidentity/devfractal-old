@@ -6,6 +6,7 @@ import {
   NO_CONTENT,
 } from 'http-status-codes'
 import { AuthSession, Request, Response } from './types'
+import { isUserValid } from './userSchema'
 
 export const sessionRouter = express.Router()
 
@@ -17,14 +18,22 @@ sessionRouter.get('/', (req: Request, res: Response<AuthSegment>) => {
   return res.send({ authenticated: req.session !== undefined })
 })
 
+interface PostSessionBody {
+  name: string
+  password: string
+}
+
 sessionRouter.post(
   '/',
   async (
-    req: Request<unknown, unknown, AuthSession>,
+    req: Request<PostSessionBody, unknown, AuthSession>,
     res: Response<AuthSegment>,
   ) => {
     try {
-      if (req.session !== undefined) {
+      if (
+        req.session !== undefined &&
+        isUserValid(req.body.name, req.body.password)
+      ) {
         req.session.loggedIn = true
         return res.sendStatus(CREATED)
       } else {

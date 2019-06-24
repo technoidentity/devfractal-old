@@ -13,3 +13,11 @@ export const userSchema = new Schema<User>({
 })
 
 export const UserModel = model<User>('User', userSchema)
+
+export const isUserValid = async (
+  name: string,
+  password: string,
+): Promise<boolean> => {
+  const users = await UserModel.find({ name, password }).exec()
+  return users.length !== 0
+}
