@@ -39,7 +39,7 @@ router.put('/:id', async (req: Request, res: Response) => {
       const result = await user.save()
       res.send(result)
     } else {
-      console.log('task with the given id has not found')
+      res.sendStatus(400)
     }
   } catch (err) {
     res.status(500).send(err)
