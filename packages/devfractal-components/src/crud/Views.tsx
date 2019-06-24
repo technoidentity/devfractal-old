@@ -49,7 +49,6 @@ export function Views<RT extends Mixed & Props, ID extends keyof RT>(
     Create: ({ onSubmit }) => (
       <SimpleEditor<TypeOf<RT>>
         id={id}
-        // @TODO: exclude id?
         data={emptyFromType(typeValue)}
         onSubmit={onSubmit}
       />
