@@ -8,45 +8,45 @@ const dateSchema = new mongoose.Schema({
   scheduled: { type: Date, required: true },
 })
 
-export interface ITask extends mongoose.Document {
-  readonly title: string
-  readonly description: string
-  readonly dateInfo: {
-    readonly started: Date
-    readonly deadline: Date
-    readonly completed?: Date
-    readonly scheduled: Date
+export interface Task extends mongoose.Document {
+  title: string
+  description: string
+  dateInfo: {
+    started: Date
+    deadline: Date
+    completed?: Date
+    scheduled: Date
   }
 }
 
 const currentDate: Date | string = format(new Date(), 'YYYY-MM-DD')
 
-const deadlineValidator = (value: ITask['dateInfo']): boolean => {
+const deadlineValidator = (value: Task['dateInfo']): boolean => {
   return compareAsc(startOfDay(value.deadline), startOfDay(value.started)) >= 0
 }
 
-const deadlineValidator2 = (value: ITask['dateInfo']): boolean => {
+const deadlineValidator2 = (value: Task['dateInfo']): boolean => {
   return (
     compareAsc(startOfDay(value.deadline), startOfDay(value.scheduled)) >= 0
   )
 }
 
-const completedValidator = (value: ITask['dateInfo']): boolean => {
+const completedValidator = (value: Task['dateInfo']): boolean => {
   if (value.completed === undefined) {
     return true
   }
   return compareAsc(startOfDay(value.completed), startOfDay(value.started)) >= 0
 }
 
-const startedValidator = (value: ITask['dateInfo']): boolean => {
+const startedValidator = (value: Task['dateInfo']): boolean => {
   return compareAsc(startOfDay(value.started), startOfDay(currentDate)) >= 0
 }
 
-const scheduledValidator4 = (value: ITask['dateInfo']): boolean => {
+const scheduledValidator4 = (value: Task['dateInfo']): boolean => {
   return compareAsc(startOfDay(value.scheduled), startOfDay(value.started)) >= 0
 }
 
-const taskSchema = new mongoose.Schema<ITask>(
+const taskSchema = new mongoose.Schema<Task>(
   {
     title: { type: String, required: true, minlength: 5, maxlength: 100 },
     description: {
@@ -88,4 +88,4 @@ const taskSchema = new mongoose.Schema<ITask>(
   },
 )
 
-export const Task = mongoose.model<ITask>('Task', taskSchema)
+export const TaskModel = mongoose.model<Task>('Task', taskSchema)

@@ -1,10 +1,10 @@
 import { addDays, subDays } from 'date-fns'
-import { Task } from './taskSchema'
+import { TaskModel } from './taskSchema'
 
 const currentDate: Date = new Date()
 
 it('valid task object', () => {
-  const task1 = new Task({
+  const task1 = new TaskModel({
     title: 'devfractal',
     description: 'make react simple',
     dateInfo: {
@@ -19,7 +19,7 @@ it('valid task object', () => {
 })
 
 it('Invalid task object', () => {
-  const task1 = new Task({
+  const task1 = new TaskModel({
     title: 'hfjs',
     description: 'react',
     dateInfo: {
@@ -41,7 +41,7 @@ it('Invalid task object', () => {
 })
 
 it('empty task object', () => {
-  const task1 = new Task({})
+  const task1 = new TaskModel({})
 
   expect(task1.validateSync().errors).toMatchInlineSnapshot(`
                     Object {
@@ -53,7 +53,7 @@ it('empty task object', () => {
 })
 
 it('empty dateInfo in task object', () => {
-  const task1 = new Task({
+  const task1 = new TaskModel({
     title: 'devfractal',
     description: 'make react simple',
     dateInfo: {},

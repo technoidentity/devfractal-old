@@ -46,9 +46,7 @@ const app = (() => {
   app.use('/users', users)
   app.use('/session', login)
 
-  app.listen(port, () => {
-    console.log(`Example app listening on port ${port}!`)
-  })
+  app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
   return app
 })()

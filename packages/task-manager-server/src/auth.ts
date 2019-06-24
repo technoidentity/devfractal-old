@@ -1,13 +1,14 @@
 import express from 'express'
+import { Request, AuthSession } from './types'
 
 export const auth = async (
-  req: express.Request,
+  req: Request<unknown, unknown, AuthSession>,
   res: express.Response,
   next: express.NextFunction,
 ) => {
-  if ((req.session as any).loggedIn) {
+  if (req.session && req.session.loggedIn) {
     next()
   } else {
-    res.status(401).send({ error: 'Not authorized to access this resource' })
+    res.status(401).send({ errors: 'Not authorized to access this resource' })
   }
 }

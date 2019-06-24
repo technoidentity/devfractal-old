@@ -1,25 +1,35 @@
-import express, { Request, Response } from 'express'
-import { isUserValid } from './index'
+import express from 'express'
+import status from 'http-status-codes'
+import { AuthSession, Request, Response } from './types'
+
 const router = express.Router()
 
-router.get('/', (req: Request, res: Response) => {
-  return res.send({ autheticated: req.session !== undefined })
+interface AuthSegment {
+  authenticated: boolean
+}
+
+router.get('/', (req: Request, res: Response<AuthSegment>) => {
+  return res.send({ authenticated: req.session !== undefined })
 })
 
-router.post('/', async (req: Request, res: Response) => {
-  try {
-    const userValid = await isUserValid(req.body.name, req.body.password)
-    if (userValid) {
-      ;(req.session as any).loggedIn = true
-
-      return res.sendStatus(201)
-    } else {
-      return res.sendStatus(400)
+router.post(
+  '/',
+  async (
+    req: Request<unknown, unknown, AuthSession>,
+    res: Response<AuthSegment>,
+  ) => {
+    try {
+      if (req.session !== undefined) {
+        req.session.loggedIn = true
+        return res.sendStatus(status.CREATED)
+      } else {
+        return res.sendStatus(status.INTERNAL_SERVER_ERROR)
+      }
+    } catch (err) {
+      return res.sendStatus(status.BAD_REQUEST)
     }
-  } catch (err) {
-    return res.sendStatus(401)
-  }
-})
+  },
+)
 
 router.delete('/', (req: Request, res: Response) => {
   ;(req.session as any).loggedIn = false

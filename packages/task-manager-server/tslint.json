@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint-config-prettier", "tslint-immutable"],
+  "extends": ["tslint-config-prettier"],
   "rules": {
     "ban": false,
     "adjacent-overload-signatures": true,
@@ -55,13 +55,6 @@
     "no-invalid-this": true,
     "no-parameter-reassignment": true,
     "ban-comma-operator": true,
-    "readonly-keyword": [true, "ignore-local", { "ignore-prefix": "draft" }],
-    "readonly-array": [
-      true,
-      "ignore-local",
-      { "ignore-rest-parameters": true }
-    ],
-    "no-delete": true,
     "no-misused-new": true,
     "interface-over-type-literal": true,
     "no-inferred-empty-object-type": true,
@@ -104,13 +97,7 @@
     "type-literal-delimiter": false,
     "trailing-comma": true,
     "no-null-keyword": true,
-    "no-void-expression": true,
-    "no-this": true,
-    "no-class": true,
     "no-unsafe-finally": true
-    // "strict-boolean-expressions": true,
-    // "no-unsafe-any": true,
-    // "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
   },
 
   "defaultSeverity": "warn"

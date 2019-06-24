@@ -1,57 +1,60 @@
-import express, { Request, Response } from 'express'
-import User from './userSchema'
-
+import express from 'express'
+import { Request, Response } from './types'
+import UserModel, { User } from './userSchema'
+import status from 'http-status-codes'
 const router = express.Router()
 
-router.get('/', async (_: Request, res: Response) => {
+router.get('/', async (_: Request, res: Response<User[]>) => {
   try {
-    const users = await User.find().exec()
+    const users = await UserModel.find().exec()
     res.send(users)
   } catch (err) {
-    res.status(500).send(err)
+    res.status(status.BAD_REQUEST).send(err)
   }
 })
 
-router.get('/:id', async (req: Request, res: Response) => {
+router.get('/:id', async (req: Request, res: Response<User>) => {
   try {
-    const one = await User.findById(req.params.id).exec()
-    res.send(one)
+    await UserModel.findById(req.params.id).exec()
+    res.sendStatus(status.NO_CONTENT)
   } catch (err) {
-    res.status(500).send(err)
+    res.status(status.BAD_REQUEST).send(err)
   }
 })
 
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response<User>) => {
   try {
-    const newUser = new User(req.body)
+    const newUser = new UserModel(req.body)
     const result = await newUser.save()
     res.send(result)
   } catch (err) {
-    res.status(500).send(err)
+    res.status(status.BAD_REQUEST).send(err)
   }
 })
 
-router.put('/:id', async (req: Request, res: Response) => {
+router.put('/:id', async (req: Request, res: Response<User>) => {
   try {
-    const user = await User.findById({ _id: req.params.id }).exec()
-    if (user !== null) {
+    const user = await UserModel.findById({ _id: req.params.id }).exec()
+    if (user !== undefined && user !== null) {
       user.set(req.body)
       const result = await user.save()
       res.send(result)
     } else {
-      res.sendStatus(400)
+      res
+        .status(status.BAD_REQUEST)
+        .send({ errors: `User with ${req.params.id} not available` })
     }
   } catch (err) {
-    res.status(500).send(err)
+    res.status(status.BAD_REQUEST).send(err)
   }
 })
 
 router.delete('/:id', async (req: Request, res: Response) => {
   try {
-    const one = await User.deleteOne({ _id: req.params.id }).exec()
-    res.send(one)
+    await UserModel.deleteOne({ _id: req.params.id }).exec()
+    res.sendStatus(status.NO_CONTENT)
   } catch (err) {
-    res.status(500).send(err)
+    res.status(status.BAD_REQUEST).send(err)
   }
 })
 

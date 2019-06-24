@@ -1,44 +1,45 @@
 import { format, startOfDay, startOfToday } from 'date-fns'
-import express, { Request, Response } from 'express'
+import express from 'express'
 import { auth } from './auth'
-import { Task } from './taskSchema'
-
+import { TaskModel, Task } from './taskSchema'
+import { Request, Response } from './types'
 const router = express.Router()
+import status from 'http-status-codes'
 
-router.get('/', async (_: Request, res: Response) => {
+router.get('/', auth, async (_: Request, res: Response<Task[]>) => {
   try {
-    const tasks = await Task.find().exec()
+    const tasks = await TaskModel.find().exec()
     res.send(tasks)
   } catch (err) {
-    res.status(500).send(err)
+    res.status(status.BAD_REQUEST).send(err)
   }
 })
 
-router.get('/completed', auth, async (_: Request, res: Response) => {
+router.get('/completed', auth, async (_: Request, res: Response<Task[]>) => {
   try {
-    const completed = await Task.find({
+    const completed = await TaskModel.find({
       'dateInfo.completed': { $exists: true },
     }).exec()
     res.send(completed)
   } catch (err) {
-    res.status(500).send(err)
+    res.status(status.BAD_REQUEST).send(err)
   }
 })
 
-router.get('/pending', async (_: Request, res: Response) => {
+router.get('/pending', async (_: Request, res: Response<Task[]>) => {
   try {
-    const pendingTasks = await Task.find({
+    const pendingTasks = await TaskModel.find({
       'dateInfo.completed': { $exists: false },
     }).exec()
     res.send(pendingTasks)
   } catch (err) {
-    res.status(500).send(err)
+    res.status(status.BAD_REQUEST).send(err)
   }
 })
 
-router.get('/today', async (_: Request, res: Response) => {
+router.get('/today', async (_: Request, res: Response<Task[]>) => {
   try {
-    const todayTasks = await Task.find({
+    const todayTasks = await TaskModel.find({
       'dateInfo.scheduled': {
         $eq: format(startOfDay(startOfToday()), 'YYYY-MM-DD'),
       },
@@ -49,9 +50,9 @@ router.get('/today', async (_: Request, res: Response) => {
   }
 })
 
-router.get('/deadline', async (_: Request, res: Response) => {
+router.get('/deadline', async (_: Request, res: Response<Task[]>) => {
   try {
-    const deadlineToday = await Task.find({
+    const deadlineToday = await TaskModel.find({
       'dateInfo.deadline': {
         $eq: format(startOfDay(startOfToday()), 'YYYY-MM-DD'),
       },
@@ -62,18 +63,22 @@ router.get('/deadline', async (_: Request, res: Response) => {
   }
 })
 
-router.get('/:id', async (req: Request, res: Response) => {
+router.get('/:id', async (req: Request, res: Response<Task>) => {
   try {
-    const one = await Task.findById(req.params.id).exec()
-    res.send(one)
+    const one = await TaskModel.findById(req.params.id).exec()
+    if (one === null || one === undefined) {
+      res.sendStatus(status.BAD_REQUEST)
+    } else {
+      res.send(one)
+    }
   } catch (err) {
     res.status(500).send(err)
   }
 })
 
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response<Task>) => {
   try {
-    const newTask = new Task(req.body)
+    const newTask = new TaskModel(req.body)
     const result = await newTask.save()
     res.send(result)
   } catch (err) {
@@ -81,9 +86,9 @@ router.post('/', async (req: Request, res: Response) => {
   }
 })
 
-router.put('/:id', async (req: Request, res: Response) => {
+router.put('/:id', async (req: Request, res: Response<Task>) => {
   try {
-    const task = await Task.findById(req.params.id).exec()
+    const task = await TaskModel.findById(req.params.id).exec()
     if (task !== null) {
       task.set(req.body)
       const result = await task.save()
@@ -97,10 +102,10 @@ router.put('/:id', async (req: Request, res: Response) => {
   }
 })
 
-router.delete('/:id', async (req: Request, res: Response) => {
+router.delete('/:id', async (req: Request, res: Response<Task>) => {
   try {
-    const one = await Task.deleteOne({ _id: req.params.id }).exec()
-    res.send(one)
+    await TaskModel.deleteOne({ _id: req.params.id }).exec()
+    res.sendStatus(status.NO_CONTENT)
   } catch (err) {
     res.status(500).send(err)
   }
