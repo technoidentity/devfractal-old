@@ -5,7 +5,6 @@ export const auth = async (
   res: express.Response,
   next: express.NextFunction,
 ) => {
-  console.log(req.session, req.cookies)
   if ((req.session as any).loggedIn) {
     next()
   } else {
