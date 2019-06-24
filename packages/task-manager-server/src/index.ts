@@ -37,7 +37,7 @@ const app = (() => {
     session({
       secret: '343ji43j4n3jn4jk3n',
       resave: false,
-      saveUninitialized: false,
+      saveUninitialized: true,
       cookie: { secure: false, httpOnly: false },
     }),
   )
