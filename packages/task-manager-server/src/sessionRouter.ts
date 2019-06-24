@@ -32,9 +32,10 @@ router.post(
 )
 
 router.delete('/', (req: Request, res: Response) => {
-  ;(req.session as any).loggedIn = false
-  console.log(req.session)
-
+  if (req.session) {
+    console.log(req.session)
+    req.session.destroy(err => res.status(500).send(err))
+  }
   res.sendStatus(200)
 })
 
