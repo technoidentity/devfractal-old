@@ -26,6 +26,15 @@ export const TaskRT = intersection([taskPartial, taskRequired])
 
 export type Task = TypeOf<typeof TaskRT>
 
+export const userRT = req({
+  name: string,
+  email: string,
+  password: string,
+  confirmPassword: string,
+})
+
+export type User = TypeOf<typeof userRT>
+
 // export const getOneTask = () =>
 //   axios
 //     .get('http://localhost:9999/tasks/5cf4c3fe67fe360ff25b2014')
