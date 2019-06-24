@@ -1,18 +1,19 @@
 import { Either } from 'fp-ts/lib/Either'
+import { produce } from 'immer'
 import { Decoder, Errors, Mixed, readonlyArray } from 'io-ts'
 import { reporter } from 'io-ts-reporters'
+import { Array } from 'tcomb'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
-import { produce } from 'immer'
-interface API<A extends Record<string, any>> {
-  many(options?: MethodArgs): Promise<readonly A[]>
-  create(data: Partial<A>): Promise<A>
-  get(id: string): Promise<A>
-  one(options?: MethodArgs): Promise<A>
-  update(id: string, data: Partial<A>): Promise<A>
-}
+// interface API<A extends Record<string, any>> {
+//   many(options?: MethodArgs): Promise<readonly A[]>
+//   create(data: A): Promise<A>
+//   get(id: string): Promise<A>
+//   one(options: MethodArgs): Promise<A>
+//   update(id: string, data: Partial<A>): Promise<A>
+// }
 
-const appendId = (options: MethodArgs, id: string) =>
-  produce(options, draft => {
+function appendId(options: MethodArgs, id: string): MethodArgs {
+  return produce(options, draft => {
     if (draft.path === undefined) {
       draft.path = id
     } else if (Array.is(draft.path)) {
@@ -21,22 +22,24 @@ const appendId = (options: MethodArgs, id: string) =>
       draft.path = [draft.path, id]
     }
   })
+}
 
+// tslint:disable-next-line: typedef
 export function rest<I, A>(
   options: RequestConfig,
   type: Mixed & Decoder<I, A>,
-): API<A> {
+) {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(options: MethodArgs): Promise<ReadonlyArray<A>> {
     return http.get(options, readonlyArray(type))
   }
 
-  async function one(options: MethodArgs, id: string): Promise<A> {
-    return http.get(appendId(options, id), type)
+  async function one(options: MethodArgs): Promise<A> {
+    return http.get(options, type)
   }
 
-  async function create(options: MethodArgs, data: A): Promise<A> {
+  async function create(options: MethodArgs, data: I): Promise<A> {
     const decoded: Either<Errors, A> = type.decode(data)
     if (decoded.isLeft()) {
       throw new Error(reporter(decoded).join('\n'))
