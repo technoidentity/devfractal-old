@@ -1,4 +1,4 @@
-import { compareAsc, startOfDay, format } from 'date-fns'
+import { compareAsc, format, startOfDay } from 'date-fns'
 import * as mongoose from 'mongoose'
 
 const dateSchema = new mongoose.Schema({

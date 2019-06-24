@@ -1,8 +1,9 @@
 import express from 'express'
-import { Request, Response } from './types'
-import UserModel, { User } from './userSchema'
 import status from 'http-status-codes'
-const router = express.Router()
+import { Request, Response } from './types'
+import { User, UserModel } from './userSchema'
+
+export const router = express.Router()
 
 router.get('/', async (_: Request, res: Response<User[]>) => {
   try {
@@ -57,5 +58,3 @@ router.delete('/:id', async (req: Request, res: Response) => {
     res.status(status.BAD_REQUEST).send(err)
   }
 })
-
-export default router

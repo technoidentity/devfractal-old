@@ -2,7 +2,7 @@ import express from 'express'
 import status from 'http-status-codes'
 import { AuthSession, Request, Response } from './types'
 
-const router = express.Router()
+export const router = express.Router()
 
 interface AuthSegment {
   authenticated: boolean
@@ -33,10 +33,11 @@ router.post(
 
 router.delete('/', (req: Request, res: Response) => {
   if (req.session) {
-    console.log(req.session)
-    req.session.destroy(err => res.status(500).send(err))
+    req.session.destroy(err => {
+      if (err) {
+        throw err
+      }
+      res.sendStatus(status.NO_CONTENT)
+    })
   }
-  res.sendStatus(200)
 })
-
-export default router

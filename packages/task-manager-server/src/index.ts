@@ -4,10 +4,10 @@ import cors from 'cors'
 import express from 'express'
 import session from 'express-session'
 import * as mongoose from 'mongoose'
-import login from './sessionRouter'
-import tasks from './taskRouter'
-import users from './userRouter'
-import UserModel from './userSchema'
+import { router as login } from './sessionRouter'
+import { router as tasks } from './taskRouter'
+import { router as users } from './userRouter'
+import { UserModel } from './userSchema'
 
 const port = 9999
 
@@ -21,7 +21,7 @@ mongoose.connect(uri, { useNewUrlParser: true }, (err: any) => {
   console.log('mongoose connected')
 })
 
-const app = (() => {
+export const app = (() => {
   const app = express()
   app.use(bodyParser.json())
   app.use(
@@ -50,8 +50,6 @@ const app = (() => {
 
   return app
 })()
-
-export default app
 
 export const isUserValid = async (
   name: string,

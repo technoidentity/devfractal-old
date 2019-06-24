@@ -1,10 +1,11 @@
 import { format, startOfDay, startOfToday } from 'date-fns'
 import express from 'express'
-import { auth } from './auth'
-import { TaskModel, Task } from './taskSchema'
-import { Request, Response } from './types'
-const router = express.Router()
 import status from 'http-status-codes'
+import { auth } from './auth'
+import { Task, TaskModel } from './taskSchema'
+import { Request, Response } from './types'
+
+export const router = express.Router()
 
 router.get('/', auth, async (_: Request, res: Response<Task[]>) => {
   try {
@@ -110,5 +111,3 @@ router.delete('/:id', async (req: Request, res: Response<Task>) => {
     res.status(500).send(err)
   }
 })
-
-export default router

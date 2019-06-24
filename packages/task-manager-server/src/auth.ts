@@ -1,5 +1,5 @@
 import express from 'express'
-import { Request, AuthSession } from './types'
+import { AuthSession, Request } from './types'
 
 export const auth = async (
   req: Request<unknown, unknown, AuthSession>,
