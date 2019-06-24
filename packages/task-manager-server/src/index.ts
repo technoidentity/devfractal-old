@@ -2,11 +2,12 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import { format } from 'date-fns'
 import express from 'express'
+import session from 'express-session'
+import cookieParser from 'cookie-parser'
 import * as mongoose from 'mongoose'
+import login from './sessionRouter'
 import tasks from './taskRouter'
 import users from './userRouter'
-import session from 'express-session'
-import login from './sessionRouter'
 
 const port = 9999
 
@@ -33,7 +34,15 @@ const app = (() => {
     }),
   )
 
-  app.use(session({ secret: '343ji43j4n3jn4jk3n', cookie: { secure: true } }))
+  app.use(cookieParser())
+  app.use(
+    session({
+      secret: '343ji43j4n3jn4jk3n',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { secure: true },
+    }),
+  )
 
   app.use('/tasks', tasks)
   app.use('/users', users)

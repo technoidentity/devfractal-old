@@ -1,7 +1,6 @@
 import * as mongoose from 'mongoose'
-import passportLocalMongoose from 'passport-local-mongoose'
 
-export interface IUser extends mongoose.Document {
+export interface User extends mongoose.Document {
   readonly name: string
   readonly email: string
   readonly password: string
@@ -15,8 +14,6 @@ export const userSchema = new mongoose.Schema({
   confirmPassword: { type: String, required: true },
 })
 
-userSchema.plugin(passportLocalMongoose)
+const UserModel = mongoose.model<User>('User', userSchema)
 
-const User = mongoose.model<IUser>('User', userSchema)
-
-export default User
+export default UserModel
