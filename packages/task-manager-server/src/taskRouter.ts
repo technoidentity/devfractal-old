@@ -32,7 +32,7 @@ router.get('/pending', async (_: Request, res: Response) => {
     }).exec()
     res.send(pendingTasks)
   } catch (err) {
-    res.send(err)
+    res.status(500).send(err)
   }
 })
 
@@ -45,7 +45,7 @@ router.get('/today', async (_: Request, res: Response) => {
     }).exec()
     res.send(todayTasks)
   } catch (err) {
-    console.log(err)
+    res.status(500).send(err)
   }
 })
 
@@ -89,7 +89,7 @@ router.put('/:id', async (req: Request, res: Response) => {
       const result = await task.save()
       res.send(result)
     } else {
-      console.log('task with the given id has not found')
+      res.sendStatus(400)
     }
   } catch (err) {
     console.error(err)
