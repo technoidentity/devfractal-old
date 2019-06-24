@@ -35,7 +35,7 @@ function buildQueryString(query?: string | Object): string {
 function buildUrl(baseUrl: string, options?: Options): string {
   return options === undefined
     ? baseUrl
-    : `${baseUrl}${buildPath(options.paths)}?${buildQueryString(options.query)}`
+    : `${baseUrl}${buildPath(options.paths)}${buildQueryString(options.query)}`
 }
 
 const axios = ax.create({ withCredentials: true })
@@ -46,7 +46,7 @@ export function api<I, A>(
 ): API<A> {
   async function many(options?: Options): Promise<ReadonlyArray<A>> {
     return axios
-      .get(buildUrl(baseUrl, options))
+      .get(buildUrl(baseUrl, options), { withCredentials: true })
       .then(res => res.data)
       .then(tp.decode(t.readonlyArray(type)))
   }
