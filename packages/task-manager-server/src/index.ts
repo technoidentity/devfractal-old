@@ -1,9 +1,8 @@
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 import cors from 'cors'
-import { format } from 'date-fns'
 import express from 'express'
 import session from 'express-session'
-import cookieParser from 'cookie-parser'
 import * as mongoose from 'mongoose'
 import login from './sessionRouter'
 import tasks from './taskRouter'
@@ -12,8 +11,6 @@ import users from './userRouter'
 const port = 9999
 
 const uri: string = 'mongodb://localhost/mydatabase'
-
-const currentDate = format(new Date(), 'YYYY/MM/DD')
 
 // tslint:disable-next-line: no-floating-promises
 mongoose.connect(uri, { useNewUrlParser: true }, (err: any) => {
@@ -28,7 +25,7 @@ const app = (() => {
   app.use(bodyParser.json())
   app.use(
     cors({
-      origin: true,
+      origin: 'http://localhost:1234',
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
     }),
@@ -40,7 +37,7 @@ const app = (() => {
       secret: '343ji43j4n3jn4jk3n',
       resave: false,
       saveUninitialized: false,
-      cookie: { secure: true },
+      cookie: { secure: false, httpOnly: false },
     }),
   )
 
@@ -54,3 +51,5 @@ const app = (() => {
 
   return app
 })()
+
+export default app
