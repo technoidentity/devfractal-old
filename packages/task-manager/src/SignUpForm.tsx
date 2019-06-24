@@ -1,6 +1,8 @@
-import { Field, Form, Formik, FormikProps } from 'formik'
+import 'bulma/css/bulma.css'
+import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import yup from 'yup'
+import { Section } from 'technoidentity-devfractal'
+import * as yup from 'yup'
 
 export interface SignUpValues {
   readonly name: string
@@ -30,24 +32,84 @@ const schema = yup.object().shape({
 
   password: yup.string().required(),
 
-  confirmPassword: yup.string().required(),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Passwords must match'),
 })
 
 const InnerSignUpForm: React.FC<FormikProps<SignUpValues>> = () => (
   <Form>
-    <label>Name</label>
-    <Field name="name" type="text" />
-    <br />
-    <label>Email</label>
-    <Field name="email" type="email" />
-    <br />
-    <label>Password</label>
-    <Field name="password" type="password" />
-    <br />
-    <label>Confirm Password</label>
-    <Field name="confirmPassword" type="password" />
-    <br />
-    <button type="submit">Submit</button>
+    <Section>
+      <h1 className="title has-text-centered">Create User</h1>
+      <div className="field">
+        <label className="label">Name</label>
+        <div className="control">
+          <Field
+            type="text"
+            name="name"
+            className="input "
+            placeholder="Name"
+          />
+        </div>
+        <div className="help is-danger">
+          <ErrorMessage name="name" />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Email</label>
+        <div className="control">
+          <Field
+            type="email"
+            name="email"
+            className="input "
+            placeholder="Email"
+          />
+        </div>
+        <div className="help is-danger">
+          <ErrorMessage name="email" />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Password</label>
+        <div className="control">
+          <Field
+            type="password"
+            name="password"
+            className="input "
+            placeholder="Password"
+          />
+        </div>
+        <div className="help is-danger">
+          <ErrorMessage name="password" />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Confirm Password</label>
+        <div className="control">
+          <Field
+            type="password"
+            name="confirmPassword"
+            className="input "
+            placeholder="Confirm Password"
+          />
+        </div>
+        <div className="help is-danger">
+          <ErrorMessage name="confirmPassword" />
+        </div>
+      </div>
+      <div className="field is-grouped is-grouped-centered">
+        <p className="control">
+          <button className="button is-primary" type="submit">
+            Submit
+          </button>
+        </p>
+        <p className="control">
+          <button className="button is-danger" type="reset">
+            Reset
+          </button>
+        </p>
+      </div>
+    </Section>
   </Form>
 )
 
