@@ -1,4 +1,4 @@
-import axios from 'axios'
+import ax from 'axios'
 import * as t from 'io-ts'
 import * as tp from 'io-ts-promise'
 import { reporter } from 'io-ts-reporters'
@@ -37,6 +37,8 @@ function buildUrl(baseUrl: string, options?: Options): string {
     ? baseUrl
     : `${baseUrl}${buildPath(options.paths)}?${buildQueryString(options.query)}`
 }
+
+const axios = ax.create({ withCredentials: true })
 
 export function api<I, A>(
   baseUrl: string,

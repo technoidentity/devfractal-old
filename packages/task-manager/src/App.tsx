@@ -1,6 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { CreateTaskRoute, EditTaskRoute, TaskListRoute } from './Routes'
+import {
+  CreateTaskRoute,
+  EditTaskRoute,
+  LoginRoute,
+  TaskListRoute,
+} from './Routes'
 
 // export const App = () => {
 //   return (
@@ -20,7 +25,8 @@ import { CreateTaskRoute, EditTaskRoute, TaskListRoute } from './Routes'
 
 export const App: React.FC = () => (
   <Router>
-    <Route exact path="/" component={TaskListRoute} />
+    <Route exact path="/" component={LoginRoute} />
+    <Route exact path="/tasks" component={TaskListRoute} />
     <Route path="/add" component={CreateTaskRoute} />
     <Route path="/edit/:id" component={EditTaskRoute} />
   </Router>

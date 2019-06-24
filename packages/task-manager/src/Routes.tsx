@@ -1,7 +1,10 @@
+import * as t from 'io-ts'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Section } from 'technoidentity-devfractal'
+import { api } from './api'
 import { EditTaskForm } from './EditTaskForm'
+import { LoginForm } from './LoginForm'
 import {
   allTasks,
   completedList,
@@ -96,4 +99,12 @@ export const TaskListRoute = () => {
   }
 
   return <h1 className="is-text is-size-1">is Loading....</h1>
+}
+
+export const LoginRoute: React.FC<RouteComponentProps> = ({ history }) => {
+  const onLogin = async (data: any) => {
+    await api('http://localhost:9999/session', t.any).create(data)
+    history.push('/tasks')
+  }
+  return <LoginForm onLogin={onLogin} />
 }
