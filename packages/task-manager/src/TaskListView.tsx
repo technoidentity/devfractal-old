@@ -5,6 +5,9 @@ import {
   Button,
   ButtonsGroup,
   Field,
+  Navbar,
+  NavbarEnd,
+  NavbarItem,
   Section,
   Table,
   TableBody,
@@ -51,6 +54,7 @@ export interface TaskListViewProps {
   onPending(): void
   onToday(): void
   onDeadline(): void
+  onLogout(): void
 }
 
 export const TaskListView: React.FC<TaskListViewProps> = ({
@@ -59,45 +63,57 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
   onPending,
   onToday,
   onDeadline,
+  onLogout,
 }) => (
-  <Section>
-    <Title textAlignment="centered">Task Management</Title>
-    <ButtonsGroup alignment="right">
-      <Link to="/add" className="button is-link">
-        Add
-      </Link>
-    </ButtonsGroup>
-    <Table striped bordered fullWidth>
-      <TableHead>
-        <Tr>
-          <Th>Title</Th>
-          <Th>Description</Th>
-          <Th>Started</Th>
-          <Th>Deadline</Th>
-          <Th>Scheduled</Th>
-          <Th>Completed</Th>
-          <Th />
-        </Tr>
-      </TableHead>
-      <TableBody>
-        {taskList.map(task => (
-          <TaskItem key={task._id} taskItem={task} />
-        ))}
-      </TableBody>
-    </Table>
-    <Field grouped groupModifier="grouped-centered">
-      <Button variant="info" onClick={onToday}>
-        Scheduled Today
-      </Button>
-      <Button variant="success" onClick={onCompleted}>
-        Completed
-      </Button>
-      <Button variant="danger" onClick={onPending}>
-        Pending
-      </Button>
-      <Button variant="warning" onClick={onDeadline}>
-        Deadline Today
-      </Button>
-    </Field>
-  </Section>
+  <>
+    <Navbar>
+      <NavbarEnd>
+        <NavbarItem>
+          <Button onClick={onLogout} className="button is-dark">
+            Logout
+          </Button>
+        </NavbarItem>
+      </NavbarEnd>
+    </Navbar>
+    <Section>
+      <Title textAlignment="centered">Task Management</Title>
+      <ButtonsGroup alignment="right">
+        <Link to="/add" className="button is-primary">
+          Add
+        </Link>
+      </ButtonsGroup>
+      <Table striped bordered fullWidth>
+        <TableHead>
+          <Tr>
+            <Th>Title</Th>
+            <Th>Description</Th>
+            <Th>Started</Th>
+            <Th>Deadline</Th>
+            <Th>Scheduled</Th>
+            <Th>Completed</Th>
+            <Th />
+          </Tr>
+        </TableHead>
+        <TableBody>
+          {taskList.map(task => (
+            <TaskItem key={task._id} taskItem={task} />
+          ))}
+        </TableBody>
+      </Table>
+      <Field grouped groupModifier="grouped-centered">
+        <Button variant="info" onClick={onToday}>
+          Scheduled Today
+        </Button>
+        <Button variant="success" onClick={onCompleted}>
+          Completed
+        </Button>
+        <Button variant="danger" onClick={onPending}>
+          Pending
+        </Button>
+        <Button variant="warning" onClick={onDeadline}>
+          Deadline Today
+        </Button>
+      </Field>
+    </Section>
+  </>
 )
