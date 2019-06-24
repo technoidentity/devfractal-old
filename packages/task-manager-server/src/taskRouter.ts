@@ -1,6 +1,6 @@
 import { format, startOfDay, startOfToday } from 'date-fns'
 import express from 'express'
-import status from 'http-status-codes'
+import { BAD_REQUEST, NO_CONTENT } from 'http-status-codes'
 import { auth } from './auth'
 import { Task, TaskModel } from './taskSchema'
 import { Request, Response } from './types'
@@ -12,7 +12,7 @@ router.get('/', auth, async (_: Request, res: Response<Task[]>) => {
     const tasks = await TaskModel.find().exec()
     res.send(tasks)
   } catch (err) {
-    res.status(status.BAD_REQUEST).send(err)
+    res.status(BAD_REQUEST).send(err)
   }
 })
 
@@ -23,7 +23,7 @@ router.get('/completed', auth, async (_: Request, res: Response<Task[]>) => {
     }).exec()
     res.send(completed)
   } catch (err) {
-    res.status(status.BAD_REQUEST).send(err)
+    res.status(BAD_REQUEST).send(err)
   }
 })
 
@@ -34,7 +34,7 @@ router.get('/pending', async (_: Request, res: Response<Task[]>) => {
     }).exec()
     res.send(pendingTasks)
   } catch (err) {
-    res.status(status.BAD_REQUEST).send(err)
+    res.status(BAD_REQUEST).send(err)
   }
 })
 
@@ -68,7 +68,7 @@ router.get('/:id', async (req: Request, res: Response<Task>) => {
   try {
     const one = await TaskModel.findById(req.params.id).exec()
     if (one === null || one === undefined) {
-      res.sendStatus(status.BAD_REQUEST)
+      res.sendStatus(BAD_REQUEST)
     } else {
       res.send(one)
     }
@@ -106,7 +106,7 @@ router.put('/:id', async (req: Request, res: Response<Task>) => {
 router.delete('/:id', async (req: Request, res: Response<Task>) => {
   try {
     await TaskModel.deleteOne({ _id: req.params.id }).exec()
-    res.sendStatus(status.NO_CONTENT)
+    res.sendStatus(NO_CONTENT)
   } catch (err) {
     res.status(500).send(err)
   }

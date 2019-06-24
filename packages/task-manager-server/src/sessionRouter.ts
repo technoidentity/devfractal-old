@@ -1,5 +1,10 @@
 import express from 'express'
-import status from 'http-status-codes'
+import {
+  BAD_REQUEST,
+  CREATED,
+  INTERNAL_SERVER_ERROR,
+  NO_CONTENT,
+} from 'http-status-codes'
 import { AuthSession, Request, Response } from './types'
 
 export const router = express.Router()
@@ -21,12 +26,12 @@ router.post(
     try {
       if (req.session !== undefined) {
         req.session.loggedIn = true
-        return res.sendStatus(status.CREATED)
+        return res.sendStatus(CREATED)
       } else {
-        return res.sendStatus(status.INTERNAL_SERVER_ERROR)
+        return res.sendStatus(INTERNAL_SERVER_ERROR)
       }
     } catch (err) {
-      return res.sendStatus(status.BAD_REQUEST)
+      return res.sendStatus(BAD_REQUEST)
     }
   },
 )
@@ -37,7 +42,7 @@ router.delete('/', (req: Request, res: Response) => {
       if (err) {
         throw err
       }
-      res.sendStatus(status.NO_CONTENT)
+      res.sendStatus(NO_CONTENT)
     })
   }
 })

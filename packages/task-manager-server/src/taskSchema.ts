@@ -1,14 +1,14 @@
 import { compareAsc, format, startOfDay } from 'date-fns'
-import * as mongoose from 'mongoose'
+import { Document, model, Schema } from 'mongoose'
 
-const dateSchema = new mongoose.Schema({
+const dateSchema = new Schema({
   started: { type: Date, required: true },
   deadline: { type: Date, required: true },
   completed: { type: Date },
   scheduled: { type: Date, required: true },
 })
 
-export interface Task extends mongoose.Document {
+export interface Task extends Document {
   title: string
   description: string
   dateInfo: {
@@ -46,7 +46,7 @@ const scheduledValidator4 = (value: Task['dateInfo']): boolean => {
   return compareAsc(startOfDay(value.scheduled), startOfDay(value.started)) >= 0
 }
 
-const taskSchema = new mongoose.Schema<Task>(
+const taskSchema = new Schema<Task>(
   {
     title: { type: String, required: true, minlength: 5, maxlength: 100 },
     description: {
@@ -88,4 +88,4 @@ const taskSchema = new mongoose.Schema<Task>(
   },
 )
 
-export const TaskModel = mongoose.model<Task>('Task', taskSchema)
+export const TaskModel = model<Task>('Task', taskSchema)
