@@ -148,6 +148,7 @@ test('put with incorrect value', async () => {
 test('delete', async () => {
   axiosMock.delete.mockResolvedValue(undefined)
   const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
+  // tslint:disable-next-line:no-void-expression
   const actual: void = await http.del({ resource: 'tasks', path: '1' })
   expect(actual).toBeUndefined()
 })
