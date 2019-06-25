@@ -8,6 +8,8 @@
   "author": "Pervez Iqbal",
   "private": true,
   "scripts": {
+    "start": "backpack watch",
+    "dev": "backpack",
     "build": "backpack build",
     "test": "NODE_ENV=test jest",
     "test:watch": "yarn test --watch",
