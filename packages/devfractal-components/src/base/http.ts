@@ -31,7 +31,7 @@ function buildQueryString(query?: string | Object): string {
     : `?${string.is(query) ? query : stringify(query)}`
 }
 
-function buildUrl(options: MethodArgs): string {
+export function buildUrl(options: MethodArgs): string {
   return `${buildResource(options.resource)}${buildPath(
     options.path,
   )}${buildQueryString(options.query)}`
