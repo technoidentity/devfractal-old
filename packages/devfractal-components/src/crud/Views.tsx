@@ -47,9 +47,8 @@ export function Views<RT extends Mixed & Props, ID extends keyof RT>(
 ): CrudViewsResult<RT, ID> {
   return {
     Create: ({ onSubmit }) => (
-      <SimpleEditor
+      <SimpleEditor<TypeOf<RT>>
         id={id}
-        // @TODO: exclude id?
         data={emptyFromType(typeValue)}
         onSubmit={onSubmit}
       />

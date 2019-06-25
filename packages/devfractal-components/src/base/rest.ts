@@ -1,20 +1,34 @@
 import { Either } from 'fp-ts/lib/Either'
+import { produce } from 'immer'
 import { Decoder, Errors, Mixed, readonlyArray } from 'io-ts'
 import { reporter } from 'io-ts-reporters'
+import { Array } from 'tcomb'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
+// interface API<A extends Record<string, any>> {
+//   many(options?: MethodArgs): Promise<readonly A[]>
+//   create(data: A): Promise<A>
+//   get(id: string): Promise<A>
+//   one(options: MethodArgs): Promise<A>
+//   update(id: string, data: Partial<A>): Promise<A>
+// }
 
-interface API<A extends Record<string, any>> {
-  many(options?: MethodArgs): Promise<readonly A[]>
-  create(data: Partial<A>): Promise<A>
-  get(id: string): Promise<A>
-  one(options?: MethodArgs): Promise<A>
-  update(id: string, data: Partial<A>): Promise<A>
+function appendId(options: MethodArgs, id: string): MethodArgs {
+  return produce(options, draft => {
+    if (draft.path === undefined) {
+      draft.path = id
+    } else if (Array.is(draft.path)) {
+      draft.path.push(id)
+    } else {
+      draft.path = [draft.path, id]
+    }
+  })
 }
 
+// tslint:disable-next-line: typedef
 export function rest<I, A>(
   options: RequestConfig,
   type: Mixed & Decoder<I, A>,
-): API<A> {
+) {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(options: MethodArgs): Promise<ReadonlyArray<A>> {
@@ -25,26 +39,26 @@ export function rest<I, A>(
     return http.get(options, type)
   }
 
-  async function create(data: A): Promise<A> {
+  async function create(options: MethodArgs, data: I): Promise<A> {
     const decoded: Either<Errors, A> = type.decode(data)
     if (decoded.isLeft()) {
       throw new Error(reporter(decoded).join('\n'))
     }
 
-    return http.post(data, type)
+    return http.post(options, data, type)
   }
 
-  async function get(id: string): Promise<A> {
-    return one({ path: id })
+  async function get(options: MethodArgs, id: string): Promise<A> {
+    return one(appendId(options, id))
   }
 
-  async function update(id: string, data: I): Promise<A> {
+  async function update(options: MethodArgs, id: string, data: I): Promise<A> {
     const decoded: Either<Errors, A> = type.decode(data)
     if (decoded.isLeft()) {
       throw new Error(reporter(decoded).join('\n'))
     }
 
-    return http.put({ path: id }, data, type)
+    return http.put(appendId(options, id), data, type)
   }
 
   return { one, many, get, update, create }

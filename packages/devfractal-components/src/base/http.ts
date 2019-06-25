@@ -34,7 +34,7 @@ function buildQueryString(query?: string | Object): string {
 function buildUrl(options: MethodArgs): string {
   return `${buildResource(options.resource)}${buildPath(
     options.path,
-  )}?${buildQueryString(options.query)}`
+  )}${buildQueryString(options.query)}`
 }
 
 // tslint:disable typedef
@@ -54,10 +54,11 @@ export function http(config: RequestConfig) {
 
   async function post<I, A>(
     options: Omit<MethodArgs, 'query'>,
+    data: I,
     type: Decoder<I, A>,
   ): Promise<A> {
     return axios
-      .post(buildUrl(options))
+      .post(buildUrl(options), data)
       .then(res => res.data)
       .then(decode(type))
   }
