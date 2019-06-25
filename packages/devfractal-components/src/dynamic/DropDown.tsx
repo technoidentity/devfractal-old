@@ -1,6 +1,6 @@
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
-import { Button, classNamesHelper, El, Helpers } from '../lib'
+import { Button, classNamesHelper, El, Helpers, Icon } from '../lib'
 
 type DropDownModifier = 'hoverable' | 'active'
 
@@ -43,7 +43,7 @@ export const DropDown: React.FC<DropDownProps> = ({
       <El className="dropdown-trigger">
         <Button onClick={() => setActive(!active)}>
           <span>{label}</span>
-          {dropUp ? <FaAngleUp /> : <FaAngleDown />}
+          <Icon icon={dropUp ? faAngleUp : faAngleDown} />
         </Button>
       </El>
       <El className="dropdown-menu" role="menu">

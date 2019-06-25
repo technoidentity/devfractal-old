@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "meta data, similar to json schema",
   "main": "dist/index.js",
-  "umd:main": "dist/index.umd.production.js",
-  "module": "dist/index.es.production.js",
+  "module": "dist/devfractal-meta-core.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"

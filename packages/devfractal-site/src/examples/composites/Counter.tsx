@@ -6,15 +6,21 @@ import {
   Column,
   Columns,
   Icon,
-  State,
-  StateRenderProps,
   Text,
 } from 'technoidentity-devfractal'
 
-export const CounterInner: React.FC<StateRenderProps<number>> = ({
+interface CounterProps {
+  value: number
+  handleIncrement(): void
+  handleDecrement(): void
+  handleReset(): void
+}
+
+export const CounterInner: React.FC<CounterProps> = ({
   value: count,
-  eset,
-  reset,
+  handleIncrement,
+  handleDecrement,
+  handleReset,
 }) => (
   <Columns>
     <Column narrow>
@@ -22,7 +28,7 @@ export const CounterInner: React.FC<StateRenderProps<number>> = ({
         <Button
           variant="info"
           size="medium"
-          onClick={eset(+count + 1)}
+          onClick={handleIncrement}
           noControl
         >
           <Icon icon={faPlus} />
@@ -33,7 +39,7 @@ export const CounterInner: React.FC<StateRenderProps<number>> = ({
         <Button
           variant="success"
           size="medium"
-          onClick={eset(+count - 1)}
+          onClick={handleDecrement}
           noControl
         >
           <Icon icon={faMinus} />
@@ -41,13 +47,21 @@ export const CounterInner: React.FC<StateRenderProps<number>> = ({
       </Box>
     </Column>
     <Column textAlignment="centered">
-      <Button noControl variant="danger" size="medium" onClick={reset}>
+      <Button noControl variant="danger" size="medium" onClick={handleReset}>
         Reset
       </Button>
     </Column>
   </Columns>
 )
 
-export const Counter: React.FC = () => (
-  <State initial={0} render={CounterInner} />
-)
+export const Counter: React.FC = () => {
+  const [count, setCount] = React.useState(0)
+  return (
+    <CounterInner
+      value={count}
+      handleIncrement={() => setCount(count + 1)}
+      handleDecrement={() => setCount(count - 1)}
+      handleReset={() => setCount(0)}
+    />
+  )
+}

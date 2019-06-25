@@ -8,7 +8,6 @@ import {
   Radio as RadioComponent,
   RadioGroup,
   Section,
-  State,
   Title,
 } from 'technoidentity-devfractal'
 
@@ -34,6 +33,7 @@ const DynamicRadioExample: React.FC = () => {
 }
 
 const RadioExamples: React.FC = () => {
+  const [value, set] = React.useState('green')
   return (
     <Columns>
       <Column narrow>
@@ -78,19 +78,16 @@ const RadioExamples: React.FC = () => {
 
         <Section>
           <Title size="4">Controlled Radio</Title>
-          <State initial={'green'}>
-            {({ value, set }) => (
-              <RadioGroup
-                name="color"
-                selected={value}
-                onChange={({ value }) => set(value || 'red')}
-              >
-                <RadioComponent value="red"> Red</RadioComponent>
-                <RadioComponent value="green"> Green</RadioComponent>
-                <RadioComponent value="blue"> Blue</RadioComponent>
-              </RadioGroup>
-            )}
-          </State>
+          <RadioGroup
+            name="color"
+            selected={value}
+            onChange={({ value }) => set(value || 'red')}
+          >
+            <RadioComponent value="red"> Red</RadioComponent>
+            <RadioComponent value="green"> Green</RadioComponent>
+            <RadioComponent value="blue"> Blue</RadioComponent>
+          </RadioGroup>
+
           <hr />
         </Section>
         <Section>
