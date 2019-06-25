@@ -1,6 +1,6 @@
+import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { FaUpload } from 'react-icons/fa'
-import { classNamesHelper, Helpers } from '../lib'
+import { classNamesHelper, Helpers, Icon } from '../lib'
 
 type FileVariant =
   | 'white'
@@ -72,7 +72,7 @@ export const File: React.FC<FileProps> = ({
         <input className="file-input" type="file" />
         <span className="file-cta">
           <span className="file-icon">
-            <FaUpload />
+            <Icon icon={faUpload} />
           </span>
           <span className="file-label">{fileLabel}</span>
         </span>

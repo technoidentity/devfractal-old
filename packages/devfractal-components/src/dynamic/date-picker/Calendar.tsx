@@ -1,8 +1,9 @@
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import { isSameDay, isThisMonth } from 'date-fns'
 import React from 'react'
-import { FaCaretLeft, FaCaretRight } from 'react-icons/fa'
 import {
   Button,
+  Icon,
   Level,
   LevelItem,
   Null,
@@ -195,7 +196,7 @@ export const CalendarComponent: ({
       <Level className="is-mobile">
         <Button variant="info" inverted onClick={gotoPreviousMonth}>
           <LevelItem direction="left">
-            <FaCaretLeft />
+            <Icon icon={faCaretLeft} />
             Previous
           </LevelItem>
         </Button>
@@ -205,7 +206,7 @@ export const CalendarComponent: ({
         <Button variant="info" inverted onClick={gotoNextMonth}>
           <LevelItem direction="right">
             Next
-            <FaCaretRight />
+            <Icon icon={faCaretRight} />
           </LevelItem>
         </Button>
       </Level>

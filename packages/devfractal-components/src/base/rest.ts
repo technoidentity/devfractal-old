@@ -4,6 +4,7 @@ import { Decoder, Errors, Mixed, readonlyArray } from 'io-ts'
 import { reporter } from 'io-ts-reporters'
 import { Array } from 'tcomb'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
+
 // interface API<A extends Record<string, any>> {
 //   many(options?: MethodArgs): Promise<readonly A[]>
 //   create(data: A): Promise<A>
