@@ -15,7 +15,7 @@ type CommonSchema =
 export const required: (
   message?: TestOptionsMessage,
 ) => <T extends MixedSchema>(schema: T) => T = message => schema =>
-  schema.required(message)
+  schema.required(message) as typeof schema
 
 export const min: (
   minValue: number,
