@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/technoidentity-devfractal.esm.js",
@@ -72,7 +72,6 @@
     "json-schema": "0.2.3",
     "json-server": "0.15.0",
     "lint-staged": "8.2.1",
-    "microbundle": "0.11.0",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
     "react": "16.8.6",
@@ -99,11 +98,11 @@
     "yup": "0.27.0"
   },
   "scripts": {
-    "start": "microbundle watch --output build --compress false",
+    "start": "tsdx watch",
     "dev": "parcel index.html --open",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "microbundle --output build",
+    "build": "tsdx build",
     "clean": "rimraf dist .cache build .rts2_cache_*",
     "clean:dist": "rimraf node_modules yarn.lock",
     "refresh": "yarn clean && yarn clean:dist && yarn",
