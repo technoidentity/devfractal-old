@@ -12,7 +12,6 @@ import {
   Box,
   Icon,
   Section,
-  State,
   Tabs,
   TabsItem,
   Title,
@@ -303,33 +302,29 @@ export const SelectedTabExample: React.FC = () => (
   </Section>
 )
 
-export const ControlledTabsExample: React.FC = () => (
-  <>
-    <State
-      initial={'music'}
-      render={({ value, set }) => (
-        <>
-          <Box>
-            <Title size="4">Controlled Tab({value})</Title>
-            <Tabs
-              value={value}
-              onChange={({ value }) => {
-                set(value || 'music')
-              }}
-              name="secondTab2"
-              size="medium"
-            >
-              <TabsItem value="pictures">Pictures</TabsItem>
-              <TabsItem value="music">Music</TabsItem>
-              <TabsItem value="videos">Videos</TabsItem>
-              <TabsItem value="documents">Documents</TabsItem>
-            </Tabs>
-          </Box>
-        </>
-      )}
-    />
-  </>
-)
+export const ControlledTabsExample: React.FC = () => {
+  const [value, set] = React.useState('music')
+  return (
+    <>
+      <Box>
+        <Title size="4">Controlled Tab({value})</Title>
+        <Tabs
+          value={value}
+          onChange={({ value }) => {
+            set(value || 'music')
+          }}
+          name="secondTab2"
+          size="medium"
+        >
+          <TabsItem value="pictures">Pictures</TabsItem>
+          <TabsItem value="music">Music</TabsItem>
+          <TabsItem value="videos">Videos</TabsItem>
+          <TabsItem value="documents">Documents</TabsItem>
+        </Tabs>
+      </Box>
+    </>
+  )
+}
 
 export const StaticTabsExample: React.FC = () => (
   <Section>
