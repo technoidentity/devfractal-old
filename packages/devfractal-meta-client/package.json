@@ -2,8 +2,9 @@
   "name": "@technoidentity/meta-client",
   "version": "0.5.9",
   "source": "src/index.ts",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/devfractal-meta-client.esm.js",
+  "typings": "dist/index.d.ts",
   "dependencies": {
     "@technoidentity/meta-core": "0.0.1",
     "@technoidentity/utils": "0.0.1",

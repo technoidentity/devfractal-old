@@ -2,10 +2,9 @@
   "name": "technoidentity-devfractal",
   "version": "0.6.5",
   "source": "src/index.ts",
-  "main": "build/devfractal.js",
-  "umd:main": "build/devfractal.umd.production.js",
-  "module": "build/devfractal.es.production.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/technoidentity-devfractal.esm.js",
+  "typings": "dist/index.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.19",
     "@fortawesome/free-brands-svg-icons": "5.9.0",
@@ -85,6 +84,8 @@
     "react-styleguidist": "9.1.10",
     "rimraf": "2.6.3",
     "tcomb-validation": "3.4.1",
+    "tsdx": "^0.7.2",
+    "tslib": "^1.10.0",
     "webpack": "4.35.0",
     "webpack-blocks": "2.0.1",
     "yup": "0.27.0"
