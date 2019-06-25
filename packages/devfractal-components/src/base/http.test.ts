@@ -11,9 +11,7 @@ const axiosMock = {
 
 jest.mock('axios', () => {
   return {
-    create: () => {
-      return axiosMock
-    },
+    create: () => axiosMock,
   }
 })
 
