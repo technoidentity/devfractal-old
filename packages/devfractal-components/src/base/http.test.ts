@@ -52,7 +52,7 @@ test('get', async () => {
   const taskType = readonly(type({ id: string, title: string, done: boolean }))
   const actual: TypeOf<typeof taskType> = await http.get(
     { resource: 'tasks', path: '1', query: 'foo=123' },
-    taskType.asDecoder(),
+    taskType,
   )
   expect(actual).toEqual({ id: '1', title: 'todo', done: false })
 })
@@ -65,7 +65,7 @@ test('get with incorrect value', async () => {
   try {
     await http.get(
       { resource: 'tasks', path: '1', query: 'foo=123' },
-      readonly(type({ id: string, title: string, done: boolean })).asDecoder(),
+      readonly(type({ id: string, title: string, done: boolean })),
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(`
@@ -85,7 +85,7 @@ test('post', async () => {
   const actual: TypeOf<typeof taskType> = await http.post(
     { resource: 'tasks' },
     { title: 'todo', done: false },
-    taskType.asDecoder(),
+    taskType,
   )
   expect(actual).toEqual({ id: '1', title: 'todo', done: false })
 })
@@ -99,7 +99,7 @@ test('post with incorrect value', async () => {
     await http.post(
       { resource: 'tasks' },
       { title: 'todo', done: false },
-      readonly(type({ id: string, title: string, done: boolean })).asDecoder(),
+      readonly(type({ id: string, title: string, done: boolean })),
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(`
@@ -119,7 +119,7 @@ test('put', async () => {
   const actual: TypeOf<typeof taskType> = await http.put(
     { resource: 'tasks', path: '1' },
     { title: 'todo', done: true },
-    taskType.asDecoder(),
+    taskType,
   )
   expect(actual).toEqual({ id: '1', title: 'todo', done: true })
 })
@@ -133,7 +133,7 @@ test('put with incorrect value', async () => {
     await http.put(
       { resource: 'tasks', path: '1' },
       { title: 'todo', done: true },
-      readonly(type({ id: string, title: string, done: boolean })).asDecoder(),
+      readonly(type({ id: string, title: string, done: boolean })),
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(`
