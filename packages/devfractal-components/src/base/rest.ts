@@ -1,5 +1,5 @@
 import { produce } from 'immer'
-import { Decoder, Mixed, readonlyArray } from 'io-ts'
+import { Mixed, readonlyArray, Type } from 'io-ts'
 import { Array } from 'tcomb'
 import { typeInvariant } from '../utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
@@ -28,7 +28,7 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
 export function rest<
   I extends Record<string, any>,
   A extends Record<string, any>
->(options: RequestConfig, type: Mixed & Decoder<I, A>): API<I, A> {
+>(options: RequestConfig, type: Mixed & Type<A, A, I>): API<I, A> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(options: MethodArgs): Promise<ReadonlyArray<A>> {
