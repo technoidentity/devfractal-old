@@ -1,16 +1,15 @@
-import { Either } from 'fp-ts/lib/Either'
 import { produce } from 'immer'
-import { Decoder, Errors, Mixed, readonlyArray } from 'io-ts'
-import { reporter } from 'io-ts-reporters'
+import { Decoder, Mixed, readonlyArray } from 'io-ts'
 import { Array } from 'tcomb'
+import { typeInvariant } from '../utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
 interface API<I extends Record<string, any>, A extends Record<string, any>> {
   many(options?: MethodArgs): Promise<readonly A[]>
-  create(data: I): Promise<A>
-  get(id: string): Promise<A>
   one(options: MethodArgs): Promise<A>
-  update(id: string, data: Partial<A>): Promise<A>
+  create(data: I, options: MethodArgs): Promise<A>
+  get(id: string, options: MethodArgs): Promise<A>
+  update(id: string, data: I, options: MethodArgs): Promise<A>
 }
 
 function appendId(options: MethodArgs, id: string): MethodArgs {
@@ -40,24 +39,17 @@ export function rest<
     return http.get(options, type)
   }
 
-  async function create(options: MethodArgs, data: I): Promise<A> {
-    const decoded: Either<Errors, A> = type.decode(data)
-    if (decoded.isLeft()) {
-      throw new Error(reporter(decoded).join('\n'))
-    }
-
+  async function create(data: I, options: MethodArgs): Promise<A> {
+    typeInvariant(type, data)
     return http.post(options, data, type)
   }
 
-  async function get(options: MethodArgs, id: string): Promise<A> {
+  async function get(id: string, options: MethodArgs): Promise<A> {
     return one(appendId(options, id))
   }
 
-  async function update(options: MethodArgs, id: string, data: I): Promise<A> {
-    const decoded: Either<Errors, A> = type.decode(data)
-    if (decoded.isLeft()) {
-      throw new Error(reporter(decoded).join('\n'))
-    }
+  async function update(id: string, data: I, options: MethodArgs): Promise<A> {
+    typeInvariant(type, data)
 
     return http.put(appendId(options, id), data, type)
   }
