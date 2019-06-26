@@ -1,34 +1,51 @@
-import ax, { AxiosRequestConfig } from 'axios'
-import { Array, Decoder, string } from 'io-ts'
+import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
+import { Decoder } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
+import { Array, String } from 'tcomb'
+import { chop, invariant, warning } from '../lib'
 
 export interface MethodArgs {
   readonly resource?: string
   readonly path?: string | ReadonlyArray<string>
-  readonly query?: string | Object
+  readonly query?: string | Record<string, any>
 }
 
+function noSlashInvariant(s: string): void {
+  invariant(String.is(s))
+
+  warning(!s.includes('/'), `${s} should not contain "/"`)
+}
 export interface RequestConfig extends AxiosRequestConfig {
   readonly baseURL: string
 }
 
 function buildResource(resource?: string): string {
-  return resource === undefined ? '' : `/${resource}`
+  if (resource !== undefined) {
+    noSlashInvariant(resource)
+    return `/${resource}`
+  }
+  return ''
 }
 
 function buildPath(path?: string | ReadonlyArray<string>): string {
-  return path === undefined
-    ? ''
-    : Array.is(path)
-    ? `/${path.join('/')}`
-    : `/${path}`
+  if (Array.is(path)) {
+    path.forEach(noSlashInvariant)
+    return `/${path.join('/')}`
+  }
+
+  if (String.is(path)) {
+    noSlashInvariant(path)
+    return `/${path}`
+  }
+
+  return ''
 }
 
 function buildQueryString(query?: string | Object): string {
   return query === undefined
     ? ''
-    : `?${string.is(query) ? query : stringify(query)}`
+    : `?${String.is(query) ? query : stringify(query)}`
 }
 
 function buildUrl(options: MethodArgs): string {
@@ -37,17 +54,19 @@ function buildUrl(options: MethodArgs): string {
   )}${buildQueryString(options.query)}`
 }
 
-// tslint:disable typedef
-
+// tslint:disable-next-line: typedef
 export function http(config: RequestConfig) {
-  const axios = ax.create(config)
+  const axios: AxiosInstance = ax.create({
+    ...config,
+    baseURL: chop(config.baseURL, '/'),
+  })
 
   async function get<I, A>(
     options: MethodArgs,
     type: Decoder<I, A>,
   ): Promise<A> {
     return axios
-      .get(buildUrl(options))
+      .get<I>(buildUrl(options))
       .then(res => res.data)
       .then(decode(type))
   }
@@ -58,7 +77,7 @@ export function http(config: RequestConfig) {
     type: Decoder<I, A>,
   ): Promise<A> {
     return axios
-      .post(buildUrl(options), data)
+      .post<I>(buildUrl(options), data)
       .then(res => res.data)
       .then(decode(type))
   }
