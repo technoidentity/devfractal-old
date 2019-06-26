@@ -5,13 +5,13 @@ import { reporter } from 'io-ts-reporters'
 import { Array } from 'tcomb'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
-// interface API<A extends Record<string, any>> {
-//   many(options?: MethodArgs): Promise<readonly A[]>
-//   create(data: A): Promise<A>
-//   get(id: string): Promise<A>
-//   one(options: MethodArgs): Promise<A>
-//   update(id: string, data: Partial<A>): Promise<A>
-// }
+interface API<I extends Record<string, any>, A extends Record<string, any>> {
+  many(options?: MethodArgs): Promise<readonly A[]>
+  create(data: I): Promise<A>
+  get(id: string): Promise<A>
+  one(options: MethodArgs): Promise<A>
+  update(id: string, data: Partial<A>): Promise<A>
+}
 
 function appendId(options: MethodArgs, id: string): MethodArgs {
   return produce(options, draft => {
@@ -26,10 +26,10 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
 }
 
 // tslint:disable-next-line: typedef
-export function rest<I, A>(
-  options: RequestConfig,
-  type: Mixed & Decoder<I, A>,
-) {
+export function rest<
+  I extends Record<string, any>,
+  A extends Record<string, any>
+>(options: RequestConfig, type: Mixed & Decoder<I, A>): API<I, A> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(options: MethodArgs): Promise<ReadonlyArray<A>> {
