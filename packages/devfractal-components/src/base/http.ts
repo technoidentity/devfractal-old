@@ -1,5 +1,5 @@
 import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { Decoder } from 'io-ts'
+import { Type } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import { Array, String } from 'tcomb'
@@ -63,7 +63,7 @@ export function http(config: RequestConfig) {
 
   async function get<I, A>(
     options: MethodArgs,
-    type: Decoder<I, A>,
+    type: Type<A, A, I>,
   ): Promise<A> {
     return axios
       .get<I>(buildUrl(options))
@@ -74,7 +74,7 @@ export function http(config: RequestConfig) {
   async function post<I, A>(
     options: Omit<MethodArgs, 'query'>,
     data: I,
-    type: Decoder<I, A>,
+    type: Type<A, A, I>,
   ): Promise<A> {
     return axios
       .post<I>(buildUrl(options), data)
@@ -85,7 +85,7 @@ export function http(config: RequestConfig) {
   async function put<I, A>(
     options: Omit<MethodArgs, 'query'>,
     data: I,
-    type: Decoder<I, A>,
+    type: Type<A, A, I>,
   ): Promise<A> {
     return axios
       .put<I>(buildUrl(options), data)
