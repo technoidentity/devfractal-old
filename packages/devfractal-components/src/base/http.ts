@@ -11,7 +11,7 @@ export interface MethodArgs {
   readonly query?: string | Record<string, any>
 }
 
-function noSlashInvariant(s: string): void {
+function noSlashWarning(s: string): void {
   invariant(String.is(s))
 
   warning(!s.includes('/'), `${s} should not contain "/"`)
@@ -22,7 +22,7 @@ export interface RequestConfig extends AxiosRequestConfig {
 
 function buildResource(resource?: string): string {
   if (resource !== undefined) {
-    noSlashInvariant(resource)
+    noSlashWarning(resource)
     return `/${resource}`
   }
   return ''
@@ -30,19 +30,19 @@ function buildResource(resource?: string): string {
 
 function buildPath(path?: string | ReadonlyArray<string>): string {
   if (Array.is(path)) {
-    path.forEach(noSlashInvariant)
+    path.forEach(noSlashWarning)
     return `/${path.join('/')}`
   }
 
   if (String.is(path)) {
-    noSlashInvariant(path)
+    noSlashWarning(path)
     return `/${path}`
   }
 
   return ''
 }
 
-function buildQueryString(query?: string | Object): string {
+function buildQueryString(query?: string | Record<string, any>): string {
   return query === undefined
     ? ''
     : `?${String.is(query) ? query : stringify(query)}`
@@ -58,7 +58,7 @@ export function buildUrl(options: MethodArgs): string {
 export function http(config: RequestConfig) {
   const axios: AxiosInstance = ax.create({
     ...config,
-    baseURL: chop(config.baseURL, '/'),
+    baseURL: chop(config.baseURL),
   })
 
   async function get<I, A>(
