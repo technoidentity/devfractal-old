@@ -14,6 +14,6 @@ export function checked<
   return (...args) => {
     typeInvariant(argSpecs, args)
 
-    return resultSpec.decode(f(...args))
+    return typeInvariant(resultSpec, f(...args))
   }
 }
