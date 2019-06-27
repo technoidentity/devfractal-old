@@ -4,21 +4,18 @@ import { reporter } from 'io-ts-reporters'
 import { String } from 'tcomb'
 import { fatal, warning } from '../lib'
 
-export function typeInvariant<
-  Type extends t.Mixed,
-  Value extends t.TypeOf<Type>
->(type: Type, args: Value): Value {
-  const decoded: Either<t.Errors, Value> = type.decode(args)
+export function typeInvariant<A, O, I>(type: t.Type<A, O, I>, args: I): A {
+  const decoded: Either<t.Errors, A> = type.decode(args)
   return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
 }
 
-export function typeWarning<Type extends t.Mixed, Value extends t.TypeOf<Type>>(
-  type: Type,
-  args: Value,
-): Value {
-  const decoded: Either<t.Errors, Value> = type.decode(args)
+export function typeWarning<A, O, I>(
+  type: t.Type<A, O, I>,
+  args: I,
+): A | undefined {
+  const decoded: Either<t.Errors, A> = type.decode(args)
   warning(type.is(args), reporter(decoded).join('\n'))
-  return decoded.getOrElse(args)
+  return decoded.isRight() ? decoded.value : undefined
 }
 
 export async function rejected<T>(
