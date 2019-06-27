@@ -32,6 +32,7 @@ export const app = (() => {
 
   app.use(
     session({
+      name: 'session_id',
       secret: '343ji43j4n3jn4jk3n',
       resave: false,
       saveUninitialized: false,

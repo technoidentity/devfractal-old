@@ -32,7 +32,7 @@ sessionRouter.post(
     try {
       if (
         req.session !== undefined &&
-        isUserValid(req.body.name, req.body.password)
+        (await isUserValid(req.body.name, req.body.password))
       ) {
         req.session.loggedIn = true
         return res.sendStatus(CREATED)
@@ -51,6 +51,7 @@ sessionRouter.delete('/', (req: Request, res: Response) => {
       if (err) {
         throw err
       }
+      res.clearCookie('session_id')
       res.sendStatus(NO_CONTENT)
     })
   }
