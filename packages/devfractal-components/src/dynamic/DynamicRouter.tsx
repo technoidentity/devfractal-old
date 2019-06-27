@@ -18,7 +18,10 @@ export function dynamicRouter<T extends object>(
   components: T,
   baseUrl: string,
 ): DynamicRouterResult {
-  const keys = Object.keys(components)
+  // tslint:disable-next-line: ban-ts-ignore
+  // @ts-ignore
+  const { __esModule, ...cs } = components as any
+  const keys = Object.keys(cs)
   const urls = keys.map(k => toLower(k, '-'))
   const labels = keys.map(k => capitalizeAll(toLower(k, ' ')))
 
@@ -29,10 +32,8 @@ export function dynamicRouter<T extends object>(
       )}
 
       {urls.map((url, i) => {
-        const path = `${baseUrl}/${url}`
-        return (
-          <Route exact key={url} path={path} component={components[keys[i]]} />
-        )
+        const path = `${baseUrl}/${url}` as any
+        return <Route exact key={url} path={path} component={cs[keys[i]]} />
       })}
     </>
   )
