@@ -17,7 +17,7 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
     if (draft.path === undefined) {
       draft.path = id
     } else if (Array.is(draft.path)) {
-      draft.path.push(id)
+      draft.path.unshift(id)
     } else {
       draft.path = [draft.path, id]
     }
