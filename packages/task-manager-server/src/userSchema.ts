@@ -1,4 +1,5 @@
 import { Document, model, Schema } from 'mongoose'
+import uniqueValidator from 'mongoose-unique-validator'
 
 export interface User extends Document {
   name: string
@@ -7,10 +8,12 @@ export interface User extends Document {
 }
 
 export const userSchema = new Schema<User>({
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
   email: { type: String, requires: true },
-  password: { type: String, required: true },
+  password: { type: String, required: true, minlength: 5 },
 })
+
+userSchema.plugin(uniqueValidator, { message: 'Name already exists' })
 
 export const UserModel = model<User>('User', userSchema)
 
