@@ -52,10 +52,7 @@ sessionRouter.delete('/', (req: Request, res: Response) => {
         throw err
       }
       res.clearCookie('session_id', {
-        path: '/',
-        _expires: null,
-        originalMaxAge: null,
-        httpOnly: true,
+        expires: new Date(),
       })
       res.sendStatus(NO_CONTENT)
     })
