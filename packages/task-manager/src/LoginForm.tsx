@@ -23,13 +23,16 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
           <h1 className="title has-text-centered">Login</h1>
           <div className="field">
             <label className="label">Username</label>
-            <div className="control">
+            <div className="control has-icons-left">
               <Field
                 type="text"
                 name="name"
                 className="input "
                 placeholder="Name"
               />
+              <span className="icon is-small is-left">
+                <i className="fas fa-user" />
+              </span>
             </div>
             <div className="help is-danger">
               <ErrorMessage name="name" />
@@ -37,13 +40,16 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
           </div>
           <div className="field">
             <label className="label">Password</label>
-            <div className="control">
+            <div className="control has-icons-left">
               <Field
                 type="password"
                 name="password"
                 className="input "
                 placeholder="Password"
               />
+              <span className="icon is-small is-left">
+                <i className="fas fa-key" />
+              </span>
             </div>
             <div className="help is-danger">
               <ErrorMessage name="password" />
