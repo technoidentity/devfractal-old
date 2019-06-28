@@ -118,13 +118,27 @@ export const TaskListRoute: React.FC<RouteComponentProps> = ({ history }) => {
 }
 
 export const LoginRoute: React.FC<RouteComponentProps> = ({ history }) => {
+  const [serverError, setServerError] = React.useState<string | undefined>(
+    undefined,
+  )
   const onLogin = async (data: any) => {
     return axios
-      .post('http://localhost:9999/session', data)
+      .post('http://localhost:9999/session', data, { withCredentials: true })
       .then(() => history.push('/tasks'))
-      .catch(err => console.log(err))
+      .catch(err => setServerError(err.response.data.message))
   }
-  return <LoginForm onLogin={onLogin} />
+  return (
+    <>
+      {serverError && (
+        <Section>
+          <article className="message is-danger">
+            <div className="message-body">{serverError}</div>
+          </article>
+        </Section>
+      )}
+      <LoginForm onLogin={onLogin} />
+    </>
+  )
 }
 
 export const SignupFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
