@@ -1,3 +1,4 @@
+import { eitherToPromise, typeInvariant } from '@technoidentity/utils'
 import axios, { AxiosPromise } from 'axios'
 import {
   Mixed,
@@ -7,7 +8,6 @@ import {
   Type,
   TypeOf,
 } from 'io-ts'
-import { eitherToPromise, typeInvariant } from '../lib'
 import { apiURLs, URLs } from './urls'
 
 // tslint:disable typedef

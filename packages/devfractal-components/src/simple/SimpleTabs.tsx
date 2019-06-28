@@ -1,6 +1,6 @@
+import { camelCaseToPhrase } from '@technoidentity/utils'
 import React from 'react'
 import {
-  camelCaseToPhrase,
   RoutedTabs,
   RoutedTabsItem,
   RoutedTabsProps,

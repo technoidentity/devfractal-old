@@ -1,7 +1,7 @@
+import { typeInvariant } from '@technoidentity/utils'
 import { produce } from 'immer'
 import { Mixed, readonlyArray, Type } from 'io-ts'
 import { Array } from 'tcomb'
-import { typeInvariant } from '../utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
 interface API<I extends Record<string, any>, A extends Record<string, any>> {

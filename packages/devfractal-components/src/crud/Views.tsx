@@ -4,13 +4,14 @@ import React, { FC } from 'react'
 import {
   Button,
   Container,
-  emptyFromType,
   Field,
   RowClickEvent,
   SimpleEditor,
   SimpleTable,
   SimpleViewer,
 } from '../lib'
+
+import { emptyFromType } from '@technoidentity/utils'
 
 export interface EditProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)

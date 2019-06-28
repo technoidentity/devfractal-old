@@ -11,6 +11,7 @@
     "@fortawesome/free-regular-svg-icons": "5.9.0",
     "@fortawesome/free-solid-svg-icons": "5.9.0",
     "@fortawesome/react-fontawesome": "0.1.4",
+    "@technoidentity/utils": "0.0.1",
     "axios": "0.19.0",
     "bulma": "0.7.5",
     "cleave.js": "1.5.0",

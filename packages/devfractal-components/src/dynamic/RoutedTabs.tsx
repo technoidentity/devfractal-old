@@ -1,10 +1,9 @@
+import { chop, extractSegment } from '@technoidentity/utils'
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
 import {
-  chop,
   classNamesHelper,
   El,
-  extractSegment,
   Helpers,
   removeRouteComponentProps,
   WithRouter,

@@ -1,13 +1,7 @@
+import { capitalizeAll, chop } from '@technoidentity/utils'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  capitalizeAll,
-  chop,
-  Null,
-  WithRouter,
-} from '../lib'
+import { Breadcrumb, BreadcrumbItem, Null, WithRouter } from '../lib'
 
 const DynamicBreadcrumbWithRouter: React.FC<RouteComponentProps> = ({
   location,

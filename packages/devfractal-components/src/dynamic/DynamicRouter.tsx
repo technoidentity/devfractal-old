@@ -1,12 +1,7 @@
+import { capitalizeAll, toLower } from '@technoidentity/utils'
 import React from 'react'
 import { Route } from 'react-router-dom'
-import {
-  capitalizeAll,
-  RoutedTabs,
-  RoutedTabsItem,
-  SimpleRedirect,
-  toLower,
-} from '../lib'
+import { RoutedTabs, RoutedTabsItem, SimpleRedirect } from '../lib'
 
 export interface DynamicRouterResult {
   readonly Routes: React.FC

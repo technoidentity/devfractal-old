@@ -1,4 +1,3 @@
-import { Omit } from 'technoidentity-devfractal'
 import { db } from './firestore'
 
 // tslint:disable typedef

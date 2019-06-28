@@ -1,5 +1,5 @@
+import { typeInvariant } from '@technoidentity/utils'
 import * as t from 'io-ts'
-import { typeInvariant } from '../utils'
 
 // tslint:disable readonly-array
 

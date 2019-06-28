@@ -1,14 +1,7 @@
+import { camelCaseToPhrase } from '@technoidentity/utils'
 import React from 'react'
 import { Boolean, Function } from 'tcomb'
-import {
-  Async,
-  camelCaseToPhrase,
-  CheckBox,
-  Column,
-  Columns,
-  Section,
-  Title,
-} from '../lib'
+import { Async, CheckBox, Column, Columns, Section, Title } from '../lib'
 
 const SimpleHeader: React.FC<{ readonly objectKey: string }> = ({
   objectKey,

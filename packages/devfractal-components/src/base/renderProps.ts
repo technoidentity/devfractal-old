@@ -1,6 +1,6 @@
+import { warning } from '@technoidentity/utils'
 import React from 'react'
 import { Function } from 'tcomb'
-import { warning } from '../lib'
 
 interface RenderPropsProps<Props> {
   readonly component?: React.ComponentType<Props> | React.ReactNode

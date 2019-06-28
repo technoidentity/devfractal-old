@@ -1,3 +1,4 @@
+import { warning } from '@technoidentity/utils'
 import React from 'react'
 import {
   classNamesHelper,
@@ -6,7 +7,6 @@ import {
   Helpers,
   Uncontrolled,
   ValueChangeEvent,
-  warning,
 } from '../lib'
 
 export interface TabsChangeEvent extends ValueChangeEvent<string> {}

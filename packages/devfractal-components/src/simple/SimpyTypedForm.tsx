@@ -1,8 +1,8 @@
+import { camelCaseToPhrase } from '@technoidentity/utils'
 import { Form, Formik } from 'formik'
 import React, { Children } from 'react'
 import * as yup from 'yup'
 import {
-  camelCaseToPhrase,
   CheckboxField,
   consoleSubmit,
   ErrorField,

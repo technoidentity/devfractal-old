@@ -1,3 +1,4 @@
+import { warning } from '@technoidentity/utils'
 import React, { ChangeEvent } from 'react'
 import {
   AllControlHelpers,
@@ -5,7 +6,6 @@ import {
   ControlWrapper,
   El,
   Helpers,
-  warning,
 } from '../lib'
 
 export interface RadioChangeEvent {

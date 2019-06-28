@@ -10,7 +10,7 @@ import {
 } from 'technoidentity-devfractal'
 
 interface CounterProps {
-  value: number
+  readonly value: number
   handleIncrement(): void
   handleDecrement(): void
   handleReset(): void
