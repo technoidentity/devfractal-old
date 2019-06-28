@@ -6,8 +6,7 @@ import mongoose from 'mongoose'
 import { sessionRouter } from './sessionRouter'
 import { taskRouter } from './taskRouter'
 import { userRouter } from './userRouter'
-
-const MongoStore = require('connect-mongo')(session)
+import { addDays } from 'date-fns'
 
 const port = 9999
 
@@ -37,8 +36,10 @@ export const app = (() => {
       name: 'session_id',
       secret: '343ji43j4n3jn4jk3n',
       resave: false,
-      store: new MongoStore({ mongooseConnection: mongoose.connection }),
       saveUninitialized: false,
+      cookie: {
+        expires: addDays(new Date(), 7),
+      },
     }),
   )
 
