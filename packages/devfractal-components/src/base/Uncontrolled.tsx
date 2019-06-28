@@ -23,7 +23,7 @@ function UncontrolledInner<Value, CP extends ControlledProps<Value>>(
 ): JSX.Element {
   const { defaultValue, component: Component, ...props } = args
 
-  const [value, set] = React.useState(props.value || defaultValue)
+  const [value, set] = React.useState(defaultValue)
 
   return (
     <Component

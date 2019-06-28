@@ -39,3 +39,5 @@ export function invariant(condition: unknown, message?: string): void {
     fatal(message)
   }
 }
+
+// @TODO: debugWarning, debugInvariant
