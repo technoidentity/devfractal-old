@@ -7,6 +7,8 @@ import { sessionRouter } from './sessionRouter'
 import { taskRouter } from './taskRouter'
 import { userRouter } from './userRouter'
 
+const MongoStore = require('connect-mongo')(session)
+
 const port = 9999
 
 const uri: string = 'mongodb://localhost/mydatabase'
@@ -35,6 +37,7 @@ export const app = (() => {
       name: 'session_id',
       secret: '343ji43j4n3jn4jk3n',
       resave: false,
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
       saveUninitialized: false,
     }),
   )
