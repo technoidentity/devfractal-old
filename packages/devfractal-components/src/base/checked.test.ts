@@ -1,13 +1,11 @@
 import * as t from 'io-ts'
 import { range } from '../lib'
 import { checked } from './checked'
-import { DateFromISOString } from 'io-ts-types'
-import { addDays } from 'date-fns'
 
 // tslint:disable typedef
 it('checked', () => {
   const checkedAdd = checked(
-    t.tuple([t.number, t.number, t.number]),
+    [t.number, t.number, t.number],
     t.number,
     (x, y, z) => x + y + z,
   )
@@ -15,10 +13,8 @@ it('checked', () => {
   expect(checkedAdd(100, 100, 100)).toEqual(300)
   expect(() => checkedAdd(100, '100' as any, 100)).toThrow()
 
-  const checkedTimes = checked(
-    t.tuple([t.string, t.number]),
-    t.string,
-    (s, n) => range(n).reduce((acc, _) => acc + s, ''),
+  const checkedTimes = checked([t.string, t.number], t.string, (s, n) =>
+    range(n).reduce((acc, _) => acc + s, ''),
   )
 
   expect(checkedTimes('hello', 3)).toEqual('hellohellohello')
@@ -28,7 +24,7 @@ it('checked', () => {
   const Point = t.readonly(t.type({ x: t.number, y: t.number }))
 
   const checkedMoveBy = checked(
-    t.tuple([Point, t.number, t.number]),
+    [Point, t.number, t.number],
     Point,
     (pt, dx, dy) => {
       return { x: pt.x + dx, y: pt.y + dy }
@@ -43,7 +39,7 @@ it('checked', () => {
   // @TODO: make checked work with decoders like DateFromIsoString
 
   // const checkedDateInc = checked(
-  //   t.tuple([DateFromISOString]),
+  //   [DateFromISOString],
   //   DateFromISOString,
   //   s => addDays(new Date(s), 1).toISOString(),
   // )
