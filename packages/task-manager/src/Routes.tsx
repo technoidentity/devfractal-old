@@ -95,7 +95,9 @@ export const TaskListRoute: React.FC<RouteComponentProps> = ({ history }) => {
   }
 
   const onLogout = async () => {
-    await axios.delete('http://localhost:9999/session')
+    await axios.delete('http://localhost:9999/session', {
+      withCredentials: true,
+    })
     history.push('/')
   }
 
@@ -147,7 +149,7 @@ export const SignupFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
   )
   const postUser = async (data: any) => {
     return axios
-      .post('http://localhost:9999/users', data)
+      .post('http://localhost:9999/users', data, { withCredentials: true })
       .then(() => history.push('/login'))
       .catch(err => setServerError(err.response.data.message))
   }

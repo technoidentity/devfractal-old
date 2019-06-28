@@ -46,7 +46,7 @@ export function api<I, A>(
 ): API<A> {
   async function many(options?: Options): Promise<ReadonlyArray<A>> {
     return axios
-      .get(buildUrl(baseUrl, options), { withCredentials: true })
+      .get(buildUrl(baseUrl, options))
       .then(res => res.data)
       .then(tp.decode(t.readonlyArray(type)))
   }
