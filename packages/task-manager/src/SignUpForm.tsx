@@ -105,7 +105,7 @@ const InnerSignUpForm: React.FC<FormikProps<SignUpValues>> = () => (
                 placeholder="Confirm Password"
               />
               <span className="icon is-small is-left">
-                <i className="fas fa-user-lock" />
+                <i className="fas fa-lock" />
               </span>
             </div>
             <div className="help is-danger">
