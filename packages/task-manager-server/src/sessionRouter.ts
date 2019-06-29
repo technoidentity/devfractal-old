@@ -39,7 +39,9 @@ sessionRouter.post(
           .status(CREATED)
           .send({ name: req.body.name, password: req.body.password })
       } else {
-        return res.sendStatus(INTERNAL_SERVER_ERROR)
+        return res
+          .status(INTERNAL_SERVER_ERROR)
+          .send({ error: 'Username or Password invalid' })
       }
     } catch (err) {
       return res.sendStatus(BAD_REQUEST)
