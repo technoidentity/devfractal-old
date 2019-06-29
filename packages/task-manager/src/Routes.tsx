@@ -3,8 +3,9 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Section } from 'technoidentity-devfractal'
 import { EditTaskForm } from './EditTaskForm'
-import { LoginForm } from './LoginForm'
-import { SignUpForm } from './SignUpForm'
+import { LoginForm, LoginValues } from './LoginForm'
+import { loginUser } from './sessionAPI'
+import { SignUpForm, SignUpValues } from './SignUpForm'
 import {
   allTasks,
   completedList,
@@ -16,6 +17,7 @@ import {
 import { TaskForm } from './TaskForm'
 import { TaskListView } from './TaskListView'
 import { Task } from './types'
+import { createUser } from './userAPI'
 
 export const CreateTaskRoute: React.FC<RouteComponentProps> = ({ history }) => {
   const [serverError, setServerError] = React.useState<string | undefined>(
@@ -123,11 +125,10 @@ export const LoginRoute: React.FC<RouteComponentProps> = ({ history }) => {
   const [serverError, setServerError] = React.useState<string | undefined>(
     undefined,
   )
-  const onLogin = async (data: any) => {
-    return axios
-      .post('http://localhost:9999/session', data, { withCredentials: true })
+  const onLogin = async (data: LoginValues) => {
+    return loginUser(data)
       .then(() => history.push('/tasks'))
-      .catch(err => setServerError(err.response.data.message))
+      .catch(err => setServerError(err.response.data.error))
   }
   return (
     <>
@@ -147,11 +148,11 @@ export const SignupFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
   const [serverError, setServerError] = React.useState<string | undefined>(
     undefined,
   )
-  const postUser = async (data: any) => {
-    return axios
-      .post('http://localhost:9999/users', data, { withCredentials: true })
+  const postUser = async (data: SignUpValues) => {
+    console.log(data)
+    return createUser(data)
       .then(() => history.push('/login'))
-      .catch(err => setServerError(err.response.data.message))
+      .catch(err => setServerError(err.response.data.error))
   }
   return (
     <>
