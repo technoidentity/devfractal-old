@@ -29,7 +29,7 @@ userRouter.post('/', async (req: Request, res: Response<User>) => {
     const result = await newUser.save()
     res.send(result)
   } catch (err) {
-    res.status(BAD_REQUEST).send(err)
+    res.status(BAD_REQUEST).send({ error: err.message })
   }
 })
 
