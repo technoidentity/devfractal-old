@@ -6,21 +6,23 @@
   ],
   "devDependencies": {
     "cross-env": "5.2.0",
-    "husky": "2.4.1",
+    "husky": "2.7.0",
     "json-server": "0.15.0",
     "lerna": "3.15.0",
     "lint-staged": "8.2.1",
-    "tslint": "5.17.0",
+    "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.0",
     "tslint-react": "4.0.0",
     "typescript": "3.5.2",
-    "typescript-tslint-plugin": "0.5.0"
+    "typescript-tslint-plugin": "0.5.3"
   },
   "scripts": {
     "start": "lerna run start",
     "build": "lerna run build",
     "clean": "lerna run clean",
+    "clean:dist": "lerna run clean:dist",
+    "clean:all": "lerna run clean:all",
     "test": "lerna run test",
     "lint": "lerna run lint",
     "refresh": "lerna run refresh && lerna run build",

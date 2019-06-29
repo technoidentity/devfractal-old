@@ -13,7 +13,7 @@
     "axios": "0.19.0",
     "cleave.js": "1.5.0",
     "date-fns": "1.30.1",
-    "firebase": "6.2.3",
+    "firebase": "6.2.4",
     "formik": "1.5.7",
     "io-ts": "1.10.2",
     "react": "16.8.6",
@@ -37,9 +37,9 @@
     "@types/react-router": "5.0.2",
     "@types/react-router-dom": "4.3.4",
     "@types/react-test-renderer": "16.8.2",
-    "@types/yup": "0.26.17",
+    "@types/yup": "0.26.18",
     "chance": "1.0.18",
-    "husky": "2.5.0",
+    "husky": "2.7.0",
     "jest": "24.8.0",
     "jest-dom": "3.5.0",
     "lint-staged": "8.2.1",
@@ -57,7 +57,7 @@
     "tslint-immutable": "6.0.0",
     "tslint-react": "4.0.0",
     "typescript": "3.5.2",
-    "typescript-tslint-plugin": "0.5.2"
+    "typescript-tslint-plugin": "0.5.3"
   },
   "resolutions": {
     "firebase": "6.2.3",
@@ -75,6 +75,7 @@
     "test:watch": "jest --watch",
     "clean": "rimraf dist .cache build .rts2_cache_*",
     "clean:dist": "rimraf node_modules yarn.lock",
+    "clean:all": "yarn clean && yarn clean:dist",
     "refresh": "yarn clean && yarn clean:dist && yarn",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",

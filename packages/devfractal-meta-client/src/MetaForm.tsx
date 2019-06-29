@@ -1,12 +1,8 @@
 import { EnumMT, Mixed, MT, PrimitiveMT } from '@technoidentity/meta-core'
+import { camelCaseToPhrase } from '@technoidentity/utils'
 import { FormikActions } from 'formik'
 import React from 'react'
-import {
-  camelCaseToPhrase,
-  Field,
-  Label,
-  Simple,
-} from 'technoidentity-devfractal'
+import { Field, Label, Simple } from 'technoidentity-devfractal'
 import { ObjectSchema } from 'yup'
 import { metaToInitialValues } from './metaToInitialValues'
 import { metaToYup } from './metaToYup'
