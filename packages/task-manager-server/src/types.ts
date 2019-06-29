@@ -1,8 +1,8 @@
 import express from 'express'
 
 export interface Request<
-  Body extends Object | unknown = unknown,
-  Query extends Object | unknown = unknown,
+  Body extends Object | undefined = undefined,
+  Query extends Object | undefined = undefined,
   Session extends Express.Session = Express.Session
 > extends express.Request {
   body: Body

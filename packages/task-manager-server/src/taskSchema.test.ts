@@ -29,8 +29,7 @@ it('Invalid task object', () => {
       scheduled: subDays(currentDate, 4),
     },
   })
-  const error = task1.validateSync()
-  console.log(error.errors)
+
   expect(task1.validateSync().errors).toMatchInlineSnapshot(`
         Object {
           "dateInfo": [ValidatorError: started date should be equal to or greater than current date],

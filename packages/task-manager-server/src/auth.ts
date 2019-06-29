@@ -3,7 +3,7 @@ import { UNAUTHORIZED } from 'http-status-codes'
 import { AuthSession, Request } from './types'
 
 export const auth = async (
-  req: Request<unknown, unknown, AuthSession>,
+  req: Request<undefined, undefined, AuthSession>,
   res: express.Response,
   next: express.NextFunction,
 ) => {
@@ -12,6 +12,6 @@ export const auth = async (
   } else {
     res
       .status(UNAUTHORIZED)
-      .send({ errors: 'Not authorized to access this resource' })
+      .send({ error: 'Not authorized to access this resource' })
   }
 }

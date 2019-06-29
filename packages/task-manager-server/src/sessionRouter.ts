@@ -26,7 +26,7 @@ interface PostSessionBody {
 sessionRouter.post(
   '/',
   async (
-    req: Request<PostSessionBody, unknown, AuthSession>,
+    req: Request<PostSessionBody, undefined, AuthSession>,
     res: Response<AuthSegment>,
   ) => {
     try {
@@ -38,13 +38,13 @@ sessionRouter.post(
         return res
           .status(CREATED)
           .send({ name: req.body.name, password: req.body.password })
-      } else {
-        return res
-          .status(INTERNAL_SERVER_ERROR)
-          .send({ error: 'Username or Password invalid' })
       }
+
+      return res
+        .status(BAD_REQUEST)
+        .send({ error: 'Username or Password invalid' })
     } catch (err) {
-      return res.sendStatus(BAD_REQUEST)
+      return res.sendStatus(INTERNAL_SERVER_ERROR)
     }
   },
 )
@@ -53,11 +53,13 @@ sessionRouter.delete('/', (req: Request, res: Response) => {
   if (req.session) {
     req.session.destroy(err => {
       if (err) {
-        throw err
+        res.status(INTERNAL_SERVER_ERROR).send({ error: err.message })
       }
+
       res.clearCookie('session_id', {
         expires: new Date(),
       })
+
       res.sendStatus(NO_CONTENT)
     })
   }

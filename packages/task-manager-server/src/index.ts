@@ -22,7 +22,9 @@ mongoose.connect(uri, { useNewUrlParser: true }, (err: any) => {
 
 export const app = (() => {
   const app = express()
+
   app.use(bodyParser.json())
+
   app.use(
     cors({
       origin: 'http://localhost:1234',

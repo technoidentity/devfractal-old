@@ -10,7 +10,7 @@ userRouter.get('/', async (_: Request, res: Response<User[]>) => {
     const users = await UserModel.find().exec()
     res.send(users)
   } catch (err) {
-    res.status(BAD_REQUEST).send(err)
+    res.status(BAD_REQUEST).send({ error: err.message })
   }
 })
 
@@ -19,7 +19,7 @@ userRouter.get('/:id', async (req: Request, res: Response<User>) => {
     await UserModel.findById(req.params.id).exec()
     res.sendStatus(NO_CONTENT)
   } catch (err) {
-    res.status(BAD_REQUEST).send(err)
+    res.status(BAD_REQUEST).send({ error: err.message })
   }
 })
 
@@ -43,10 +43,10 @@ userRouter.put('/:id', async (req: Request, res: Response<User>) => {
     } else {
       res
         .status(BAD_REQUEST)
-        .send({ errors: `User with ${req.params.id} not available` })
+        .send({ error: `User with ${req.params.id} not available` })
     }
   } catch (err) {
-    res.status(BAD_REQUEST).send(err)
+    res.status(BAD_REQUEST).send({ error: err.message })
   }
 })
 
@@ -55,6 +55,6 @@ userRouter.delete('/:id', async (req: Request, res: Response) => {
     await UserModel.deleteOne({ _id: req.params.id }).exec()
     res.sendStatus(NO_CONTENT)
   } catch (err) {
-    res.status(BAD_REQUEST).send(err)
+    res.status(BAD_REQUEST).send({ error: err.message })
   }
 })
