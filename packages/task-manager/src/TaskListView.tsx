@@ -27,20 +27,19 @@ function formatDate(date: Date | undefined): string | undefined {
   return date && format(date, 'DD/MM/YYYY')
 }
 
-const TaskItem: React.FC<TaskItemProps> = ({ taskItem }) => {
+const TaskItem: React.FC<TaskItemProps> = ({
+  taskItem: { _id, title, description, dateInfo },
+}) => {
   return (
     <Tr>
-      <Td>{taskItem.title}</Td>
-      <Td>{taskItem.description}</Td>
-      <Td>{formatDate(taskItem.dateInfo.started)}</Td>
-      <Td>{formatDate(taskItem.dateInfo.deadline)}</Td>
-      <Td>{formatDate(taskItem.dateInfo.scheduled)}</Td>
-      <Td>{formatDate(taskItem.dateInfo.completed)}</Td>
+      <Td>{title}</Td>
+      <Td>{description}</Td>
+      <Td>{formatDate(dateInfo.started)}</Td>
+      <Td>{formatDate(dateInfo.deadline)}</Td>
+      <Td>{formatDate(dateInfo.scheduled)}</Td>
+      <Td>{formatDate(dateInfo.completed)}</Td>
       <Td>
-        <Link
-          to={`/edit/${taskItem._id}`}
-          className="button is-primary is-link"
-        >
+        <Link to={`/edit/${_id}`} className="button is-primary is-link">
           Edit
         </Link>
       </Td>
