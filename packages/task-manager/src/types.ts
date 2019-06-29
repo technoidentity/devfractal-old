@@ -14,11 +14,17 @@ export const TaskRT = intersection([taskPartial, taskRequired])
 
 export type Task = TypeOf<typeof TaskRT>
 
-export const userRT = req({
+export const UserRT = req({
   name: string,
   email: string,
   password: string,
-  confirmPassword: string,
 })
 
-export type User = TypeOf<typeof userRT>
+export type User = TypeOf<typeof UserRT>
+
+export const SessionRT = req({
+  name: string,
+  password: string,
+})
+
+export type Session = TypeOf<typeof SessionRT>
