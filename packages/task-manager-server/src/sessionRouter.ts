@@ -35,7 +35,9 @@ sessionRouter.post(
         (await isUserValid(req.body.name, req.body.password))
       ) {
         req.session.loggedIn = true
-        return res.sendStatus(CREATED)
+        return res
+          .status(CREATED)
+          .send({ name: req.body.name, password: req.body.password })
       } else {
         return res.sendStatus(INTERNAL_SERVER_ERROR)
       }
