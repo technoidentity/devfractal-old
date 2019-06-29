@@ -1,13 +1,6 @@
 import { eitherToPromise, typeInvariant } from '@technoidentity/utils'
 import axios, { AxiosPromise } from 'axios'
-import {
-  Mixed,
-  Props,
-  readonlyArray,
-  ReadonlyArrayC,
-  Type,
-  TypeOf,
-} from 'io-ts'
+import { Mixed, readonlyArray, ReadonlyArrayC, Type, TypeOf } from 'io-ts'
 import { apiURLs, URLs } from './urls'
 
 // tslint:disable typedef
@@ -24,7 +17,7 @@ export interface Repository<
   remove(id: V): Promise<T>
 }
 
-export interface APIArgs<RT extends Mixed & Props, ID extends keyof RT> {
+export interface APIArgs<RT extends Mixed, ID extends keyof TypeOf<RT>> {
   readonly baseURL: string
   readonly value: RT
   readonly id: ID
@@ -33,7 +26,7 @@ export interface APIArgs<RT extends Mixed & Props, ID extends keyof RT> {
   readonly urls?: URLs
 }
 
-export interface APIRepository<RT extends Props & Mixed, ID extends keyof RT>
+export interface APIRepository<RT extends Mixed, ID extends keyof TypeOf<RT>>
   extends Repository<TypeOf<RT>, ID>,
     Required<APIArgs<RT, ID>> {}
 
@@ -43,7 +36,7 @@ const request: <A>(
 ) => Promise<A> = async (value, promise) =>
   eitherToPromise(value.decode((await promise).data))
 
-export function api<RT extends Props & Mixed, ID extends keyof RT>({
+export function api<RT extends Mixed, ID extends keyof TypeOf<RT>>({
   baseURL,
   value,
   id,

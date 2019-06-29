@@ -1,4 +1,4 @@
-import { Mixed, Props, TypeOf } from 'io-ts'
+import { Mixed, TypeOf } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
 import {
@@ -48,22 +48,22 @@ export function pathFns(resource: string, basePath: string): PathFns {
 }
 
 interface ComponentsArgsBase<
-  RT extends Props & Mixed,
-  ID extends keyof RT,
+  RT extends Mixed,
+  ID extends keyof TypeOf<RT>,
   R extends Repository<TypeOf<RT>, ID> = Repository<TypeOf<RT>, ID>
 > {
   readonly api: R
   readonly basePath: string
   readonly Views?: CrudViewsResult<RT, ID>
 }
-interface ComponentsArgs<RT extends Props & Mixed, ID extends keyof RT>
+interface ComponentsArgs<RT extends Mixed, ID extends keyof TypeOf<RT>>
   extends ComponentsArgsBase<RT, ID> {
   readonly value: RT
   readonly id: ID
   readonly resource: string
 }
 
-interface APIComponentsArgs<RT extends Props & Mixed, ID extends keyof RT>
+interface APIComponentsArgs<RT extends Mixed, ID extends keyof TypeOf<RT>>
   extends ComponentsArgsBase<RT, ID, APIRepository<RT, ID>> {}
 
 export interface ComponentsResult {
@@ -73,7 +73,7 @@ export interface ComponentsResult {
   readonly View: FC<RouteComponentProps<{ readonly id: string }>>
 }
 
-export function components<RT extends Props & Mixed, ID extends keyof RT>(
+export function components<RT extends Mixed, ID extends keyof TypeOf<RT>>(
   args: ComponentsArgs<RT, ID> | APIComponentsArgs<RT, ID>,
 ): ComponentsResult {
   // tslint:disable typedef

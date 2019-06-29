@@ -1,4 +1,4 @@
-// export * from './SimpleCrud'
+export * from './SimpleCrud'
 export * from './SimpleEditor'
 export * from './SimpleForm'
 export * from './SimpleNavbar'

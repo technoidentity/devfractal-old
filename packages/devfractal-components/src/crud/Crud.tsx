@@ -1,4 +1,4 @@
-import { Mixed, Props } from 'io-ts'
+import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import {
@@ -10,14 +10,14 @@ import {
   Section,
 } from '../lib'
 
-export interface CrudProps<RT extends Props & Mixed, ID extends keyof RT> {
+export interface CrudProps<RT extends Mixed, ID extends keyof TypeOf<RT>> {
   readonly api: APIRepository<RT, ID>
   readonly basePath: string
   readonly paths?: Paths
   readonly components?: ComponentsResult
 }
 
-export function Crud<RT extends Props & Mixed, ID extends keyof RT>({
+export function Crud<RT extends Mixed, ID extends keyof TypeOf<RT>>({
   basePath,
   api,
   paths = ps(api.resource, basePath),

@@ -1,5 +1,6 @@
+import { emptyFromType } from '@technoidentity/utils'
 import { FormikActions } from 'formik'
-import { Mixed, Props, TypeOf } from 'io-ts'
+import { Mixed, TypeOf } from 'io-ts'
 import React, { FC } from 'react'
 import {
   Button,
@@ -10,8 +11,6 @@ import {
   SimpleTable,
   SimpleViewer,
 } from '../lib'
-
-import { emptyFromType } from '@technoidentity/utils'
 
 export interface EditProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)
@@ -33,14 +32,14 @@ export interface ListProps<T extends Record<string, any>> {
   onDelete?(value: RowClickEvent<T>): void
 }
 
-export interface CrudViewsResult<T extends Mixed & Props, ID extends keyof T> {
+export interface CrudViewsResult<T extends Mixed, ID extends keyof T> {
   readonly List: FC<ListProps<TypeOf<T>>>
   readonly Create: FC<CreateProps<Omit<TypeOf<T>, ID>>>
   readonly Edit: FC<EditProps<TypeOf<T>>>
   readonly View: FC<ViewProps<TypeOf<T>>>
 }
 
-export function Views<RT extends Mixed & Props, ID extends keyof RT>(
+export function Views<RT extends Mixed, ID extends keyof RT>(
   // cannot pass this to create, as getting type from typeValue is easy,
   // not the other way round
   typeValue: RT,

@@ -1,25 +1,24 @@
-export const types: number = 100
-// import {
-//   boolean,
-//   number,
-//   readonly,
-//   readonlyArray,
-//   string,
-//   type,
-//   TypeOf,
-// } from 'io-ts'
+import {
+  boolean,
+  number,
+  readonly,
+  readonlyArray,
+  string,
+  type,
+  TypeOf,
+} from 'io-ts'
 
-// // tslint:disable typedef
-// export const TodoRT = readonly(
-//   type({
-//     id: number,
-//     title: string,
-//     done: boolean,
-//   }),
-// )
+// tslint:disable typedef
+export const TodoRT = readonly(
+  type({
+    id: number,
+    title: string,
+    done: boolean,
+  }),
+)
 
-// export const TodoListRT = readonlyArray(TodoRT)
+export const TodoListRT = readonlyArray(TodoRT)
 
-// export type Todo = TypeOf<typeof TodoRT>
+export type Todo = TypeOf<typeof TodoRT>
 
-// export type TodoList = TypeOf<typeof TodoListRT>
+export type TodoList = TypeOf<typeof TodoListRT>
