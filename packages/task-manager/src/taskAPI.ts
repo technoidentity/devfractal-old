@@ -1,7 +1,11 @@
 import { rest } from './rest'
 import { Task, TaskRT } from './types'
 
-const taskApi = rest({ baseURL: 'http://localhost:9999' }, TaskRT, 'tasks')
+const taskApi = rest(
+  { baseURL: 'http://localhost:9999', withCredentials: true },
+  TaskRT,
+  'tasks',
+)
 
 export async function createTask(data: Task): Promise<Task> {
   return taskApi.create(data)
