@@ -1,11 +1,11 @@
 import React from 'react'
 import { Section } from 'technoidentity-devfractal'
-import { createTask } from '../api'
+import { taskApi } from '../api'
 import { ServerError, useSubmit } from '../utils'
 import { TaskForm } from '../views'
 
 export const CreateTaskRoute: React.FC = () => {
-  const [serverError, onSubmit] = useSubmit('/tasks', createTask)
+  const [serverError, onSubmit] = useSubmit('/tasks', taskApi.create)
 
   return (
     <Section>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { getTask, updateTask } from '../api'
+import { taskApi } from '../api'
 import { GETView, ServerError, Task, useOne, useSubmit } from '../utils'
 import { TaskForm } from '../views'
 
@@ -11,9 +11,9 @@ export const EditTaskRoute: React.FC<
   }>
 > = ({ match }) => {
   const id = match.params.id
-  const update = (data: Task) => updateTask(id, data)
+  const update = (data: Task) => taskApi.update(id, data)
 
-  const [data, error] = useOne(getTask, id)
+  const [data, error] = useOne(taskApi.get, id)
   const [serverError, onSubmit] = useSubmit('/tasks', update)
 
   return (
