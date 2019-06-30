@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import {
   CreateTaskRoute,
   EditTaskRoute,
@@ -7,14 +7,15 @@ import {
   SignUpFormRoute,
   TaskListRoute,
 } from './pages'
+import { Router, SafeRoute } from './utils'
 
 export const App: React.FC = () => (
-  <Router>
-    <Route exact path="/" component={SignUpFormRoute} />
-    <Route exact path="/login" component={LoginRoute} />
-    <Route exact path="/tasks" component={TaskListRoute} />
-    <Route path="/add" component={CreateTaskRoute} />
-    <Route path="/edit/:id" component={EditTaskRoute} />
+  <Router variant="browser">
+    <SafeRoute exact path="/" component={SignUpFormRoute} />
+    <SafeRoute exact path="/login" component={LoginRoute} />
+    <SafeRoute exact path="/tasks" component={TaskListRoute} />
+    <SafeRoute path="/add" component={CreateTaskRoute} />
+    <SafeRoute path="/edit/:id" component={EditTaskRoute} />
   </Router>
 )
 
