@@ -1,6 +1,6 @@
 import React from 'react'
 import { getTasks, sessionApi, TaskFilter } from '../api'
-import { GET, ServerError, useSubmit } from '../utils'
+import { Async, ServerError, useSubmit } from '../utils'
 import { TaskListView } from '../views'
 
 export const TaskListRoute: React.FC = () => {
@@ -10,7 +10,7 @@ export const TaskListRoute: React.FC = () => {
   return (
     <>
       <ServerError error={serverError} />
-      <GET asyncFn={getTasks} param={filter}>
+      <Async asyncFn={getTasks} param={filter}>
         {data => (
           <TaskListView
             taskList={data}
@@ -19,7 +19,7 @@ export const TaskListRoute: React.FC = () => {
             onFilterChange={setFilter}
           />
         )}
-      </GET>
+      </Async>
     </>
   )
 }
