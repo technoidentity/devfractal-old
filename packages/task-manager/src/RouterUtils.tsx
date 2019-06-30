@@ -92,7 +92,6 @@ export function Router<T extends RouterType>({
 export function useRouter(): RouterContext {
   // tslint:disable-next-line: typedef
   const result = React.useContext(RouterContext)
-  invariant(result !== null)
 
   return result
 }

@@ -4,40 +4,52 @@ import { RouteComponentProps } from 'react-router'
 import { Section } from 'technoidentity-devfractal'
 import { EditTaskForm } from './EditTaskForm'
 import { LoginForm, LoginValues } from './LoginForm'
+import { useRouter } from './RouterUtils'
 import { loginUser } from './sessionAPI'
 import { SignUpForm, SignUpValues } from './SignUpForm'
-import {
-  allTasks,
-  completedList,
-  createTask,
-  deadlineToday,
-  pendingList,
-  scheduledToday,
-} from './taskAPI'
+import { createTask, getTasks, TaskFilter } from './taskAPI'
 import { TaskForm } from './TaskForm'
 import { TaskListView } from './TaskListView'
 import { Task } from './types'
 import { createUser } from './userAPI'
 
-export const CreateTaskRoute: React.FC<RouteComponentProps> = ({ history }) => {
+const ServerError: React.FC<{ readonly serverError?: string }> = ({
+  serverError,
+}) => (
+  <>
+    {serverError && (
+      <article className="message is-danger">
+        <div className="message-body">{serverError}</div>
+      </article>
+    )}
+  </>
+)
+
+export function useSubmit<T>(
+  url: string,
+  f: (data: T) => Promise<T>,
+  // tslint:disable-next-line: readonly-array
+): [string | undefined, (data: T) => Promise<void>] {
   const [serverError, setServerError] = React.useState<string | undefined>(
     undefined,
   )
+  const { history } = useRouter()
+  const onSubmit = async (data: T) =>
+    f(data)
+      .then(() => history.push(url))
+      .catch(err => setServerError(err.response.data.message))
+
+  return [serverError, onSubmit]
+}
+
+export const CreateTaskRoute: React.FC = () => {
+  const [serverError, onSubmit] = useSubmit('/', createTask)
+
   return (
     <Section>
       <h1 className="title has-text-centered">Create Task</h1>
-      {serverError && (
-        <article className="message is-danger">
-          <div className="message-body">{serverError}</div>
-        </article>
-      )}
-      <TaskForm
-        onSubmit={async data =>
-          createTask(data)
-            .then(() => history.push('/'))
-            .catch(err => setServerError(err.response.data.message))
-        }
-      />
+      <ServerError serverError={serverError} />
+      <TaskForm onSubmit={onSubmit} />
     </Section>
   )
 }
@@ -51,8 +63,6 @@ export const EditTaskRoute: React.FC<
   </section>
 )
 
-type TaskFilter = 'all' | 'completed' | 'pending' | 'today' | 'deadline'
-
 export const TaskListRoute: React.FC<RouteComponentProps> = ({ history }) => {
   const [filter, setFilter] = React.useState<TaskFilter>('all')
   const [tasks, setTasks] = React.useState<ReadonlyArray<Task> | undefined>(
@@ -61,35 +71,9 @@ export const TaskListRoute: React.FC<RouteComponentProps> = ({ history }) => {
   const [error, setError] = React.useState<Error | undefined>(undefined)
 
   React.useEffect(() => {
-    if (filter === 'all') {
-      allTasks()
-        .then(setTasks)
-        .catch(setError)
-    }
-
-    if (filter === 'completed') {
-      completedList()
-        .then(data => {
-          setTasks(data)
-        })
-        .catch(setError)
-    }
-
-    if (filter === 'pending') {
-      pendingList()
-        .then(setTasks)
-        .catch(setError)
-    }
-    if (filter === 'today') {
-      scheduledToday()
-        .then(setTasks)
-        .catch(setError)
-    }
-    if (filter === 'deadline') {
-      deadlineToday()
-        .then(setTasks)
-        .catch(setError)
-    }
+    getTasks(filter)
+      .then(setTasks)
+      .catch(setError)
   }, [filter])
 
   if (error) {
@@ -132,19 +116,13 @@ export const LoginRoute: React.FC<RouteComponentProps> = ({ history }) => {
   }
   return (
     <>
-      {serverError && (
-        <Section>
-          <article className="message is-danger">
-            <div className="message-body">{serverError}</div>
-          </article>
-        </Section>
-      )}
+      <ServerError serverError={serverError} />
       <LoginForm onLogin={onLogin} />
     </>
   )
 }
 
-export const SignupFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
+export const SignUpFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
   const [serverError, setServerError] = React.useState<string | undefined>(
     undefined,
   )
@@ -156,13 +134,7 @@ export const SignupFormRoute: React.FC<RouteComponentProps> = ({ history }) => {
   }
   return (
     <>
-      {serverError && (
-        <Section>
-          <article className="message is-danger">
-            <div className="message-body">{serverError}</div>
-          </article>
-        </Section>
-      )}
+      <ServerError serverError={serverError} />
       <SignUpForm onSignUp={postUser} />
     </>
   )
