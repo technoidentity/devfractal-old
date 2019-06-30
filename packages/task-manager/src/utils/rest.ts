@@ -38,9 +38,9 @@ export function rest<
   O extends Record<string, any>,
   I extends Record<string, any> | unknown = unknown
 >(
-  options: RequestConfig,
-  type: Mixed & Type<A, O, I>,
   resource: string,
+  type: Mixed & Type<A, O, I>,
+  options: RequestConfig,
 ): API<A, I> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 

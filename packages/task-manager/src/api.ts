@@ -5,9 +5,9 @@ export const apiOptions = {
   withCredentials: true,
 }
 
-export const userApi = rest(apiOptions, UserRT, 'users')
-export const sessionApi = rest(apiOptions, SessionRT, 'session')
-export const taskApi = rest(apiOptions, TaskRT, 'tasks')
+export const userApi = rest('users', UserRT, apiOptions)
+export const sessionApi = rest('session', SessionRT, apiOptions)
+export const taskApi = rest('tasks', TaskRT, apiOptions)
 
 export type TaskFilter = 'all' | 'completed' | 'pending' | 'today' | 'deadline'
 
