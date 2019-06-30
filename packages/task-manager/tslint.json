@@ -75,7 +75,6 @@
     "no-dynamic-delete": true,
     "no-duplicate-super": true,
     "no-duplicate-switch-case": true,
-    "no-unbound-method": true,
     "no-unnecessary-class": true,
     "no-parameter-properties": true,
     "prefer-function-over-method": true,
