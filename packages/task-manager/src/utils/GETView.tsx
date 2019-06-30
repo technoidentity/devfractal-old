@@ -1,4 +1,6 @@
 import React from 'react'
+import { ErrorView } from './ErrorView'
+import { Loading } from './Loading'
 
 export type GETViewComponentProps<T extends Object> = React.FC<{
   readonly data?: T
@@ -11,14 +13,6 @@ export interface GETViewProps<T extends Object> {
   readonly component: GETViewComponentProps<T>
   onSubmit(values: T): Promise<void>
 }
-
-export const ErrorView: React.FC<{ readonly error: Error }> = ({ error }) => (
-  <h1 className="is-text is-size-1 is-danger">{error.message}</h1>
-)
-
-export const Loading: React.FC = () => (
-  <h1 className="is-text is-size-1 is-info">Loading....</h1>
-)
 
 export function GETView<T extends Object>({
   error,

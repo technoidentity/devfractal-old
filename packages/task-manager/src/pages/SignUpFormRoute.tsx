@@ -8,7 +8,7 @@ export const SignUpFormRoute: React.FC = () => {
 
   return (
     <>
-      <ServerError serverError={serverError} />
+      <ServerError error={serverError} />
       <SignUpForm onSignUp={onSignUp} />
     </>
   )

@@ -15,7 +15,7 @@ export const TaskListRoute: React.FC = () => {
   if (tasks) {
     return (
       <>
-        <ServerError serverError={serverError} />
+        <ServerError error={serverError} />
         <TaskListView
           taskList={tasks}
           // tslint:disable-next-line: no-unnecessary-callback-wrapper

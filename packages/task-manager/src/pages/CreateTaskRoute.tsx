@@ -10,7 +10,7 @@ export const CreateTaskRoute: React.FC = () => {
   return (
     <Section>
       <h1 className="title has-text-centered">Create Task</h1>
-      <ServerError serverError={serverError} />
+      <ServerError error={serverError} />
       <TaskForm onSubmit={onSubmit} />
     </Section>
   )

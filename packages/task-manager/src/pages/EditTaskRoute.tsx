@@ -19,7 +19,7 @@ export const EditTaskRoute: React.FC<
   return (
     <section className="section">
       <h1 className="title has-text-centered">Edit Task</h1>
-      <ServerError serverError={serverError} />
+      <ServerError error={serverError} />
       <GETView
         data={data}
         error={error}

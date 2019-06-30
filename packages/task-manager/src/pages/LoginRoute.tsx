@@ -8,7 +8,7 @@ export const LoginRoute: React.FC = () => {
 
   return (
     <>
-      <ServerError serverError={serverError} />
+      <ServerError error={serverError} />
       <LoginForm onLogin={onLogin} />
     </>
   )

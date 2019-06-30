@@ -1,12 +1,14 @@
 import React from 'react'
 
-export const ServerError: React.FC<{
-  readonly serverError?: string
-}> = ({ serverError }) => (
+export interface ServerErrorProps {
+  readonly error?: string
+}
+
+export const ServerError: React.FC<ServerErrorProps> = ({ error }) => (
   <>
-    {serverError && (
+    {error && (
       <article className="message is-danger">
-        <div className="message-body">{serverError}</div>
+        <div className="message-body">{error}</div>
       </article>
     )}
   </>
