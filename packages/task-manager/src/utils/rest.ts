@@ -17,6 +17,7 @@ interface API<
     data: I,
     options?: Omit<MethodArgs, 'resource'>,
   ): Promise<A>
+  del(id: string, options?: Omit<MethodArgs, 'resource'>): Promise<void>
 }
 
 function appendId(options: MethodArgs, id: string): MethodArgs {
@@ -62,6 +63,13 @@ export function rest<
     return http.post({ ...options, resource }, data, type)
   }
 
+  async function del(
+    id: string,
+    options?: Omit<MethodArgs, 'resource'>,
+  ): Promise<void> {
+    return http.del(appendId({ ...options, resource }, id))
+  }
+
   async function get(
     id: string,
     options: Omit<MethodArgs, 'resource'>,
@@ -79,5 +87,5 @@ export function rest<
     return http.put(appendId({ ...options, resource }, id), data, type)
   }
 
-  return { one, many, get, update, create }
+  return { one, many, get, update, create, del }
 }
