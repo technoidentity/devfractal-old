@@ -32,7 +32,9 @@ export const EditTaskRoute: React.FC<
           initial={task}
         />
       )}
-      return <h1 className="is-text is-size-1 is-info">Loading....</h1>
+      {!error && !task && (
+        <h1 className="is-text is-size-1 is-info">Loading....</h1>
+      )}
     </section>
   )
 }
