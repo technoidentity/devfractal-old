@@ -40,7 +40,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
       <Td>{formatDate(dateInfo.scheduled)}</Td>
       <Td>{formatDate(dateInfo.completed)}</Td>
       <Td>
-        <Link to={`/edit/${_id}`} className="button is-primary is-link">
+        <Link to={`/tasks/${_id}/edit`} className="button is-primary is-link">
           Edit
         </Link>
       </Td>
@@ -73,7 +73,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
     <Section>
       <Title textAlignment="centered">Task Management</Title>
       <ButtonsGroup alignment="right">
-        <Link to="/add" className="button is-primary">
+        <Link to="/tasks/add" className="button is-primary">
           Add
         </Link>
       </ButtonsGroup>
