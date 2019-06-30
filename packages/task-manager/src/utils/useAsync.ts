@@ -1,7 +1,7 @@
 import React from 'react'
 import { AnyTuple } from 'typelevel-ts'
 
-export function useGET<T extends Object, P extends AnyTuple>(
+export function useAsync<T extends Object, P extends AnyTuple>(
   asyncFn: (...param: P) => Promise<T>,
   param: P,
   // tslint:disable-next-line: readonly-array
