@@ -1,10 +1,10 @@
 import React from 'react'
-import { loginUser } from '../api'
+import { sessionApi } from '../api'
 import { ServerError, useSubmit } from '../utils'
 import { LoginForm } from '../views'
 
 export const LoginRoute: React.FC = () => {
-  const [serverError, onLogin] = useSubmit('/tasks', loginUser)
+  const [serverError, onLogin] = useSubmit('/tasks', sessionApi.create)
 
   return (
     <>
