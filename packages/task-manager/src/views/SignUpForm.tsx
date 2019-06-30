@@ -4,6 +4,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Section } from 'technoidentity-devfractal'
 import * as yup from 'yup'
+import { formSubmit } from '../utils/formSubmit'
 
 export interface SignUpValues {
   readonly name: string
@@ -145,11 +146,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUp }) => (
   <Formik
     initialValues={initialValues}
     validationSchema={schema}
-    onSubmit={async (values, actions) => {
-      await onSignUp(values)
-      actions.setSubmitting(false)
-      // @TODO: handle the error case
-    }}
+    onSubmit={formSubmit(onSignUp)}
     component={InnerSignUpForm}
   />
 )

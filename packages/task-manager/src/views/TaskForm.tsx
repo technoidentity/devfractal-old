@@ -14,6 +14,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { ErrorField, Section } from 'technoidentity-devfractal'
 import * as yup from 'yup'
 import { Task } from '../utils'
+import { formSubmit } from '../utils/formSubmit'
 
 export const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => (
   <div className="control">
@@ -206,9 +207,6 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initial }) => (
     initialValues={initial || initialValues}
     validationSchema={validationSchema}
     component={InnerTaskForm}
-    onSubmit={async (values, actions) => {
-      await onSubmit(values)
-      actions.setSubmitting(false)
-    }}
+    onSubmit={formSubmit(onSubmit)}
   />
 )

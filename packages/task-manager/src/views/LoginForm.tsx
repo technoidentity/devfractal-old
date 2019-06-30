@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { Section } from 'technoidentity-devfractal'
 import * as yup from 'yup'
+import { formSubmit } from '../utils/formSubmit'
 
 export interface LoginValues {
   readonly name: string
@@ -76,11 +77,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => (
   <Formik
     initialValues={initialValues}
     validationSchema={schema}
-    onSubmit={async (values, actions) => {
-      await onLogin(values)
-      actions.setSubmitting(false)
-      // @TODO: handle server error
-    }}
+    onSubmit={formSubmit(onLogin)}
     component={InnerLoginForm}
   />
 )
