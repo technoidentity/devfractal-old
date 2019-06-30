@@ -4,7 +4,7 @@ import {
   CreateTaskRoute,
   EditTaskRoute,
   LoginRoute,
-  SignupFormRoute,
+  SignUpFormRoute,
   TaskListRoute,
 } from './Routes'
 
@@ -26,7 +26,7 @@ import {
 
 export const App: React.FC = () => (
   <Router>
-    <Route exact path="/" component={SignupFormRoute} />
+    <Route exact path="/" component={SignUpFormRoute} />
     <Route exact path="/login" component={LoginRoute} />
     <Route exact path="/tasks" component={TaskListRoute} />
     <Route path="/add" component={CreateTaskRoute} />
