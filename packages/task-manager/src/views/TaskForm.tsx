@@ -1,30 +1,11 @@
 import 'bulma/css/bulma.css'
 import { format } from 'date-fns'
-import {
-  ErrorMessage,
-  Field,
-  FieldProps,
-  Form,
-  Formik,
-  FormikProps,
-} from 'formik'
+import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { ErrorField, Section } from 'technoidentity-devfractal'
 import * as yup from 'yup'
-import { formSubmit, Task } from '../utils'
-
-export const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => (
-  <div className="control">
-    <DatePicker
-      {...field}
-      selected={field.value}
-      onChange={date => form.setFieldValue(field.name, date)}
-      className="input"
-    />
-  </div>
-)
+import { DatePickerField, formSubmit, Task } from '../utils'
 
 const currentDate = format(new Date(), 'YYYY-MM-DD')
 
@@ -110,64 +91,10 @@ export const InnerTaskForm: React.FC<FormikProps<Task>> = () => (
         </div>
       </div>
 
-      <div className="field">
-        <label className="label">Started</label>
-        <div className="control">
-          <Field
-            type="text"
-            name="dateInfo.started"
-            className="input "
-            component={FormikDatePicker}
-          />
-        </div>
-        <div className="help is-danger">
-          <ErrorMessage name="dateInfo.started" />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Deadline</label>
-        <div className="control">
-          <Field
-            type="text"
-            name="dateInfo.deadline"
-            className="input"
-            component={FormikDatePicker}
-          />
-        </div>
-        <div className="help is-danger">
-          <ErrorField name="dateInfo.deadline" />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Scheduled</label>
-        <div className="control">
-          <Field
-            type="text"
-            name="dateInfo.scheduled"
-            className="input "
-            component={FormikDatePicker}
-          />
-        </div>
-        <div className="help is-danger">
-          <ErrorField name="dateInfo.scheduled" />
-        </div>
-      </div>
-      <div className="field">
-        <label className="label">Completed</label>
-        <div className="control">
-          <Field
-            type="text"
-            name="dateInfo.completed"
-            className="input"
-            component={FormikDatePicker}
-          />
-        </div>
-        <div className="help is-danger">
-          <ErrorField name="dateInfo.completed" />
-        </div>
-      </div>
+      <DatePickerField name="dateInfo.started" />
+      <DatePickerField name="dateInfo.deadline" />
+      <DatePickerField name="dateInfo.scheduled" />
+      <DatePickerField name="dateInfo.completed" />
 
       <div className="field is-grouped is-grouped-centered">
         <p className="control">
