@@ -1,4 +1,6 @@
+export * from './Header'
 export * from './LoginForm'
+export * from './Logout'
 export * from './SignUpForm'
 export * from './TaskForm'
 export * from './TaskListView'

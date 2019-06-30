@@ -4,17 +4,17 @@ import { ErrorView } from './ErrorView'
 import { Loading } from './Loading'
 import { useAsync } from './useAsync'
 
-export interface AsyncProps<P extends AnyTuple, T extends Object> {
+export interface AsyncProps<T extends Object, P extends AnyTuple> {
   readonly param: P
   asyncFn(...param: P): Promise<T>
   children(data: T, fetchAgain: () => void): JSX.Element
 }
 
-export function Async<P extends AnyTuple, T extends Object>({
+export function Async<T extends Object, P extends AnyTuple>({
   asyncFn,
   param,
   children,
-}: AsyncProps<P, T>): JSX.Element {
+}: AsyncProps<T, P>): JSX.Element {
   const [data, error, fetch] = useAsync(asyncFn, param)
 
   if (error) {

@@ -139,10 +139,12 @@ const InnerSignUpForm: React.FC<FormikProps<SignUpValues>> = () => (
 )
 
 export interface SignUpFormProps {
-  onSignUp(values: SignUpValues): Promise<void>
+  onSubmit(values: SignUpValues): Promise<void>
 }
 
-export const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUp }) => (
+export const SignUpForm: React.FC<SignUpFormProps> = ({
+  onSubmit: onSignUp,
+}) => (
   <Formik
     initialValues={initialValues}
     validationSchema={schema}

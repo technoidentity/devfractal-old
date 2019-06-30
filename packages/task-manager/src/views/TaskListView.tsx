@@ -5,9 +5,6 @@ import {
   Button,
   ButtonsGroup,
   Field,
-  Navbar,
-  NavbarEnd,
-  NavbarItem,
   Section,
   Table,
   TableBody,
@@ -51,66 +48,52 @@ const TaskItem: React.FC<TaskItemProps> = ({
 export interface TaskListViewProps {
   readonly taskList: ReadonlyArray<Task>
   onFilterChange(filter: TaskFilter): void
-  onLogout(): void
 }
 
 export const TaskListView: React.FC<TaskListViewProps> = ({
   taskList,
   onFilterChange,
-  onLogout,
 }) => (
-  <>
-    <Navbar>
-      <NavbarEnd>
-        <NavbarItem>
-          <Button onClick={onLogout} className="button is-dark">
-            Logout
-          </Button>
-        </NavbarItem>
-      </NavbarEnd>
-    </Navbar>
+  <Section>
+    <Title textAlignment="centered">Task Management</Title>
+    <ButtonsGroup alignment="right">
+      <Link to="/tasks/add" className="button is-primary">
+        Add
+      </Link>
+    </ButtonsGroup>
 
-    <Section>
-      <Title textAlignment="centered">Task Management</Title>
-      <ButtonsGroup alignment="right">
-        <Link to="/tasks/add" className="button is-primary">
-          Add
-        </Link>
-      </ButtonsGroup>
+    <Table striped bordered fullWidth>
+      <TableHead>
+        <Tr>
+          <Th>Title</Th>
+          <Th>Description</Th>
+          <Th>Started</Th>
+          <Th>Deadline</Th>
+          <Th>Scheduled</Th>
+          <Th>Completed</Th>
+          <Th />
+        </Tr>
+      </TableHead>
+      <TableBody>
+        {taskList.map(task => (
+          <TaskItem key={task._id} taskItem={task} />
+        ))}
+      </TableBody>
+    </Table>
 
-      <Table striped bordered fullWidth>
-        <TableHead>
-          <Tr>
-            <Th>Title</Th>
-            <Th>Description</Th>
-            <Th>Started</Th>
-            <Th>Deadline</Th>
-            <Th>Scheduled</Th>
-            <Th>Completed</Th>
-            <Th />
-          </Tr>
-        </TableHead>
-        <TableBody>
-          {taskList.map(task => (
-            <TaskItem key={task._id} taskItem={task} />
-          ))}
-        </TableBody>
-      </Table>
-
-      <Field grouped groupModifier="grouped-centered">
-        <Button variant="info" onClick={() => onFilterChange('today')}>
-          Scheduled Today
-        </Button>
-        <Button variant="success" onClick={() => onFilterChange('completed')}>
-          Completed
-        </Button>
-        <Button variant="danger" onClick={() => onFilterChange('pending')}>
-          Pending
-        </Button>
-        <Button variant="warning" onClick={() => onFilterChange('deadline')}>
-          Deadline Today
-        </Button>
-      </Field>
-    </Section>
-  </>
+    <Field grouped groupModifier="grouped-centered">
+      <Button variant="info" onClick={() => onFilterChange('today')}>
+        Scheduled Today
+      </Button>
+      <Button variant="success" onClick={() => onFilterChange('completed')}>
+        Completed
+      </Button>
+      <Button variant="danger" onClick={() => onFilterChange('pending')}>
+        Pending
+      </Button>
+      <Button variant="warning" onClick={() => onFilterChange('deadline')}>
+        Deadline Today
+      </Button>
+    </Field>
+  </Section>
 )
