@@ -8,11 +8,13 @@ export const LoginRoute: React.FC<RouteComponentProps> = ({ history }) => {
   const [serverError, setServerError] = React.useState<string | undefined>(
     undefined,
   )
+
   const onLogin = async (data: LoginValues) => {
     return loginUser(data)
       .then(() => history.push('/tasks'))
       .catch(err => setServerError(err.response.data.error))
   }
+
   return (
     <>
       <ServerError serverError={serverError} />

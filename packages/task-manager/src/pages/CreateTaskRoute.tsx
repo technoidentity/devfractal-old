@@ -6,6 +6,7 @@ import { TaskForm } from '../views'
 
 export const CreateTaskRoute: React.FC = () => {
   const [serverError, onSubmit] = useSubmit('/', createTask)
+
   return (
     <Section>
       <h1 className="title has-text-centered">Create Task</h1>
