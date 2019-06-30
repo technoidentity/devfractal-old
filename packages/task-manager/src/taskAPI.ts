@@ -1,6 +1,8 @@
 import { rest } from './rest'
 import { Task, TaskRT } from './types'
 
+export type TaskFilter = 'all' | 'completed' | 'pending' | 'today' | 'deadline'
+
 const taskApi = rest(
   { baseURL: 'http://localhost:9999', withCredentials: true },
   TaskRT,
@@ -19,22 +21,6 @@ export async function updateTask(id: string, data: Task): Promise<Task> {
   return taskApi.update(id, data)
 }
 
-export async function allTasks(): Promise<ReadonlyArray<Task>> {
-  return taskApi.many()
-}
-
-export async function completedList(): Promise<ReadonlyArray<Task>> {
-  return taskApi.many({ path: 'completed' })
-}
-
-export async function pendingList(): Promise<ReadonlyArray<Task>> {
-  return taskApi.many({ path: 'pending' })
-}
-
-export const scheduledToday = async () => {
-  return taskApi.many({ path: 'today' })
-}
-
-export const deadlineToday = async () => {
-  return taskApi.many({ path: 'deadline' })
+export async function getTasks(path: TaskFilter): Promise<ReadonlyArray<Task>> {
+  return taskApi.many({ path: path !== 'all' ? path : undefined })
 }
