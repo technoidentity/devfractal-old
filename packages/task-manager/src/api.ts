@@ -1,4 +1,4 @@
-import { rest, SessionRT, Task, TaskRT, UserRT } from '../utils'
+import { rest, SessionRT, Task, TaskRT, UserRT } from './utils'
 
 export const apiOptions = {
   baseURL: 'http://localhost:9999',
