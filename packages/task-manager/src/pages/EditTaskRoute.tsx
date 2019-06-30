@@ -19,7 +19,7 @@ export const EditTaskRoute: React.FC<
     <section className="section">
       <h1 className="title has-text-centered">Edit Task</h1>
       <ServerError error={serverError} />
-      <Async asyncFn={taskApi.get} param={id}>
+      <Async asyncFn={taskApi.get} param={[id]}>
         {data => <TaskForm initial={data} onSubmit={onSubmit} />}
       </Async>
     </section>

@@ -8008,6 +8008,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typelevel-ts@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/typelevel-ts/-/typelevel-ts-0.3.5.tgz#9f242c193fa6c5489d2342c642ab8912a065af9d"
+  integrity sha512-VZKF0ak5RNgrPkpI2uJJL0WBqNcj67+hzYzD6SwoxzrgvgjP24gskqniXd62UY5rrJCxd3q/iChtxKcHC6fRvA==
+
 typescript-tslint-plugin@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/typescript-tslint-plugin/-/typescript-tslint-plugin-0.5.2.tgz#8544e3387ed4256111751fe5caee5ba60f55d3ec"

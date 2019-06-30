@@ -1,15 +1,16 @@
 import React from 'react'
+import { AnyTuple } from 'typelevel-ts'
 import { ErrorView } from './ErrorView'
 import { Loading } from './Loading'
 import { useGET } from './useGET'
 
-export interface AsyncProps<P, T extends Object> {
+export interface AsyncProps<P extends AnyTuple, T extends Object> {
   readonly param: P
-  asyncFn(param: P): Promise<T>
+  asyncFn(...param: P): Promise<T>
   children(data: T, fetchAgain: () => void): JSX.Element
 }
 
-export function Async<P, T extends Object>({
+export function Async<P extends AnyTuple, T extends Object>({
   asyncFn,
   param,
   children,

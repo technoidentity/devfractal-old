@@ -1,7 +1,8 @@
 import React from 'react'
+import { AnyTuple } from 'typelevel-ts'
 
-export function useGET<T extends Object, P>(
-  asyncFn: (param: P) => Promise<T>,
+export function useGET<T extends Object, P extends AnyTuple>(
+  asyncFn: (...param: P) => Promise<T>,
   param: P,
   // tslint:disable-next-line: readonly-array
 ): [T | undefined, Error | undefined, () => void] {
@@ -14,7 +15,7 @@ export function useGET<T extends Object, P>(
     setData(undefined)
     setError(undefined)
 
-    asyncFn(param)
+    asyncFn(...param)
       .then(setData)
       .catch(setError)
   }, [param, fetchAgain])

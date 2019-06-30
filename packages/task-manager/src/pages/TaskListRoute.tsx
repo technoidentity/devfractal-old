@@ -10,7 +10,7 @@ export const TaskListRoute: React.FC = () => {
   return (
     <>
       <ServerError error={serverError} />
-      <Async asyncFn={getTasks} param={filter}>
+      <Async asyncFn={getTasks} param={[filter]}>
         {data => (
           <TaskListView
             taskList={data}
