@@ -1,5 +1,4 @@
-import { rest } from './rest'
-import { Task, TaskRT } from './types'
+import { rest, Task, TaskRT } from '../utils'
 
 export type TaskFilter = 'all' | 'completed' | 'pending' | 'today' | 'deadline'
 

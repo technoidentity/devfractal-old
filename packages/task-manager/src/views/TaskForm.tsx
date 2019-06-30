@@ -13,7 +13,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { ErrorField, Section } from 'technoidentity-devfractal'
 import * as yup from 'yup'
-import { Task } from './types'
+import { Task } from '../utils'
 
 export const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => (
   <div className="control">

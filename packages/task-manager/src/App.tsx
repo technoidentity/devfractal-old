@@ -6,7 +6,17 @@ import {
   LoginRoute,
   SignUpFormRoute,
   TaskListRoute,
-} from './Routes'
+} from './pages'
+
+export const App: React.FC = () => (
+  <Router>
+    <Route exact path="/" component={SignUpFormRoute} />
+    <Route exact path="/login" component={LoginRoute} />
+    <Route exact path="/tasks" component={TaskListRoute} />
+    <Route path="/add" component={CreateTaskRoute} />
+    <Route path="/edit/:id" component={EditTaskRoute} />
+  </Router>
+)
 
 // export const App = () => {
 //   return (
@@ -23,16 +33,6 @@ import {
 //     </Async>
 //   )
 // }
-
-export const App: React.FC = () => (
-  <Router>
-    <Route exact path="/" component={SignUpFormRoute} />
-    <Route exact path="/login" component={LoginRoute} />
-    <Route exact path="/tasks" component={TaskListRoute} />
-    <Route path="/add" component={CreateTaskRoute} />
-    <Route path="/edit/:id" component={EditTaskRoute} />
-  </Router>
-)
 
 // export const App: React.FC = () => {
 //   const postUser = async (data: any) => {

@@ -1,5 +1,4 @@
-import { rest } from './rest'
-import { User, UserRT } from './types'
+import { rest, User, UserRT } from '../utils'
 
 const userApi = rest(
   { baseURL: 'http://localhost:9999', withCredentials: true },

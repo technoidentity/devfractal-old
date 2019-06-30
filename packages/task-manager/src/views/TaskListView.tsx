@@ -17,7 +17,7 @@ import {
   Title,
   Tr,
 } from 'technoidentity-devfractal'
-import { Task } from './types'
+import { Task } from '../utils'
 
 interface TaskItemProps {
   readonly taskItem: Task

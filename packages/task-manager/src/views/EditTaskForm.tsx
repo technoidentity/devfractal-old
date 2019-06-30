@@ -1,7 +1,7 @@
 import React from 'react'
-import { getTask, updateTask } from './taskAPI'
+import { getTask, updateTask } from '../api'
+import { Task } from '../utils'
 import { TaskForm } from './TaskForm'
-import { Task } from './types'
 
 export interface EditTaskFormProps {
   readonly id: string
