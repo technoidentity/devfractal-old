@@ -1,12 +1,12 @@
 import React from 'react'
 import { getTasks, sessionApi, TaskFilter } from '../api'
-import { ErrorView, Loading, useMany, useSubmit } from '../utils'
+import { ErrorView, Loading, ServerError, useMany, useSubmit } from '../utils'
 import { TaskListView } from '../views'
 
 export const TaskListRoute: React.FC = () => {
   const [filter, setFilter] = React.useState<TaskFilter>('all')
   const [tasks, error] = useMany(getTasks, filter)
-  const [, onLogout] = useSubmit('/', () => sessionApi.del(''))
+  const [serverError, onLogout] = useSubmit('/', () => sessionApi.del(''))
 
   if (error) {
     return <ErrorView error={error} />
@@ -15,6 +15,7 @@ export const TaskListRoute: React.FC = () => {
   if (tasks) {
     return (
       <>
+        <ServerError serverError={serverError} />
         <TaskListView
           taskList={tasks}
           // tslint:disable-next-line: no-unnecessary-callback-wrapper
