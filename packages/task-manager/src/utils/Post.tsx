@@ -16,7 +16,7 @@ export function Post<T>({
   onPost,
   component: Component,
 }: PostProps<T>): JSX.Element {
-  const [serverError, onSubmit] = useSubmit(url, onPost)
+  const { serverError, onSubmit } = useSubmit(url, onPost)
 
   return (
     <Section>

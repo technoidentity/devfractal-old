@@ -15,7 +15,7 @@ export function Async<T extends Object, P extends AnyTuple>({
   param,
   children,
 }: AsyncProps<T, P>): JSX.Element {
-  const [data, error, fetch] = useAsync(asyncFn, param)
+  const { data, error, fetch } = useAsync(asyncFn, param)
 
   if (error) {
     return <ErrorView error={error} />

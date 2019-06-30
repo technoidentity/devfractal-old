@@ -17,3 +17,11 @@ export const AuthProvider: React.FC = ({ children }) => {
 export function useAuth(): typeof defaultAuth {
   return React.useContext(AuthContext)
 }
+
+export function setLoggedIn(): void {
+  localStorage.setItem('loggedIn', JSON.stringify({ loggedIn: true }))
+}
+
+export function resetLoggedIn(): void {
+  localStorage.setItem('loggedIn', JSON.stringify({ loggedIn: true }))
+}

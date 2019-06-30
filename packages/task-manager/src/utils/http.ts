@@ -11,7 +11,7 @@ export interface MethodArgs {
   readonly query?: string | Record<string, any>
 }
 
-function noSlashWarning(s: string): void {
+function slashWarn(s: string): void {
   invariant(String.is(s))
 
   warning(!s.includes('/'), `${s} should not contain "/"`)
@@ -22,7 +22,7 @@ export interface RequestConfig extends AxiosRequestConfig {
 
 function buildResource(resource?: string): string {
   if (resource !== undefined) {
-    noSlashWarning(resource)
+    slashWarn(resource)
     return `/${resource}`
   }
   return ''
@@ -30,12 +30,12 @@ function buildResource(resource?: string): string {
 
 function buildPath(path?: string | ReadonlyArray<string>): string {
   if (Array.is(path)) {
-    path.forEach(noSlashWarning)
+    path.forEach(slashWarn)
     return `/${path.join('/')}`
   }
 
   if (String.is(path)) {
-    noSlashWarning(path)
+    slashWarn(path)
     return `/${path}`
   }
 

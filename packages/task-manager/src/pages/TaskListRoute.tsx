@@ -8,14 +8,7 @@ export const TaskListRoute: React.FC = () => {
 
   return (
     <Async asyncFn={getTasks} param={[filter]}>
-      {data => (
-        <TaskListView
-          taskList={data}
-          // tslint:disable-next-line: no-unnecessary-callback-wrapper
-
-          onFilterChange={setFilter}
-        />
-      )}
+      {data => <TaskListView taskList={data} onFilterChange={setFilter} />}
     </Async>
   )
 }

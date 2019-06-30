@@ -10,21 +10,21 @@ const dateInfo = intersection([dateInfoRequired, dateInfoPartial])
 
 const taskPartial = opt({ _id: string })
 const taskRequired = req({ title: string, description: string, dateInfo })
-export const TaskRT = intersection([taskPartial, taskRequired])
+export const Task = intersection([taskPartial, taskRequired])
 
-export type Task = TypeOf<typeof TaskRT>
+export type Task = TypeOf<typeof Task>
 
-export const UserRT = req({
+export const User = req({
   name: string,
   email: string,
   password: string,
 })
 
-export type User = TypeOf<typeof UserRT>
+export type User = TypeOf<typeof User>
 
-export const SessionRT = req({
+export const Session = req({
   name: string,
   password: string,
 })
 
-export type Session = TypeOf<typeof SessionRT>
+export type Session = TypeOf<typeof Session>

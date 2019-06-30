@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'technoidentity-devfractal'
 import { taskApi } from '../api'
-import { useAuth } from '../utils'
+import { resetLoggedIn, useAuth } from '../utils'
 
 export const Logout: React.FC = () => {
   const auth = useAuth()
@@ -12,10 +12,7 @@ export const Logout: React.FC = () => {
         <Button
           onClick={async () => {
             await taskApi.del('')
-            localStorage.setItem(
-              'loggedIn',
-              JSON.stringify({ loggedIn: false }),
-            )
+            resetLoggedIn()
           }}
           className="button is-dark"
         >

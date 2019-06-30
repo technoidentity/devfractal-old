@@ -1,6 +1,6 @@
 import React from 'react'
 import { sessionApi } from '../api'
-import { Post } from '../utils'
+import { Post, setLoggedIn } from '../utils'
 import { LoginForm } from '../views'
 
 export const LoginRoute: React.FC = () => (
@@ -9,7 +9,7 @@ export const LoginRoute: React.FC = () => (
     title="Login Form"
     onPost={async data => {
       const result = await sessionApi.create(data)
-      localStorage.setItem('loggedIn', JSON.stringify({ loggedIn: true }))
+      setLoggedIn()
       return result
     }}
     component={LoginForm}
