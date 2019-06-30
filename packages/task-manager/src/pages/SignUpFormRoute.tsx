@@ -1,10 +1,10 @@
 import React from 'react'
-import { createUser } from '../api'
+import { userApi } from '../api'
 import { ServerError, useSubmit } from '../utils'
 import { SignUpForm } from '../views'
 
 export const SignUpFormRoute: React.FC = () => {
-  const [serverError, onSignUp] = useSubmit('/login', createUser)
+  const [serverError, onSignUp] = useSubmit('/login', userApi.create)
 
   return (
     <>
