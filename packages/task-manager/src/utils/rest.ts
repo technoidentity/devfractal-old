@@ -32,16 +32,22 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
   })
 }
 
-// tslint:disable-next-line: typedef
+interface RestArgs<
+  A extends Record<string, any>,
+  O extends Record<string, any>,
+  I extends Record<string, any> | unknown = unknown
+> extends RequestConfig {
+  readonly resource: string
+  readonly type: Mixed & Type<A, O, I>
+}
+
 export function rest<
   A extends Record<string, any>,
   O extends Record<string, any>,
   I extends Record<string, any> | unknown = unknown
->(
-  resource: string,
-  type: Mixed & Type<A, O, I>,
-  options: RequestConfig,
-): API<A, I> {
+>(args: RestArgs<A, O, I>): API<A, I> {
+  const { resource, type, ...options } = args
+
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(
