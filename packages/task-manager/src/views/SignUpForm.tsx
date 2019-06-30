@@ -4,7 +4,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Section } from 'technoidentity-devfractal'
 import * as yup from 'yup'
-import { formSubmit } from '../utils/formSubmit'
+import { formSubmit } from '../utils'
 
 export interface SignUpValues {
   readonly name: string
