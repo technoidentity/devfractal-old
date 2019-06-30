@@ -16,28 +16,29 @@ export const TaskListRoute: React.FC<RouteComponentProps> = ({ history }) => {
       .then(setTasks)
       .catch(setError)
   }, [filter])
+
   if (error) {
     return <h1 className="is-text is-size-1 is-danger">{error.message}</h1>
   }
+
   const onLogout = async () => {
     await axios.delete('http://localhost:9999/session', {
       withCredentials: true,
     })
     history.push('/')
   }
+
   if (tasks) {
     return (
       <>
         <TaskListView
           taskList={tasks}
           onLogout={onLogout}
-          onCompleted={() => setFilter('completed')}
-          onPending={() => setFilter('pending')}
-          onToday={() => setFilter('today')}
-          onDeadline={() => setFilter('deadline')}
+          onFilterChange={setFilter}
         />
       </>
     )
   }
+
   return <h1 className="is-text is-size-1">is Loading....</h1>
 }

@@ -17,6 +17,7 @@ import {
   Title,
   Tr,
 } from 'technoidentity-devfractal'
+import { TaskFilter } from '../api'
 import { Task } from '../utils'
 
 interface TaskItemProps {
@@ -49,19 +50,13 @@ const TaskItem: React.FC<TaskItemProps> = ({
 
 export interface TaskListViewProps {
   readonly taskList: ReadonlyArray<Task>
-  onCompleted(): void
-  onPending(): void
-  onToday(): void
-  onDeadline(): void
+  onFilterChange(filter: TaskFilter): void
   onLogout(): void
 }
 
 export const TaskListView: React.FC<TaskListViewProps> = ({
   taskList,
-  onCompleted,
-  onPending,
-  onToday,
-  onDeadline,
+  onFilterChange,
   onLogout,
 }) => (
   <>
@@ -74,6 +69,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
         </NavbarItem>
       </NavbarEnd>
     </Navbar>
+
     <Section>
       <Title textAlignment="centered">Task Management</Title>
       <ButtonsGroup alignment="right">
@@ -81,6 +77,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
           Add
         </Link>
       </ButtonsGroup>
+
       <Table striped bordered fullWidth>
         <TableHead>
           <Tr>
@@ -99,17 +96,18 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
           ))}
         </TableBody>
       </Table>
+
       <Field grouped groupModifier="grouped-centered">
-        <Button variant="info" onClick={onToday}>
+        <Button variant="info" onClick={() => onFilterChange('today')}>
           Scheduled Today
         </Button>
-        <Button variant="success" onClick={onCompleted}>
+        <Button variant="success" onClick={() => onFilterChange('completed')}>
           Completed
         </Button>
-        <Button variant="danger" onClick={onPending}>
+        <Button variant="danger" onClick={() => onFilterChange('pending')}>
           Pending
         </Button>
-        <Button variant="warning" onClick={onDeadline}>
+        <Button variant="warning" onClick={() => onFilterChange('deadline')}>
           Deadline Today
         </Button>
       </Field>
