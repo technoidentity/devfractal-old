@@ -1,8 +1,8 @@
 import React from 'react'
 
-export function useOne<T extends Object>(
-  asyncFn: (id: string) => Promise<T>,
-  id: string,
+export function useGET<T extends Object, P>(
+  asyncFn: (param: P) => Promise<T>,
+  param: P,
   // tslint:disable-next-line: readonly-array
 ): [T | undefined, Error | undefined] {
   const [data, setData] = React.useState<T | undefined>(undefined)
@@ -12,10 +12,10 @@ export function useOne<T extends Object>(
     setData(undefined)
     setError(undefined)
 
-    asyncFn(id)
+    asyncFn(param)
       .then(setData)
       .catch(setError)
-  }, [id])
+  }, [param])
 
   return [data, error]
 }

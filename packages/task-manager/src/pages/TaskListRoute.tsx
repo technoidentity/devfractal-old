@@ -1,11 +1,11 @@
 import React from 'react'
 import { getTasks, sessionApi, TaskFilter } from '../api'
-import { ErrorView, Loading, ServerError, useMany, useSubmit } from '../utils'
+import { ErrorView, Loading, ServerError, useGET, useSubmit } from '../utils'
 import { TaskListView } from '../views'
 
 export const TaskListRoute: React.FC = () => {
   const [filter, setFilter] = React.useState<TaskFilter>('all')
-  const [tasks, error] = useMany(getTasks, filter)
+  const [tasks, error] = useGET(getTasks, filter)
   const [serverError, onLogout] = useSubmit('/', () => sessionApi.del(''))
 
   if (error) {

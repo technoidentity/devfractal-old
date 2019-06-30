@@ -10,9 +10,11 @@ export function useSubmit<T>(
     undefined,
   )
   const { history } = useRouter()
+
   const onSubmit = async (data: T) =>
     f(data)
       .then(() => history.push(url))
       .catch(err => setServerError(err.response.data.message))
+
   return [serverError, onSubmit]
 }
