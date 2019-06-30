@@ -12,6 +12,10 @@ export async function createTask(data: Task): Promise<Task> {
   return taskApi.create(data)
 }
 
+export async function deleteTask(id: string): Promise<void> {
+  return taskApi.del(id)
+}
+
 export async function getTask(id: string): Promise<Task> {
   return taskApi.get(id)
 }
