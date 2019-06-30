@@ -1,19 +1,10 @@
 import React from 'react'
-import { RouteComponentProps } from 'react-router'
 import { loginUser } from '../api'
-import { ServerError } from '../utils'
-import { LoginForm, LoginValues } from '../views'
+import { ServerError, useSubmit } from '../utils'
+import { LoginForm } from '../views'
 
-export const LoginRoute: React.FC<RouteComponentProps> = ({ history }) => {
-  const [serverError, setServerError] = React.useState<string | undefined>(
-    undefined,
-  )
-
-  const onLogin = async (data: LoginValues) => {
-    return loginUser(data)
-      .then(() => history.push('/tasks'))
-      .catch(err => setServerError(err.response.data.error))
-  }
+export const LoginRoute: React.FC = () => {
+  const [serverError, onLogin] = useSubmit('/tasks', loginUser)
 
   return (
     <>

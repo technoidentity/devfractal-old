@@ -5,7 +5,7 @@ import { ServerError, useSubmit } from '../utils'
 import { TaskForm } from '../views'
 
 export const CreateTaskRoute: React.FC = () => {
-  const [serverError, onSubmit] = useSubmit('/', createTask)
+  const [serverError, onSubmit] = useSubmit('/tasks', createTask)
 
   return (
     <Section>
