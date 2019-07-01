@@ -91,10 +91,10 @@ export const InnerTaskForm: React.FC<FormikProps<Task>> = () => (
         </div>
       </div>
 
-      <DatePickerField name="dateInfo.started" />
-      <DatePickerField name="dateInfo.deadline" />
-      <DatePickerField name="dateInfo.scheduled" />
-      <DatePickerField name="dateInfo.completed" />
+      <DatePickerField label="Started" name="dateInfo.started" />
+      <DatePickerField label="Deadline" name="dateInfo.deadline" />
+      <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
+      <DatePickerField label="Completed" name="dateInfo.completed" />
 
       <div className="field is-grouped is-grouped-centered">
         <p className="control">
