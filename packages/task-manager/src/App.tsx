@@ -12,17 +12,17 @@ import { NotFound } from './utils/NotFound'
 import { Header } from './views'
 
 export const App: React.FC = () => (
-  <AuthProvider>
-    <Router variant="browser">
+  <Router variant="browser">
+    <AuthProvider>
       <Header />
       <Switch>
-        <Route path="/" component={SignUpFormRoute} />
-        <Route path="/login" component={LoginRoute} />
-        <Route path="/tasks" component={TaskListRoute} />
-        <Route path="/tasks/add" component={CreateTaskRoute} />
-        <Route path="/tasks/:id/edit" component={EditTaskRoute} />
+        <Route exact path="/" component={SignUpFormRoute} />
+        <Route exact path="/login" component={LoginRoute} />
+        <Route exact path="/tasks" component={TaskListRoute} />
+        <Route exact path="/tasks/add" component={CreateTaskRoute} />
+        <Route exact path="/tasks/:id/edit" component={EditTaskRoute} />
         <Route component={NotFound} />
       </Switch>
-    </Router>
-  </AuthProvider>
+    </AuthProvider>
+  </Router>
 )
