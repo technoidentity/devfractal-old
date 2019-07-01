@@ -14,11 +14,17 @@ const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => (
   </div>
 )
 
-export const DatePickerField: React.FC<{ readonly name: string }> = ({
+export interface DatePickerFieldProps {
+  readonly name: string
+  readonly label: string
+}
+
+export const DatePickerField: React.FC<DatePickerFieldProps> = ({
   name,
+  label,
 }) => (
   <div className="field">
-    <label className="label">Completed</label>
+    <label className="label">{label}</label>
     <div className="control">
       <Field
         type="text"
