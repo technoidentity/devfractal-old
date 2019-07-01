@@ -1,7 +1,7 @@
-import { emptyFromType } from '@technoidentity/utils'
 import { FormikActions } from 'formik'
 import { Mixed, TypeOf } from 'io-ts'
 import React, { FC } from 'react'
+import { emptyFromType } from 'technoidentity-utils'
 import {
   Button,
   Container,

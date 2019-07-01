@@ -1,7 +1,7 @@
-import { camelCaseToPhrase } from '@technoidentity/utils'
 import { FormikActions } from 'formik'
 import React from 'react'
 import { Boolean, Function, Number } from 'tcomb'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import { Async, Label, Section, Simple } from '../lib'
 export interface SimpleEditorViewProps<T extends object> {
   readonly data: T

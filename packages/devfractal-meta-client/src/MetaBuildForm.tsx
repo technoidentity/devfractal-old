@@ -1,4 +1,4 @@
-import { PrimitiveMT } from '@technoidentity/meta-core'
+import { PrimitiveMT } from 'technoidentity-meta-core'
 import { Form, Formik, FormikActions } from 'formik'
 import React from 'react'
 import {

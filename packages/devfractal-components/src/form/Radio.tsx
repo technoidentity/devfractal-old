@@ -1,5 +1,5 @@
-import { warning } from '@technoidentity/utils'
 import React, { ChangeEvent } from 'react'
+import { warning } from 'technoidentity-utils'
 import {
   AllControlHelpers,
   classNamesHelper,

@@ -1,13 +1,13 @@
 {
-  "name": "@technoidentity/meta-client",
+  "name": "technoidentity-meta-client",
   "version": "0.5.9",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-meta-client.esm.js",
   "typings": "dist/index.d.ts",
   "dependencies": {
-    "@technoidentity/meta-core": "0.0.1",
-    "@technoidentity/utils": "0.0.1",
+    "technoidentity-meta-core": "0.0.1",
+    "technoidentity-utils": "0.0.1",
     "date-fns": "1.30.1",
     "formik": "1.5.7",
     "fp-ts": "1.19.3",

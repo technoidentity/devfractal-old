@@ -4,8 +4,8 @@ import {
   Mixed,
   NumberRefinements,
   StringRefinements,
-} from '@technoidentity/meta-core'
-import { buildObject } from '@technoidentity/utils'
+} from 'technoidentity-meta-core'
+import { buildObject } from 'technoidentity-utils'
 import {
   array,
   ArraySchema,

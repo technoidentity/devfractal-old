@@ -1,6 +1,6 @@
-import { camelCaseToPhrase } from '@technoidentity/utils'
 import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import React from 'react'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   number,
   NumberSchema,

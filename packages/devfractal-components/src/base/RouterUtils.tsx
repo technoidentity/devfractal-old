@@ -1,4 +1,3 @@
-import { invariant } from '@technoidentity/utils'
 import React from 'react'
 import {
   Redirect,
@@ -14,6 +13,7 @@ import {
   HashRouter,
   HashRouterProps,
 } from 'react-router-dom'
+import { invariant } from 'technoidentity-utils'
 
 export type WithRouterProps<T> = T & {
   readonly children?: React.ReactNode

@@ -1,5 +1,5 @@
-import { nop } from '@technoidentity/utils'
 import useAsync from 'react-use/lib/useAsync'
+import { nop } from 'technoidentity-utils'
 
 export interface AsyncComponentProps<T> {
   readonly isLoading: boolean

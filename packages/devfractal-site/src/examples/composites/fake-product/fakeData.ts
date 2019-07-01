@@ -1,4 +1,4 @@
-import { range } from '@technoidentity/utils'
+import { range } from 'technoidentity-utils'
 import Chance from 'chance'
 
 const chance: Chance.Chance = new Chance()

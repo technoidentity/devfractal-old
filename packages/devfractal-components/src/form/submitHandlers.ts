@@ -1,6 +1,6 @@
-import { jsonStringify } from '@technoidentity/utils'
 import axios from 'axios'
 import { FormikActions, FormikErrors } from 'formik'
+import { jsonStringify } from 'technoidentity-utils'
 
 export function consoleSubmit<Values extends object>(
   milliseconds: number = 0,

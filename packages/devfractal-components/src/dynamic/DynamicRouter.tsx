@@ -1,6 +1,6 @@
-import { capitalizeAll, toLower } from '@technoidentity/utils'
 import React from 'react'
 import { Route } from 'react-router-dom'
+import { capitalizeAll, toLower } from 'technoidentity-utils'
 import { RoutedTabs, RoutedTabsItem, SimpleRedirect } from '../lib'
 
 export interface DynamicRouterResult {

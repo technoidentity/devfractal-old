@@ -1,4 +1,4 @@
-import { buildObject, jsonStringify } from '@technoidentity/utils'
+import { buildObject, jsonStringify } from 'technoidentity-utils'
 import { compareAsc } from 'date-fns'
 import * as t from 'tcomb'
 import {

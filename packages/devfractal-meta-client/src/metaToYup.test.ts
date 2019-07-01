@@ -4,7 +4,7 @@ import {
   Mixed,
   MT,
   PrimitiveMT,
-} from '@technoidentity/meta-core'
+} from 'technoidentity-meta-core'
 import { Schema } from 'yup'
 import { metaToYup } from './metaToYup'
 

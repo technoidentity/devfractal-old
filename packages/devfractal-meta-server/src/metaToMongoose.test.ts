@@ -5,7 +5,7 @@ import {
   MMT,
   MNumber,
   MString,
-} from '@technoidentity/meta-core'
+} from 'technoidentity-meta-core'
 import { metaToModel } from './metaToMongoose'
 
 // tslint:disable typedef no-object-mutation

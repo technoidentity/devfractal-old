@@ -1,5 +1,5 @@
-import { warning } from '@technoidentity/utils'
 import React from 'react'
+import { warning } from 'technoidentity-utils'
 import {
   classNamesHelper,
   ControlledProps,

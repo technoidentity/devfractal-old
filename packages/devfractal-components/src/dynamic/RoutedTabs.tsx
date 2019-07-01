@@ -1,6 +1,6 @@
-import { chop, extractSegment } from '@technoidentity/utils'
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
+import { chop, extractSegment } from 'technoidentity-utils'
 import {
   classNamesHelper,
   El,

@@ -4,7 +4,7 @@ import {
   Mixed,
   MT,
   PrimitiveMT,
-} from '@technoidentity/meta-core'
+} from 'technoidentity-meta-core'
 import { metaToInitialValues } from './metaToInitialValues'
 
 const noEx: PrimitiveMT = { kind: 'number' }

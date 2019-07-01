@@ -1,5 +1,5 @@
 {
-  "name": "@technoidentity/meta-server",
+  "name": "technoidentity-meta-server",
   "version": "0.0.1",
   "description": "Meta utilities for server.",
   "main": "dist/index.js",
@@ -25,8 +25,8 @@
     "validate": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "@technoidentity/meta-core": "0.0.1",
-    "@technoidentity/utils": "0.0.1",
+    "technoidentity-meta-core": "0.0.1",
+    "technoidentity-utils": "0.0.1",
     "express": "4.17.1",
     "fp-ts": "1.19.3",
     "io-ts": "1.10.2",

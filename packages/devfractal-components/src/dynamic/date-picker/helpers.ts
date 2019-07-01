@@ -1,4 +1,3 @@
-import { range } from '@technoidentity/utils'
 import {
   getDate,
   getDaysInMonth,
@@ -7,6 +6,7 @@ import {
   isDate,
   isValid,
 } from 'date-fns'
+import { range } from 'technoidentity-utils'
 
 export function currentYear(): number {
   return new Date().getFullYear()

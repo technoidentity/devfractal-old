@@ -1,5 +1,5 @@
-import { EnumMT, Mixed, MT, PrimitiveMT } from '@technoidentity/meta-core'
-import { camelCaseToPhrase } from '@technoidentity/utils'
+import { EnumMT, Mixed, MT, PrimitiveMT } from 'technoidentity-meta-core'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import { FormikActions } from 'formik'
 import React from 'react'
 import { Field, Label, Simple } from 'technoidentity-devfractal'

@@ -1,5 +1,5 @@
-import { chop, invariant, typeInvariant } from '@technoidentity/utils'
 import { Int, string, TypeOf, union } from 'io-ts'
+import { chop, invariant, typeInvariant } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 const idRT = union([Int, string])

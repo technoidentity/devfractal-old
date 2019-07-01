@@ -1,7 +1,7 @@
-import { chop } from '@technoidentity/utils'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { NavLink } from 'react-router-dom'
+import { chop } from 'technoidentity-utils'
 import {
   classNamesHelper,
   El,

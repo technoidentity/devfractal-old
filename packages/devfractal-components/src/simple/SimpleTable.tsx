@@ -1,6 +1,6 @@
-import { camelCaseToPhrase } from '@technoidentity/utils'
 import React from 'react'
 import { Boolean, Function } from 'tcomb'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   Async,
   CheckBox,

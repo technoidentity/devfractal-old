@@ -15,7 +15,7 @@ import {
   Positive,
   Upper,
   Url,
-} from '@technoidentity/utils'
+} from 'technoidentity-utils'
 import * as t from 'tcomb'
 import {
   ArrayRefinements,

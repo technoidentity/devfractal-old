@@ -1,6 +1,6 @@
-import { jsonStringify } from '@technoidentity/utils'
 import { FormikConsumer } from 'formik'
 import React from 'react'
+import { jsonStringify } from 'technoidentity-utils'
 
 export const DebugField: React.FC = () => (
   <FormikConsumer>

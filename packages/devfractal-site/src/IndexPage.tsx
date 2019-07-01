@@ -423,7 +423,7 @@ export const BottomSection: React.FC = () => (
             SUPPORT
           </Text>
           <Ol textSize="6">
-            <li style={{ listStyle: 'none' }}>support@technoidentity.com</li>
+            <li style={{ listStyle: 'none' }}>supporttechnoidentity-.com</li>
           </Ol>
           <Ol textSize="6">
             <li style={{ listStyle: 'none' }}>Privacy Policy</li>

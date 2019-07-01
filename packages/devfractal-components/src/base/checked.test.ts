@@ -1,5 +1,5 @@
-import { range } from '@technoidentity/utils'
 import * as t from 'io-ts'
+import { range } from 'technoidentity-utils'
 import { checked } from './checked'
 
 // tslint:disable typedef

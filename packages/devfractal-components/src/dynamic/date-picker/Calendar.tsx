@@ -1,7 +1,7 @@
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
-import { range } from '@technoidentity/utils'
 import { isSameDay, isThisMonth } from 'date-fns'
 import React from 'react'
+import { range } from 'technoidentity-utils'
 import {
   Button,
   Icon,
