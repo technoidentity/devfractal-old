@@ -1,6 +1,6 @@
 import { intersection, string, TypeOf, union } from 'io-ts'
 import { date, DateFromISOString } from 'io-ts-types'
-import { opt, req } from 'technoidentity-devfractal'
+import { opt, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])
 

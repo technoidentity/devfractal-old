@@ -1,7 +1,7 @@
 import { produce } from 'immer'
 import { Mixed, readonlyArray, Type } from 'io-ts'
 import { Array } from 'tcomb'
-import { typeInvariant } from 'technoidentity-devfractal'
+import { typeInvariant } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
 interface API<

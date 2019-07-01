@@ -19,7 +19,8 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "tcomb": "^3.2.29",
-    "technoidentity-devfractal": "^0.5.8",
+    "technoidentity-devfractal": "^0.7.8",
+    "technoidentity-utils": "^0.0.1",
     "typelevel-ts": "^0.3.5",
     "use-immer": "^0.3.2",
     "yup": "^0.27.0"
@@ -51,7 +52,6 @@
   },
   "scripts": {
     "start": "parcel index.html --open",
-    "prebuild": "yarn clean",
     "build": "parcel build index.html",
     "test": "jest",
     "test:watch": "jest --watch",

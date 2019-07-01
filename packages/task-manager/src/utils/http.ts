@@ -3,7 +3,7 @@ import { Type } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import { Array, String } from 'tcomb'
-import { chop, invariant, warning } from 'technoidentity-devfractal'
+import { chop, invariant, warning } from 'technoidentity-utils'
 
 export interface MethodArgs {
   readonly resource?: string
