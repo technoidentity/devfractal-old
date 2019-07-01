@@ -6,6 +6,7 @@ interface AsyncResult<T extends Object> {
   readonly error: Error | undefined
   fetch(): void
 }
+
 export function useAsync<T extends Object, P extends AnyTuple>(
   asyncFn: (...param: P) => Promise<T>,
   param: P,
@@ -14,14 +15,19 @@ export function useAsync<T extends Object, P extends AnyTuple>(
   const [data, setData] = React.useState<T | undefined>(undefined)
   const [error, setError] = React.useState<Error | undefined>(undefined)
   const [fetchAgain, setFetchAgain] = React.useState(0)
+  const mounted = React.useRef(true)
 
   React.useEffect(() => {
     setData(undefined)
     setError(undefined)
 
     asyncFn(...param)
-      .then(setData)
-      .catch(setError)
+      .then(data => mounted.current && setData(data))
+      .catch(error => mounted.current && setError(error))
+
+    return () => {
+      mounted.current = false
+    }
   }, [param, fetchAgain])
 
   const fetch = () => setFetchAgain(count => count + 1)
