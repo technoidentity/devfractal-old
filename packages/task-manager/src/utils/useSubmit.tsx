@@ -19,7 +19,7 @@ export function useSubmit<T extends Object>(
   async function onSubmit(data: T): Promise<void> {
     f(data)
       .then(() => history.push(url))
-      .catch(err => setServerError(err.response.data.message))
+      .catch(err => setServerError(err.response.data.error))
   }
 
   return { serverError, onSubmit }
