@@ -132,5 +132,5 @@
   "linterOptions": {
     "exclude": ["build/**", ".rts2*/**", "node_modules/**"]
   },
-  "defaultSeverity": "warn"
+  "defaultSeverity": "error"
 }
