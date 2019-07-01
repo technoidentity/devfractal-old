@@ -21,7 +21,7 @@ export interface RequestConfig extends AxiosRequestConfig {
 }
 
 function buildResource(resource?: string): string {
-  if (resource !== undefined) {
+  if (resource !== undefined && resource.trim() !== '') {
     slashWarn(resource)
     return `/${resource}`
   }
@@ -30,11 +30,12 @@ function buildResource(resource?: string): string {
 
 function buildPath(path?: string | ReadonlyArray<string>): string {
   if (Array.is(path)) {
-    path.forEach(slashWarn)
-    return `/${path.join('/')}`
+    const paths = path.filter(p => p.trim() !== '')
+    paths.forEach(slashWarn)
+    return paths.length === 0 ? '' : `/${paths.join('/')}`
   }
 
-  if (String.is(path)) {
+  if (String.is(path) && path.trim() !== '') {
     slashWarn(path)
     return `/${path}`
   }
@@ -43,7 +44,7 @@ function buildPath(path?: string | ReadonlyArray<string>): string {
 }
 
 function buildQueryString(query?: string | Record<string, any>): string {
-  return query === undefined
+  return query === undefined || Object.keys(query).length === 0
     ? ''
     : `?${String.is(query) ? query : stringify(query)}`
 }

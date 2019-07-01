@@ -41,6 +41,9 @@ test('buildUrl with resource, path and query', () => {
 
 test('buildUrl with empty', () => {
   expect(buildUrl({})).toEqual('')
+  expect(buildUrl({ path: '' })).toEqual('')
+  expect(buildUrl({ resource: '' })).toEqual('')
+  expect(buildUrl({ query: {} })).toEqual('')
 })
 
 test('get', async () => {
