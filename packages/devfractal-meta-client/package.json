@@ -20,7 +20,7 @@
     "react-router-dom": "5.0.1",
     "shortid": "2.2.14",
     "tcomb": "3.2.29",
-    "technoidentity-devfractal": "0.7.4",
+    "technoidentity-devfractal": "0.7.8",
     "yup": "0.27.0"
   },
   "devDependencies": {

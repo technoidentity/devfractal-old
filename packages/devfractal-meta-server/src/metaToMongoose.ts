@@ -1,6 +1,6 @@
+import { Document, model, Model, Schema, SchemaDefinition } from 'mongoose'
 import { MT, PropertyMT } from 'technoidentity-meta-core'
 import { buildObject } from 'technoidentity-utils'
-import { Document, model, Model, Schema, SchemaDefinition } from 'mongoose'
 
 function mtToMongoSchema(meta: PropertyMT): any {
   switch (meta.kind) {

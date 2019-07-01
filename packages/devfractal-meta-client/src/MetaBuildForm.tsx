@@ -1,4 +1,3 @@
-import { PrimitiveMT } from 'technoidentity-meta-core'
 import { Form, Formik, FormikActions } from 'formik'
 import React from 'react'
 import {
@@ -13,6 +12,7 @@ import {
   SimpleArrayFieldComponentProps,
   Text,
 } from 'technoidentity-devfractal'
+import { PrimitiveMT } from 'technoidentity-meta-core'
 
 export interface MetaBuildFormProps {
   onSubmit(values: any, formikActions: FormikActions<any>): void

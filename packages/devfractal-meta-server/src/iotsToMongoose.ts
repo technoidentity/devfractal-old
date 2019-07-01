@@ -1,7 +1,7 @@
-import { buildObject } from 'technoidentity-utils'
 import * as t from 'io-ts'
 import { DateType } from 'io-ts-types'
 import { Document, model, Model, Schema } from 'mongoose'
+import { buildObject } from 'technoidentity-utils'
 
 const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
   if (value.name === 'Int') {

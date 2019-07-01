@@ -1,5 +1,5 @@
-import { buildObject, keys } from 'technoidentity-utils'
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema'
+import { buildObject, keys } from 'technoidentity-utils'
 import {
   ArrayRefinements,
   Mixed,
@@ -40,15 +40,15 @@ function toJsonSchemaStringRefinements(r: StringRefinements): JSONSchema7 {
   if (r.base === 'url') {
     schema.format = 'uri'
   }
-  if(r.strLength) {
+  if (r.strLength) {
     if (r.strLength.max) {
-        schema.maxLength = r.strLength.max
+      schema.maxLength = r.strLength.max
     }
     if (r.strLength.min) {
-        schema.minLength = r.strLength.min
+      schema.minLength = r.strLength.min
     }
     if (r.strLength.fixed) {
-        schema.maxLength = r.strLength.fixed
+      schema.maxLength = r.strLength.fixed
     }
   }
 
