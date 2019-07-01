@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/technoidentity-devfractal.esm.js",
@@ -11,7 +11,6 @@
     "@fortawesome/free-regular-svg-icons": "5.9.0",
     "@fortawesome/free-solid-svg-icons": "5.9.0",
     "@fortawesome/react-fontawesome": "0.1.4",
-    "@technoidentity/utils": "0.0.1",
     "axios": "0.19.0",
     "bulma": "0.7.5",
     "cleave.js": "1.5.0",
@@ -33,7 +32,8 @@
     "react-use": "9.7.2",
     "rxjs": "6.5.2",
     "shortid": "2.2.14",
-    "tcomb": "3.2.29"
+    "tcomb": "3.2.29",
+    "technoidentity-utils": "0.0.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "5.1.9",
