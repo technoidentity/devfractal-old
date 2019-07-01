@@ -35,3 +35,23 @@ export const TodoRoutes: React.FC = () => {
     </Section>
   )
 }
+
+// import React from 'react'
+// import { api, Crud, Section, SimpleRedirect } from 'technoidentity-devfractal'
+// import { TodoRT } from './types'
+
+// const resource: string = 'todos'
+// const basePath: string = '/crud'
+// const baseURL: string = 'http://localhost:3000'
+
+// export const TodoRoutes: React.FC = () => {
+//   // tslint:disable-next-line: typedef
+//   const todoAPI = api({ baseURL, value: TodoRT, id: 'id', resource })
+
+//   return (
+//     <Section>
+//       <SimpleRedirect exact from="/crud" to="/crud/todos" />
+//       <Crud api={todoAPI} basePath={basePath} />
+//     </Section>
+//   )
+// }
