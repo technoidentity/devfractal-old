@@ -30,7 +30,7 @@ export function useAsync<T extends Object, P extends AnyTuple>(
     }
   }, [param, fetchAgain])
 
-  const fetch = () => setFetchAgain(count => count + 1)
+  const fetch = () => setFetchAgain(count => (count + 1) % 100)
 
   return { data, error, fetch }
 }
