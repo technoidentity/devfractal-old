@@ -1,5 +1,4 @@
 export * from './Async'
-export * from './checked'
 export * from './classNames'
 export * from './componentUtils'
 export * from './el'

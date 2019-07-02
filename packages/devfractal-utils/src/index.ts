@@ -1,4 +1,5 @@
 export * from './assertions'
+export * from './checked'
 export * from './coercions'
 export * from './common'
 export * from './empty'
