@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'technoidentity-devfractal'
-import { taskApi } from '../api'
+import { taskApi } from '../common'
 import { resetLoggedIn, useAuth } from '../utils'
 
 export const Logout: React.FC = () => {

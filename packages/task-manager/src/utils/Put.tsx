@@ -31,7 +31,7 @@ export function Put<T>({
     <section className="section">
       {title && <h1 className="title has-text-centered">{title}</h1>}
       <ServerError error={serverError} />
-      <Async asyncFn={doGet} param={[id]}>
+      <Async asyncFn={doGet} params={[id]}>
         {data => <Component initial={data} onSubmit={onSubmit} />}
       </Async>
     </section>

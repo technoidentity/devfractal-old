@@ -14,8 +14,7 @@ import {
   Title,
   Tr,
 } from 'technoidentity-devfractal'
-import { TaskFilter } from '../api'
-import { Task } from '../common'
+import { Task, TaskFilter } from '../common'
 
 interface TaskItemProps {
   readonly taskItem: Task

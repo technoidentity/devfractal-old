@@ -5,8 +5,8 @@ import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import { ErrorField, Section } from 'technoidentity-devfractal'
 import * as yup from 'yup'
-import { Task } from '../common'
-import { DatePickerField, formSubmit } from '../utils'
+import { DatePickerField, Task } from '../common'
+import { formSubmit } from '../utils'
 
 const currentDate = format(new Date(), 'YYYY-MM-DD')
 

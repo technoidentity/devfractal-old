@@ -1,5 +1,5 @@
 import React from 'react'
-import { userApi } from '../api'
+import { userApi } from '../common'
 import { Post } from '../utils'
 import { SignUpForm } from '../views'
 

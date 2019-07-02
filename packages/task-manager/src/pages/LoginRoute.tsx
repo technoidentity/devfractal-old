@@ -1,5 +1,5 @@
 import React from 'react'
-import { sessionApi } from '../api'
+import { sessionApi } from '../common'
 import { Post, setLoggedIn } from '../utils'
 import { LoginForm } from '../views'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Section } from 'technoidentity-devfractal'
-import { ServerError } from './ServerError'
+import { ServerError } from './Components'
 import { useSubmit } from './useSubmit'
 
 export interface PostProps<T> {

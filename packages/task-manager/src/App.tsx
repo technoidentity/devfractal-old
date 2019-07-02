@@ -7,8 +7,7 @@ import {
   SignUpFormRoute,
   TaskListRoute,
 } from './pages'
-import { AuthProvider, Router, SafeRoute as Route } from './utils'
-import { NotFound } from './utils/NotFound'
+import { AuthProvider, NotFound, Router, SafeRoute as Route } from './utils'
 import { Header } from './views'
 
 export const App: React.FC = () => (

@@ -7,7 +7,7 @@ interface AsyncResult<T extends Object> {
   refresh(): void
 }
 
-export function useAsync<T extends Object, P extends AnyTuple>(
+export function useGet<T extends Object, P extends AnyTuple>(
   asyncFn: (...param: P) => Promise<T>,
   param: P,
   // tslint:disable-next-line: readonly-array

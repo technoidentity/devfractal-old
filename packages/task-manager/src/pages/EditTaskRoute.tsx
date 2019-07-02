@@ -1,7 +1,6 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { taskApi } from '../api'
-import { Task } from '../common'
+import { Task, taskApi } from '../common'
 import { Put } from '../utils'
 import { TaskForm } from '../views'
 

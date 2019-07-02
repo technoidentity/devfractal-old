@@ -1,6 +1,5 @@
 import React from 'react'
-import { taskApi } from '../api'
-import { Task } from '../common'
+import { Task, taskApi } from '../common'
 import { Post } from '../utils'
 import { TaskForm } from '../views'
 
