@@ -1,12 +1,13 @@
 import React from 'react'
 import { taskApi } from '../api'
-import { Post, Task } from '../utils'
+import { Task } from '../common'
+import { Post } from '../utils'
 import { TaskForm } from '../views'
 
 export const CreateTaskRoute: React.FC = () => (
   <Post<Task>
     title="Create Task"
-    url="/tasks"
+    redirectURL="/tasks"
     onPost={taskApi.create}
     component={TaskForm}
   />

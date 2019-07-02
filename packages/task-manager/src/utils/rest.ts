@@ -4,20 +4,17 @@ import { Array } from 'tcomb'
 import { typeInvariant } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
+type APIMethodArgs = Omit<MethodArgs, 'resource'>
 interface API<
   A extends Record<string, any>,
   I extends Record<string, any> | unknown = unknown
 > {
-  many(options?: Omit<MethodArgs, 'resource'>): Promise<readonly A[]>
-  one(options?: Omit<MethodArgs, 'resource'>): Promise<A>
-  create(data: I, options?: Omit<MethodArgs, 'resource'>): Promise<A>
-  get(id: string, options?: Omit<MethodArgs, 'resource'>): Promise<A>
-  update(
-    id: string,
-    data: I,
-    options?: Omit<MethodArgs, 'resource'>,
-  ): Promise<A>
-  del(id: string, options?: Omit<MethodArgs, 'resource'>): Promise<void>
+  many(options?: APIMethodArgs): Promise<readonly A[]>
+  one(options?: APIMethodArgs): Promise<A>
+  create(data: I, options?: APIMethodArgs): Promise<A>
+  get(id: string, options?: APIMethodArgs): Promise<A>
+  update(id: string, data: I, options?: APIMethodArgs): Promise<A>
+  del(id: string, options?: APIMethodArgs): Promise<void>
 }
 
 function appendId(options: MethodArgs, id: string): MethodArgs {
@@ -27,7 +24,7 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
     } else if (Array.is(draft.path)) {
       draft.path.unshift(id)
     } else {
-      draft.path = [draft.path, id]
+      draft.path = [id, draft.path]
     }
   })
 }
@@ -50,43 +47,32 @@ export function rest<
 
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
-  async function many(
-    options: Omit<MethodArgs, 'resource'>,
-  ): Promise<ReadonlyArray<A>> {
+  async function many(options: APIMethodArgs): Promise<ReadonlyArray<A>> {
     return http.get({ ...options, resource }, readonlyArray(type))
   }
 
-  async function one(options: Omit<MethodArgs, 'resource'>): Promise<A> {
+  async function one(options: APIMethodArgs): Promise<A> {
     return http.get({ ...options, resource }, type)
   }
 
-  async function create(
-    data: I,
-    options: Omit<MethodArgs, 'resource'>,
-  ): Promise<A> {
+  async function create(data: I, options: APIMethodArgs): Promise<A> {
     typeInvariant(type, data)
 
     return http.post({ ...options, resource }, data, type)
   }
 
-  async function del(
-    id: string,
-    options?: Omit<MethodArgs, 'resource'>,
-  ): Promise<void> {
+  async function del(id: string, options?: APIMethodArgs): Promise<void> {
     return http.del(appendId({ ...options, resource }, id))
   }
 
-  async function get(
-    id: string,
-    options: Omit<MethodArgs, 'resource'>,
-  ): Promise<A> {
+  async function get(id: string, options: APIMethodArgs): Promise<A> {
     return one(appendId({ ...options, resource }, id))
   }
 
   async function update(
     id: string,
     data: I,
-    options: Omit<MethodArgs, 'resource'>,
+    options: APIMethodArgs,
   ): Promise<A> {
     typeInvariant(type, data)
 

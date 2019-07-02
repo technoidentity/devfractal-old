@@ -6,7 +6,7 @@ import { SignUpForm } from '../views'
 export const SignUpFormRoute: React.FC = () => (
   <Post
     title="Sign up form"
-    url="/login"
+    redirectURL="/login"
     onPost={userApi.create}
     component={SignUpForm}
   />

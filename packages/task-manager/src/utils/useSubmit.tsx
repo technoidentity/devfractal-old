@@ -7,18 +7,19 @@ export interface SubmitResult<T extends Object> {
 }
 
 export function useSubmit<T extends Object>(
-  url: string,
-  f: (data: T) => Promise<T>,
+  f: (formValues: T) => Promise<T>,
+  redirectURL?: string,
   // tslint:disable-next-line: readonly-array
 ): SubmitResult<T> {
   const [serverError, setServerError] = React.useState<string | undefined>(
     undefined,
   )
+
   const { history } = useRouter()
 
   async function onSubmit(data: T): Promise<void> {
     f(data)
-      .then(() => history.push(url))
+      .then(() => redirectURL && history.push(redirectURL))
       .catch(err => setServerError(err.response.data.error))
   }
 

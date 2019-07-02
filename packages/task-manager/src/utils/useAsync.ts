@@ -4,7 +4,7 @@ import { AnyTuple } from 'typelevel-ts'
 interface AsyncResult<T extends Object> {
   readonly data: T | undefined
   readonly error: Error | undefined
-  fetch(): void
+  refresh(): void
 }
 
 export function useAsync<T extends Object, P extends AnyTuple>(
@@ -32,5 +32,5 @@ export function useAsync<T extends Object, P extends AnyTuple>(
 
   const fetch = () => setFetchAgain(count => (count + 1) % 100)
 
-  return { data, error, fetch }
+  return { data, error, refresh: fetch }
 }

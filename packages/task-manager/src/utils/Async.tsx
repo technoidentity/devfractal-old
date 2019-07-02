@@ -15,14 +15,14 @@ export function Async<T extends Object, P extends AnyTuple>({
   param,
   children,
 }: AsyncProps<T, P>): JSX.Element {
-  const { data, error, fetch } = useAsync(asyncFn, param)
+  const { data, error, refresh } = useAsync(asyncFn, param)
 
   if (error) {
     return <ErrorView error={error} />
   }
 
   if (data) {
-    return children(data, fetch)
+    return children(data, refresh)
   }
 
   return <Loading />

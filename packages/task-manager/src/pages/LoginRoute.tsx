@@ -5,7 +5,7 @@ import { LoginForm } from '../views'
 
 export const LoginRoute: React.FC = () => (
   <Post
-    url="/tasks"
+    redirectURL="/tasks"
     title="Login Form"
     onPost={async data => {
       const result = await sessionApi.create(data)

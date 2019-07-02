@@ -1,7 +1,8 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { taskApi } from '../api'
-import { Put, Task } from '../utils'
+import { Task } from '../common'
+import { Put } from '../utils'
 import { TaskForm } from '../views'
 
 // @TODO: Use useRouter, fix 'match' type
@@ -12,7 +13,7 @@ export const EditTaskRoute: React.FC<
 > = ({ match }) => (
   <Put<Task>
     title="Edit Task"
-    url="/tasks"
+    redirectURL="/tasks"
     id={match.params.id}
     doGet={taskApi.get}
     onPut={taskApi.update}
