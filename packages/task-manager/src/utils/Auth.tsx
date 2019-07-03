@@ -14,6 +14,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [value, set] = useLocalStorage('loggedIn', 'no')
 
   const login = () => set('yes')
+
   const logout = () => set('no')
 
   return (
@@ -27,6 +28,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
 export function useAuth(): AuthContext {
   const result = React.useContext(AuthContext)
+
   invariant(result !== undefined, 'You need AuthProvider as ancestor somewhere')
 
   return result as AuthContext

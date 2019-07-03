@@ -25,6 +25,7 @@ function buildResource(resource?: string): string {
     slashWarn(resource)
     return `/${resource}`
   }
+
   return ''
 }
 
