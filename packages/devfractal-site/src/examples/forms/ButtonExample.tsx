@@ -424,6 +424,12 @@ const ListOfButtonsExample: React.FC = () => (
       <ButtonComponent variant="danger">Cancel</ButtonComponent>
     </ButtonsGroup>
 
+    <ButtonsGroup size="large">
+      <ButtonComponent>All</ButtonComponent>
+      <ButtonComponent>Medium</ButtonComponent>
+      <ButtonComponent>Size</ButtonComponent>
+    </ButtonsGroup>
+
     <ButtonsGroup>
       <ButtonComponent>One</ButtonComponent>
       <ButtonComponent>Two</ButtonComponent>
