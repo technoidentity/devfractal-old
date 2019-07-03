@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { Section } from 'technoidentity-devfractal'
+import { Section, Title } from 'technoidentity-devfractal'
 import { Task, taskApi } from '../common'
 import { Put } from '../utils'
 import { TaskForm } from '../views'
@@ -12,7 +12,7 @@ export const EditTaskRoute: React.FC<
   }>
 > = ({ match }) => (
   <Section>
-    <h1 className="title has-text-centered">Edit Task</h1>
+    <Title textAlignment="centered">Edit Task</Title>
     <Put<Task>
       redirectURL="/tasks"
       id={match.params.id}
