@@ -423,13 +423,12 @@ const ListOfButtonsExample: React.FC = () => (
       <ButtonComponent variant="info">Save and continue</ButtonComponent>
       <ButtonComponent variant="danger">Cancel</ButtonComponent>
     </ButtonsGroup>
-
-    <ButtonsGroup size="large">
+    {/* @TODO: fix typecheck
+      <ButtonsGroup size="large">
       <ButtonComponent>All</ButtonComponent>
       <ButtonComponent>Medium</ButtonComponent>
       <ButtonComponent>Size</ButtonComponent>
-    </ButtonsGroup>
-
+    </ButtonsGroup> */}
     <ButtonsGroup>
       <ButtonComponent>One</ButtonComponent>
       <ButtonComponent>Two</ButtonComponent>
@@ -452,7 +451,6 @@ const ListOfButtonsExample: React.FC = () => (
       <ButtonComponent>Nineteen</ButtonComponent>
       <ButtonComponent>Twenty</ButtonComponent>
     </ButtonsGroup>
-
     <Box>
       <Label>Addons</Label>
       <ButtonsGroup addons>
@@ -473,7 +471,6 @@ const ListOfButtonsExample: React.FC = () => (
         <ButtonComponent>No</ButtonComponent>
       </ButtonsGroup>
     </Box>
-
     <Box>
       <ButtonsGroup addons>
         <ButtonComponent variant="success" state="selected">
