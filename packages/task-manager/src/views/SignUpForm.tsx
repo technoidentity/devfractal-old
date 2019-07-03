@@ -41,22 +41,20 @@ const schema = yup.object().shape({
 
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref('password'), undefined], 'Passwords must match'),
+    .oneOf([yup.ref('password')], 'Passwords must match'),
 })
 
 export interface SignUpFormProps {
   onSubmit(values: SignUpValues): Promise<void>
 }
 
-export const SignUpForm: React.FC<SignUpFormProps> = ({
-  onSubmit: onSignUp,
-}) => (
+export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => (
   <Section>
     <Columns columnCentered>
       <Column size="half">
         <Simple.Form
           initialValues={initialValues}
-          onSubmit={formSubmit(onSignUp)}
+          onSubmit={formSubmit(onSubmit)}
           validationSchema={schema}
         >
           <Simple.Text name="name" label="Username" />
