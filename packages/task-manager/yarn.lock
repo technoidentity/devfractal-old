@@ -6672,6 +6672,19 @@ react-use@9.7.2:
     throttle-debounce "^2.0.1"
     ts-easing "^0.2.0"
 
+react-use@^9.8.1:
+  version "9.8.1"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.8.1.tgz#ace752444e5925eeac4b6366d2bac030beffbfdb"
+  integrity sha512-FYwJEczwc4JFXdgnnZqHY9yHfD+56BP0ubv9HQhvNWO0ajeyIlEdD9gcgfQo8/2NSLmzS2AVWom1D+GGxAXR+g==
+  dependencies:
+    copy-to-clipboard "^3.1.0"
+    nano-css "^5.1.0"
+    react-fast-compare "^2.0.4"
+    react-wait "^0.3.0"
+    screenfull "^4.1.0"
+    throttle-debounce "^2.0.1"
+    ts-easing "^0.2.0"
+
 react-wait@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/react-wait/-/react-wait-0.3.0.tgz#0cdd4d919012451a5bc3ab0a16d00c6fd9a8c10b"

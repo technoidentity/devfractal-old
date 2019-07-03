@@ -1,27 +1,33 @@
 import React from 'react'
+import { useLocalStorage } from 'react-use'
+import { invariant } from 'technoidentity-utils'
 
-const defaultAuth = { loggedIn: false }
+interface AuthContext {
+  readonly isLoggedIn: boolean
+  login(): void
+  logout(): void
+}
 
-const AuthContext = React.createContext(defaultAuth)
+const AuthContext = React.createContext<AuthContext | undefined>(undefined)
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const auth = localStorage.getItem('loggedIn')
+  const [value, set] = useLocalStorage('loggedIn', 'no')
+
+  const login = () => set('yes')
+  const logout = () => set('no')
 
   return (
-    <AuthContext.Provider value={auth ? JSON.parse(auth) : defaultAuth}>
+    <AuthContext.Provider
+      value={{ isLoggedIn: value === 'yes', login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   )
 }
 
-export function useAuth(): typeof defaultAuth {
-  return React.useContext(AuthContext)
-}
+export function useAuth(): AuthContext {
+  const result = React.useContext(AuthContext)
+  invariant(result !== undefined, 'You need AuthProvider as ancestor somewhere')
 
-export function setLoggedIn(): void {
-  localStorage.setItem('loggedIn', JSON.stringify({ loggedIn: true }))
-}
-
-export function resetLoggedIn(): void {
-  localStorage.setItem('loggedIn', JSON.stringify({ loggedIn: true }))
+  return result as AuthContext
 }
