@@ -1,5 +1,6 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
+import { Section } from 'technoidentity-devfractal'
 import { Task, taskApi } from '../common'
 import { Put } from '../utils'
 import { TaskForm } from '../views'
@@ -10,12 +11,14 @@ export const EditTaskRoute: React.FC<
     readonly id: string
   }>
 > = ({ match }) => (
-  <Put<Task>
-    title="Edit Task"
-    redirectURL="/tasks"
-    id={match.params.id}
-    doGet={taskApi.get}
-    onPut={taskApi.update}
-    component={TaskForm}
-  />
+  <Section>
+    <h1 className="title has-text-centered">Edit Task</h1>
+    <Put<Task>
+      redirectURL="/tasks"
+      id={match.params.id}
+      doGet={taskApi.get}
+      onPut={taskApi.update}
+      component={TaskForm}
+    />
+  </Section>
 )

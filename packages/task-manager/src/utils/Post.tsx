@@ -1,5 +1,4 @@
 import React from 'react'
-import { Section } from 'technoidentity-devfractal'
 import { ServerError } from './Components'
 import { useSubmit } from './useSubmit'
 
@@ -11,7 +10,6 @@ export interface PostProps<T> {
 }
 
 export function Post<T>({
-  title,
   redirectURL,
   onPost,
   component: Component,
@@ -19,10 +17,9 @@ export function Post<T>({
   const { serverError, onSubmit } = useSubmit(onPost, redirectURL)
 
   return (
-    <Section>
-      {title && <h1 className="title has-text-centered">{title}</h1>}
+    <>
       <ServerError error={serverError} />
       <Component onSubmit={onSubmit} />
-    </Section>
+    </>
   )
 }
