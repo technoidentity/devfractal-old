@@ -6,7 +6,6 @@ type TagVariant =
   | 'dark'
   | 'light'
   | 'primary'
-  | 'link'
   | 'info'
   | 'success'
   | 'warning'
@@ -15,7 +14,7 @@ type TagVariant =
 
 type TagSize = 'normal' | 'medium' | 'large'
 
-type TagModifier = 'rounded' | 'delete'
+type TagModifier = 'link' | 'delete'
 
 export interface TagProps
   extends React.HTMLAttributes<HTMLSpanElement>,
@@ -29,9 +28,10 @@ export interface TagProps
    */
   readonly variant?: TagVariant
   /**
-   * To make a rounded Tag or to turn the tag into a delete button.
+   * To make a link Tag or to turn the tag into a delete button.
    */
   readonly modifier?: TagModifier
+  readonly rounded?: boolean
 }
 
 export const Tag: React.FC<TagProps> = ({
@@ -39,12 +39,14 @@ export const Tag: React.FC<TagProps> = ({
   variant,
   modifier,
   children,
+  rounded,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'tag', {
     [`is-${size}`]: size,
     [`is-${modifier}`]: modifier,
     [`is-${variant}`]: variant,
+    [`is-rounded`]: rounded,
   })
 
   return (
