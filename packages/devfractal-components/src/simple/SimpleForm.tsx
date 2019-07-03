@@ -9,6 +9,7 @@ import {
   string,
   StringSchema,
 } from 'yup'
+import { FieldProps } from '../form'
 import {
   Button,
   CheckboxField,
@@ -39,6 +40,7 @@ interface SimpleInputProps<Values extends object, S extends Schema<any>>
   readonly schema: S
   readonly label?: string
   readonly validations?: ReadonlyArray<(schema: S) => S>
+  readonly field?: FieldProps
 }
 
 interface GenericInputProps<Values extends object, S extends Schema<any>>
@@ -70,9 +72,9 @@ function validator<S extends Schema<any>>(
 function SimpleInput<Values extends object, S extends Schema<any>>(
   args: SimpleInputProps<Values, S>,
 ): JSX.Element {
-  const { schema, label, validations, ...props } = args
+  const { schema, label, validations, field, ...props } = args
   return (
-    <Field>
+    <Field {...field}>
       <Label>{label || camelCaseToPhrase(props.name)}</Label>
       <InputField {...props} validate={validator(schema, validations)} />
       <ErrorField name={props.name} />
