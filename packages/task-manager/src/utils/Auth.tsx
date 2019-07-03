@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocalStorage } from 'react-use'
+import useLocalStorage from 'react-use/lib/useLocalStorage'
 import { invariant } from 'technoidentity-utils'
 
 interface AuthContext {
