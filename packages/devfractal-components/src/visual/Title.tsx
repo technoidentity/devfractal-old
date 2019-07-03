@@ -1,7 +1,7 @@
 import React from 'react'
 import { classNamesHelper, El, Helpers } from '../lib'
 
-type TitleSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
+type TitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 
 export interface TitleProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
