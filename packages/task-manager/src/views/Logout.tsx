@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'technoidentity-devfractal'
-import { taskApi } from '../common'
+import { sessionApi } from '../common'
 import { useAuth } from '../utils'
 
 export const Logout: React.FC = () => {
@@ -11,7 +11,7 @@ export const Logout: React.FC = () => {
       {isLoggedIn && (
         <Button
           onClick={async () => {
-            await taskApi.del('')
+            await sessionApi.del('')
             logout()
           }}
           className="button is-dark"
