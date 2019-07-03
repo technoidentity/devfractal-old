@@ -10,17 +10,16 @@ interface LogoutProps {
 export const Logout: React.FC<LogoutProps> = ({ redirectURL }) => {
   const { isLoggedIn, logout } = useAuth()
   const { history } = useRouter()
-
   return (
     <>
       {isLoggedIn && (
         <Button
+          variant="dark"
           onClick={async () => {
             await sessionApi.del('')
             logout()
             history.push(redirectURL)
           }}
-          className="button is-dark"
         >
           Logout
         </Button>
