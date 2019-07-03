@@ -1,9 +1,8 @@
 import 'bulma/css/bulma.css'
 import { format } from 'date-fns'
-import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import { ErrorField, Section } from 'technoidentity-devfractal'
+import { Column, Columns, Section, Simple } from 'technoidentity-devfractal'
 import * as yup from 'yup'
 import { DatePickerField, Task } from '../common'
 import { formSubmit } from '../utils'
@@ -54,64 +53,13 @@ const validationSchema = yup.object().shape({
     completed: yup
       .date()
       .when('started', (started: Date, schema: yup.DateSchema) => {
-        return schema.min(started, 'deadline should be greater than started')
+        return schema.min(
+          started,
+          'completed date should be greater than started',
+        )
       }),
   }),
 })
-
-export const InnerTaskForm: React.FC<FormikProps<Task>> = () => (
-  <Section>
-    <Form>
-      <div className="field">
-        <label className="label">Title</label>
-        <div className="control">
-          <Field
-            type="text"
-            name="title"
-            className="input "
-            placeholder="Title"
-          />
-        </div>
-        <div className="help is-danger">
-          <ErrorMessage name="title" />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Description</label>
-        <div className="control">
-          <Field
-            type="text"
-            name="description"
-            className="input "
-            placeholder="Description"
-          />
-        </div>
-        <div className="help is-danger">
-          <ErrorField name="description" />
-        </div>
-      </div>
-
-      <DatePickerField label="Started" name="dateInfo.started" />
-      <DatePickerField label="Deadline" name="dateInfo.deadline" />
-      <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
-      <DatePickerField label="Completed" name="dateInfo.completed" />
-
-      <div className="field is-grouped is-grouped-centered">
-        <p className="control">
-          <button className="button is-primary" type="submit">
-            Submit
-          </button>
-        </p>
-        <p className="control">
-          <button className="button is-info" type="reset">
-            Reset
-          </button>
-        </p>
-      </div>
-    </Form>
-  </Section>
-)
 
 export interface TaskFormProps {
   readonly initial?: Task
@@ -130,10 +78,23 @@ const initialValues: Task = {
 }
 
 export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initial }) => (
-  <Formik
-    initialValues={initial || initialValues}
-    validationSchema={validationSchema}
-    component={InnerTaskForm}
-    onSubmit={formSubmit(onSubmit)}
-  />
+  <Section>
+    <Simple.Form
+      initialValues={initial || initialValues}
+      validationSchema={validationSchema}
+      onSubmit={formSubmit(onSubmit)}
+    >
+      <Columns columnCentered>
+        <Column size="half">
+          <Simple.Text name="title" />
+          <Simple.TextArea name="description" />
+          <DatePickerField label="Started" name="dateInfo.started" />
+          <DatePickerField label="Deadline" name="dateInfo.deadline" />
+          <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
+          <DatePickerField label="Completed" name="dateInfo.completed" />
+          <Simple.FormButtons />
+        </Column>
+      </Columns>
+    </Simple.Form>
+  </Section>
 )
