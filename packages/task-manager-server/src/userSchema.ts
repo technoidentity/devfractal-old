@@ -21,5 +21,7 @@ export const isUserValid = async (
   name: string,
   password: string,
 ): Promise<boolean> => {
-  return (await UserModel.findOne({ name, password }).exec()) !== undefined
+  const user = await UserModel.findOne({ name, password }).exec()
+  console.log(user)
+  return !!user
 }
