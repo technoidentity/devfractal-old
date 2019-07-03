@@ -11,8 +11,8 @@ import { AuthProvider, NotFound, Router, SafeRoute as Route } from './utils'
 import { Header } from './views'
 
 export const App: React.FC = () => (
-  <Router variant="browser">
-    <AuthProvider>
+  <AuthProvider>
+    <Router variant="browser">
       <Header />
       <Switch>
         <Route exact path="/" component={SignUpFormRoute} />
@@ -22,6 +22,6 @@ export const App: React.FC = () => (
         <Route exact path="/tasks/:id/edit" component={EditTaskRoute} />
         <Route component={NotFound} />
       </Switch>
-    </AuthProvider>
-  </Router>
+    </Router>
+  </AuthProvider>
 )

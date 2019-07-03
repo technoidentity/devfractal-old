@@ -17,6 +17,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const logout = () => set('no')
 
+  // React.useEffect(() => logout)
   return (
     <AuthContext.Provider
       value={{ isLoggedIn: value === 'yes', login, logout }}
