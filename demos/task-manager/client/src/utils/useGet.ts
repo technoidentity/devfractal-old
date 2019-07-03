@@ -15,12 +15,13 @@ export function useGet<T extends Object, P extends AnyTuple>(
   const [data, setData] = React.useState<T | undefined>(undefined)
   const [error, setError] = React.useState<Error | undefined>(undefined)
   const [fetchAgain, setFetchAgain] = React.useState(0)
-  const mounted = React.useRef(true)
+  const mounted = React.useRef(false)
 
   React.useEffect(() => {
     setData(undefined)
     setError(undefined)
 
+    mounted.current = true
     asyncFn(...param)
       .then(data => mounted.current && setData(data))
       .catch(error => mounted.current && setError(error))
