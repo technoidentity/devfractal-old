@@ -1,12 +1,12 @@
+import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import { Column, Columns, Section, Simple } from 'technoidentity-devfractal'
+import { req } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { formSubmit } from '../utils'
 
-export interface LoginValues {
-  readonly name: string
-  readonly password: string
-}
+const LoginValues = req({ name: string, password: string })
+export type LoginValues = TypeOf<typeof LoginValues>
 
 const schema = yup.object().shape({
   name: yup.string().required(),
