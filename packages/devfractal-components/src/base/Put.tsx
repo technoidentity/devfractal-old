@@ -32,7 +32,7 @@ export function Put<T>({
   return (
     <>
       <ServerErrorView error={serverError} />
-      <Get asyncFn={doGet} params={[id]}>
+      <Get asyncFn={doGet} deps={[id]}>
         {(data: T) => <Component initial={data} onSubmit={onSubmit} />}
       </Get>
     </>
