@@ -1,5 +1,5 @@
 import React from 'react'
-import { Async, ServerError, useSubmit } from '.'
+import { Async, ServerErrorView, useSubmit } from '.'
 
 export interface PutComponentProps<T extends Object> {
   readonly initial?: T
@@ -26,7 +26,7 @@ export function Put<T>({
 
   return (
     <>
-      <ServerError error={serverError} />
+      <ServerErrorView error={serverError} />
       <Async asyncFn={doGet} params={[id]}>
         {data => <Component initial={data} onSubmit={onSubmit} />}
       </Async>

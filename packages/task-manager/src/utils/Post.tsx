@@ -1,5 +1,5 @@
 import React from 'react'
-import { ServerError } from './Components'
+import { ServerErrorView } from './Components'
 import { useSubmit } from './useSubmit'
 
 export interface PostProps<T> {
@@ -18,7 +18,7 @@ export function Post<T>({
 
   return (
     <>
-      <ServerError error={serverError} />
+      <ServerErrorView error={serverError} />
       <Component onSubmit={onSubmit} />
     </>
   )
