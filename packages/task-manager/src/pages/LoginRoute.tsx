@@ -8,7 +8,6 @@ export const LoginRoute: React.FC = () => {
   return (
     <Post
       redirectURL="/tasks"
-      title="Login Form"
       onPost={async data => {
         const result = await sessionApi.create(data)
         login()
