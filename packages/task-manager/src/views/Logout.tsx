@@ -1,10 +1,15 @@
 import React from 'react'
 import { Button } from 'technoidentity-devfractal'
 import { sessionApi } from '../common'
-import { useAuth } from '../utils'
+import { useAuth, useRouter } from '../utils'
 
-export const Logout: React.FC = () => {
+interface LogoutProps {
+  readonly redirectURL: string
+}
+
+export const Logout: React.FC<LogoutProps> = ({ redirectURL }) => {
   const { isLoggedIn, logout } = useAuth()
+  const { history } = useRouter()
 
   return (
     <>
@@ -13,6 +18,7 @@ export const Logout: React.FC = () => {
           onClick={async () => {
             await sessionApi.del('')
             logout()
+            history.push(redirectURL)
           }}
           className="button is-dark"
         >

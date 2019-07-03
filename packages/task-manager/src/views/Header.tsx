@@ -6,7 +6,7 @@ export const Header: React.FC = () => (
   <Navbar>
     <NavbarEnd>
       <NavbarItem>
-        <Logout />
+        <Logout redirectURL={'/'} />
       </NavbarItem>
     </NavbarEnd>
   </Navbar>
