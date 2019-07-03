@@ -3,7 +3,6 @@ import { ServerErrorView } from './Components'
 import { useSubmit } from './useSubmit'
 
 export interface PostProps<T> {
-  readonly title?: string
   readonly redirectURL?: string
   readonly component: React.FC<{ onSubmit(data: T): Promise<void> }>
   onPost(data: T): Promise<T>
