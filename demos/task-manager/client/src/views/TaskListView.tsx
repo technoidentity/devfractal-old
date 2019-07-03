@@ -81,6 +81,9 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
     </Table>
 
     <Field grouped groupModifier="grouped-centered">
+      <Button variant="primary" onClick={() => onFilterChange('all')}>
+        All
+      </Button>
       <Button variant="info" onClick={() => onFilterChange('today')}>
         Scheduled Today
       </Button>
