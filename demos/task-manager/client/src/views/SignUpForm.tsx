@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom'
 import {
   Column,
   Columns,
+  component,
   formSubmit,
   Section,
   Simple,
   Text,
 } from 'technoidentity-devfractal'
-import { req, emptyFromType } from 'technoidentity-utils'
+import { emptyFromType, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 
 export const SignUpValues = req({
@@ -41,11 +42,11 @@ const schema = yup.object().shape({
     .oneOf([yup.ref('password')], 'Passwords must match'),
 })
 
-export interface SignUpFormProps {
-  onSubmit(values: SignUpValues): Promise<void>
-}
+const SignUpFormProps = req({
+  onSubmit: fn<(values: SignUpValues) => Promise<void>>(),
+})
 
-export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => (
+export const SignUpForm = component(SignUpFormProps, ({ onSubmit }) => (
   <Section>
     <Columns columnCentered>
       <Column size="half">
@@ -69,4 +70,4 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => (
       </Column>
     </Columns>
   </Section>
-)
+))

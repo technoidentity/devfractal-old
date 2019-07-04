@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import {
   Button,
   ButtonsGroup,
+  component,
   Field,
   Section,
   Table,
@@ -51,53 +52,53 @@ const TaskListViewProps = req({
 })
 export type TaskListViewProps = TypeOf<typeof TaskListViewProps>
 
-export const TaskListView: React.FC<TaskListViewProps> = ({
-  taskList,
-  onFilterChange,
-}) => (
-  <Section>
-    <Title textAlignment="centered">Task Management</Title>
-    <ButtonsGroup alignment="right">
-      <Link to="/tasks/add" className="button is-primary">
-        Add
-      </Link>
-    </ButtonsGroup>
+export const TaskListView: React.FC<TaskListViewProps> = component(
+  TaskListViewProps,
+  ({ taskList, onFilterChange }) => (
+    <Section>
+      <Title textAlignment="centered">Task Management</Title>
+      <ButtonsGroup alignment="right">
+        <Link to="/tasks/add" className="button is-primary">
+          Add
+        </Link>
+      </ButtonsGroup>
 
-    <Table striped bordered fullWidth>
-      <TableHead>
-        <Tr>
-          <Th>Title</Th>
-          <Th>Description</Th>
-          <Th>Started</Th>
-          <Th>Deadline</Th>
-          <Th>Scheduled</Th>
-          <Th>Completed</Th>
-          <Th />
-        </Tr>
-      </TableHead>
-      <TableBody>
-        {taskList.map(task => (
-          <TaskItem key={task._id} taskItem={task} />
-        ))}
-      </TableBody>
-    </Table>
+      <Table striped bordered fullWidth>
+        <TableHead>
+          <Tr>
+            <Th>Title</Th>
+            <Th>Description</Th>
+            <Th>Started</Th>
+            <Th>Deadline</Th>
+            <Th>Scheduled</Th>
+            <Th>Completed</Th>
+            <Th />
+          </Tr>
+        </TableHead>
+        <TableBody>
+          {taskList.map(task => (
+            <TaskItem key={task._id} taskItem={task} />
+          ))}
+        </TableBody>
+      </Table>
 
-    <Field grouped groupModifier="grouped-centered">
-      <Button variant="primary" onClick={() => onFilterChange('all')}>
-        All
-      </Button>
-      <Button variant="info" onClick={() => onFilterChange('today')}>
-        Scheduled Today
-      </Button>
-      <Button variant="success" onClick={() => onFilterChange('completed')}>
-        Completed
-      </Button>
-      <Button variant="danger" onClick={() => onFilterChange('pending')}>
-        Pending
-      </Button>
-      <Button variant="warning" onClick={() => onFilterChange('deadline')}>
-        Deadline Today
-      </Button>
-    </Field>
-  </Section>
+      <Field grouped groupModifier="grouped-centered">
+        <Button variant="primary" onClick={() => onFilterChange('all')}>
+          All
+        </Button>
+        <Button variant="info" onClick={() => onFilterChange('today')}>
+          Scheduled Today
+        </Button>
+        <Button variant="success" onClick={() => onFilterChange('completed')}>
+          Completed
+        </Button>
+        <Button variant="danger" onClick={() => onFilterChange('pending')}>
+          Pending
+        </Button>
+        <Button variant="warning" onClick={() => onFilterChange('deadline')}>
+          Deadline Today
+        </Button>
+      </Field>
+    </Section>
+  ),
 )

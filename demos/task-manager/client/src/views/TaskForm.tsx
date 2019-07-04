@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import {
   Column,
   Columns,
+  component,
   formSubmit,
   Section,
   Simple,
@@ -87,24 +88,27 @@ const initialValues: Task = {
   },
 }
 
-export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initial }) => (
-  <Section>
-    <Simple.Form
-      initialValues={initial || initialValues}
-      validationSchema={validationSchema}
-      onSubmit={formSubmit(onSubmit)}
-    >
-      <Columns columnCentered>
-        <Column size="half">
-          <Simple.Text name="title" />
-          <Simple.TextArea name="description" />
-          <DatePickerField label="Started" name="dateInfo.started" />
-          <DatePickerField label="Deadline" name="dateInfo.deadline" />
-          <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
-          <DatePickerField label="Completed" name="dateInfo.completed" />
-          <Simple.FormButtons />
-        </Column>
-      </Columns>
-    </Simple.Form>
-  </Section>
+export const TaskForm: React.FC<TaskFormProps> = component(
+  TaskFormProps,
+  ({ onSubmit, initial }) => (
+    <Section>
+      <Simple.Form
+        initialValues={initial || initialValues}
+        validationSchema={validationSchema}
+        onSubmit={formSubmit(onSubmit)}
+      >
+        <Columns columnCentered>
+          <Column size="half">
+            <Simple.Text name="title" />
+            <Simple.TextArea name="description" />
+            <DatePickerField label="Started" name="dateInfo.started" />
+            <DatePickerField label="Deadline" name="dateInfo.deadline" />
+            <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
+            <DatePickerField label="Completed" name="dateInfo.completed" />
+            <Simple.FormButtons />
+          </Column>
+        </Columns>
+      </Simple.Form>
+    </Section>
+  ),
 )

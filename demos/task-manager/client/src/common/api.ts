@@ -1,6 +1,6 @@
 import { rest } from 'technoidentity-devfractal'
-import { Session, Task, TaskFilter, User } from './types'
 import { typeInvariant } from 'technoidentity-utils'
+import { Session, Task, TaskFilter, User } from './types'
 
 export const apiOptions = {
   baseURL: 'http://localhost:9999',

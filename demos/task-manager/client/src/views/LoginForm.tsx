@@ -3,11 +3,12 @@ import React from 'react'
 import {
   Column,
   Columns,
+  component,
   formSubmit,
   Section,
   Simple,
 } from 'technoidentity-devfractal'
-import { fn, req, emptyFromType } from 'technoidentity-utils'
+import { emptyFromType, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({
@@ -23,20 +24,23 @@ const LoginFormProps = req({
 })
 export type LoginFormProps = TypeOf<typeof LoginFormProps>
 
-export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => (
-  <Section>
-    <Simple.Form
-      initialValues={emptyFromType(LoginValues)}
-      onSubmit={formSubmit(onSubmit)}
-      validationSchema={schema}
-    >
-      <Columns columnCentered>
-        <Column size="half">
-          <Simple.Text name="name" label="Username" />
-          <Simple.Password name="password" />
-          <Simple.FormButtons />
-        </Column>
-      </Columns>
-    </Simple.Form>
-  </Section>
+export const LoginForm: React.FC<LoginFormProps> = component(
+  LoginFormProps,
+  ({ onSubmit }) => (
+    <Section>
+      <Simple.Form
+        initialValues={emptyFromType(LoginValues)}
+        onSubmit={formSubmit(onSubmit)}
+        validationSchema={schema}
+      >
+        <Columns columnCentered>
+          <Column size="half">
+            <Simple.Text name="name" label="Username" />
+            <Simple.Password name="password" />
+            <Simple.FormButtons />
+          </Column>
+        </Columns>
+      </Simple.Form>
+    </Section>
+  ),
 )
