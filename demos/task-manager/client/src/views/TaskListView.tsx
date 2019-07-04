@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import { readonlyArray, TypeOf } from 'io-ts'
+import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
@@ -20,39 +20,38 @@ import { fn, req } from 'technoidentity-utils'
 import { Task, TaskFilter } from '../common'
 
 const TaskItemProps = req({ taskItem: Task })
-type TaskItemProps = TypeOf<typeof TaskItemProps>
 
 function formatDate(date: Date | undefined): string | undefined {
   return date && format(date, 'DD/MM/YYYY')
 }
 
-const TaskItem: React.FC<TaskItemProps> = ({
-  taskItem: { _id, title, description, dateInfo },
-}) => {
-  return (
-    <Tr>
-      <Td>{title}</Td>
-      <Td>{description}</Td>
-      <Td>{formatDate(dateInfo.started)}</Td>
-      <Td>{formatDate(dateInfo.deadline)}</Td>
-      <Td>{formatDate(dateInfo.scheduled)}</Td>
-      <Td>{formatDate(dateInfo.completed)}</Td>
-      <Td>
-        <Link to={`/tasks/${_id}/edit`} className="button is-primary is-link">
-          Edit
-        </Link>
-      </Td>
-    </Tr>
-  )
-}
+const TaskItem = component(
+  TaskItemProps,
+  ({ taskItem: { _id, title, description, dateInfo } }) => {
+    return (
+      <Tr>
+        <Td>{title}</Td>
+        <Td>{description}</Td>
+        <Td>{formatDate(dateInfo.started)}</Td>
+        <Td>{formatDate(dateInfo.deadline)}</Td>
+        <Td>{formatDate(dateInfo.scheduled)}</Td>
+        <Td>{formatDate(dateInfo.completed)}</Td>
+        <Td>
+          <Link to={`/tasks/${_id}/edit`} className="button is-primary is-link">
+            Edit
+          </Link>
+        </Td>
+      </Tr>
+    )
+  },
+)
 
 const TaskListViewProps = req({
   taskList: readonlyArray(Task),
   onFilterChange: fn<(filter: TaskFilter) => void>(),
 })
-export type TaskListViewProps = TypeOf<typeof TaskListViewProps>
 
-export const TaskListView: React.FC<TaskListViewProps> = component(
+export const TaskListView = component(
   TaskListViewProps,
   ({ taskList, onFilterChange }) => (
     <Section>

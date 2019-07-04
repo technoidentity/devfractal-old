@@ -1,6 +1,5 @@
 import 'bulma/css/bulma.css'
 import { format } from 'date-fns'
-import { TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
@@ -74,8 +73,6 @@ export const TaskFormProps = props(
   { onSubmit: fn<(values: Task) => Promise<void>>() },
 )
 
-export type TaskFormProps = TypeOf<typeof TaskFormProps>
-
 // @TODO: replace with emptyFromType
 const initialValues: Task = {
   title: '',
@@ -88,27 +85,24 @@ const initialValues: Task = {
   },
 }
 
-export const TaskForm: React.FC<TaskFormProps> = component(
-  TaskFormProps,
-  ({ onSubmit, initial }) => (
-    <Section>
-      <Simple.Form
-        initialValues={initial || initialValues}
-        validationSchema={validationSchema}
-        onSubmit={formSubmit(onSubmit)}
-      >
-        <Columns columnCentered>
-          <Column size="half">
-            <Simple.Text name="title" />
-            <Simple.TextArea name="description" />
-            <DatePickerField label="Started" name="dateInfo.started" />
-            <DatePickerField label="Deadline" name="dateInfo.deadline" />
-            <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
-            <DatePickerField label="Completed" name="dateInfo.completed" />
-            <Simple.FormButtons />
-          </Column>
-        </Columns>
-      </Simple.Form>
-    </Section>
-  ),
-)
+export const TaskForm = component(TaskFormProps, ({ onSubmit, initial }) => (
+  <Section>
+    <Simple.Form
+      initialValues={initial || initialValues}
+      validationSchema={validationSchema}
+      onSubmit={formSubmit(onSubmit)}
+    >
+      <Columns columnCentered>
+        <Column size="half">
+          <Simple.Text name="title" />
+          <Simple.TextArea name="description" />
+          <DatePickerField label="Started" name="dateInfo.started" />
+          <DatePickerField label="Deadline" name="dateInfo.deadline" />
+          <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
+          <DatePickerField label="Completed" name="dateInfo.completed" />
+          <Simple.FormButtons />
+        </Column>
+      </Columns>
+    </Simple.Form>
+  </Section>
+))

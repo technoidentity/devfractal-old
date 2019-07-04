@@ -14,14 +14,12 @@ import {
 import { emptyFromType, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 
-export const SignUpValues = req({
+const SignUpValues = req({
   name: string,
   email: string,
   password: string,
   confirmPassword: string,
 })
-
-type SignUpValues = TypeOf<typeof SignUpValues>
 
 const schema = yup.object().shape({
   name: yup
@@ -43,7 +41,7 @@ const schema = yup.object().shape({
 })
 
 const SignUpFormProps = req({
-  onSubmit: fn<(values: SignUpValues) => Promise<void>>(),
+  onSubmit: fn<(values: TypeOf<typeof SignUpValues>) => Promise<void>>(),
 })
 
 export const SignUpForm = component(SignUpFormProps, ({ onSubmit }) => (

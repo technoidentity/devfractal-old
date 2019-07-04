@@ -17,30 +17,25 @@ const schema = yup.object().shape({
 })
 
 const LoginValues = req({ name: string, password: string })
-export type LoginValues = TypeOf<typeof LoginValues>
 
 const LoginFormProps = req({
-  onSubmit: fn<(values: LoginValues) => Promise<void>>(),
+  onSubmit: fn<(values: TypeOf<typeof LoginValues>) => Promise<void>>(),
 })
-export type LoginFormProps = TypeOf<typeof LoginFormProps>
 
-export const LoginForm: React.FC<LoginFormProps> = component(
-  LoginFormProps,
-  ({ onSubmit }) => (
-    <Section>
-      <Simple.Form
-        initialValues={emptyFromType(LoginValues)}
-        onSubmit={formSubmit(onSubmit)}
-        validationSchema={schema}
-      >
-        <Columns columnCentered>
-          <Column size="half">
-            <Simple.Text name="name" label="Username" />
-            <Simple.Password name="password" />
-            <Simple.FormButtons />
-          </Column>
-        </Columns>
-      </Simple.Form>
-    </Section>
-  ),
-)
+export const LoginForm = component(LoginFormProps, ({ onSubmit }) => (
+  <Section>
+    <Simple.Form
+      initialValues={emptyFromType(LoginValues)}
+      onSubmit={formSubmit(onSubmit)}
+      validationSchema={schema}
+    >
+      <Columns columnCentered>
+        <Column size="half">
+          <Simple.Text name="name" label="Username" />
+          <Simple.Password name="password" />
+          <Simple.FormButtons />
+        </Column>
+      </Columns>
+    </Simple.Form>
+  </Section>
+))
