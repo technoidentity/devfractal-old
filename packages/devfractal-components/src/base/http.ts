@@ -1,8 +1,8 @@
 import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { Type } from 'io-ts'
+import { array, string, Type } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
-import { Array, String } from 'tcomb'
+import { String } from 'tcomb'
 import { chop, invariant, warning } from 'technoidentity-utils'
 
 export interface MethodArgs {
@@ -11,7 +11,7 @@ export interface MethodArgs {
   readonly query?: string | Record<string, any>
 }
 
-function noSlashWarning(s: string): void {
+function slashWarn(s: string): void {
   invariant(String.is(s))
 
   warning(!s.includes('/'), `${s} should not contain "/"`)
@@ -21,21 +21,23 @@ export interface RequestConfig extends AxiosRequestConfig {
 }
 
 function buildResource(resource?: string): string {
-  if (resource !== undefined) {
-    noSlashWarning(resource)
+  if (resource !== undefined && resource.trim() !== '') {
+    slashWarn(resource)
     return `/${resource}`
   }
+
   return ''
 }
 
 function buildPath(path?: string | ReadonlyArray<string>): string {
-  if (Array.is(path)) {
-    path.forEach(noSlashWarning)
-    return `/${path.join('/')}`
+  if (array(string).is(path)) {
+    const paths: string[] = path.filter(p => p.trim() !== '')
+    paths.forEach(slashWarn)
+    return paths.length === 0 ? '' : `/${paths.join('/')}`
   }
 
-  if (String.is(path)) {
-    noSlashWarning(path)
+  if (string.is(path) && path.trim() !== '') {
+    slashWarn(path)
     return `/${path}`
   }
 
@@ -43,7 +45,7 @@ function buildPath(path?: string | ReadonlyArray<string>): string {
 }
 
 function buildQueryString(query?: string | Record<string, any>): string {
-  return query === undefined
+  return query === undefined || Object.keys(query).length === 0
     ? ''
     : `?${String.is(query) ? query : stringify(query)}`
 }
@@ -61,9 +63,9 @@ export function http(config: RequestConfig) {
     baseURL: chop(config.baseURL),
   })
 
-  async function get<I, A>(
+  async function get<A, O, I>(
     options: MethodArgs,
-    type: Type<A, A, I>,
+    type: Type<A, O, I>,
   ): Promise<A> {
     return axios
       .get<I>(buildUrl(options))
@@ -71,10 +73,10 @@ export function http(config: RequestConfig) {
       .then(decode(type))
   }
 
-  async function post<I, A>(
+  async function post<A, O, I>(
     options: Omit<MethodArgs, 'query'>,
     data: I,
-    type: Type<A, A, I>,
+    type: Type<A, O, I>,
   ): Promise<A> {
     return axios
       .post<I>(buildUrl(options), data)
@@ -82,10 +84,10 @@ export function http(config: RequestConfig) {
       .then(decode(type))
   }
 
-  async function put<I, A>(
+  async function put<A, O, I>(
     options: Omit<MethodArgs, 'query'>,
     data: I,
-    type: Type<A, A, I>,
+    type: Type<A, O, I>,
   ): Promise<A> {
     return axios
       .put<I>(buildUrl(options), data)

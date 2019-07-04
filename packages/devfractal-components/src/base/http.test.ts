@@ -1,5 +1,5 @@
 import { boolean, readonly, string, type, TypeOf } from 'io-ts'
-import { buildUrl, http as httpAPI } from '../lib'
+import { buildUrl, http as httpAPI } from './http'
 
 // tslint:disable-next-line:typedef
 const axiosMock = {
@@ -41,6 +41,9 @@ test('buildUrl with resource, path and query', () => {
 
 test('buildUrl with empty', () => {
   expect(buildUrl({})).toEqual('')
+  expect(buildUrl({ path: '' })).toEqual('')
+  expect(buildUrl({ resource: '' })).toEqual('')
+  expect(buildUrl({ query: {} })).toEqual('')
 })
 
 test('get', async () => {
