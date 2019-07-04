@@ -17062,6 +17062,11 @@ technoidentity-devfractal@0.7.8:
     tcomb "3.2.29"
     technoidentity-utils "0.0.1"
 
+technoidentity-utils@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.1.tgz#95679cc748e4bb7606222885f8a108b18ff842da"
+  integrity sha512-g63KBAnsIv7XtQx5csC2q3pIx3P1l/W1gaaZAJn6a7hCgGZNQiphxotfWQT5FKei1MUpdsetczN9ZfJi32rMRQ==
+
 telejson@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/telejson/-/telejson-2.2.1.tgz#d9ee7e7eba0c81d9378257342fde7142a03787e2"
