@@ -1,6 +1,7 @@
 import React from 'react'
+import { Post } from 'technoidentity-devfractal'
 import { sessionApi } from '../common'
-import { Post, useAuth } from '../utils'
+import { useAuth } from '../utils'
 import { LoginForm } from '../views'
 
 export const LoginRoute: React.FC = () => {

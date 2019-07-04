@@ -1,8 +1,7 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { Section, Title } from 'technoidentity-devfractal'
+import { Put, Section, Title } from 'technoidentity-devfractal'
 import { Task, taskApi } from '../common'
-import { Put } from '../utils'
 import { TaskForm } from '../views'
 
 // @TODO: Use useRouter, fix 'match' type

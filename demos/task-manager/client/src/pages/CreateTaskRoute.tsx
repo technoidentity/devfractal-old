@@ -1,7 +1,6 @@
 import React from 'react'
-import { Section, Title } from 'technoidentity-devfractal'
+import { Post, Section, Title } from 'technoidentity-devfractal'
 import { Task, taskApi } from '../common'
-import { Post } from '../utils'
 import { TaskForm } from '../views'
 
 export const CreateTaskRoute: React.FC = () => (

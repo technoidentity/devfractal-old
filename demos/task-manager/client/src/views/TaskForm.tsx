@@ -2,10 +2,15 @@ import 'bulma/css/bulma.css'
 import { format } from 'date-fns'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import { Column, Columns, Section, Simple } from 'technoidentity-devfractal'
+import {
+  Column,
+  Columns,
+  formSubmit,
+  Section,
+  Simple,
+} from 'technoidentity-devfractal'
 import * as yup from 'yup'
 import { DatePickerField, Task } from '../common'
-import { formSubmit } from '../utils'
 
 const currentDate = format(new Date(), 'YYYY-MM-DD')
 

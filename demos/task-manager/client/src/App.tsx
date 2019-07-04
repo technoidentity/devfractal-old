@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch } from 'react-router'
+import { NotFound, Router, SafeRoute as Route } from 'technoidentity-devfractal'
 import {
   CreateTaskRoute,
   EditTaskRoute,
@@ -7,7 +8,7 @@ import {
   SignUpFormRoute,
   TaskListRoute,
 } from './pages'
-import { AuthProvider, NotFound, Router, SafeRoute as Route } from './utils'
+import { AuthProvider } from './utils'
 import { Header } from './views'
 
 export const App: React.FC = () => (

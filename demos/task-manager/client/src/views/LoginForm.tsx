@@ -1,9 +1,14 @@
 import { string, TypeOf } from 'io-ts'
 import React from 'react'
-import { Column, Columns, Section, Simple } from 'technoidentity-devfractal'
+import {
+  Column,
+  Columns,
+  formSubmit,
+  Section,
+  Simple,
+} from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import * as yup from 'yup'
-import { formSubmit } from '../utils'
 
 const LoginValues = req({ name: string, password: string })
 export type LoginValues = TypeOf<typeof LoginValues>

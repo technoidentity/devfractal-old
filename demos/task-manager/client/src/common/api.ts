@@ -1,5 +1,5 @@
+import { rest } from 'technoidentity-devfractal'
 import { Session, Task, User } from '.'
-import { rest } from '../utils'
 
 export const apiOptions = {
   baseURL: 'http://localhost:9999',

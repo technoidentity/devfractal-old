@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import {
   Column,
   Columns,
+  formSubmit,
   Section,
   Simple,
   Text,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
-import { formSubmit } from '../utils'
 
 export interface SignUpValues {
   readonly name: string

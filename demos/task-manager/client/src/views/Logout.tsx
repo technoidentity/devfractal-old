@@ -1,8 +1,7 @@
 import React from 'react'
-import { Button } from 'technoidentity-devfractal'
+import { Button, useRouter } from 'technoidentity-devfractal'
 import { sessionApi } from '../common'
-import { useAuth, useRouter } from '../utils'
-
+import { useAuth } from '../utils'
 interface LogoutProps {
   readonly redirectURL: string
 }
