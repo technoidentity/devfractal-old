@@ -7,7 +7,7 @@ export const TaskListRoute: React.FC = () => {
   const [filter, setFilter] = React.useState<TaskFilter>('all')
 
   return (
-    <Async asyncFn={getTasks} params={[filter]}>
+    <Async asyncFn={getTasks} deps={[filter]}>
       {data => <TaskListView taskList={data} onFilterChange={setFilter} />}
     </Async>
   )

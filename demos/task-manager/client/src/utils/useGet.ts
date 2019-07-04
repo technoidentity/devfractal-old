@@ -8,10 +8,10 @@ interface AsyncResult<T extends Object> {
 }
 
 export function useGet<T extends Object, P extends AnyTuple>(
-  asyncFn: (...param: P) => Promise<T>,
-  param: P,
-  // tslint:disable-next-line: readonly-array
-): AsyncResult<T> {
+  asyncFn: (...args: P) => Promise<T>,
+  ...deps: P
+): // tslint:disable-next-line: readonly-array
+AsyncResult<T> {
   const [data, setData] = React.useState<T | undefined>(undefined)
   const [error, setError] = React.useState<Error | undefined>(undefined)
   const [fetchAgain, setFetchAgain] = React.useState(0)
@@ -22,14 +22,14 @@ export function useGet<T extends Object, P extends AnyTuple>(
     setError(undefined)
 
     mounted.current = true
-    asyncFn(...param)
+    asyncFn(...deps)
       .then(data => mounted.current && setData(data))
       .catch(error => mounted.current && setError(error))
 
     return () => {
       mounted.current = false
     }
-  }, [param, fetchAgain])
+  }, [deps, fetchAgain])
 
   const fetch = () => setFetchAgain(count => (count + 1) % 100)
 
