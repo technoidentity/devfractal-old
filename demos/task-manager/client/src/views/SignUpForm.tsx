@@ -1,4 +1,5 @@
 import 'bulma/css/bulma.css'
+import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
@@ -9,21 +10,17 @@ import {
   Simple,
   Text,
 } from 'technoidentity-devfractal'
+import { req, emptyFromType } from 'technoidentity-utils'
 import * as yup from 'yup'
 
-export interface SignUpValues {
-  readonly name: string
-  readonly email: string
-  readonly password: string
-  readonly confirmPassword: string
-}
+export const SignUpValues = req({
+  name: string,
+  email: string,
+  password: string,
+  confirmPassword: string,
+})
 
-const initialValues: SignUpValues = {
-  name: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
-}
+type SignUpValues = TypeOf<typeof SignUpValues>
 
 const schema = yup.object().shape({
   name: yup
@@ -53,7 +50,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => (
     <Columns columnCentered>
       <Column size="half">
         <Simple.Form
-          initialValues={initialValues}
+          initialValues={emptyFromType(SignUpValues)}
           onSubmit={formSubmit(onSubmit)}
           validationSchema={schema}
         >

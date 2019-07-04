@@ -1,5 +1,6 @@
 import 'bulma/css/bulma.css'
 import { format } from 'date-fns'
+import { TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
@@ -9,6 +10,7 @@ import {
   Section,
   Simple,
 } from 'technoidentity-devfractal'
+import { fn, props } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { DatePickerField, Task } from '../common'
 
@@ -66,11 +68,14 @@ const validationSchema = yup.object().shape({
   }),
 })
 
-export interface TaskFormProps {
-  readonly initial?: Task
-  onSubmit(values: Task): Promise<void>
-}
+export const TaskFormProps = props(
+  { initial: Task },
+  { onSubmit: fn<(values: Task) => Promise<void>>() },
+)
 
+export type TaskFormProps = TypeOf<typeof TaskFormProps>
+
+// @TODO: replace with emptyFromType
 const initialValues: Task = {
   title: '',
   description: '',

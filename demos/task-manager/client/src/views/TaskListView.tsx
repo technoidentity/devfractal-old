@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
@@ -14,11 +15,11 @@ import {
   Title,
   Tr,
 } from 'technoidentity-devfractal'
+import { fn, req } from 'technoidentity-utils'
 import { Task, TaskFilter } from '../common'
 
-interface TaskItemProps {
-  readonly taskItem: Task
-}
+const TaskItemProps = req({ taskItem: Task })
+type TaskItemProps = TypeOf<typeof TaskItemProps>
 
 function formatDate(date: Date | undefined): string | undefined {
   return date && format(date, 'DD/MM/YYYY')
@@ -44,10 +45,11 @@ const TaskItem: React.FC<TaskItemProps> = ({
   )
 }
 
-export interface TaskListViewProps {
-  readonly taskList: ReadonlyArray<Task>
-  onFilterChange(filter: TaskFilter): void
-}
+const TaskListViewProps = req({
+  taskList: readonlyArray(Task),
+  onFilterChange: fn<(filter: TaskFilter) => void>(),
+})
+export type TaskListViewProps = TypeOf<typeof TaskListViewProps>
 
 export const TaskListView: React.FC<TaskListViewProps> = ({
   taskList,

@@ -7775,10 +7775,15 @@ technoidentity-devfractal@^0.8.1:
     technoidentity-utils "0.0.1"
     typelevel-ts "^0.3.5"
 
-technoidentity-utils@0.0.1, technoidentity-utils@^0.0.1:
+technoidentity-utils@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.1.tgz#95679cc748e4bb7606222885f8a108b18ff842da"
   integrity sha512-g63KBAnsIv7XtQx5csC2q3pIx3P1l/W1gaaZAJn6a7hCgGZNQiphxotfWQT5FKei1MUpdsetczN9ZfJi32rMRQ==
+
+technoidentity-utils@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.2.tgz#66895fabf857b50cb7fa7998521427fd8cd654f4"
+  integrity sha512-WUKIDwk+U3/2q1nG3XEbmR0SwsEboj5z0Zob8O5A8aunDr51oBbRVPGWYYqOM8UKefrVIyvY84iWN61XV7LMqQ==
 
 terser@^3.16.1, terser@^3.7.3:
   version "3.17.0"

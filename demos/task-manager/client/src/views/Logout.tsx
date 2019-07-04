@@ -1,10 +1,12 @@
+import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import { Button, useRouter } from 'technoidentity-devfractal'
+import { req } from 'technoidentity-utils'
 import { sessionApi } from '../common'
 import { useAuth } from '../utils'
-interface LogoutProps {
-  readonly redirectURL: string
-}
+
+const LogoutProps = req({ redirectURL: string })
+type LogoutProps = TypeOf<typeof LogoutProps>
 
 export const Logout: React.FC<LogoutProps> = ({ redirectURL }) => {
   const { isLoggedIn, logout } = useAuth()
