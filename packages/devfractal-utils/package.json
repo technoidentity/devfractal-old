@@ -11,6 +11,7 @@
   "author": "Pervez Iqbal",
   "scripts": {
     "start": "tsdx watch",
+    "dev": "parcel index.html --open",
     "build": "tsdx build",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -35,6 +36,7 @@
     "io-ts-types": "0.4.7",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
+    "parcel-bundler": "^1.12.3",
     "tcomb": "3.2.29",
     "ts-jest": "24.0.2",
     "tsdx": "0.7.2"
