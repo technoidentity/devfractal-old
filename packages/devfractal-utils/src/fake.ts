@@ -100,21 +100,3 @@ export function fake<T extends Mixed>(
   }
   return fakePrimitive(typeValue, options)
 }
-
-// console.log(
-//   fake(
-//     t.readonly(
-//       t.type({
-//         d: date,
-//         e: t.keyof({ foo: 0, bar: 0 }),
-//         a: t.readonlyArray(t.string),
-//         o: t.type({ x: t.number, y: t.number }),
-//         o2: t.readonly(
-//           t.type({
-//             fizz: t.array(t.readonly(t.type({ buzz: t.boolean }))),
-//           }),
-//         ),
-//       }),
-//     ),
-//   ),
-// )

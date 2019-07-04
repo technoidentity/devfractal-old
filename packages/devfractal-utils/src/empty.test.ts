@@ -10,7 +10,7 @@ import {
   type,
 } from 'io-ts'
 import { date } from 'io-ts-types'
-import { emptyFromType } from './empty'
+import { emptyFromType } from './emptyFromType'
 
 test('primitive values', () => {
   expect(emptyFromType(number)).toBe(0)
