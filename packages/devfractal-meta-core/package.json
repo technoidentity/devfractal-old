@@ -29,6 +29,7 @@
   "peerDependencies": {
     "io-ts": "1.10.2",
     "io-ts-types": "0.4.7",
+    "fp-ts": "1.19.3",
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1"
   },
@@ -40,6 +41,7 @@
     "@types/json-schema": "7.0.3",
     "ajv": "6.10.0",
     "io-ts": "1.10.2",
+    "fp-ts": "1.19.3",
     "io-ts-types": "0.4.7",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
