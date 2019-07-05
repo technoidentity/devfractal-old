@@ -20,6 +20,8 @@ AsyncResult<T> {
   React.useEffect(() => {
     setData(undefined)
     setError(undefined)
+    // tslint:disable-next-line: no-object-mutation
+    mounted.current = true
 
     asyncFn(...deps)
       .then(data => mounted.current && setData(data))
