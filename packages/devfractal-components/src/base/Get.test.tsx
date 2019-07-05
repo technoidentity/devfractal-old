@@ -12,18 +12,18 @@ test('get success', async () => {
   )
 
   expect(container.firstChild).toMatchInlineSnapshot(`
-                                    <h1
-                                      class="is-text is-size-1 is-info"
-                                    >
-                                      Loading....
-                                    </h1>
-                  `)
+                                        <h1
+                                          class="is-text is-size-1 is-info"
+                                        >
+                                          Loading....
+                                        </h1>
+                    `)
   await waitForElement(() => getByText('tasks'))
   expect(container.firstChild).toMatchInlineSnapshot(`
-                                        <div>
-                                          tasks
-                                        </div>
-                    `)
+                                            <div>
+                                              tasks
+                                            </div>
+                      `)
 })
 
 test('get failure', async () => {
@@ -36,20 +36,20 @@ test('get failure', async () => {
   )
 
   expect(container.firstChild).toMatchInlineSnapshot(`
-                                    <h1
-                                      class="is-text is-size-1 is-info"
-                                    >
-                                      Loading....
-                                    </h1>
-                  `)
-  await waitForElement(() => getByText('error tasks'))
-  expect(container.firstChild).toMatchInlineSnapshot(`
                                         <h1
-                                          class="is-text is-size-1 is-danger"
+                                          class="is-text is-size-1 is-info"
                                         >
-                                          error tasks
+                                          Loading....
                                         </h1>
                     `)
+  await waitForElement(() => getByText('error tasks'))
+  expect(container.firstChild).toMatchInlineSnapshot(`
+                                            <h1
+                                              class="is-text is-size-1 is-danger"
+                                            >
+                                              error tasks
+                                            </h1>
+                      `)
 })
 
 test('get success with refresh', async () => {
@@ -70,45 +70,48 @@ test('get success with refresh', async () => {
   )
 
   expect(container.firstChild).toMatchInlineSnapshot(`
-                                    <h1
-                                      class="is-text is-size-1 is-info"
-                                    >
-                                      Loading....
-                                    </h1>
-                  `)
+                                        <h1
+                                          class="is-text is-size-1 is-info"
+                                        >
+                                          Loading....
+                                        </h1>
+                    `)
   await waitForElement(() => getByText('tasks'))
   expect(container.firstChild).toMatchInlineSnapshot(`
-                            <div>
-                              <span>
-                                tasks
-                              </span>
-                              <button>
-                                refresh
-                              </button>
-                            </div>
-              `)
+                                <div>
+                                  <span>
+                                    tasks
+                                  </span>
+                                  <button>
+                                    refresh
+                                  </button>
+                                </div>
+                `)
 
   fireEvent.click(getByText('refresh'))
 
   expect(container.firstChild).toMatchInlineSnapshot(`
-            <h1
-              class="is-text is-size-1 is-info"
-            >
-              Loading....
-            </h1>
-      `)
+    <div>
+      <span>
+        tasks
+      </span>
+      <button>
+        refresh
+      </button>
+    </div>
+  `)
 
   await waitForElement(() => getByText('tasks refresh'))
   expect(container.firstChild).toMatchInlineSnapshot(`
-                    <div>
-                      <span>
-                        tasks refresh
-                      </span>
-                      <button>
-                        refresh
-                      </button>
-                    </div>
-          `)
+                        <div>
+                          <span>
+                            tasks refresh
+                          </span>
+                          <button>
+                            refresh
+                          </button>
+                        </div>
+            `)
 })
 
 test('get success with deps', async () => {
@@ -124,18 +127,18 @@ test('get success with deps', async () => {
   )
 
   expect(container.firstChild).toMatchInlineSnapshot(`
-                                    <h1
-                                      class="is-text is-size-1 is-info"
-                                    >
-                                      Loading....
-                                    </h1>
-                  `)
+                                        <h1
+                                          class="is-text is-size-1 is-info"
+                                        >
+                                          Loading....
+                                        </h1>
+                    `)
   await waitForElement(() => getByText('tasks'))
   expect(container.firstChild).toMatchInlineSnapshot(`
-        <div>
-          tasks
-        </div>
-    `)
+            <div>
+              tasks
+            </div>
+      `)
 
   rerender(
     <Get asyncFn={asyncFn} deps={[1]}>
@@ -144,17 +147,15 @@ test('get success with deps', async () => {
   )
 
   expect(container.firstChild).toMatchInlineSnapshot(`
-            <h1
-              class="is-text is-size-1 is-info"
-            >
-              Loading....
-            </h1>
-      `)
+    <div>
+      tasks
+    </div>
+  `)
 
   await waitForElement(() => getByText('tasks deps'))
   expect(container.firstChild).toMatchInlineSnapshot(`
-    <div>
-      tasks deps
-    </div>
-  `)
+        <div>
+          tasks deps
+        </div>
+    `)
 })
