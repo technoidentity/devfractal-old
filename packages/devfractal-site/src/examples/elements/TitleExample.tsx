@@ -16,7 +16,6 @@ const TitleSizeExample: React.FC = () => (
       <TitleComponent size="4">Title 4</TitleComponent>
       <TitleComponent size="5">Title 5</TitleComponent>
       <TitleComponent size="6">Title 6</TitleComponent>
-      <TitleComponent size="7">Title 7</TitleComponent>
     </Box>
   </Section>
 )
@@ -31,7 +30,6 @@ const SubtitleSizeExample: React.FC = () => (
       <SubTitle size="4">Subtitle 4</SubTitle>
       <SubTitle size="5">Subtitle 5</SubTitle>
       <SubTitle size="6">Subtitle 6</SubTitle>
-      <SubTitle size="7">Subtitle 7</SubTitle>
     </Box>
   </Section>
 )

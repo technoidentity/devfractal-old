@@ -3,7 +3,6 @@ import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
-  Button,
   ButtonsGroup,
   component,
   Field,
@@ -16,8 +15,8 @@ import {
   Title,
   Tr,
 } from 'technoidentity-devfractal'
-import { fn, req } from 'technoidentity-utils'
-import { Task, TaskFilter } from '../common'
+import { req } from 'technoidentity-utils'
+import { Task } from '../common'
 
 const TaskItemProps = req({ taskItem: Task })
 
@@ -48,56 +47,52 @@ const TaskItem = component(
 
 const TaskListViewProps = req({
   taskList: readonlyArray(Task),
-  onFilterChange: fn<(filter: TaskFilter) => void>(),
 })
 
-export const TaskListView = component(
-  TaskListViewProps,
-  ({ taskList, onFilterChange }) => (
-    <Section>
-      <Title textAlignment="centered">Task Management</Title>
-      <ButtonsGroup alignment="right">
-        <Link to="/tasks/add" className="button is-primary">
-          Add
-        </Link>
-      </ButtonsGroup>
+export const TaskListView = component(TaskListViewProps, ({ taskList }) => (
+  <Section>
+    <Title textAlignment="centered">Task Management</Title>
+    <ButtonsGroup alignment="right">
+      <Link to="/tasks/add" className="button is-primary">
+        Add
+      </Link>
+    </ButtonsGroup>
 
-      <Table striped bordered fullWidth>
-        <TableHead>
-          <Tr>
-            <Th>Title</Th>
-            <Th>Description</Th>
-            <Th>Started</Th>
-            <Th>Deadline</Th>
-            <Th>Scheduled</Th>
-            <Th>Completed</Th>
-            <Th />
-          </Tr>
-        </TableHead>
-        <TableBody>
-          {taskList.map(task => (
-            <TaskItem key={task._id} taskItem={task} />
-          ))}
-        </TableBody>
-      </Table>
+    <Table striped bordered fullWidth>
+      <TableHead>
+        <Tr>
+          <Th>Title</Th>
+          <Th>Description</Th>
+          <Th>Started</Th>
+          <Th>Deadline</Th>
+          <Th>Scheduled</Th>
+          <Th>Completed</Th>
+          <Th />
+        </Tr>
+      </TableHead>
+      <TableBody>
+        {taskList.map(task => (
+          <TaskItem key={task._id} taskItem={task} />
+        ))}
+      </TableBody>
+    </Table>
 
-      <Field grouped groupModifier="grouped-centered">
-        <Button variant="primary" onClick={() => onFilterChange('all')}>
-          All
-        </Button>
-        <Button variant="info" onClick={() => onFilterChange('today')}>
-          Scheduled Today
-        </Button>
-        <Button variant="success" onClick={() => onFilterChange('completed')}>
-          Completed
-        </Button>
-        <Button variant="danger" onClick={() => onFilterChange('pending')}>
-          Pending
-        </Button>
-        <Button variant="warning" onClick={() => onFilterChange('deadline')}>
-          Deadline Today
-        </Button>
-      </Field>
-    </Section>
-  ),
-)
+    <Field grouped groupModifier="grouped-centered">
+      <Link to="/tasks" className="button is-primary">
+        All
+      </Link>
+      <Link to="/tasks/today" className="button is-info">
+        Scheduled Today
+      </Link>
+      <Link to="/tasks/completed" className="button is-success">
+        Completed
+      </Link>
+      <Link to="/tasks/pending" className="button is-danger">
+        Pending
+      </Link>
+      <Link to="/tasks/deadline" className="button is-warning">
+        Deadline Today
+      </Link>
+    </Field>
+  </Section>
+))

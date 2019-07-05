@@ -1305,10 +1305,15 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/node@*", "@types/node@12.0.10":
+"@types/node@*":
   version "12.0.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.10.tgz#51babf9c7deadd5343620055fc8aff7995c8b031"
   integrity sha512-LcsGbPomWsad6wmMNv7nBLw7YYYyfdYcz6xryKYQhx89c3XXan+8Q6AJ43G5XDIaklaVkK3mE4fCb0SBvMiPSQ==
+
+"@types/node@12.0.12":
+  version "12.0.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.12.tgz#cc791b402360db1eaf7176479072f91ee6c6c7ca"
+  integrity sha512-Uy0PN4R5vgBUXFoJrKryf5aTk3kJ8Rv3PdlHjl6UaX+Cqp1QE0yPQ68MPXGrZOfG7gZVNDIJZYyot0B9ubXUrQ==
 
 "@types/node@^10.1.0":
   version "10.14.10"
@@ -1362,10 +1367,18 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.8.22":
+"@types/react@*":
   version "16.8.22"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.22.tgz#7f18bf5ea0c1cad73c46b6b1c804a3ce0eec6d54"
   integrity sha512-C3O1yVqk4sUXqWyx0wlys76eQfhrQhiDhDlHBrjER76lR2S2Agiid/KpOU9oCqj1dISStscz7xXz1Cg8+sCQeA==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
+"@types/react@16.8.23":
+  version "16.8.23"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.23.tgz#ec6be3ceed6353a20948169b6cb4c97b65b97ad2"
+  integrity sha512-abkEOIeljniUN9qB5onp++g0EY38h7atnDHxwKUFz1r3VH1+yG1OKi2sNPTyObL40goBmfKFpdii2lEzwLX1cA==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -2100,10 +2113,10 @@ classnames@^2.2.5:
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
-cleave.js@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.5.0.tgz#f71d83095becab5f7663591f710957c53bd77b11"
-  integrity sha512-VYhsMxEReQT72sXs5FmsDvIYOBjmSl+IyiFNwjZDVFCPeo3mxNBRLTTBYRezyKHsyR8fGiy3FNxgozPTkq7U7Q==
+cleave.js@1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.5.2.tgz#be06cd3b9d4d5473e998f6f3b9beddb565ca1e6b"
+  integrity sha512-Es54fRsc6j6v1DgXVT8Rg+EeajgQXGK4ae5gVeIgUaOkEtFPNfZJNXGvHYuMaUAEHppoNQfkRFeH4XuiOucFaw==
 
 cli-cursor@^2.0.0, cli-cursor@^2.1.0:
   version "2.1.0"
@@ -6726,20 +6739,7 @@ react-testing-library@8.0.1:
   resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-8.0.1.tgz#b3dd43bce3fa88423cf0a23292fb819023c227cc"
   integrity sha512-Gq4JC9r3prA4hYwo7afcbHHMFckO29+5Nrh2KblAEPuK/DWaU0bJE1vtpAgLhzhY9bBirmcgjjIHljHEwGAXKw==
 
-react-use@9.7.2:
-  version "9.7.2"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.7.2.tgz#cffe2472da5dd9ab780e35e188d1166fd7753f8d"
-  integrity sha512-ze8nG0jpx2il3u3DGbNOLX2+cqoJ36j1m5rnCsrv4IB5biP7nrODfBLmxLNiqUOcvOqC4z68YobMPkTOn2RWAg==
-  dependencies:
-    copy-to-clipboard "^3.1.0"
-    nano-css "^5.1.0"
-    react-fast-compare "^2.0.4"
-    react-wait "^0.3.0"
-    screenfull "^4.1.0"
-    throttle-debounce "^2.0.1"
-    ts-easing "^0.2.0"
-
-react-use@^9.8.1:
+react-use@9.8.1:
   version "9.8.1"
   resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.8.1.tgz#ace752444e5925eeac4b6366d2bac030beffbfdb"
   integrity sha512-FYwJEczwc4JFXdgnnZqHY9yHfD+56BP0ubv9HQhvNWO0ajeyIlEdD9gcgfQo8/2NSLmzS2AVWom1D+GGxAXR+g==
@@ -7061,7 +7061,7 @@ rgba-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/rgba-regex/-/rgba-regex-1.0.0.tgz#43374e2e2ca0968b0ef1523460b7d730ff22eeb3"
   integrity sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
 
-rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3:
+rimraf@2.6.3, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"
   integrity sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
@@ -7740,10 +7740,10 @@ tcomb@3.2.29:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-devfractal@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.8.1.tgz#435570babbb2f70a95b06ee4bcdbb4b127bf9e0d"
-  integrity sha512-k+9M4qVmbGRbl32uXvPrUZacnmmUoV1y6dioJawawZPdlxEgqdAfy6iRsvgt0E6zWgDEjXLKJaXtT8LR62dKCA==
+technoidentity-devfractal@0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.8.2.tgz#61d94859aa20aa79c92b0c0d51ad31468b07cf44"
+  integrity sha512-1AQSBGRRPcl3UcVLqVoQAkz/BOYpd3EW60qMoCDLuYM9u/cO4hb8hdXmcYIiLanWlzIN7oOn8xA2ILWA68mmSw==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "1.2.19"
     "@fortawesome/free-brands-svg-icons" "5.9.0"
@@ -7752,7 +7752,7 @@ technoidentity-devfractal@^0.8.1:
     "@fortawesome/react-fontawesome" "0.1.4"
     axios "0.19.0"
     bulma "0.7.5"
-    cleave.js "1.5.0"
+    cleave.js "1.5.2"
     date-fns "1.30.1"
     firebase "6.2.4"
     formik "1.5.7"
@@ -7768,19 +7768,14 @@ technoidentity-devfractal@^0.8.1:
     react-hanger "2.0.0"
     react-router "5.0.1"
     react-router-dom "5.0.1"
-    react-use "9.7.2"
+    react-use "9.8.1"
     rxjs "6.5.2"
     shortid "2.2.14"
     tcomb "3.2.29"
-    technoidentity-utils "0.0.1"
-    typelevel-ts "^0.3.5"
+    technoidentity-utils "0.0.2"
+    typelevel-ts "0.3.5"
 
-technoidentity-utils@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.1.tgz#95679cc748e4bb7606222885f8a108b18ff842da"
-  integrity sha512-g63KBAnsIv7XtQx5csC2q3pIx3P1l/W1gaaZAJn6a7hCgGZNQiphxotfWQT5FKei1MUpdsetczN9ZfJi32rMRQ==
-
-technoidentity-utils@^0.0.2:
+technoidentity-utils@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.2.tgz#66895fabf857b50cb7fa7998521427fd8cd654f4"
   integrity sha512-WUKIDwk+U3/2q1nG3XEbmR0SwsEboj5z0Zob8O5A8aunDr51oBbRVPGWYYqOM8UKefrVIyvY84iWN61XV7LMqQ==
@@ -8065,7 +8060,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typelevel-ts@0.3.5, typelevel-ts@^0.3.5:
+typelevel-ts@0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/typelevel-ts/-/typelevel-ts-0.3.5.tgz#9f242c193fa6c5489d2342c642ab8912a065af9d"
   integrity sha512-VZKF0ak5RNgrPkpI2uJJL0WBqNcj67+hzYzD6SwoxzrgvgjP24gskqniXd62UY5rrJCxd3q/iChtxKcHC6fRvA==

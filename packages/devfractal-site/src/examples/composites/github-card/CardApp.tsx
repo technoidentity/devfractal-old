@@ -7,7 +7,6 @@ export const CardApp: React.FC = () => {
   const [name, setName] = React.useState('')
 
   const handleSearch: (userName: string) => void = (userName: string) => {
-    console.log(userName)
     setName(userName)
   }
 

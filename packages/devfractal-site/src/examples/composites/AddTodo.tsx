@@ -24,7 +24,8 @@ export const SimpleAddTodo: React.FC = () => (
   <Section>
     <Simple.Form
       initialValues={initialAddTodoValues}
-      validationSchema={AddTodoSchema}
+      // @TODO: remove any
+      validationSchema={AddTodoSchema as any}
       onSubmit={consoleSubmit(0)}
     >
       <Simple.Text label="Title:" name="title" />

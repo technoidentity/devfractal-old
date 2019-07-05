@@ -19,6 +19,7 @@ export const App: React.FC = () => (
         <Route exact path="/" component={SignUpFormRoute} />
         <Route exact path="/login" component={LoginRoute} />
         <Route exact path="/tasks" component={TaskListRoute} />
+        <Route exact path="/tasks/:filter" component={TaskListRoute} />
         <Route exact path="/tasks/add" component={CreateTaskRoute} />
         <Route exact path="/tasks/:id/edit" component={EditTaskRoute} />
         <Route component={NotFound} />

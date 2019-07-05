@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
-import { range } from 'technoidentity-utils'
 import { asyncChecked, checked } from './checked'
+import { range } from './common'
 
 // tslint:disable typedef
 it('checked', () => {
