@@ -29,7 +29,8 @@ const initialLoginValues: LoginValues = {
 export const UserForm: React.FC = () => (
   <Simple.Form
     initialValues={initialLoginValues}
-    validationSchema={loginSchema}
+    // @TODO: remove any
+    validationSchema={loginSchema as any}
     onSubmit={consoleSubmit()}
   >
     <Simple.Text label="Name:" name="name" />

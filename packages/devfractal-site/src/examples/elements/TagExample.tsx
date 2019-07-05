@@ -27,7 +27,6 @@ const TagColorExample: React.FC = () => (
         <TagComponent variant="dark">Dark</TagComponent>
         <TagComponent variant="light">Light</TagComponent>
         <TagComponent variant="primary">Primary</TagComponent>
-        <TagComponent variant="link">Link</TagComponent>
         <TagComponent variant="info">Info</TagComponent>
         <TagComponent variant="success">Success</TagComponent>
         <TagComponent variant="warning">Warning</TagComponent>
@@ -56,7 +55,8 @@ const TagModifiersExample: React.FC = () => (
     <Title>Modifiers</Title>
     <Box>
       <Tags>
-        <TagComponent modifier="rounded">Rounded</TagComponent>
+        <TagComponent rounded>Rounded</TagComponent>
+        <TagComponent modifier="link">Link</TagComponent>
         <TagComponent modifier="delete" />
       </Tags>
     </Box>

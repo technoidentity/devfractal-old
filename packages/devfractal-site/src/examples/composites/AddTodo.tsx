@@ -1,6 +1,6 @@
 import React from 'react'
 import { consoleSubmit, Section, Simple } from 'technoidentity-devfractal'
-import { boolean, object, ObjectSchema, string } from 'yup'
+import { boolean, object, string } from 'yup'
 
 export interface AddTodoValues {
   readonly title: string
@@ -14,7 +14,7 @@ export const initialAddTodoValues: AddTodoValues = {
   done: false,
 }
 
-export const AddTodoSchema: ObjectSchema<AddTodoValues> = object({
+export const AddTodoSchema = object({
   title: string().required(),
   description: string().required(),
   done: boolean().required(),
@@ -24,7 +24,8 @@ export const SimpleAddTodo: React.FC = () => (
   <Section>
     <Simple.Form
       initialValues={initialAddTodoValues}
-      validationSchema={AddTodoSchema}
+      // @TODO: remove any
+      validationSchema={AddTodoSchema as any}
       onSubmit={consoleSubmit(0)}
     >
       <Simple.Text label="Title:" name="title" />
