@@ -22,6 +22,5 @@ export const isUserValid = async (
   password: string,
 ): Promise<boolean> => {
   const user = await UserModel.findOne({ name, password }).exec()
-  console.log(user)
   return !!user
 }

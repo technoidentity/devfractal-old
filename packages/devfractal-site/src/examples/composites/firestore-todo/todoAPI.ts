@@ -10,7 +10,6 @@ export interface FSTodo {
 
 export const all: () => Promise<ReadonlyArray<FSTodo>> = async () => {
   const snapshot = await db.collection('todos').get()
-  console.log('all')
   return snapshot.docs.map(doc => ({
     id: doc.id,
 
