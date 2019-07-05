@@ -1,6 +1,6 @@
 import React from 'react'
 import { consoleSubmit, Section, Simple } from 'technoidentity-devfractal'
-import { boolean, object, string } from 'yup'
+import { boolean, object, ObjectSchema, string } from 'yup'
 
 export interface AddTodoValues {
   readonly title: string
@@ -14,7 +14,7 @@ export const initialAddTodoValues: AddTodoValues = {
   done: false,
 }
 
-export const AddTodoSchema = object({
+export const AddTodoSchema: ObjectSchema<AddTodoValues> = object({
   title: string().required(),
   description: string().required(),
   done: boolean().required(),
