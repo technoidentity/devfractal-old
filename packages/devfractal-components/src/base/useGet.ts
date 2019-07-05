@@ -15,9 +15,11 @@ AsyncResult<T> {
   const [data, setData] = React.useState<T | undefined>(undefined)
   const [error, setError] = React.useState<Error | undefined>(undefined)
   const [fetchAgain, setFetchAgain] = React.useState(0)
-  const mounted: React.MutableRefObject<boolean> = React.useRef(true)
+  const mounted: React.MutableRefObject<boolean> = React.useRef(false)
 
   React.useEffect(() => {
+    // tslint:disable-next-line: no-object-mutation
+    mounted.current = true
     setData(undefined)
     setError(undefined)
 
