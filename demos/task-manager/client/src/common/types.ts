@@ -1,30 +1,34 @@
-import { intersection, string, TypeOf, union } from 'io-ts'
+import { keyof, string, TypeOf, union } from 'io-ts'
 import { date, DateFromISOString } from 'io-ts-types'
-import { opt, req } from 'technoidentity-utils'
+import { props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])
 
-const dateInfoRequired = req({ deadline: ISODate, scheduled: ISODate })
-const dateInfoPartial = opt({ started: ISODate, completed: ISODate })
-const dateInfo = intersection([dateInfoRequired, dateInfoPartial])
+const dateInfo = props(
+  { started: ISODate, completed: ISODate },
+  { deadline: ISODate, scheduled: ISODate },
+)
 
-const taskPartial = opt({ _id: string })
-const taskRequired = req({ title: string, description: string, dateInfo })
-export const Task = intersection([taskPartial, taskRequired])
-
+export const Task = props(
+  { _id: string }, // _id is optional, for create
+  { title: string, description: string, dateInfo },
+)
 export type Task = TypeOf<typeof Task>
 
-export const User = req({
-  name: string,
-  email: string,
-  password: string,
-})
-
+export const User = req({ name: string, email: string, password: string })
 export type User = TypeOf<typeof User>
 
 export const Session = req({
   name: string,
   password: string,
 })
-
 export type Session = TypeOf<typeof Session>
+
+export const TaskFilter = keyof({
+  all: true,
+  completed: true,
+  pending: true,
+  today: true,
+  deadline: true,
+})
+export type TaskFilter = TypeOf<typeof TaskFilter>

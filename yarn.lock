@@ -6624,7 +6624,7 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@1.30.1, date-fns@^1.27.2:
+date-fns@1.30.1, date-fns@^1.27.2, date-fns@^1.30.1:
   version "1.30.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
@@ -13050,7 +13050,7 @@ param-case@2.1.x:
   dependencies:
     no-case "^2.2.0"
 
-parcel-bundler@1.12.3:
+parcel-bundler@1.12.3, parcel-bundler@^1.12.3:
   version "1.12.3"
   resolved "https://registry.yarnpkg.com/parcel-bundler/-/parcel-bundler-1.12.3.tgz#2bbf70bfa2d06097f071653285040bd125684d09"
   integrity sha512-8bq6lj0hhQeGxD9f9xEkFMXQ3d8TIlf2+isKxoi9bciB0KVEILRGllaPkUgp++5t0anToBh9+tG6ZyInXOC1/A==
@@ -17061,6 +17061,11 @@ technoidentity-devfractal@0.7.8:
     shortid "2.2.14"
     tcomb "3.2.29"
     technoidentity-utils "0.0.1"
+
+technoidentity-utils@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.1.tgz#95679cc748e4bb7606222885f8a108b18ff842da"
+  integrity sha512-g63KBAnsIv7XtQx5csC2q3pIx3P1l/W1gaaZAJn6a7hCgGZNQiphxotfWQT5FKei1MUpdsetczN9ZfJi32rMRQ==
 
 telejson@^2.2.1:
   version "2.2.1"

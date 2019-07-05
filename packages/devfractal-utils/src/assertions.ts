@@ -40,4 +40,20 @@ export function invariant(condition: unknown, message?: string): void {
   }
 }
 
-// @TODO: debugWarning, debugInvariant
+export function debugWarning(condition: unknown, message: string): void {
+  if (process.env.NODE_ENV !== 'production') {
+    warning(condition, message)
+  }
+}
+
+export function debugFatal(message?: string): void {
+  if (process.env.NODE_ENV !== 'production') {
+    fatal(message)
+  }
+}
+
+export function debugInvariant(condition: unknown, message?: string): void {
+  if (process.env.NODE_ENV !== 'production') {
+    debugInvariant(condition, message)
+  }
+}

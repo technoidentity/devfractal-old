@@ -1,5 +1,6 @@
 import { rest } from 'technoidentity-devfractal'
-import { Session, Task, User } from '.'
+import { typeInvariant } from 'technoidentity-utils'
+import { Session, Task, TaskFilter, User } from './types'
 
 export const apiOptions = {
   baseURL: 'http://localhost:9999',
@@ -16,8 +17,8 @@ export const sessionApi = rest({
 
 export const taskApi = rest({ resource: 'tasks', type: Task, ...apiOptions })
 
-export type TaskFilter = 'all' | 'completed' | 'pending' | 'today' | 'deadline'
-
 export async function getTasks(path: TaskFilter): Promise<ReadonlyArray<Task>> {
+  typeInvariant(TaskFilter, path)
+
   return taskApi.many({ path: path !== 'all' ? path : undefined })
 }

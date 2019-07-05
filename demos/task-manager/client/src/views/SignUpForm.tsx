@@ -1,29 +1,25 @@
 import 'bulma/css/bulma.css'
+import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   Column,
   Columns,
+  component,
   formSubmit,
   Section,
   Simple,
   Text,
 } from 'technoidentity-devfractal'
+import { emptyFromType, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 
-export interface SignUpValues {
-  readonly name: string
-  readonly email: string
-  readonly password: string
-  readonly confirmPassword: string
-}
-
-const initialValues: SignUpValues = {
-  name: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
-}
+const SignUpValues = req({
+  name: string,
+  email: string,
+  password: string,
+  confirmPassword: string,
+})
 
 const schema = yup.object().shape({
   name: yup
@@ -44,16 +40,16 @@ const schema = yup.object().shape({
     .oneOf([yup.ref('password')], 'Passwords must match'),
 })
 
-export interface SignUpFormProps {
-  onSubmit(values: SignUpValues): Promise<void>
-}
+const SignUpFormProps = req({
+  onSubmit: fn<(values: TypeOf<typeof SignUpValues>) => Promise<void>>(),
+})
 
-export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => (
+export const SignUpForm = component(SignUpFormProps, ({ onSubmit }) => (
   <Section>
     <Columns columnCentered>
       <Column size="half">
         <Simple.Form
-          initialValues={initialValues}
+          initialValues={emptyFromType(SignUpValues)}
           onSubmit={formSubmit(onSubmit)}
           validationSchema={schema}
         >
@@ -72,4 +68,4 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => (
       </Column>
     </Columns>
   </Section>
-)
+))

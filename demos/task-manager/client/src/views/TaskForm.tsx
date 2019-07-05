@@ -5,10 +5,12 @@ import 'react-datepicker/dist/react-datepicker.css'
 import {
   Column,
   Columns,
+  component,
   formSubmit,
   Section,
   Simple,
 } from 'technoidentity-devfractal'
+import { fn, props } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { DatePickerField, Task } from '../common'
 
@@ -66,11 +68,12 @@ const validationSchema = yup.object().shape({
   }),
 })
 
-export interface TaskFormProps {
-  readonly initial?: Task
-  onSubmit(values: Task): Promise<void>
-}
+export const TaskFormProps = props(
+  { initial: Task },
+  { onSubmit: fn<(values: Task) => Promise<void>>() },
+)
 
+// @TODO: replace with emptyFromType
 const initialValues: Task = {
   title: '',
   description: '',
@@ -82,7 +85,7 @@ const initialValues: Task = {
   },
 }
 
-export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initial }) => (
+export const TaskForm = component(TaskFormProps, ({ onSubmit, initial }) => (
   <Section>
     <Simple.Form
       initialValues={initial || initialValues}
@@ -102,4 +105,4 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initial }) => (
       </Columns>
     </Simple.Form>
   </Section>
-)
+))

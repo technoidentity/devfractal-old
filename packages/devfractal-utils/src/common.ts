@@ -3,7 +3,7 @@ import { assert } from 'tcomb'
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
 
 export function freeze<T>(v: T): Readonly<T> {
-  return process.env.NODE_ENV === 'production' ? v : Object.freeze(v)
+  return process.env.NODE_ENV !== 'production' ? Object.freeze(v) : v
 }
 
 export function jsonStringify(obj: object): string {
@@ -12,7 +12,7 @@ export function jsonStringify(obj: object): string {
 
 export const nop: (...args: any[]) => any = () => undefined
 
-export function rangeInternal(
+function rangeInternal(
   start: number,
   stop: number,
   step: number = 1,

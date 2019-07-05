@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "technoidentity-meta-core": "0.0.1",
-    "technoidentity-utils": "0.0.1",
+    "technoidentity-utils": "0.0.2",
     "express": "4.17.1",
     "fp-ts": "1.19.3",
     "io-ts": "1.10.2",
