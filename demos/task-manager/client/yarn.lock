@@ -7780,6 +7780,11 @@ technoidentity-utils@0.0.2:
   resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.2.tgz#66895fabf857b50cb7fa7998521427fd8cd654f4"
   integrity sha512-WUKIDwk+U3/2q1nG3XEbmR0SwsEboj5z0Zob8O5A8aunDr51oBbRVPGWYYqOM8UKefrVIyvY84iWN61XV7LMqQ==
 
+technoidentity-utils@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.4.tgz#bb6753d3f7217ddd440872a7a3659ec4587f1059"
+  integrity sha512-i6gOUAr2hOlvVJw2Z5Mx28NQ4V9N2q/+97parBxSrSYaHiTVXwH1UpSNoDOt0qCcQA5Cp8LFDvGAykMAVuv0TA==
+
 terser@^3.16.1, terser@^3.7.3:
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/terser/-/terser-3.17.0.tgz#f88ffbeda0deb5637f9d24b0da66f4e15ab10cb2"

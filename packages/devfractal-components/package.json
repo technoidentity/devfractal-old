@@ -33,7 +33,7 @@
     "rxjs": "6.5.2",
     "shortid": "2.2.14",
     "tcomb": "3.2.29",
-    "technoidentity-utils": "0.0.2",
+    "technoidentity-utils": "0.0.4",
     "typelevel-ts": "0.3.5"
   },
   "devDependencies": {
