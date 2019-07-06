@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-utils",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "utils for all devfractal libs",
   "main": "dist/index.js",
   "module": "dist/devfractal-utils.esm.js",
@@ -26,10 +26,10 @@
     "validate": "yarn lint && yarn types && yarn test"
   },
   "peerDependencies": {
-    "io-ts": "1.10.2",
-    "io-ts-types": "0.4.7",
     "date-fns": "1.30.1",
     "fp-ts": "1.19.3",
+    "io-ts": "1.10.2",
+    "io-ts-types": "0.4.7",
     "tcomb": "3.2.29"
   },
   "devDependencies": {
