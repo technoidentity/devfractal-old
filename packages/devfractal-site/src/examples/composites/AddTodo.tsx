@@ -14,7 +14,7 @@ export const initialAddTodoValues: AddTodoValues = {
   done: false,
 }
 
-export const AddTodoSchema: ObjectSchema<AddTodoValues> = object({
+export const AddTodoSchema: ObjectSchema<any> = object({
   title: string().required(),
   description: string().required(),
   done: boolean().required(),
@@ -25,7 +25,7 @@ export const SimpleAddTodo: React.FC = () => (
     <Simple.Form
       initialValues={initialAddTodoValues}
       // @TODO: remove any
-      validationSchema={AddTodoSchema as any}
+      validationSchema={AddTodoSchema}
       onSubmit={consoleSubmit(0)}
     >
       <Simple.Text label="Title:" name="title" />
