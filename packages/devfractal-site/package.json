@@ -23,7 +23,7 @@
     "react-router-dom": "5.0.1",
     "shortid": "2.2.14",
     "tcomb": "3.2.29",
-    "technoidentity-devfractal": "0.8.5",
+    "technoidentity-devfractal": "0.8.6",
     "yup": "0.27.0"
   },
   "devDependencies": {
@@ -83,7 +83,7 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",
     "types:watch": "tsc --noEmit -p tsconfig.json --watch",
-    "validate": "yarn lint && yarn types && yarn types"
+    "validate": "yarn lint && yarn types && yarn test"
   },
   "husky": {
     "hooks": {
