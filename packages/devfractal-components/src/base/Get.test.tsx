@@ -1,9 +1,10 @@
-import { fireEvent, render, waitForElement } from '@testing-library/react'
+import { fireEvent, render, wait, waitForElement } from '@testing-library/react'
 import React from 'react'
 import { Get } from './Get'
 
+// tslint:disable:typedef
+
 test('get success', async () => {
-  // tslint:disable-next-line:typedef
   const asyncFn = jest.fn().mockResolvedValue('tasks')
   const { getByText, container } = render(
     <Get asyncFn={asyncFn} deps={undefined}>
@@ -27,7 +28,6 @@ test('get success', async () => {
 })
 
 test('get failure', async () => {
-  // tslint:disable-next-line:typedef
   const asyncFn = jest.fn().mockRejectedValue(new Error('error tasks'))
   const { getByText, container } = render(
     <Get asyncFn={asyncFn} deps={undefined}>
@@ -52,8 +52,7 @@ test('get failure', async () => {
                       `)
 })
 
-test('get success with refresh', async () => {
-  // tslint:disable-next-line:typedef
+test('get with refresh', async () => {
   const asyncFn = jest
     .fn()
     .mockResolvedValueOnce('tasks')
@@ -114,8 +113,7 @@ test('get success with refresh', async () => {
             `)
 })
 
-test('get success with deps', async () => {
-  // tslint:disable-next-line:typedef
+test('get with deps', async () => {
   const asyncFn = jest
     .fn()
     .mockResolvedValueOnce('tasks')
@@ -158,4 +156,29 @@ test('get success with deps', async () => {
           tasks deps
         </div>
     `)
+})
+test('get with unmount', async () => {
+  const mockFn = jest.fn()
+  const spy = jest.spyOn(React, 'useState').mockImplementation(() => [undefined, mockFn])
+  const asyncFn = jest
+    .fn()
+    .mockResolvedValueOnce('tasks')
+  const { container, unmount } = render(
+    <Get asyncFn={asyncFn} deps={undefined}>
+      {data => <div>{data}</div>}
+    </Get>,
+  )
+
+  expect(container.firstChild).toMatchInlineSnapshot(`
+                                        <h1
+                                          class="is-text is-size-1 is-info"
+                                        >
+                                          Loading....
+                                        </h1>
+                    `)
+  unmount()
+  await wait()
+  expect(mockFn).not.toHaveBeenCalledWith('tasks')
+
+  spy.mockRestore()
 })
