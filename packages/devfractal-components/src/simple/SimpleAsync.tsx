@@ -12,24 +12,26 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ error }) => (
   <h1>{`${error.message}`}</h1>
 )
 
-export interface SimpleAsyncProps<T = any> {
+export interface SimpleAsyncProps<T> {
   asyncFn(): Promise<T>
   children(props: { readonly data: T }): JSX.Element
 }
 
-export const SimpleAsync: React.FC<SimpleAsyncProps> = ({
+export function SimpleAsync<T>({
   asyncFn,
   children,
-}) => (
-  <Async asyncFn={asyncFn}>
-    {({ data, error }) =>
-      data ? (
-        children(data)
-      ) : error ? (
-        <ErrorMessage error={error} />
-      ) : (
-        <Loading />
-      )
-    }
-  </Async>
-)
+}: SimpleAsyncProps<T>): JSX.Element {
+  return (
+    <Async asyncFn={asyncFn}>
+      {({ data, error }) =>
+        data !== undefined ? (
+          children({ data })
+        ) : error ? (
+          <ErrorMessage error={error} />
+        ) : (
+          <Loading />
+        )
+      }
+    </Async>
+  )
+}
