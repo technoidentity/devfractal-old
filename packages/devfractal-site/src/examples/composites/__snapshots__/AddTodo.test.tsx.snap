@@ -52,6 +52,11 @@ exports[`AddTodo 1`] = `
     <div
       className="field"
     >
+      <label
+        className="label"
+      >
+         Done
+      </label>
       <div
         className="control"
       >
@@ -67,7 +72,6 @@ exports[`AddTodo 1`] = `
             type="checkbox"
             value={false}
           />
-           Done
         </label>
       </div>
     </div>

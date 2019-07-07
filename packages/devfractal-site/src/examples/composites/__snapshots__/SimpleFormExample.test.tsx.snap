@@ -95,6 +95,11 @@ exports[`Simple Form Example 1`] = `
     <div
       className="field"
     >
+      <label
+        className="label"
+      >
+         Remember Me
+      </label>
       <div
         className="control"
       >
@@ -110,7 +115,6 @@ exports[`Simple Form Example 1`] = `
             type="checkbox"
             value={false}
           />
-           Remember Me
         </label>
       </div>
     </div>

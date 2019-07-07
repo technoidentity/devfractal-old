@@ -53,6 +53,11 @@ Array [
       <div
         className="field"
       >
+        <label
+          className="label"
+        >
+           Done
+        </label>
         <div
           className="control"
         >
@@ -68,7 +73,6 @@ Array [
               type="checkbox"
               value={false}
             />
-             Done
           </label>
         </div>
       </div>
