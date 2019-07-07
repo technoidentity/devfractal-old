@@ -1,5 +1,5 @@
 import React from 'react'
-import { Boolean, Function } from 'tcomb'
+import { Boolean, Date, Function } from 'tcomb'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   Async,
@@ -9,9 +9,11 @@ import {
   TableHead,
   TableProps,
   Td,
+  Text,
   Th,
   Tr,
 } from '../lib'
+import { formatDate } from './utils'
 
 export interface RowClickEvent<T> {
   readonly value: T
@@ -42,7 +44,9 @@ function Rows<T>(props: RowsProps<T>): JSX.Element {
         >
           {headers.map(key => (
             <Td key={key}>
-              {Boolean.is(value[key]) ? (
+              {Date.is(value[key]) ? (
+                <Text>{formatDate(value[key])}</Text>
+              ) : Boolean.is(value[key]) ? (
                 <CheckBox readOnly checked={value[key]} />
               ) : value[key] !== undefined ? (
                 value[key]

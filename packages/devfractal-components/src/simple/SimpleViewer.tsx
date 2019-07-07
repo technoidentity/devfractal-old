@@ -1,17 +1,20 @@
 import React from 'react'
-import { Boolean, Function } from 'tcomb'
+import { Boolean, Date, Function } from 'tcomb'
 import { camelCaseToPhrase } from 'technoidentity-utils'
-import { Async, CheckBox, Column, Columns, Section, Title } from '../lib'
+import { Async, CheckBox, Column, Columns, Section, Text, Title } from '../lib'
+import { formatDate } from './utils'
 
 const SimpleHeader: React.FC<{ readonly objectKey: string }> = ({
   objectKey,
-}) => <Title size="4">{camelCaseToPhrase(objectKey)}</Title>
+}) => <Title size="6">{camelCaseToPhrase(objectKey)}</Title>
 
 const SimpleValue: React.FC<{
   readonly objectValue: string
 }> = ({ objectValue }) =>
   Boolean.is(objectValue) ? (
     <CheckBox checked={objectValue} readOnly />
+  ) : Date.is(objectValue) ? (
+    <Text>{formatDate(objectValue)}</Text>
   ) : (
     <>{objectValue}</>
   )

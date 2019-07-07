@@ -1,6 +1,6 @@
 import { FormikActions } from 'formik'
 import React from 'react'
-import { Boolean, Function, Number } from 'tcomb'
+import { Boolean, Date, Function, Number } from 'tcomb'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import { Async, Label, Section, Simple } from '../lib'
 export interface SimpleEditorViewProps<T extends object> {
@@ -31,6 +31,12 @@ export function SimpleEditorView<T extends object>({
               </>
             ) : Number.is(data[key]) ? (
               <Simple.Number
+                label={camelCaseToPhrase(key)}
+                name={key}
+                readOnly={key === id}
+              />
+            ) : Date.is(data[key]) ? (
+              <Simple.Date
                 label={camelCaseToPhrase(key)}
                 name={key}
                 readOnly={key === id}
