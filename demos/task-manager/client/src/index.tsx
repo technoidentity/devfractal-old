@@ -9,3 +9,13 @@ ReactDOM.render(<App />, document.getElementById('root'))
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister()
+// import './01.checked'
+// import './03.fake'
+// import './04.empty'
+// import './05.fn'
+// import './06.string'
+// import './07.coercions'
+// import './08.complexForm'
+// import './09.moderateForm'
+// import './10.simpleForm'
+import './demo/11.todo'
