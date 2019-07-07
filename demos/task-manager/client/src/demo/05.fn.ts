@@ -7,4 +7,5 @@ type Point = TypeOf<typeof Point>
 
 console.log(() => typeInvariant(Point, { x: 1, y: 2 }))
 console.log(() => typeInvariant(Point, { x: 1, y: 2, distance: 3 }))
+// tslint:disable-next-line: no-empty
 console.log(() => typeInvariant(Point, { x: 1, y: 2, distance: () => {} }))

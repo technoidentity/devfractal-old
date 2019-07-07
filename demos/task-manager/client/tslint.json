@@ -84,7 +84,6 @@
     "promise-function-async": true,
     "await-promise": true,
     "no-return-await": true,
-    "restrict-plus-operands": true,
     "no-non-null-assertion": true,
     "prefer-method-signature": true,
     "return-undefined": true,

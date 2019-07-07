@@ -20,7 +20,8 @@ const schema = yup.object().shape({
   password: yup.string().required(),
 })
 
-const initialValues: LoginValues = { name: '', password: '' }
+export const initialLoginValues: LoginValues = { name: '', password: '' }
+
 const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (
   <Container>
     <Form>
@@ -50,7 +51,7 @@ const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (
 
 export const FieldsLoginForm: React.FC = () => (
   <Formik
-    initialValues={initialValues}
+    initialValues={initialLoginValues}
     validationSchema={schema}
     render={LoginFormInner}
     onSubmit={values => console.log(values)}
