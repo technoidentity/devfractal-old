@@ -22,13 +22,13 @@ export const SimpleAsync: React.FC<SimpleAsyncProps> = ({
   children,
 }) => (
   <Async asyncFn={asyncFn}>
-    {({ data, error, isLoading }) =>
-      isLoading ? (
-        <Loading />
+    {({ data, error }) =>
+      data ? (
+        children(data)
       ) : error ? (
         <ErrorMessage error={error} />
       ) : (
-        children(data)
+        <Loading />
       )
     }
   </Async>
