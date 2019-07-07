@@ -2,6 +2,8 @@ import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import React from 'react'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
+  date,
+  DateSchema,
   number,
   NumberSchema,
   ObjectSchema,
@@ -9,15 +11,17 @@ import {
   string,
   StringSchema,
 } from 'yup'
-import { FieldProps } from '../form'
 import {
   Button,
   CheckboxField,
   CheckboxFieldProps,
   consoleSubmit,
+  DateField,
+  DateFieldProps,
   DebugField,
   ErrorField,
   Field,
+  FieldProps,
   InputField,
   InputFieldProps,
   Label,
@@ -77,6 +81,27 @@ function SimpleInput<Values extends object, S extends Schema<any>>(
     <Field {...field}>
       <Label>{label || camelCaseToPhrase(props.name)}</Label>
       <InputField {...props} validate={validator(schema, validations)} />
+      <ErrorField name={props.name} />
+    </Field>
+  )
+}
+
+interface SimpleDateProps<Values extends object, S extends Schema<Date>>
+  extends Omit<DateFieldProps, 'name'>,
+    Named<Values> {
+  readonly schema: S
+  readonly label?: string
+  // readonly validations?: ReadonlyArray<(schema: S) => S>
+}
+
+function SimpleDate<Values extends object, S extends Schema<Date>>(
+  args: SimpleDateProps<Values, S>,
+): JSX.Element {
+  const { schema, label, ...props } = args
+  return (
+    <Field>
+      <Label>{label || camelCaseToPhrase(props.name)}</Label>
+      <DateField {...props} /> {/*validate={validator(schema, validations)}*/}
       <ErrorField name={props.name} />
     </Field>
   )
@@ -143,6 +168,7 @@ export interface SimpleFormProps<Values> {
 
 export interface TypedForm<Values extends object> {
   readonly Text: React.FC<GenericInputProps<Values, StringSchema>>
+  readonly Date: React.FC<Omit<SimpleDateProps<Values, DateSchema>, 'schema'>>
   readonly Number: React.FC<GenericInputProps<Values, NumberSchema>>
   readonly Password: React.FC<GenericInputProps<Values, StringSchema>>
   readonly Email: React.FC<GenericInputProps<Values, StringSchema>>
@@ -158,7 +184,7 @@ export interface TypedForm<Values extends object> {
 export function typedForm<Values extends object>(): TypedForm<Values> {
   return {
     Text: props => <SimpleInput {...props} type="text" schema={string()} />,
-
+    Date: props => <SimpleDate {...props} schema={date()} />,
     Number: props => <SimpleInput schema={number()} {...props} type="number" />,
 
     Password: props => (
