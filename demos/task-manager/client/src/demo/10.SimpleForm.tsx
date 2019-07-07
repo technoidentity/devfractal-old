@@ -1,6 +1,6 @@
 import React from 'react'
 import { max, min, required, Section, Simple } from 'technoidentity-devfractal'
-import { initialLoginValues } from './09.moderateForm'
+import { initialLoginValues } from './09.ModerateForm'
 
 export const SimpleLoginForm: React.FC = () => (
   <Section>

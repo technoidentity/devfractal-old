@@ -8,7 +8,7 @@ import {
   Th,
   Tr,
 } from 'technoidentity-devfractal'
-import { Todo } from './11.todo'
+import { Todo } from './11.Todo'
 
 export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (
   <Tr>

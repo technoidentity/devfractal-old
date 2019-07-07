@@ -3,7 +3,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { component, formSubmit, Simple } from 'technoidentity-devfractal'
 import { fn, props } from 'technoidentity-utils'
 import { DatePickerField } from '../common'
-import { Todo } from './11.todo'
+import { Todo } from './11.Todo'
 
 export const initialValues: Todo = {
   title: '',
