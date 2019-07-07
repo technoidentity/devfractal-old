@@ -17,12 +17,9 @@ export const TodoFormProps = props(
 )
 
 export const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
-  <Simple.Form
-    initialValues={initialValues || initial}
-    onSubmit={formSubmit(onSubmit)}
-  >
+  <Simple.Form initialValues={initialValues || initial} onSubmit={onSubmit}>
     <Simple.Text name="title" />
-    <DatePickerField name="scheduled" label="Scheduled" />
+    <Simple.Date name="scheduled" />
     <Simple.Checkbox name="done" />
     <Simple.FormButtons />
   </Simple.Form>

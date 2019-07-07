@@ -25,24 +25,28 @@ export const todoApi = rest({
 })
 
 export const checkApi = async () => {
+  const one = await todoApi.get('2')
+  console.log(one)
+
+  const postTodo = await todoApi.create({
+    title: 'do programming',
+    scheduled: '2019-07-07T07:39:53.863Z',
+    done: false,
+  })
+  console.log(postTodo)
+
+  const putTodo = await todoApi.update('1', {
+    id: 1,
+    title: 'bring cupcake',
+    done: false,
+    scheduled: '2019-07-07T07:39:53.863Z',
+  })
+  console.log(putTodo)
+
+  await todoApi.del((postTodo.id || '2').toString())
+
   const todos = await todoApi.many()
   console.log(todos)
-  // const getOne = await todoApi.get('2')
-  // console.log(getOne)
-  // const postOne = await todoApi.create({
-  //   title: 'do programming',
-  //   scheduled: '2019-07-07T07:39:53.863Z',
-  //   done: false,
-  // })
-  // console.log(postOne)
-  // const putOne = await todoApi.update('1', {
-  //   id: 1,
-  //   title: 'bring cupcake',
-  //   done: false,
-  //   scheduled: '2019-07-07T07:39:53.863Z',
-  // })
-  // console.log(putOne)
-  // await todoApi.del('2')
 }
 
 checkApi()

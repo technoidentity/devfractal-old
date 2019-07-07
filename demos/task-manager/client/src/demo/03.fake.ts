@@ -9,7 +9,7 @@ import {
   type,
 } from 'io-ts'
 import { date } from 'io-ts-types'
-import { defaultOptions, fake } from 'technoidentity-utils'
+import { fake } from 'technoidentity-utils'
 
 console.log(
   fake(
@@ -26,9 +26,5 @@ console.log(
         ),
       }),
     ),
-    {
-      ...defaultOptions,
-      array: { minLength: 1, maxLength: 6 },
-    },
   ),
 )
