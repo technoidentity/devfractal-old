@@ -16,12 +16,15 @@ function DateInputInner<V>({
       onChange={date => form.setFieldValue(field.name, date)}
       name={field.name}
       onBlur={field.onBlur}
-      value={field.value}
+      selected={field.value}
     />
   )
 }
 
-export type DateFieldProps = DateInputProps & FieldConfig
+export type DateFieldProps = {
+  readonly onChange?: DateInputProps['onChange']
+} & Omit<DateInputProps, 'onChange'> &
+  FieldConfig
 
 export const DateField: React.FC<DateFieldProps> = props => (
   <Field {...props} component={DateInputInner} />
