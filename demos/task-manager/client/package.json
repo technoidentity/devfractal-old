@@ -1,5 +1,5 @@
 {
-  "name": "react-starter",
+  "name": "task-manager-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
