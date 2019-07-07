@@ -49,6 +49,6 @@ export const checkApi = async () => {
   console.log(todos)
 }
 
-checkApi()
-  .then(() => console.log('DONE'))
-  .catch(err => console.log(err.message))
+// checkApi()
+//   .then(() => console.log('DONE'))
+//   .catch(err => console.log(err.message))

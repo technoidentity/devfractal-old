@@ -1,6 +1,7 @@
 import { format } from 'date-fns'
 import React from 'react'
 import {
+  CheckBox,
   Table,
   TableBody,
   TableHead,
@@ -15,7 +16,9 @@ export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (
     <Td>{id}</Td>
     <Td>{title}</Td>
     <Td>{format(scheduled, 'YYYY/MM/DD')}</Td>
-    <Td>{done}</Td>
+    <Td>
+      <CheckBox checked={done} readOnly />
+    </Td>
   </Tr>
 )
 
