@@ -1,5 +1,7 @@
+import { History, Location } from 'history'
 import React from 'react'
 import {
+  match,
   Redirect,
   Route,
   RouteChildrenProps,
@@ -13,7 +15,7 @@ import {
   HashRouter,
   HashRouterProps,
 } from 'react-router-dom'
-import { invariant } from 'technoidentity-utils'
+import { fatal, invariant } from 'technoidentity-utils'
 
 export type WithRouterProps<T> = T & {
   readonly children?: React.ReactNode
@@ -97,17 +99,25 @@ const RouterChildren: React.FC = ({ children }) => (
   </Route>
 )
 
+// tslint:disable-next-line: typedef
+const MatchContext = React.createContext<match | undefined>(undefined)
+
 export function SafeRoute<
   T extends Omit<RouteProps, 'render' | 'children'> = RouteProps
->({ component, ...props }: T): JSX.Element {
+>({ component, exact, ...props }: T): JSX.Element {
   const { setRouteMatched } = useRouter()
   const Comp: any = component
   return (
     <Route
+      exact={exact || true}
       {...props}
-      render={renderProps => {
+      render={({ match, ...renderProps }) => {
         setRouteMatched(true)
-        return <Comp {...renderProps} />
+        return (
+          <MatchContext.Provider value={match}>
+            <Comp {...renderProps} />
+          </MatchContext.Provider>
+        )
       }}
     />
   )
@@ -135,4 +145,29 @@ export function useRouter(): RouterContext {
   invariant(result !== null)
 
   return result
+}
+
+export function useHistory(): History {
+  // tslint:disable-next-line: typedef
+  const { history } = useRouter()
+
+  return history
+}
+
+export function useMatch<T>(): match<T> {
+  // tslint:disable-next-line: typedef
+  const match = React.useContext(MatchContext)
+
+  if (match === null || match === undefined) {
+    fatal('match is null or undefined')
+  }
+
+  return match as match<T>
+}
+
+export function useLocation(): Location {
+  // tslint:disable-next-line: typedef
+  const { location } = useRouter()
+
+  return location
 }
