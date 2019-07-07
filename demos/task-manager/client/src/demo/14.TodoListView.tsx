@@ -22,11 +22,11 @@ export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (
   </Tr>
 )
 
-export interface TodoListProps {
+export interface TodoListViewProps {
   readonly todoList: ReadonlyArray<Todo>
 }
 
-export const TodoList: React.FC<TodoListProps> = ({
+export const TodoListView: React.FC<TodoListViewProps> = ({
   todoList: todoListProps,
 }) => (
   <Table>
