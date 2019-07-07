@@ -50,5 +50,5 @@ export const checkApi = async () => {
 }
 
 checkApi()
-  .then(data => console.log('DONE'))
+  .then(() => console.log('DONE'))
   .catch(err => console.log(err.message))

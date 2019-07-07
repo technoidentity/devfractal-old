@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  consoleSubmit,
-  max,
-  min,
-  required,
-  Section,
-  Simple,
-} from 'technoidentity-devfractal'
+import { max, min, required, Section, Simple } from 'technoidentity-devfractal'
 import { initialLoginValues } from './09.moderateForm'
 
 export const SimpleLoginForm: React.FC = () => (
