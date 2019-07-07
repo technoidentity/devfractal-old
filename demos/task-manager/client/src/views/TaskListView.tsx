@@ -53,7 +53,7 @@ export const TaskListView = component(TaskListViewProps, ({ taskList }) => (
   <Section>
     <Title textAlignment="centered">Task Management</Title>
     <ButtonsGroup alignment="right">
-      <Link to="/tasks/add" className="button is-primary">
+      <Link to="/add" className="button is-primary">
         Add
       </Link>
     </ButtonsGroup>
