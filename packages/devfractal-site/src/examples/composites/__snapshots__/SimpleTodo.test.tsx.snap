@@ -118,7 +118,7 @@ Array [
         className="column"
       >
         <h1
-          className="title is-4"
+          className="title is-6"
         >
           Id
         </h1>
@@ -136,7 +136,7 @@ Array [
         className="column"
       >
         <h1
-          className="title is-4"
+          className="title is-6"
         >
           Title
         </h1>
@@ -154,7 +154,7 @@ Array [
         className="column"
       >
         <h1
-          className="title is-4"
+          className="title is-6"
         >
           Done
         </h1>
