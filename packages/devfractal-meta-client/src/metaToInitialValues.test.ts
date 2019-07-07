@@ -84,7 +84,7 @@ test('initialValues from complex meta', () => {
 
   expect(metaToInitialValues(customerMeta)).toEqual({
     name: '',
-    type: '',
+    type: 'manager',
     addresses: [],
   })
 })
