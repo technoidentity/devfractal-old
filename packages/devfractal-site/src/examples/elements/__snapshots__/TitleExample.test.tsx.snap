@@ -43,11 +43,6 @@ Array [
       >
         Title 6
       </h1>
-      <h1
-        className="title is-7"
-      >
-        Title 7
-      </h1>
     </div>
   </section>,
   <section
@@ -90,11 +85,6 @@ Array [
         className="subtitle is-6"
       >
         Subtitle 6
-      </h1>
-      <h1
-        className="subtitle is-7"
-      >
-        Subtitle 7
       </h1>
     </div>
   </section>,

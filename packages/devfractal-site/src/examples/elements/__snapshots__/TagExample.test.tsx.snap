@@ -51,11 +51,6 @@ Array [
           Primary
         </span>
         <span
-          className="tag is-link"
-        >
-          Link
-        </span>
-        <span
           className="tag is-info"
         >
           Info
@@ -133,6 +128,11 @@ Array [
           className="tag is-rounded"
         >
           Rounded
+        </span>
+        <span
+          className="tag is-link"
+        >
+          Link
         </span>
         <span
           className="tag is-delete"
