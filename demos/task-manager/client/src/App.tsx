@@ -12,3 +12,5 @@ export const App: React.FC = () => (
     <Route path="/add" component={CreateTodoRoute} />
   </Router>
 )
+
+// export const App: React.FC = () => <h1>Hello, World</h1>
