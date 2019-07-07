@@ -11,7 +11,7 @@
 ### Ol with all properties
 
 ```jsx
-import { Content } from 'visual'
+import { Content } from '../visual'
 ;<Content>
   <Ol modifier="upper-alpha">
     <li>Coffee</li>
