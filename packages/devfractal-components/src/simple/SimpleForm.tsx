@@ -200,9 +200,10 @@ export function typedForm<Values extends object>(): TypedForm<Values> {
 
     Checkbox: ({ children, noLabel, ...props }) => (
       <Field>
-        <CheckboxField {...props}>
+        <Label>
           {children || (!noLabel && ` ${camelCaseToPhrase(props.name)}`)}
-        </CheckboxField>
+        </Label>
+        <CheckboxField {...props} />
         <ErrorField name={props.name} />
       </Field>
     ),
