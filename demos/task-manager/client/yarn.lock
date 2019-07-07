@@ -723,7 +723,7 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@bahmutov/parcel-json-server@^1.0.2":
+"@bahmutov/parcel-json-server@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@bahmutov/parcel-json-server/-/parcel-json-server-1.0.2.tgz#3d8cc568f3669e13e654fb8baa0d83950653daa9"
   integrity sha512-khEYhLaZLjP2N2GJarnPetgBPaVkxdCi2sW6tlx7olgchETQxK6Gd8JA4yx79t3yAtShWpMugbGDKk835B23RQ==
@@ -5221,7 +5221,7 @@ json-server-reset@1.1.0:
   dependencies:
     debug "4.1.1"
 
-json-server@0.15.0:
+json-server@0.15.0, json-server@^0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/json-server/-/json-server-0.15.0.tgz#b8b0840077e46f15608e9eff2c34fc4d63d19139"
   integrity sha512-mo9CuRVoEzJ82g/IaxU0ljSKgPpRoj6rYiJoDIUK7VEqplOca2Saq6eTwmRULRgPiRe4hHC0aYB9tNKJUAQGgQ==
@@ -8415,10 +8415,10 @@ tcomb@3.2.29:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-devfractal@0.8.6:
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.8.6.tgz#4c57c18545c83eeb4b42ab3e0e19696352c1093e"
-  integrity sha512-u/PdgnnR+x/HW4NQlZMjktF37BZ/pBuAb59Fkt157NpdjOaE4P6roQ8bZ9nzcj9RLQiti/nQ6Fr1ydD7XTp49Q==
+technoidentity-devfractal@0.8.9:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.8.9.tgz#a2d03509ac3390d29d9e6fdf85130a637d93b80e"
+  integrity sha512-h0cwM4fWyqerzJ7yZtRhS2b03v2QCjUaPOj3lMUkKQVYra0lJkGrNWUArw3urC6bVT6GnhipDE7u3FT1f8rPgw==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "1.2.19"
     "@fortawesome/free-brands-svg-icons" "5.9.0"
@@ -8450,7 +8450,7 @@ technoidentity-devfractal@0.8.6:
     technoidentity-utils "0.0.4"
     typelevel-ts "0.3.5"
 
-technoidentity-utils@0.0.4, technoidentity-utils@^0.0.4:
+technoidentity-utils@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.4.tgz#bb6753d3f7217ddd440872a7a3659ec4587f1059"
   integrity sha512-i6gOUAr2hOlvVJw2Z5Mx28NQ4V9N2q/+97parBxSrSYaHiTVXwH1UpSNoDOt0qCcQA5Cp8LFDvGAykMAVuv0TA==
