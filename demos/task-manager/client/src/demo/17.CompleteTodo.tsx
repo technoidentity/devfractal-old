@@ -1,11 +1,9 @@
 import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
 import { date, DateFromISOString } from 'io-ts-types'
 import React from 'react'
-import 'react-datepicker/dist/react-datepicker.css'
 import { Switch } from 'react-router'
 import {
   component,
-  formSubmit,
   Post,
   Put,
   rest,
@@ -55,7 +53,7 @@ const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
   <SimpleEditor
     id="id"
     data={initial || initialValues}
-    onSubmit={() => formSubmit(onSubmit)}
+    onSubmit={formSubmit(onSubmit)}
   />
 ))
 
