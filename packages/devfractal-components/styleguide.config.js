@@ -33,7 +33,6 @@ module.exports = {
   components: './src/**/[A-Z]*.tsx',
   ignore: [
     './src/App.tsx',
-    './src/base',
     './src/stories',
     './src/crud/Views.tsx',
     './src/utils/TableContentLoader.tsx',
