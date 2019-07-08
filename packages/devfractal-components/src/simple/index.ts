@@ -1,5 +1,5 @@
 export * from './SimpleArrayField'
-export { SimpleAsync } from './SimpleAsync'
+export * from './SimpleAsync'
 export * from './SimpleCreator'
 export * from './SimpleCrud'
 export * from './SimpleEditor'
