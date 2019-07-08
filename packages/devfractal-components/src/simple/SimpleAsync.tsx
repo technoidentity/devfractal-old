@@ -1,16 +1,5 @@
 import React from 'react'
-import { Async } from '../lib'
-
-// @TODO: Use react content loader
-export const Loading: React.FC = () => <h1>Loading...</h1>
-
-interface ErrorMessageProps {
-  readonly error: Error
-}
-
-const ErrorMessage: React.FC<ErrorMessageProps> = ({ error }) => (
-  <h1>{`${error.message}`}</h1>
-)
+import { Async, ErrorView, Loading } from '../lib'
 
 export interface SimpleAsyncProps<T> {
   asyncFn(): Promise<T>
@@ -27,7 +16,7 @@ export function SimpleAsync<T>({
         data !== undefined ? (
           children({ data })
         ) : error ? (
-          <ErrorMessage error={error} />
+          <ErrorView error={error} />
         ) : (
           <Loading />
         )
