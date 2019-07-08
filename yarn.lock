@@ -17023,6 +17023,41 @@ tcomb@3.2.29, tcomb@^3.0.0:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
+technoidentity-devfractal@0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.9.4.tgz#7b906e813858200c0df7e5af7c82f9d6098053cb"
+  integrity sha512-iZLOohT8AiLjPSl6yBFJ0dVTQ8RwgC3xktq9LOH3CMm4wWA4YwqCtFgsCdKfEuTuxeIs7341YVhLMkOENhDBpQ==
+  dependencies:
+    "@fortawesome/fontawesome-svg-core" "1.2.19"
+    "@fortawesome/free-brands-svg-icons" "5.9.0"
+    "@fortawesome/free-regular-svg-icons" "5.9.0"
+    "@fortawesome/free-solid-svg-icons" "5.9.0"
+    "@fortawesome/react-fontawesome" "0.1.4"
+    axios "0.19.0"
+    bulma "0.7.5"
+    cleave.js "1.5.2"
+    date-fns "1.30.1"
+    firebase "6.2.4"
+    formik "1.5.7"
+    fp-ts "1.19.3"
+    immer "3.1.3"
+    io-ts "1.10.2"
+    io-ts-promise "1.1.1"
+    io-ts-reporters "0.0.21"
+    io-ts-types "0.4.7"
+    monocle-ts "1.7.2"
+    query-string "6.8.1"
+    react-content-loader "4.2.1"
+    react-hanger "2.0.0"
+    react-router "5.0.1"
+    react-router-dom "5.0.1"
+    react-use "9.8.1"
+    rxjs "6.5.2"
+    shortid "2.2.14"
+    tcomb "3.2.29"
+    technoidentity-utils "0.0.4"
+    typelevel-ts "0.3.5"
+
 telejson@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/telejson/-/telejson-2.2.1.tgz#d9ee7e7eba0c81d9378257342fde7142a03787e2"
