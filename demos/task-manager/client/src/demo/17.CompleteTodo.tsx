@@ -4,6 +4,7 @@ import React from 'react'
 import { Switch } from 'react-router'
 import {
   component,
+  formSubmit,
   Post,
   Put,
   rest,
