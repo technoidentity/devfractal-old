@@ -17023,10 +17023,10 @@ tcomb@3.2.29, tcomb@^3.0.0:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-devfractal@0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.9.4.tgz#7b906e813858200c0df7e5af7c82f9d6098053cb"
-  integrity sha512-iZLOohT8AiLjPSl6yBFJ0dVTQ8RwgC3xktq9LOH3CMm4wWA4YwqCtFgsCdKfEuTuxeIs7341YVhLMkOENhDBpQ==
+technoidentity-devfractal@0.9.6:
+  version "0.9.6"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.9.6.tgz#0eb84812c23164a429331906736b8ec311f077c9"
+  integrity sha512-IWVLm6RNLekF4pN2+BcgtwBFrRf/ULJMypeD1b4LU3BEk5Xwnh1nlpXKATC0xtnhv1TtpkJnMBz3ZS6P38xbfA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "1.2.19"
     "@fortawesome/free-brands-svg-icons" "5.9.0"
