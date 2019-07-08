@@ -1,4 +1,4 @@
-import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
+import { boolean, number, string, TypeOf, union } from 'io-ts'
 import { date, DateFromISOString } from 'io-ts-types'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -24,16 +24,12 @@ import { fn, props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])
 
-const Todo = props(
-  {
-    id: number,
-  },
-  {
-    title: string,
-    scheduled: ISODate,
-    done: boolean,
-  },
-)
+const Todo = req({
+  id: number,
+  title: string,
+  scheduled: ISODate,
+  done: boolean,
+})
 
 type Todo = TypeOf<typeof Todo>
 
@@ -43,7 +39,12 @@ const todoApi = rest({
   type: Todo,
 })
 
-const initialValues: Todo = { title: '', scheduled: new Date(), done: false }
+const initialValues: Todo = {
+  id: 100,
+  title: '',
+  scheduled: new Date(),
+  done: false,
+}
 
 export const TodoFormProps = props(
   { initial: Todo },
@@ -55,7 +56,7 @@ const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
   <SimpleEditor
     id="id"
     data={initial || initialValues}
-    onSubmit={() => formSubmit(onSubmit)}
+    onSubmit={formSubmit(onSubmit)}
   />
 ))
 
@@ -82,17 +83,15 @@ export const EditTodoRoute = () => {
   )
 }
 
-const TodoListViewProps = req({
-  todoList: readonlyArray(Todo),
-  onEdit: fn<(evt: RowClickEvent<Todo>) => void>(),
-})
+interface TodoListViewProps {
+  readonly todoList: ReadonlyArray<Todo>
+  onEdit(evt: RowClickEvent<Todo>): void
+}
 
-export const TodoListView = component(
-  TodoListViewProps,
-  ({ todoList, onEdit }) => (
-    <SimpleTable data={todoList} onRowClicked={onEdit} />
-  ),
-)
+export const TodoListView: React.FC<TodoListViewProps> = ({
+  todoList,
+  onEdit,
+}) => <SimpleTable data={todoList} onRowClicked={onEdit} />
 
 export const TodoListRoute = () => {
   const { history } = useRouter()
