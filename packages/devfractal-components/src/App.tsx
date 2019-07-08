@@ -1,18 +1,17 @@
+import { boolean, number, string } from 'io-ts'
 import React from 'react'
 import { render } from 'react-dom'
-import { SimpleEditor } from './lib'
-import { SimpleTable, SimpleViewer, SimpleCrud } from './simple'
 import { BrowserRouter } from 'react-router-dom'
-import { string, boolean, number } from 'io-ts'
 import { req } from 'technoidentity-utils'
+import { SimpleCrud } from './simple'
 
 // tslint:disable typedef
 
-const todo = {
-  id: 100,
-  title: 'bring milk',
-  done: false,
-}
+// const todo = {
+//   id: 100,
+//   title: 'bring milk',
+//   done: false,
+// }
 
 const Todo = req({
   id: number,
@@ -20,7 +19,7 @@ const Todo = req({
   done: boolean,
 })
 
-const todos: ReadonlyArray<typeof todo> = [todo, todo]
+// const todos: ReadonlyArray<typeof todo> = [todo, todo]
 
 export const App: React.FC = () => (
   <BrowserRouter>
