@@ -8,9 +8,10 @@ import {
   Field,
   RowClickEvent,
   SimpleEditor,
-  SimpleTable,
   SimpleViewer,
 } from '../lib'
+import { SimpleCreator } from '../simple/SimpleCreator'
+import { SimpleTable } from '../simple/SimpleTable'
 
 export interface EditProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)
@@ -47,9 +48,9 @@ export function Views<RT extends Mixed, ID extends keyof RT>(
 ): CrudViewsResult<RT, ID> {
   return {
     Create: ({ onSubmit }) => (
-      <SimpleEditor<TypeOf<RT>>
+      <SimpleCreator<TypeOf<RT>>
         id={id}
-        data={emptyFromType(typeValue)}
+        initialValues={emptyFromType(typeValue)}
         onSubmit={onSubmit}
       />
     ),
@@ -60,15 +61,17 @@ export function Views<RT extends Mixed, ID extends keyof RT>(
 
     View: ({ data }) => <SimpleViewer data={data} />,
 
-    List: ({ list, onCreate, onEdit }) => (
-      <Container>
-        <Field groupModifier="grouped-right">
-          <Button variant="primary" onClick={onCreate}>
-            New
-          </Button>
-        </Field>
-        <SimpleTable data={list} onRowClicked={onEdit} />
-      </Container>
-    ),
+    List: ({ list, onCreate, onEdit }) => {
+      return (
+        <Container>
+          <Field groupModifier="grouped-right">
+            <Button variant="primary" onClick={onCreate}>
+              New
+            </Button>
+          </Field>
+          <SimpleTable data={list} onRowClicked={onEdit} />
+        </Container>
+      )
+    },
   }
 }
