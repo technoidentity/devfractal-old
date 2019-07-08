@@ -25,7 +25,7 @@ module.exports = {
     './tsconfig.json',
     {
       propFilter: props =>
-        props.parent && props.parent.fileName.startsWith('lib/src'),
+        props.parent && props.parent.fileName.startsWith('src'),
     },
   ).parse,
 
@@ -33,7 +33,6 @@ module.exports = {
   components: './src/**/[A-Z]*.tsx',
   ignore: [
     './src/App.tsx',
-    './src/stories',
     './src/crud/Views.tsx',
     './src/utils/TableContentLoader.tsx',
     './src/dynamic/DynamicRouter.tsx',
