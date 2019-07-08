@@ -38,7 +38,9 @@ export const SimpleRedirect: React.FC<SimpleRedirectProps> = ({
   from,
   to,
   exact,
-}) => <Route exact={exact} path={from} render={() => <Redirect to={to} />} />
+}) => (
+  <SafeRoute exact={exact} path={from} render={() => <Redirect to={to} />} />
+)
 
 export type RouteComponentPropsRemoved<T> = Omit<T, keyof RouteComponentProps>
 
