@@ -20,7 +20,7 @@ module.exports = {
       },
     },
   },
-  require: [path.join(__dirname, '../../node_modules/bulma/css/bulma.css')],
+  require: [path.join(__dirname, 'node_modules/bulma/css/bulma.css')],
   propsParser: require('react-docgen-typescript').withCustomConfig(
     './tsconfig.json',
     {
