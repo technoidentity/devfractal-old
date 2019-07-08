@@ -1,12 +1,7 @@
 import { TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import {
-  component,
-  formSubmit,
-  Section,
-  Simple,
-} from 'technoidentity-devfractal'
+import { component, Section, Simple } from 'technoidentity-devfractal'
 import { fn, props } from 'technoidentity-utils'
 import { Todo } from './11.Todo'
 
@@ -26,10 +21,7 @@ export const TodoForm: React.FC<TodoFormProps> = component(
   TodoFormProps,
   ({ onSubmit, initial }) => (
     <Section>
-      <Simple.Form
-        initialValues={initial || initialValues}
-        onSubmit={formSubmit(onSubmit)}
-      >
+      <Simple.Form initialValues={initial || initialValues} onSubmit={onSubmit}>
         <Simple.Text name="title" />
         <Simple.Date name="scheduled" />
         <Simple.Checkbox name="done" />

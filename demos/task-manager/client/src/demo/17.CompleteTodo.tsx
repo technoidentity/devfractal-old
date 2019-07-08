@@ -4,7 +4,6 @@ import React from 'react'
 import { Switch } from 'react-router'
 import {
   component,
-  formSubmit,
   Post,
   Put,
   rest,
@@ -51,11 +50,7 @@ export const TodoFormProps = props(
 type TodoFormProps = TypeOf<typeof TodoFormProps>
 
 const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
-  <SimpleEditor
-    id="id"
-    data={initial || initialValues}
-    onSubmit={formSubmit(onSubmit)}
-  />
+  <SimpleEditor id="id" data={initial || initialValues} onSubmit={onSubmit} />
 ))
 
 const CreateTodoRoute = () => (
