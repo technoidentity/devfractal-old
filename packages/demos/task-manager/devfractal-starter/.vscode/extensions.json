@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "msjsdiag.debugger-for-chrome",
+    "streetsidesoftware.code-spell-checker",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "coenraads.bracket-pair-colorizer",
+    "vincaslt.highlight-matching-tag",
+    "dsznajder.es7-react-js-snippets",
+    "letrieu.expand-region",
+    "eamodio.gitlens",
+    "qezhu.gitlink",
+    "wayou.vscode-todo-highlight",
+    "orta.vscode-jest",
+    "ms-vsliveshare.vsliveshare",
+    "ms-vsliveshare.vsliveshare-audio"
+  ]
+}
