@@ -114,7 +114,9 @@ export function SafeRoute<
       exact={exact || true}
       {...props}
       render={({ match, ...renderProps }) => {
-        setRouteMatched(true)
+        if (setRouteMatched) {
+          setRouteMatched(true)
+        }
         return (
           <MatchContext.Provider value={match}>
             <Comp {...renderProps} />
