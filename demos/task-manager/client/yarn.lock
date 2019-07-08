@@ -5221,7 +5221,7 @@ json-server-reset@1.1.0:
   dependencies:
     debug "4.1.1"
 
-json-server@0.15.0, json-server@^0.15.0:
+json-server@0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/json-server/-/json-server-0.15.0.tgz#b8b0840077e46f15608e9eff2c34fc4d63d19139"
   integrity sha512-mo9CuRVoEzJ82g/IaxU0ljSKgPpRoj6rYiJoDIUK7VEqplOca2Saq6eTwmRULRgPiRe4hHC0aYB9tNKJUAQGgQ==
