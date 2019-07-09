@@ -1,7 +1,8 @@
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { assert } from 'tcomb'
-import { api, Crud } from '../lib'
+import { api } from './api'
+import { Crud } from './Crud'
 
 export interface SimpleCrudProps<RT extends Mixed> {
   readonly baseURL: string

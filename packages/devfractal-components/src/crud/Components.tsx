@@ -1,13 +1,9 @@
 import { Mixed, TypeOf } from 'io-ts'
 import React, { FC } from 'react'
 import { RouteComponentProps } from 'react-router'
-import {
-  APIRepository,
-  CrudViewsResult,
-  formikSubmit,
-  Repository,
-  Views,
-} from '../lib'
+import { formikSubmit } from '../lib'
+import { APIRepository, Repository } from './api'
+import { CrudViewsResult, Views } from './Views'
 
 export function base(resource: string, basePath: string): string {
   return basePath ? `${basePath}/${resource}` : `/${resource}`
