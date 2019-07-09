@@ -51,7 +51,7 @@ export const SimpleFormExample: React.FC = () => (
     <Simple.Form
       initialValues={initialValues}
       // @TODO: remove any
-      validationSchema={simpleSchema as any}
+      validationSchema={simpleSchema}
       onSubmit={consoleSubmit(0)}
     >
       <Simple.Text label="Username" name="username" />
