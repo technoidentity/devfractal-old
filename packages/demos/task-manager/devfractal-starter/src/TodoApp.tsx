@@ -1,8 +1,7 @@
-import { boolean, number, string, TypeOf, union } from 'io-ts'
+import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
 import { date, DateFromISOString } from 'io-ts-types'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import { Switch } from 'react-router'
 import {
   component,
   formSubmit,
@@ -20,7 +19,7 @@ import {
   useMatch,
   useRouter,
 } from 'technoidentity-devfractal'
-import { fn, props, req } from 'technoidentity-utils'
+import { fn, props, req, typeInvariant } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])
 
@@ -40,17 +39,16 @@ const todoApi = rest({
 })
 
 const initialValues: Todo = {
-  id: 100,
+  id: -100,
   title: '',
   scheduled: new Date(),
   done: false,
 }
 
-export const TodoFormProps = props(
+const TodoFormProps = props(
   { initial: Todo },
   { onSubmit: fn<(values: Todo) => Promise<void>>() },
 )
-type TodoFormProps = TypeOf<typeof TodoFormProps>
 
 const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
   <SimpleEditor
@@ -71,6 +69,7 @@ const Params = req({ id: string })
 
 export const EditTodoRoute = () => {
   const { params } = useMatch<TypeOf<typeof Params>>()
+  typeInvariant(Params, params)
 
   return (
     <Put<Todo>
@@ -83,17 +82,16 @@ export const EditTodoRoute = () => {
   )
 }
 
-interface TodoListViewProps {
-  readonly todoList: ReadonlyArray<Todo>
-  onEdit(evt: RowClickEvent<Todo>): void
-}
+const TodoListViewProps = req({
+  todoList: readonlyArray(Todo),
+  onEdit: fn<(evt: RowClickEvent<Todo>) => void>(),
+})
 
-export const TodoListView: React.FC<TodoListViewProps> = ({
-  todoList,
-  onEdit,
-}) => <SimpleTable data={todoList} onRowClicked={onEdit} />
+const TodoListView = component(TodoListViewProps, ({ todoList, onEdit }) => (
+  <SimpleTable data={todoList} onRowClicked={onEdit} />
+))
 
-export const TodoListRoute = () => {
+const TodoListRoute = () => {
   const { history } = useRouter()
 
   return (
@@ -114,11 +112,9 @@ export const TodoListRoute = () => {
 export const TodoApp = () => (
   <Section>
     <Router variant="browser">
-      <Switch>
-        <Route exact path="/" component={TodoListRoute} />
-        <Route exact path="/todos/add" component={CreateTodoRoute} />
-        <Route exact path="/todos/:id/edit" component={EditTodoRoute} />
-      </Switch>
+      <Route exact path="/" component={TodoListRoute} />
+      <Route exact path="/todos/add" component={CreateTodoRoute} />
+      <Route exact path="/todos/:id/edit" component={EditTodoRoute} />
     </Router>
   </Section>
 )
