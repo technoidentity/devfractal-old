@@ -2,7 +2,9 @@ import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
 import { date, DateFromISOString } from 'io-ts-types'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
+import { NavLink } from 'react-router-dom'
 import {
+  ButtonsGroup,
   component,
   formSubmit,
   Post,
@@ -88,7 +90,14 @@ const TodoListViewProps = req({
 })
 
 const TodoListView = component(TodoListViewProps, ({ todoList, onEdit }) => (
-  <SimpleTable data={todoList} onRowClicked={onEdit} />
+  <>
+    <ButtonsGroup alignment="right">
+      <NavLink to="/todos/add" className="button is-primary">
+        Add
+      </NavLink>
+    </ButtonsGroup>
+    <SimpleTable data={todoList} onRowClicked={onEdit} />
+  </>
 ))
 
 const TodoListRoute = () => {
