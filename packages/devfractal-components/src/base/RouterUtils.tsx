@@ -1,4 +1,5 @@
 import { History, Location } from 'history'
+import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import {
   match,
@@ -15,7 +16,7 @@ import {
   HashRouter,
   HashRouterProps,
 } from 'react-router-dom'
-import { fatal, invariant } from 'technoidentity-utils'
+import { fatal, invariant, typeInvariant } from 'technoidentity-utils'
 
 export type WithRouterProps<T> = T & {
   readonly children?: React.ReactNode
@@ -156,15 +157,19 @@ export function useHistory(): History {
   return history
 }
 
-export function useMatch<T>(): match<T> {
+export function useMatch<Spec extends Mixed>(
+  paramsSpec: Spec,
+): match<TypeOf<Spec>> {
   // tslint:disable-next-line: typedef
-  const match = React.useContext(MatchContext)
+  const match: match | undefined = React.useContext(MatchContext)
 
   if (match === null || match === undefined) {
     fatal('match is null or undefined')
+  } else {
+    typeInvariant(paramsSpec, match.params)
   }
 
-  return match as match<T>
+  return match as match<TypeOf<Spec>>
 }
 
 export function useLocation(): Location {
