@@ -4,7 +4,7 @@ import { Field, Label, Simple } from 'technoidentity-devfractal'
 import { EnumMT, Mixed, MT, PrimitiveMT } from 'technoidentity-meta-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import { metaToInitialValues } from './metaToInitialValues'
-import { metaToYup } from './metaToYup'
+import { mtToYup } from './metaToYup'
 
 interface EditorProps {
   readonly name: string
@@ -112,7 +112,7 @@ export const MetaForm: React.FC<MetaFormProps> = ({ onSubmit, meta }) => {
   return (
     <Simple.Form
       initialValues={metaToInitialValues(meta)}
-      validationSchema={metaToYup(meta) as any}
+      validationSchema={mtToYup(meta)}
       onSubmit={onSubmit}
     >
       <ObjectMetaEditor meta={meta} />

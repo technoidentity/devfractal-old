@@ -3,17 +3,18 @@ import React from 'react'
 import { Boolean, Date, Function, Number } from 'tcomb'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import { Async, Label, Section, Simple } from '../lib'
-export interface SimpleEditorViewProps<T extends object> {
+
+export interface EditorViewProps<T extends object> {
   readonly data: T
   readonly id?: keyof T
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
-export function SimpleEditorView<T extends object>({
+export function EditorView<T extends object>({
   data,
   id,
   onSubmit,
-}: SimpleEditorViewProps<T>): JSX.Element {
+}: EditorViewProps<T>): JSX.Element {
   return (
     <Section>
       <Simple.Form initialValues={data} onSubmit={onSubmit}>
@@ -56,17 +57,17 @@ export function SimpleEditorView<T extends object>({
   )
 }
 
-export interface SimpleEditorProps<T extends object> {
+export interface EditorProps<T extends object> {
   readonly data: T | (() => Promise<T>)
   readonly id: keyof T
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
-export function SimpleEditor<T extends object>({
+export function Editor<T extends object>({
   data,
   onSubmit,
   id,
-}: SimpleEditorProps<T>): JSX.Element {
+}: EditorProps<T>): JSX.Element {
   if (Function.is(data)) {
     return (
       <Async asyncFn={data}>
@@ -74,7 +75,7 @@ export function SimpleEditor<T extends object>({
           if (error) {
             return <div style={{ color: 'red' }}>{`${error.message}`}</div>
           } else if (data) {
-            return <SimpleEditorView id={id} data={data} onSubmit={onSubmit} />
+            return <EditorView id={id} data={data} onSubmit={onSubmit} />
           } else {
             return <div>Loading...</div>
           }
@@ -83,5 +84,5 @@ export function SimpleEditor<T extends object>({
     )
   }
 
-  return <SimpleEditorView id={id} data={data} onSubmit={onSubmit} />
+  return <EditorView id={id} data={data} onSubmit={onSubmit} />
 }

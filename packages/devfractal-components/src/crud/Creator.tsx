@@ -4,7 +4,7 @@ import { Boolean, Date, Number } from 'tcomb'
 import { buildObject } from 'technoidentity-utils'
 import { Section, Simple } from '../lib'
 
-export interface SimpleCreator<T extends object> {
+export interface Creator<T extends object> {
   readonly initialValues: T
   readonly id?: keyof T
   onSubmit?(values: T, actions: FormikActions<T>): void
@@ -14,11 +14,11 @@ function dropID<T extends Object>(data: T, id: keyof T): T {
   return buildObject(data, (v, k) => (k === id ? undefined : v)) as T
 }
 
-export function SimpleCreator<T extends object>({
+export function Creator<T extends object>({
   initialValues,
   id,
   onSubmit,
-}: SimpleCreator<T>): JSX.Element {
+}: Creator<T>): JSX.Element {
   return (
     <Section>
       <Simple.Form initialValues={initialValues} onSubmit={onSubmit}>

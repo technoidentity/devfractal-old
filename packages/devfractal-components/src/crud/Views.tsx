@@ -2,16 +2,10 @@ import { FormikActions } from 'formik'
 import { Mixed, TypeOf } from 'io-ts'
 import React, { FC } from 'react'
 import { emptyFromType } from 'technoidentity-utils'
-import {
-  Button,
-  Container,
-  Field,
-  RowClickEvent,
-  SimpleEditor,
-  SimpleViewer,
-} from '../lib'
-import { SimpleCreator } from '../simple/SimpleCreator'
-import { SimpleTable } from '../simple/SimpleTable'
+import { Button, Container, Field, RowClickEvent, SimpleTable } from '../lib'
+import { Creator } from './Creator'
+import { Editor } from './Editor'
+import { Viewer } from './Viewer'
 
 export interface EditProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)
@@ -48,7 +42,7 @@ export function Views<RT extends Mixed, ID extends keyof RT>(
 ): CrudViewsResult<RT, ID> {
   return {
     Create: ({ onSubmit }) => (
-      <SimpleCreator<TypeOf<RT>>
+      <Creator<TypeOf<RT>>
         id={id}
         initialValues={emptyFromType(typeValue)}
         onSubmit={onSubmit}
@@ -56,10 +50,10 @@ export function Views<RT extends Mixed, ID extends keyof RT>(
     ),
 
     Edit: ({ data, onSubmit }) => (
-      <SimpleEditor id={id} data={data} onSubmit={onSubmit} />
+      <Editor id={id} data={data} onSubmit={onSubmit} />
     ),
 
-    View: ({ data }) => <SimpleViewer data={data} />,
+    View: ({ data }) => <Viewer data={data} />,
 
     List: ({ list, onCreate, onEdit }) => {
       return (

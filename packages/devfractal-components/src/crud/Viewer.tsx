@@ -1,14 +1,22 @@
 import React from 'react'
 import { Boolean, Date, Function } from 'tcomb'
 import { camelCaseToPhrase } from 'technoidentity-utils'
-import { Async, CheckBox, Column, Columns, Section, Text, Title } from '../lib'
-import { formatDate } from './utils'
+import {
+  Async,
+  CheckBox,
+  Column,
+  Columns,
+  formatDate,
+  Section,
+  Text,
+  Title,
+} from '../lib'
 
-const SimpleHeader: React.FC<{ readonly objectKey: string }> = ({
-  objectKey,
-}) => <Title size="6">{camelCaseToPhrase(objectKey)}</Title>
+const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (
+  <Title size="6">{camelCaseToPhrase(objectKey)}</Title>
+)
 
-const SimpleValue: React.FC<{
+const Value: React.FC<{
   readonly objectValue: string
 }> = ({ objectValue }) =>
   Boolean.is(objectValue) ? (
@@ -19,22 +27,22 @@ const SimpleValue: React.FC<{
     <>{objectValue}</>
   )
 
-export interface SimpleViewerViewProps<T extends object> {
+export interface ViewerViewProps<T extends object> {
   readonly data: T
 }
 
-export function SimpleViewerView<T extends object>({
+export function ViewerView<T extends object>({
   data,
-}: SimpleViewerViewProps<T>): JSX.Element {
+}: ViewerViewProps<T>): JSX.Element {
   return (
     <Section>
       {Object.keys(data).map(key => (
         <Columns key={key}>
           <Column>
-            <SimpleHeader objectKey={key} />
+            <Header objectKey={key} />
           </Column>
           <Column>
-            <SimpleValue objectValue={data[key]} />
+            <Value objectValue={data[key]} />
           </Column>
         </Columns>
       ))}
@@ -42,13 +50,13 @@ export function SimpleViewerView<T extends object>({
   )
 }
 
-export interface SimpleViewerProps<T extends object> {
+export interface ViewerProps<T extends object> {
   readonly data: T | (() => Promise<T>)
 }
 
-export function SimpleViewer<T extends object>({
+export function Viewer<T extends object>({
   data,
-}: SimpleViewerProps<T>): JSX.Element {
+}: ViewerProps<T>): JSX.Element {
   if (Function.is(data)) {
     return (
       <Async asyncFn={data}>
@@ -56,7 +64,7 @@ export function SimpleViewer<T extends object>({
           if (error) {
             return <div style={{ color: 'red' }}>{`${error.message}`}</div>
           } else if (data) {
-            return <SimpleViewerView data={data} />
+            return <ViewerView data={data} />
           } else {
             return <div>Loading...</div>
           }
@@ -64,5 +72,5 @@ export function SimpleViewer<T extends object>({
       </Async>
     )
   }
-  return <SimpleViewerView data={data} />
+  return <ViewerView data={data} />
 }

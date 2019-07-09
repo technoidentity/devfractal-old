@@ -1,14 +1,14 @@
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { Route, Switch } from 'react-router'
+import { Section } from '../lib'
+import { APIRepository } from './api'
 import {
-  APIRepository,
   components as comps,
   ComponentsResult,
   Paths,
   paths as ps,
-  Section,
-} from '../lib'
+} from './Components'
 
 export interface CrudProps<RT extends Mixed, ID extends keyof TypeOf<RT>> {
   readonly api: APIRepository<RT, ID>

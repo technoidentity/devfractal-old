@@ -12,14 +12,16 @@ import {
   Label,
   RadioGroupField,
   SelectField,
+  TextAreaField,
+} from '../lib'
+import {
+  Simple,
   SimpleCheckboxProps,
   SimpleFormProps,
   SimpleRadioGroupProps,
   SimpleSelectProps,
   SimpleTextAreaProps,
-  TextAreaField,
-} from '../lib'
-import { Simple } from './SimpleForm'
+} from './SimpleForm'
 
 interface Named<Values extends Object, Value> {
   readonly name: keyof Values & string

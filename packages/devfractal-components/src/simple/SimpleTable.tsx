@@ -4,6 +4,7 @@ import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   Async,
   CheckBox,
+  formatDate,
   Table,
   TableBody,
   TableHead,
@@ -13,7 +14,6 @@ import {
   Th,
   Tr,
 } from '../lib'
-import { formatDate } from './utils'
 
 export interface RowClickEvent<T> {
   readonly value: T
