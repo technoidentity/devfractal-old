@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { typeInvariant } from 'technoidentity-utils'
+import { typeInvariant, fatal } from 'technoidentity-utils'
 import { useRouter } from './RouterUtils'
 
 // tslint:disable typedef
@@ -25,7 +25,11 @@ function serverError(error: ServerError): string {
     return error.error
   }
 
-  return error.errors.join('\n')
+  if (Errors.is(error)) {
+    return error.errors.join('\n')
+  }
+
+  return 'FATAL: unknown server error'
 }
 
 export const ServerErrorView: React.FC<ServerErrorViewProps> = ({ error }) => (
