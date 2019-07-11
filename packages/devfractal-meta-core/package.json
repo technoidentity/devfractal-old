@@ -34,7 +34,7 @@
     "tcomb-validation": "3.4.1"
   },
   "dependencies": {
-    "technoidentity-utils": "0.0.4"
+    "technoidentity-utils": "0.0.6"
   },
   "devDependencies": {
     "@types/jest": "24.0.15",
