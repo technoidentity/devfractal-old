@@ -8272,20 +8272,10 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
-fp-ts@1.19.3:
-  version "1.19.3"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.19.3.tgz#261a60d1088fbff01f91256f91d21d0caaaaa96f"
-  integrity sha512-H5KQDspykdHuztLTg+ajGN0Z2qUjcEf3Ybxc6hLt0k7/zPkn29XnKnxlBPyW2XIddWrGaJBzBl4VLYOtk39yZg==
-
-fp-ts@2.0.1, "fp-ts@^1.0.0 || ^2.0.0-rc.6":
+fp-ts@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.1.tgz#0f6cb37f7f7014daf4c8b43d3c07b944219fa841"
   integrity sha512-tw/L1f6hd29bYk3IlhA3qdnqz9LJ13yeecjk0XqC8g9E76P5ZXzNcjXA5zQ0zNlsGhdVhDIHRJB738oGpB8PnA==
-
-fp-ts@^1.0.0, fp-ts@^1.0.1:
-  version "1.19.4"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.19.4.tgz#258ac247b79ac0ea82a91b31b665a93f735e7636"
-  integrity sha512-/gCyXWxe2ncEeXqKqVUOVRDQvN8UVDfPgRsP2coix8YvVNgaxppRiQQ6wZsEuouL0EQFK0yXrqRgzO/NBowMvA==
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -9643,13 +9633,6 @@ invert-kv@^2.0.0:
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-2.0.0.tgz#7393f5afa59ec9ff5f67a27620d11c226e3eec02"
   integrity sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpCBCDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==
 
-io-ts-promise@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/io-ts-promise/-/io-ts-promise-1.1.1.tgz#74e9c0156ebd4a2938375a45292fb43b5f7914e9"
-  integrity sha512-UUvSe16kcbccl17RGhQC2Ij3PiXNxactxsGtF6vBHqGm84R3jX75KDGOKb0omd18eJoAXOUvJUjafy4F3hEDgA==
-  dependencies:
-    deep-equal "^1.0.1"
-
 io-ts-promise@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/io-ts-promise/-/io-ts-promise-2.0.0.tgz#42a933b46f120dc47ccbe7a978d362df7ef4fa6e"
@@ -9657,42 +9640,15 @@ io-ts-promise@2.0.0:
   dependencies:
     deep-equal "^1.0.1"
 
-io-ts-reporters@0.0.21:
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/io-ts-reporters/-/io-ts-reporters-0.0.21.tgz#b0be3eec37a3d7da77aeafa257c68bd2afbbc4af"
-  integrity sha512-HRAYn4IVkRbnL9Uy9WDB/1+0lorRZvE239LMdc0ditN8OhsPg+0vKnqchkGhZ/vyTzLC5CZLO4AZ4xreirkIkA==
-  dependencies:
-    fp-ts "^1.0.1"
-    io-ts "^1.0.2"
-
-io-ts-types@0.4.7:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.4.7.tgz#f6280da7432d6dae593d8ff064837f51bd4b96ba"
-  integrity sha512-VZ34RWV2ymbtboB0Ki6NPMiyhogGfRzHpyJrpez3auUMacTtX8b1UhW/ct+/zBYgXnE2txaeXowdQPt6BXY0wg==
-
 io-ts-types@0.5.0, io-ts-types@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.0.tgz#f69be9131362c31bbc6b5044f1d95892604f8f23"
   integrity sha512-+v88rlA76FmlQQcTImFq5iigoPA3OKO+BIdrpsfXlhWUdiVvOnDDiLKCsiIAW9eRj+OJgG31Sctebr77bqKhzw==
 
-io-ts@1.10.2:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-1.10.2.tgz#479ba4a410cd3106380a86e7cef721faeec28dc2"
-  integrity sha512-r6jxDJ4myujW7s0Z/yrkABP4WlNSaZlzfeWVSAfk6r3E0VdiTHZUOw/is8i5r5G9Uxbww9VgMLgdRkuM5fBl5A==
-  dependencies:
-    fp-ts "^1.0.0 || ^2.0.0-rc.6"
-
 io-ts@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.0.0.tgz#560f8ddf92cce7ea73820cedab7b31044e464d1e"
   integrity sha512-6i8PKyNR/dvEbUU9uE+v4iVFU7l674ZEGQsh92y6xEZF/rj46fXbPy+uPPXJEsCP0J0X3UpzXAxp04K4HR2jVw==
-
-io-ts@^1.0.2:
-  version "1.10.4"
-  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-1.10.4.tgz#cd5401b138de88e4f920adbcb7026e2d1967e6e2"
-  integrity sha512-b23PteSnYXSONJ6JQXRAlvJhuw8KOtkqa87W4wDtvMrud/DTJd5X+NpOOI+O/zZwVq6v0VLAaJ+1EDViKEuN9g==
-  dependencies:
-    fp-ts "^1.0.0"
 
 ip-regex@^2.1.0:
   version "2.1.0"
@@ -12100,11 +12056,6 @@ mongoose@5.6.4:
     sift "7.0.1"
     sliced "1.0.1"
 
-monocle-ts@1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/monocle-ts/-/monocle-ts-1.7.2.tgz#d9825ae18846ab63f915cb6f2194a78a40025610"
-  integrity sha512-F08hPUzQ14vOtac2vOagnvXPr0R0MRKWXF6Bwd3gQ4XnV2qfU0MzPL+L18kX4dXBkat74pxbL88V1BjAj3YOWg==
-
 monocle-ts@2.0.0, monocle-ts@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/monocle-ts/-/monocle-ts-2.0.0.tgz#f695dbfb5b017846d95f0c377bd4c8acb10f7e02"
@@ -14478,11 +14429,6 @@ react-clientside-effect@^1.2.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-react-content-loader@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-4.2.1.tgz#0d355134ed7d0987966abd0f784bc59e76976e91"
-  integrity sha512-XA5irUvZpQAEavfUBo7kc4tdvAbWwVKJolz/+2Pkj/XU7pn78AweAUtn+AxEajN0Srg/mraJ8XMKlUsXOFiknw==
-
 react-content-loader@4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-4.2.2.tgz#8b014eab0f0218888b8f064f0373b41f2203c8be"
@@ -14891,19 +14837,6 @@ react-use@9.10.0:
   version "9.10.0"
   resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.10.0.tgz#2ec0e626e085975220c813279870a56b0d910850"
   integrity sha512-Z2GUDMUqD43tGMYqV3o+ct8Df6/IlNokVCO02l08RdPk3auXXWxQsmJQTBrCyoD6JMLj03Ap8AHNoOsLROSEgg==
-  dependencies:
-    copy-to-clipboard "^3.1.0"
-    nano-css "^5.1.0"
-    react-fast-compare "^2.0.4"
-    react-wait "^0.3.0"
-    screenfull "^4.1.0"
-    throttle-debounce "^2.0.1"
-    ts-easing "^0.2.0"
-
-react-use@9.8.1:
-  version "9.8.1"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.8.1.tgz#ace752444e5925eeac4b6366d2bac030beffbfdb"
-  integrity sha512-FYwJEczwc4JFXdgnnZqHY9yHfD+56BP0ubv9HQhvNWO0ajeyIlEdD9gcgfQo8/2NSLmzS2AVWom1D+GGxAXR+g==
   dependencies:
     copy-to-clipboard "^3.1.0"
     nano-css "^5.1.0"
@@ -17118,10 +17051,10 @@ tcomb@3.2.29, tcomb@^3.0.0:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-devfractal@0.9.8:
-  version "0.9.8"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.9.8.tgz#d74b57677e601ab90ed97c386e664ed592604b4f"
-  integrity sha512-XRDx/qBy3Cz834EvxXO9mLQKpXS1a5rOF1xDSRMkuTwGQjIfFmF6IDrLyKdTR2x+sZRpdrF0RB2yI/fTO+EFSA==
+technoidentity-devfractal@0.9.10:
+  version "0.9.10"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.9.10.tgz#64703cc7f268b15279dea52bb82488af7700c989"
+  integrity sha512-rT/kwdFxYjN7G5cMaRJZc/09fn13N4kR54tN1Jl8y6iJRRuN8bBWgVUNPfDkbxDdsiqyaeQOypvf9r8ypwWTpA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "1.2.19"
     "@fortawesome/free-brands-svg-icons" "5.9.0"
@@ -17134,29 +17067,23 @@ technoidentity-devfractal@0.9.8:
     date-fns "1.30.1"
     firebase "6.2.4"
     formik "1.5.7"
-    fp-ts "1.19.3"
+    fp-ts "2.0.1"
     immer "3.1.3"
-    io-ts "1.10.2"
-    io-ts-promise "1.1.1"
-    io-ts-reporters "0.0.21"
-    io-ts-types "0.4.7"
-    monocle-ts "1.7.2"
+    io-ts "2.0.0"
+    io-ts-promise "2.0.0"
+    io-ts-types "0.5.0"
+    monocle-ts "2.0.0"
     query-string "6.8.1"
-    react-content-loader "4.2.1"
+    react-content-loader "4.2.2"
     react-hanger "2.0.0"
     react-router "5.0.1"
     react-router-dom "5.0.1"
-    react-use "9.8.1"
+    react-use "9.10.0"
     rxjs "6.5.2"
     shortid "2.2.14"
     tcomb "3.2.29"
-    technoidentity-utils "0.0.4"
+    technoidentity-utils "0.0.6"
     typelevel-ts "0.3.5"
-
-technoidentity-utils@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.4.tgz#bb6753d3f7217ddd440872a7a3659ec4587f1059"
-  integrity sha512-i6gOUAr2hOlvVJw2Z5Mx28NQ4V9N2q/+97parBxSrSYaHiTVXwH1UpSNoDOt0qCcQA5Cp8LFDvGAykMAVuv0TA==
 
 technoidentity-utils@0.0.6:
   version "0.0.6"

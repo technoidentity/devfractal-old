@@ -20,7 +20,7 @@
     "react-router-dom": "5.0.1",
     "react-use": "9.8.1",
     "tcomb": "3.2.29",
-    "technoidentity-devfractal": "0.9.8",
+    "technoidentity-devfractal": "0.9.10",
     "technoidentity-utils": "0.0.6",
     "typelevel-ts": "0.3.5",
     "use-immer": "0.3.2",
