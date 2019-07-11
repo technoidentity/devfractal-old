@@ -2765,9 +2765,9 @@ css-tree@1.0.0-alpha.29:
     source-map "^0.5.3"
 
 css-tree@^1.0.0-alpha.28:
-  version "1.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.0-alpha.31.tgz#abad61a391d3bd18d219ce1cf0766efcd670ef2d"
-  integrity sha512-FSOxWGZzajWgLMtxfLfTtCTjbCyn4nq0rbZyNZANu3GBZuUbqZAe6O/wFV5o5BMp3aBtHNYRsy+ABWD6GfB7AA==
+  version "1.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.0-alpha.32.tgz#03747995109a74c350779844aa4454dfd7f199f1"
+  integrity sha512-4Kw4GxOl9OD2hWuATVufb9Ej3WRx01z1KrvV8/tRq9FShMpZ2+CYSjXm8XULHp0Oc9fuoQ47Ap+gqkzoQfVzbw==
   dependencies:
     mdn-data "2.0.4"
     source-map "^0.5.3"
@@ -7492,6 +7492,19 @@ react-use@9.10.0:
   version "9.10.0"
   resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.10.0.tgz#2ec0e626e085975220c813279870a56b0d910850"
   integrity sha512-Z2GUDMUqD43tGMYqV3o+ct8Df6/IlNokVCO02l08RdPk3auXXWxQsmJQTBrCyoD6JMLj03Ap8AHNoOsLROSEgg==
+  dependencies:
+    copy-to-clipboard "^3.1.0"
+    nano-css "^5.1.0"
+    react-fast-compare "^2.0.4"
+    react-wait "^0.3.0"
+    screenfull "^4.1.0"
+    throttle-debounce "^2.0.1"
+    ts-easing "^0.2.0"
+
+react-use@9.11.0:
+  version "9.11.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.11.0.tgz#fc045b7606a69ef4a9d7da5989ac7787141ab3a1"
+  integrity sha512-+YJDnQ+uiRZJ6Igs7FVyMAxvq/W/ZtYTssEAkydyvJF2Y2I8+Hk177/ZFmpPJYA9YO+pxE1tVJ+1mmwS4+Pxbg==
   dependencies:
     copy-to-clipboard "^3.1.0"
     nano-css "^5.1.0"
