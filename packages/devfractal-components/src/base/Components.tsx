@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { typeInvariant, fatal } from 'technoidentity-utils'
+import { typeInvariant } from 'technoidentity-utils'
 import { useRouter } from './RouterUtils'
 
 // tslint:disable typedef

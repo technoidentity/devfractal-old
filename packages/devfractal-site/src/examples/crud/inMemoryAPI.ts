@@ -1,4 +1,4 @@
-import { Either } from 'fp-ts/lib/Either'
+import { Either, isRight } from 'fp-ts/lib/Either'
 import t from 'io-ts'
 import { assert, Number } from 'tcomb'
 import { Repository } from 'technoidentity-devfractal'
@@ -23,9 +23,9 @@ export const inMemoryAPI: Repository<Todo, 'id'> = {
       ...value,
     })
 
-    if (todo.isRight()) {
-      staticTodoList = [...staticTodoList, todo.value]
-      return todo.value
+    if (isRight(todo)) {
+      staticTodoList = [...staticTodoList, todo.right]
+      return todo.right
     }
     ++nextID
     return rejected(todo)

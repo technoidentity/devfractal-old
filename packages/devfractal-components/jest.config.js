@@ -7,7 +7,7 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
   },
   setupFilesAfterEnv: [
-    'jest-dom/extend-expect',
+    '@testing-library/jest-dom/extend-expect',
     '@testing-library/react/cleanup-after-each',
   ],
 }

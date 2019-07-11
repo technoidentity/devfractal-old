@@ -21,10 +21,10 @@ import {
   number,
   NumberSchema,
   object,
+  ObjectSchema,
   Schema,
   string,
   StringSchema,
-  ObjectSchema,
 } from 'yup'
 
 // tslint:disable typedef switch-default

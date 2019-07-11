@@ -1,5 +1,4 @@
 import * as t from 'io-ts'
-import { DateType } from 'io-ts-types'
 import { Document, model, Model, Schema } from 'mongoose'
 import { buildObject } from 'technoidentity-utils'
 
@@ -23,7 +22,7 @@ const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
     return { type: Boolean }
   }
 
-  if (value instanceof DateType) {
+  if (value.name === 'Date') {
     return { type: Date }
   }
   if (value instanceof t.KeyofType) {

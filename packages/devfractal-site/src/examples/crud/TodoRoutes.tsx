@@ -16,7 +16,8 @@ const { Create, List, Edit, View } = components({
   basePath,
   id: 'id',
   api: inMemoryAPI,
-  value: TodoRT,
+  // @TODO: This is a temporary fix
+  value: TodoRT as any,
   resource,
 })
 
