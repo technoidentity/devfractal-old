@@ -17,7 +17,7 @@
     "react-router-dom": "5.0.1",
     "shortid": "2.2.14",
     "tcomb": "3.2.29",
-    "technoidentity-devfractal": "0.9.10",
+    "technoidentity-devfractal": "0.9.11",
     "technoidentity-meta-core": "0.0.1",
     "technoidentity-utils": "0.0.6",
     "yup": "0.27.0"

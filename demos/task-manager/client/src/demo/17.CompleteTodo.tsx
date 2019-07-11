@@ -1,9 +1,11 @@
 import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
-import { date, DateFromISOString } from 'io-ts-types'
+import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import React from 'react'
 import { Switch } from 'react-router'
 import {
   component,
+  Editor,
   Post,
   Put,
   rest,
@@ -12,7 +14,6 @@ import {
   SafeRoute as Route,
   Section,
   SimpleAsync,
-  SimpleEditor,
   SimpleTable,
   Title,
   useMatch,
@@ -50,7 +51,7 @@ export const TodoFormProps = props(
 type TodoFormProps = TypeOf<typeof TodoFormProps>
 
 const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
-  <SimpleEditor id="id" data={initial || initialValues} onSubmit={onSubmit} />
+  <Editor id="id" data={initial || initialValues} onSubmit={onSubmit} />
 ))
 
 const CreateTodoRoute = () => (
@@ -63,7 +64,7 @@ const CreateTodoRoute = () => (
 const Params = req({ id: string })
 
 export const EditTodoRoute = () => {
-  const { params } = useMatch<TypeOf<typeof Params>>()
+  const { params } = useMatch(Params)
 
   return (
     <Put<Todo>
