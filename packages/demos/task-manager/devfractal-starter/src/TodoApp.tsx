@@ -1,12 +1,13 @@
 import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
-import { date, DateFromISOString } from 'io-ts-types'
+import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import { NavLink } from 'react-router-dom'
 import {
   ButtonsGroup,
   component,
-  formSubmit,
+  Editor,
   Post,
   Put,
   rest,
@@ -15,7 +16,6 @@ import {
   SafeRoute as Route,
   Section,
   SimpleAsync,
-  SimpleEditor,
   SimpleTable,
   Title,
   useMatch,
@@ -53,11 +53,7 @@ const TodoFormProps = props(
 )
 
 const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
-  <SimpleEditor
-    id="id"
-    data={initial || initialValues}
-    onSubmit={formSubmit(onSubmit)}
-  />
+  <Editor id="id" data={initial || initialValues} onSubmit={onSubmit} />
 ))
 
 const CreateTodoRoute = () => (
@@ -70,7 +66,7 @@ const CreateTodoRoute = () => (
 const Params = req({ id: string })
 
 export const EditTodoRoute = () => {
-  const { params } = useMatch<TypeOf<typeof Params>>()
+  const { params } = useMatch(Params)
   typeInvariant(Params, params)
 
   return (
