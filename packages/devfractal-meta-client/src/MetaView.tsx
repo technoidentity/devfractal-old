@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Label, SimpleViewer } from 'technoidentity-devfractal'
+import { Box, Label, Viewer } from 'technoidentity-devfractal'
 import { MT } from 'technoidentity-meta-core'
 
 export interface MetaViewProps {
@@ -11,7 +11,7 @@ export const MetaView: React.FC<MetaViewProps> = ({ meta, data }) => {
   return (
     <Box>
       <Label>{meta.name}</Label>
-      <SimpleViewer data={data} />
+      <Viewer data={data} />
     </Box>
   )
 }
