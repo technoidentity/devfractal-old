@@ -9,7 +9,7 @@ import {
   string,
   type,
 } from 'io-ts'
-import { date } from 'io-ts-types'
+import { date } from 'io-ts-types/lib/date'
 import { defaultOptions, fake } from './fake'
 
 test('primitive values', () => {

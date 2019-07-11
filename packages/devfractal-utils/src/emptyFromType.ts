@@ -12,7 +12,7 @@ import {
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { DateType } from 'io-ts-types'
+
 import { buildObject } from './common'
 
 function emptyFromPrimitive<T extends Mixed>(typeValue: T): TypeOf<T> {
@@ -25,7 +25,7 @@ function emptyFromPrimitive<T extends Mixed>(typeValue: T): TypeOf<T> {
   if (typeValue instanceof BooleanType) {
     return false
   }
-  if (typeValue instanceof DateType) {
+  if (typeValue.name === 'Date') {
     return new Date()
   }
   if (typeValue instanceof KeyofType) {

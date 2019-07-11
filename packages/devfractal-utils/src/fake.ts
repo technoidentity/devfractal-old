@@ -15,7 +15,6 @@ import {
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { DateType } from 'io-ts-types'
 import { buildObject, repeatedly } from './common'
 
 const chance: Chance.Chance = new Chance()
@@ -47,7 +46,7 @@ function fakePrimitive<T extends Mixed>(
   if (typeValue instanceof BooleanType) {
     return chance.bool()
   }
-  if (typeValue instanceof DateType) {
+  if (typeValue.name === 'Date') {
     return chance.date()
   }
   if (typeValue instanceof KeyofType) {
