@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimpleTable, SimpleViewer } from 'technoidentity-devfractal'
+import { SimpleTable, Viewer } from 'technoidentity-devfractal'
 import { SimpleAddTodo } from './AddTodo'
 
 interface Todo {
@@ -29,7 +29,7 @@ const todoList: ReadonlyArray<Todo> = [
 export const SimpleTodo: React.FC = () => (
   <>
     <SimpleAddTodo />
-    <SimpleViewer data={todoList[0]} />
+    <Viewer data={todoList[0]} />
     <SimpleTable headers={['id', 'title', 'done']} data={todoList} />
   </>
 )
