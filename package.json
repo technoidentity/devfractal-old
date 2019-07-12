@@ -9,13 +9,13 @@
     "husky": "3.0.0",
     "json-server": "0.15.0",
     "lerna": "3.15.0",
-    "lint-staged": "9.0.2",
+    "lint-staged": "9.2.0",
     "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",
     "tslint-react": "4.0.0",
-    "typescript": "3.5.2",
-    "typescript-tslint-plugin": "0.5.3"
+    "typescript": "3.5.3",
+    "typescript-tslint-plugin": "0.5.4"
   },
   "scripts": {
     "start": "lerna run start",
@@ -25,7 +25,7 @@
     "clean:all": "lerna run clean:all",
     "destroy": "git clean -dfx",
     "up": "lerna exec -- ncu -u",
-    "upd": "lerna run up && yarn run rimraf node_modules yarn.lock && yarn && yarn clean && yarn build && yarn validate",
+    "upd": "lerna run up && lerna run clean && lerna clean && yarn run rimraf node_modules yarn.lock && yarn && yarn clean && yarn build && yarn validate",
     "test": "lerna run test",
     "lint": "lerna run lint",
     "refresh": "lerna run refresh && lerna run build",
