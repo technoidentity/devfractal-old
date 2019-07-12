@@ -1,12 +1,14 @@
-import { Either } from 'fp-ts/lib/Either'
+import { Either, isRight } from 'fp-ts/lib/Either'
 import * as t from 'io-ts'
-import { reporter } from 'io-ts-reporters'
+import { PathReporter } from 'io-ts/lib/PathReporter'
 import { String } from 'tcomb'
 import { fatal, warning } from './assertions'
 
 export function typeInvariant<A, O, I>(type: t.Type<A, O, I>, args: I): A {
   const decoded: Either<t.Errors, A> = type.decode(args)
-  return decoded.isRight() ? decoded.value : fatal(reporter(decoded).join('\n'))
+  return isRight(decoded)
+    ? decoded.right
+    : fatal(PathReporter.report(decoded).join('\n'))
 }
 
 export function typeWarning<A, O, I>(
@@ -14,22 +16,24 @@ export function typeWarning<A, O, I>(
   args: I,
 ): A | undefined {
   const decoded: Either<t.Errors, A> = type.decode(args)
-  warning(type.is(args), reporter(decoded).join('\n'))
-  return decoded.isRight() ? decoded.value : undefined
+  warning(type.is(args), PathReporter.report(decoded).join('\n'))
+  return isRight(decoded) ? decoded.right : undefined
 }
 
 export async function rejected<T>(
   decoded: Either<t.Errors, T> | string,
 ): Promise<T> {
   return Promise.reject(
-    new Error(String.is(decoded) ? decoded : reporter(decoded).join('\n')),
+    new Error(
+      String.is(decoded) ? decoded : PathReporter.report(decoded).join('\n'),
+    ),
   )
 }
 
 export async function eitherToPromise<T>(
   either: Either<t.Errors, T>,
 ): Promise<T> {
-  return either.isRight() ? either.value : rejected(either)
+  return isRight(either) ? either.right : rejected(either)
 }
 
 export function opt<P extends t.Props>(

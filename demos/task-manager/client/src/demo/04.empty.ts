@@ -7,7 +7,7 @@ import {
   string,
   type,
 } from 'io-ts'
-import { date } from 'io-ts-types'
+import { date } from 'io-ts-types/lib/date'
 import { emptyFromType } from 'technoidentity-utils'
 
 console.log(

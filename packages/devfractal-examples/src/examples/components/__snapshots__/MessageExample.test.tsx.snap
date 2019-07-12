@@ -1,0 +1,386 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message Example 1`] = `
+Array [
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Simple Message
+    </h1>
+    <div
+      className="box"
+    >
+      <article
+        className="message"
+      >
+        <div
+          className="message-header"
+        >
+          Hello World
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Colors
+    </h1>
+    <div
+      className="box"
+    >
+      <article
+        className="message is-primary"
+      >
+        <div
+          className="message-header"
+        >
+          Primary
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-info"
+      >
+        <div
+          className="message-header"
+        >
+          Info
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-link"
+      >
+        <div
+          className="message-header"
+        >
+          Link
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-danger"
+      >
+        <div
+          className="message-header"
+        >
+          Danger
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-warning"
+      >
+        <div
+          className="message-header"
+        >
+          Warning
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-black"
+      >
+        <div
+          className="message-header"
+        >
+          Black
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-light"
+      >
+        <div
+          className="message-header"
+        >
+          Light
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-dark"
+      >
+        <div
+          className="message-header"
+        >
+          Dark
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-white"
+      >
+        <div
+          className="message-header"
+        >
+          White
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Message body only
+    </h1>
+    <div
+      className="box"
+    >
+      <article
+        className="message is-dark"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-white"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-primary"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-success"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-info"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-link"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-warning"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-danger"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-light"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-black"
+      >
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title"
+    >
+      Sizes
+    </h1>
+    <div
+      className="box"
+    >
+      <article
+        className="message is-small"
+      >
+        <div
+          className="message-header"
+        >
+          Small message
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message"
+      >
+        <div
+          className="message-header"
+        >
+          Normal message
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-medium"
+      >
+        <div
+          className="message-header"
+        >
+          Medium message
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+      <article
+        className="message is-large"
+      >
+        <div
+          className="message-header"
+        >
+          Large message
+          <a
+            className="delete"
+          />
+        </div>
+        <div
+          className="message-body"
+        >
+          To check if x is assignable to y, we first look at the parameter list. Each parameter in x must have a corresponding parameter in y with a compatible type. Note that the names of the parameters are not considered, only their types. In this case, every parameter of x has a corresponding compatible parameter in y, so the assignment is allowed
+        </div>
+      </article>
+    </div>
+  </section>,
+]
+`;

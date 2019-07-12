@@ -27,22 +27,22 @@
     "validate": "yarn lint && yarn types && yarn test"
   },
   "peerDependencies": {
-    "io-ts": "1.10.2",
-    "io-ts-types": "0.4.7",
-    "fp-ts": "1.19.3",
+    "io-ts": "2.0.0",
+    "io-ts-types": "0.5.0",
+    "fp-ts": "2.0.1",
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1"
   },
   "dependencies": {
-    "technoidentity-utils": "0.0.4"
+    "technoidentity-utils": "0.0.6"
   },
   "devDependencies": {
     "@types/jest": "24.0.15",
     "@types/json-schema": "7.0.3",
-    "ajv": "6.10.0",
-    "io-ts": "1.10.2",
-    "fp-ts": "1.19.3",
-    "io-ts-types": "0.4.7",
+    "ajv": "6.10.1",
+    "io-ts": "2.0.0",
+    "fp-ts": "2.0.1",
+    "io-ts-types": "0.5.0",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
     "json-schema": "0.2.3",

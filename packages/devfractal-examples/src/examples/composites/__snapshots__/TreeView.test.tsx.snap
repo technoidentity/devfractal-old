@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeView Structure 1`] = `
+<div
+  className="tree-element"
+  style={
+    Object {
+      "marginLeft": " 4 +'px'",
+    }
+  }
+>
+  <span
+    className="toggler"
+    onClick={[Function]}
+  />
+  <strong>
+      
+    Rectangle
+    : 
+  </strong>
+  {
+  <div
+    className="tree-element"
+    style={
+      Object {
+        "marginLeft": 16,
+      }
+    }
+  >
+    <span
+      className="toggler"
+      onClick={[Function]}
+    />
+    <strong>
+        
+      top
+      : 
+    </strong>
+    {
+    <p
+      className="tree-element"
+      style={
+        Object {
+          "marginLeft": "16 + 'px'",
+        }
+      }
+    >
+      <strong>
+        x
+        : 
+      </strong>
+      1
+      ,
+    </p>
+    <p
+      className="tree-element"
+      style={
+        Object {
+          "marginLeft": "16 + 'px'",
+        }
+      }
+    >
+      <strong>
+        y
+        : 
+      </strong>
+      2
+      
+    </p>
+    }
+    ,
+  </div>
+  <div
+    className="tree-element"
+    style={
+      Object {
+        "marginLeft": 16,
+      }
+    }
+  >
+    <span
+      className="toggler"
+      onClick={[Function]}
+    />
+    <strong>
+        
+      bottom
+      : 
+    </strong>
+    {
+    <p
+      className="tree-element"
+      style={
+        Object {
+          "marginLeft": "16 + 'px'",
+        }
+      }
+    >
+      <strong>
+        y
+        : 
+      </strong>
+      2
+      ,
+    </p>
+    <p
+      className="tree-element"
+      style={
+        Object {
+          "marginLeft": "16 + 'px'",
+        }
+      }
+    >
+      <strong>
+        z
+        : 
+      </strong>
+      3
+      
+    </p>
+    }
+    
+  </div>
+  }
+  
+</div>
+`;

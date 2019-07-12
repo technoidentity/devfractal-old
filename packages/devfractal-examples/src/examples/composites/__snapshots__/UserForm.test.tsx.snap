@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Form Example 1`] = `
+<form
+  onReset={[Function]}
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+    >
+      Name:
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+    >
+      UserName:
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="username"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+    >
+      Email
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="email"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+    >
+      Phone:
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="phone"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="tel"
+        value={0}
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+    >
+      Website:
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="website"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="url"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field is-grouped is-grouped-centered"
+  >
+    <div
+      className="control"
+    >
+      <button
+        className="button is-info"
+        disabled={false}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+    <div
+      className="control"
+    >
+      <button
+        className="button is-danger"
+        disabled={true}
+        onClick={[Function]}
+        type="reset"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+  <pre>
+    {
+  "name": "",
+  "username": "",
+  "email": "",
+  "phone": 0,
+  "website": ""
+}
+  </pre>
+</form>
+`;

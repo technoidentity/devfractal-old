@@ -5,6 +5,10 @@ const path = require('path')
 const fsErrorFix = () => (context, { merge }) =>
   merge({ node: { fs: 'empty' } })
 
+const bulmaPath =
+  process.env.NODE_ENV === 'production'
+    ? 'node_modules/bulma/css/bulma.css'
+    : '../../node_modules/bulma/css/bulma.css'
 module.exports = {
   styles: {
     StyleGuide: {
@@ -20,12 +24,13 @@ module.exports = {
       },
     },
   },
-  require: [path.join(__dirname, 'node_modules/bulma/css/bulma.css')],
+  require: [path.join(__dirname)],
   propsParser: require('react-docgen-typescript').withCustomConfig(
     './tsconfig.json',
     {
       propFilter: props =>
-        props.parent && props.parent.fileName.startsWith('src'),
+        props.parent &&
+        props.parent.fileName.startsWith('devfractal-components'),
     },
   ).parse,
 
@@ -34,7 +39,7 @@ module.exports = {
   ignore: [
     './src/App.tsx',
     './src/crud/Views.tsx',
-    './src/utils/TableContentLoader.tsx',
+    './src/base/TableContentLoader.tsx',
     './src/dynamic/DynamicRouter.tsx',
     './src/simple/SimpleForm.tsx',
     './src/**/*.test.tsx',

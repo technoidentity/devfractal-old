@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox Example 1`] = `
+Array [
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      Dynamic Checkbox
+    </h1>
+    <div
+      className="control"
+    >
+      <label
+        className="checkbox"
+      >
+        <input
+          checked={false}
+          className="checkbox"
+          name="checkbox"
+          onChange={[Function]}
+          type="checkbox"
+        />
+         
+        UnChecked
+      </label>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      Checkbox
+    </h1>
+    <div
+      className="control"
+    >
+      <label
+        className="checkbox"
+      >
+        <input
+          checked={true}
+          className="checkbox"
+          readOnly={true}
+          type="checkbox"
+        />
+         
+        Remember me
+      </label>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      Add links 
+    </h1>
+    <div
+      className="control"
+    >
+      <label
+        className="checkbox"
+      >
+        <input
+          className="checkbox"
+          onChange={[Function]}
+          type="checkbox"
+        />
+         
+        I agree 
+        <a
+          href="#!"
+        >
+          terms and conditions
+        </a>
+      </label>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <div
+      className="field"
+    >
+      <h1
+        className="title is-4"
+      >
+        Disabled 
+      </h1>
+      <div
+        className="control"
+      >
+        <label
+          className="checkbox"
+        >
+          <input
+            className="checkbox"
+            disabled={true}
+            type="checkbox"
+          />
+           Save my Changes
+        </label>
+      </div>
+    </div>
+  </section>,
+]
+`;

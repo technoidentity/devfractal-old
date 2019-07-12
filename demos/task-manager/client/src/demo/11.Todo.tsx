@@ -1,5 +1,6 @@
 import { boolean, number, string, TypeOf, union } from 'io-ts'
-import { date, DateFromISOString } from 'io-ts-types'
+import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { rest } from 'technoidentity-devfractal'
 import { props } from 'technoidentity-utils'
 

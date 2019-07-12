@@ -24,6 +24,8 @@
     "clean:dist": "lerna run clean:dist",
     "clean:all": "lerna run clean:all",
     "destroy": "git clean -dfx",
+    "up": "lerna exec -- ncu -u",
+    "upd": "lerna run up && yarn run rimraf node_modules yarn.lock && yarn && yarn clean && yarn build && yarn validate",
     "test": "lerna run test",
     "lint": "lerna run lint",
     "refresh": "lerna run refresh && lerna run build",

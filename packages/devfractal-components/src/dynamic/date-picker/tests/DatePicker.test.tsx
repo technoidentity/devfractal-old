@@ -1,12 +1,9 @@
-import 'jest-dom/extend-expect'
 import React from 'react'
 
 import { CalendarComponent } from '../Calendar'
 import { calendarMonths, currentMonth, currentYear } from '../helpers'
 
 import { fireEvent, render } from '@testing-library/react'
-
-import '@testing-library/react/cleanup-after-each'
 
 describe('Calendar Component', () => {
   test('clicks on Previous button', () => {

@@ -1,5 +1,4 @@
 import * as iots from 'io-ts'
-import { DateType } from 'io-ts-types'
 import tcomb from 'tcomb'
 import { keys } from './common'
 
@@ -29,7 +28,7 @@ const tcombFromPrimitiveRT: (
   if (value instanceof iots.FunctionType) {
     return tcomb.Function
   }
-  if (value instanceof DateType) {
+  if (value.name === 'Date') {
     return tcomb.Date
   }
   if (value instanceof iots.KeyofType) {
