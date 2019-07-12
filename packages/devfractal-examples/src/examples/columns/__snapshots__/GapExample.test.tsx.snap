@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gap Example of columns 1`] = `
+<div>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title is-4"
+      >
+        Default gap
+      </h1>
+      <div
+        className="columns"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            Default gap
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            Default gap
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            Default gap
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            Default gap
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title is-4"
+      >
+        Gapless
+      </h1>
+      <div
+        className="columns is-gapless"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            No Gap
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            No Gap
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            No Gap
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            No Gap
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="columns is-mobile is-gapless is-multiline"
+      >
+        <div
+          className="column is-one-quarter is-one-quarter"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-quarter
+          </div>
+        </div>
+        <div
+          className="column is-one-quarter is-one-quarter"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-quarter
+          </div>
+        </div>
+        <div
+          className="column is-one-quarter is-one-quarter"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-quarter
+          </div>
+        </div>
+        <div
+          className="column is-one-quarter"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-quarter
+          </div>
+        </div>
+        <div
+          className="column is-half is-half"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-half
+          </div>
+        </div>
+        <div
+          className="column is-one-quarter is-one-quarter"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-quarter
+          </div>
+        </div>
+        <div
+          className="column is-one-quarter is-one-quarter"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-quarter
+          </div>
+        </div>
+        <div
+          className="column is-one-quarter is-one-quarter"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            is-one-quarter
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="notification is-primary has-text-centered"
+          >
+            Auto
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

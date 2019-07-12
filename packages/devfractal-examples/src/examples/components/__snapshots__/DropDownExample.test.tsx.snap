@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown Example 1`] = `
+<div
+  className="tabs is-medium"
+>
+  <ul>
+    <li
+      className=""
+    >
+      <a
+        aria-current={null}
+        href="#/components/dropdown/dropdown"
+        onClick={[Function]}
+      >
+        DropDown
+      </a>
+    </li>
+    <li
+      className=""
+    >
+      <a
+        aria-current={null}
+        href="#/components/dropdown/content"
+        onClick={[Function]}
+      >
+        Content
+      </a>
+    </li>
+    <li
+      className=""
+    >
+      <a
+        aria-current={null}
+        href="#/components/dropdown/hoverable"
+        onClick={[Function]}
+      >
+        Hoverable 
+      </a>
+    </li>
+    <li
+      className=""
+    >
+      <a
+        aria-current={null}
+        href="#/components/dropdown/right"
+        onClick={[Function]}
+      >
+        Right aligned
+      </a>
+    </li>
+    <li
+      className=""
+    >
+      <a
+        aria-current={null}
+        href="#/components/dropdown/left"
+        onClick={[Function]}
+      >
+        Left aligned
+      </a>
+    </li>
+    <li
+      className=""
+    >
+      <a
+        aria-current={null}
+        href="#/components/dropdown/dropup"
+        onClick={[Function]}
+      >
+        DropUp
+      </a>
+    </li>
+  </ul>
+</div>
+`;

@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTodo 1`] = `
+<section
+  className="section"
+>
+  <form
+    onReset={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
+        Title:
+      </label>
+      <div
+        className="control"
+      >
+        <input
+          className="input"
+          name="title"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
+        Description:
+      </label>
+      <div
+        className="control"
+      >
+        <textarea
+          className="textarea"
+          name="description"
+          onBlur={[Function]}
+          onChange={[Function]}
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
+         Done
+      </label>
+      <div
+        className="control"
+      >
+        <label
+          className="checkbox"
+        >
+          <input
+            checked={false}
+            className="checkbox"
+            name="done"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="checkbox"
+            value={false}
+          />
+        </label>
+      </div>
+    </div>
+    <div
+      className="field is-grouped is-grouped-centered"
+    >
+      <div
+        className="control"
+      >
+        <button
+          className="button is-info"
+          disabled={false}
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        className="control"
+      >
+        <button
+          className="button is-danger"
+          disabled={true}
+          onClick={[Function]}
+          type="reset"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+    <pre>
+      {
+  "title": "",
+  "description": "",
+  "done": false
+}
+    </pre>
+  </form>
+</section>
+`;

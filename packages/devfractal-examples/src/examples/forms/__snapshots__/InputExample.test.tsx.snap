@@ -1,0 +1,693 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Example 1`] = `
+Array [
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      Dynamic Input(Upper case)
+    </h1>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="name"
+        onChange={[Function]}
+        placeholder="Dynamic Input"
+        type="text"
+        value=""
+      />
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      Normal Input
+    </h1>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        placeholder="Text input"
+        type="text"
+      />
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      Colors
+    </h1>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-primary"
+        placeholder="Primary input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-info"
+        placeholder="Info input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-success"
+        placeholder="Success input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-dark"
+        placeholder="Dark input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-warning"
+        placeholder="warning input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-light"
+        placeholder="Light input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-danger"
+        placeholder="Danger input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-white"
+        placeholder="White input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-black"
+        placeholder="Black input"
+        type="text"
+      />
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      Sizes
+    </h1>
+    <div
+      className="control is-small"
+    >
+      <input
+        className="input is-small"
+        placeholder="Small input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        placeholder="Normal input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control is-medium"
+    >
+      <input
+        className="input is-medium"
+        placeholder="Medium input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control is-large"
+    >
+      <input
+        className="input is-large"
+        placeholder="Large input"
+        type="text"
+      />
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      Styles
+    </h1>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-rounded"
+        placeholder="Rounded input"
+        type="text"
+      />
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      States
+    </h1>
+    <div
+      className=""
+    >
+      Hover
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-hovered"
+        placeholder="Hovered input"
+        type="text"
+      />
+    </div>
+    <div
+      className=""
+    >
+      Focus
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input is-focused"
+        placeholder="Focused input"
+        type="text"
+      />
+    </div>
+    <div
+      className=""
+    >
+      Loading
+    </div>
+    <div
+      className="control is-loading"
+    >
+      <input
+        className="input"
+        placeholder="Loading input"
+        type="text"
+      />
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <div
+      className="control is-loading is-small"
+    >
+      <input
+        className="input is-small"
+        placeholder="Small loading input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control is-loading"
+    >
+      <input
+        className="input"
+        placeholder="Normal loading input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control is-loading is-medium"
+    >
+      <input
+        className="input is-medium"
+        placeholder="Medium loading input"
+        type="text"
+      />
+    </div>
+    <div
+      className="control is-loading is-large"
+    >
+      <input
+        className="input is-large"
+        placeholder="Large loading input"
+        type="text"
+      />
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <div
+      className="is-size-4"
+    >
+      Disabled
+    </div>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        disabled={true}
+        placeholder="disabled input"
+      />
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="subtitle is-4"
+    >
+      Readonly and Static inputs
+    </h1>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        readOnly={true}
+        type="text"
+        value="This text is readonly"
+      />
+    </div>
+    <div
+      className="container"
+    >
+      <div
+        className="field is-horizontal"
+      >
+        <label
+          className="label"
+        />
+        <div
+          className="field-label is-normal"
+        >
+          <label
+            className="label"
+          >
+            From
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="control"
+          >
+            <input
+              className="input is-static"
+              readOnly={true}
+              type="email"
+              value="me@example.com"
+            />
+          </div>
+        </div>
+        <p
+          className="help"
+        />
+      </div>
+      <div
+        className="field is-horizontal"
+      >
+        <label
+          className="label"
+        />
+        <div
+          className="field-label is-normal"
+        >
+          <label
+            className="label"
+          >
+            To 
+          </label>
+        </div>
+        <div
+          className="field-body"
+        >
+          <div
+            className="control"
+          >
+            <input
+              className="input"
+              placeholder="Recipient email"
+              type="email"
+            />
+          </div>
+        </div>
+        <p
+          className="help"
+        />
+      </div>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <h1
+      className="title is-4"
+    >
+      With Font Awesome icons
+    </h1>
+    <div
+      className="control has-icons-left"
+    >
+      <input
+        className="input"
+        placeholder="Name"
+        type="text"
+      />
+      <span
+        className="icon is-left"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-user fa-w-14 "
+          data-icon="user"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      className="control has-icons-left has-icons-right"
+    >
+      <input
+        className="input is-success"
+        placeholder="Email"
+        type="email"
+      />
+      <span
+        className="icon is-left"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-envelope fa-w-16 "
+          data-icon="envelope"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+      <span
+        className="icon is-right"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-check fa-w-16 "
+          data-icon="check"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+    </div>
+  </section>,
+  <section
+    className="section"
+  >
+    <div
+      className="control is-small has-icons-left has-icons-right"
+    >
+      <input
+        className="input is-primary is-small"
+        placeholder="Email"
+        type="email"
+      />
+      <span
+        className="icon is-left"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-envelope fa-w-16 "
+          data-icon="envelope"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+      <span
+        className="icon is-right"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-check fa-w-16 "
+          data-icon="check"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      className="control has-icons-left has-icons-right"
+    >
+      <input
+        className="input is-info"
+        placeholder="Email"
+        type="email"
+      />
+      <span
+        className="icon is-left"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-envelope fa-w-16 "
+          data-icon="envelope"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+      <span
+        className="icon is-right"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-check fa-w-16 "
+          data-icon="check"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      className="control is-medium has-icons-left has-icons-right"
+    >
+      <input
+        className="input is-warning is-medium"
+        placeholder="Email"
+        type="email"
+      />
+      <span
+        className="icon is-left"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-envelope fa-w-16 "
+          data-icon="envelope"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+      <span
+        className="icon is-right"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-check fa-w-16 "
+          data-icon="check"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      className="control is-large has-icons-left has-icons-right"
+    >
+      <input
+        className="input is-danger is-large"
+        placeholder="Email"
+        type="email"
+      />
+      <span
+        className="icon is-left"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-envelope fa-w-16 "
+          data-icon="envelope"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+      <span
+        className="icon is-right"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-check fa-w-16 "
+          data-icon="check"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+    </div>
+  </section>,
+]
+`;
