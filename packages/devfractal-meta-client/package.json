@@ -5,10 +5,26 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch",
+    "dev": "parcel index.html --open",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "tsdx build",
+    "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
+    "lint:fix": "yarn lint --fix",
+    "types": "tsc --noEmit -p tsconfig.json",
+    "types:watch": "tsc --noEmit -p tsconfig.json --watch",
+    "validate": "yarn lint && yarn types && yarn test",
+    "sg": "styleguidist server",
+    "sg:build": "styleguidist build",
+    "sb": "start-storybook"
+  },
   "dependencies": {
     "technoidentity-devfractal": "0.9.11",
     "technoidentity-meta-core": "0.0.1",
-    "technoidentity-utils": "0.0.6"
+    "technoidentity-utils": "0.0.6",
+    "tslib": "1.10.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "4.0.0",
@@ -37,7 +53,6 @@
     "tcomb": "3.2.29",
     "ts-jest": "24.0.2",
     "tsdx": "0.7.2",
-    "tslib": "1.10.0",
     "yup": "0.27.0"
   },
   "peerDependencies": {
@@ -54,27 +69,12 @@
     "react-router-dom": "5.0.1",
     "yup": "0.27.0"
   },
-  "scripts": {
-    "start": "tsdx watch",
-    "dev": "parcel index.html --open",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "build": "tsdx build",
-    "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
-    "lint:fix": "yarn lint --fix",
-    "types": "tsc --noEmit -p tsconfig.json",
-    "types:watch": "tsc --noEmit -p tsconfig.json --watch",
-    "validate": "yarn lint && yarn types && yarn test",
-    "sg": "styleguidist server",
-    "sg:build": "styleguidist build",
-    "sb": "start-storybook"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn validate"
+    }
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "yarn lint:fix",

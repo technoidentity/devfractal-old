@@ -6,15 +6,33 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch",
+    "dev": "parcel index.html --open",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "tsdx build",
+    "prebuild": "yarn validate",
+    "prepublish": "yarn validate",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "elint:fix": "yarn elint --quiet --fix",
+    "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
+    "lint:fix": "yarn lint --fix",
+    "types": "tsc --noEmit -p .",
+    "types:watch": "yarn types --watch",
+    "validate": "yarn lint && yarn types && yarn test"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.19",
     "@fortawesome/free-brands-svg-icons": "5.9.0",
     "@fortawesome/free-regular-svg-icons": "5.9.0",
     "@fortawesome/free-solid-svg-icons": "5.9.0",
     "@fortawesome/react-fontawesome": "0.1.4",
+    "date-fns": "1.30.1",
     "tcomb": "3.2.29",
     "technoidentity-devfractal": "0.9.11",
-    "technoidentity-utils": "0.0.6"
+    "technoidentity-utils": "0.0.6",
+    "tslib": "1.10.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "4.0.0",
@@ -29,7 +47,6 @@
     "@types/react-test-renderer": "16.8.2",
     "@types/react": "16.8.23",
     "@types/yup": "0.26.21",
-    "date-fns": "1.30.1",
     "firebase": "6.3.0",
     "formik": "1.5.8",
     "fp-ts": "2.0.1",
@@ -57,7 +74,6 @@
     "typescript": "3.5.3"
   },
   "peerDependencies": {
-    "date-fns": "1.30.1",
     "firebase": "6.3.0",
     "formik": "1.5.8",
     "fp-ts": "2.0.1",
@@ -69,22 +85,6 @@
     "react-router": "5.0.1",
     "react": "16.8.6",
     "yup": "0.27.0"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "dev": "parcel index.html --open",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "build": "tsdx build",
-    "prebuild": "yarn validate",
-    "prepublish": "yarn validate",
-    "elint": "eslint './src/**/*.{js,ts,tsx}'",
-    "elint:fix": "yarn elint --quiet --fix",
-    "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
-    "lint:fix": "yarn lint --fix",
-    "types": "tsc --noEmit -p .",
-    "types:watch": "yarn types --watch",
-    "validate": "yarn lint && yarn types && yarn test"
   },
   "husky": {
     "hooks": {
