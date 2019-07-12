@@ -8,7 +8,6 @@
   "scripts": {
     "start": "backpack",
     "build": "backpack build",
-    "clean": "rimraf build",
     "postinstall": "backpack build",
     "test": "NODE_ENV=test jest",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",

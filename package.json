@@ -18,25 +18,27 @@
     "typescript-tslint-plugin": "0.5.4"
   },
   "scripts": {
+    "boot": "npx lerna run bootstrap",
     "start": "lerna run start",
     "build": "lerna run build",
-    "clean": "lerna run clean",
-    "clean:dist": "lerna run clean:dist",
-    "clean:all": "lerna run clean:all",
+    "clean": "lerna exec -- yarn run rimraf dist .cache build .rts2_cache_*",
+    "clean:dist": "lerna clean && yarn run rimraf node_modules",
+    "clean:all": "yarn clean && yarn clean:dist",
+    "refresh": "yarn clean:all && yarn boot && yarn build && yarn validate",
+    "prepublish": "yarn validate",
+    "publish": "lerna publish",
     "destroy": "git clean -dfx",
     "up": "lerna exec -- ncu -u",
-    "upd": "lerna run up && lerna run clean && lerna clean && yarn run rimraf node_modules yarn.lock && yarn && yarn clean && yarn build && yarn validate",
+    "upd": "lerna run up && yarn refresh",
     "test": "lerna run test",
     "lint": "lerna run lint",
-    "refresh": "lerna run refresh && lerna run build",
     "types": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling lerna run --parallel types:watch",
     "validate": "lerna run validate"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lerna run --concurrency 1 --stream precommit",
-      "pre-push": "yarn validate",
-      "pre-publish": "yarn validate"
+      "pre-push": "yarn validate"
     }
   }
 }

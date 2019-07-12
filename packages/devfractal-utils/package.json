@@ -3,7 +3,7 @@
   "version": "0.0.7",
   "description": "utils for all devfractal libs",
   "main": "dist/index.js",
-  "module": "dist/devfractal-utils.esm.js",
+  "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
@@ -15,9 +15,6 @@
     "build": "tsdx build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "clean": "rimraf dist .cache build .rts2_cache_*",
-    "clean:dist": "rimraf node_modules yarn.lock",
-    "refresh": "yarn clean && yarn clean:dist && yarn",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
