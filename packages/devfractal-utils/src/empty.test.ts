@@ -18,7 +18,7 @@ import {
   union,
 } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
-import { empty } from './emptyFromType'
+import { empty } from './empty'
 
 test('primitive values', () => {
   expect(empty(number)).toBe(0)
