@@ -27,6 +27,8 @@ test('initialValues from bool meta', () => {
 test.skip('initialValues from date meta', () => {
   // https://codewithhugo.com/mocking-the-current-date-in-jest-tests/
   jest
+
+    // tslint:disable-next-line: ban-ts-ignore
     // @ts-ignore
     .spyOn(global.Date, 'constructor')
     .mockImplementationOnce(() => new Date('2019-06-19T00:07:19.309Z'))
