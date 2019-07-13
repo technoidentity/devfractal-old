@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { typeInvariant } from './iotsUtils'
+import { specInvariant } from './iotsUtils'
 
 // tslint:disable readonly-array
 
@@ -13,9 +13,9 @@ export function tupleChecked<
   f: (...args: A) => t.TypeOf<typeof resultSpec>,
 ): typeof f {
   return (...args) => {
-    typeInvariant(argSpecs, args)
+    specInvariant(argSpecs, args)
 
-    return typeInvariant(resultSpec, f(...args))
+    return specInvariant(resultSpec, f(...args))
   }
 }
 
@@ -89,9 +89,9 @@ export function asyncTupleChecked<
   f: (...args: A) => Promise<t.TypeOf<typeof resultSpec>>,
 ): typeof f {
   return async (...args) => {
-    typeInvariant(argSpecs, args)
+    specInvariant(argSpecs, args)
 
-    return typeInvariant(resultSpec, await f(...args))
+    return specInvariant(resultSpec, await f(...args))
   }
 }
 
