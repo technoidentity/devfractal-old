@@ -1,6 +1,6 @@
 import * as t from 'tcomb'
 import { defaultOptions } from './fake'
-import { fakeFromTcomb as fake } from './fakeFromTcomb'
+import { fakeFromRT as fake } from './fakeFromRT'
 
 test('primitive values', () => {
   expect(fake(t.Number)).toEqual(expect.any(Number))

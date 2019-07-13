@@ -48,7 +48,7 @@ function fakeFromIrreducible(
       return chance.date()
 
     case 'Function':
-      return (..._: any[]) => fakeFromTcomb(Any, options)
+      return (..._: any[]) => fakeFromRT(Any, options)
 
     case 'Nil':
       // tslint:disable-next-line: no-null-keyword
@@ -64,7 +64,7 @@ function fakeFromIrreducible(
         chance.word({ length: chance.integer({ min: 4, max: 8 }) }),
       )
       const values = repeatedly(kn, () =>
-        fakeFromTcomb(chance.pickone(all), options),
+        fakeFromRT(chance.pickone(all), options),
       )
       const result: any = {}
       for (let i: number = 0; i < kn; ++i) {
@@ -79,7 +79,7 @@ function fakeFromIrreducible(
         max: options.array.maxLength,
       })
 
-      return repeatedly(n, () => fakeFromTcomb(chance.pickone(all), options))
+      return repeatedly(n, () => fakeFromRT(chance.pickone(all), options))
 
     default:
       throw new Error(
@@ -88,7 +88,7 @@ function fakeFromIrreducible(
   }
 }
 
-export function fakeFromTcomb(
+export function fakeFromRT(
   spec: Constructor<any>,
   options: FakeOptions = defaultOptions,
 ): any {
@@ -104,11 +104,11 @@ export function fakeFromTcomb(
   }
 
   if (isStruct(spec)) {
-    return spec(buildObject(spec.meta.props, p => fakeFromTcomb(p, options)))
+    return spec(buildObject(spec.meta.props, p => fakeFromRT(p, options)))
   }
 
   if (isInterface(spec)) {
-    return buildObject(spec.meta.props, p => fakeFromTcomb(p, options))
+    return buildObject(spec.meta.props, p => fakeFromRT(p, options))
   }
 
   if (isList(spec)) {
@@ -117,7 +117,7 @@ export function fakeFromTcomb(
       max: options.array.maxLength,
     })
 
-    return repeatedly(n, () => fakeFromTcomb(spec.meta.type, options))
+    return repeatedly(n, () => fakeFromRT(spec.meta.type, options))
   }
 
   if (isDict(spec)) {
@@ -126,16 +126,16 @@ export function fakeFromTcomb(
 
   if (isIntersection(spec)) {
     return spec.meta.types
-      .map(p => fakeFromTcomb(p, options))
+      .map(p => fakeFromRT(p, options))
       .reduce((acc, x) => ({ ...acc, ...x }))
   }
 
   if (isMaybe(spec)) {
-    return chance.pickone([fakeFromTcomb(spec.meta.type), undefined])
+    return chance.pickone([fakeFromRT(spec.meta.type), undefined])
   }
 
   if (isUnion(spec)) {
-    return chance.pickone(spec.meta.types.map(p => fakeFromTcomb(p, options)))
+    return chance.pickone(spec.meta.types.map(p => fakeFromRT(p, options)))
   }
 
   if (isEnums(spec)) {
@@ -143,7 +143,7 @@ export function fakeFromTcomb(
   }
 
   if (isTuple(spec)) {
-    return spec.meta.types.map(p => fakeFromTcomb(p, options))
+    return spec.meta.types.map(p => fakeFromRT(p, options))
   }
 
   if (isIrreducible(spec)) {

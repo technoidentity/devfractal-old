@@ -1,5 +1,5 @@
 import * as t from 'tcomb'
-import { emptyFromTcomb as empty } from './emptyFromTcomb'
+import { emptyFromRT as empty } from './emptyFromRT'
 
 // tslint:disable typedef
 

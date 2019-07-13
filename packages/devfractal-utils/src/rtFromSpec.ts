@@ -2,7 +2,7 @@ import * as iots from 'io-ts'
 import tcomb from 'tcomb'
 import { keys } from './common'
 
-const tcombFromPrimitiveRT: (
+const rtFromPrimitiveSpec: (
   value: iots.Mixed,
 ) =>
   | tcomb.Irreducible<number>
@@ -41,58 +41,58 @@ const tcombFromPrimitiveRT: (
   throw new Error(`Unsupported ${value.name}`)
 }
 
-const tcombFromObjectRT: <T extends iots.Props>(
+const rtFromObjectSpec: <T extends iots.Props>(
   rt: iots.TypeC<T>,
   options?: { readonly strict?: boolean },
 ) => tcomb.Struct<T> = (rt, options = { strict: true }) => {
   const draft: any = {}
 
   for (const prop of keys(rt.props)) {
-    draft[prop] = tcombFromRT(rt.props[prop])
+    draft[prop] = rtFromSpec(rt.props[prop])
   }
   return tcomb.struct(draft, { name: rt.name, strict: options.strict })
 }
 
-export const tcombFromRT: (
+export const rtFromSpec: (
   value: iots.Mixed,
 ) =>
-  | ReturnType<typeof tcombFromObjectRT>
-  | ReturnType<typeof tcombFromPrimitiveRT>
+  | ReturnType<typeof rtFromObjectSpec>
+  | ReturnType<typeof rtFromPrimitiveSpec>
   | tcomb.Tuple<any>
   | tcomb.Maybe<any>
   | tcomb.Struct<any> = value => {
   if (value instanceof iots.ReadonlyType) {
-    return tcombFromRT(value.type)
+    return rtFromSpec(value.type)
   }
   if (
     value instanceof iots.ArrayType ||
     value instanceof iots.ReadonlyArrayType
   ) {
-    return tcomb.list(tcombFromRT(value.type))
+    return tcomb.list(rtFromSpec(value.type))
   }
 
   if (value instanceof iots.InterfaceType) {
-    return tcombFromObjectRT(value)
+    return rtFromObjectSpec(value)
   }
   // if (value instanceof iots.PartialType) {
   //   return tcombFromObjectRT(value, { strict: false })
   // }
   if (value instanceof iots.TupleType) {
     // @TODO: definitely wrong!
-    return tcomb.tuple(value.types.map(tcombFromRT))
+    return tcomb.tuple(value.types.map(rtFromSpec))
   }
   if (value instanceof iots.PartialType) {
     // @TODO: almost definitely wrong!
-    return tcomb.maybe(value.props.map(tcombFromRT))
+    return tcomb.maybe(value.props.map(rtFromSpec))
   }
   if (value instanceof iots.StrictType) {
     // @TODO: may be wrong?
-    return tcomb.struct(value.props.map(tcombFromRT), {
+    return tcomb.struct(value.props.map(rtFromSpec), {
       name: value.name,
       strict: true,
     }) // wrong?
   }
-  return tcombFromPrimitiveRT(value)
+  return rtFromPrimitiveSpec(value)
 }
 
 // const io = iots.type({

@@ -1,7 +1,7 @@
 import tcomb from 'tcomb'
 import { keys } from './common'
 
-const tcombFromPrimitiveValue: (
+const rtFromPrimitiveValue: (
   value: unknown,
 ) =>
   | tcomb.Irreducible<number>
@@ -39,34 +39,34 @@ const tcombFromPrimitiveValue: (
   throw new Error(`Unsupported #{value}`)
 }
 
-const tcombFromArrayValue: <V, T extends ReadonlyArray<V>>(
+const rtFromArrayValue: <V, T extends ReadonlyArray<V>>(
   value: T,
 ) => tcomb.List<ReadonlyArray<tcomb.Type<any>>> | tcomb.List<any> = value =>
   value[0] !== undefined
-    ? tcomb.list(tcombFromValue(value[0]))
+    ? tcomb.list(rtFromValue(value[0]))
     : tcomb.list(tcomb.Any)
 
-const tcombFromObjectValue: <T extends Object & object>(
+const rtFromObjectValue: <T extends Object & object>(
   value: T,
 ) => tcomb.Struct<T> = value => {
   const draft: any = {}
   for (const k of keys(value)) {
-    draft[k] = tcombFromValue(value[k])
+    draft[k] = rtFromValue(value[k])
   }
   return tcomb.struct(draft)
 }
 
-export const tcombFromValue: <T>(
+export const rtFromValue: <T>(
   value: T,
 ) =>
   | tcomb.Struct<T>
-  | ReturnType<typeof tcombFromArrayValue>
-  | ReturnType<typeof tcombFromPrimitiveValue> = value => {
+  | ReturnType<typeof rtFromArrayValue>
+  | ReturnType<typeof rtFromPrimitiveValue> = value => {
   if (tcomb.Array.is(value)) {
-    return tcombFromArrayValue(value)
+    return rtFromArrayValue(value)
   }
   if (tcomb.Object.is(value)) {
-    return tcombFromObjectValue(value)
+    return rtFromObjectValue(value)
   }
-  return tcombFromPrimitiveValue(value)
+  return rtFromPrimitiveValue(value)
 }

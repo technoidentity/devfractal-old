@@ -57,7 +57,7 @@ function emptyFromIrreducible(spec: Irreducible<any>): any {
   }
 }
 
-export function emptyFromTcomb(spec: Constructor<any>): any {
+export function emptyFromRT(spec: Constructor<any>): any {
   if (!isType(spec)) {
     throw new Error('I have no idea about what do with a function')
   }
@@ -69,11 +69,11 @@ export function emptyFromTcomb(spec: Constructor<any>): any {
   }
 
   if (isStruct(spec)) {
-    return spec(buildObject(spec.meta.props, emptyFromTcomb))
+    return spec(buildObject(spec.meta.props, emptyFromRT))
   }
 
   if (isInterface(spec)) {
-    return buildObject(spec.meta.props, emptyFromTcomb)
+    return buildObject(spec.meta.props, emptyFromRT)
   }
 
   if (isList(spec)) {
@@ -86,16 +86,16 @@ export function emptyFromTcomb(spec: Constructor<any>): any {
 
   if (isIntersection(spec)) {
     return spec.meta.types
-      .map(emptyFromTcomb)
+      .map(emptyFromRT)
       .reduce((acc, x) => ({ ...acc, ...x }))
   }
 
   if (isMaybe(spec)) {
-    return emptyFromTcomb(spec.meta.type) // may be return undefined?
+    return emptyFromRT(spec.meta.type) // may be return undefined?
   }
 
   if (isUnion(spec)) {
-    return emptyFromTcomb(spec.meta.types[0])
+    return emptyFromRT(spec.meta.types[0])
   }
 
   if (isEnums(spec)) {
@@ -109,7 +109,7 @@ export function emptyFromTcomb(spec: Constructor<any>): any {
   //   return nop // need function returning value of correct type
 
   if (isTuple(spec)) {
-    return spec.meta.types.map(emptyFromTcomb)
+    return spec.meta.types.map(emptyFromRT)
   }
 
   if (isIrreducible(spec)) {
