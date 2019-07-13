@@ -1,3 +1,4 @@
+import { startOfDay } from 'date-fns'
 import { assert } from 'tcomb'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
@@ -63,4 +64,8 @@ export function buildObject<T extends Object, R>(
 
 export function keys<T extends Object>(obj: T): ReadonlyArray<keyof T> {
   return Object.keys(obj) as ReadonlyArray<keyof T>
+}
+
+export function today(): Date {
+  return startOfDay(new Date())
 }
