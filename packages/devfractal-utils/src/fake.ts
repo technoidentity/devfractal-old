@@ -28,7 +28,7 @@ export const defaultOptions = {
   array: { minLength: 0, maxLength: 6 },
 }
 
-type FakeOptions = typeof defaultOptions
+export type FakeOptions = typeof defaultOptions
 
 function fakePrimitive<T extends Mixed>(
   typeValue: T,
