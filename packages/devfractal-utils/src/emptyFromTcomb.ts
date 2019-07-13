@@ -2,14 +2,15 @@ import { Constructor, Irreducible } from 'tcomb'
 import { invariant } from './assertions'
 import { buildObject, nop } from './common'
 import {
-  hasProps,
   isDict,
   isEnums,
   isInteger,
+  isInterface,
   isIntersection,
   isIrreducible,
   isList,
   isMaybe,
+  isStruct,
   isTuple,
   isType,
   isUnion,
@@ -67,7 +68,11 @@ export function emptyFromTcomb(spec: Constructor<any>): any {
     return 0
   }
 
-  if (hasProps(spec)) {
+  if (isStruct(spec)) {
+    return spec(buildObject(spec.meta.props, emptyFromTcomb))
+  }
+
+  if (isInterface(spec)) {
     return buildObject(spec.meta.props, emptyFromTcomb)
   }
 
@@ -104,7 +109,7 @@ export function emptyFromTcomb(spec: Constructor<any>): any {
   //   return nop // need function returning value of correct type
 
   if (isTuple(spec)) {
-    return emptyFromTcomb(spec.meta.types[0])
+    return spec.meta.types.map(emptyFromTcomb)
   }
 
   if (isIrreducible(spec)) {

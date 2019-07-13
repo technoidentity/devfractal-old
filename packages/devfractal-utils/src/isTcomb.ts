@@ -17,8 +17,12 @@ export function isType<T>(spec: Constructor<T>): spec is Type<T> {
   return t.isType(spec)
 }
 
-export function hasProps<T>(spec: Type<T>): spec is Struct<T> | Interface<T> {
-  return spec.meta.kind === 'struct' || spec.meta.kind === 'interface'
+export function isStruct<T>(spec: Type<T>): spec is Struct<T> {
+  return spec.meta.kind === 'struct'
+}
+
+export function isInterface<T>(spec: Type<T>): spec is Interface<T> {
+  return spec.meta.kind === 'interface'
 }
 
 export function isIntersection<T>(spec: Type<T>): spec is Intersection<T> {
