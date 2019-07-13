@@ -1,5 +1,6 @@
 import { compareAsc } from 'date-fns'
 import * as t from 'tcomb'
+
 // tslint:disable typedef
 
 export const Positive = t.refinement(t.Number, n => n >= 0, 'Positive')

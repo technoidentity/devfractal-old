@@ -4,19 +4,19 @@ import { PathReporter } from 'io-ts/lib/PathReporter'
 import { String } from 'tcomb'
 import { fatal, warning } from './assertions'
 
-export function typeInvariant<A, O, I>(type: t.Type<A, O, I>, args: I): A {
-  const decoded: Either<t.Errors, A> = type.decode(args)
+export function specInvariant<A, O, I>(spec: t.Type<A, O, I>, args: I): A {
+  const decoded: Either<t.Errors, A> = spec.decode(args)
   return isRight(decoded)
     ? decoded.right
     : fatal(PathReporter.report(decoded).join('\n'))
 }
 
-export function typeWarning<A, O, I>(
-  type: t.Type<A, O, I>,
+export function specWarning<A, O, I>(
+  spec: t.Type<A, O, I>,
   args: I,
 ): A | undefined {
-  const decoded: Either<t.Errors, A> = type.decode(args)
-  warning(type.is(args), PathReporter.report(decoded).join('\n'))
+  const decoded: Either<t.Errors, A> = spec.decode(args)
+  warning(spec.is(args), PathReporter.report(decoded).join('\n'))
   return isRight(decoded) ? decoded.right : undefined
 }
 
@@ -43,10 +43,12 @@ export function opt<P extends t.Props>(
   return t.readonly(t.partial(props), name)
 }
 
-export const req: <P extends t.Props>(
+export function req<P extends t.Props>(
   props: P,
   name?: string,
-) => t.ReadonlyC<t.TypeC<P>> = (obj, name) => t.readonly(t.type(obj), name)
+): t.ReadonlyC<t.TypeC<P>> {
+  return t.readonly(t.type(props), name)
+}
 
 // tslint:disable readonly-array
 export function props<O extends t.Props, R extends t.Props>(

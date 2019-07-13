@@ -18,7 +18,7 @@ test('primitive values', () => {
   expect(fake(boolean)).toEqual(expect.any(Boolean))
   expect(fake(date)).toEqual(expect.any(Date))
   expect(fake(keyof({ red: 1, blue: 2, green: 3 }))).toMatch(/red|blue|green/)
-  expect(Number.isInteger(fake(Int))).toBe(true)
+  expect(Number.isInteger(fake(Int))).toBeTruthy()
 })
 
 test('array', () => {

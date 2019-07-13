@@ -1,0 +1,106 @@
+import * as iots from 'io-ts'
+import tcomb from 'tcomb'
+import { buildObject } from './common'
+
+function rtFromObjectSpec<T extends iots.Props>(
+  spec: iots.TypeC<T>,
+  options: { readonly strict: boolean } = { strict: false },
+): tcomb.Struct<T> {
+  return tcomb.struct(buildObject(spec.props, rtFromSpec), {
+    name: spec.name,
+    strict: options.strict,
+  })
+}
+
+export function rtFromSpec(
+  spec: iots.Mixed,
+):
+  | tcomb.Irreducible<any>
+  | tcomb.Enums
+  | tcomb.Struct<any>
+  | tcomb.Tuple<any>
+  | tcomb.Maybe<any> {
+  if (spec instanceof iots.NumberType) {
+    return tcomb.Number
+  }
+
+  if (spec.name === 'Int') {
+    return tcomb.Integer
+  }
+
+  if (spec instanceof iots.StringType) {
+    return tcomb.String
+  }
+
+  // @TODO: create refinement type for iots.LiteralType?
+  if (spec instanceof iots.BooleanType) {
+    return tcomb.Boolean
+  }
+
+  if (spec instanceof iots.FunctionType) {
+    return tcomb.Function
+  }
+
+  if (spec.name === 'Date') {
+    return tcomb.Date
+  }
+
+  if (spec instanceof iots.NullType || spec instanceof iots.UndefinedType) {
+    return tcomb.Nil
+  }
+
+  if (spec instanceof iots.KeyofType) {
+    return tcomb.enums.of(Object.keys(spec.keys))
+  }
+
+  if (spec instanceof iots.InterfaceType) {
+    return rtFromObjectSpec(spec)
+  }
+
+  if (spec instanceof iots.ReadonlyType || spec instanceof iots.ExactType) {
+    return rtFromSpec(spec.type)
+  }
+
+  if (spec instanceof iots.RefinementType) {
+    return tcomb.refinement(rtFromSpec(spec.type), spec.predicate)
+  }
+  if (
+    spec instanceof iots.ArrayType ||
+    spec instanceof iots.ReadonlyArrayType
+  ) {
+    return tcomb.list(rtFromSpec(spec.type))
+  }
+
+  if (spec instanceof iots.AnyArrayType) {
+    return tcomb.list(tcomb.Any)
+  }
+
+  if (spec instanceof iots.IntersectionType) {
+    return tcomb.intersection(spec.types.map(rtFromSpec))
+  }
+
+  if (spec instanceof iots.UnionType) {
+    return tcomb.union(spec.types.map(rtFromSpec))
+  }
+
+  if (spec instanceof iots.TupleType) {
+    return tcomb.tuple(spec.types.map(rtFromSpec))
+  }
+
+  if (spec instanceof iots.PartialType) {
+    return tcomb.struct(
+      buildObject(spec.props, p => tcomb.maybe(rtFromSpec(p))),
+      { name: spec.name },
+    )
+  }
+
+  if (spec instanceof iots.StrictType) {
+    return rtFromObjectSpec(spec.props, { strict: true })
+  }
+
+  if (spec instanceof iots.ExactType) {
+    return rtFromObjectSpec(spec.type, { strict: true })
+  }
+
+  throw new Error(`Unsupported ${spec.name}`)
+}

@@ -1,4 +1,4 @@
-import { range, repeatedly } from './common'
+import { range, repeatedly, today } from './common'
 
 it('test for range function', () => {
   expect(range(0, -2)).toEqual([])
@@ -25,4 +25,8 @@ it('repeatedly', () => {
     expect(repeatedly(0, inc)).toEqual([])
     expect(repeatedly(5, inc)).toEqual([1, 2, 3, 4, 5])
   }
+})
+
+it('today', () => {
+  expect(today()).toEqual(expect.any(Date))
 })
