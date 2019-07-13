@@ -25,13 +25,10 @@ const chance = new Chance()
 // tslint:disable-next-line: readonly-array
 const all = [t.Number, t.String, t.Boolean, t.Date, t.Object, t.Array]
 
-function fakeFromIrreducible(
-  spec: Irreducible<any>,
-  options: FakeOptions,
-): any {
-  invariant(spec.meta.kind === 'irreducible', 'spec must be irreducible')
+function fakeFromIrreducible(rt: Irreducible<any>, options: FakeOptions): any {
+  invariant(rt.meta.kind === 'irreducible', 'rt must be irreducible')
 
-  switch (spec.meta.name) {
+  switch (rt.meta.name) {
     case 'Number':
       return chance.floating(options.floating)
 
@@ -83,72 +80,72 @@ function fakeFromIrreducible(
 
     default:
       throw new Error(
-        `Unsupported tcomb type: ${spec.meta.kind}: ${spec.meta.name}`,
+        `Unsupported tcomb type: ${rt.meta.kind}: ${rt.meta.name}`,
       )
   }
 }
 
 export function fakeFromRT(
-  spec: Constructor<any>,
+  rt: Constructor<any>,
   options: FakeOptions = defaultOptions,
 ): any {
-  if (!isType(spec)) {
-    console.log(spec.name)
+  if (!isType(rt)) {
+    console.log(rt.name)
     throw new Error('I have no idea about what do with a function')
   }
 
-  invariant(spec && spec.meta && spec.meta.kind)
+  invariant(rt && rt.meta && rt.meta.kind)
 
-  if (isInteger(spec)) {
+  if (isInteger(rt)) {
     return chance.integer(options.integer)
   }
 
-  if (isStruct(spec)) {
-    return spec(buildObject(spec.meta.props, p => fakeFromRT(p, options)))
+  if (isStruct(rt)) {
+    return rt(buildObject(rt.meta.props, p => fakeFromRT(p, options)))
   }
 
-  if (isInterface(spec)) {
-    return buildObject(spec.meta.props, p => fakeFromRT(p, options))
+  if (isInterface(rt)) {
+    return buildObject(rt.meta.props, p => fakeFromRT(p, options))
   }
 
-  if (isList(spec)) {
+  if (isList(rt)) {
     const n: number = chance.integer({
       min: options.array.minLength,
       max: options.array.maxLength,
     })
 
-    return repeatedly(n, () => fakeFromRT(spec.meta.type, options))
+    return repeatedly(n, () => fakeFromRT(rt.meta.type, options))
   }
 
-  if (isDict(spec)) {
+  if (isDict(rt)) {
     return {}
   }
 
-  if (isIntersection(spec)) {
-    return spec.meta.types
+  if (isIntersection(rt)) {
+    return rt.meta.types
       .map(p => fakeFromRT(p, options))
       .reduce((acc, x) => ({ ...acc, ...x }))
   }
 
-  if (isMaybe(spec)) {
-    return chance.pickone([fakeFromRT(spec.meta.type), undefined])
+  if (isMaybe(rt)) {
+    return chance.pickone([fakeFromRT(rt.meta.type), undefined])
   }
 
-  if (isUnion(spec)) {
-    return chance.pickone(spec.meta.types.map(p => fakeFromRT(p, options)))
+  if (isUnion(rt)) {
+    return chance.pickone(rt.meta.types.map(p => fakeFromRT(p, options)))
   }
 
-  if (isEnums(spec)) {
-    return chance.pickone(Object.keys(spec.meta.map))
+  if (isEnums(rt)) {
+    return chance.pickone(Object.keys(rt.meta.map))
   }
 
-  if (isTuple(spec)) {
-    return spec.meta.types.map(p => fakeFromRT(p, options))
+  if (isTuple(rt)) {
+    return rt.meta.types.map(p => fakeFromRT(p, options))
   }
 
-  if (isIrreducible(spec)) {
-    return fakeFromIrreducible(spec, options)
+  if (isIrreducible(rt)) {
+    return fakeFromIrreducible(rt, options)
   }
 
-  throw new Error(`Unsupported tcomb type: ${spec.meta.kind}`)
+  throw new Error(`Unsupported tcomb type: ${rt.meta.kind}`)
 }

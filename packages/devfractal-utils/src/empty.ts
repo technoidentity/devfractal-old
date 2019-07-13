@@ -1,5 +1,6 @@
 import {
   AnyArrayType,
+  AnyType,
   ArrayType,
   BooleanType,
   ExactType,
@@ -64,12 +65,20 @@ function emptyFromObject<T extends Props>(spec: TypeC<T>): TypeOf<TypeC<T>> {
 }
 
 export function empty<T extends Mixed>(spec: T): TypeOf<T> {
+  if (spec instanceof AnyType) {
+    return ''
+  }
+
   if (
     spec instanceof ExactType ||
     spec instanceof ReadonlyType ||
     spec instanceof RefinementType
   ) {
     return empty(spec.type)
+  }
+
+  if (spec instanceof ExactType) {
+    return emptyFromObject(spec.type)
   }
 
   if (spec instanceof InterfaceType) {
