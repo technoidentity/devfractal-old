@@ -58,7 +58,6 @@
     "server": "json-server data/todos.json",
     "pjs": "parcel-json-server --entrypoint index.html --database data/todos.json",
     "build": "parcel build index.html",
-    "clean": "rimraf dist .cache",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",

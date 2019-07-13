@@ -1,37 +1,45 @@
 import {
   array,
   boolean,
+  exact,
   Int,
+  intersection,
   keyof,
+  literal,
+  nullType,
   number,
+  partial,
   readonly,
   readonlyArray,
+  strict,
   string,
+  tuple,
   type,
+  union,
 } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
-import { emptyFromType } from './emptyFromType'
+import { empty } from './empty'
 
 test('primitive values', () => {
-  expect(emptyFromType(number)).toBe(0)
-  expect(emptyFromType(Int)).toBe(0)
-  expect(emptyFromType(string)).toBe('')
-  expect(emptyFromType(boolean)).toBe(false)
-  expect(emptyFromType(date)).toEqual(expect.any(Date))
-  expect(emptyFromType(keyof({ red: 1, blue: 2, green: 3 }))).toEqual('red')
+  expect(empty(number)).toBe(0)
+  expect(empty(Int)).toBe(0)
+  expect(empty(string)).toBe('')
+  expect(empty(boolean)).toBe(false)
+  expect(empty(date)).toEqual(expect.any(Date))
+  expect(empty(keyof({ red: 1, blue: 2, green: 3 }))).toEqual('red')
 })
 
 test('array', () => {
-  expect(emptyFromType(array(number))).toEqual([])
-  expect(emptyFromType(readonlyArray(number))).toEqual([])
+  expect(empty(array(number))).toEqual([])
+  expect(empty(readonlyArray(number))).toEqual([])
 })
 
 test('object', () => {
-  expect(emptyFromType(type({ x: string, y: number }))).toEqual({
+  expect(empty(type({ x: string, y: number }))).toEqual({
     x: '',
     y: 0,
   })
-  expect(emptyFromType(readonly(type({ x: string, y: number })))).toEqual({
+  expect(empty(readonly(type({ x: string, y: number })))).toEqual({
     x: '',
     y: 0,
   })
@@ -39,23 +47,27 @@ test('object', () => {
 
 test('nested object and array', () => {
   expect(
-    emptyFromType(
+    empty(
       readonly(
-        type({
-          i: number,
-          s: string,
+        partial({
+          a: readonlyArray(boolean),
           b: boolean,
           d: date,
-          a: readonlyArray(boolean),
-          e: keyof({
-            foo: 1,
-            bar: 1,
-          }),
+          e: keyof({ foo: 1, bar: 1 }),
+          ex: readonly(exact(type({ a: number, b: string }))),
+          i: Int,
           o: readonly(
-            type({
+            strict({
+              buzz: tuple([number, string]),
               fizz: readonlyArray(readonly(type({ buzz: boolean }))),
+              fizzBuzz: intersection([
+                type({ x: number }),
+                strict({ y: literal('hello'), z: nullType }),
+              ]),
             }),
           ),
+          s: string,
+          u: union([number, string]),
         }),
       ),
     ),
@@ -67,11 +79,25 @@ test('nested object and array', () => {
       "b": false,
       "d": Any<Date>,
       "e": "foo",
+      "ex": Object {
+        "a": 0,
+        "b": "",
+      },
       "i": 0,
       "o": Object {
+        "buzz": Array [
+          0,
+          "",
+        ],
         "fizz": Array [],
+        "fizzBuzz": Object {
+          "x": 0,
+          "y": "hello",
+          "z": null,
+        },
       },
       "s": "",
+      "u": 0,
     }
   `,
   )

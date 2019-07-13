@@ -9,34 +9,36 @@
     "husky": "3.0.0",
     "json-server": "0.15.0",
     "lerna": "3.15.0",
-    "lint-staged": "9.0.2",
+    "lint-staged": "9.2.0",
     "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",
     "tslint-react": "4.0.0",
-    "typescript": "3.5.2",
-    "typescript-tslint-plugin": "0.5.3"
+    "typescript": "3.5.3",
+    "typescript-tslint-plugin": "0.5.4"
   },
   "scripts": {
+    "boot": "npx lerna run bootstrap",
     "start": "lerna run start",
     "build": "lerna run build",
-    "clean": "lerna run clean",
-    "clean:dist": "lerna run clean:dist",
-    "clean:all": "lerna run clean:all",
+    "clean": "lerna exec -- yarn run rimraf dist .cache build .rts2_cache_*",
+    "clean:dist": "lerna clean && yarn run rimraf node_modules",
+    "clean:all": "yarn clean && yarn clean:dist",
+    "refresh": "yarn clean:all && yarn boot && yarn build && yarn validate",
+    "prepublish": "yarn validate",
+    "publish": "lerna publish",
     "destroy": "git clean -dfx",
     "up": "lerna exec -- ncu -u",
-    "upd": "lerna run up && yarn run rimraf node_modules yarn.lock && yarn && yarn clean && yarn build && yarn validate",
+    "upd": "lerna run up && yarn refresh",
     "test": "lerna run test",
     "lint": "lerna run lint",
-    "refresh": "lerna run refresh && lerna run build",
     "types": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling lerna run --parallel types:watch",
     "validate": "lerna run validate"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lerna run --concurrency 1 --stream precommit",
-      "pre-push": "yarn validate",
-      "pre-publish": "yarn validate"
+      "pre-push": "yarn validate"
     }
   }
 }

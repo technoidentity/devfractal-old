@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "meta data, similar to json schema",
   "main": "dist/index.js",
-  "module": "dist/devfractal-meta-core.esm.js",
+  "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
@@ -15,40 +15,53 @@
     "build": "tsdx build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "clean": "rimraf dist .cache build .rts2_cache_*",
-    "clean:dist": "rimraf node_modules yarn.lock",
-    "clean:all": "yarn clean && yarn clean:dist",
-    "refresh": "yarn clean && yarn clean:dist && yarn",
-    "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
-    "lint": "yarn lint:cmd 'src/**/*.ts'",
+    "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
     "types:watch": "yarn types --watch",
-    "validate": "yarn lint && yarn types && yarn test"
-  },
-  "peerDependencies": {
-    "io-ts": "2.0.0",
-    "io-ts-types": "0.5.0",
-    "fp-ts": "2.0.1",
-    "tcomb": "3.2.29",
-    "tcomb-validation": "3.4.1"
+    "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-utils": "0.0.6"
+    "technoidentity-utils": "0.0.6",
+    "tslib": "1.10.0"
   },
   "devDependencies": {
     "@types/jest": "24.0.15",
     "@types/json-schema": "7.0.3",
     "ajv": "6.10.1",
-    "io-ts": "2.0.0",
     "fp-ts": "2.0.1",
+    "io-ts": "2.0.0",
     "io-ts-types": "0.5.0",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
     "json-schema": "0.2.3",
+    "monocle-ts": "2.0.0",
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1",
     "ts-jest": "24.0.2",
     "tsdx": "0.7.2"
+  },
+  "peerDependencies": {
+    "fp-ts": "2.0.1",
+    "io-ts": "2.0.0",
+    "io-ts-types": "0.5.0",
+    "monocle-ts": "2.0.0",
+    "tcomb": "3.2.29"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn validate"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint:fix",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,js,jsx,json,css}": [
+      "yarn prettier --write",
+      "git add"
+    ]
   }
 }
