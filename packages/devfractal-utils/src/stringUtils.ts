@@ -6,6 +6,7 @@ export function toLower(arg: string, delimiter?: string): string {
   if (arg.length === 0) {
     return ''
   }
+
   let result: string = arg[0].toLowerCase()
 
   // tslint:disable-next-line: no-loop-statement
