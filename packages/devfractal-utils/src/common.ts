@@ -11,7 +11,9 @@ export function jsonStringify(obj: object): string {
   return JSON.stringify(obj, null, 2)
 }
 
-export const nop: (...args: any[]) => any = () => undefined
+export function nop(..._: any[]): any {
+  return undefined
+}
 
 function rangeInternal(
   start: number,
