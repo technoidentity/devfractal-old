@@ -50,6 +50,7 @@ function emptyFromIrreducible(rt: Irreducible<any>): any {
 
     case 'Array':
       return []
+
     default:
       throw new Error(
         `Unsupported tcomb type: ${rt.meta.kind}: ${rt.meta.name}`,
