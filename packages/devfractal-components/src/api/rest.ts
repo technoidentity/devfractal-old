@@ -1,8 +1,20 @@
 import { produce } from 'immer'
-import { Mixed, readonlyArray, Type } from 'io-ts'
+import * as t from 'io-ts'
 import { Array } from 'tcomb'
-import { specInvariant } from 'technoidentity-utils'
+import { opt, specInvariant } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
+
+// tslint:disable typedef
+
+// Currently will not support intersection etc...
+export function ManyQuery<C extends t.Props>(codec: t.ReadonlyC<t.TypeC<C>>) {
+  return opt({
+    page: t.number,
+    limit: t.number,
+    asc: t.keyof(codec.type.props),
+    desc: t.keyof(codec.type.props),
+  })
+}
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
 interface API<
