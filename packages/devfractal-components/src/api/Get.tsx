@@ -1,7 +1,7 @@
 import React from 'react'
 import { AnyTuple } from 'typelevel-ts'
 import { ErrorView, Loading } from './Components'
-import { useGet } from './useGet'
+import { AsyncResult, useGet } from './useGet'
 
 export interface GetProps<T extends Object, P extends AnyTuple> {
   readonly deps: P
@@ -15,14 +15,15 @@ export function Get<T extends Object, P extends AnyTuple>({
   deps,
   children,
 }: GetProps<T, P>): JSX.Element {
-  const { data, error, refresh } = useGet(asyncFn, ...deps)
+  const result: AsyncResult<T> = useGet(asyncFn, ...deps)
 
-  if (error) {
-    return <ErrorView error={error} />
+  if (result.state === 'failure') {
+    return <ErrorView error={result.error} />
   }
 
-  if (data) {
-    return children(data, refresh)
+  if (result.state === 'success') {
+    // tslint:disable-next-line: no-unbound-method
+    return children(result.data, result.refresh)
   }
 
   return <Loading />
