@@ -44,12 +44,7 @@ function rtFromObjectValue<T extends Object & object>(
   return tcomb.struct(buildObject(value, rtFromValue))
 }
 
-export function rtFromValue<T>(
-  value: T,
-):
-  | tcomb.Struct<T>
-  | ReturnType<typeof rtFromArrayValue>
-  | ReturnType<typeof rtFromPrimitiveValue> {
+export function rtFromValue<T>(value: T): tcomb.Type<any> {
   if (tcomb.Array.is(value)) {
     return rtFromArrayValue(value)
   }
