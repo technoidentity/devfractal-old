@@ -18,7 +18,7 @@
     "typescript-tslint-plugin": "0.5.4"
   },
   "scripts": {
-    "boot": "npx lerna run bootstrap",
+    "boot": "npx lerna bootstrap",
     "start": "lerna run start",
     "build": "lerna run build",
     "clean": "lerna exec -- yarn run rimraf dist .cache build .rts2_cache_*",

@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios'
 import { Mixed, readonlyArray, ReadonlyArrayC, Type, TypeOf } from 'io-ts'
-import { eitherToPromise, typeInvariant } from 'technoidentity-utils'
+import { eitherToPromise, specInvariant } from 'technoidentity-utils'
 import { apiURLs, URLs } from './urls'
 
 // tslint:disable typedef
@@ -49,7 +49,7 @@ export function api<RT extends Mixed, ID extends keyof TypeOf<RT>>({
       listValue,
       axios.get<TypeOf<typeof listValue>>(urls.all()),
     )
-    typeInvariant(listValue, result)
+    specInvariant(listValue, result)
 
     return result
   }
@@ -59,29 +59,29 @@ export function api<RT extends Mixed, ID extends keyof TypeOf<RT>>({
       value,
       axios.get<TypeOf<typeof value>>(urls.one(pid)),
     )
-    typeInvariant(value, result)
+    specInvariant(value, result)
 
     return result
   }
 
   async function create(v: any) {
-    // @TODO: typeInvariant(value without id, v)
+    // @TODO: specInvariant(value without id, v)
     const result: TypeOf<typeof value> = await request(
       value,
       axios.post<TypeOf<typeof value>>(urls.create(), v),
     )
-    typeInvariant(value, result)
+    specInvariant(value, result)
 
     return result
   }
 
   async function edit(v: any) {
-    typeInvariant(value, v)
+    specInvariant(value, v)
     const result: TypeOf<typeof value> = await request(
       value,
       axios.put<TypeOf<typeof value>>(urls.edit(v.id), v),
     )
-    typeInvariant(value, result)
+    specInvariant(value, result)
 
     return result
   }
@@ -91,7 +91,7 @@ export function api<RT extends Mixed, ID extends keyof TypeOf<RT>>({
       value,
       axios.delete(urls.remove(pid)),
     )
-    typeInvariant(value, result)
+    specInvariant(value, result)
 
     return result
   }

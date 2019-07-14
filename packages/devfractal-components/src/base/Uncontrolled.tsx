@@ -1,5 +1,5 @@
 import React from 'react'
-import { warning } from 'technoidentity-utils'
+import { debug } from 'technoidentity-utils'
 
 export interface ValueChangeEvent<Value> {
   readonly name?: string
@@ -43,7 +43,7 @@ export function Uncontrolled<Value, CP extends ControlledProps<Value>>(
 ): JSX.Element {
   const { defaultValue, component: Component, ...props } = args
 
-  warning(
+  debug(
     !(props.value && !props.onChange && !props.readOnly),
     "'value' provided, but not 'onChange', make this component readOnly.",
   )

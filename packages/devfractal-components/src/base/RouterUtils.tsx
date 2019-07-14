@@ -16,7 +16,7 @@ import {
   HashRouter,
   HashRouterProps,
 } from 'react-router-dom'
-import { fatal, invariant, typeInvariant } from 'technoidentity-utils'
+import { fatal, specInvariant, verify } from 'technoidentity-utils'
 
 export type WithRouterProps<T> = T & {
   readonly children?: React.ReactNode
@@ -145,7 +145,7 @@ export function Router<T extends RouterType>({
 export function useRouter(): RouterContext {
   // tslint:disable-next-line: typedef
   const result = React.useContext(RouterContext)
-  invariant(result !== null)
+  verify(result !== null)
 
   return result
 }
@@ -166,7 +166,7 @@ export function useMatch<Spec extends Mixed>(
   if (match === null || match === undefined) {
     fatal('match is null or undefined')
   } else {
-    typeInvariant(paramsSpec, match.params)
+    specInvariant(paramsSpec, match.params)
   }
 
   return match as match<TypeOf<Spec>>

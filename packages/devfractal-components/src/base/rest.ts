@@ -1,7 +1,7 @@
 import { produce } from 'immer'
 import { Mixed, readonlyArray, Type } from 'io-ts'
 import { Array } from 'tcomb'
-import { typeInvariant } from 'technoidentity-utils'
+import { specInvariant } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
@@ -56,7 +56,7 @@ export function rest<
   }
 
   async function create(data: I, options: APIMethodArgs): Promise<A> {
-    typeInvariant(type, data)
+    specInvariant(type, data)
 
     return http.post({ ...options, resource }, data, type)
   }
@@ -74,7 +74,7 @@ export function rest<
     data: I,
     options: APIMethodArgs,
   ): Promise<A> {
-    typeInvariant(type, data)
+    specInvariant(type, data)
 
     return http.put(appendId({ ...options, resource }, id), data, type)
   }

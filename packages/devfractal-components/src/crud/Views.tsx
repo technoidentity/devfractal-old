@@ -1,7 +1,7 @@
 import { FormikActions } from 'formik'
 import { Mixed, TypeOf } from 'io-ts'
 import React, { FC } from 'react'
-import { emptyFromType } from 'technoidentity-utils'
+import { empty } from 'technoidentity-utils'
 import { Button, Container, Field, RowClickEvent, SimpleTable } from '../lib'
 import { Creator } from './Creator'
 import { Editor } from './Editor'
@@ -44,7 +44,7 @@ export function Views<RT extends Mixed, ID extends keyof RT>(
     Create: ({ onSubmit }) => (
       <Creator<TypeOf<RT>>
         id={id}
-        initialValues={emptyFromType(typeValue)}
+        initialValues={empty(typeValue)}
         onSubmit={onSubmit}
       />
     ),

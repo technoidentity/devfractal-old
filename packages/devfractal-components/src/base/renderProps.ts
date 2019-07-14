@@ -1,6 +1,6 @@
 import React from 'react'
 import { Function } from 'tcomb'
-import { warning } from 'technoidentity-utils'
+import { assert } from 'technoidentity-utils'
 
 interface RenderPropsProps<Props> {
   readonly component?: React.ComponentType<Props> | React.ReactNode
@@ -13,12 +13,12 @@ export function renderProps<Props>(
 ): React.ReactNode {
   const { component, children, render, ...rest } = props
 
-  warning(
+  assert(
     !(props.component && props.render),
     'You should not use <Formik component> and <Formik render> in the same <Formik> component; <Formik render> will be ignored',
   )
 
-  warning(
+  assert(
     !(
       props.component &&
       props.children &&
@@ -27,7 +27,7 @@ export function renderProps<Props>(
     'You should not use component and  children in the same component; children will be ignored',
   )
 
-  warning(
+  assert(
     !(
       props.render &&
       props.children &&
@@ -36,7 +36,7 @@ export function renderProps<Props>(
     'You should not use render and children in the same component; children will be ignored',
   )
 
-  warning(
+  assert(
     !(props.render && props.component),
     'You should not use render and component in the same component; component will be ignored',
   )

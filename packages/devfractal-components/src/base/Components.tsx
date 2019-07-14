@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { typeInvariant } from 'technoidentity-utils'
+import { specInvariant } from 'technoidentity-utils'
 import { useRouter } from './RouterUtils'
 
 // tslint:disable typedef
@@ -15,7 +15,7 @@ export interface ServerErrorViewProps {
 }
 
 function serverError(error: ServerError): string {
-  typeInvariant(ServerError, error)
+  specInvariant(ServerError, error)
 
   if (t.string.is(error)) {
     return error
