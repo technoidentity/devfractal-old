@@ -1,5 +1,5 @@
 import tcomb from 'tcomb'
-import { warning } from './assertions'
+import { warn } from './assertions'
 import { buildObject } from './common'
 
 function emptyFromPrimitiveValue(v: unknown): any {
@@ -23,7 +23,7 @@ function emptyFromPrimitiveValue(v: unknown): any {
     return new Date()
   }
 
-  warning(false, `Unsupported value ${v}`)
+  warn(false, `Unsupported value ${v}`)
 }
 
 function emptyFromObjectValue<T extends Object>(value: T): T {

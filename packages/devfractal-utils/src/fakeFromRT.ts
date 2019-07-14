@@ -1,6 +1,6 @@
 import Chance from 'chance'
 import t, { Any, Constructor, Irreducible } from 'tcomb'
-import { invariant } from './assertions'
+import { verify } from './assertions'
 import { buildObject, repeatedly } from './common'
 import { defaultOptions, FakeOptions } from './fake'
 import {
@@ -26,7 +26,7 @@ const chance = new Chance()
 const all = [t.Number, t.String, t.Boolean, t.Date, t.Object, t.Array]
 
 function fakeFromIrreducible(rt: Irreducible<any>, options: FakeOptions): any {
-  invariant(rt.meta.kind === 'irreducible', 'rt must be irreducible')
+  verify(rt.meta.kind === 'irreducible', 'rt must be irreducible')
 
   switch (rt.meta.name) {
     case 'Number':
@@ -94,7 +94,7 @@ export function fakeFromRT(
     throw new Error('I have no idea about what do with a function')
   }
 
-  invariant(rt && rt.meta && rt.meta.kind)
+  verify(rt && rt.meta && rt.meta.kind)
 
   if (isInteger(rt)) {
     return chance.integer(options.integer)

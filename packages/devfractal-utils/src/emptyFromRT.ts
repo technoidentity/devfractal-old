@@ -1,5 +1,5 @@
 import { Constructor, Irreducible } from 'tcomb'
-import { invariant } from './assertions'
+import { verify } from './assertions'
 import { buildObject, nop } from './common'
 import {
   isDict,
@@ -17,7 +17,7 @@ import {
 } from './isTcomb'
 
 function emptyFromIrreducible(rt: Irreducible<any>): any {
-  invariant(rt.meta.kind === 'irreducible', 'rt must be irreducible')
+  verify(rt.meta.kind === 'irreducible', 'rt must be irreducible')
 
   switch (rt.meta.name) {
     case 'Number':
@@ -62,7 +62,7 @@ export function emptyFromRT(rt: Constructor<any>): any {
     throw new Error('I have no idea about what do with a function')
   }
 
-  invariant(rt && rt.meta && rt.meta.kind)
+  verify(rt && rt.meta && rt.meta.kind)
 
   if (isInteger(rt)) {
     return 0

@@ -1,5 +1,5 @@
 // copied from tiny-warning package
-export function warning(condition: unknown, message: string): void {
+export function warn(condition: unknown, message: string): void {
   if (process.env.NODE_ENV !== 'production') {
     if (condition) {
       return
@@ -22,6 +22,12 @@ export function warning(condition: unknown, message: string): void {
   }
 }
 
+export function devWarn(condition: unknown, message: string): void {
+  if (process.env.NODE_ENV === 'development') {
+    warn(condition, message)
+  }
+}
+
 export function fatal(message?: string): never {
   if (process.env.NODE_ENV === 'production') {
     // In production we strip the message but still throw
@@ -33,27 +39,21 @@ export function fatal(message?: string): never {
   }
 }
 
+export function devFatal(message?: string): void {
+  if (process.env.NODE_ENV === 'development') {
+    fatal(message)
+  }
+}
+
 // copied from tiny-invariant package
-export function invariant(condition: unknown, message?: string): void {
+export function verify(condition: unknown, message?: string): void {
   if (!condition) {
     fatal(message)
   }
 }
 
-export function debugWarning(condition: unknown, message: string): void {
-  if (process.env.NODE_ENV !== 'production') {
-    warning(condition, message)
-  }
-}
-
-export function debugFatal(message?: string): void {
-  if (process.env.NODE_ENV !== 'production') {
-    fatal(message)
-  }
-}
-
-export function debugInvariant(condition: unknown, message?: string): void {
-  if (process.env.NODE_ENV !== 'production') {
-    debugInvariant(condition, message)
+export function assert(condition: unknown, message?: string): void {
+  if (process.env.NODE_ENV === 'development') {
+    verify(condition, message)
   }
 }
