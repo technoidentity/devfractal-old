@@ -79,7 +79,7 @@ export function checked(
   return tupleChecked(t.tuple(codecs), resultSpec, f)
 }
 
-export function asyncTupleChecked<
+export function tupleCheckedAsync<
   T extends [t.Mixed, ...t.Mixed[]],
   A extends t.TypeOf<t.TupleC<T>> & any[],
   R extends t.Mixed
@@ -95,7 +95,7 @@ export function asyncTupleChecked<
   }
 }
 
-export function asyncChecked<
+export function checkedAsync<
   A extends t.Mixed,
   B extends t.Mixed,
   C extends t.Mixed,
@@ -110,7 +110,7 @@ export function asyncChecked<
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked<
+export function checkedAsync<
   A extends t.Mixed,
   B extends t.Mixed,
   C extends t.Mixed,
@@ -124,7 +124,7 @@ export function asyncChecked<
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked<
+export function checkedAsync<
   A extends t.Mixed,
   B extends t.Mixed,
   C extends t.Mixed,
@@ -137,7 +137,7 @@ export function asyncChecked<
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked<
+export function checkedAsync<
   A extends t.Mixed,
   B extends t.Mixed,
   R extends t.Mixed
@@ -149,7 +149,7 @@ export function asyncChecked<
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked<A extends t.Mixed, R extends t.Mixed>(
+export function checkedAsync<A extends t.Mixed, R extends t.Mixed>(
   codecs: [A],
   resultSpec: R,
   f: (
@@ -157,10 +157,10 @@ export function asyncChecked<A extends t.Mixed, R extends t.Mixed>(
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked(
+export function checkedAsync(
   codecs: any,
   resultSpec: any,
   f: (...args: any[]) => any,
 ): typeof f {
-  return asyncTupleChecked(t.tuple(codecs), resultSpec, f)
+  return tupleCheckedAsync(t.tuple(codecs), resultSpec, f)
 }
