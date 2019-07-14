@@ -1,7 +1,10 @@
 import { History, Location } from 'history'
+import { Mixed, TypeOf } from 'io-ts'
+import { parse } from 'query-string'
 import React from 'react'
 import { RouteChildrenProps } from 'react-router'
-import { verify } from 'technoidentity-utils'
+import { specInvariant, verify } from 'technoidentity-utils'
+// tslint:disable typedef
 
 interface RouterContext extends RouteChildrenProps {
   setRouteMatched(value: boolean): void
@@ -13,7 +16,6 @@ export const RouterContext: React.Context<RouterContext> = React.createContext<
 >((undefined as unknown) as RouterContext)
 
 export function useRouter(): RouterContext {
-  // tslint:disable-next-line: typedef
   const result = React.useContext(RouterContext)
   verify(result !== null)
 
@@ -21,15 +23,23 @@ export function useRouter(): RouterContext {
 }
 
 export function useHistory(): History {
-  // tslint:disable-next-line: typedef
   const { history } = useRouter()
 
   return history
 }
 
 export function useLocation(): Location {
-  // tslint:disable-next-line: typedef
   const { location } = useRouter()
 
   return location
+}
+
+export function useQuery<Spec extends Mixed>(
+  querySpec: Spec,
+): TypeOf<typeof querySpec> {
+  const location = useLocation()
+  const query = parse(location.search)
+  specInvariant(querySpec, query)
+
+  return query
 }

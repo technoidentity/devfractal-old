@@ -1,6 +1,4 @@
-import { History, Location } from 'history'
 import React from 'react'
-import { RouteChildrenProps } from 'react-router'
 import {
   BrowserRouter,
   BrowserRouterProps,
@@ -8,8 +6,7 @@ import {
   HashRouterProps,
   Route,
 } from 'react-router-dom'
-import { verify } from 'technoidentity-utils'
-import { useRouter, RouterContext } from './RouterContext'
+import { RouterContext, useRouter } from './RouterContext'
 
 // tslint:disable-next-line: no-class
 class RouteMatched {
