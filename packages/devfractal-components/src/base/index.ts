@@ -1,7 +1,6 @@
 export * from './classNames'
 export * from './componentUtils'
 export * from './el'
-export * from './formSubmit'
 export * from './helpers'
 export * from './TableContentLoader'
 export * from './textHelpers'
