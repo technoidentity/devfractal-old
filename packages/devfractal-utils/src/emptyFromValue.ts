@@ -1,41 +1,42 @@
-import tcomb from 'tcomb'
+import * as t from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
 import { warn } from './assertions'
-import { buildObject } from './common'
+import { buildObject, today } from './common'
 
 function emptyFromPrimitiveValue(v: unknown): any {
-  if (tcomb.Number.is(v)) {
+  if (t.number.is(v)) {
     return 0
   }
 
-  if (tcomb.String.is(v)) {
+  if (t.string.is(v)) {
     return ''
   }
 
-  if (tcomb.Boolean.is(v)) {
+  if (t.boolean.is(v)) {
     return false
   }
 
-  if (tcomb.Nil.is(v)) {
+  if (t.undefined.is(v) || t.null.is(v)) {
     return v
   }
 
-  if (tcomb.Date.is(v)) {
-    return new Date()
+  if (date.is(v)) {
+    return today()
   }
 
   warn(false, `Unsupported value ${v}`)
 }
 
 function emptyFromObjectValue<T extends Object>(value: T): T {
-  return buildObject(value, (_, v) => emptyFromPrimitiveValue(v))
+  return buildObject(value, emptyFromValue) as T
 }
 
 export const emptyFromValue: <T>(value: T) => T = value => {
-  if (tcomb.Array.is(value)) {
+  if (t.Array.is(value)) {
     return []
   }
 
-  if (tcomb.Object.is(value)) {
+  if (t.object.is(value)) {
     return emptyFromObjectValue(value)
   }
 
