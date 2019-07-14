@@ -49,7 +49,7 @@ it('checked', () => {
 
 // tslint:disable no-floating-promises
 
-it('asyncChecked', async () => {
+it('checkedAsync', async () => {
   const checkedAdd = checkedAsync(
     [t.number, t.number, t.number],
     t.number,
