@@ -16,6 +16,7 @@ import {
   ReadonlyArrayType,
   ReadonlyType,
   RefinementType,
+  StrictType,
   StringType,
   TupleType,
   TypeOf,
@@ -79,6 +80,10 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     return empty(spec.type)
   }
 
+  if (spec instanceof StrictType) {
+    return buildObject(spec.props, empty)
+  }
+
   if (
     spec instanceof ReadonlyArrayType ||
     spec instanceof ArrayType ||
@@ -102,6 +107,7 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
   //     .map(empty)
   //     .reduce((acc: any, x: any) => ({ ...acc, ...x }))
   // }
+
   if (spec instanceof TupleType) {
     return spec.types.map(empty)
   }
