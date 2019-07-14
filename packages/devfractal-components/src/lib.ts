@@ -1,4 +1,5 @@
 import 'bulma/css/bulma.min.css'
+export * from './api'
 export * from './base'
 export * from './crud'
 export * from './dynamic'
