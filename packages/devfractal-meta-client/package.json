@@ -23,7 +23,7 @@
   "dependencies": {
     "technoidentity-devfractal": "0.9.11",
     "technoidentity-meta-core": "0.0.1",
-    "technoidentity-utils": "0.0.6",
+    "technoidentity-utils": "0.0.7",
     "tslib": "1.10.0"
   },
   "devDependencies": {
