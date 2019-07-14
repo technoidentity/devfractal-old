@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRouter } from './RouterUtils'
+import { useRouter } from '../lib'
 
 export interface SubmitResult<T extends Object> {
   readonly serverError: string | undefined

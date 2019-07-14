@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import React from 'react'
 import { specInvariant } from 'technoidentity-utils'
-import { useRouter } from './RouterUtils'
+import { useRouter } from '../lib'
 
 // tslint:disable typedef
 const SingleError = t.readonly(t.type({ error: t.string }))
