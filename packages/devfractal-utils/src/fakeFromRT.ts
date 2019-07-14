@@ -23,7 +23,7 @@ import {
 const chance = new Chance()
 
 // tslint:disable-next-line: readonly-array
-const all = [t.Number, t.String, t.Boolean, t.Date, t.Object, t.Array]
+const primitives = [t.Number, t.String, t.Boolean, t.Date, t.Nil]
 
 function fakeFromIrreducible(rt: Irreducible<any>, options: FakeOptions): any {
   verify(rt.meta.kind === 'irreducible', 'rt must be irreducible')
@@ -33,7 +33,7 @@ function fakeFromIrreducible(rt: Irreducible<any>, options: FakeOptions): any {
       return chance.floating(options.floating)
 
     case 'Any':
-      return chance.pickone(all)
+      return fakeFromRT(chance.pickone(primitives))
 
     case 'String':
       return chance.sentence(options.sentence)
@@ -57,18 +57,12 @@ function fakeFromIrreducible(rt: Irreducible<any>, options: FakeOptions): any {
     case 'Object':
       const kn = chance.integer({ min: 4, max: 8 })
 
-      const keys = repeatedly(kn, () =>
+      const kv = repeatedly(kn, () => [
         chance.word({ length: chance.integer({ min: 4, max: 8 }) }),
-      )
-      const values = repeatedly(kn, () =>
-        fakeFromRT(chance.pickone(all), options),
-      )
-      const result: any = {}
-      for (let i: number = 0; i < kn; ++i) {
-        // tslint:disable-next-line: no-object-mutation
-        result[keys[i]] = values[i]
-      }
-      return result
+        fakeFromRT(chance.pickone(primitives), options),
+      ])
+
+      return kv.reduce((acc, [k, v]) => ({ ...acc, [k]: v }))
 
     case 'Array':
       const n: number = chance.integer({
@@ -76,7 +70,9 @@ function fakeFromIrreducible(rt: Irreducible<any>, options: FakeOptions): any {
         max: options.array.maxLength,
       })
 
-      return repeatedly(n, () => fakeFromRT(chance.pickone(all), options))
+      return repeatedly(n, () =>
+        fakeFromRT(chance.pickone(primitives), options),
+      )
 
     default:
       throw new Error(
