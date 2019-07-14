@@ -12,7 +12,7 @@ import {
 import { date } from 'io-ts-types/lib/date'
 import { defaultOptions, fake } from './fake'
 
-describe('fake', () => {
+describe('fake from spec', () => {
   test('primitive values', () => {
     expect(fake(number)).toEqual(expect.any(Number))
     expect(fake(string)).toEqual(expect.any(String))

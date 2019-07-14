@@ -41,17 +41,6 @@ describe('empty from spec', () => {
     expect(empty(readonlyArray(number))).toEqual([])
   })
 
-  test('union', () => {
-    expect(empty(union([string, boolean]))).toEqual('')
-    expect(empty(union([boolean, string]))).toEqual(false)
-  })
-
-  test('tuple', () => {
-    expect(
-      empty(tuple([string, boolean, type({ x: number, y: Int })])),
-    ).toEqual(['', false, { x: 0, y: 0 }])
-  })
-
   test('object', () => {
     expect(empty(type({ x: string, y: number }))).toEqual({
       x: '',
@@ -80,6 +69,17 @@ describe('empty from spec', () => {
         ]),
       ),
     ).toEqual({ x: 0, y: 'hello', z: null })
+  })
+
+  test('union', () => {
+    expect(empty(union([string, boolean]))).toEqual('')
+    expect(empty(union([boolean, string]))).toEqual(false)
+  })
+
+  test('tuple', () => {
+    expect(
+      empty(tuple([string, boolean, type({ x: number, y: Int })])),
+    ).toEqual(['', false, { x: 0, y: 0 }])
   })
 
   test('nested object and array', () => {
