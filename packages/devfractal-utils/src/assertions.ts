@@ -22,7 +22,7 @@ export function warn(condition: unknown, message: string): void {
   }
 }
 
-export function devWarn(condition: unknown, message: string): void {
+export function debug(condition: unknown, message: string): void {
   if (process.env.NODE_ENV === 'development') {
     warn(condition, message)
   }
@@ -39,7 +39,7 @@ export function fatal(message?: string): never {
   }
 }
 
-export function devFatal(message?: string): void {
+export function error(message?: string): void {
   if (process.env.NODE_ENV === 'development') {
     fatal(message)
   }
