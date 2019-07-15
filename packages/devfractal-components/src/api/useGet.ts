@@ -12,10 +12,10 @@ export type AsyncResult<T> = { refresh(): void } & (
       readonly error: Error
     })
 
-// tslint:disable no-object-mutation
+// tslint:disable no-object-mutation readonly-array
 export function useGet<T extends Object, P extends AnyTuple>(
-  asyncFn: (...params: P) => Promise<T>,
-  ...deps: P
+  asyncFn: (...params: P | []) => Promise<T>,
+  ...deps: P | []
 ): AsyncResult<T> {
   const [data, setData] = React.useState<T | undefined>(undefined)
   const [error, setError] = React.useState<Error | undefined>(undefined)
