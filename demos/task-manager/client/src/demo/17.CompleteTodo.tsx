@@ -1,3 +1,4 @@
+import { FormikActions } from 'formik'
 import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
@@ -46,7 +47,11 @@ const initialValues: Todo = { title: '', scheduled: new Date(), done: false }
 
 export const TodoFormProps = props(
   { initial: Todo },
-  { onSubmit: fn<(values: Todo) => Promise<void>>() },
+  {
+    onSubmit: fn<
+      (values: Todo, actions: FormikActions<Todo>) => Promise<void>
+    >(),
+  },
 )
 type TodoFormProps = TypeOf<typeof TodoFormProps>
 

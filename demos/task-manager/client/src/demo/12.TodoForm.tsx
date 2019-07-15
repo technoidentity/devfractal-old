@@ -1,3 +1,4 @@
+import { FormikActions } from 'formik'
 import { TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -13,7 +14,11 @@ export const initialValues: Todo = {
 
 export const TodoFormProps = props(
   { initial: Todo },
-  { onSubmit: fn<(values: Todo) => Promise<void>>() },
+  {
+    onSubmit: fn<
+      (values: Todo, actions: FormikActions<Todo>) => Promise<void>
+    >(),
+  },
 )
 type TodoFormProps = TypeOf<typeof TodoFormProps>
 

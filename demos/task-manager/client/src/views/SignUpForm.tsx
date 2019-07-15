@@ -1,4 +1,5 @@
 import 'bulma/css/bulma.css'
+import { FormikActions } from 'formik'
 import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -6,7 +7,6 @@ import {
   Column,
   Columns,
   component,
-  formSubmit,
   Section,
   Simple,
   Text,
@@ -41,7 +41,12 @@ const schema = yup.object().shape({
 })
 
 const SignUpFormProps = req({
-  onSubmit: fn<(values: TypeOf<typeof SignUpValues>) => Promise<void>>(),
+  onSubmit: fn<
+    (
+      values: TypeOf<typeof SignUpValues>,
+      actions: FormikActions<TypeOf<typeof SignUpValues>>,
+    ) => Promise<void>
+  >(),
 })
 
 export const SignUpForm = component(SignUpFormProps, ({ onSubmit }) => (
@@ -50,7 +55,7 @@ export const SignUpForm = component(SignUpFormProps, ({ onSubmit }) => (
       <Column size="half">
         <Simple.Form
           initialValues={empty(SignUpValues)}
-          onSubmit={formSubmit(onSubmit)}
+          onSubmit={onSubmit}
           validationSchema={schema}
         >
           <Simple.Text name="name" label="Username" />
