@@ -14,7 +14,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest",
-    "test:watch": "cross-env NODE_ENV='test' jest --watch",
+    "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",

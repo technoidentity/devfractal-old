@@ -59,7 +59,7 @@
     "pjs": "parcel-json-server --entrypoint index.html --database data/todos.json",
     "build": "parcel build index.html",
     "test": "cross-env NODE_ENV='test' jest",
-    "test:watch": "cross-env NODE_ENV='test' jest --watch",
+    "test:watch": "yarn test --watch",
     "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
     "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",

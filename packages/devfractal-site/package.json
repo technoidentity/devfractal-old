@@ -8,7 +8,7 @@
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
     "test": "cross-env NODE_ENV='test' jest",
-    "test:watch": "cross-env NODE_ENV='test' jest --watch",
+    "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",

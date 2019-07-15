@@ -9,7 +9,7 @@
     "start": "tsdx watch",
     "dev": "parcel index.html --open",
     "test": "cross-env NODE_ENV='test' jest",
-    "test:watch": "cross-env NODE_ENV='test' jest --watch",
+    "test:watch": "yarn test --watch",
     "build": "tsdx build",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",

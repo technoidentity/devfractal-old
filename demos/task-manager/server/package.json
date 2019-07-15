@@ -10,7 +10,7 @@
     "build": "backpack build",
     "postinstall": "backpack build",
     "test": "cross-env NODE_ENV='test' jest",
-    "test:watch": "cross-env NODE_ENV='test' jest --watch",
+    "test:watch": "yarn test --watch",
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
