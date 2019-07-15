@@ -25,7 +25,6 @@
     "clean:dist": "lerna clean && yarn run rimraf node_modules",
     "clean:all": "yarn clean && yarn clean:dist",
     "refresh": "yarn clean:all && yarn boot && yarn build && yarn validate",
-    "prepublish": "yarn validate",
     "publish": "lerna publish",
     "destroy": "git clean -dfx",
     "up": "lerna exec -- ncu -u",

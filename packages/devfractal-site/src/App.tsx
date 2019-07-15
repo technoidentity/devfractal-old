@@ -1,12 +1,17 @@
 import React from 'react'
 import { HashRouter } from 'react-router-dom'
-import { Routes } from './Routes'
-import { ScrollToTop } from './ScrollToTop'
+import { IndexPage } from './IndexPage'
+
+// export const App: React.FC = () => (
+//   <HashRouter>
+//     <ScrollToTop>
+//       <Routes />
+//     </ScrollToTop>
+//   </HashRouter>
+// )
 
 export const App: React.FC = () => (
   <HashRouter>
-    <ScrollToTop>
-      <Routes />
-    </ScrollToTop>
+    <IndexPage />
   </HashRouter>
 )

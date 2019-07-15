@@ -42,7 +42,7 @@ import {
   FooterSection,
   IndexPageHeader,
   UIComponentsOverview,
-} from './IndexPage'
+} from './IndexPageOld'
 import { ComponentsTab, CompositesTab } from './Tabs'
 
 export const CompositesRoutes: React.FC = () => (
