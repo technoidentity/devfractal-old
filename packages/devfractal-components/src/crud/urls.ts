@@ -1,5 +1,5 @@
 import { Int, string, TypeOf, union } from 'io-ts'
-import { chop, specInvariant, verify } from 'technoidentity-utils'
+import { cast, chop, verify } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 const idRT = union([Int, string])
@@ -37,17 +37,17 @@ export function apiURLs({
     create: () => `${base}/${res}`,
 
     one: (id: ID) => {
-      specInvariant(idRT, id)
+      cast(idRT, id)
       return `${base}/${res}/${id}`
     },
 
     edit: (id: ID) => {
-      specInvariant(idRT, id)
+      cast(idRT, id)
       return `${base}/${res}/${id}`
     },
 
     remove: (id: ID) => {
-      specInvariant(idRT, id)
+      cast(idRT, id)
       return `${base}/${res}/${id}`
     },
   }

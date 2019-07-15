@@ -3,7 +3,7 @@ import { Mixed, TypeOf } from 'io-ts'
 import { parse } from 'query-string'
 import React from 'react'
 import { RouteChildrenProps } from 'react-router'
-import { specInvariant, verify } from 'technoidentity-utils'
+import { cast, verify } from 'technoidentity-utils'
 // tslint:disable typedef
 
 interface RouterContext extends RouteChildrenProps {
@@ -39,7 +39,7 @@ export function useQuery<Spec extends Mixed>(
 ): TypeOf<typeof querySpec> {
   const location = useLocation()
   const query = parse(location.search)
-  specInvariant(querySpec, query)
+  cast(querySpec, query)
 
   return query
 }
