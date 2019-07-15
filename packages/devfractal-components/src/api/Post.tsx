@@ -5,7 +5,7 @@ import { useSubmitRedirect } from './useSubmit'
 
 export interface PostProps<T> {
   readonly title?: string
-  readonly redirectURL?: string
+  readonly redirectPath?: string
   readonly component: React.FC<{
     onSubmit(data: T, actions: FormikActions<T>): Promise<void>
   }>
@@ -13,11 +13,11 @@ export interface PostProps<T> {
 }
 
 export function Post<T>({
-  redirectURL,
+  redirectPath,
   onPost,
   component: Component,
 }: PostProps<T>): JSX.Element {
-  const { serverError, onSubmit } = useSubmitRedirect(onPost, redirectURL)
+  const { serverError, onSubmit } = useSubmitRedirect(onPost, redirectPath)
 
   return (
     <>

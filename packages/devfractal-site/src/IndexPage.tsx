@@ -24,7 +24,7 @@ import {
   default as contentLoader,
   default as devfractal,
   default as uiComponent,
-} from '../src/imagesNew/contentLoader.png'
+} from '../src/images/contentLoader.png'
 import {
   ColumnsMedia,
   ComponentsMedia,
