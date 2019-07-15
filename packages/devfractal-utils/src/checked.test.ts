@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { asyncChecked, checked } from './checked'
+import { checked, checkedAsync } from './checked'
 import { range } from './common'
 
 // tslint:disable typedef
@@ -49,8 +49,8 @@ it('checked', () => {
 
 // tslint:disable no-floating-promises
 
-it('asyncChecked', async () => {
-  const checkedAdd = asyncChecked(
+it('checkedAsync', async () => {
+  const checkedAdd = checkedAsync(
     [t.number, t.number, t.number],
     t.number,
     async (x, y, z) => x + y + z,
@@ -59,7 +59,7 @@ it('asyncChecked', async () => {
   await expect(checkedAdd(100, 100, 100)).resolves.toEqual(300)
   await expect(checkedAdd(100, '100' as any, 100)).rejects.toThrow()
 
-  const checkedTimes = asyncChecked(
+  const checkedTimes = checkedAsync(
     [t.string, t.number],
     t.string,
     async (s, n) => range(n).reduce((acc, _) => acc + s, ''),
@@ -71,7 +71,7 @@ it('asyncChecked', async () => {
 
   const Point = t.readonly(t.type({ x: t.number, y: t.number }))
 
-  const checkedMoveBy = asyncChecked(
+  const checkedMoveBy = checkedAsync(
     [Point, t.number, t.number],
     Point,
     async (pt, dx, dy) => ({ x: pt.x + dx, y: pt.y + dy }),

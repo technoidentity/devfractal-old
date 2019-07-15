@@ -3088,10 +3088,10 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
-fp-ts@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.1.tgz#0f6cb37f7f7014daf4c8b43d3c07b944219fa841"
-  integrity sha512-tw/L1f6hd29bYk3IlhA3qdnqz9LJ13yeecjk0XqC8g9E76P5ZXzNcjXA5zQ0zNlsGhdVhDIHRJB738oGpB8PnA==
+fp-ts@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.2.tgz#8f27d76e24097c3ab4e766ea7526872d6ba0555d"
+  integrity sha512-ZCeu5MkqNDBWe1ewjZQ9Q9JNcPKEKXpitYzJ4ygCWpfJ3skW3imZ45EqsZd+9N8rkBvmsb64ToZTI2xXNO9IcQ==
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -6672,14 +6672,7 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.3"
 
-tcomb-validation@3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/tcomb-validation/-/tcomb-validation-3.4.1.tgz#a7696ec176ce56a081d9e019f8b732a5a8894b65"
-  integrity sha512-urVVMQOma4RXwiVCa2nM2eqrAomHROHvWPuj6UkDGz/eb5kcy0x6P0dVt6kzpUZtYMNoAqJLWmz1BPtxrtjtrA==
-  dependencies:
-    tcomb "^3.0.0"
-
-tcomb@3.2.29, tcomb@^3.0.0:
+tcomb@3.2.29:
   version "3.2.29"
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==

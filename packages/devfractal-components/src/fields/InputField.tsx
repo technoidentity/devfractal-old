@@ -1,6 +1,6 @@
 import { Field, FieldConfig, FieldProps } from 'formik'
 import React from 'react'
-import { Input, InputProps } from '../../lib'
+import { Input, InputProps } from '../lib'
 import { OmitForm } from './types'
 
 type InputInnerProps<V> = FieldProps<V> & OmitForm<InputProps>

@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios'
 import { Mixed, readonlyArray, ReadonlyArrayC, Type, TypeOf } from 'io-ts'
-import { eitherToPromise, typeInvariant } from 'technoidentity-utils'
+import { cast, toPromise } from 'technoidentity-utils'
 import { apiURLs, URLs } from './urls'
 
 // tslint:disable typedef
@@ -34,7 +34,7 @@ const request: <A>(
   value: Type<A>,
   promise: AxiosPromise<A>,
 ) => Promise<A> = async (value, promise) =>
-  eitherToPromise(value.decode((await promise).data))
+  toPromise(value.decode((await promise).data))
 
 export function api<RT extends Mixed, ID extends keyof TypeOf<RT>>({
   baseURL,
@@ -49,7 +49,7 @@ export function api<RT extends Mixed, ID extends keyof TypeOf<RT>>({
       listValue,
       axios.get<TypeOf<typeof listValue>>(urls.all()),
     )
-    typeInvariant(listValue, result)
+    cast(listValue, result)
 
     return result
   }
@@ -59,29 +59,29 @@ export function api<RT extends Mixed, ID extends keyof TypeOf<RT>>({
       value,
       axios.get<TypeOf<typeof value>>(urls.one(pid)),
     )
-    typeInvariant(value, result)
+    cast(value, result)
 
     return result
   }
 
   async function create(v: any) {
-    // @TODO: typeInvariant(value without id, v)
+    // @TODO: cast(value without id, v)
     const result: TypeOf<typeof value> = await request(
       value,
       axios.post<TypeOf<typeof value>>(urls.create(), v),
     )
-    typeInvariant(value, result)
+    cast(value, result)
 
     return result
   }
 
   async function edit(v: any) {
-    typeInvariant(value, v)
+    cast(value, v)
     const result: TypeOf<typeof value> = await request(
       value,
       axios.put<TypeOf<typeof value>>(urls.edit(v.id), v),
     )
-    typeInvariant(value, result)
+    cast(value, result)
 
     return result
   }
@@ -91,7 +91,7 @@ export function api<RT extends Mixed, ID extends keyof TypeOf<RT>>({
       value,
       axios.delete(urls.remove(pid)),
     )
-    typeInvariant(value, result)
+    cast(value, result)
 
     return result
   }

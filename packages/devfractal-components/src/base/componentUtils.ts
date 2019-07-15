@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { typeWarning } from 'technoidentity-utils'
+import { assert } from 'technoidentity-utils'
 
 export function component<
   T extends t.Mixed,
@@ -11,7 +11,7 @@ export function component<
   inner: React.FC<P>,
 ): React.FC<P> {
   return props => {
-    typeWarning(propsRT, props)
+    assert(propsRT, props)
     return React.createElement(inner, props)
   }
 }

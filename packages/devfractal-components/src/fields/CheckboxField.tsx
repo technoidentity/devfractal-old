@@ -1,6 +1,6 @@
 import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
-import { CheckBox, CheckBoxProps } from '../../lib'
+import { CheckBox, CheckBoxProps } from '../lib'
 import { FormikFieldConfig, OmitForm } from './types'
 
 type FormikCheckboxProps<V> = FormikFieldProps<V> & OmitForm<CheckBoxProps>

@@ -3,7 +3,7 @@ import { array, string, Type } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import { String } from 'tcomb'
-import { chop, invariant, warning } from 'technoidentity-utils'
+import { chop, debug, verify } from 'technoidentity-utils'
 
 export interface MethodArgs {
   readonly resource?: string
@@ -12,9 +12,9 @@ export interface MethodArgs {
 }
 
 function slashWarn(s: string): void {
-  invariant(String.is(s))
+  verify(String.is(s))
 
-  warning(!s.includes('/'), `${s} should not contain "/"`)
+  debug(!s.includes('/'), `${s} should not contain "/"`)
 }
 export interface RequestConfig extends AxiosRequestConfig {
   readonly baseURL: string

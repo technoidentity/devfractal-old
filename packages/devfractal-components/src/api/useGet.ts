@@ -1,18 +1,22 @@
 import React from 'react'
 import { AnyTuple } from 'typelevel-ts'
 
-interface AsyncResult<T extends Object> {
-  readonly loading: boolean
-  readonly data: T | undefined
-  readonly error: Error | undefined
-  refresh(): void
-}
+export type AsyncResult<T> = { refresh(): void } & (
+  | { readonly state: 'none' | 'loading' }
+  | {
+      readonly state: 'success'
+      readonly data: T
+    }
+  | {
+      readonly state: 'failure'
+      readonly error: Error
+    })
 
+// tslint:disable no-object-mutation readonly-array
 export function useGet<T extends Object, P extends AnyTuple>(
-  asyncFn: (...params: P) => Promise<T>,
-  ...deps: P
-): // tslint:disable-next-line: readonly-array
-AsyncResult<T> {
+  asyncFn: (...params: P | []) => Promise<T>,
+  ...deps: P | []
+): AsyncResult<T> {
   const [data, setData] = React.useState<T | undefined>(undefined)
   const [error, setError] = React.useState<Error | undefined>(undefined)
   const [loading, setLoading] = React.useState(false)
@@ -21,10 +25,7 @@ AsyncResult<T> {
 
   React.useEffect(() => {
     setLoading(true)
-    // setData(undefined)
-    // setError(undefined)
 
-    // tslint:disable-next-line: no-object-mutation
     mounted.current = true
 
     asyncFn(...deps)
@@ -38,18 +39,21 @@ AsyncResult<T> {
       .catch(error => {
         if (mounted.current) {
           setLoading(false)
-          // setData(undefined)
           setError(error)
         }
       })
 
     return () => {
-      // tslint:disable-next-line: no-object-mutation
       mounted.current = false
     }
   }, [...deps, fetchAgain])
 
-  const fetch: () => void = () => setFetchAgain(count => (count + 1) % 100)
-
-  return { loading, data, error, refresh: fetch }
+  return {
+    refresh: () => setFetchAgain(count => (count + 1) % 100),
+    ...(data
+      ? { state: 'success', data }
+      : error
+      ? { state: 'failure', error }
+      : { state: loading ? 'loading' : 'none' }),
+  }
 }

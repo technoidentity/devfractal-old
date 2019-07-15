@@ -1,6 +1,6 @@
 import { number, TypeOf } from 'io-ts'
 import { fn } from './fn'
-import { props, specInvariant } from './iotsUtils'
+import { cast, props } from './iotsUtils'
 
 // tslint:disable typedef no-empty
 
@@ -12,9 +12,9 @@ test('fn', () => {
 
   type Point = TypeOf<typeof Point>
 
-  expect(() => specInvariant(Point, { x: 1, y: 2 })).not.toThrowError()
-  expect(() => specInvariant(Point, { x: 1, y: 2, distance: 3 })).toThrowError()
+  expect(() => cast(Point, { x: 1, y: 2 })).not.toThrowError()
+  expect(() => cast(Point, { x: 1, y: 2, distance: 3 })).toThrowError()
   expect(() =>
-    specInvariant(Point, { x: 1, y: 2, distance: () => {} }),
+    cast(Point, { x: 1, y: 2, distance: () => {} }),
   ).not.toThrowError()
 })

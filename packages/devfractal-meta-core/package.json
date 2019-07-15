@@ -13,8 +13,8 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "cross-env NODE_ENV='test' jest",
+    "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
@@ -22,7 +22,7 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-utils": "0.0.6",
+    "technoidentity-utils": "0.0.8",
     "tslib": "1.10.0"
   },
   "devDependencies": {

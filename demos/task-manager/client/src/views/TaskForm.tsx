@@ -1,12 +1,12 @@
 import 'bulma/css/bulma.css'
 import { format } from 'date-fns'
+import { FormikActions } from 'formik'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
   Column,
   Columns,
   component,
-  formSubmit,
   Section,
   Simple,
 } from 'technoidentity-devfractal'
@@ -70,7 +70,11 @@ const validationSchema = yup.object().shape({
 
 export const TaskFormProps = props(
   { initial: Task },
-  { onSubmit: fn<(values: Task) => Promise<void>>() },
+  {
+    onSubmit: fn<
+      (values: Task, actions: FormikActions<Task>) => Promise<void>
+    >(),
+  },
 )
 
 // @TODO: replace with emptyFromType
@@ -90,7 +94,7 @@ export const TaskForm = component(TaskFormProps, ({ onSubmit, initial }) => (
     <Simple.Form
       initialValues={initial || initialValues}
       validationSchema={validationSchema}
-      onSubmit={formSubmit(onSubmit)}
+      onSubmit={onSubmit}
     >
       <Columns columnCentered>
         <Column size="half">

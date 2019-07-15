@@ -1,13 +1,24 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { typeInvariant } from 'technoidentity-utils'
-import { useRouter } from './RouterUtils'
+import { cast, keys, req } from 'technoidentity-utils'
+import { useRouter } from '../lib'
 
 // tslint:disable typedef
-const SingleError = t.readonly(t.type({ error: t.string }))
-const Errors = t.readonly(t.type({ errors: t.readonlyArray(t.string) }))
-const ServerError = t.union([t.string, SingleError, Errors])
+const SingleError = req({ error: t.string })
+const Errors = req({ errors: t.readonlyArray(t.string) })
 
+interface ValidationErrors
+  extends Record<
+    string,
+    t.TypeOf<typeof SingleError> | t.TypeOf<typeof Errors> | ValidationErrors
+  > {}
+
+const ValidationErrors: t.Type<ValidationErrors> = t.recursion(
+  'ValidationErrors',
+  () => t.record(t.string, t.union([SingleError, Errors, ValidationErrors])),
+)
+
+const ServerError = t.union([t.string, SingleError, Errors, ValidationErrors])
 type ServerError = t.TypeOf<typeof ServerError>
 
 export interface ServerErrorViewProps {
@@ -15,7 +26,7 @@ export interface ServerErrorViewProps {
 }
 
 function serverError(error: ServerError): string {
-  typeInvariant(ServerError, error)
+  cast(ServerError, error)
 
   if (t.string.is(error)) {
     return error
@@ -28,7 +39,11 @@ function serverError(error: ServerError): string {
   if (Errors.is(error)) {
     return error.errors.join('\n')
   }
-
+  if (ValidationErrors.is(error)) {
+    return keys(error.validationErrors)
+      .map(k => `${k}: ${serverError(error.validationErrors[k])}`)
+      .join('\n')
+  }
   return 'FATAL: unknown server error'
 }
 

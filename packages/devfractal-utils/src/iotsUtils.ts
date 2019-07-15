@@ -1,24 +1,28 @@
 import { Either, isRight } from 'fp-ts/lib/Either'
 import * as t from 'io-ts'
 import { PathReporter } from 'io-ts/lib/PathReporter'
-import { String } from 'tcomb'
-import { fatal, warning } from './assertions'
+import { assert, String } from 'tcomb'
+import { fatal } from './assertions'
 
-export function specInvariant<A, O, I>(spec: t.Type<A, O, I>, args: I): A {
+export function cast<A, O, I>(spec: t.Type<A, O, I>, args: I): A {
   const decoded: Either<t.Errors, A> = spec.decode(args)
   return isRight(decoded)
     ? decoded.right
     : fatal(PathReporter.report(decoded).join('\n'))
 }
 
-export function specWarning<A, O, I>(
+export const verifyCast: typeof cast = cast
+
+export function assertCast<A, O, I>(
   spec: t.Type<A, O, I>,
   args: I,
 ): A | undefined {
   const decoded: Either<t.Errors, A> = spec.decode(args)
-  warning(spec.is(args), PathReporter.report(decoded).join('\n'))
+  assert(spec.is(args), PathReporter.report(decoded).join('\n'))
   return isRight(decoded) ? decoded.right : undefined
 }
+
+export const debugCast: typeof assertCast = assertCast
 
 export async function rejected<T>(
   decoded: Either<t.Errors, T> | string,
@@ -30,9 +34,7 @@ export async function rejected<T>(
   )
 }
 
-export async function eitherToPromise<T>(
-  either: Either<t.Errors, T>,
-): Promise<T> {
+export async function toPromise<T>(either: Either<t.Errors, T>): Promise<T> {
   return isRight(either) ? either.right : rejected(either)
 }
 

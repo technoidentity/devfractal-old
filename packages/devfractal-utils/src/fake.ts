@@ -18,6 +18,7 @@ import {
   ReadonlyArrayType,
   ReadonlyType,
   RefinementType,
+  StrictType,
   StringType,
   TupleType,
   Type,
@@ -42,38 +43,6 @@ export const defaultOptions = {
 
 export type FakeOptions = typeof defaultOptions
 
-function fakePrimitive<T extends Mixed>(
-  spec: T,
-  options: FakeOptions,
-): TypeOf<typeof spec> {
-  if (spec instanceof NumberType) {
-    return chance.floating(options.floating)
-  }
-  if (spec instanceof StringType) {
-    return chance.sentence(options.sentence)
-  }
-  if (spec instanceof BooleanType) {
-    return chance.bool()
-  }
-  if (spec.name === 'Date') {
-    return chance.date()
-  }
-  if (spec instanceof KeyofType) {
-    return chance.pickone(Object.keys(spec.keys))
-  }
-  if (spec instanceof LiteralType) {
-    return spec.value
-  }
-  if (spec instanceof NullType) {
-    // tslint:disable-next-line: no-null-keyword
-    return null
-  }
-  if (spec instanceof UndefinedType || spec instanceof VoidType) {
-    return undefined
-  }
-  throw new Error(`Unsupported type: ${spec.name}`)
-}
-
 function fakeArrayFromType<T extends Mixed>(
   spec: T,
   options: FakeOptions,
@@ -94,7 +63,7 @@ function fakeArray<T extends Mixed>(
 }
 
 function fakeObject<T extends Props>(
-  spec: TypeC<T>,
+  spec: TypeC<T> | StrictType<T>,
   options: FakeOptions,
 ): TypeOf<typeof spec> {
   return buildObject(spec.props, v => fake(v, options))
@@ -104,9 +73,40 @@ export function fake<T extends Mixed>(
   spec: T,
   options: FakeOptions = defaultOptions,
 ): TypeOf<typeof spec> {
-  // This must be first, else will be handled wrong as RefinementType
   if (spec.name === 'Int') {
     return chance.integer(options.integer)
+  }
+
+  if (spec instanceof NumberType) {
+    return chance.floating(options.floating)
+  }
+
+  if (spec instanceof StringType) {
+    return chance.sentence(options.sentence)
+  }
+
+  if (spec instanceof BooleanType) {
+    return chance.bool()
+  }
+
+  if (spec.name === 'Date') {
+    return chance.date()
+  }
+
+  if (spec instanceof KeyofType) {
+    return chance.pickone(Object.keys(spec.keys))
+  }
+
+  if (spec instanceof LiteralType) {
+    return spec.value
+  }
+
+  if (spec instanceof NullType) {
+    // tslint:disable-next-line: no-null-keyword
+    return null
+  }
+  if (spec instanceof UndefinedType || spec instanceof VoidType) {
+    return undefined
   }
 
   if (
@@ -115,6 +115,10 @@ export function fake<T extends Mixed>(
     spec instanceof RefinementType // No easy way to do this correctly?
   ) {
     return fake(spec.type, options)
+  }
+
+  if (spec instanceof StrictType) {
+    return fakeObject(spec, options)
   }
 
   if (spec instanceof ReadonlyArrayType) {
@@ -140,16 +144,13 @@ export function fake<T extends Mixed>(
   }
 
   if (spec instanceof UnionType) {
-    return chance.pickone(spec.types.map((p: Type<any>) => fake(p, options)))
-  }
-
-  if (spec instanceof KeyofType) {
-    return chance.pickone(Object.keys(spec.keys))
+    const one = chance.integer({ min: 0, max: spec.types.length })
+    return chance.pickone(fake(spec.types[one], options))
   }
 
   if (spec instanceof TupleType) {
     return spec.types.map((p: Type<any>) => fake(p, options))
   }
 
-  return fakePrimitive(spec, options)
+  throw new Error(`Unsupported type: ${spec.name}`)
 }

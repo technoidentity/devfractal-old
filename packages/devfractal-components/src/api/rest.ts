@@ -1,8 +1,20 @@
 import { produce } from 'immer'
-import { Mixed, readonlyArray, Type } from 'io-ts'
+import * as t from 'io-ts'
 import { Array } from 'tcomb'
-import { typeInvariant } from 'technoidentity-utils'
+import { cast, opt } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
+
+// tslint:disable typedef
+
+// Currently will not support intersection etc...
+export function ManyQuery<C extends t.Props>(codec: t.ReadonlyC<t.TypeC<C>>) {
+  return opt({
+    page: t.number,
+    limit: t.number,
+    asc: t.keyof(codec.type.props),
+    desc: t.keyof(codec.type.props),
+  })
+}
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
 interface API<
@@ -35,7 +47,7 @@ interface RestArgs<
   I extends Record<string, any> | unknown = unknown
 > extends RequestConfig {
   readonly resource: string
-  readonly type: Mixed & Type<A, O, I>
+  readonly type: t.Mixed & t.Type<A, O, I>
 }
 
 export function rest<
@@ -48,7 +60,7 @@ export function rest<
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(options: APIMethodArgs): Promise<ReadonlyArray<A>> {
-    return http.get({ ...options, resource }, readonlyArray(type))
+    return http.get({ ...options, resource }, t.readonlyArray(type))
   }
 
   async function one(options: APIMethodArgs): Promise<A> {
@@ -56,7 +68,7 @@ export function rest<
   }
 
   async function create(data: I, options: APIMethodArgs): Promise<A> {
-    typeInvariant(type, data)
+    cast(type, data)
 
     return http.post({ ...options, resource }, data, type)
   }
@@ -74,7 +86,7 @@ export function rest<
     data: I,
     options: APIMethodArgs,
   ): Promise<A> {
-    typeInvariant(type, data)
+    cast(type, data)
 
     return http.put(appendId({ ...options, resource }, id), data, type)
   }

@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-utils",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "utils for all devfractal libs",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -13,8 +13,8 @@
     "start": "tsdx watch",
     "dev": "parcel index.html --open",
     "build": "tsdx build",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "cross-env NODE_ENV='test' jest",
+    "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",

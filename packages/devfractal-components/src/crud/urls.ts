@@ -1,5 +1,5 @@
 import { Int, string, TypeOf, union } from 'io-ts'
-import { chop, invariant, typeInvariant } from 'technoidentity-utils'
+import { cast, chop, verify } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 const idRT = union([Int, string])
@@ -28,8 +28,8 @@ export function apiURLs({
   const base: string = chop(baseURL.trim())
   const res: string = resource.trim()
 
-  invariant(base.startsWith('http'))
-  invariant(!res.includes('/'))
+  verify(base.startsWith('http'))
+  verify(!res.includes('/'))
 
   return {
     all: () => `${base}/${res}`,
@@ -37,17 +37,17 @@ export function apiURLs({
     create: () => `${base}/${res}`,
 
     one: (id: ID) => {
-      typeInvariant(idRT, id)
+      cast(idRT, id)
       return `${base}/${res}/${id}`
     },
 
     edit: (id: ID) => {
-      typeInvariant(idRT, id)
+      cast(idRT, id)
       return `${base}/${res}/${id}`
     },
 
     remove: (id: ID) => {
-      typeInvariant(idRT, id)
+      cast(idRT, id)
       return `${base}/${res}/${id}`
     },
   }

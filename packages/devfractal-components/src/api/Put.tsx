@@ -1,14 +1,15 @@
+import { FormikActions } from 'formik'
 import React from 'react'
 import { ServerErrorView } from './Components'
 import { Get } from './Get'
-import { useSubmit } from './useSubmit'
+import { useSubmitRedirect } from './useSubmit'
 
-export interface PutComponentProps<T extends Object> {
+export interface PutComponentProps<T> {
   readonly initial?: T
-  onSubmit(values: T): Promise<void>
+  onSubmit(values: T, actions: FormikActions<T>): Promise<void>
 }
 
-export interface PutProps<T extends Object> {
+export interface PutProps<T> {
   readonly redirectURL?: string
   readonly id: string
   doGet(id: string): Promise<T>
@@ -27,7 +28,7 @@ export function Put<T>({
     return onPut(id, data)
   }
 
-  const { serverError, onSubmit } = useSubmit(update, redirectURL)
+  const { serverError, onSubmit } = useSubmitRedirect(update, redirectURL)
 
   return (
     <>

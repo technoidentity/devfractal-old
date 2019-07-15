@@ -1,4 +1,5 @@
 import 'bulma/css/bulma.css'
+import { FormikActions } from 'formik'
 import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -6,12 +7,11 @@ import {
   Column,
   Columns,
   component,
-  formSubmit,
   Section,
   Simple,
   Text,
 } from 'technoidentity-devfractal'
-import { emptyFromType, fn, req } from 'technoidentity-utils'
+import { empty, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 
 const SignUpValues = req({
@@ -41,7 +41,12 @@ const schema = yup.object().shape({
 })
 
 const SignUpFormProps = req({
-  onSubmit: fn<(values: TypeOf<typeof SignUpValues>) => Promise<void>>(),
+  onSubmit: fn<
+    (
+      values: TypeOf<typeof SignUpValues>,
+      actions: FormikActions<TypeOf<typeof SignUpValues>>,
+    ) => Promise<void>
+  >(),
 })
 
 export const SignUpForm = component(SignUpFormProps, ({ onSubmit }) => (
@@ -49,8 +54,8 @@ export const SignUpForm = component(SignUpFormProps, ({ onSubmit }) => (
     <Columns columnCentered>
       <Column size="half">
         <Simple.Form
-          initialValues={emptyFromType(SignUpValues)}
-          onSubmit={formSubmit(onSubmit)}
+          initialValues={empty(SignUpValues)}
+          onSubmit={onSubmit}
           validationSchema={schema}
         >
           <Simple.Text name="name" label="Username" />

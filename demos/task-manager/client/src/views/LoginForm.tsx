@@ -1,14 +1,14 @@
+import { FormikActions } from 'formik'
 import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import {
   Column,
   Columns,
   component,
-  formSubmit,
   Section,
   Simple,
 } from 'technoidentity-devfractal'
-import { emptyFromType, fn, req } from 'technoidentity-utils'
+import { empty, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({
@@ -19,14 +19,19 @@ const schema = yup.object().shape({
 const LoginValues = req({ name: string, password: string })
 
 const LoginFormProps = req({
-  onSubmit: fn<(values: TypeOf<typeof LoginValues>) => Promise<void>>(),
+  onSubmit: fn<
+    (
+      values: TypeOf<typeof LoginValues>,
+      actions: FormikActions<typeof values>,
+    ) => Promise<void>
+  >(),
 })
 
 export const LoginForm = component(LoginFormProps, ({ onSubmit }) => (
   <Section>
     <Simple.Form
-      initialValues={emptyFromType(LoginValues)}
-      onSubmit={formSubmit(onSubmit)}
+      initialValues={empty(LoginValues)}
+      onSubmit={onSubmit}
       validationSchema={schema}
     >
       <Columns columnCentered>

@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { specInvariant } from './iotsUtils'
+import { cast } from './iotsUtils'
 
 // tslint:disable readonly-array
 
@@ -13,9 +13,9 @@ export function tupleChecked<
   f: (...args: A) => t.TypeOf<typeof resultSpec>,
 ): typeof f {
   return (...args) => {
-    specInvariant(argSpecs, args)
+    cast(argSpecs, args)
 
-    return specInvariant(resultSpec, f(...args))
+    return cast(resultSpec, f(...args))
   }
 }
 
@@ -79,7 +79,7 @@ export function checked(
   return tupleChecked(t.tuple(codecs), resultSpec, f)
 }
 
-export function asyncTupleChecked<
+export function tupleCheckedAsync<
   T extends [t.Mixed, ...t.Mixed[]],
   A extends t.TypeOf<t.TupleC<T>> & any[],
   R extends t.Mixed
@@ -89,13 +89,13 @@ export function asyncTupleChecked<
   f: (...args: A) => Promise<t.TypeOf<typeof resultSpec>>,
 ): typeof f {
   return async (...args) => {
-    specInvariant(argSpecs, args)
+    cast(argSpecs, args)
 
-    return specInvariant(resultSpec, await f(...args))
+    return cast(resultSpec, await f(...args))
   }
 }
 
-export function asyncChecked<
+export function checkedAsync<
   A extends t.Mixed,
   B extends t.Mixed,
   C extends t.Mixed,
@@ -110,7 +110,7 @@ export function asyncChecked<
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked<
+export function checkedAsync<
   A extends t.Mixed,
   B extends t.Mixed,
   C extends t.Mixed,
@@ -124,7 +124,7 @@ export function asyncChecked<
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked<
+export function checkedAsync<
   A extends t.Mixed,
   B extends t.Mixed,
   C extends t.Mixed,
@@ -137,7 +137,7 @@ export function asyncChecked<
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked<
+export function checkedAsync<
   A extends t.Mixed,
   B extends t.Mixed,
   R extends t.Mixed
@@ -149,7 +149,7 @@ export function asyncChecked<
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked<A extends t.Mixed, R extends t.Mixed>(
+export function checkedAsync<A extends t.Mixed, R extends t.Mixed>(
   codecs: [A],
   resultSpec: R,
   f: (
@@ -157,10 +157,10 @@ export function asyncChecked<A extends t.Mixed, R extends t.Mixed>(
   ) => Promise<t.TypeOf<R>>,
 ): typeof f
 
-export function asyncChecked(
+export function checkedAsync(
   codecs: any,
   resultSpec: any,
   f: (...args: any[]) => any,
 ): typeof f {
-  return asyncTupleChecked(t.tuple(codecs), resultSpec, f)
+  return tupleCheckedAsync(t.tuple(codecs), resultSpec, f)
 }

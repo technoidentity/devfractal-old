@@ -2,16 +2,20 @@ import { BooleanFromString } from 'io-ts-types/lib/BooleanFromString'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import { NumberFromString } from 'io-ts-types/lib/NumberFromString'
-import { specInvariant } from './iotsUtils'
+import { cast } from './iotsUtils'
 
-export const toInt: (from: string) => number = from =>
-  specInvariant(IntFromString, from)
+export function toInt(from: string): number {
+  return cast(IntFromString, from)
+}
 
-export const toBoolean: (from: string) => boolean = from =>
-  specInvariant(BooleanFromString, from)
+export function toBoolean(from: string): boolean {
+  return cast(BooleanFromString, from)
+}
 
-export const toNumber: (from: string) => number = from =>
-  specInvariant(NumberFromString, from)
+export function toNumber(from: string): number {
+  return cast(NumberFromString, from)
+}
 
-export const toDate: (from: string) => Date = from =>
-  specInvariant(DateFromISOString, from)
+export function toDate(from: string): Date {
+  return cast(DateFromISOString, from)
+}

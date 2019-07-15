@@ -1,6 +1,6 @@
 import { range, repeatedly, today } from './common'
 
-it('test for range function', () => {
+it('range', () => {
   expect(range(0, -2)).toEqual([])
   expect(range(0, -3, 1)).toEqual([])
   expect(range(0, 1)).toEqual([0])
@@ -30,3 +30,5 @@ it('repeatedly', () => {
 it('today', () => {
   expect(today()).toEqual(expect.any(Date))
 })
+
+it.todo('buildObject')

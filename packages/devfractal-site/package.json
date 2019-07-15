@@ -7,8 +7,8 @@
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "cross-env NODE_ENV='test' jest",
+    "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",
@@ -35,8 +35,8 @@
     "react-router-dom": "5.0.1",
     "react-router": "5.0.1",
     "tcomb": "3.2.29",
-    "technoidentity-devfractal": "0.9.11",
-    "technoidentity-utils": "0.0.6"
+    "technoidentity-devfractal": "0.9.15",
+    "technoidentity-utils": "0.0.8"
   },
   "devDependencies": {
     "@babel/core": "7.5.4",
