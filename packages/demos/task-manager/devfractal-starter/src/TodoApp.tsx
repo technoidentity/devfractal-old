@@ -1,3 +1,4 @@
+import { FormikActions } from 'formik'
 import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
@@ -21,7 +22,7 @@ import {
   useMatch,
   useRouter,
 } from 'technoidentity-devfractal'
-import { fn, props, req, typeInvariant } from 'technoidentity-utils'
+import { cast, empty, fn, props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])
 
@@ -40,20 +41,17 @@ const todoApi = rest({
   type: Todo,
 })
 
-const initialValues: Todo = {
-  id: -100,
-  title: '',
-  scheduled: new Date(),
-  done: false,
-}
-
 const TodoFormProps = props(
   { initial: Todo },
-  { onSubmit: fn<(values: Todo) => Promise<void>>() },
+  {
+    onSubmit: fn<
+      (values: Todo, actions: FormikActions<Todo>) => Promise<void>
+    >(),
+  },
 )
 
 const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
-  <Editor id="id" data={initial || initialValues} onSubmit={onSubmit} />
+  <Editor id="id" data={initial || empty(Todo)} onSubmit={onSubmit} />
 ))
 
 const CreateTodoRoute = () => (
@@ -67,7 +65,7 @@ const Params = req({ id: string })
 
 export const EditTodoRoute = () => {
   const { params } = useMatch(Params)
-  typeInvariant(Params, params)
+  cast(Params, params)
 
   return (
     <Put<Todo>
