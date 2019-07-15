@@ -100,9 +100,9 @@ export const TaskForm = component(TaskFormProps, ({ onSubmit, initial }) => (
         <Column size="half">
           <Simple.Text name="title" />
           <Simple.TextArea name="description" />
-          <DatePickerField label="Started" name="dateInfo.started" />
-          <DatePickerField label="Deadline" name="dateInfo.deadline" />
           <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
+          <DatePickerField label="Deadline" name="dateInfo.deadline" />
+          <DatePickerField label="Started" name="dateInfo.started" />
           <DatePickerField label="Completed" name="dateInfo.completed" />
           <Simple.FormButtons />
         </Column>

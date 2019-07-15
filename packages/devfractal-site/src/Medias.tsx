@@ -1,21 +1,15 @@
 import React from 'react'
-import {
-  Media,
-  MediaContent,
-  MediaLeft,
-  SubTitle,
-  Text,
-} from 'technoidentity-devfractal'
-import columnsIcon from './images/columnsIcon.png'
-import componentsIcon from './images/componentsIcon.png'
-import compositesIcon from './images/compositesIcon.png'
-import elementsIcon from './images/elementsIcon.png'
-import formIcon from './images/formIcon.png'
-import layoutIcon from './images/layoutIcon.png'
-import modifiersIcon from './images/modifiersIcon.png'
+import { Media, MediaContent, MediaLeft, Text } from 'technoidentity-devfractal'
+import columnsIcon from '../src/imagesNew/column.png'
+import componentsIcon from '../src/imagesNew/components.png'
+import compositesIcon from '../src/imagesNew/composites.png'
+import elementsIcon from '../src/imagesNew/elements.png'
+import formIcon from '../src/imagesNew/form.png'
+import layoutIcon from '../src/imagesNew/layout.png'
+import modifiersIcon from '../src/imagesNew/modifiers.png'
 
 export const FormMedia: React.FC = () => (
-  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+  <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={formIcon} alt="form icon" />
     </MediaLeft>
@@ -27,15 +21,15 @@ export const FormMedia: React.FC = () => (
       >
         Form
       </Text>
-      <SubTitle size="6" textColor="white">
+      <Text textSize="6" textColor="white">
         The indispensable form controls designed for clarity
-      </SubTitle>
+      </Text>
     </MediaContent>
   </Media>
 )
 
 export const ColumnsMedia: React.FC = () => (
-  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+  <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={columnsIcon} alt="columns icon" />
     </MediaLeft>
@@ -47,15 +41,15 @@ export const ColumnsMedia: React.FC = () => (
       >
         Columns
       </Text>
-      <SubTitle size="6" textColor="white">
+      <Text textSize="6" textColor="white">
         The power of the Flexbox in a very simple design interface
-      </SubTitle>
+      </Text>
     </MediaContent>
   </Media>
 )
 
 export const LayoutMedia: React.FC = () => (
-  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+  <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={layoutIcon} alt="layout icon" />
     </MediaLeft>
@@ -67,15 +61,15 @@ export const LayoutMedia: React.FC = () => (
       >
         Layout
       </Text>
-      <SubTitle size="6" textColor="white">
+      <Text textSize="6" textColor="white">
         Design the structure of your webpage with css classes
-      </SubTitle>
+      </Text>
     </MediaContent>
   </Media>
 )
 
 export const ElementsMedia: React.FC = () => (
-  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+  <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={elementsIcon} alt="elements icon" />
     </MediaLeft>
@@ -87,15 +81,15 @@ export const ElementsMedia: React.FC = () => (
       >
         Elements
       </Text>
-      <SubTitle size="6" textColor="white">
+      <Text textSize="6" textColor="white">
         Essential interface elements that only require a single css class
-      </SubTitle>
+      </Text>
     </MediaContent>
   </Media>
 )
 
 export const ComponentsMedia: React.FC = () => (
-  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+  <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={componentsIcon} alt="components icon" />
     </MediaLeft>
@@ -107,15 +101,15 @@ export const ComponentsMedia: React.FC = () => (
       >
         Components
       </Text>
-      <SubTitle size="6" textColor="white">
+      <Text textSize="6" textColor="white">
         Advanced multi-part components with lots of responsibilities
-      </SubTitle>
+      </Text>
     </MediaContent>
   </Media>
 )
 
 export const ModifiersMedia: React.FC = () => (
-  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+  <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={modifiersIcon} alt="modifiers icon" />
     </MediaLeft>
@@ -127,15 +121,15 @@ export const ModifiersMedia: React.FC = () => (
       >
         Modifiers
       </Text>
-      <SubTitle size="6" textColor="white">
+      <Text textSize="6" textColor="white">
         An easy-to-read naming system being designed for humans
-      </SubTitle>
+      </Text>
     </MediaContent>
   </Media>
 )
 
 export const CompositesMedia: React.FC = () => (
-  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+  <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={compositesIcon} alt="composites icon" />
     </MediaLeft>
@@ -147,15 +141,15 @@ export const CompositesMedia: React.FC = () => (
       >
         Composites
       </Text>
-      <SubTitle size="6" textColor="white">
+      <Text textSize="6" textColor="white">
         More examples using multiple components
-      </SubTitle>
+      </Text>
     </MediaContent>
   </Media>
 )
 
 export const CrudMedia: React.FC = () => (
-  <Media className="box" shadowLess style={{ backgroundColor: '#004267' }}>
+  <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
     <MediaLeft style={{ marginTop: '1rem' }}>
       <img src={compositesIcon} alt="composites icon" />
     </MediaLeft>
@@ -167,9 +161,9 @@ export const CrudMedia: React.FC = () => (
       >
         Crud
       </Text>
-      <SubTitle size="6" textColor="white">
+      <Text textSize="6" textColor="white">
         Create Crud components, rails style!
-      </SubTitle>
+      </Text>
     </MediaContent>
   </Media>
 )
