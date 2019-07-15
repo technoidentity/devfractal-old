@@ -1,11 +1,11 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { cast, keys, req } from 'technoidentity-utils'
+import { cast, keys } from 'technoidentity-utils'
 import { useRouter } from '../lib'
 
 // tslint:disable typedef
-const SingleError = req({ error: t.string })
-const Errors = req({ errors: t.readonlyArray(t.string) })
+const SingleError = t.string
+const Errors = t.readonlyArray(t.string)
 
 interface ValidationErrors
   extends Record<
@@ -33,11 +33,11 @@ function serverError(error: ServerError): string {
   }
 
   if (SingleError.is(error)) {
-    return error.error
+    return error
   }
 
   if (Errors.is(error)) {
-    return error.errors.join('\n')
+    return error.join('\n')
   }
   if (ValidationErrors.is(error)) {
     return keys(error.validationErrors)
