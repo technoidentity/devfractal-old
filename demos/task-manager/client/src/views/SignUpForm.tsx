@@ -11,7 +11,7 @@ import {
   Simple,
   Text,
 } from 'technoidentity-devfractal'
-import { emptyFromType, fn, req } from 'technoidentity-utils'
+import { empty, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 
 const SignUpValues = req({
@@ -49,7 +49,7 @@ export const SignUpForm = component(SignUpFormProps, ({ onSubmit }) => (
     <Columns columnCentered>
       <Column size="half">
         <Simple.Form
-          initialValues={emptyFromType(SignUpValues)}
+          initialValues={empty(SignUpValues)}
           onSubmit={formSubmit(onSubmit)}
           validationSchema={schema}
         >

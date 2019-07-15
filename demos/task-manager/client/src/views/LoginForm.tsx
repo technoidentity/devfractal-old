@@ -8,7 +8,7 @@ import {
   Section,
   Simple,
 } from 'technoidentity-devfractal'
-import { emptyFromType, fn, req } from 'technoidentity-utils'
+import { empty, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({
@@ -25,7 +25,7 @@ const LoginFormProps = req({
 export const LoginForm = component(LoginFormProps, ({ onSubmit }) => (
   <Section>
     <Simple.Form
-      initialValues={emptyFromType(LoginValues)}
+      initialValues={empty(LoginValues)}
       onSubmit={formSubmit(onSubmit)}
       validationSchema={schema}
     >

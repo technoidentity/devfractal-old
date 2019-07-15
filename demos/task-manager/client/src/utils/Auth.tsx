@@ -1,6 +1,6 @@
 import React from 'react'
 import useLocalStorage from 'react-use/lib/useLocalStorage'
-import { invariant } from 'technoidentity-utils'
+import { verify } from 'technoidentity-utils'
 
 interface AuthContext {
   readonly isLoggedIn: boolean
@@ -30,7 +30,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 export function useAuth(): AuthContext {
   const result = React.useContext(AuthContext)
 
-  invariant(result !== undefined, 'You need AuthProvider as ancestor somewhere')
+  verify(result !== undefined, 'You need AuthProvider as ancestor somewhere')
 
   return result as AuthContext
 }

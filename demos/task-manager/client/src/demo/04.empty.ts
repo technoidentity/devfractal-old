@@ -8,10 +8,10 @@ import {
   type,
 } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
-import { emptyFromType } from 'technoidentity-utils'
+import { empty } from 'technoidentity-utils'
 
 console.log(
-  emptyFromType(
+  empty(
     readonly(
       type({
         i: number,
