@@ -1,12 +1,12 @@
 import React from 'react'
 import { Media, MediaContent, MediaLeft, Text } from 'technoidentity-devfractal'
-import columnsIcon from '../src/imagesNew/column.png'
-import componentsIcon from '../src/imagesNew/components.png'
-import compositesIcon from '../src/imagesNew/composites.png'
-import elementsIcon from '../src/imagesNew/elements.png'
-import formIcon from '../src/imagesNew/form.png'
-import layoutIcon from '../src/imagesNew/layout.png'
-import modifiersIcon from '../src/imagesNew/modifiers.png'
+import columnsIcon from '../src/images/column.png'
+import componentsIcon from '../src/images/components.png'
+import compositesIcon from '../src/images/composites.png'
+import elementsIcon from '../src/images/elements.png'
+import formIcon from '../src/images/form.png'
+import layoutIcon from '../src/images/layout.png'
+import modifiersIcon from '../src/images/modifiers.png'
 
 export const FormMedia: React.FC = () => (
   <Media style={{ borderTop: 'none', backgroundColor: '#5A77D6' }}>
