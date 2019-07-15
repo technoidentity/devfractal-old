@@ -15,7 +15,7 @@ export const EditTodoRoute: React.FC = () => {
       doGet={todoApi.get}
       onPut={todoApi.update}
       component={TodoForm}
-      redirectURL="/"
+      redirectPath="/"
     />
   )
 }

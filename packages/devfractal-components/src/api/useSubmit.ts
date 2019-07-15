@@ -34,13 +34,13 @@ export function useSubmit<T extends Object>(
   return { serverError, onSubmit }
 }
 
-export function useRedirect(redirectURL?: string): { onRedirect(): void } {
+export function useRedirect(redirectPath?: string): { onRedirect(): void } {
   const { history } = useRouter()
 
   return {
     onRedirect: () => {
-      if (redirectURL) {
-        history.push(redirectURL)
+      if (redirectPath) {
+        history.push(redirectPath)
       }
     },
   }
@@ -48,9 +48,9 @@ export function useRedirect(redirectURL?: string): { onRedirect(): void } {
 
 export function useSubmitRedirect<T extends Object>(
   f: (formValues: T) => Promise<T>,
-  redirectURL?: string,
+  redirectPath?: string,
 ): SubmitResult<T> {
-  const { onRedirect } = useRedirect(redirectURL)
+  const { onRedirect } = useRedirect(redirectPath)
   return useSubmit(f, onRedirect)
 }
 
