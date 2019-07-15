@@ -1,5 +1,5 @@
 import React from 'react'
-import { assert } from 'technoidentity-utils'
+import { warn } from 'technoidentity-utils'
 import {
   classNamesHelper,
   ControlledProps,
@@ -98,7 +98,7 @@ const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
     <El {...props} className={classes}>
       <ul>
         {React.Children.map(children, (child: any, i: number) => {
-          assert(
+          warn(
             child.type.displayName === 'TabsItem',
             "Every child to 'Tabs' must be 'TabsItem'",
           )
