@@ -47,7 +47,7 @@ interface RestArgs<
   I extends Record<string, any> | unknown = unknown
 > extends RequestConfig {
   readonly resource: string
-  readonly type: Mixed & Type<A, O, I>
+  readonly type: t.Mixed & t.Type<A, O, I>
 }
 
 export function rest<
@@ -60,7 +60,7 @@ export function rest<
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(options: APIMethodArgs): Promise<ReadonlyArray<A>> {
-    return http.get({ ...options, resource }, readonlyArray(type))
+    return http.get({ ...options, resource }, t.readonlyArray(type))
   }
 
   async function one(options: APIMethodArgs): Promise<A> {
