@@ -60,7 +60,7 @@ export function useSubmitReset<T extends Object>(
 ): SubmitResult<T> {
   return useSubmit(f, (_, actions) => {
     if (!noReset) {
-      actions.setSubmitting(false)
+      actions.resetForm()
     }
   })
 }
