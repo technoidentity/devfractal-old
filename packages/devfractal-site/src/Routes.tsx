@@ -41,8 +41,9 @@ import {
   ExploreUIComponents,
   FooterSection,
   IndexPageHeader,
+  ResourceSection,
   UIComponentsOverview,
-} from './IndexPageOld'
+} from './IndexPage'
 import { ComponentsTab, CompositesTab } from './Tabs'
 
 export const CompositesRoutes: React.FC = () => (
@@ -105,6 +106,7 @@ export const IndexRoutes: React.FC = () => (
     <Route exact path="/" component={UIComponentsOverview} />
     <Route exact path="/" component={ExploreUIComponents} />
     <Route exact path="/" component={BottomSection} />
+    <Route exact path="/" component={ResourceSection} />
     <Route exact path="/" component={FooterSection} />
   </>
 )
