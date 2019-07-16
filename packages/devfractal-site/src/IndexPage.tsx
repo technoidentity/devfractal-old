@@ -17,6 +17,7 @@ import {
   ButtonsGroup,
   Column,
   Columns,
+  Container,
   Content,
   DynamicBreadcrumb,
   Hero,
@@ -493,12 +494,12 @@ export const FooterSection: React.FC = () => (
 )
 
 export const IndexPage: React.FC = () => (
-  <Section>
+  <Container>
     <IndexPageHeader />
     <UIComponentsOverview />
     <ExploreUIComponents />
     <BottomSection />
     <ResourceSection />
     <FooterSection />
-  </Section>
+  </Container>
 )
