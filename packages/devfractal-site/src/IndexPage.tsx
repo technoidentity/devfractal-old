@@ -1,13 +1,27 @@
+import {
+  faFacebook,
+  faGooglePlus,
+  faLinkedin,
+  faTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons'
+import {
+  faArrowRight,
+  faCircle,
+  faStar,
+} from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import {
   Button,
   ButtonsGroup,
   Column,
   Columns,
+  Content,
   DynamicBreadcrumb,
   Hero,
   HeroHead,
+  Icon,
   Navbar,
   NavbarBrand,
   NavbarBurger,
@@ -15,16 +29,17 @@ import {
   NavbarItem,
   NavbarMenu,
   Notification,
+  Ol,
   Section,
   SubTitle,
   Text,
   Title,
 } from 'technoidentity-devfractal'
-import {
-  default as contentLoader,
-  default as devfractal,
-  default as uiComponent,
-} from '../src/images/contentLoader.png'
+import { default as developer } from '../src/images/asset/developer.png'
+import logo from '../src/images/asset/logo.png'
+import { default as contentLoader } from '../src/images/contentLoader.png'
+import logoOld from '../src/images/logoOld.png'
+import uiComponent from '../src/images/uiComponent.png'
 import {
   ColumnsMedia,
   ComponentsMedia,
@@ -41,7 +56,6 @@ export const HeroBodySection: React.FC = () => (
     <Title
       textColor="white"
       textWeight="light"
-      // style={{ fontFamily: 'Poppins sans-serief' }}
       className=" is-family-sans-serif is-size-1-desktop is-size-3-tablet is-size-4-mobile"
     >
       React, Simplified!
@@ -60,7 +74,8 @@ export const HeroBodySection: React.FC = () => (
         textColor="white"
         size="normal"
       >
-        Get started
+        <Icon icon={faArrowRight} /> <div />
+        Get Started
       </Button>
     </ButtonsGroup>
     <img
@@ -83,12 +98,7 @@ export const IndexPageHeader: React.FC = () => (
         <Navbar>
           <NavbarBrand>
             <NavbarItem style={{ paddingLeft: '7rem' }}>
-              <img src={devfractal} alt="devfractal icon" />
-              {/* <Link to="/">
-                <Text textColor="info" textWeight="bold" textSize="5">
-                  DEVFRACTAL
-                </Text>
-              </Link> */}
+              <img src={logo} alt="devfractal icon" />
             </NavbarItem>
             <NavbarBurger
               style={{
@@ -106,8 +116,21 @@ export const IndexPageHeader: React.FC = () => (
                 paddingRight: '6rem',
               }}
             >
-              <NavbarItem textColor="white" textSize="7" textWeight="light">
-                HOME
+              <NavbarItem
+                textColor="white"
+                textSize="7"
+                textWeight="light"
+                active
+              >
+                <a
+                  href="http://localhost:1234/#/"
+                  style={{
+                    color: 'white',
+                    textDecoration: 'underline #DD051B',
+                  }}
+                >
+                  HOME
+                </a>
               </NavbarItem>
               <NavbarItem textColor="white" textSize="7" textWeight="light">
                 OVERVIEW
@@ -130,13 +153,13 @@ export const IndexPageHeader: React.FC = () => (
           </NavbarMenu>
         </Navbar>
       </HeroHead>
-      <HeroBodySection />
+      <Route exact path="/" component={HeroBodySection} />
     </Hero>
     <DynamicBreadcrumb />
   </>
 )
 
-export const UIComponentsOverView: React.FC = () => (
+export const UIComponentsOverview: React.FC = () => (
   <>
     <Section>
       <Text
@@ -249,7 +272,7 @@ export const UIComponentsOverView: React.FC = () => (
 
 export const ExploreUIComponents: React.FC = () => (
   <>
-    <Section style={{ backgroundColor: '#5A77D6' }}>
+    <Section style={{ backgroundColor: '#5A77D6', paddingBottom: '0px' }}>
       <Title
         textAlignment="centered"
         textColor="white"
@@ -259,84 +282,223 @@ export const ExploreUIComponents: React.FC = () => (
       </Title>
       <Section>
         <Columns>
-          <Column>
-            <Title textColor="white-ter">Why Devfractal Components</Title>
-            <SubTitle textColor="white-ter">
+          <Column style={{ margin: '30px' }}>
+            <Title
+              textColor="white-ter"
+              style={{
+                fontFamily: 'Poppins',
+                fontWeight: 'lighter',
+              }}
+            >
+              Why Devfractal Components
+            </Title>
+            <SubTitle textColor="white-ter" style={{ paddingTop: '20px' }}>
               Devfractal helps create beautiful, responsive layouts using
               human-friendly HTML
             </SubTitle>
           </Column>
           <Column>
-            <FormMedia />
-
-            <CompositesMedia />
-
-            <ComponentsMedia />
-
-            <ModifiersMedia />
+            <Link to="/form">
+              <FormMedia />
+            </Link>
+            <Link to="/composites">
+              <CompositesMedia />
+            </Link>
+            <Link to="/components">
+              <ComponentsMedia />
+            </Link>
+            <Link to="/modifiers">
+              <ModifiersMedia />
+            </Link>
           </Column>
           <Column>
-            <CrudMedia />
-
-            <ColumnsMedia />
-
-            <LayoutMedia />
-
-            <ElementsMedia />
+            <Link to="/crud">
+              <CrudMedia />
+            </Link>
+            <Link to="/columns">
+              <ColumnsMedia />
+            </Link>
+            <Link to="/layout">
+              <LayoutMedia />
+            </Link>
+            <Link to="/elements">
+              <ElementsMedia />
+            </Link>
           </Column>
         </Columns>
       </Section>
-
-      {/* <Section>
-        <Columns multiline>
-          <Column>
-            <Title>Why Devfrctal Components</Title>
-            <SubTitle>
-              Devfractal helps create beautiful, responsive layouts using
-              human-friendly HTML
-            </SubTitle>
-          </Column>
-          <Column>
-            <FormMedia />
-          </Column>
-          <Column>
-            <ColumnsMedia />
-          </Column>
-
-          <Column />
-          <Column>
-            <CompositesMedia />
-          </Column>
-          <Column>
-            <ComponentsMedia />
-          </Column>
-
-          <Column />
-          <Column>
-            <ModifiersMedia />
-          </Column>
-          <Column>
-            <CrudMedia />
-          </Column>
-
-          <Column />
-          <Column>
-            <LayoutMedia />
-          </Column>
-          <Column>
-            <ElementsMedia />
-          </Column>
-        </Columns>
-      </Section> */}
     </Section>
   </>
 )
 
+export const BottomSection: React.FC = () => (
+  <Columns>
+    <Column>
+      <Section>
+        <Title
+          style={{
+            paddingLeft: '25px',
+            paddingBottom: '15px',
+            marginTop: '40px',
+            color: '#DD051B',
+            fontFamily: 'Poppins',
+            fontWeight: 'lighter',
+          }}
+        >
+          Happy Developers
+        </Title>
+
+        <SubTitle style={{ paddingLeft: '25px' }}>
+          DevFractal has all of the required controls, reporting and
+          dashboarding tools across multiple platforms that allow us to levarage
+          our existing skills.
+        </SubTitle>
+
+        <div style={{ paddingLeft: '25px' }}>
+          <Icon icon={faStar} color="#DD051B" />
+          <Icon icon={faStar} color="#DD051B" />
+          <Icon icon={faStar} color="#DD051B" />
+          <Icon icon={faStar} color="#DD051B" />
+          <Icon icon={faStar} color="#DD051B" />
+        </div>
+        <Section style={{ paddingLeft: '25px' }}>
+          <Icon icon={faCircle} color="#C4C4C4" />
+          <Icon icon={faCircle} color="#5A77D6" />
+          <Icon icon={faCircle} color="#C4C4C4" />
+          <Icon icon={faCircle} color="#C4C4C4" />
+          <Icon icon={faCircle} color="#C4C4C4" />
+        </Section>
+      </Section>
+    </Column>
+    <Column>
+      <img
+        src={developer}
+        alt="developer"
+        style={{ objectFit: 'scale-down' }}
+      />
+    </Column>
+  </Columns>
+)
+
+export const ResourceSection: React.FC = () => (
+  <Section style={{ backgroundColor: '#F5F5F5' }}>
+    <Columns>
+      <Column size="one-third">
+        <Title>
+          <img
+            src={logoOld}
+            alt="logo not found"
+            style={{ height: '28px', width: '112px' }}
+          />
+        </Title>
+        <SubTitle size="6">
+          Devfractal is an open source project developed at Technoidentity
+        </SubTitle>
+      </Column>
+
+      <Column>
+        <Text
+          textWeight="bold"
+          style={{ color: '#595959' }}
+          className="is-size-5-desktop is-size-5-tablet is-size-6-mobile"
+        >
+          Company
+        </Text>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>About us</li>
+        </Ol>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Careers</li>
+        </Ol>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Contact us</li>
+        </Ol>
+      </Column>
+      <Column>
+        <Text
+          textWeight="bold"
+          style={{ color: '#595959' }}
+          className="is-size-5-desktop is-size-5-tablet  is-size-6-mobile"
+        >
+          Learning & Support
+        </Text>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Demos</li>
+        </Ol>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Documentation</li>
+        </Ol>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Contact support</li>
+        </Ol>
+      </Column>
+      <Column>
+        <Text
+          textWeight="bold"
+          style={{ color: '#595959' }}
+          className="is-size-5-desktop is-size-5-tablet  is-size-6-mobile"
+        >
+          Resources
+        </Text>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Knowledge Base</li>
+        </Ol>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Case Studies</li>
+        </Ol>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>FAQ</li>
+        </Ol>
+      </Column>
+      <Column>
+        <Text
+          textWeight="bold"
+          style={{ color: '#595959' }}
+          className="is-size-5-desktop  is-size-5-tablet  is-size-6-mobile"
+        >
+          Support
+        </Text>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>support@technoidentity.com</li>
+        </Ol>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Privacy Policy</li>
+        </Ol>
+        <Ol textSize="6">
+          <li style={{ listStyle: 'none' }}>Terms of Use</li>
+        </Ol>
+      </Column>
+    </Columns>
+    <hr />
+  </Section>
+)
+
+export const FooterSection: React.FC = () => (
+  <Section
+    style={{
+      backgroundColor: '#F5F5F5',
+      borderTop: '1px solid',
+      borderTopColor: 'white',
+    }}
+  >
+    Copyright © 2019 TechnoIdentity Solutions.All rights reserved.
+    <Content style={{ float: 'right' }}>
+      <Icon icon={faFacebook} color="#004267" />
+      <Icon icon={faTwitter} color="#004267" />
+      <Icon icon={faLinkedin} color="#004267" />
+      <Icon icon={faGooglePlus} color="#004267" />
+      <Icon icon={faYoutube} color="#004267" />
+    </Content>
+  </Section>
+)
+
 export const IndexPage: React.FC = () => (
-  <Router>
-    <Route exact path="/" component={IndexPageHeader} />
-    {/* <Route exact path="/forms" component={FormEx} /> */}
-    <UIComponentsOverView />
+  <Section>
+    <IndexPageHeader />
+    <UIComponentsOverview />
     <ExploreUIComponents />
-  </Router>
+    <BottomSection />
+    <ResourceSection />
+    <FooterSection />
+  </Section>
 )
