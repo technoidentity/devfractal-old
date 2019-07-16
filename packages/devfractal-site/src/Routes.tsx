@@ -101,18 +101,20 @@ export const TabsRoutes: React.FC = () => (
 )
 
 export const IndexRoutes: React.FC = () => (
-  <>
-    <Route path="/" component={IndexPageHeader} />
-    <Route exact path="/" component={UIComponentsOverview} />
-    <Route exact path="/" component={ExploreUIComponents} />
-    <Route exact path="/" component={BottomSection} />
-    <Route exact path="/" component={ResourceSection} />
-    <Route exact path="/" component={FooterSection} />
-  </>
+  <div className="has-background-black">
+    <Container textBackgroundColor="white">
+      <Route path="/" component={IndexPageHeader} />
+      <Route exact path="/" component={UIComponentsOverview} />
+      <Route exact path="/" component={ExploreUIComponents} />
+      <Route exact path="/" component={BottomSection} />
+      <Route exact path="/" component={ResourceSection} />
+      <Route exact path="/" component={FooterSection} />
+    </Container>
+  </div>
 )
 
 export const Routes: React.FC = () => (
-  <Container>
+  <>
     <IndexRoutes />
     <TabsRoutes />
     <FormRoutes />
@@ -125,5 +127,5 @@ export const Routes: React.FC = () => (
     <ModifiersRoutes />
     <DropdownExampleRoutes />
     <LoginFormVariantsRoutes />
-  </Container>
+  </>
 )
