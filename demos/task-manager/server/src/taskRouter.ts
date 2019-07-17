@@ -1,4 +1,4 @@
-import { format, startOfDay, startOfToday } from 'date-fns'
+import { endOfToday, startOfToday } from 'date-fns'
 import express from 'express'
 import {
   BAD_REQUEST,
@@ -24,7 +24,7 @@ taskRouter.get(
     const page = toInt(req.query.page)
     const limit = toInt(req.query.limit)
     try {
-      const tasks = await TaskModel.paginate({}, { limit, page })
+      const tasks = await TaskModel.paginate({}, { page, limit })
       res.send(tasks.docs)
     } catch (err) {
       res.status(BAD_REQUEST).send({ error: err.message })
@@ -62,7 +62,8 @@ taskRouter.get('/today', async (_: Request, res: Response<Task[]>) => {
   try {
     const todayTasks = await TaskModel.find({
       'dateInfo.scheduled': {
-        $eq: format(startOfDay(startOfToday()), 'YYYY-MM-DD'),
+        $gt: startOfToday(),
+        $lt: endOfToday(),
       },
     }).exec()
     res.send(todayTasks)
@@ -75,7 +76,8 @@ taskRouter.get('/deadline', async (_: Request, res: Response<Task[]>) => {
   try {
     const deadlineToday = await TaskModel.find({
       'dateInfo.deadline': {
-        $eq: format(startOfDay(startOfToday()), 'YYYY-MM-DD'),
+        $gt: startOfToday(),
+        $lt: endOfToday(),
       },
     }).exec()
     res.send(deadlineToday)
