@@ -21,7 +21,7 @@
     "sb": "start-storybook"
   },
   "dependencies": {
-    "technoidentity-devfractal": "0.9.15",
+    "technoidentity-devfractal": "0.9.16",
     "technoidentity-meta-core": "0.0.1",
     "technoidentity-utils": "0.0.8",
     "tslib": "1.10.0"
