@@ -3,7 +3,7 @@ import { Mixed, TypeOf } from 'io-ts'
 import React, { FC } from 'react'
 import { empty } from 'technoidentity-utils'
 import { Button, Container, Field, RowClickEvent, SimpleTable } from '../lib'
-import { Creator } from './Creator'
+
 import { Editor } from './Editor'
 import { Viewer } from './Viewer'
 
@@ -42,11 +42,7 @@ export function Views<RT extends Mixed, ID extends keyof RT>(
 ): CrudViewsResult<RT, ID> {
   return {
     Create: ({ onSubmit }) => (
-      <Creator<TypeOf<RT>>
-        id={id}
-        initialValues={empty(typeValue)}
-        onSubmit={onSubmit}
-      />
+      <Editor id={id} data={empty(typeValue)} onSubmit={onSubmit} />
     ),
 
     Edit: ({ data, onSubmit }) => (

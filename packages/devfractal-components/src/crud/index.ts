@@ -1,6 +1,5 @@
 export * from './api'
 export * from './Components'
-export * from './Creator'
 export * from './Crud'
 export * from './Editor'
 export * from './SimpleCrud'
