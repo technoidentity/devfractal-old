@@ -18,8 +18,6 @@
     "types": "tsc --noEmit -p .",
     "types:watch": "yarn types --watch",
     "validate": "yarn lint && yarn types && yarn test",
-    "prebuild": "yarn validate",
-    "prepublish": "yarn validate",
     "sg": "styleguidist server",
     "sg:build": "styleguidist build",
     "sb": "start-storybook"
