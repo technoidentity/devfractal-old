@@ -120,23 +120,17 @@ export const IndexPageHeader: React.FC = () => (
               <NavbarItem
                 textColor="white"
                 textSize="7"
-                textWeight="light"
+                textWeight="bold"
                 active
               >
-                <a
-                  href="http://localhost:1234/#/"
-                  style={{
-                    color: 'white',
-                    textDecoration: 'underline #DD051B',
-                  }}
-                >
+                <Link to="/" style={{ color: 'white' }}>
                   HOME
-                </a>
+                </Link>
               </NavbarItem>
-              <NavbarItem textColor="white" textSize="7" textWeight="light">
+              <NavbarItem textColor="white" textSize="7" textWeight="bold">
                 OVERVIEW
               </NavbarItem>
-              <NavbarItem textColor="white" textSize="7" textWeight="light">
+              <NavbarItem textColor="white" textSize="7" textWeight="bold">
                 <a
                   href="https://devfractal-styleguide.netlify.com/"
                   style={{ color: 'white' }}
@@ -144,10 +138,10 @@ export const IndexPageHeader: React.FC = () => (
                   COMPONENTS LIST
                 </a>
               </NavbarItem>
-              <NavbarItem textColor="white" textSize="7" textWeight="light">
+              <NavbarItem textColor="white" textSize="7" textWeight="bold">
                 RESOURCES
               </NavbarItem>
-              <NavbarItem textColor="white" textSize="7" textWeight="light">
+              <NavbarItem textColor="white" textSize="7" textWeight="bold">
                 DOWNLOAD
               </NavbarItem>
             </NavbarEnd>
@@ -156,7 +150,9 @@ export const IndexPageHeader: React.FC = () => (
       </HeroHead>
       <Route exact path="/" component={HeroBodySection} />
     </Hero>
-    <DynamicBreadcrumb />
+    <Section>
+      <DynamicBreadcrumb />
+    </Section>
   </>
 )
 
