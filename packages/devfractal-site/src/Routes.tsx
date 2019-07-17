@@ -101,16 +101,14 @@ export const TabsRoutes: React.FC = () => (
 )
 
 export const IndexRoutes: React.FC = () => (
-  <div className="has-background-black">
-    <Container textBackgroundColor="white">
-      <Route path="/" component={IndexPageHeader} />
-      <Route exact path="/" component={UIComponentsOverview} />
-      <Route exact path="/" component={ExploreUIComponents} />
-      <Route exact path="/" component={BottomSection} />
-      <Route exact path="/" component={ResourceSection} />
-      <Route exact path="/" component={FooterSection} />
-    </Container>
-  </div>
+  <>
+    <Route path="/" component={IndexPageHeader} />
+    <Route exact path="/" component={UIComponentsOverview} />
+    <Route exact path="/" component={ExploreUIComponents} />
+    <Route exact path="/" component={BottomSection} />
+    <Route exact path="/" component={ResourceSection} />
+    <Route exact path="/" component={FooterSection} />
+  </>
 )
 
 export const Routes: React.FC = () => (
