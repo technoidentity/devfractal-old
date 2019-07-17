@@ -5,20 +5,32 @@ import {
   INTERNAL_SERVER_ERROR,
   NO_CONTENT,
 } from 'http-status-codes'
+import { toInt } from 'technoidentity-utils'
 import { auth } from './auth'
 import { Task, TaskModel } from './taskSchema'
 import { Request, Response } from './types'
 
+interface TaskQuery {
+  readonly page: string
+  readonly limit: string
+}
+
 export const taskRouter = express.Router()
 
-taskRouter.get('/', auth, async (_: Request, res: Response<Task[]>) => {
-  try {
-    const tasks = await TaskModel.find().exec()
-    res.send(tasks)
-  } catch (err) {
-    res.status(BAD_REQUEST).send({ error: err.message })
-  }
-})
+taskRouter.get(
+  '/',
+  auth,
+  async (req: Request<undefined, TaskQuery>, res: Response<Task[]>) => {
+    const page = toInt(req.query.page)
+    const limit = toInt(req.query.limit)
+    try {
+      const tasks = await TaskModel.paginate({}, { limit, page })
+      res.send(tasks.docs)
+    } catch (err) {
+      res.status(BAD_REQUEST).send({ error: err.message })
+    }
+  },
+)
 
 taskRouter.get(
   '/completed',

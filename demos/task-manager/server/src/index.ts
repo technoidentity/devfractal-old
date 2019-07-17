@@ -6,6 +6,7 @@ import session from 'express-session'
 import mongoose from 'mongoose'
 import { sessionRouter } from './sessionRouter'
 import { taskRouter } from './taskRouter'
+import { TaskModel } from './taskSchema'
 import { userRouter } from './userRouter'
 
 const port = 9999
