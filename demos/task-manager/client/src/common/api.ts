@@ -20,5 +20,5 @@ export const taskApi = rest({ resource: 'tasks', type: Task, ...apiOptions })
 export async function getTasks(path: TaskFilter): Promise<ReadonlyArray<Task>> {
   verify(TaskFilter, path)
 
-  return taskApi.many({ path: path !== 'all' ? path : undefined })
+  return taskApi.many({ path: path !== 'all' ? path : undefined ,query:{limit:2,page:2}})
 }
