@@ -1,5 +1,6 @@
 import { compareAsc, format, startOfDay } from 'date-fns'
 import { Document, model, Schema } from 'mongoose'
+import mongoosePaginate from 'mongoose-paginate'
 
 const dateSchema = new Schema({
   started: { type: Date, required: true },
@@ -87,5 +88,7 @@ const taskSchema = new Schema<Task>(
     useNestedStrict: true,
   },
 )
+
+taskSchema.plugin(mongoosePaginate)
 
 export const TaskModel = model<Task>('Task', taskSchema)

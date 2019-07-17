@@ -19,6 +19,7 @@
     "validate": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
+    "@types/mongoose-paginate": "^5.0.6",
     "body-parser": "1.19.0",
     "connect-mongo": "3.0.0",
     "cors": "2.8.5",
@@ -30,6 +31,7 @@
     "io-ts-types": "0.5.0",
     "mongodb": "3.2.7",
     "mongoose": "5.6.4",
+    "mongoose-paginate": "^5.0.3",
     "mongoose-unique-validator": "2.0.3",
     "monocle-ts": "2.0.0",
     "tcomb": "3.2.29"
