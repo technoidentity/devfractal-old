@@ -9,6 +9,7 @@ import {
   ButtonsGroup,
   component,
   Editor,
+  Get,
   Post,
   Put,
   rest,
@@ -16,13 +17,12 @@ import {
   RowClickEvent,
   SafeRoute as Route,
   Section,
-  SimpleAsync,
   SimpleTable,
   Title,
   useMatch,
   useRouter,
 } from 'technoidentity-devfractal'
-import { cast, empty, fn, props, req } from 'technoidentity-utils'
+import { empty, fn, props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])
 
@@ -65,7 +65,6 @@ const Params = req({ id: string })
 
 export const EditTodoRoute = () => {
   const { params } = useMatch(Params)
-  cast(Params, params)
 
   return (
     <Put<Todo>
@@ -95,19 +94,20 @@ const TodoListView = component(TodoListViewProps, ({ todoList, onEdit }) => (
 ))
 
 const TodoListRoute = () => {
+  // @TODO: replace with useRedirect, takes parameters.
   const { history } = useRouter()
 
   return (
     <>
       <Title textAlignment="centered">Todo List</Title>
-      <SimpleAsync asyncFn={todoApi.many}>
-        {({ data }) => (
+      <Get asyncFn={() => todoApi.many()}>
+        {data => (
           <TodoListView
             todoList={data}
             onEdit={evt => history.push(`/todos/${evt.value.id}/edit`)}
           />
         )}
-      </SimpleAsync>
+      </Get>
     </>
   )
 }
