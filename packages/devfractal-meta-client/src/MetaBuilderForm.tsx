@@ -13,7 +13,14 @@ import {
   SimpleArrayFieldComponentProps,
   Text,
 } from 'technoidentity-devfractal'
-import { ArrayRefinements, DateRefinements, Mixed, NumberRefinements, Refinements, StringRefinements } from 'technoidentity-meta-core'
+import {
+  ArrayRefinements,
+  DateRefinements,
+  Mixed,
+  NumberRefinements,
+  Refinements,
+  StringRefinements,
+} from 'technoidentity-meta-core'
 
 export interface MetaBuilderFormProps {
   onSubmit(values: any, formikActions: FormikActions<any>): void
@@ -46,8 +53,7 @@ interface DateRefinementsForm {
   readonly isMax: boolean
 }
 
-type RefinementsForm =
-  Refinements &
+type RefinementsForm = Refinements &
   ArrayRefinementsForm &
   NumberRefinementsForm &
   StringRefinementsForm &
@@ -79,7 +85,7 @@ const newMeta: () => MetaForm = () => ({
     fixed: 0,
     strLength: {
       min: 0,
-      max: 0
+      max: 0,
     },
     maxArrayLength: 0,
     minArrayLength: 0,
@@ -93,7 +99,10 @@ interface NumberRefinementsSubFormProps {
   readonly data: NumberRefinements & NumberRefinementsForm
 }
 
-const NumberRefinementsSubForm: React.FC<NumberRefinementsSubFormProps> = ({name, data}) => {
+const NumberRefinementsSubForm: React.FC<NumberRefinementsSubFormProps> = ({
+  name,
+  data,
+}) => {
   return (
     <>
       <Columns>
@@ -109,28 +118,42 @@ const NumberRefinementsSubForm: React.FC<NumberRefinementsSubFormProps> = ({name
         </Column>
         <Column narrow>sign</Column>
         <Column>
-          {data.isSign && <SelectField name={`${name}.sign`}>
-            <option value="positive">positive</option>
-            <option value="negative">negative</option>
-          </SelectField>}
+          {data.isSign && (
+            <SelectField name={`${name}.sign`}>
+              <option value="positive">positive</option>
+              <option value="negative">negative</option>
+            </SelectField>
+          )}
         </Column>
       </Columns>
       <Columns>
         <Column narrow>
-          <CheckboxField name={`${name}.isMin`}/>
+          <CheckboxField name={`${name}.isMin`} />
         </Column>
         <Column>minimum</Column>
         <Column>
-          {data.isMin && <InputField type="number" name={`${name}.min`} placeholder="Minimum Value" />}
+          {data.isMin && (
+            <InputField
+              type="number"
+              name={`${name}.min`}
+              placeholder="Minimum Value"
+            />
+          )}
         </Column>
       </Columns>
       <Columns>
         <Column narrow>
-          <CheckboxField name={`${name}.isMax`}/>
+          <CheckboxField name={`${name}.isMax`} />
         </Column>
         <Column>maximum</Column>
         <Column>
-          {data.isMax && <InputField type="number" name={`${name}.max`} placeholder="Maximum Value" />}
+          {data.isMax && (
+            <InputField
+              type="number"
+              name={`${name}.max`}
+              placeholder="Maximum Value"
+            />
+          )}
         </Column>
       </Columns>
     </>
@@ -142,31 +165,38 @@ interface StringRefinementsSubFormProps {
   readonly data: StringRefinements & StringRefinementsForm
 }
 
-const StringRefinementsSubForm: React.FC<StringRefinementsSubFormProps> = ({name, data}) => {
+const StringRefinementsSubForm: React.FC<StringRefinementsSubFormProps> = ({
+  name,
+  data,
+}) => {
   return (
     <>
       <Columns>
         <Column narrow>
-          <CheckboxField name={`${name}.isBase`}/>
+          <CheckboxField name={`${name}.isBase`} />
         </Column>
         <Column narrow>base</Column>
         <Column>
-          {data.isBase && <SelectField name={`${name}.base`}>
-            <option value="email">email</option>
-            <option value="url">url</option>
-          </SelectField>}
+          {data.isBase && (
+            <SelectField name={`${name}.base`}>
+              <option value="email">email</option>
+              <option value="url">url</option>
+            </SelectField>
+          )}
         </Column>
       </Columns>
       <Columns>
         <Column narrow>
-          <CheckboxField name={`${name}.isCase`}/>
+          <CheckboxField name={`${name}.isCase`} />
         </Column>
         <Column narrow>case</Column>
         <Column>
-          {data.isCase && <SelectField name={`${name}.case`}>
-            <option value="lower">lower</option>
-            <option value="upper">upper</option>
-          </SelectField>}
+          {data.isCase && (
+            <SelectField name={`${name}.case`}>
+              <option value="lower">lower</option>
+              <option value="upper">upper</option>
+            </SelectField>
+          )}
         </Column>
       </Columns>
       <Columns>
@@ -175,16 +205,28 @@ const StringRefinementsSubForm: React.FC<StringRefinementsSubFormProps> = ({name
         </Column>
         <Column>fixed</Column>
         <Column>
-          {data.isFixed && <InputField type="number" name={`${name}.fixed`} placeholder="Exact length" />}
+          {data.isFixed && (
+            <InputField
+              type="number"
+              name={`${name}.fixed`}
+              placeholder="Exact length"
+            />
+          )}
         </Column>
       </Columns>
       <Columns>
         <Column narrow>
-        <CheckboxField name={`${name}.isMin`} />
+          <CheckboxField name={`${name}.isMin`} />
         </Column>
         <Column>minimum length</Column>
         <Column>
-          {!data.isFixed && data.isMin && <InputField type="number" name={`${name}.strLength.min`} placeholder="Minimum length" />}
+          {!data.isFixed && data.isMin && (
+            <InputField
+              type="number"
+              name={`${name}.strLength.min`}
+              placeholder="Minimum length"
+            />
+          )}
         </Column>
       </Columns>
       <Columns>
@@ -193,7 +235,13 @@ const StringRefinementsSubForm: React.FC<StringRefinementsSubFormProps> = ({name
         </Column>
         <Column>maximum length</Column>
         <Column>
-          {!data.isFixed && data.isMax && <InputField type="number" name={`${name}.strLength.max`} placeholder="Maximum Value" />}
+          {!data.isFixed && data.isMax && (
+            <InputField
+              type="number"
+              name={`${name}.strLength.max`}
+              placeholder="Maximum Value"
+            />
+          )}
         </Column>
       </Columns>
     </>
@@ -205,7 +253,10 @@ interface ArrayRefinementsSubFormProps {
   readonly data: ArrayRefinements & ArrayRefinementsForm
 }
 
-const ArrayRefinementsSubForm: React.FC<ArrayRefinementsSubFormProps> = ({name, data}) => {
+const ArrayRefinementsSubForm: React.FC<ArrayRefinementsSubFormProps> = ({
+  name,
+  data,
+}) => {
   return (
     <>
       <Columns>
@@ -214,7 +265,13 @@ const ArrayRefinementsSubForm: React.FC<ArrayRefinementsSubFormProps> = ({name, 
         </Column>
         <Column>maximum array elements</Column>
         <Column>
-          {data.isMax && <InputField type="number" name={`${name}.maxArrayLength`} placeholder="maximum array elements" />}
+          {data.isMax && (
+            <InputField
+              type="number"
+              name={`${name}.maxArrayLength`}
+              placeholder="maximum array elements"
+            />
+          )}
         </Column>
       </Columns>
       <Columns>
@@ -223,7 +280,13 @@ const ArrayRefinementsSubForm: React.FC<ArrayRefinementsSubFormProps> = ({name, 
         </Column>
         <Column>minimum array elements</Column>
         <Column>
-          {data.isMin && <InputField type="number" name={`${name}.minArrayLength`} placeholder="minimum array elements" />}
+          {data.isMin && (
+            <InputField
+              type="number"
+              name={`${name}.minArrayLength`}
+              placeholder="minimum array elements"
+            />
+          )}
         </Column>
       </Columns>
     </>
@@ -235,7 +298,10 @@ interface DateRefinementsSubFormProps {
   readonly data: DateRefinements & DateRefinementsForm
 }
 
-const DateRefinementsSubForm: React.FC<DateRefinementsSubFormProps> = ({name, data}) => {
+const DateRefinementsSubForm: React.FC<DateRefinementsSubFormProps> = ({
+  name,
+  data,
+}) => {
   return (
     <>
       <Columns>
@@ -243,18 +309,14 @@ const DateRefinementsSubForm: React.FC<DateRefinementsSubFormProps> = ({name, da
           <CheckboxField name={`${name}.isMax`} />
         </Column>
         <Column>max date</Column>
-        <Column>
-          {data.isMax && <DateField name={`${name}.maxDate`} />}
-        </Column>
+        <Column>{data.isMax && <DateField name={`${name}.maxDate`} />}</Column>
       </Columns>
       <Columns>
         <Column narrow>
           <CheckboxField name={`${name}.isMin`} />
         </Column>
         <Column>min date</Column>
-        <Column>
-          {data.isMin && <DateField name={`${name}.minDate`} />}
-        </Column>
+        <Column>{data.isMin && <DateField name={`${name}.minDate`} />}</Column>
       </Columns>
     </>
   )
@@ -269,17 +331,17 @@ interface RefinementsSubFormProps {
 const RefinementsSubForm: React.FC<RefinementsSubFormProps> = ({
   selectedType,
   name,
-  data
+  data,
 }) => {
   switch (selectedType) {
     case 'number':
-      return <NumberRefinementsSubForm name={name} data={data}/>
+      return <NumberRefinementsSubForm name={name} data={data} />
     case 'string':
-      return <StringRefinementsSubForm name={name} data={data}/>
+      return <StringRefinementsSubForm name={name} data={data} />
     case 'array':
-      return <ArrayRefinementsSubForm name={name} data={data}/>
+      return <ArrayRefinementsSubForm name={name} data={data} />
     case 'date':
-      return <DateRefinementsSubForm name={name} data={data}/>
+      return <DateRefinementsSubForm name={name} data={data} />
   }
 }
 
@@ -292,15 +354,17 @@ const AddField: React.FC<FieldProps> = ({ name, data }) => {
   return (
     <Container>
       <Simple.Text name={`${name}.label`} label="Label" />
-      <SelectField
-        name={`${name}.kind`}
-      >
+      <SelectField name={`${name}.kind`}>
         <option value="number">number</option>
         <option value="string">string</option>
         <option value="date">date</option>
         <option value="array">array</option>
       </SelectField>
-      <RefinementsSubForm selectedType={data.kind} name={`${name}.refinements`} data={data.refinements}/>
+      <RefinementsSubForm
+        selectedType={data.kind}
+        name={`${name}.refinements`}
+        data={data.refinements}
+      />
     </Container>
   )
 }
@@ -315,7 +379,7 @@ const AddFieldComponent: React.FC<SimpleArrayFieldComponentProps<MetaForm>> = ({
     <Text textAlignment="centered" textSize="3">
       Add Field
     </Text>
-    <AddField name={name} data={data}/>
+    <AddField name={name} data={data} />
   </>
 )
 
@@ -324,16 +388,16 @@ const AddFieldComponent: React.FC<SimpleArrayFieldComponentProps<MetaForm>> = ({
 function toNumberRefinements(r: RefinementsForm): NumberRefinements {
   const refinements: any = {}
 
-  if(r.integer) {
+  if (r.integer) {
     refinements.integer = r.integer
   }
-  if(r.isSign) {
+  if (r.isSign) {
     refinements.sign = r.sign
   }
-  if(r.isMin) {
+  if (r.isMin) {
     refinements.min = r.min
   }
-  if(r.isMax) {
+  if (r.isMax) {
     refinements.max = r.max
   }
   return refinements
@@ -342,21 +406,20 @@ function toNumberRefinements(r: RefinementsForm): NumberRefinements {
 function toStringRefinements(r: RefinementsForm): StringRefinements {
   const refinements: any = {}
 
-  if(r.isBase) {
+  if (r.isBase) {
     refinements.base = r.base
   }
-  if(r.isCase) {
+  if (r.isCase) {
     refinements.case = r.case
   }
-  if(r.isFixed) {
+  if (r.isFixed) {
     refinements.strLength = { fixed: r.fixed }
-  }
-  else if(r.isMin || r.isMax){
+  } else if (r.isMin || r.isMax) {
     refinements.strLength = {}
-    if(r.isMin) {
+    if (r.isMin) {
       refinements.strLength.min = r.min
     }
-    if(r.isMax) {
+    if (r.isMax) {
       refinements.strLength.max = r.max
     }
   }
@@ -366,10 +429,10 @@ function toStringRefinements(r: RefinementsForm): StringRefinements {
 function toArrayRefinements(r: RefinementsForm): ArrayRefinements {
   const refinements: any = {}
 
-  if(r.isMin) {
+  if (r.isMin) {
     refinements.minArrayLength = r.minArrayLength
   }
-  if(r.isMax) {
+  if (r.isMax) {
     refinements.maxArrayLength = r.maxArrayLength
   }
   return refinements
@@ -378,32 +441,47 @@ function toArrayRefinements(r: RefinementsForm): ArrayRefinements {
 function toDateRefinements(r: RefinementsForm): DateRefinements {
   const refinements: any = {}
 
-  if(r.isMin) {
+  if (r.isMin) {
     refinements.minDate = r.minDate
   }
-  if(r.isMax) {
+  if (r.isMax) {
     refinements.maxDate = r.maxDate
   }
   return refinements
 }
 
 function toMeta(value: MetaForm): Mixed {
-  switch(value.kind) {
+  switch (value.kind) {
     case 'number':
-      return { kind: 'number', refinements: toNumberRefinements(value.refinements)}
+      return {
+        kind: 'number',
+        refinements: toNumberRefinements(value.refinements),
+      }
     case 'string':
-      return { kind: 'string', refinements: toStringRefinements(value.refinements)}
+      return {
+        kind: 'string',
+        refinements: toStringRefinements(value.refinements),
+      }
     case 'array':
-      return { kind: 'array', of: { kind: 'object', properties: {} }, refinements: toArrayRefinements(value.refinements)}
+      return {
+        kind: 'array',
+        of: { kind: 'object', properties: {} },
+        refinements: toArrayRefinements(value.refinements),
+      }
     case 'date':
-      return { kind: 'date', refinements: toDateRefinements(value.refinements)}
+      return { kind: 'date', refinements: toDateRefinements(value.refinements) }
   }
 }
 
-export const MetaBuilderForm: React.FC<MetaBuilderFormProps> = ({ onSubmit }) => (
-  <Formik initialValues={initialValues} onSubmit={(values, formikActions) =>
-    onSubmit({ meta: values.meta.map(toMeta) }, formikActions)
-  }>
+export const MetaBuilderForm: React.FC<MetaBuilderFormProps> = ({
+  onSubmit,
+}) => (
+  <Formik
+    initialValues={initialValues}
+    onSubmit={(values, formikActions) =>
+      onSubmit({ meta: values.meta.map(toMeta) }, formikActions)
+    }
+  >
     {({ values }) => (
       <Form>
         <SimpleArrayField<MetaForm>
