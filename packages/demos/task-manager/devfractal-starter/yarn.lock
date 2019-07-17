@@ -1093,10 +1093,15 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/node@*", "@types/node@12.6.2":
+"@types/node@*":
   version "12.6.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.2.tgz#a5ccec6abb6060d5f20d256fb03ed743e9774999"
   integrity sha512-gojym4tX0FWeV2gsW4Xmzo5wxGjXGm550oVUII7f7G5o4BV6c7DBdiG1RRQd+y1bvqRyYtPfMK85UM95vsapqQ==
+
+"@types/node@12.6.6":
+  version "12.6.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.6.tgz#831587377c35bb28fa33b6fe5f849a26a3f4a412"
+  integrity sha512-SMgj3x28MkJyHdWaMv/g/ca3LYDi5gR7O8mX0VKazvFOnmlDXctSEdd/8jfSqozjKFK1R9If1QZWkafX7yQTpA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -1113,12 +1118,13 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
-"@types/react-datepicker@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-2.3.0.tgz#9bd57914fc714c070653d7aa5381a139e4fabb63"
-  integrity sha512-E+FNo6BRiFi12R5VqFb9OFc8cNZxQFJLIowLFcuSefdi+4SJLRCe6W6r1kxYNYW5uvGOJ35SS5Oe/PLqcfUezA==
+"@types/react-datepicker@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-2.8.0.tgz#17674ea641d641fd9b1ae172a6af0a53026a6c04"
+  integrity sha512-Tij+O4trO6MgDxCvvrRV5jfnHCxst5bhF+BUgd17pR2yk21DBJlfj96nFKMQbdJHgUAMt6TtduhdLqqxZZNAvg==
   dependencies:
     "@types/react" "*"
+    date-fns "^2.0.0-beta.1"
     popper.js "^1.14.1"
 
 "@types/react-dom@16.8.4":
@@ -1163,10 +1169,10 @@
   resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
   integrity sha512-SOhuU4wNBxhhTHxYaiG5NY4HBhDIDnJF60GU+2LqHAdKKer86//e4yg69aENCtQ04n0ovz+tq2YPME5t5yp4pw==
 
-"@types/yup@0.26.21":
-  version "0.26.21"
-  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.21.tgz#bfca27a02a0631495bfd25b6c63647a125e6944e"
-  integrity sha512-1C45M7hZrVsl8bXxYV01bitRp0r35djt+eX5HWFH3NdH+8ejqta3KM7rmQLRLrupkhF7jRkAtXl2EgDsriIqwA==
+"@types/yup@0.26.22":
+  version "0.26.22"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.22.tgz#66da181bfddaf797192f5fc2795583e033568407"
+  integrity sha512-AhUPifCc7j2BEfp+wye3Mj7v3mMhbtu5BbO7n0zpwC/NVSETc8+MHENRmoxjE8wLC8AmFr5+uEhg5cvqusaRFQ==
 
 abab@^2.0.0:
   version "2.0.0"
@@ -2553,7 +2559,7 @@ date-fns@1.30.1, date-fns@^1.27.2:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
 
-date-fns@^v2.0.0-beta.1:
+date-fns@^2.0.0-beta.1, date-fns@^v2.0.0-beta.1:
   version "2.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-beta.2.tgz#ccd556df832ef761baa88c600f53d2e829245999"
   integrity sha512-4cicZF707RNerr3/Q3CcdLo+3OHMCfrRXE7h5iFgn7AMvX07sqKLxSf8Yp+WJW5bvKr2cy9/PkctXLv4iFtOaA==
