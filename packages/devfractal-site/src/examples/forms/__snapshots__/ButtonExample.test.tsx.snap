@@ -1,67 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button Example 1`] = `
-Array [
-  <section
-    className="section"
+<div
+  className="columns is-centered"
+>
+  <div
+    className="column is-half is-half"
   >
-    <h1
-      className="title is-4"
+    <section
+      className="section"
     >
-      Dynamic Button
-    </h1>
-    <div
-      className="control"
-    >
-      <button
-        className="button"
-        onClick={[Function]}
-        type="button"
+      <h1
+        className="title is-4"
       >
-        Click Me!
-      </button>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      Normal button
-    </h1>
-    <div
-      className="control"
-    >
-      <button
-        className="button"
-        type="button"
-      >
-        Button
-      </button>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      Types of button
-    </h1>
-    <div
-      className="field is-grouped"
-    >
+        Dynamic Button
+      </h1>
       <div
         className="control"
       >
         <button
           className="button"
+          onClick={[Function]}
           type="button"
         >
-          Anchor
+          Click Me!
         </button>
       </div>
+    </section>
+    <section
+      className="section"
+    >
+      <h1
+        className="title is-4"
+      >
+        Normal button
+      </h1>
       <div
         className="control"
       >
@@ -72,2115 +45,967 @@ Array [
           Button
         </button>
       </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Submit input
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Reset input
-        </button>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
+    </section>
+    <section
+      className="section"
     >
-      Colors
-    </h1>
-    <div
-      className="field is-grouped"
+      <h1
+        className="title is-4"
+      >
+        Types of button
+      </h1>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Anchor
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Button
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Submit input
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Reset input
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
     >
-      <div
-        className="control"
+      <h1
+        className="title is-4"
       >
-        <button
-          className="button is-white"
-          type="button"
+        Colors
+      </h1>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
         >
-          White
-        </button>
+          <button
+            className="button is-white"
+            type="button"
+          >
+            White
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-light"
+            type="button"
+          >
+            Light
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-dark"
+            type="button"
+          >
+            Dark
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-black"
+            type="button"
+          >
+            Black
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-text"
+            type="button"
+          >
+            Text
+          </button>
+        </div>
       </div>
       <div
-        className="control"
+        className="field is-grouped"
       >
-        <button
-          className="button is-light"
-          type="button"
+        <div
+          className="control"
         >
-          Light
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-dark"
-          type="button"
+          <button
+            className="button is-primary"
+            type="button"
+          >
+            primary
+          </button>
+        </div>
+        <div
+          className="control"
         >
-          Dark
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-black"
-          type="button"
+          <button
+            className="button is-link"
+            type="button"
+          >
+            link
+          </button>
+        </div>
+        <div
+          className="control"
         >
-          Black
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-text"
-          type="button"
+          <button
+            className="button is-info"
+            type="button"
+          >
+            info
+          </button>
+        </div>
+        <div
+          className="control"
         >
-          Text
-        </button>
+          <button
+            className="button is-success"
+            type="button"
+          >
+            success
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-warning"
+            type="button"
+          >
+            warning
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger"
+            type="button"
+          >
+            Danger
+          </button>
+        </div>
       </div>
-    </div>
-    <div
-      className="field is-grouped"
+    </section>
+    <section
+      className="section"
     >
-      <div
-        className="control"
+      <h1
+        className="title is-4"
       >
-        <button
-          className="button is-primary"
-          type="button"
-        >
-          primary
-        </button>
-      </div>
+        Sizes
+      </h1>
       <div
-        className="control"
+        className="field is-grouped"
       >
-        <button
-          className="button is-link"
-          type="button"
+        <div
+          className="control"
         >
-          link
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-info"
-          type="button"
+          <button
+            className="button is-small"
+            type="button"
+          >
+            Small
+          </button>
+        </div>
+        <div
+          className="control"
         >
-          info
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success"
-          type="button"
+          <button
+            className="button"
+            type="button"
+          >
+            Default
+          </button>
+        </div>
+        <div
+          className="control"
         >
-          success
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-warning"
-          type="button"
+          <button
+            className="button is-normal"
+            type="button"
+          >
+            Normal
+          </button>
+        </div>
+        <div
+          className="control"
         >
-          warning
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger"
-          type="button"
+          <button
+            className="button is-medium"
+            type="button"
+          >
+            Medium
+          </button>
+        </div>
+        <div
+          className="control"
         >
-          Danger
-        </button>
+          <button
+            className="button is-large"
+            type="button"
+          >
+            Large
+          </button>
+        </div>
       </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
+    </section>
+    <section
+      className="section"
     >
-      Sizes
-    </h1>
-    <div
-      className="field is-grouped"
+      <h1
+        className="title is-4"
+      >
+        Styles
+      </h1>
+      <label
+        className="label"
+      >
+        Outlined
+      </label>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-outlined"
+            type="button"
+          >
+            Outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary is-outlined"
+            type="button"
+          >
+            Outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-link is-outlined"
+            type="button"
+          >
+            Outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-info is-outlined"
+            type="button"
+          >
+            Outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-outlined"
+            type="button"
+          >
+            Outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger is-outlined"
+            type="button"
+          >
+            Outlined
+          </button>
+        </div>
+      </div>
+      <label
+        className="label"
+      >
+        Inverted
+      </label>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-inverted"
+            type="button"
+          >
+            inverted
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary is-inverted"
+            type="button"
+          >
+            inverted
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-link is-inverted"
+            type="button"
+          >
+            inverted
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-info is-inverted"
+            type="button"
+          >
+            inverted
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-inverted"
+            type="button"
+          >
+            inverted
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger is-inverted"
+            type="button"
+          >
+            inverted
+          </button>
+        </div>
+      </div>
+      <label
+        className="label"
+      >
+        Invert Outlined
+      </label>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-inverted is-outlined"
+            type="button"
+          >
+            inverted outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary is-inverted is-outlined"
+            type="button"
+          >
+            inverted outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-link is-inverted is-outlined"
+            type="button"
+          >
+            inverted outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-info is-inverted is-outlined"
+            type="button"
+          >
+            inverted outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-inverted is-outlined"
+            type="button"
+          >
+            inverted outlined
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger is-inverted is-outlined"
+            type="button"
+          >
+            inverted outlined
+          </button>
+        </div>
+      </div>
+      <label
+        className="label"
+      >
+        Rounded buttons
+      </label>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Rounded
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary is-rounded"
+            type="button"
+          >
+            Rounded
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-link is-rounded"
+            type="button"
+          >
+            Rounded
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-dark is-rounded"
+            type="button"
+          >
+            Rounded
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-rounded"
+            type="button"
+          >
+            Rounded
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger is-rounded"
+            type="button"
+          >
+            Rounded
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
     >
-      <div
-        className="control"
+      <h1
+        className="title is-4"
       >
-        <button
-          className="button is-small"
-          type="button"
-        >
-          Small
-        </button>
-      </div>
-      <div
-        className="control"
+        States
+      </h1>
+      <label
+        className="label"
       >
-        <button
-          className="button"
-          type="button"
-        >
-          Default
-        </button>
-      </div>
+        Normal
+      </label>
       <div
-        className="control"
+        className="field is-grouped"
       >
-        <button
-          className="button is-normal"
-          type="button"
+        <div
+          className="control"
         >
-          Normal
-        </button>
+          <button
+            className="button"
+            type="button"
+          >
+            Normal
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success"
+            type="button"
+          >
+            Normal
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="button"
+          >
+            Normal
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success"
+            type="button"
+          >
+            Normal
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-warning"
+            type="button"
+          >
+            Normal
+          </button>
+        </div>
       </div>
+      <label
+        className="label"
+      >
+        Hover
+      </label>
       <div
-        className="control"
+        className="field is-grouped"
       >
-        <button
-          className="button is-medium"
-          type="button"
+        <div
+          className="control"
         >
-          Medium
-        </button>
+          <button
+            className="button is-hovered"
+            type="button"
+          >
+            Hover
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-hovered"
+            type="button"
+          >
+            Hover
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary is-hovered"
+            type="button"
+          >
+            Hover
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-hovered"
+            type="button"
+          >
+            Hover
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-warning is-hovered"
+            type="button"
+          >
+            Hover
+          </button>
+        </div>
       </div>
+      <label
+        className="label"
+      >
+        Focus
+      </label>
       <div
-        className="control"
+        className="field is-grouped"
       >
-        <button
-          className="button is-large"
-          type="button"
+        <div
+          className="control"
         >
-          Large
-        </button>
+          <button
+            className="button is-focused"
+            type="button"
+          >
+            Focus
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-focused"
+            type="button"
+          >
+            Focus
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary is-focused"
+            type="button"
+          >
+            Focus
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-focused"
+            type="button"
+          >
+            Focus
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-warning is-focused"
+            type="button"
+          >
+            Focus
+          </button>
+        </div>
       </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
+      <label
+        className="label"
+      >
+        Active
+      </label>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary is-active"
+            type="button"
+          >
+            active
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-active"
+            type="button"
+          >
+            active
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-link is-active"
+            type="button"
+          >
+            active
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-info is-active"
+            type="button"
+          >
+            active
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-warning is-active"
+            type="button"
+          >
+            active
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger is-active"
+            type="button"
+          >
+            active
+          </button>
+        </div>
+      </div>
+      <label
+        className="label"
+      >
+        Loading
+      </label>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary is-loading"
+            type="button"
+          >
+            loading
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success is-loading"
+            type="button"
+          >
+            loading
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-link is-loading"
+            type="button"
+          >
+            loading
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-info is-loading"
+            type="button"
+          >
+            loading
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-warning is-loading"
+            type="button"
+          >
+            loading
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger is-loading"
+            type="button"
+          >
+            loading
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
     >
-      Styles
-    </h1>
-    <label
-      className="label"
-    >
-      Outlined
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-outlined"
-          type="button"
-        >
-          Outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary is-outlined"
-          type="button"
-        >
-          Outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-link is-outlined"
-          type="button"
-        >
-          Outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-info is-outlined"
-          type="button"
-        >
-          Outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-outlined"
-          type="button"
-        >
-          Outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger is-outlined"
-          type="button"
-        >
-          Outlined
-        </button>
-      </div>
-    </div>
-    <label
-      className="label"
-    >
-      Inverted
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-inverted"
-          type="button"
-        >
-          inverted
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary is-inverted"
-          type="button"
-        >
-          inverted
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-link is-inverted"
-          type="button"
-        >
-          inverted
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-info is-inverted"
-          type="button"
-        >
-          inverted
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-inverted"
-          type="button"
-        >
-          inverted
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger is-inverted"
-          type="button"
-        >
-          inverted
-        </button>
-      </div>
-    </div>
-    <label
-      className="label"
-    >
-      Invert Outlined
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-inverted is-outlined"
-          type="button"
-        >
-          inverted outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary is-inverted is-outlined"
-          type="button"
-        >
-          inverted outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-link is-inverted is-outlined"
-          type="button"
-        >
-          inverted outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-info is-inverted is-outlined"
-          type="button"
-        >
-          inverted outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-inverted is-outlined"
-          type="button"
-        >
-          inverted outlined
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger is-inverted is-outlined"
-          type="button"
-        >
-          inverted outlined
-        </button>
-      </div>
-    </div>
-    <label
-      className="label"
-    >
-      Rounded buttons
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Rounded
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary is-rounded"
-          type="button"
-        >
-          Rounded
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-link is-rounded"
-          type="button"
-        >
-          Rounded
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-dark is-rounded"
-          type="button"
-        >
-          Rounded
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-rounded"
-          type="button"
-        >
-          Rounded
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger is-rounded"
-          type="button"
-        >
-          Rounded
-        </button>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      States
-    </h1>
-    <label
-      className="label"
-    >
-      Normal
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Normal
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success"
-          type="button"
-        >
-          Normal
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary"
-          type="button"
-        >
-          Normal
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success"
-          type="button"
-        >
-          Normal
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-warning"
-          type="button"
-        >
-          Normal
-        </button>
-      </div>
-    </div>
-    <label
-      className="label"
-    >
-      Hover
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-hovered"
-          type="button"
-        >
-          Hover
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-hovered"
-          type="button"
-        >
-          Hover
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary is-hovered"
-          type="button"
-        >
-          Hover
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-hovered"
-          type="button"
-        >
-          Hover
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-warning is-hovered"
-          type="button"
-        >
-          Hover
-        </button>
-      </div>
-    </div>
-    <label
-      className="label"
-    >
-      Focus
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-focused"
-          type="button"
-        >
-          Focus
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-focused"
-          type="button"
-        >
-          Focus
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary is-focused"
-          type="button"
-        >
-          Focus
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-focused"
-          type="button"
-        >
-          Focus
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-warning is-focused"
-          type="button"
-        >
-          Focus
-        </button>
-      </div>
-    </div>
-    <label
-      className="label"
-    >
-      Active
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary is-active"
-          type="button"
-        >
-          active
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-active"
-          type="button"
-        >
-          active
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-link is-active"
-          type="button"
-        >
-          active
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-info is-active"
-          type="button"
-        >
-          active
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-warning is-active"
-          type="button"
-        >
-          active
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger is-active"
-          type="button"
-        >
-          active
-        </button>
-      </div>
-    </div>
-    <label
-      className="label"
-    >
-      Loading
-    </label>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary is-loading"
-          type="button"
-        >
-          loading
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success is-loading"
-          type="button"
-        >
-          loading
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-link is-loading"
-          type="button"
-        >
-          loading
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-info is-loading"
-          type="button"
-        >
-          loading
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-warning is-loading"
-          type="button"
-        >
-          loading
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger is-loading"
-          type="button"
-        >
-          loading
-        </button>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <label
-      className="label"
-    >
-      Static
-    </label>
-    <div
-      className="control"
-    >
-      <button
-        className="button is-static"
-        type="button"
+      <label
+        className="label"
       >
         Static
-      </button>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <label
-      className="label"
-    >
-      Disabled
-    </label>
-    <div
-      className="field is-grouped"
-    >
+      </label>
       <div
         className="control"
       >
         <button
-          className="button is-primary"
-          disabled={true}
+          className="button is-static"
           type="button"
         >
-          Disabled
+          Static
         </button>
       </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-info"
-          disabled={true}
-          type="button"
-        >
-          Disabled
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success"
-          disabled={true}
-          type="button"
-        >
-          Disabled
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-link"
-          disabled={true}
-          type="button"
-        >
-          Disabled
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-black"
-          disabled={true}
-          type="button"
-        >
-          Disabled
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-dark"
-          disabled={true}
-          type="button"
-        >
-          Disabled
-        </button>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      With Font Awesome icons
-    </h1>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-bold fa-w-12 "
-              data-icon="bold"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 384 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M333.49 238a122 122 0 0 0 27-65.21C367.87 96.49 308 32 233.42 32H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h31.87v288H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h209.32c70.8 0 134.14-51.75 141-122.4 4.74-48.45-16.39-92.06-50.83-119.6zM145.66 112h87.76a48 48 0 0 1 0 96h-87.76zm87.76 288h-87.76V288h87.76a56 56 0 0 1 0 112z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-italic fa-w-10 "
-              data-icon="italic"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M320 48v32a16 16 0 0 1-16 16h-62.76l-80 320H208a16 16 0 0 1 16 16v32a16 16 0 0 1-16 16H16a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h62.76l80-320H112a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16h192a16 16 0 0 1 16 16z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-underline fa-w-14 "
-              data-icon="underline"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M32 64h32v160c0 88.22 71.78 160 160 160s160-71.78 160-160V64h32a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16H272a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h32v160a80 80 0 0 1-160 0V64h32a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16zm400 384H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-github fa-w-16 "
-              data-icon="github"
-              data-prefix="fab"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 496 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-           
-          <div
-            className=""
-          >
-            GitHub
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-primary"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-twitter fa-w-16 "
-              data-icon="twitter"
-              data-prefix="fab"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 512 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Twitter
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-check fa-w-16 "
-              data-icon="check"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 512 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Save
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger is-outlined"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times fa-w-11 "
-              data-icon="times"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 352 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Delete
-          </div>
-        </button>
-      </div>
-    </div>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-small"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-github fa-w-16 "
-              data-icon="github"
-              data-prefix="fab"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 496 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-             GitHub
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-normal"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-github fa-w-16 "
-              data-icon="github"
-              data-prefix="fab"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 496 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-           
-          <div
-            className=""
-          >
-            GitHub
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-medium"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-github fa-w-16 "
-              data-icon="github"
-              data-prefix="fab"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 496 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-           
-          <div
-            className=""
-          >
-            GitHub
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-large"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-github fa-w-16 "
-              data-icon="github"
-              data-prefix="fab"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 496 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-           
-          <div
-            className=""
-          >
-            GitHub
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      Button group
-    </h1>
-    <div
-      className="field is-grouped"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-link"
-          type="button"
-        >
-          save changes
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Cancel
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger"
-          type="button"
-        >
-          Delete Post
-        </button>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      Button addons
-    </h1>
-    <div
-      className="field has-addons"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-align-left fa-w-14 "
-              data-icon="align-left"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.83 352h262.34A12.82 12.82 0 0 0 288 339.17v-38.34A12.82 12.82 0 0 0 275.17 288H12.83A12.82 12.82 0 0 0 0 300.83v38.34A12.82 12.82 0 0 0 12.83 352zm0-256h262.34A12.82 12.82 0 0 0 288 83.17V44.83A12.82 12.82 0 0 0 275.17 32H12.83A12.82 12.82 0 0 0 0 44.83v38.34A12.82 12.82 0 0 0 12.83 96zM432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-             Left
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-align-center fa-w-14 "
-              data-icon="align-center"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM108.1 96h231.81A12.09 12.09 0 0 0 352 83.9V44.09A12.09 12.09 0 0 0 339.91 32H108.1A12.09 12.09 0 0 0 96 44.09V83.9A12.1 12.1 0 0 0 108.1 96zm231.81 256A12.09 12.09 0 0 0 352 339.9v-39.81A12.09 12.09 0 0 0 339.91 288H108.1A12.09 12.09 0 0 0 96 300.09v39.81a12.1 12.1 0 0 0 12.1 12.1z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Center
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-align-right fa-w-14 "
-              data-icon="align-right"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16 224h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16zm416 192H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm3.17-384H172.83A12.82 12.82 0 0 0 160 44.83v38.34A12.82 12.82 0 0 0 172.83 96h262.34A12.82 12.82 0 0 0 448 83.17V44.83A12.82 12.82 0 0 0 435.17 32zm0 256H172.83A12.82 12.82 0 0 0 160 300.83v38.34A12.82 12.82 0 0 0 172.83 352h262.34A12.82 12.82 0 0 0 448 339.17v-38.34A12.82 12.82 0 0 0 435.17 288z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Right
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      Button group with addons
-    </h1>
-    <div
-      className="field has-addons"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-bold fa-w-12 "
-              data-icon="bold"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 384 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M333.49 238a122 122 0 0 0 27-65.21C367.87 96.49 308 32 233.42 32H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h31.87v288H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h209.32c70.8 0 134.14-51.75 141-122.4 4.74-48.45-16.39-92.06-50.83-119.6zM145.66 112h87.76a48 48 0 0 1 0 96h-87.76zm87.76 288h-87.76V288h87.76a56 56 0 0 1 0 112z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Bold
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-italic fa-w-10 "
-              data-icon="italic"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M320 48v32a16 16 0 0 1-16 16h-62.76l-80 320H208a16 16 0 0 1 16 16v32a16 16 0 0 1-16 16H16a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h62.76l80-320H112a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16h192a16 16 0 0 1 16 16z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Italic
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-underline fa-w-14 "
-              data-icon="underline"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M32 64h32v160c0 88.22 71.78 160 160 160s160-71.78 160-160V64h32a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16H272a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h32v160a80 80 0 0 1-160 0V64h32a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16zm400 384H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Underline
-          </div>
-        </button>
-      </div>
-    </div>
-    <div
-      className="field has-addons"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-align-left fa-w-14 "
-              data-icon="align-left"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.83 352h262.34A12.82 12.82 0 0 0 288 339.17v-38.34A12.82 12.82 0 0 0 275.17 288H12.83A12.82 12.82 0 0 0 0 300.83v38.34A12.82 12.82 0 0 0 12.83 352zm0-256h262.34A12.82 12.82 0 0 0 288 83.17V44.83A12.82 12.82 0 0 0 275.17 32H12.83A12.82 12.82 0 0 0 0 44.83v38.34A12.82 12.82 0 0 0 12.83 96zM432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-           
-          <div
-            className=""
-          >
-            Left
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-align-center fa-w-14 "
-              data-icon="align-center"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM108.1 96h231.81A12.09 12.09 0 0 0 352 83.9V44.09A12.09 12.09 0 0 0 339.91 32H108.1A12.09 12.09 0 0 0 96 44.09V83.9A12.1 12.1 0 0 0 108.1 96zm231.81 256A12.09 12.09 0 0 0 352 339.9v-39.81A12.09 12.09 0 0 0 339.91 288H108.1A12.09 12.09 0 0 0 96 300.09v39.81a12.1 12.1 0 0 0 12.1 12.1z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Center
-          </div>
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          <span
-            className="icon"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-align-right fa-w-14 "
-              data-icon="align-right"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16 224h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16zm416 192H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm3.17-384H172.83A12.82 12.82 0 0 0 160 44.83v38.34A12.82 12.82 0 0 0 172.83 96h262.34A12.82 12.82 0 0 0 448 83.17V44.83A12.82 12.82 0 0 0 435.17 32zm0 256H172.83A12.82 12.82 0 0 0 160 300.83v38.34A12.82 12.82 0 0 0 172.83 352h262.34A12.82 12.82 0 0 0 448 339.17v-38.34A12.82 12.82 0 0 0 435.17 288z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </span>
-          <div
-            className=""
-          >
-            Right
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      List of buttons
-    </h1>
-    <div
-      className="buttons"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button is-success"
-          type="button"
-        >
-          Save changes
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-info"
-          type="button"
-        >
-          Save and continue
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button is-danger"
-          type="button"
-        >
-          Cancel
-        </button>
-      </div>
-    </div>
-    <div
-      className="buttons"
-    >
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          One
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Two
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Three
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Four
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Five
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Six
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Seven
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Eight
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Nine
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Ten
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Eleven
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Twelve
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Thirteen
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Fourteen
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Fifteen
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Sixteen
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Seventeen
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Eighteen
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Nineteen
-        </button>
-      </div>
-      <div
-        className="control"
-      >
-        <button
-          className="button"
-          type="button"
-        >
-          Twenty
-        </button>
-      </div>
-    </div>
-    <div
-      className="box"
+    </section>
+    <section
+      className="section"
     >
       <label
         className="label"
       >
-        Addons
+        Disabled
       </label>
       <div
-        className="buttons has-true"
+        className="field is-grouped"
       >
         <div
           className="control"
         >
           <button
-            className="button"
+            className="button is-primary"
+            disabled={true}
             type="button"
           >
-            Yes
+            Disabled
           </button>
         </div>
         <div
           className="control"
         >
           <button
-            className="button"
+            className="button is-info"
+            disabled={true}
             type="button"
           >
-            Maybe
+            Disabled
           </button>
         </div>
         <div
           className="control"
         >
           <button
-            className="button"
+            className="button is-success"
+            disabled={true}
             type="button"
           >
-            No
+            Disabled
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-link"
+            disabled={true}
+            type="button"
+          >
+            Disabled
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-black"
+            disabled={true}
+            type="button"
+          >
+            Disabled
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-dark"
+            disabled={true}
+            type="button"
+          >
+            Disabled
           </button>
         </div>
       </div>
-      <label
-        className="label"
-      >
-        Addons centered
-      </label>
-      <div
-        className="buttons is-centered has-true"
-      >
-        <div
-          className="control"
-        >
-          <button
-            className="button"
-            type="button"
-          >
-            Yes
-          </button>
-        </div>
-        <div
-          className="control"
-        >
-          <button
-            className="button"
-            type="button"
-          >
-            Maybe
-          </button>
-        </div>
-        <div
-          className="control"
-        >
-          <button
-            className="button"
-            type="button"
-          >
-            No
-          </button>
-        </div>
-      </div>
-      <label
-        className="label"
-      >
-        Addons right
-      </label>
-      <div
-        className="buttons is-right has-true"
-      >
-        <div
-          className="control"
-        >
-          <button
-            className="button"
-            type="button"
-          >
-            Yes
-          </button>
-        </div>
-        <div
-          className="control"
-        >
-          <button
-            className="button"
-            type="button"
-          >
-            Maybe
-          </button>
-        </div>
-        <div
-          className="control"
-        >
-          <button
-            className="button"
-            type="button"
-          >
-            No
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      className="box"
+    </section>
+    <section
+      className="section"
     >
-      <div
-        className="buttons has-true"
+      <h1
+        className="title is-4"
       >
-        <div
-          className="control"
-        >
-          <button
-            className="button is-success is-selected"
-            type="button"
-          >
-            Yes
-          </button>
-        </div>
-        <div
-          className="control"
-        >
-          <button
-            className="button"
-            type="button"
-          >
-            Maybe
-          </button>
-        </div>
-        <div
-          className="control"
-        >
-          <button
-            className="button"
-            type="button"
-          >
-            No
-          </button>
-        </div>
-      </div>
+        With Font Awesome icons
+      </h1>
       <div
-        className="buttons has-true"
+        className="field is-grouped"
       >
         <div
           className="control"
@@ -2189,17 +1014,27 @@ Array [
             className="button"
             type="button"
           >
-            Yes
-          </button>
-        </div>
-        <div
-          className="control"
-        >
-          <button
-            className="button is-info is-selected"
-            type="button"
-          >
-            Maybe
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-bold fa-w-12 "
+                data-icon="bold"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 384 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M333.49 238a122 122 0 0 0 27-65.21C367.87 96.49 308 32 233.42 32H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h31.87v288H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h209.32c70.8 0 134.14-51.75 141-122.4 4.74-48.45-16.39-92.06-50.83-119.6zM145.66 112h87.76a48 48 0 0 1 0 96h-87.76zm87.76 288h-87.76V288h87.76a56 56 0 0 1 0 112z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
           </button>
         </div>
         <div
@@ -2209,12 +1044,62 @@ Array [
             className="button"
             type="button"
           >
-            No
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-italic fa-w-10 "
+                data-icon="italic"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 320 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M320 48v32a16 16 0 0 1-16 16h-62.76l-80 320H208a16 16 0 0 1 16 16v32a16 16 0 0 1-16 16H16a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h62.76l80-320H112a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16h192a16 16 0 0 1 16 16z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-underline fa-w-14 "
+                data-icon="underline"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32 64h32v160c0 88.22 71.78 160 160 160s160-71.78 160-160V64h32a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16H272a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h32v160a80 80 0 0 1-160 0V64h32a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16zm400 384H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
           </button>
         </div>
       </div>
       <div
-        className="buttons has-true"
+        className="field is-grouped"
       >
         <div
           className="control"
@@ -2223,7 +1108,308 @@ Array [
             className="button"
             type="button"
           >
-            Yes
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-github fa-w-16 "
+                data-icon="github"
+                data-prefix="fab"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 496 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+             
+            <div
+              className=""
+            >
+              GitHub
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-primary"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-twitter fa-w-16 "
+                data-icon="twitter"
+                data-prefix="fab"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Twitter
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-check fa-w-16 "
+                data-icon="check"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Save
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger is-outlined"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-times fa-w-11 "
+                data-icon="times"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 352 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Delete
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-small"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-github fa-w-16 "
+                data-icon="github"
+                data-prefix="fab"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 496 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+               GitHub
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-normal"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-github fa-w-16 "
+                data-icon="github"
+                data-prefix="fab"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 496 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+             
+            <div
+              className=""
+            >
+              GitHub
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-medium"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-github fa-w-16 "
+                data-icon="github"
+                data-prefix="fab"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 496 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+             
+            <div
+              className=""
+            >
+              GitHub
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-large"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-github fa-w-16 "
+                data-icon="github"
+                data-prefix="fab"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 496 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+             
+            <div
+              className=""
+            >
+              GitHub
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <h1
+        className="title is-4"
+      >
+        Button group
+      </h1>
+      <div
+        className="field is-grouped"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-link"
+            type="button"
+          >
+            save changes
           </button>
         </div>
         <div
@@ -2233,21 +1419,841 @@ Array [
             className="button"
             type="button"
           >
-            Maybe
+            Cancel
           </button>
         </div>
         <div
           className="control"
         >
           <button
-            className="button is-danger is-selected"
+            className="button is-danger"
             type="button"
           >
-            No
+            Delete Post
           </button>
         </div>
       </div>
-    </div>
-  </section>,
-]
+    </section>
+    <section
+      className="section"
+    >
+      <h1
+        className="title is-4"
+      >
+        Button addons
+      </h1>
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-align-left fa-w-14 "
+                data-icon="align-left"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.83 352h262.34A12.82 12.82 0 0 0 288 339.17v-38.34A12.82 12.82 0 0 0 275.17 288H12.83A12.82 12.82 0 0 0 0 300.83v38.34A12.82 12.82 0 0 0 12.83 352zm0-256h262.34A12.82 12.82 0 0 0 288 83.17V44.83A12.82 12.82 0 0 0 275.17 32H12.83A12.82 12.82 0 0 0 0 44.83v38.34A12.82 12.82 0 0 0 12.83 96zM432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+               Left
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-align-center fa-w-14 "
+                data-icon="align-center"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM108.1 96h231.81A12.09 12.09 0 0 0 352 83.9V44.09A12.09 12.09 0 0 0 339.91 32H108.1A12.09 12.09 0 0 0 96 44.09V83.9A12.1 12.1 0 0 0 108.1 96zm231.81 256A12.09 12.09 0 0 0 352 339.9v-39.81A12.09 12.09 0 0 0 339.91 288H108.1A12.09 12.09 0 0 0 96 300.09v39.81a12.1 12.1 0 0 0 12.1 12.1z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Center
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-align-right fa-w-14 "
+                data-icon="align-right"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 224h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16zm416 192H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm3.17-384H172.83A12.82 12.82 0 0 0 160 44.83v38.34A12.82 12.82 0 0 0 172.83 96h262.34A12.82 12.82 0 0 0 448 83.17V44.83A12.82 12.82 0 0 0 435.17 32zm0 256H172.83A12.82 12.82 0 0 0 160 300.83v38.34A12.82 12.82 0 0 0 172.83 352h262.34A12.82 12.82 0 0 0 448 339.17v-38.34A12.82 12.82 0 0 0 435.17 288z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Right
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <h1
+        className="title is-4"
+      >
+        Button group with addons
+      </h1>
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-bold fa-w-12 "
+                data-icon="bold"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 384 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M333.49 238a122 122 0 0 0 27-65.21C367.87 96.49 308 32 233.42 32H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h31.87v288H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h209.32c70.8 0 134.14-51.75 141-122.4 4.74-48.45-16.39-92.06-50.83-119.6zM145.66 112h87.76a48 48 0 0 1 0 96h-87.76zm87.76 288h-87.76V288h87.76a56 56 0 0 1 0 112z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Bold
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-italic fa-w-10 "
+                data-icon="italic"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 320 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M320 48v32a16 16 0 0 1-16 16h-62.76l-80 320H208a16 16 0 0 1 16 16v32a16 16 0 0 1-16 16H16a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h62.76l80-320H112a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16h192a16 16 0 0 1 16 16z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Italic
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-underline fa-w-14 "
+                data-icon="underline"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32 64h32v160c0 88.22 71.78 160 160 160s160-71.78 160-160V64h32a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16H272a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h32v160a80 80 0 0 1-160 0V64h32a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16zm400 384H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Underline
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        className="field has-addons"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-align-left fa-w-14 "
+                data-icon="align-left"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.83 352h262.34A12.82 12.82 0 0 0 288 339.17v-38.34A12.82 12.82 0 0 0 275.17 288H12.83A12.82 12.82 0 0 0 0 300.83v38.34A12.82 12.82 0 0 0 12.83 352zm0-256h262.34A12.82 12.82 0 0 0 288 83.17V44.83A12.82 12.82 0 0 0 275.17 32H12.83A12.82 12.82 0 0 0 0 44.83v38.34A12.82 12.82 0 0 0 12.83 96zM432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+             
+            <div
+              className=""
+            >
+              Left
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-align-center fa-w-14 "
+                data-icon="align-center"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM108.1 96h231.81A12.09 12.09 0 0 0 352 83.9V44.09A12.09 12.09 0 0 0 339.91 32H108.1A12.09 12.09 0 0 0 96 44.09V83.9A12.1 12.1 0 0 0 108.1 96zm231.81 256A12.09 12.09 0 0 0 352 339.9v-39.81A12.09 12.09 0 0 0 339.91 288H108.1A12.09 12.09 0 0 0 96 300.09v39.81a12.1 12.1 0 0 0 12.1 12.1z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Center
+            </div>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            <span
+              className="icon"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-align-right fa-w-14 "
+                data-icon="align-right"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 224h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16zm416 192H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm3.17-384H172.83A12.82 12.82 0 0 0 160 44.83v38.34A12.82 12.82 0 0 0 172.83 96h262.34A12.82 12.82 0 0 0 448 83.17V44.83A12.82 12.82 0 0 0 435.17 32zm0 256H172.83A12.82 12.82 0 0 0 160 300.83v38.34A12.82 12.82 0 0 0 172.83 352h262.34A12.82 12.82 0 0 0 448 339.17v-38.34A12.82 12.82 0 0 0 435.17 288z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </span>
+            <div
+              className=""
+            >
+              Right
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
+    >
+      <h1
+        className="title is-4"
+      >
+        List of buttons
+      </h1>
+      <div
+        className="buttons"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button is-success"
+            type="button"
+          >
+            Save changes
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-info"
+            type="button"
+          >
+            Save and continue
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button is-danger"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div
+        className="buttons"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            One
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Two
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Three
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Four
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Five
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Six
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Seven
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Eight
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Nine
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Ten
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Eleven
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Twelve
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Thirteen
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Fourteen
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Fifteen
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Sixteen
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Seventeen
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Eighteen
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Nineteen
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <button
+            className="button"
+            type="button"
+          >
+            Twenty
+          </button>
+        </div>
+      </div>
+      <div
+        className="box"
+      >
+        <label
+          className="label"
+        >
+          Addons
+        </label>
+        <div
+          className="buttons has-true"
+        >
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Yes
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Maybe
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              No
+            </button>
+          </div>
+        </div>
+        <label
+          className="label"
+        >
+          Addons centered
+        </label>
+        <div
+          className="buttons is-centered has-true"
+        >
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Yes
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Maybe
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              No
+            </button>
+          </div>
+        </div>
+        <label
+          className="label"
+        >
+          Addons right
+        </label>
+        <div
+          className="buttons is-right has-true"
+        >
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Yes
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Maybe
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="box"
+      >
+        <div
+          className="buttons has-true"
+        >
+          <div
+            className="control"
+          >
+            <button
+              className="button is-success is-selected"
+              type="button"
+            >
+              Yes
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Maybe
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              No
+            </button>
+          </div>
+        </div>
+        <div
+          className="buttons has-true"
+        >
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Yes
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button is-info is-selected"
+              type="button"
+            >
+              Maybe
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              No
+            </button>
+          </div>
+        </div>
+        <div
+          className="buttons has-true"
+        >
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Yes
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button"
+              type="button"
+            >
+              Maybe
+            </button>
+          </div>
+          <div
+            className="control"
+          >
+            <button
+              className="button is-danger is-selected"
+              type="button"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
 `;

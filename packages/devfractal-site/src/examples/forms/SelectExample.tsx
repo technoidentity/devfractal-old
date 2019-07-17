@@ -1,6 +1,8 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import {
+  Column,
+  Columns,
   Field,
   Section,
   Select as SelectComponent,
@@ -178,13 +180,15 @@ const WithIconsExample: React.FC = () => (
 )
 
 export const Select: React.FC = () => (
-  <>
-    <DynamicSelectExample />
-    <BasicSelectExample />
-    <SelectColorExample />
-    <SelectSizeExample />
-    <SelectStyleExample />
-    <SelectStateExample />
-    <WithIconsExample />
-  </>
+  <Columns columnCentered>
+    <Column size="half">
+      <DynamicSelectExample />
+      <BasicSelectExample />
+      <SelectColorExample />
+      <SelectSizeExample />
+      <SelectStyleExample />
+      <SelectStateExample />
+      <WithIconsExample />
+    </Column>
+  </Columns>
 )

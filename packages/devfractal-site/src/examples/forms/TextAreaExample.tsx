@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import {
+  Column,
+  Columns,
   Section,
   TextArea as TextAreaComponent,
   Title,
@@ -113,16 +115,18 @@ const ReadonlyTextAreaExample: React.FC = () => (
 )
 
 export const TextArea: React.FC = () => (
-  <>
-    <DynamicTextAreaExample />
-    <DefaultTextAreaExample />
-    <TextAreaColorsExample />
-    <TextAreaSizesExample />
-    <TextAreaStatesExample />
-    <CombineStylesOfTextAreaExample />
-    <FixedSizeTextAreaExample />
-    <DisabledTextAreaExample />
-    <TextAreaRowSizeExample />
-    <ReadonlyTextAreaExample />
-  </>
+  <Columns columnCentered>
+    <Column size="half">
+      <DynamicTextAreaExample />
+      <DefaultTextAreaExample />
+      <TextAreaColorsExample />
+      <TextAreaSizesExample />
+      <TextAreaStatesExample />
+      <CombineStylesOfTextAreaExample />
+      <FixedSizeTextAreaExample />
+      <DisabledTextAreaExample />
+      <TextAreaRowSizeExample />
+      <ReadonlyTextAreaExample />
+    </Column>
+  </Columns>
 )

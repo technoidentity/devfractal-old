@@ -14,6 +14,8 @@ import {
   Box,
   Button as ButtonComponent,
   ButtonsGroup,
+  Column,
+  Columns,
   Field,
   Icon,
   Label,
@@ -500,20 +502,22 @@ const ListOfButtonsExample: React.FC = () => (
 )
 
 export const Button: React.FC = () => (
-  <>
-    <DynamicButtonExample />
-    <NormalButtonExample />
-    <TypesOfButtonExample />
-    <ButtonColorsExample />
-    <ButtonSizesExample />
-    <ButtonStylesExample />
-    <ButtonStatesExample />
-    <StaticButtonExample />
-    <DisabledButtonExample />
-    <ButtonWithFontAwesomeIconsExample />
-    <ButtonGroupExample />
-    <ButtonAddonsExample />
-    <ButtonGroupWithAddonsExample />
-    <ListOfButtonsExample />
-  </>
+  <Columns columnCentered>
+    <Column size="half">
+      <DynamicButtonExample />
+      <NormalButtonExample />
+      <TypesOfButtonExample />
+      <ButtonColorsExample />
+      <ButtonSizesExample />
+      <ButtonStylesExample />
+      <ButtonStatesExample />
+      <StaticButtonExample />
+      <DisabledButtonExample />
+      <ButtonWithFontAwesomeIconsExample />
+      <ButtonGroupExample />
+      <ButtonAddonsExample />
+      <ButtonGroupWithAddonsExample />
+      <ListOfButtonsExample />
+    </Column>
+  </Columns>
 )

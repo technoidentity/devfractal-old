@@ -1,6 +1,8 @@
 import { faCheck, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import {
+  Column,
+  Columns,
   Container,
   FieldBody,
   FieldLabel,
@@ -194,17 +196,19 @@ const MoreExamples: React.FC = () => (
 )
 
 export const Input: React.FC = () => (
-  <>
-    <DynamicInputExample />
-    <NormalInputExample />
-    <InputColorsExample />
-    <InputSizesExample />
-    <InputStyleExample />
-    <InputStateExample />
-    <InputCombinationsExample />
-    <DisabledInputExample />
-    <ReadonlyStaticInputsExample />
-    <FontAwesomeIconsExample />
-    <MoreExamples />
-  </>
+  <Columns columnCentered>
+    <Column size="half">
+      <DynamicInputExample />
+      <NormalInputExample />
+      <InputColorsExample />
+      <InputSizesExample />
+      <InputStyleExample />
+      <InputStateExample />
+      <InputCombinationsExample />
+      <DisabledInputExample />
+      <ReadonlyStaticInputsExample />
+      <FontAwesomeIconsExample />
+      <MoreExamples />
+    </Column>
+  </Columns>
 )

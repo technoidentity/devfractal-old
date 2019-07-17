@@ -1,6 +1,8 @@
 import React from 'react'
 import {
   Box,
+  Column,
+  Columns,
   Field,
   File as FileComponent,
   Section,
@@ -169,11 +171,13 @@ const FileAlignmentExample: React.FC = () => (
 )
 
 export const File: React.FC = () => (
-  <>
-    <BasicFileExample />
-    <FileModifiersExample />
-    <FileColorExample />
-    <FileSizeExample />
-    <FileAlignmentExample />
-  </>
+  <Columns columnCentered>
+    <Column size="half">
+      <BasicFileExample />
+      <FileModifiersExample />
+      <FileColorExample />
+      <FileSizeExample />
+      <FileAlignmentExample />
+    </Column>
+  </Columns>
 )

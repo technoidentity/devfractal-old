@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import {
   CheckBox as CheckBoxComponent,
+  Column,
+  Columns,
   Field,
   Section,
   Title,
@@ -58,10 +60,12 @@ const DisabledCheckBoxExample: React.FC = () => (
 )
 
 export const CheckBox: React.FC = () => (
-  <>
-    <DynamicCheckBoxExample />
-    <BasicCheckBoxExample />
-    <AddLinksExample />
-    <DisabledCheckBoxExample />
-  </>
+  <Columns columnCentered>
+    <Column size="half">
+      <DynamicCheckBoxExample />
+      <BasicCheckBoxExample />
+      <AddLinksExample />
+      <DisabledCheckBoxExample />
+    </Column>
+  </Columns>
 )

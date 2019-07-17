@@ -114,8 +114,10 @@ const RadioExamples: React.FC = () => {
 }
 
 export const Radio: React.FC = () => (
-  <>
-    <DynamicRadioExample />
-    <RadioExamples />
-  </>
+  <Columns columnCentered>
+    <Column size="half">
+      <DynamicRadioExample />
+      <RadioExamples />
+    </Column>
+  </Columns>
 )

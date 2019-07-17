@@ -1,629 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`File Example 1`] = `
-Array [
-  <section
-    className="section"
+<div
+  className="columns is-centered"
+>
+  <div
+    className="column is-half is-half"
   >
-    <h1
-      className="title is-4"
+    <section
+      className="section"
     >
-      File
-    </h1>
-    <div
-      className="field"
-    >
-      <div
-        className="file"
+      <h1
+        className="title is-4"
       >
-        <label
-          className="file-label"
-        >
-          <input
-            className="file-input"
-            type="file"
-          />
-          <span
-            className="file-cta"
-          >
-            <span
-              className="file-icon"
-            >
-              <span
-                className="icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-upload fa-w-16 "
-                  data-icon="upload"
-                  data-prefix="fas"
-                  focusable="false"
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              className="file-label"
-            >
-              choose file
-            </span>
-          </span>
-        </label>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      Modifiers
-    </h1>
-    <div
-      className="box"
-    >
-      <div
-        className="field"
-      >
-        <div
-          className="file has-name"
-        >
-          <label
-            className="file-label"
-          >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
-            >
-              <span
-                className="file-icon"
-              >
-                <span
-                  className="icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                className="file-label"
-              >
-                choose file
-              </span>
-            </span>
-            <span
-              className="file-name"
-            >
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        className="field"
-      >
-        <div
-          className="file is-right has-name"
-        >
-          <label
-            className="file-label"
-          >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
-            >
-              <span
-                className="file-icon"
-              >
-                <span
-                  className="icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                className="file-label"
-              >
-                Rightside file
-              </span>
-            </span>
-            <span
-              className="file-name"
-            >
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        className="field"
-      >
-        <div
-          className="file is-fullwidth has-name"
-        >
-          <label
-            className="file-label"
-          >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
-            >
-              <span
-                className="file-icon"
-              >
-                <span
-                  className="icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                className="file-label"
-              >
-                Fullwidth file
-              </span>
-            </span>
-            <span
-              className="file-name"
-            >
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        className="field"
-      >
-        <div
-          className="file is-boxed"
-        >
-          <label
-            className="file-label"
-          >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
-            >
-              <span
-                className="file-icon"
-              >
-                <span
-                  className="icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                className="file-label"
-              >
-                choose file
-              </span>
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        className="field"
-      >
-        <div
-          className="file is-boxed has-name"
-        >
-          <label
-            className="file-label"
-          >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
-            >
-              <span
-                className="file-icon"
-              >
-                <span
-                  className="icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                className="file-label"
-              >
-                choose file
-              </span>
-            </span>
-            <span
-              className="file-name"
-            >
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </span>
-          </label>
-        </div>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      Colors
-    </h1>
-    <div
-      className="field"
-    >
-      <div
-        className="file is-primary"
-      >
-        <label
-          className="file-label"
-        >
-          <input
-            className="file-input"
-            type="file"
-          />
-          <span
-            className="file-cta"
-          >
-            <span
-              className="file-icon"
-            >
-              <span
-                className="icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-upload fa-w-16 "
-                  data-icon="upload"
-                  data-prefix="fas"
-                  focusable="false"
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              className="file-label"
-            >
-              Primary file
-            </span>
-          </span>
-        </label>
-      </div>
-    </div>
-    <div
-      className="field"
-    >
-      <div
-        className="file is-info has-name"
-      >
-        <label
-          className="file-label"
-        >
-          <input
-            className="file-input"
-            type="file"
-          />
-          <span
-            className="file-cta"
-          >
-            <span
-              className="file-icon"
-            >
-              <span
-                className="icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-upload fa-w-16 "
-                  data-icon="upload"
-                  data-prefix="fas"
-                  focusable="false"
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              className="file-label"
-            >
-              Info file
-            </span>
-          </span>
-          <span
-            className="file-name"
-          >
-            Screen Shot 2017-07-29 at 15.54.25.png
-          </span>
-        </label>
-      </div>
-    </div>
-    <div
-      className="field"
-    >
-      <div
-        className="file is-warning is-medium is-boxed"
-      >
-        <label
-          className="file-label"
-        >
-          <input
-            className="file-input"
-            type="file"
-          />
-          <span
-            className="file-cta"
-          >
-            <span
-              className="file-icon"
-            >
-              <span
-                className="icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-upload fa-w-16 "
-                  data-icon="upload"
-                  data-prefix="fas"
-                  focusable="false"
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              className="file-label"
-            >
-              Warning file
-            </span>
-          </span>
-        </label>
-      </div>
-    </div>
-    <div
-      className="field"
-    >
-      <div
-        className="file is-danger is-large is-boxed has-name"
-      >
-        <label
-          className="file-label"
-        >
-          <input
-            className="file-input"
-            type="file"
-          />
-          <span
-            className="file-cta"
-          >
-            <span
-              className="file-icon"
-            >
-              <span
-                className="icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-upload fa-w-16 "
-                  data-icon="upload"
-                  data-prefix="fas"
-                  focusable="false"
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              className="file-label"
-            >
-              Danger file
-            </span>
-          </span>
-          <span
-            className="file-name"
-          >
-            Screen Shot 2017-07-29 at 15.54.25.png
-          </span>
-        </label>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
-    >
-      Sizes
-    </h1>
-    <div
-      className="box"
-    >
-      <div
-        className="field"
-      >
-        <div
-          className="file is-small"
-        >
-          <label
-            className="file-label"
-          >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
-            >
-              <span
-                className="file-icon"
-              >
-                <span
-                  className="icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                className="file-label"
-              >
-                Small file
-              </span>
-            </span>
-          </label>
-        </div>
-      </div>
+        File
+      </h1>
       <div
         className="field"
       >
@@ -668,325 +59,309 @@ Array [
               <span
                 className="file-label"
               >
-                Normal file
+                choose file
               </span>
             </span>
           </label>
         </div>
       </div>
-      <div
-        className="field"
-      >
-        <div
-          className="file is-medium"
-        >
-          <label
-            className="file-label"
-          >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
-            >
-              <span
-                className="file-icon"
-              >
-                <span
-                  className="icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                className="file-label"
-              >
-                Medium file
-              </span>
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        className="field"
-      >
-        <div
-          className="file is-large"
-        >
-          <label
-            className="file-label"
-          >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
-            >
-              <span
-                className="file-icon"
-              >
-                <span
-                  className="icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
-                      style={Object {}}
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                className="file-label"
-              >
-                Large file
-              </span>
-            </span>
-          </label>
-        </div>
-      </div>
-    </div>
-    <div
-      className="box"
+    </section>
+    <section
+      className="section"
     >
+      <h1
+        className="title is-4"
+      >
+        Modifiers
+      </h1>
       <div
-        className="field"
+        className="box"
       >
         <div
-          className="file is-small is-boxed"
+          className="field"
         >
-          <label
-            className="file-label"
+          <div
+            className="file has-name"
           >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
+            <label
+              className="file-label"
             >
+              <input
+                className="file-input"
+                type="file"
+              />
               <span
-                className="file-icon"
+                className="file-cta"
               >
                 <span
-                  className="icon"
+                  className="file-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    className="icon"
                   >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
                       style={Object {}}
-                    />
-                  </svg>
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  choose file
                 </span>
               </span>
               <span
-                className="file-label"
+                className="file-name"
               >
-                Small file
+                Screen Shot 2017-07-29 at 15.54.25.png
               </span>
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
-      </div>
-      <div
-        className="field"
-      >
         <div
-          className="file is-boxed"
+          className="field"
         >
-          <label
-            className="file-label"
+          <div
+            className="file is-right has-name"
           >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
+            <label
+              className="file-label"
             >
+              <input
+                className="file-input"
+                type="file"
+              />
               <span
-                className="file-icon"
+                className="file-cta"
               >
                 <span
-                  className="icon"
+                  className="file-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    className="icon"
                   >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
                       style={Object {}}
-                    />
-                  </svg>
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Rightside file
                 </span>
               </span>
               <span
-                className="file-label"
+                className="file-name"
               >
-                Normal file
+                Screen Shot 2017-07-29 at 15.54.25.png
               </span>
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
-      </div>
-      <div
-        className="field"
-      >
         <div
-          className="file is-medium is-boxed"
+          className="field"
         >
-          <label
-            className="file-label"
+          <div
+            className="file is-fullwidth has-name"
           >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
+            <label
+              className="file-label"
             >
+              <input
+                className="file-input"
+                type="file"
+              />
               <span
-                className="file-icon"
+                className="file-cta"
               >
                 <span
-                  className="icon"
+                  className="file-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    className="icon"
                   >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
                       style={Object {}}
-                    />
-                  </svg>
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Fullwidth file
                 </span>
               </span>
               <span
-                className="file-label"
+                className="file-name"
               >
-                Medium file
+                Screen Shot 2017-07-29 at 15.54.25.png
               </span>
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
-      </div>
-      <div
-        className="field"
-      >
         <div
-          className="file is-large is-boxed"
+          className="field"
         >
-          <label
-            className="file-label"
+          <div
+            className="file is-boxed"
           >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
+            <label
+              className="file-label"
             >
+              <input
+                className="file-input"
+                type="file"
+              />
               <span
-                className="file-icon"
+                className="file-cta"
               >
                 <span
-                  className="icon"
+                  className="file-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    className="icon"
                   >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
                       style={Object {}}
-                    />
-                  </svg>
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  choose file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-boxed has-name"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  choose file
                 </span>
               </span>
               <span
-                className="file-label"
+                className="file-name"
               >
-                Large file
+                Screen Shot 2017-07-29 at 15.54.25.png
               </span>
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="box"
+    </section>
+    <section
+      className="section"
     >
+      <h1
+        className="title is-4"
+      >
+        Colors
+      </h1>
       <div
         className="field"
       >
         <div
-          className="file is-small is-boxed has-name"
+          className="file is-primary"
         >
           <label
             className="file-label"
@@ -1026,13 +401,8 @@ Array [
               <span
                 className="file-label"
               >
-                small file
+                Primary file
               </span>
-            </span>
-            <span
-              className="file-name"
-            >
-              Screen Shot 2017-07-29 at 15.54.25.png
             </span>
           </label>
         </div>
@@ -1041,7 +411,7 @@ Array [
         className="field"
       >
         <div
-          className="file is-boxed has-name"
+          className="file is-info has-name"
         >
           <label
             className="file-label"
@@ -1081,7 +451,7 @@ Array [
               <span
                 className="file-label"
               >
-                Normal file
+                Info file
               </span>
             </span>
             <span
@@ -1096,7 +466,7 @@ Array [
         className="field"
       >
         <div
-          className="file is-medium is-boxed has-name"
+          className="file is-warning is-medium is-boxed"
         >
           <label
             className="file-label"
@@ -1136,13 +506,8 @@ Array [
               <span
                 className="file-label"
               >
-                Medium file
+                Warning file
               </span>
-            </span>
-            <span
-              className="file-name"
-            >
-              Screen Shot 2017-07-29 at 15.54.25.png
             </span>
           </label>
         </div>
@@ -1151,7 +516,7 @@ Array [
         className="field"
       >
         <div
-          className="file is-large is-boxed has-name"
+          className="file is-danger is-large is-boxed has-name"
         >
           <label
             className="file-label"
@@ -1191,7 +556,7 @@ Array [
               <span
                 className="file-label"
               >
-                Large file
+                Danger file
               </span>
             </span>
             <span
@@ -1202,130 +567,771 @@ Array [
           </label>
         </div>
       </div>
-    </div>
-  </section>,
-  <section
-    className="section"
-  >
-    <h1
-      className="title is-4"
+    </section>
+    <section
+      className="section"
     >
-      Alignment
-    </h1>
-    <div
-      className="box"
+      <h1
+        className="title is-4"
+      >
+        Sizes
+      </h1>
+      <div
+        className="box"
+      >
+        <div
+          className="field"
+        >
+          <div
+            className="file is-small"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Small file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Normal file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-medium"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Medium file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-large"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Large file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        className="box"
+      >
+        <div
+          className="field"
+        >
+          <div
+            className="file is-small is-boxed"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Small file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-boxed"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Normal file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-medium is-boxed"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Medium file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-large is-boxed"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Large file
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        className="box"
+      >
+        <div
+          className="field"
+        >
+          <div
+            className="file is-small is-boxed has-name"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  small file
+                </span>
+              </span>
+              <span
+                className="file-name"
+              >
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-boxed has-name"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Normal file
+                </span>
+              </span>
+              <span
+                className="file-name"
+              >
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-medium is-boxed has-name"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Medium file
+                </span>
+              </span>
+              <span
+                className="file-name"
+              >
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="file is-large is-boxed has-name"
+          >
+            <label
+              className="file-label"
+            >
+              <input
+                className="file-input"
+                type="file"
+              />
+              <span
+                className="file-cta"
+              >
+                <span
+                  className="file-icon"
+                >
+                  <span
+                    className="icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Large file
+                </span>
+              </span>
+              <span
+                className="file-name"
+              >
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      className="section"
     >
+      <h1
+        className="title is-4"
+      >
+        Alignment
+      </h1>
       <div
-        className="field"
+        className="box"
       >
         <div
-          className="file is-success is-centered is-boxed has-name"
+          className="field"
         >
-          <label
-            className="file-label"
+          <div
+            className="file is-success is-centered is-boxed has-name"
           >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
+            <label
+              className="file-label"
             >
+              <input
+                className="file-input"
+                type="file"
+              />
               <span
-                className="file-icon"
+                className="file-cta"
               >
                 <span
-                  className="icon"
+                  className="file-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    className="icon"
                   >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
                       style={Object {}}
-                    />
-                  </svg>
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Centered file
                 </span>
               </span>
               <span
-                className="file-label"
+                className="file-name"
               >
-                Centered file
+                Screen Shot 2017-07-29 at 15.54.25.png
               </span>
-            </span>
-            <span
-              className="file-name"
-            >
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
-      </div>
-      <div
-        className="field"
-      >
         <div
-          className="file is-info is-right has-name"
+          className="field"
         >
-          <label
-            className="file-label"
+          <div
+            className="file is-info is-right has-name"
           >
-            <input
-              className="file-input"
-              type="file"
-            />
-            <span
-              className="file-cta"
+            <label
+              className="file-label"
             >
+              <input
+                className="file-input"
+                type="file"
+              />
               <span
-                className="file-icon"
+                className="file-cta"
               >
                 <span
-                  className="icon"
+                  className="file-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="svg-inline--fa fa-upload fa-w-16 "
-                    data-icon="upload"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    style={Object {}}
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    className="icon"
                   >
-                    <path
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                      fill="currentColor"
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-upload fa-w-16 "
+                      data-icon="upload"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
                       style={Object {}}
-                    />
-                  </svg>
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  className="file-label"
+                >
+                  Right file
                 </span>
               </span>
               <span
-                className="file-label"
+                className="file-name"
               >
-                Right file
+                Screen Shot 2017-07-29 at 15.54.25.png
               </span>
-            </span>
-            <span
-              className="file-name"
-            >
-              Screen Shot 2017-07-29 at 15.54.25.png
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
       </div>
-    </div>
-  </section>,
-]
+    </section>
+  </div>
+</div>
 `;
