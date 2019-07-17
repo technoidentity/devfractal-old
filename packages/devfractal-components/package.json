@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "0.9.16",
+  "version": "0.9.17",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
