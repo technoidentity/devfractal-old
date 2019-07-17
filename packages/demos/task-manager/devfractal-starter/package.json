@@ -10,9 +10,9 @@
     "io-ts-types": "^0.5.0",
     "monocle-ts": "^2.0.0",
     "query-string": "6.8.1",
-    "react": "^16.0.0",
+    "react": "^16.8.6",
     "react-datepicker": "^2.8.0",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "technoidentity-devfractal": "0.9.15",
@@ -70,7 +70,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn:fix",
+      "yarn lint:fix",
       "git add"
     ],
     "src/**/*.{ts,tsx,js,jsx,json,css}": [
