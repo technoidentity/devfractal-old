@@ -1047,7 +1047,7 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/chance@^1.0.5":
+"@types/chance@1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@types/chance/-/chance-1.0.5.tgz#c59d16ee24860c4d33a9ccf096e75338f92c4c2a"
   integrity sha512-2oIEU7DO2wNQ98CTpDYdmVoaNpnZyjeGvIzgPa3B7ds9YzfowSyapqL8mwYQdJSik4360OXKo0PK4lWUPKdrYw==
@@ -1900,7 +1900,7 @@ chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.3.1, chalk@^2.4
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chance@^1.0.18:
+chance@1.0.18:
   version "1.0.18"
   resolved "https://registry.yarnpkg.com/chance/-/chance-1.0.18.tgz#79788fe6fca4c338bf404321c347eecc80f969ee"
   integrity sha512-g9YLQVHVZS/3F+zIicfB58vjcxopvYQRp7xHzvyDFDhXH1aRZI/JhwSAO0X5qYiQluoGnaNAU6wByD2KTxJN1A==
@@ -2307,7 +2307,7 @@ create-react-context@^0.2.2:
     fbjs "^0.8.0"
     gud "^1.0.0"
 
-cross-env@^5.2.0:
+cross-env@5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.2.0.tgz#6ecd4c015d5773e614039ee529076669b9d126f2"
   integrity sha512-jtdNFfFW1hB7sMhr/H6rW1Z45LFqyI431m3qU6bFXcQ3Eh7LtBuG3h74o7ohHZ3crrRkkqHlo4jYHFPcjroANg==
@@ -3979,14 +3979,14 @@ invert-kv@^2.0.0:
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-2.0.0.tgz#7393f5afa59ec9ff5f67a27620d11c226e3eec02"
   integrity sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpCBCDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==
 
-io-ts-promise@^2.0.0:
+io-ts-promise@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/io-ts-promise/-/io-ts-promise-2.0.0.tgz#42a933b46f120dc47ccbe7a978d362df7ef4fa6e"
   integrity sha512-N39nidAcxsuPoiAbKcV3krvZUJxHpU6byMnltB4XEKvD75otMklQERAP8ZDSmL5riZJHgEXBuzq+hF+CcxfFBw==
   dependencies:
     deep-equal "^1.0.1"
 
-io-ts-types@^0.5.0:
+io-ts-types@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.0.tgz#f69be9131362c31bbc6b5044f1d95892604f8f23"
   integrity sha512-+v88rlA76FmlQQcTImFq5iigoPA3OKO+BIdrpsfXlhWUdiVvOnDDiLKCsiIAW9eRj+OJgG31Sctebr77bqKhzw==
@@ -5496,7 +5496,7 @@ mock-require@^3.0.2:
     get-caller-file "^1.0.2"
     normalize-path "^2.1.1"
 
-monocle-ts@^2.0.0:
+monocle-ts@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/monocle-ts/-/monocle-ts-2.0.0.tgz#f695dbfb5b017846d95f0c377bd4c8acb10f7e02"
   integrity sha512-vPM02WypUz0Xo2MtLUPgvdelCRn70VT05pdAB7qmHJSNY4CAoQt3ClpH77AG3yZk7PY8CA6++ezHcENUDOiuEA==
@@ -6907,7 +6907,7 @@ react-content-loader@4.2.2:
   resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-4.2.2.tgz#8b014eab0f0218888b8f064f0373b41f2203c8be"
   integrity sha512-8zn2OmjP/BhsW0spc5/nsYFsS3ybqwkoZypFl7PU92Jt1cJAjOo8Y7kfo/+ja4c/88UNLBTLfMcnlE+4Diq/5w==
 
-react-datepicker@^2.8.0:
+react-datepicker@2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-2.8.0.tgz#d93423a2abe9eeef8d3eaa7ff437f31be8a3a2f5"
   integrity sha512-TL9YemykqK77hq1LRGIWbLFpHvNfSb8yZr3q1zk5XTGdSLsVtZ6mlXby3zuGwi8sL0+h9SEnNaqK8IeOl0R2iQ==
@@ -6918,7 +6918,7 @@ react-datepicker@^2.8.0:
     react-onclickoutside "^6.7.1"
     react-popper "^1.0.2"
 
-react-dom@^16.8.6:
+react-dom@16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
   integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
@@ -7007,7 +7007,7 @@ react-wait@^0.3.0:
   resolved "https://registry.yarnpkg.com/react-wait/-/react-wait-0.3.0.tgz#0cdd4d919012451a5bc3ab0a16d00c6fd9a8c10b"
   integrity sha512-kB5x/kMKWcn0uVr9gBdNz21/oGbQwEQnF3P9p6E9yLfJ9DRcKS0fagbgYMFI0YFOoyKDj+2q6Rwax0kTYJF37g==
 
-react@^16.8.6:
+react@16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
