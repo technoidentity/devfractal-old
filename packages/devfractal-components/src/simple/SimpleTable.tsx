@@ -2,9 +2,9 @@ import React from 'react'
 import { Boolean, Date, Function } from 'tcomb'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
-  Async,
   CheckBox,
   formatDate,
+  Get,
   Table,
   TableBody,
   TableHead,
@@ -99,17 +99,7 @@ export function SimpleTable<T>(args: SimpleTableProps<T>): JSX.Element {
   const { data, ...props } = args
 
   return Function.is(data) ? (
-    <Async asyncFn={data}>
-      {({ error, data }) => {
-        if (error) {
-          return <div>{`${error.message}`}</div>
-        } else if (data) {
-          return <TableView {...props} data={data} />
-        } else {
-          return <div>Loading...</div>
-        }
-      }}
-    </Async>
+    <Get asyncFn={data}>{data => <TableView {...props} data={data} />}</Get>
   ) : (
     <TableView data={data} {...props} />
   )
