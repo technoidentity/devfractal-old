@@ -55,7 +55,7 @@ it('empty dateInfo in task object', () => {
   const task1 = new TaskModel({
     title: 'devfractal',
     description: 'make react simple',
-    dateInfo: {},
+    dateInfo: {} as any,
   })
 
   expect(task1.validateSync().errors).toMatchInlineSnapshot(`

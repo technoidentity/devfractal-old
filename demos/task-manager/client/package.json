@@ -50,7 +50,7 @@
     "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",
-    "tslint-react": "4.0.0",
+    "tslint-react": "^4.0.0",
     "typescript": "3.5.3",
     "typescript-tslint-plugin": "0.5.4"
   },
@@ -61,10 +61,9 @@
     "build": "parcel build index.html",
     "test": "cross-env NODE_ENV='test' jest",
     "test:watch": "yarn test --watch",
-    "lint:cmd": "tslint -p tsconfig.commit.json -c tslint.commit.json",
-    "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
+    "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
-    "types": "tsc --noEmit -p tsconfig.commit.json",
+    "types": "tsc --noEmit -p .",
     "types:watch": "yarn types --watch",
     "validate": "yarn lint && yarn types && yarn test"
   },
@@ -79,7 +78,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn lint:cmd --fix",
+      "yarn lint:fix",
       "git add"
     ],
     "src/**/*.{ts,tsx,js,jsx,json,css}": [

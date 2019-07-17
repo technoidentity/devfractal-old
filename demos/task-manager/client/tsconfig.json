@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
     "composite": false,
     "declaration": false,
@@ -11,5 +11,9 @@
     "noFallthroughCasesInSwitch": true,
     "suppressImplicitAnyIndexErrors": true
   },
+  "references": [
+    { "path": "../../../packages/devfractal-utils" },
+    { "path": "../../../packages/devfractal-meta-core" }
+  ],
   "include": ["src"]
 }

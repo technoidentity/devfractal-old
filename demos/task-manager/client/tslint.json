@@ -1,3 +1,12 @@
 {
-  "extends": "../../tslint.base.json"
+  "extends": "../../../tslint.base.json",
+  "rules": {
+    "typedef": false,
+    "no-unbound-method": false,
+    "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
+    "jsx-boolean-value": false,
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "jsx-wrap-multiline": false
+  }
 }

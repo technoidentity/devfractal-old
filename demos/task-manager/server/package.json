@@ -1,5 +1,5 @@
 {
-  "name": "package-manager-server",
+  "name": "task-manager-server",
   "version": "1.0.0",
   "description": "Node Web API Starter using express and mongoose",
   "main": "build/main.js",

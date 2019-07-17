@@ -1,3 +1,9 @@
 {
-  "extends": "../../tslint.base.json"
+  "extends": "../../../tslint.base.json",
+  "rules": {
+    "typedef": false,
+    "readonly-keyword": false,
+    "readonly-array": false,
+    "no-object-mutation": false
+  }
 }
