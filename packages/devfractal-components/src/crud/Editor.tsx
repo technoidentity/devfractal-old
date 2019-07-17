@@ -1,7 +1,7 @@
 import { FormikActions } from 'formik'
 import React from 'react'
 import { Boolean, Date, Function, Number } from 'tcomb'
-import { Async, Section, Simple } from '../lib'
+import { Get, Section, Simple } from '../lib'
 
 export interface EditorViewProps<T extends object> {
   readonly data: T
@@ -50,17 +50,9 @@ export function Editor<T extends object>({
 }: EditorProps<T>): JSX.Element {
   if (Function.is(data)) {
     return (
-      <Async asyncFn={data}>
-        {({ error, data }) => {
-          if (error) {
-            return <div style={{ color: 'red' }}>{`${error.message}`}</div>
-          } else if (data) {
-            return <EditorView id={id} data={data} onSubmit={onSubmit} />
-          } else {
-            return <div>Loading...</div>
-          }
-        }}
-      </Async>
+      <Get asyncFn={data}>
+        {data => <EditorView id={id} data={data} onSubmit={onSubmit} />}
+      </Get>
     )
   }
 

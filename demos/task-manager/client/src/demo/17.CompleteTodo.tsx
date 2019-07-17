@@ -7,6 +7,7 @@ import { Switch } from 'react-router'
 import {
   component,
   Editor,
+  Get,
   Post,
   Put,
   rest,
@@ -14,7 +15,6 @@ import {
   RowClickEvent,
   SafeRoute as Route,
   Section,
-  SimpleAsync,
   SimpleTable,
   Title,
   useMatch,
@@ -62,7 +62,7 @@ const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
 const CreateTodoRoute = () => (
   <>
     <Title textAlignment="centered">Create Todo</Title>
-    <Post component={TodoForm} onPost={todoApi.create} redirectPath={'/'} />
+    <Post component={TodoForm} onPost={todoApi.create} redirectURL={'/'} />
   </>
 )
 
@@ -77,7 +77,7 @@ export const EditTodoRoute = () => {
       doGet={todoApi.get}
       onPut={todoApi.update}
       component={TodoForm}
-      redirectPath="/"
+      redirectURL="/"
     />
   )
 }
@@ -100,14 +100,14 @@ export const TodoListRoute = () => {
   return (
     <>
       <Title textAlignment="centered">Todo List</Title>
-      <SimpleAsync asyncFn={todoApi.many}>
-        {({ data }) => (
+      <Get asyncFn={() => todoApi.many()}>
+        {data => (
           <TodoListView
             todoList={data}
             onEdit={evt => history.push(`/todos/${evt.value.id}/edit`)}
           />
         )}
-      </SimpleAsync>
+      </Get>
     </>
   )
 }

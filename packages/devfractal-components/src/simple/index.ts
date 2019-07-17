@@ -1,5 +1,4 @@
 export * from './SimpleArrayField'
-export * from './SimpleAsync'
 export * from './SimpleForm'
 export * from './SimpleNavbar'
 export * from './SimplePager'

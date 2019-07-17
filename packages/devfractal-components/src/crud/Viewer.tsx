@@ -2,11 +2,11 @@ import React from 'react'
 import { Boolean, Date, Function } from 'tcomb'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
-  Async,
   CheckBox,
   Column,
   Columns,
   formatDate,
+  Get,
   Section,
   Text,
   Title,
@@ -58,19 +58,7 @@ export function Viewer<T extends object>({
   data,
 }: ViewerProps<T>): JSX.Element {
   if (Function.is(data)) {
-    return (
-      <Async asyncFn={data}>
-        {({ error, data }) => {
-          if (error) {
-            return <div style={{ color: 'red' }}>{`${error.message}`}</div>
-          } else if (data) {
-            return <ViewerView data={data} />
-          } else {
-            return <div>Loading...</div>
-          }
-        }}
-      </Async>
-    )
+    return <Get asyncFn={data}>{data => <ViewerView data={data} />}</Get>
   }
   return <ViewerView data={data} />
 }
