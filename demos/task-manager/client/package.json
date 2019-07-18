@@ -19,6 +19,7 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
+    "react-use": "^10.1.0",
     "tcomb": "3.2.29",
     "technoidentity-devfractal": "0.9.19",
     "technoidentity-utils": "0.0.8",

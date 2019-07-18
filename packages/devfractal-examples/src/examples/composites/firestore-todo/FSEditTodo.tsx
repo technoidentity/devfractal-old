@@ -37,7 +37,7 @@ const handleEditTodo = async (
 
 export const FSEditTodo: React.FC<FSEditTodoProps> = ({ id }) => {
   return (
-    <Get asyncFn={async () => one(id)}>
+    <Get asyncFn={one} deps={[id]}>
       {data => <FSEditTodoView onEditTodo={handleEditTodo} todo={data} />}
     </Get>
   )

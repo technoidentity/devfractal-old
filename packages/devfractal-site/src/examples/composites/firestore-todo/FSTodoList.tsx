@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Async,
+  Get,
   Table,
   TableBody,
   TableHead,
@@ -58,16 +58,8 @@ export const FSTodoList: React.FC = () => {
   console.log('render')
   return (
     // tslint:disable-next-line: no-unnecessary-callback-wrapper
-    <Async asyncFn={async () => all()}>
-      {({ isLoading, error, data }) => {
-        if (isLoading) {
-          return <h1>Loading...</h1>
-        }
-        if (data) {
-          return <FSTodoListView todoList={data} onDeleteTodo={handleDelete} />
-        }
-        return <h1>{`${error}`}</h1>
-      }}
-    </Async>
+    <Get asyncFn={all}>
+      {data => <FSTodoListView todoList={data} onDeleteTodo={handleDelete} />}
+    </Get>
   )
 }

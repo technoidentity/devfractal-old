@@ -1,4 +1,4 @@
-export * from './Async'
+
 export * from './Components'
 export * from './Get'
 export * from './http'

@@ -7,7 +7,7 @@ import { Get } from './Get'
 test('get success', async () => {
   const asyncFn = jest.fn().mockResolvedValue('tasks')
   const { getByText, container } = render(
-    <Get asyncFn={asyncFn} deps={undefined}>
+    <Get asyncFn={asyncFn}>
       {data => <div>{data}</div>}
     </Get>,
   )
@@ -30,7 +30,7 @@ test('get success', async () => {
 test('get failure', async () => {
   const asyncFn = jest.fn().mockRejectedValue(new Error('error tasks'))
   const { getByText, container } = render(
-    <Get asyncFn={asyncFn} deps={undefined}>
+    <Get asyncFn={asyncFn}>
       {data => <div>{data}</div>}
     </Get>,
   )
@@ -58,7 +58,7 @@ test('get with refresh', async () => {
     .mockResolvedValueOnce('tasks')
     .mockResolvedValueOnce('tasks refresh')
   const { getByText, container } = render(
-    <Get asyncFn={asyncFn} deps={undefined}>
+    <Get asyncFn={asyncFn}>
       {(data, fetchAgain) => (
         <div>
           <span>{data}</span>
@@ -119,7 +119,7 @@ test('get with deps', async () => {
     .mockResolvedValueOnce('tasks')
     .mockResolvedValueOnce('tasks deps')
   const { getByText, container, rerender } = render(
-    <Get asyncFn={asyncFn} deps={undefined}>
+    <Get asyncFn={asyncFn}>
       {data => <div>{data}</div>}
     </Get>,
   )
@@ -164,7 +164,7 @@ test('get with unmount', async () => {
     .fn()
     .mockResolvedValueOnce('tasks')
   const { container, unmount } = render(
-    <Get asyncFn={asyncFn} deps={undefined}>
+    <Get asyncFn={asyncFn}>
       {data => <div>{data}</div>}
     </Get>,
   )
