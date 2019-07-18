@@ -1,6 +1,6 @@
 import { FormikActions } from 'formik'
 import React from 'react'
-import { Async, Section, Simple } from 'technoidentity-devfractal'
+import { Get, Section, Simple } from 'technoidentity-devfractal'
 import { FSTodo, one, update } from './todoAPI'
 
 export interface EditTodoViewProps {
@@ -37,16 +37,8 @@ const handleEditTodo = async (
 
 export const FSEditTodo: React.FC<FSEditTodoProps> = ({ id }) => {
   return (
-    <Async asyncFn={async () => one(id)}>
-      {({ isLoading, error, data }) => {
-        if (isLoading) {
-          return <h1>loading...</h1>
-        }
-        if (data) {
-          return <FSEditTodoView onEditTodo={handleEditTodo} todo={data} />
-        }
-        return <h1>`${error}`</h1>
-      }}
-    </Async>
+    <Get asyncFn={async () => one(id)}>
+      {data => <FSEditTodoView onEditTodo={handleEditTodo} todo={data} />}
+    </Get>
   )
 }
