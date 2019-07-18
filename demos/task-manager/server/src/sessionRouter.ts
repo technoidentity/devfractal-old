@@ -12,9 +12,7 @@ import { isUserValid } from './userSchema'
 
 export const sessionRouter = express.Router()
 
-export const AuthSegment = req({
-  authenticated: boolean,
-})
+export const AuthSegment = req({ authenticated: boolean })
 
 type AuthSegment = TypeOf<typeof AuthSegment>
 
@@ -22,10 +20,7 @@ sessionRouter.get('/', (req: Request, res: Response<AuthSegment>) => {
   return res.send({ authenticated: req.session !== undefined })
 })
 
-export const PostSessionBody = req({
-  name: string,
-  password: string,
-})
+export const PostSessionBody = req({ name: string, password: string })
 
 type PostSessionBody = TypeOf<typeof PostSessionBody>
 

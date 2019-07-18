@@ -3,11 +3,7 @@ import { Document, model, Schema } from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 import { req } from 'technoidentity-utils'
 
-export const User = req({
-  name: string,
-  email: string,
-  password: string,
-})
+export const User = req({ name: string, email: string, password: string })
 
 export type User = TypeOf<typeof User> & Document
 
