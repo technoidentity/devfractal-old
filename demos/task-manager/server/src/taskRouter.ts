@@ -5,15 +5,15 @@ import {
   INTERNAL_SERVER_ERROR,
   NO_CONTENT,
 } from 'http-status-codes'
-import { toInt } from 'technoidentity-utils'
+import { string, TypeOf } from 'io-ts'
+import { req, toInt } from 'technoidentity-utils'
 import { auth } from './auth'
 import { Task, TaskModel } from './taskSchema'
 import { Request, Response } from './types'
 
-interface TaskQuery {
-  readonly page: string
-  readonly limit: string
-}
+export const TaskQuery = req({ page: string, limit: string })
+
+type TaskQuery = TypeOf<typeof TaskQuery>
 
 export const taskRouter = express.Router()
 

@@ -5,23 +5,29 @@ import {
   INTERNAL_SERVER_ERROR,
   NO_CONTENT,
 } from 'http-status-codes'
+import { boolean, string, TypeOf } from 'io-ts'
+import { req } from 'technoidentity-utils'
 import { AuthSession, Request, Response } from './types'
 import { isUserValid } from './userSchema'
 
 export const sessionRouter = express.Router()
 
-interface AuthSegment {
-  authenticated: boolean
-}
+export const AuthSegment = req({
+  authenticated: boolean,
+})
+
+type AuthSegment = TypeOf<typeof AuthSegment>
 
 sessionRouter.get('/', (req: Request, res: Response<AuthSegment>) => {
   return res.send({ authenticated: req.session !== undefined })
 })
 
-interface PostSessionBody {
-  name: string
-  password: string
-}
+export const PostSessionBody = req({
+  name: string,
+  password: string,
+})
+
+type PostSessionBody = TypeOf<typeof PostSessionBody>
 
 sessionRouter.post(
   '/',
