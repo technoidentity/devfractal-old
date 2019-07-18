@@ -9,7 +9,7 @@ export const User = req({
   password: string,
 })
 
-type User = TypeOf<typeof User> & Document
+export type User = TypeOf<typeof User> & Document
 
 export const userSchema = new Schema<User>({
   name: { type: String, required: true, unique: true },
