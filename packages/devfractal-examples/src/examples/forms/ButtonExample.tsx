@@ -423,12 +423,13 @@ const ListOfButtonsExample: React.FC = () => (
       <ButtonComponent variant="info">Save and continue</ButtonComponent>
       <ButtonComponent variant="danger">Cancel</ButtonComponent>
     </ButtonsGroup>
-    {/* @TODO: fix typecheck
-      <ButtonsGroup size="large">
+
+    <ButtonsGroup size="large">
       <ButtonComponent>All</ButtonComponent>
       <ButtonComponent>Medium</ButtonComponent>
       <ButtonComponent>Size</ButtonComponent>
-    </ButtonsGroup> */}
+    </ButtonsGroup>
+
     <ButtonsGroup>
       <ButtonComponent>One</ButtonComponent>
       <ButtonComponent>Two</ButtonComponent>

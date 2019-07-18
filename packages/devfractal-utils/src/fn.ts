@@ -1,8 +1,6 @@
 import { failure, identity, success, Type } from 'io-ts'
 import { Function } from 'tcomb'
 
-// @TODO: extremely rough, mostly wrong implementation
-
 // tslint:disable no-class no-this
 
 export class FnType<F extends Function> extends Type<F> {

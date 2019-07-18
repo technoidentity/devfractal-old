@@ -50,7 +50,6 @@ export const SimpleFormExample: React.FC = () => (
   <Section>
     <Simple.Form
       initialValues={initialValues}
-      // @TODO: remove any
       validationSchema={simpleSchema}
       onSubmit={consoleSubmit(0)}
     >

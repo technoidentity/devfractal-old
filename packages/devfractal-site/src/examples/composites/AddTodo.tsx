@@ -24,7 +24,6 @@ export const SimpleAddTodo: React.FC = () => (
   <Section>
     <Simple.Form
       initialValues={initialAddTodoValues}
-      // @TODO: remove any
       validationSchema={AddTodoSchema}
       onSubmit={consoleSubmit(0)}
     >

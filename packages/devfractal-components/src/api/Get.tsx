@@ -6,7 +6,7 @@ import { AsyncResult, useGet } from './useGet'
 // tslint:disable readonly-array
 export interface GetProps<T extends Object, P extends AnyTuple> {
   readonly deps?: P | []
-  // @TODO: You should pass a global function, not a closure. Pass all deps to 'deps' instead.
+  // You should pass a global function, not a closure. Pass all deps to 'deps' instead.
   asyncFn(...params: P | []): Promise<T>
   children(data: T, fetchAgain: () => void): JSX.Element
 }
