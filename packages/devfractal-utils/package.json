@@ -3,7 +3,7 @@
   "version": "0.0.9",
   "description": "utils for all devfractal libs",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/technoidentity-utils.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"

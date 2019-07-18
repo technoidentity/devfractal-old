@@ -27,7 +27,7 @@ export function dynamicRouter<T extends object>(
       )}
 
       {urls.map((url, i) => {
-        const path = `${baseUrl}/${url}` as any
+        const path = `${baseUrl}/${url}`
         return <Route exact key={url} path={path} component={cs[keys[i]]} />
       })}
     </>

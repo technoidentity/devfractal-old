@@ -1818,6 +1818,40 @@ Array [
       </div>
     </div>
     <div
+      className="buttons are-large"
+    >
+      <div
+        className="control"
+      >
+        <button
+          className="button"
+          type="button"
+        >
+          All
+        </button>
+      </div>
+      <div
+        className="control"
+      >
+        <button
+          className="button"
+          type="button"
+        >
+          Medium
+        </button>
+      </div>
+      <div
+        className="control"
+      >
+        <button
+          className="button"
+          type="button"
+        >
+          Size
+        </button>
+      </div>
+    </div>
+    <div
       className="buttons"
     >
       <div

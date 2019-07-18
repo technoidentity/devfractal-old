@@ -48,6 +48,10 @@ export function MaxStringLength(max: number) {
   return t.refinement(t.String, s => s.length <= max, 'MaxStringLength')
 }
 
+export function Literal(literal: string) {
+  return t.refinement(t.String, s => s === literal)
+}
+
 export function MinDate(min: Date) {
   return t.refinement(t.Date, d => compareAsc(min, d) <= 0, 'MinDate')
 }

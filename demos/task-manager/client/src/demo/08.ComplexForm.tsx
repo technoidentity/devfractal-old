@@ -79,7 +79,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => (
     onSubmit={async (values, actions) => {
       await onLogin(values)
       actions.setSubmitting(false)
-      // @TODO: handle server error
     }}
     component={InnerLoginForm}
   />

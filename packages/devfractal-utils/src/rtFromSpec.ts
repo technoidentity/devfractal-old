@@ -1,6 +1,7 @@
 import * as iots from 'io-ts'
 import tcomb from 'tcomb'
 import { buildObject } from './common'
+import { Literal } from './tcombRefinements'
 
 function rtFromObjectSpec<T extends iots.Props>(
   spec: iots.TypeC<T>,
@@ -32,7 +33,10 @@ export function rtFromSpec(
     return tcomb.String
   }
 
-  // @TODO: create refinement type for iots.LiteralType?
+  if (spec instanceof iots.LiteralType) {
+    return Literal(spec.value)
+  }
+
   if (spec instanceof iots.BooleanType) {
     return tcomb.Boolean
   }

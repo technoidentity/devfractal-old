@@ -33,7 +33,7 @@ export const length: (
   limit: number,
   message?: TestOptionsMessage,
 ) => (schema: StringSchema) => StringSchema = (limit, message) => schema =>
-  (schema as any).length(limit, message)
+  schema.length(limit, message)
 
 export const matches: (
   exp: RegExp,

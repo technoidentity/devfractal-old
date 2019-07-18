@@ -18,7 +18,7 @@ export function classNames(...args: ClassNameArg[]): string {
         draft.push(arg)
       }
     } else if (tcomb.Array.is(arg)) {
-      const res: string = classNames(...(arg as any))
+      const res: string = classNames(...arg)
       if (res !== '') {
         draft.push(res)
       }
