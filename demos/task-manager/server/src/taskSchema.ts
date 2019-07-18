@@ -25,7 +25,7 @@ export const Task = props(
   { title: string, description: string, dateInfo },
 )
 
-type Task = TypeOf<typeof Task> & Document
+export type Task = TypeOf<typeof Task> & Document
 
 const currentDate: Date | string = format(new Date(), 'YYYY-MM-DD')
 
