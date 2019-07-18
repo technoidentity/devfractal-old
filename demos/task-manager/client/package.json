@@ -22,7 +22,7 @@
     "react-use": "^10.1.0",
     "tcomb": "3.2.29",
     "technoidentity-devfractal": "0.9.19",
-    "technoidentity-utils": "0.0.8",
+    "technoidentity-utils": "0.1.0",
     "typelevel-ts": "0.3.5",
     "use-immer": "0.3.2",
     "yup": "0.27.0"
