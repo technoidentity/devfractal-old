@@ -1,11 +1,15 @@
+import { string, TypeOf } from 'io-ts'
 import { Document, model, Schema } from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
+import { req } from 'technoidentity-utils'
 
-export interface User extends Document {
-  name: string
-  email: string
-  password: string
-}
+export const User = req({
+  name: string,
+  email: string,
+  password: string,
+})
+
+type User = TypeOf<typeof User> & Document
 
 export const userSchema = new Schema<User>({
   name: { type: String, required: true, unique: true },

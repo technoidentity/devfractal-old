@@ -1,28 +1,38 @@
 import { compareAsc, format, startOfDay } from 'date-fns'
+import { string, TypeOf, union } from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { Document, model, Schema } from 'mongoose'
 import mongoosePaginate from 'mongoose-paginate'
+import { props } from 'technoidentity-utils'
+
+const ISODate = union([date, DateFromISOString])
 
 const dateSchema = new Schema({
-  started: { type: Date, required: true },
+  started: { type: Date },
   deadline: { type: Date, required: true },
   completed: { type: Date },
   scheduled: { type: Date, required: true },
 })
 
-export interface Task extends Document {
-  title: string
-  description: string
-  dateInfo: {
-    started: Date
-    deadline: Date
-    completed?: Date
-    scheduled: Date
-  }
-}
+const dateInfo = props(
+  { started: ISODate, completed: ISODate },
+  { scheduled: ISODate, deadline: ISODate },
+)
+
+export const Task = props(
+  { _id: string },
+  { title: string, description: string, dateInfo },
+)
+
+type Task = TypeOf<typeof Task> & Document
 
 const currentDate: Date | string = format(new Date(), 'YYYY-MM-DD')
 
 const deadlineValidator = (value: Task['dateInfo']): boolean => {
+  if (value.started === undefined) {
+    return true
+  }
   return compareAsc(startOfDay(value.deadline), startOfDay(value.started)) >= 0
 }
 
@@ -33,17 +43,23 @@ const deadlineValidator2 = (value: Task['dateInfo']): boolean => {
 }
 
 const completedValidator = (value: Task['dateInfo']): boolean => {
-  if (value.completed === undefined) {
+  if (value.completed === undefined || value.started === undefined) {
     return true
   }
   return compareAsc(startOfDay(value.completed), startOfDay(value.started)) >= 0
 }
 
 const startedValidator = (value: Task['dateInfo']): boolean => {
+  if (value.started === undefined) {
+    return true
+  }
   return compareAsc(startOfDay(value.started), startOfDay(currentDate)) >= 0
 }
 
 const scheduledValidator4 = (value: Task['dateInfo']): boolean => {
+  if (value.started === undefined) {
+    return true
+  }
   return compareAsc(startOfDay(value.scheduled), startOfDay(value.started)) >= 0
 }
 
