@@ -79,7 +79,8 @@ export const TaskFormProps = props(
 )
 
 const initialValues: Task = produce(empty(Task), draft => {
-  draft.dateInfo.completed = draft.dateInfo.started = undefined
+  draft.dateInfo.completed = undefined
+  draft.dateInfo.started = undefined
 })
 
 export const TaskForm = component(TaskFormProps, ({ onSubmit, initial }) => (
