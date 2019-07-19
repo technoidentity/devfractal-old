@@ -1,5 +1,5 @@
 {
-  "packages": ["packages/*", "demos/*"],
+  "packages": ["packages/*", "demos/task-manager/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "0.0.1"
