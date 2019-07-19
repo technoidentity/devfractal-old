@@ -2,7 +2,7 @@
   "extends": "../../../tsconfig.base.json",
   "references": [
     { "path": "../../../packages/utils" },
-    { "path": "../../../packages/devfractal-meta-core" }
+    { "path": "../../../packages/meta-core" }
   ],
   "include": ["src"]
 }
