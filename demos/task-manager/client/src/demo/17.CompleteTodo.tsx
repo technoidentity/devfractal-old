@@ -18,7 +18,6 @@ import {
   SimpleTable,
   Title,
   useMatch,
-  useRouter,
   useRedirect,
 } from 'technoidentity-devfractal'
 import { fn, props, req } from 'technoidentity-utils'
