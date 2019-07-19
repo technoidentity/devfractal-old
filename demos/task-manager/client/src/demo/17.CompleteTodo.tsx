@@ -19,6 +19,7 @@ import {
   Title,
   useMatch,
   useRouter,
+  useRedirect,
 } from 'technoidentity-devfractal'
 import { fn, props, req } from 'technoidentity-utils'
 
@@ -95,7 +96,7 @@ export const TodoListView = component(
 )
 
 export const TodoListRoute = () => {
-  const { history } = useRouter()
+  const { onRedirect } = useRedirect()
 
   return (
     <>
@@ -104,7 +105,7 @@ export const TodoListRoute = () => {
         {data => (
           <TodoListView
             todoList={data}
-            onEdit={evt => history.push(`/todos/${evt.value.id}/edit`)}
+            onEdit={evt => onRedirect(`/todos/${evt.value.id}/edit`)}
           />
         )}
       </Get>
