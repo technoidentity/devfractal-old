@@ -1,14 +1,15 @@
 import { FormikActions } from 'formik'
+import { History } from 'history'
 import React from 'react'
-import { useRouter } from '../lib'
+import { useHistory } from '../router'
 
 export interface SubmitResult<T extends Object> {
   readonly serverError: string | undefined
-  onSubmit(data: T, actions: FormikActions<T>): Promise<void>
+  onSubmit(values: T, actions: FormikActions<T>): Promise<void>
 }
 
 export function useSubmit<T extends Object>(
-  f: (formValues: T) => Promise<T>,
+  asyncFn: (formValues: T) => Promise<T>,
   onSuccess: (values: T, actions: FormikActions<T>) => void,
   onFailure?: (err: any, actions: FormikActions<T>) => void,
 ): SubmitResult<T> {
@@ -16,9 +17,9 @@ export function useSubmit<T extends Object>(
     undefined,
   )
 
-  async function onSubmit(data: T, actions: FormikActions<T>): Promise<void> {
+  async function onSubmit(values: T, actions: FormikActions<T>): Promise<void> {
     // tslint:disable-next-line: no-floating-promises
-    f(data)
+    asyncFn(values)
       .then(values => onSuccess(values, actions))
       .catch(err => {
         if (err && err.response && err.response.data) {
@@ -34,31 +35,31 @@ export function useSubmit<T extends Object>(
   return { serverError, onSubmit }
 }
 
-export function useRedirect(redirectPath?: string): { onRedirect(): void } {
-  const { history } = useRouter()
+export function useRedirect(): { onRedirect(path?: string): void } {
+  const history: History = useHistory()
 
   return {
-    onRedirect: () => {
-      if (redirectPath) {
-        history.push(redirectPath)
+    onRedirect: (path?: string) => {
+      if (path) {
+        history.push(path)
       }
     },
   }
 }
 
 export function useSubmitRedirect<T extends Object>(
-  f: (formValues: T) => Promise<T>,
+  asyncFn: (formValues: T) => Promise<T>,
   redirectPath?: string,
 ): SubmitResult<T> {
-  const { onRedirect } = useRedirect(redirectPath)
-  return useSubmit(f, onRedirect)
+  const { onRedirect } = useRedirect()
+  return useSubmit(asyncFn, () => onRedirect(redirectPath))
 }
 
 export function useSubmitReset<T extends Object>(
-  f: (formValues: T) => Promise<T>,
+  asyncFn: (formValues: T) => Promise<T>,
   noReset?: boolean,
 ): SubmitResult<T> {
-  return useSubmit(f, (_, actions) => {
+  return useSubmit(asyncFn, (_, actions) => {
     if (!noReset) {
       actions.resetForm()
     }
