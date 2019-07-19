@@ -7,9 +7,6 @@
     "noEmit": false,
     "suppressImplicitAnyIndexErrors": true
   },
-  "references": [
-    { "path": "../devfractal-utils" },
-    { "path": "../devfractal-meta-core" }
-  ],
+  "references": [{ "path": "../utils" }, { "path": "../devfractal-meta-core" }],
   "include": ["src"]
 }

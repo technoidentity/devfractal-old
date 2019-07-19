@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.base.json",
-  "references": [{ "path": "../devfractal-utils" }],
+  "references": [{ "path": "../utils" }],
   "include": ["src"]
 }
