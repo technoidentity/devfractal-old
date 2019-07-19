@@ -17,7 +17,6 @@ module.exports = {
         display: 'initial',
         pointerEvents: 'none',
         whiteSpace: 'pre-wrap',
-        fontSize: 'inherit',
       },
     },
   },
