@@ -31,7 +31,7 @@ export const UserForm: number = 100
 
 // const initialValues: UserValues = emptyFromType(UserRT)
 
-// export const UserForm: React.SFC = () => (
+// export const UserForm: React.FC = () => (
 //   <Section>
 //     <Title>Users Form</Title>
 //     <Simple.Form

@@ -6,7 +6,7 @@ export interface AddProductFormProps {
   onAddProduct(product: Omit<Product, 'id'>): Promise<void>
 }
 
-export const AddProductForm: React.SFC<AddProductFormProps> = ({
+export const AddProductForm: React.FC<AddProductFormProps> = ({
   onAddProduct,
 }) => {
   return (

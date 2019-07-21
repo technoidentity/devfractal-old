@@ -2,7 +2,7 @@ import Cleave from 'cleave.js/react'
 import React from 'react'
 import { Section } from 'technoidentity-devfractal'
 
-export const CleaveComponent: React.SFC = () => (
+export const CleaveComponent: React.FC = () => (
   <Section>
     <Cleave
       className="input"

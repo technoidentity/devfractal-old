@@ -22,7 +22,7 @@ export const PhotoForm: number = 100
 
 // const initialValues: PhotoValues = emptyFromType(PhotoRT)
 
-// export const PhotoForm: React.SFC = () => (
+// export const PhotoForm: React.FC = () => (
 //   <Section>
 //     <Title>Photo Form</Title>
 //     <Simple.Form

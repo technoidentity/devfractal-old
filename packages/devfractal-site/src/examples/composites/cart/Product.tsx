@@ -20,7 +20,7 @@ interface ProductProps {
   onAddProduct(id: number): void
 }
 
-export const Product: React.SFC<ProductProps> = ({ product, onAddProduct }) => {
+export const Product: React.FC<ProductProps> = ({ product, onAddProduct }) => {
   return (
     <Tr>
       <Td>{product.id}</Td>
@@ -38,7 +38,7 @@ interface ProductListProps {
   onAddProduct(id: number): void
 }
 
-export const ProductList: React.SFC<ProductListProps> = ({
+export const ProductList: React.FC<ProductListProps> = ({
   productList,
   onAddProduct,
 }) => {

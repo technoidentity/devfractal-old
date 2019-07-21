@@ -13,6 +13,7 @@
     "class-name": true,
     "comment-format": [true, "check-space"],
     "curly": true,
+    "deprecation": true,
     "eofline": false,
     "file-name-casing": [true, "camel-case"],
     "forin": true,

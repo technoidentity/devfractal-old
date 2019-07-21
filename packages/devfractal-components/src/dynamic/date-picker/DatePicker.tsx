@@ -3,7 +3,7 @@ import { Button, Field, Section } from '../../lib'
 import { CalendarComponent } from './Calendar'
 import { toISODate } from './helpers'
 
-export const DatePicker: React.SFC = () => {
+export const DatePicker: React.FC = () => {
   const [calendarOpen, setCalendarOpen] = React.useState(false)
   const [date, setDate] = React.useState(new Date())
 

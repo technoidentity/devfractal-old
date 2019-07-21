@@ -8,7 +8,7 @@ export interface EditTodoViewProps {
   onEditTodo(todo: FSTodo, actions: FormikActions<FSTodo>): void
 }
 
-export const FSEditTodoView: React.SFC<EditTodoViewProps> = ({
+export const FSEditTodoView: React.FC<EditTodoViewProps> = ({
   todo,
   onEditTodo,
 }) => (

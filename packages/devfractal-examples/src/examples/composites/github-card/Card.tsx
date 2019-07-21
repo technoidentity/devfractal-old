@@ -13,7 +13,7 @@ export interface CardViewProps {
   readonly userInfo: GithubUserInfo
 }
 
-export const CardView: React.SFC<CardViewProps> = ({ userInfo }) => (
+export const CardView: React.FC<CardViewProps> = ({ userInfo }) => (
   <DfCard>
     <CardContent>
       <CardImage>
@@ -29,7 +29,7 @@ export interface CardProps {
   readonly name: string
 }
 
-export const Card: React.SFC<CardProps> = ({ name }) => {
+export const Card: React.FC<CardProps> = ({ name }) => {
   const [userInfo, setUserInfo] = React.useState<GithubUserInfo | undefined>(
     undefined,
   )

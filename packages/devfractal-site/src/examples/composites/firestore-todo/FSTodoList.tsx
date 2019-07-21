@@ -17,7 +17,7 @@ export interface FSTodoListProps {
   onDeleteTodo(id: string): void
 }
 
-export const FSTodoListView: React.SFC<FSTodoListProps> = ({
+export const FSTodoListView: React.FC<FSTodoListProps> = ({
   todoList,
   onDeleteTodo,
 }) => {

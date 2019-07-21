@@ -8,7 +8,7 @@ export interface ProductListProps {
   onDeleteTodo(id: number): Promise<void>
 }
 
-export const ProductList: React.SFC<ProductListProps> = ({
+export const ProductList: React.FC<ProductListProps> = ({
   productList,
   onDeleteTodo,
 }) => {

@@ -24,7 +24,7 @@ export const AlbumForm: number = 100
 
 // const initialValues: CommentValues = emptyFromType(CommentRT)
 
-// export const CommentForm: React.SFC = () => (
+// export const CommentForm: React.FC = () => (
 //   <Section>
 //     <Title>Comment Form</Title>
 //     <Simple.Form

@@ -19,7 +19,7 @@ export const PostForm: number = 100
 
 // const initialValues: PostValues = emptyFromType(PostRT)
 
-// export const PostForm: React.SFC = () => (
+// export const PostForm: React.FC = () => (
 //   <Section>
 //     <Title>Post Form</Title>
 //     <Simple.Form

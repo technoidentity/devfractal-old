@@ -102,12 +102,6 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     return empty(spec.types[0])
   }
 
-  // if (spec instanceof TaggedUnionType) {
-  //   return spec.types
-  //     .map(empty)
-  //     .reduce((acc: any, x: any) => ({ ...acc, ...x }))
-  // }
-
   if (spec instanceof TupleType) {
     return spec.types.map(empty)
   }

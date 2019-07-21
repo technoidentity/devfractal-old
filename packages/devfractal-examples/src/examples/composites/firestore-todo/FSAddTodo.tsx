@@ -10,7 +10,7 @@ export interface AddTodoProps {
   ): void
 }
 
-export const FSAddTodoView: React.SFC<AddTodoProps> = ({ onAddTodo }) => {
+export const FSAddTodoView: React.FC<AddTodoProps> = ({ onAddTodo }) => {
   return (
     <Section>
       <Title>Add Todo Form</Title>
