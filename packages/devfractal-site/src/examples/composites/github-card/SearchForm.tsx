@@ -6,7 +6,7 @@ export interface SearchFormProps {
   onSearch(name: string): void
 }
 
-export const SearchForm: React.SFC<SearchFormProps> = ({ onSearch }) => {
+export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
   return (
     <Formik
       initialValues={{ name: '' }}

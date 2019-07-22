@@ -1,5 +1,4 @@
 import {
-  any,
   array,
   boolean,
   exact,
@@ -17,6 +16,7 @@ import {
   tuple,
   type,
   union,
+  unknown,
 } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { empty } from './empty'
@@ -92,7 +92,7 @@ describe('empty from spec', () => {
             string,
             boolean,
             date,
-            any,
+            unknown,
             array: readonlyArray(boolean),
             enum: keyof({ foo: 1, bar: 1 }),
             exact: exact(type({ a: number, b: string })),
@@ -116,39 +116,39 @@ describe('empty from spec', () => {
     ).toMatchInlineSnapshot(
       { date: expect.any(Date) },
       `
-    Object {
-      "any": "",
-      "array": Array [],
-      "boolean": false,
-      "date": Any<Date>,
-      "enum": "foo",
-      "exact": Object {
-        "a": 0,
-        "b": "",
-      },
-      "int": 0,
-      "interface": Object {
-        "buzz": Array [],
-        "fizz": Array [],
-      },
-      "intersection": Object {
-        "x": 0,
-        "y": "hello",
-        "z": null,
-      },
-      "number": 0,
-      "readonly": Object {
-        "x": 0,
-      },
-      "readonlyArray": Array [],
-      "string": "",
-      "tuple": Array [
-        0,
-        "",
-      ],
-      "union": 0,
-    }
-  `,
+      Object {
+        "array": Array [],
+        "boolean": false,
+        "date": Any<Date>,
+        "enum": "foo",
+        "exact": Object {
+          "a": 0,
+          "b": "",
+        },
+        "int": 0,
+        "interface": Object {
+          "buzz": Array [],
+          "fizz": Array [],
+        },
+        "intersection": Object {
+          "x": 0,
+          "y": "hello",
+          "z": null,
+        },
+        "number": 0,
+        "readonly": Object {
+          "x": 0,
+        },
+        "readonlyArray": Array [],
+        "string": "",
+        "tuple": Array [
+          0,
+          "",
+        ],
+        "union": 0,
+        "unknown": "",
+      }
+    `,
     )
   })
 })

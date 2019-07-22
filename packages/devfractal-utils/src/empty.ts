@@ -1,10 +1,8 @@
 import {
   AnyArrayType,
-  AnyType,
   ArrayType,
   BooleanType,
   ExactType,
-  FunctionType,
   InterfaceType,
   IntersectionType,
   KeyofType,
@@ -16,15 +14,15 @@ import {
   ReadonlyArrayType,
   ReadonlyType,
   RefinementType,
-  StrictType,
   StringType,
   TupleType,
   TypeOf,
   UndefinedType,
   UnionType,
+  UnknownType,
   VoidType,
 } from 'io-ts'
-import { buildObject, nop, today } from './common'
+import { buildObject, today } from './common'
 
 export function empty<T extends Mixed>(spec: T): TypeOf<T> {
   if (spec.name === 'Int' || spec instanceof NumberType) {
@@ -47,10 +45,6 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     return Object.keys(spec.keys)[0]
   }
 
-  if (spec instanceof FunctionType) {
-    return nop
-  }
-
   if (spec instanceof LiteralType) {
     return spec.value
   }
@@ -64,7 +58,7 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     return undefined
   }
 
-  if (spec instanceof AnyType) {
+  if (spec instanceof UnknownType) {
     return ''
   }
 
@@ -78,10 +72,6 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     spec instanceof RefinementType
   ) {
     return empty(spec.type)
-  }
-
-  if (spec instanceof StrictType) {
-    return buildObject(spec.props, empty)
   }
 
   if (
@@ -101,12 +91,6 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
   if (spec instanceof UnionType) {
     return empty(spec.types[0])
   }
-
-  // if (spec instanceof TaggedUnionType) {
-  //   return spec.types
-  //     .map(empty)
-  //     .reduce((acc: any, x: any) => ({ ...acc, ...x }))
-  // }
 
   if (spec instanceof TupleType) {
     return spec.types.map(empty)

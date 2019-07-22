@@ -18,9 +18,6 @@ const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
   if (value instanceof t.BooleanType) {
     return { type: Boolean }
   }
-  if (value instanceof t.FunctionType) {
-    return { type: Boolean }
-  }
 
   if (value.name === 'Date') {
     return { type: Date }

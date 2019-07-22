@@ -19,7 +19,7 @@ export const AlbumForm: number = 100
 
 // const initialValues: AlbumValues = emptyFromType(AlbumRT)
 
-// export const AlbumForm: React.SFC = () => (
+// export const AlbumForm: React.FC = () => (
 //   <Section>
 //     <Title>Album Form</Title>
 //     <Simple.Form

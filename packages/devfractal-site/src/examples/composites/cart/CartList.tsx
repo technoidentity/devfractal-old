@@ -18,7 +18,7 @@ export interface CartItemProps {
   readonly cartItem: CartItem
 }
 
-export const CartItem: React.SFC<CartItemProps> = ({ cartItem }) => {
+export const CartItem: React.FC<CartItemProps> = ({ cartItem }) => {
   return (
     <Tr>
       <Td>{cartItem.product.id}</Td>
@@ -33,7 +33,7 @@ export interface CartListProps {
   readonly cartList: ReadonlyArray<CartItem>
 }
 
-export const CartList: React.SFC<CartListProps> = ({ cartList }) => {
+export const CartList: React.FC<CartListProps> = ({ cartList }) => {
   return (
     <>
       <Title>Cart</Title>

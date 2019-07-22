@@ -33,7 +33,7 @@ interface TreeViewProps {
   readonly isParentToggled?: boolean
 }
 
-const TreeView: React.SFC<TreeViewProps> = ({
+const TreeView: React.FC<TreeViewProps> = ({
   data,
   toggled = true,
   name = '',
@@ -83,6 +83,6 @@ const TreeView: React.SFC<TreeViewProps> = ({
   )
 }
 
-export const TreeViewStructure: React.SFC<TreeViewProps> = () => (
+export const TreeViewStructure: React.FC<TreeViewProps> = () => (
   <TreeView data={data} name="Rectangle" />
 )

@@ -36,7 +36,7 @@ export const emptyFromValue: <T>(value: T) => T = value => {
     return []
   }
 
-  if (t.object.is(value)) {
+  if (t.UnknownRecord.is(value)) {
     return emptyFromObjectValue(value)
   }
 

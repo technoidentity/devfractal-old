@@ -18,7 +18,7 @@ export const TodoForm: number = 100
 
 // const initialValues: TodoValues = emptyFromType(TodoRT)
 
-// export const TodoForm: React.SFC = () => (
+// export const TodoForm: React.FC = () => (
 //   <Section>
 //     <Simple.Form
 //       initialValues={initialValues}

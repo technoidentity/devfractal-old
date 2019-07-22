@@ -49,11 +49,7 @@ export function rtFromSpec(
     return tcomb.enums(spec.keys)
   }
 
-  if (spec instanceof iots.FunctionType) {
-    return tcomb.Function
-  }
-
-  // literal type?
+  // TODO: literal type?
 
   if (
     spec instanceof iots.NullType ||
@@ -63,8 +59,8 @@ export function rtFromSpec(
     return tcomb.Nil
   }
 
-  if (spec instanceof iots.AnyType) {
-    return tcomb.Any
+  if (spec instanceof iots.UnknownType) {
+    return tcomb.Any // this looks wrong, but is it?
   }
 
   if (spec instanceof iots.InterfaceType) {
@@ -88,10 +84,6 @@ export function rtFromSpec(
 
   if (spec instanceof iots.RefinementType) {
     return tcomb.refinement(rtFromSpec(spec.type), spec.predicate)
-  }
-
-  if (spec instanceof iots.StrictType) {
-    return rtFromObjectSpec(spec.props, { strict: true })
   }
 
   if (
