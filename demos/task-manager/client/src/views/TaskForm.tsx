@@ -79,6 +79,7 @@ export const TaskFormProps = props(
 )
 
 const initialValues: Task = produce(empty(Task), draft => {
+  draft._id=undefined
   draft.dateInfo.completed = undefined
   draft.dateInfo.started = undefined
 })
