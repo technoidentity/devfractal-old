@@ -1,4 +1,4 @@
-import { range, repeatedly, today } from './common'
+import { buildObject, range, repeatedly, today } from './common';
 
 it('range', () => {
   expect(range(0, -2)).toEqual([])
@@ -31,4 +31,14 @@ it('today', () => {
   expect(today()).toEqual(expect.any(Date))
 })
 
-it.todo('buildObject')
+const square:(a:number) => number = (a) => a*a
+
+it('buildObject',() => {
+  expect(buildObject({x:2,y:3},(value)=>(square(value)))).toEqual({x:4,y:9})
+  expect(buildObject({x:1},(value) =>value.toString() )).toEqual({x:"1"})
+  expect(buildObject({x:1,y:2,z:4},(value) => value+1)).toEqual({x:2,y:3,z:5})
+  expect(buildObject({},value => value*1)).toEqual({})
+  expect(buildObject({x:0,y:0},value => value-1)).toEqual({x:-1,y:-1})
+  expect(buildObject({x:"0"},Boolean)).toEqual({x:true})
+  expect(buildObject({x:"true"},value=>value.length)).toEqual({x:4})
+})
