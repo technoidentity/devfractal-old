@@ -29,7 +29,7 @@
     "publish": "lerna publish",
     "destroy": "git clean -dfx",
     "up": "lerna exec -- ncu -u",
-    "upd": "lerna run up && yarn refresh",
+    "upr": "lerna run up && yarn refresh",
     "test": "lerna run test",
     "lint": "lerna run lint",
     "types": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling lerna run --parallel types:watch",

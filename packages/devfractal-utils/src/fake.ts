@@ -1,6 +1,5 @@
 import Chance from 'chance'
 import {
-  any,
   AnyArrayType,
   ArrayC,
   ArrayType,
@@ -18,7 +17,6 @@ import {
   ReadonlyArrayType,
   ReadonlyType,
   RefinementType,
-  StrictType,
   StringType,
   TupleType,
   Type,
@@ -26,6 +24,7 @@ import {
   TypeOf,
   UndefinedType,
   UnionType,
+  unknown,
   VoidType,
 } from 'io-ts'
 import { buildObject, repeatedly } from './common'
@@ -63,7 +62,7 @@ function fakeArray<T extends Mixed>(
 }
 
 function fakeObject<T extends Props>(
-  spec: TypeC<T> | StrictType<T>,
+  spec: TypeC<T>,
   options: FakeOptions,
 ): TypeOf<typeof spec> {
   return buildObject(spec.props, v => fake(v, options))
@@ -117,16 +116,12 @@ export function fake<T extends Mixed>(
     return fake(spec.type, options)
   }
 
-  if (spec instanceof StrictType) {
-    return fakeObject(spec, options)
-  }
-
   if (spec instanceof ReadonlyArrayType) {
     return fakeArrayFromType(spec.type, options)
   }
 
   if (spec instanceof AnyArrayType) {
-    return fakeArrayFromType(any, options)
+    return fakeArrayFromType(unknown, options)
   }
 
   if (spec instanceof ArrayType) {
