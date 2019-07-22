@@ -7,12 +7,24 @@ import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 // tslint:disable typedef
 
 // Currently will not support intersection etc...
+// export function ManyQuery<C extends t.Props>(codec: t.ReadonlyC<t.TypeC<C>>) {
+//   return opt({
+//     page: t.number,
+//     limit: t.number,
+//     asc: t.keyof(codec.type.props), 
+//     desc: t.keyof(codec.type.props),
+//   })
+// }
+
+
+
 export function ManyQuery<C extends t.Props>(codec: t.ReadonlyC<t.TypeC<C>>) {
   return opt({
-    page: t.number,
-    limit: t.number,
-    asc: t.keyof(codec.type.props),
-    desc: t.keyof(codec.type.props),
+    _page: t.number,
+    _limit: t.number,
+    _sort: t.keyof(codec.type.props),
+    _order: t.keyof({asc:true,desc:true}),
+    
   })
 }
 
