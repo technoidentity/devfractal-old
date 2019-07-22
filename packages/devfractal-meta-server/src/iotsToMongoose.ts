@@ -22,6 +22,7 @@ const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
   if (value.name === 'Date') {
     return { type: Date }
   }
+
   if (value instanceof t.KeyofType) {
     return { type: String, enum: Object.keys(value.keys) }
   }
