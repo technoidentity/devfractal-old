@@ -1,5 +1,5 @@
 import React from 'react'
-import './treeview.css'
+import './view.css'
 
 interface DataProps {
   readonly top: {

@@ -10,6 +10,7 @@ import {
   Title,
   Tr,
 } from 'technoidentity-devfractal'
+import { logger } from '../common'
 
 const BorderedTableExample: React.FC = () => (
   <Section>
@@ -495,7 +496,7 @@ const ExampleTable: React.FC = () => (
           <Th>5</Th>
           <Td
             onClick={() => {
-              console.log('Td onClick')
+              logger('Td onClick')
             }}
           >
             <a

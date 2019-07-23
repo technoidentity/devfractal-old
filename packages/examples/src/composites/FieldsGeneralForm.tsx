@@ -3,7 +3,6 @@ import React from 'react'
 import {
   Button,
   CheckboxField,
-  consoleSubmit,
   Container,
   ErrorField,
   Field,
@@ -17,6 +16,7 @@ import {
   TextAreaField,
 } from 'technoidentity-devfractal'
 import { boolean, object, ObjectSchema, string } from 'yup'
+import { logger } from '../common'
 
 interface GeneralFormProps {
   readonly name: string
@@ -123,6 +123,8 @@ export const FieldsGeneralForm: () => JSX.Element = () => (
     initialValues={initialValues}
     validationSchema={validationSchema}
     render={InnerFieldsGeneralForm}
-    onSubmit={consoleSubmit(0)}
+    onSubmit={values => {
+      logger(values)
+    }}
   />
 )

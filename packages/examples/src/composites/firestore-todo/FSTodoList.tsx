@@ -58,7 +58,7 @@ export const FSTodoList: React.FC = () => {
   console.log('render')
   return (
     // tslint:disable-next-line: no-unnecessary-callback-wrapper
-    <Get asyncFn={async () => all()}>
+    <Get asyncFn={all}>
       {data => <FSTodoListView todoList={data} onDeleteTodo={handleDelete} />}
     </Get>
   )

@@ -2,13 +2,13 @@ import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import {
   Button,
-  consoleSubmit,
   Container,
   ErrorField,
   Field as FieldGroup,
   InputField,
   Label,
 } from 'technoidentity-devfractal'
+import { logger } from '../../common'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
 const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (
@@ -43,6 +43,6 @@ export const FieldsLoginForm: React.FC = () => (
     initialValues={initialLoginValues}
     validationSchema={loginSchema}
     render={LoginFormInner}
-    onSubmit={consoleSubmit(0)}
+    onSubmit={logger}
   />
 )

@@ -1,5 +1,17 @@
-import React, { useState } from 'react';
-import { Box, Delete as DeleteComponent, Message, MessageBody, MessageHeader, Notification, Section, Tag, Tags, Title } from 'technoidentity-devfractal';
+import React, { useState } from 'react'
+import {
+  Box,
+  Delete as DeleteComponent,
+  Message,
+  MessageBody,
+  MessageHeader,
+  Notification,
+  Section,
+  Tag,
+  Tags,
+  Title,
+} from 'technoidentity-devfractal'
+import { logger } from '../common'
 
 const DynamicDeleteExample: React.FC = () => {
   const [click, setDeleted] = useState('click Me!')
@@ -45,7 +57,7 @@ const DeleteCombinationsExample: React.FC = () => (
         <DeleteComponent
           className="is-large"
           onClick={() => {
-            console.log('DeleteExample onClick')
+            logger('DeleteExample onClick')
           }}
         />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum
