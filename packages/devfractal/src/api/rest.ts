@@ -16,8 +16,6 @@ import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 //   })
 // }
 
-
-
 export function ManyQuery<C extends t.Props>(codec: t.ReadonlyC<t.TypeC<C>>) {
   return opt({
     _page: t.number,
