@@ -1,5 +1,6 @@
 import * as iots from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { rtFromSpec } from './rtFromSpec'
 
 it.skip('rtFromSpec', () => {
@@ -31,6 +32,7 @@ it.skip('rtFromSpec', () => {
         union: iots.union([iots.Int, iots.string]),
         tuple: iots.tuple([iots.Int, iots.string]),
         date,
+        isoDate: DateFromISOString,
         enum: iots.keyof({ foo: 0, bar: 0 }),
         array: iots.readonlyArray(iots.boolean),
         undefined: iots.undefined,

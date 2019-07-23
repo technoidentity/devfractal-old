@@ -10,6 +10,7 @@ import {
   type,
 } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { defaultOptions, fake } from './fake'
 
 describe('fake from spec', () => {
@@ -68,11 +69,12 @@ describe('fake from spec', () => {
       fake(
         readonly(
           type({
-            d: date,
-            e: keyof({ foo: 0, bar: 0 }),
-            a: readonlyArray(string),
-            o: type({ x: number, y: number }),
-            o2: readonly(
+            date,
+            isoDate: DateFromISOString,
+            enum: keyof({ foo: 0, bar: 0 }),
+            array: readonlyArray(string),
+            object: type({ x: number, y: number }),
+            ro: readonly(
               type({
                 fizz: array(readonly(type({ buzz: boolean }))),
               }),
@@ -86,14 +88,15 @@ describe('fake from spec', () => {
       ),
     ).toEqual(
       expect.objectContaining({
-        d: expect.any(Date),
-        e: expect.stringMatching(/foo|bar/),
-        a: expect.arrayContaining([expect.any(String)]),
-        o: expect.objectContaining({
+        date: expect.any(Date),
+        isoDate: expect.any(Date),
+        enum: expect.stringMatching(/foo|bar/),
+        array: expect.arrayContaining([expect.any(String)]),
+        object: expect.objectContaining({
           x: expect.any(Number),
           y: expect.any(Number),
         }),
-        o2: expect.objectContaining({
+        ro: expect.objectContaining({
           fizz: expect.arrayContaining([
             expect.objectContaining({ buzz: expect.any(Boolean) }),
           ]),

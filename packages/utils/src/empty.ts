@@ -41,6 +41,10 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     return today()
   }
 
+  if (spec.name === 'DateFromISOString') {
+    return today()
+  }
+
   if (spec instanceof KeyofType) {
     return Object.keys(spec.keys)[0]
   }

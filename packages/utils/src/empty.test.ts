@@ -19,6 +19,7 @@ import {
   unknown,
 } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { empty } from './empty'
 
 // tslint:disable no-null-keyword typedef
@@ -92,6 +93,7 @@ describe('empty from spec', () => {
             string,
             boolean,
             date,
+            isoDate: DateFromISOString,
             unknown,
             array: readonlyArray(boolean),
             enum: keyof({ foo: 1, bar: 1 }),
@@ -114,7 +116,10 @@ describe('empty from spec', () => {
         ),
       ),
     ).toMatchInlineSnapshot(
-      { date: expect.any(Date) },
+      {
+        date: expect.any(Date),
+        isoDate: expect.any(Date),
+      },
       `
       Object {
         "array": Array [],
@@ -135,6 +140,7 @@ describe('empty from spec', () => {
           "y": "hello",
           "z": null,
         },
+        "isoDate": Any<Date>,
         "number": 0,
         "readonly": Object {
           "x": 0,

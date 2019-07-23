@@ -92,6 +92,10 @@ export function fake<T extends Mixed>(
     return chance.date()
   }
 
+  if (spec.name === 'DateFromISOString') {
+    return chance.date()
+  }
+
   if (spec instanceof KeyofType) {
     return chance.pickone(Object.keys(spec.keys))
   }

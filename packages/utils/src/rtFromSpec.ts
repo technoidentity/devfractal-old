@@ -45,6 +45,10 @@ export function rtFromSpec(
     return tcomb.Date
   }
 
+  if (spec.name === 'DateFromISOString') {
+    return tcomb.Date
+  }
+
   if (spec instanceof iots.KeyofType) {
     return tcomb.enums(spec.keys)
   }
