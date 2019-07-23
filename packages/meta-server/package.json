@@ -21,7 +21,7 @@
   "dependencies": {
     "tcomb": "3.2.29",
     "technoidentity-meta-core": "0.0.1",
-    "technoidentity-utils": "0.1.0",
+    "technoidentity-utils": "0.1.1",
     "tslib": "1.10.0"
   },
   "devDependencies": {

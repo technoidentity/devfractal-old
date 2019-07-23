@@ -22,7 +22,7 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-utils": "0.1.0",
+    "technoidentity-utils": "0.1.1",
     "tslib": "1.10.0"
   },
   "devDependencies": {
