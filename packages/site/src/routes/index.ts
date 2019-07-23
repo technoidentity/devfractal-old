@@ -1,0 +1,5 @@
+export * from './ComponentRoutes'
+export * from './CompositesRoutes'
+export * from './IndexRoutes'
+export * from './TabRoutes'
+export * from './CrudRoutes'
