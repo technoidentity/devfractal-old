@@ -7,7 +7,7 @@
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
-    "test": "cross-env NODE_ENV='test' jest",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
@@ -61,6 +61,7 @@
     "react-test-renderer": "16.8.6",
     "react": "16.8.6",
     "rimraf": "2.6.3",
+    "technoidentity-devfractal-examples": "*",
     "ts-jest": "24.0.2",
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",

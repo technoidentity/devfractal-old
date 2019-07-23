@@ -1,3 +1,6 @@
-export * from './ColorHelpersExample'
-export * from './HelpersExample'
-export * from './TypographyHelpersExample'
+import { dynamicRouter } from 'technoidentity-devfractal'
+import * as components from './internal'
+export const { Links: ModifiersLinks, Routes: ModifiersRoutes } = dynamicRouter(
+  components,
+  '/layout',
+)

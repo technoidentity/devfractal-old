@@ -16,7 +16,6 @@ import {
   TextAreaField,
 } from 'technoidentity-devfractal'
 import { boolean, object, ObjectSchema, string } from 'yup'
-import { logger } from '../common'
 
 interface GeneralFormProps {
   readonly name: string
@@ -124,7 +123,7 @@ export const FieldsGeneralForm: () => JSX.Element = () => (
     validationSchema={validationSchema}
     render={InnerFieldsGeneralForm}
     onSubmit={values => {
-      logger(values)
+      console.log(values)
     }}
   />
 )

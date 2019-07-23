@@ -30,12 +30,11 @@ import {
   PanelExample,
   SimpleFormExample,
   SimpleTodo,
-  StepComponent,
+  // StepComponent,
   TabsExample,
   Todo,
-  TreeViewStructure,
-} from './examples'
-import { TodoRoutes } from './examples/crud/TodoRoutes'
+  TodoRoutes,
+} from 'technoidentity-devfractal-examples'
 import {
   BottomSection,
   ExploreUIComponents,
@@ -57,7 +56,7 @@ export const CompositesRoutes: React.FC = () => (
     />
     <Route path="/composites/counter" exact component={Counter} />
     <Route path="/composites/todo" exact component={Todo} />
-    <Route path="/composites/treeview" exact component={TreeViewStructure} />
+    {/* <Route path="/composites/treeview" exact component={TreeViewStructure} /> */}
     <Route path="/composites/simple-todo" exact component={SimpleTodo} />
     <Route path="/composites/github-card" exact component={CardApp} />
     <Route path="/composites/cart-app" exact component={Cart} />
@@ -84,7 +83,7 @@ export const ComponentsRoutes: React.FC = () => (
     <Route path="/components/menu" exact component={MenuExample} />
     <Route path="/components/pagination" exact component={PaginationExample} />
     <Route path="/components/breadcrumb" component={BreadcrumbExample} />
-    <Route path="/components/step" component={StepComponent} />
+    {/* <Route path="/components/step" component={StepComponent} /> */}
   </>
 )
 

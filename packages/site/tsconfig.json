@@ -11,5 +11,6 @@
     "noFallthroughCasesInSwitch": true,
     "suppressImplicitAnyIndexErrors": true
   },
+  "references": [{ "path": "../examples" }],
   "include": ["src"]
 }

@@ -8,7 +8,6 @@ import {
   InputField,
   Label,
 } from 'technoidentity-devfractal'
-import { logger } from '../../common'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
 const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (
@@ -43,6 +42,6 @@ export const FieldsLoginForm: React.FC = () => (
     initialValues={initialLoginValues}
     validationSchema={loginSchema}
     render={LoginFormInner}
-    onSubmit={logger}
+    onSubmit={values => console.log(values)}
   />
 )

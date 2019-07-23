@@ -11,7 +11,6 @@ import {
   Tags,
   Title,
 } from 'technoidentity-devfractal'
-import { logger } from '../common'
 
 const DynamicDeleteExample: React.FC = () => {
   const [click, setDeleted] = useState('click Me!')
@@ -57,7 +56,7 @@ const DeleteCombinationsExample: React.FC = () => (
         <DeleteComponent
           className="is-large"
           onClick={() => {
-            logger('DeleteExample onClick')
+            console.log('DeleteExample onClick')
           }}
         />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum
