@@ -160,9 +160,13 @@ export const UIComponentsOverview: React.FC = () => (
   <>
     <Section>
       <Text
-        textColor="danger"
+        style={{
+          color: '#DD051B',
+          fontFamily: 'Poppins',
+          fontWeight: 'bold',
+          fontSize: '20px',
+        }}
         textAlignment="centered"
-        textWeight="light"
         className="is-size-4-desktop is-size-4-desktop is-size-5-mobile"
       >
         Easy things should be easy & hard things should be possible
