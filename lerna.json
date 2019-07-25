@@ -1,5 +1,5 @@
 {
-  "packages": ["packages/*", "demos/task-manager/*"],
+  "packages": ["devfractal/*", "demos/task-manager/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "0.0.1"
