@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "packages/*",
+    "devfractal/*",
+    "meta/*",
+    "utils",
     "demos/task-manager/*"
   ],
   "devDependencies": {
@@ -10,7 +12,7 @@
     "husky": "3.0.1",
     "json-server": "0.15.0",
     "lerna": "3.16.4",
-    "lint-staged": "9.2.0",
+    "lint-staged": "9.2.1",
     "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",
@@ -19,16 +21,15 @@
     "typescript-tslint-plugin": "0.5.4"
   },
   "scripts": {
-    "boot": "npx lerna bootstrap",
     "start": "lerna run start",
     "build": "lerna run build",
     "clean": "lerna exec -- yarn run rimraf dist .cache build .rts2_cache_*",
     "clean:dist": "lerna clean && yarn run rimraf node_modules",
     "clean:all": "yarn clean && yarn clean:dist",
-    "refresh": "yarn clean:all && yarn boot && yarn build && yarn validate",
+    "refresh": "yarn clean:all && yarn && yarn build && yarn validate",
     "publish": "lerna publish",
     "destroy": "git clean -dfx",
-    "up": "lerna exec -- ncu -u",
+    "up": "ncu -u && lerna exec -- ncu -u",
     "upr": "lerna run up && yarn refresh",
     "test": "lerna run test",
     "lint": "lerna run lint",

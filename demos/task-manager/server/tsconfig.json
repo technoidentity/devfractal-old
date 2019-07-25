@@ -1,8 +1,8 @@
 {
   "extends": "../../../tsconfig.base.json",
   "references": [
-    { "path": "../../../packages/utils" },
-    { "path": "../../../packages/meta/core" }
+    { "path": "../../../utils" },
+    { "path": "../../../meta/core" }
   ],
   "include": ["src"]
 }

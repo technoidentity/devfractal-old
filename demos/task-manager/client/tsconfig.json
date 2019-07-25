@@ -12,8 +12,8 @@
     "suppressImplicitAnyIndexErrors": true
   },
   "references": [
-    { "path": "../../../devfractal/utils" },
-    { "path": "../../../devfractal/meta/core" }
+    { "path": "../../../utils" },
+    { "path": "../../../meta/core" }
   ],
   "include": ["src"]
 }
