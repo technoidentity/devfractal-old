@@ -7,6 +7,6 @@
     "noEmit": false,
     "suppressImplicitAnyIndexErrors": true
   },
-  "references": [{ "path": "../utils" }, { "path": "../meta-core" }],
+  "references": [{ "path": "../../utils" }, { "path": "../../meta/core" }],
   "include": ["src"]
 }

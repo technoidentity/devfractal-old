@@ -13,7 +13,7 @@
   },
   "references": [
     { "path": "../../../packages/utils" },
-    { "path": "../../../packages/meta-core" }
+    { "path": "../../../packages/meta/core" }
   ],
   "include": ["src"]
 }

@@ -7,6 +7,6 @@
     "noEmit": false,
     "suppressImplicitAnyIndexErrors": true
   },
-  "references": [{ "path": "../devfractal" }, { "path": "../utils" }],
+  "references": [{ "path": "../lib" }, { "path": "../utils" }],
   "include": ["src"]
 }
