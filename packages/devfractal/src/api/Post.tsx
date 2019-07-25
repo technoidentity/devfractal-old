@@ -1,6 +1,6 @@
 import { FormikActions } from 'formik'
 import React from 'react'
-import { ServerErrorView } from './Components'
+import { ServerError } from './ServerError'
 import { useSubmitRedirect } from './useSubmit'
 
 export interface PostProps<T> {
@@ -21,7 +21,7 @@ export function Post<T>({
 
   return (
     <>
-      <ServerErrorView error={serverError} />
+      <ServerError error={serverError} />
       <Component onSubmit={onSubmit} />
     </>
   )

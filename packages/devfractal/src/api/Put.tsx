@@ -1,7 +1,7 @@
 import { FormikActions } from 'formik'
 import React from 'react'
-import { ServerErrorView } from './Components'
 import { Get } from './Get'
+import { ServerError } from './ServerError'
 import { useSubmitRedirect } from './useSubmit'
 
 export interface PutComponentProps<T> {
@@ -32,7 +32,7 @@ export function Put<T>({
 
   return (
     <>
-      <ServerErrorView error={serverError} />
+      <ServerError error={serverError} />
       <Get asyncFn={doGet} deps={[id]}>
         {(data: T) => <Component initial={data} onSubmit={onSubmit} />}
       </Get>
