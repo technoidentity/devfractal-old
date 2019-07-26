@@ -5,7 +5,7 @@ import {
   faStepForward,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Button, Field, Icon, Section } from 'technoidentity-devfractal'
+import { Button, Field, Icon, Section } from 'technoidentity-devfractal-ui'
 
 interface PagerViewProps {
   readonly currentPage: number

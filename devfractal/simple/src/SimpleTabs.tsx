@@ -6,7 +6,7 @@ import {
   Tabs,
   TabsItem,
   TabsProps,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {

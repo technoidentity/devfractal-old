@@ -4,14 +4,13 @@ import {
   CheckboxField,
   consoleSubmit,
   ErrorField,
-  Field,
   InputField,
   InputFieldProps,
-  Label,
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-forms'
+import { Field, Label } from 'technoidentity-devfractal-ui'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import * as yup from 'yup'
 import {

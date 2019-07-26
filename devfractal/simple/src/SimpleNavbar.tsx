@@ -10,7 +10,7 @@ import {
   NavbarItem,
   NavbarItemsProps,
   NavbarMenu,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui'
 
 const NavBurger: React.FC<NavbarBurgerProps> = props => (
   <NavbarBurger role="button" {...props}>

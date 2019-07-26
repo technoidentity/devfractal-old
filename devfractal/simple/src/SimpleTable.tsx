@@ -1,20 +1,8 @@
-import React from 'react'
-import { Boolean, Date, Function } from 'tcomb'
-import {
-  CheckBox,
-  formatDate,
-  Get,
-  Table,
-  TableBody,
-  TableHead,
-  TableProps,
-  Td,
-  Text,
-  Th,
-  Tr,
-} from 'technoidentity-devfractal'
-import { camelCaseToPhrase } from 'technoidentity-utils'
-
+import React from 'react';
+import { Boolean, Date, Function } from 'tcomb';
+import { Get } from 'technoidentity-devfractal-api';
+import { CheckBox, formatDate, Table, TableBody, TableHead, TableProps, Td, Text, Th, Tr } from 'technoidentity-devfractal-ui';
+import { camelCaseToPhrase } from 'technoidentity-utils';
 export interface RowClickEvent<T> {
   readonly value: T
 }
