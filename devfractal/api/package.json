@@ -58,7 +58,8 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "technoidentity-devfractal": "*",
+    "technoidentity-devfractal-ui": "*",
+    "technoidentity-devfractal-router": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
@@ -72,7 +73,7 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-devfractal": "*"
+    "technoidentity-devfractal-ui": "*"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

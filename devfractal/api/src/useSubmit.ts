@@ -1,7 +1,7 @@
 import { FormikActions } from 'formik'
 import { History } from 'history'
 import React from 'react'
-import { useHistory } from 'technoidentity-devfractal'
+import { useHistory } from 'technoidentity-devfractal-router'
 
 export interface SubmitResult<T extends Object> {
   readonly serverError: string | undefined
