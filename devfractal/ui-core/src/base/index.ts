@@ -1,5 +1,5 @@
 export * from './classNames'
-export * from './componentUtils'
+export * from './component'
 export * from './el'
 export * from './helpers'
 export * from './TableContentLoader'
