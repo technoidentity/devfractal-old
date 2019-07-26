@@ -12,6 +12,7 @@ import {
   Title,
 } from 'technoidentity-devfractal-ui-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
+import { isFunction } from './utils'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (
   <Title size="6">{camelCaseToPhrase(objectKey)}</Title>
@@ -58,8 +59,8 @@ export interface ViewerProps<T extends object> {
 export function Viewer<T extends object>({
   data,
 }: ViewerProps<T>): JSX.Element {
-  if (typeof data === 'function') {
-    return <Get asyncFn={data as any}>{d => <ViewerView data={d} />}</Get>
+  if (isFunction(data)) {
+    return <Get asyncFn={data}>{data => <ViewerView data={data} />}</Get>
   }
   return <ViewerView data={data} />
 }

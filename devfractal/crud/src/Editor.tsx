@@ -3,6 +3,7 @@ import * as t from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import React from 'react'
 import { Get, Section, Simple } from 'technoidentity-devfractal'
+import { isFunction } from './utils'
 
 export interface EditorViewProps<T extends object> {
   readonly data: T
@@ -49,11 +50,10 @@ export function Editor<T extends object>({
   onSubmit,
   id,
 }: EditorProps<T>): JSX.Element {
-  if (typeof data === 'function') {
+  if (isFunction(data)) {
     return (
-      // TODO: remove as any
-      <Get asyncFn={data as any}>
-        {d => <EditorView id={id} data={d as any} onSubmit={onSubmit} />}
+      <Get asyncFn={data}>
+        {data => <EditorView id={id} data={data} onSubmit={onSubmit} />}
       </Get>
     )
   }
