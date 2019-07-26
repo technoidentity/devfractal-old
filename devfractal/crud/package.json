@@ -20,11 +20,11 @@
     "validate": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "bulma": "0.7.5",
-    "date-fns": "1.30.1",
-    "immer": "3.1.3",
-    "tcomb": "3.2.29",
     "technoidentity-utils": "*",
+    "technoidentity-devfractal-api": "*",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-devfractal-simple": "*",
+    "technoidentity-devfractal-forms": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -32,7 +32,6 @@
     "@testing-library/react": "8.0.6",
     "@types/jest": "24.0.15",
     "@types/react": "16.8.23",
-    "@types/react-content-loader": "3.1.4",
     "@types/react-dom": "16.8.5",
     "@types/react-router": "5.0.3",
     "@types/react-router-dom": "4.3.4",
@@ -58,24 +57,18 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "technoidentity-devfractal-api": "*",
-    "technoidentity-devfractal-ui": "*",
-    "technoidentity-devfractal-simple": "*",
-    "technoidentity-devfractal-forms": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
     "formik": "1.5.8",
     "fp-ts": "2.0.3",
     "io-ts": "2.0.0",
-    "io-ts-promise": "2.0.0",
     "io-ts-types": "0.5.0",
     "monocle-ts": "2.0.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
-    "react-router-dom": "5.0.1",
-    "technoidentity-devfractal": "*"
+    "react-router-dom": "5.0.1"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

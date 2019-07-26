@@ -1,5 +1,6 @@
+import * as t from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
 import React from 'react'
-import { Boolean, Date, Function } from 'tcomb'
 import { Get } from 'technoidentity-devfractal-api'
 import {
   CheckBox,
@@ -19,9 +20,9 @@ const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (
 const Value: React.FC<{
   readonly objectValue: string
 }> = ({ objectValue }) =>
-  Boolean.is(objectValue) ? (
+  t.boolean.is(objectValue) ? (
     <CheckBox checked={objectValue} readOnly />
-  ) : Date.is(objectValue) ? (
+  ) : date.is(objectValue) ? (
     <Text>{formatDate(objectValue)}</Text>
   ) : (
     <>{objectValue}</>
@@ -57,8 +58,8 @@ export interface ViewerProps<T extends object> {
 export function Viewer<T extends object>({
   data,
 }: ViewerProps<T>): JSX.Element {
-  if (Function.is(data)) {
-    return <Get asyncFn={data}>{data => <ViewerView data={data} />}</Get>
+  if (typeof data === 'function') {
+    return <Get asyncFn={data as any}>{d => <ViewerView data={d} />}</Get>
   }
   return <ViewerView data={data} />
 }

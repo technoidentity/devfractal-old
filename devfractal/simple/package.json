@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "technoidentity-utils": "*",
+    "technoidentity-devfractal-ui-core": "*",
     "technoidentity-devfractal-ui": "*",
     "technoidentity-devfractal-forms": "*",
     "technoidentity-devfractal-router": "*",

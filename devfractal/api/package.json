@@ -25,6 +25,7 @@
     "io-ts-promise": "2.0.0",
     "query-string": "6.8.1",
     "technoidentity-utils": "*",
+    "technoidentity-devfractal-router": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -57,7 +58,6 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "technoidentity-devfractal-router": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {

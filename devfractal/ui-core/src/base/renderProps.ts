@@ -1,5 +1,4 @@
 import React from 'react'
-import { Function } from 'tcomb'
 import { assert } from 'technoidentity-utils'
 
 interface RenderPropsProps<Props> {
@@ -48,7 +47,7 @@ export function renderProps<Props>(
     return React.createElement(component as any, rest)
   }
 
-  if (Function.is(children)) {
+  if (typeof children === 'function') {
     return children(rest as Props)
   }
   return children

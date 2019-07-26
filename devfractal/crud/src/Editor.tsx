@@ -1,6 +1,7 @@
 import { FormikActions } from 'formik'
+import * as t from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
 import React from 'react'
-import { Boolean, Date, Function, Number } from 'tcomb'
 import { Get, Section, Simple } from 'technoidentity-devfractal'
 
 export interface EditorViewProps<T extends object> {
@@ -20,11 +21,11 @@ export function EditorView<T extends object>({
         {Object.keys(data).map(key => (
           <React.Fragment key={key}>
             {key !== id &&
-              (Boolean.is(data[key]) ? (
+              (t.boolean.is(data[key]) ? (
                 <Simple.Checkbox name={key} />
-              ) : Number.is(data[key]) ? (
+              ) : t.number.is(data[key]) ? (
                 <Simple.Number name={key} />
-              ) : Date.is(data[key]) ? (
+              ) : date.is(data[key]) ? (
                 <Simple.Date name={key} />
               ) : (
                 <Simple.Text name={key} />
@@ -48,10 +49,11 @@ export function Editor<T extends object>({
   onSubmit,
   id,
 }: EditorProps<T>): JSX.Element {
-  if (Function.is(data)) {
+  if (typeof data === 'function') {
     return (
-      <Get asyncFn={data}>
-        {data => <EditorView id={id} data={data} onSubmit={onSubmit} />}
+      // TODO: remove as any
+      <Get asyncFn={data as any}>
+        {d => <EditorView id={id} data={d as any} onSubmit={onSubmit} />}
       </Get>
     )
   }
