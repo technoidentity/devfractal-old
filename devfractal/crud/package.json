@@ -58,7 +58,10 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "technoidentity-devfractal": "*",
+    "technoidentity-devfractal-api": "*",
+    "technoidentity-devfractal-ui": "*",
+    "technoidentity-devfractal-simple": "*",
+    "technoidentity-devfractal-forms": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {

@@ -1,15 +1,15 @@
 import React from 'react'
 import { Boolean, Date, Function } from 'tcomb'
+import { Get } from 'technoidentity-devfractal-api'
 import {
   CheckBox,
   Column,
   Columns,
   formatDate,
-  Get,
   Section,
   Text,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (

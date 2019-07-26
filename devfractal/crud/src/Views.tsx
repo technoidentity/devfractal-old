@@ -1,15 +1,9 @@
 import { FormikActions } from 'formik'
 import { Mixed, TypeOf } from 'io-ts'
 import React, { FC } from 'react'
-import {
-  Button,
-  Container,
-  Field,
-  RowClickEvent,
-  SimpleTable,
-} from 'technoidentity-devfractal'
+import { RowClickEvent, SimpleTable } from 'technoidentity-devfractal-simple'
+import { Button, Container, Field } from 'technoidentity-devfractal-ui'
 import { empty } from 'technoidentity-utils'
-
 import { Editor } from './Editor'
 import { Viewer } from './Viewer'
 
