@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "4.0.0",
-    "@testing-library/react": "8.0.6",
+    "@testing-library/react": "8.0.7",
     "@types/jest": "24.0.15",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
@@ -47,7 +47,7 @@
     "io-ts-types": "0.5.0",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
-    "lint-staged": "9.2.0",
+    "lint-staged": "9.2.1",
     "monocle-ts": "2.0.0",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
@@ -57,10 +57,10 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "react-styleguidist": "9.1.11",
+    "react-styleguidist": "9.1.13",
     "rimraf": "2.6.3",
     "tsdx": "0.7.2",
-    "webpack": "4.37.0",
+    "webpack": "4.38.0",
     "webpack-blocks": "2.0.1"
   },
   "peerDependencies": {
