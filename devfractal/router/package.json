@@ -8,7 +8,7 @@
   "scripts": {
     "start": "tsdx watch",
     "dev": "parcel index.html --open",
-    "test": "cross-env NODE_ENV='test' jest",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "test:watch": "yarn test --watch",
     "build": "tsdx build",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",
