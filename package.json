@@ -3,9 +3,7 @@
   "private": true,
   "workspaces": [
     "devfractal/*",
-    "meta/*",
-    "utils",
-    "demos/task-manager/*"
+    "utils"
   ],
   "devDependencies": {
     "cross-env": "5.2.0",

@@ -13,7 +13,7 @@ import {
   Text,
   Th,
   Tr,
-} from 'technoidentity-devfractal-ui'
+} from 'technoidentity-devfractal-ui-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 export interface RowClickEvent<T> {
   readonly value: T

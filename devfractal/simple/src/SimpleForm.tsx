@@ -17,7 +17,12 @@ import {
   TextAreaField,
   TextAreaFieldProps,
 } from 'technoidentity-devfractal-forms'
-import { Button, Field, FieldProps, Label } from 'technoidentity-devfractal-ui'
+import {
+  Button,
+  Field,
+  FieldProps,
+  Label,
+} from 'technoidentity-devfractal-ui-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   date,

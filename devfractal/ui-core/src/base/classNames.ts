@@ -1,4 +1,4 @@
-import tcomb from 'tcomb'
+import * as t from 'io-ts'
 
 export type ClassNameArg =
   | string
@@ -13,16 +13,16 @@ export function classNames(...args: ClassNameArg[]): string {
   const draft: string[] = []
 
   args.forEach(arg => {
-    if (tcomb.String.is(arg)) {
+    if (t.string.is(arg)) {
       if (arg !== '') {
         draft.push(arg)
       }
-    } else if (tcomb.Array.is(arg)) {
+    } else if (t.UnknownArray.is(arg)) {
       const res: string = classNames(...arg)
       if (res !== '') {
         draft.push(res)
       }
-    } else if (tcomb.Object.is(arg)) {
+    } else if (t.UnknownRecord.is(arg)) {
       Object.keys(arg).forEach(key => {
         if (arg[key]) {
           draft.push(key)

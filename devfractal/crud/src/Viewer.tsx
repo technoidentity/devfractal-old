@@ -9,7 +9,7 @@ import {
   Section,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui'
+} from 'technoidentity-devfractal-ui-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (

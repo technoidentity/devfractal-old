@@ -4,8 +4,12 @@ import {
   removeRouteComponentProps,
   WithRouter,
 } from 'technoidentity-devfractal-router'
+import {
+  classNamesHelper,
+  El,
+  Helpers,
+} from 'technoidentity-devfractal-ui-core'
 import { chop, extractSegment } from 'technoidentity-utils'
-import { classNamesHelper, El, Helpers } from '../lib'
 
 interface RoutedTabsContext {
   readonly baseURL?: string

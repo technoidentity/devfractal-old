@@ -56,6 +56,7 @@
     "react-dom": "16.8.6",
     "rimraf": "2.6.3",
     "technoidentity-devfractal-ui": "*",
+    "technoidentity-devfractal-ui-core": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {

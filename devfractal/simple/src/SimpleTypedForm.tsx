@@ -10,7 +10,7 @@ import {
   SelectField,
   TextAreaField,
 } from 'technoidentity-devfractal-forms'
-import { Field, Label } from 'technoidentity-devfractal-ui'
+import { Field, Label } from 'technoidentity-devfractal-ui-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import * as yup from 'yup'
 import {

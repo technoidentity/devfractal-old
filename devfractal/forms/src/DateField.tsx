@@ -1,9 +1,9 @@
-import { Field, FieldConfig, FieldProps } from 'formik';
-import React from 'react';
-import { DateInput, DateInputProps } from 'technoidentity-devfractal-ui';
-import { OmitForm } from './types';
+import { Field, FieldConfig, FieldProps } from 'formik'
+import React from 'react'
+import { DateInput, DateInputProps } from 'technoidentity-devfractal-ui-core'
+import { OmitForm } from './types'
 
-type DateInputInnerProps<V> = FieldProps<V> & OmitForm<DateInputProps>;
+type DateInputInnerProps<V> = FieldProps<V> & OmitForm<DateInputProps>
 
 function DateInputInner<V>({
   form,
@@ -18,14 +18,14 @@ function DateInputInner<V>({
       onBlur={field.onBlur}
       selected={field.value}
     />
-  );
+  )
 }
 
 export type DateFieldProps = {
-  readonly onChange?: DateInputProps['onChange'];
+  readonly onChange?: DateInputProps['onChange']
 } & Omit<DateInputProps, 'onChange'> &
-  FieldConfig;
+  FieldConfig
 
 export const DateField: React.FC<DateFieldProps> = props => (
   <Field {...props} component={DateInputInner} />
-);
+)

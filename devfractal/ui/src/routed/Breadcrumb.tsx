@@ -5,8 +5,12 @@ import {
   removeRouteComponentProps,
   WithRouter,
 } from 'technoidentity-devfractal-router'
+import {
+  classNamesHelper,
+  El,
+  Helpers,
+} from 'technoidentity-devfractal-ui-core'
 import { chop } from 'technoidentity-utils'
-import { classNamesHelper, El, Helpers } from '../lib'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 
