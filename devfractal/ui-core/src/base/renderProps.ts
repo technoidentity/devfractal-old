@@ -43,6 +43,7 @@ export function renderProps<Props>(
   if (render) {
     return render(rest as Props)
   }
+
   if (component) {
     return React.createElement(component as any, rest)
   }
@@ -50,5 +51,19 @@ export function renderProps<Props>(
   if (typeof children === 'function') {
     return children(rest as Props)
   }
+
   return children
+}
+
+type RenderProps<Props extends RenderPropsProps<Props>> = Props & {
+  readonly baseComponent: React.ComponentType<Props>
+}
+
+export function Render<Props>({
+  baseComponent: Component,
+  ...props
+}: RenderProps<Props>): JSX.Element {
+  const comp: React.ReactNode = renderProps(Component)
+
+  return React.createElement(comp as any, props)
 }
