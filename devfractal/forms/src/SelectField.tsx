@@ -1,9 +1,9 @@
-import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
-import React from 'react'
-import { Select, SelectProps } from 'technoidentity-devfractal'
-import { FormikFieldConfig, OmitForm } from './types'
+import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik';
+import React from 'react';
+import { Select, SelectProps } from 'technoidentity-devfractal-ui';
+import { FormikFieldConfig, OmitForm } from './types';
 
-type FormikSelectProps<V> = FormikFieldProps<V> & OmitForm<SelectProps>
+type FormikSelectProps<V> = FormikFieldProps<V> & OmitForm<SelectProps>;
 
 const FormikSelect: <V>(props: FormikSelectProps<V>) => JSX.Element = ({
   form,
@@ -14,9 +14,9 @@ const FormikSelect: <V>(props: FormikSelectProps<V>) => JSX.Element = ({
   <Select {...props} {...field}>
     {children}
   </Select>
-)
+);
 
-export type SelectFieldProps = SelectProps & FormikFieldConfig
+export type SelectFieldProps = SelectProps & FormikFieldConfig;
 
 export const SelectField: React.FC<SelectFieldProps> = ({
   children,
@@ -25,4 +25,4 @@ export const SelectField: React.FC<SelectFieldProps> = ({
   <FormikField {...props} component={FormikSelect}>
     {children}
   </FormikField>
-)
+);

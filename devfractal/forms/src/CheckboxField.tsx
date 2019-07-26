@@ -1,9 +1,9 @@
-import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
-import React from 'react'
-import { CheckBox, CheckBoxProps } from 'technoidentity-devfractal'
-import { FormikFieldConfig, OmitForm } from './types'
+import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik';
+import React from 'react';
+import { CheckBox, CheckBoxProps } from 'technoidentity-devfractal-ui';
+import { FormikFieldConfig, OmitForm } from './types';
 
-type FormikCheckboxProps<V> = FormikFieldProps<V> & OmitForm<CheckBoxProps>
+type FormikCheckboxProps<V> = FormikFieldProps<V> & OmitForm<CheckBoxProps>;
 
 const FormikCheckbox: <V>(props: FormikCheckboxProps<V>) => JSX.Element = ({
   form,
@@ -14,9 +14,9 @@ const FormikCheckbox: <V>(props: FormikCheckboxProps<V>) => JSX.Element = ({
   <CheckBox {...props} {...field} checked={field.value}>
     {children}
   </CheckBox>
-)
+);
 
-export type CheckboxFieldProps = CheckBoxProps & FormikFieldConfig
+export type CheckboxFieldProps = CheckBoxProps & FormikFieldConfig;
 
 export const CheckboxField: React.FC<CheckboxFieldProps> = ({
   children,
@@ -25,4 +25,4 @@ export const CheckboxField: React.FC<CheckboxFieldProps> = ({
   <FormikField {...props} component={FormikCheckbox}>
     {children}
   </FormikField>
-)
+);

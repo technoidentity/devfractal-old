@@ -1,9 +1,9 @@
-import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
-import React from 'react'
-import { RadioGroup, RadioGroupProps } from 'technoidentity-devfractal'
-import { FormikFieldConfig, OmitForm } from './types'
+import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik';
+import React from 'react';
+import { RadioGroup, RadioGroupProps } from 'technoidentity-devfractal-ui';
+import { FormikFieldConfig, OmitForm } from './types';
 
-type FormikRadioGroupProps<V> = FormikFieldProps<V> & OmitForm<RadioGroupProps>
+type FormikRadioGroupProps<V> = FormikFieldProps<V> & OmitForm<RadioGroupProps>;
 
 const FormikRadioGroup: <V>(props: FormikRadioGroupProps<V>) => JSX.Element = ({
   form,
@@ -22,10 +22,10 @@ const FormikRadioGroup: <V>(props: FormikRadioGroupProps<V>) => JSX.Element = ({
     >
       {children}
     </RadioGroup>
-  )
-}
+  );
+};
 
-export type RadioFieldProps = RadioGroupProps & FormikFieldConfig
+export type RadioFieldProps = RadioGroupProps & FormikFieldConfig;
 
 export const RadioGroupField: React.FC<RadioFieldProps> = ({
   children,
@@ -34,4 +34,4 @@ export const RadioGroupField: React.FC<RadioFieldProps> = ({
   <FormikField {...props} component={FormikRadioGroup}>
     {children}
   </FormikField>
-)
+);

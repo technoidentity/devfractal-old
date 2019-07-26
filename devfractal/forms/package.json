@@ -55,7 +55,7 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "rimraf": "2.6.3",
-    "technoidentity-devfractal": "*",
+    "technoidentity-devfractal-ui": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
@@ -66,8 +66,7 @@
     "io-ts-types": "0.5.0",
     "monocle-ts": "2.0.0",
     "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "technoidentity-devfractal": "*"
+    "react-dom": "16.8.6"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
