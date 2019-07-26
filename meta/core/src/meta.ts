@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
-import { lit, opt, props, req } from 'technoidentity-utils'
+import { lit, opt, props, req, keys } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
@@ -24,13 +24,13 @@ export const StringRefinements = opt({
 
 export type StringRefinements = t.TypeOf<typeof StringRefinements>
 
-export const stringRefinements: ReadonlyArray<string> = Object.keys(
+export const stringRefinements: ReadonlyArray<string> = keys(
   StringRefinements.type.props,
 )
 
 export const DateRefinements = opt({ minDate: date, maxDate: date })
 
-export const dateRefinements: ReadonlyArray<string> = Object.keys(
+export const dateRefinements: ReadonlyArray<string> = keys(
   DateRefinements.type.props,
 )
 
@@ -41,7 +41,7 @@ export const ArrayRefinements = opt({
   minArrayLength: t.number,
 })
 
-export const arrayRefinements: ReadonlyArray<string> = Object.keys(
+export const arrayRefinements: ReadonlyArray<string> = keys(
   ArrayRefinements.type.props,
 )
 

@@ -14,7 +14,7 @@ import {
   Th,
   Tr,
 } from 'technoidentity-devfractal-ui-core'
-import { camelCaseToPhrase } from 'technoidentity-utils'
+import { camelCaseToPhrase, keys } from 'technoidentity-utils'
 export interface RowClickEvent<T> {
   readonly value: T
 }
@@ -70,8 +70,7 @@ export interface TableViewProps<T> extends TableProps {
 
 function TableView<T>(args: TableViewProps<T>): JSX.Element {
   const { headers, data, onRowClicked, children, ...props } = args
-  const allHeaders: ReadonlyArray<string> =
-    headers || Object.keys(data[0] || {})
+  const allHeaders: ReadonlyArray<string> = headers || keys(data[0] || {})
 
   return (
     <Table {...props} fullWidth>

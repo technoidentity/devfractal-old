@@ -13,7 +13,7 @@ export type AsyncResult<T> = { refresh(): void } & (
     })
 
 // tslint:disable no-object-mutation readonly-array
-export function useGet<T extends Object, P extends AnyTuple>(
+export function useGet<T extends {}, P extends AnyTuple>(
   asyncFn: (...params: P | []) => Promise<T>,
   ...deps: P | []
 ): AsyncResult<T> {

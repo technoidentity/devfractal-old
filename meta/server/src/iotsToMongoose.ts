@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { Document, model, Model, Schema } from 'mongoose'
-import { buildObject } from 'technoidentity-utils'
+import { buildObject, keys } from 'technoidentity-utils'
 
 const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
   if (value.name === 'Int') {
@@ -24,7 +24,7 @@ const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
   }
 
   if (value instanceof t.KeyofType) {
-    return { type: String, enum: Object.keys(value.keys) }
+    return { type: String, enum: keys(value.keys) }
   }
 
   throw new Error(`Unsupported ${value.name}`)

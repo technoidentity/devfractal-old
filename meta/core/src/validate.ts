@@ -1,6 +1,6 @@
 import { compareAsc } from 'date-fns'
 import * as t from 'tcomb'
-import { buildObject, jsonStringify } from 'technoidentity-utils'
+import { buildObject, jsonStringify, keys } from 'technoidentity-utils'
 import {
   ArrayMT,
   ArrayRefinements,
@@ -345,7 +345,7 @@ function validateObject(meta: MT, value: unknown): ErrorsObject | undefined {
   // tslint:disable-next-line:typedef
   const props = buildObject(value, (v, k) => validate(meta.properties[k], v))
 
-  if (!(Object.keys(props).length === 0 && props.constructor === Object)) {
+  if (!(keys(props).length === 0 && props.constructor === Object)) {
     return { kind: 'object', properties: props }
   }
 

@@ -22,7 +22,7 @@ import {
   UnknownType,
   VoidType,
 } from 'io-ts'
-import { buildObject, today } from './common'
+import { buildObject, keys, today } from './common'
 
 export function empty<T extends Mixed>(spec: T): TypeOf<T> {
   if (spec.name === 'Int' || spec instanceof NumberType) {
@@ -46,7 +46,7 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
   }
 
   if (spec instanceof KeyofType) {
-    return Object.keys(spec.keys)[0]
+    return keys(spec.keys)[0]
   }
 
   if (spec instanceof LiteralType) {

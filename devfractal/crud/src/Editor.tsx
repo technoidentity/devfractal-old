@@ -5,13 +5,13 @@ import React from 'react'
 import { Get, Section, Simple } from 'technoidentity-devfractal'
 import { isFunction } from './utils'
 
-export interface EditorViewProps<T extends object> {
+export interface EditorViewProps<T extends {}> {
   readonly data: T
   readonly id?: keyof T
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
-export function EditorView<T extends object>({
+export function EditorView<T extends {}>({
   data,
   id,
   onSubmit,
@@ -39,13 +39,13 @@ export function EditorView<T extends object>({
   )
 }
 
-export interface EditorProps<T extends object> {
+export interface EditorProps<T extends {}> {
   readonly data: T | (() => Promise<T>)
   readonly id: keyof T
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
-export function Editor<T extends object>({
+export function Editor<T extends {}>({
   data,
   onSubmit,
   id,

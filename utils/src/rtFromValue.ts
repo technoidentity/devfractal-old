@@ -38,9 +38,7 @@ function rtFromArrayValue<V, T extends ReadonlyArray<V>>(
     : tcomb.list(tcomb.Any)
 }
 
-function rtFromObjectValue<T extends Object & object>(
-  value: T,
-): tcomb.Struct<T> {
+function rtFromObjectValue<T extends {}>(value: T): tcomb.Struct<T> {
   return tcomb.struct(buildObject(value, rtFromValue))
 }
 

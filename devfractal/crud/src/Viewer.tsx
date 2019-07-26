@@ -29,11 +29,11 @@ const Value: React.FC<{
     <>{objectValue}</>
   )
 
-export interface ViewerViewProps<T extends object> {
+export interface ViewerViewProps<T extends {}> {
   readonly data: T
 }
 
-export function ViewerView<T extends object>({
+export function ViewerView<T extends {}>({
   data,
 }: ViewerViewProps<T>): JSX.Element {
   return (
@@ -52,13 +52,11 @@ export function ViewerView<T extends object>({
   )
 }
 
-export interface ViewerProps<T extends object> {
+export interface ViewerProps<T extends {}> {
   readonly data: T | (() => Promise<T>)
 }
 
-export function Viewer<T extends object>({
-  data,
-}: ViewerProps<T>): JSX.Element {
+export function Viewer<T extends {}>({ data }: ViewerProps<T>): JSX.Element {
   if (isFunction(data)) {
     return <Get asyncFn={data}>{data => <ViewerView data={data} />}</Get>
   }

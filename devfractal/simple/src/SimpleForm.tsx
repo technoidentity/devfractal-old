@@ -35,12 +35,12 @@ import {
   StringSchema,
 } from 'yup'
 
-interface Named<Values extends object> {
+interface Named<Values extends {}> {
   readonly name: keyof Values & string
 }
 
 // @TODO: value must by typed!
-interface SimpleInputProps<Values extends object, S extends Schema<any>>
+interface SimpleInputProps<Values extends {}, S extends Schema<any>>
   extends Omit<InputFieldProps, 'name'>,
     Named<Values> {
   readonly schema: S
@@ -49,7 +49,7 @@ interface SimpleInputProps<Values extends object, S extends Schema<any>>
   readonly field?: FieldProps
 }
 
-interface GenericInputProps<Values extends object, S extends Schema<any>>
+interface GenericInputProps<Values extends {}, S extends Schema<any>>
   extends Omit<SimpleInputProps<Values, S>, 'type' | 'schema'> {}
 
 // & ValidationProps
@@ -75,7 +75,7 @@ function validator<S extends Schema<any>>(
   }
 }
 
-function SimpleInput<Values extends object, S extends Schema<any>>(
+function SimpleInput<Values extends {}, S extends Schema<any>>(
   args: SimpleInputProps<Values, S>,
 ): JSX.Element {
   const { schema, label, validations, field, ...props } = args
@@ -88,7 +88,7 @@ function SimpleInput<Values extends object, S extends Schema<any>>(
   )
 }
 
-interface SimpleDateProps<Values extends object, S extends Schema<Date>>
+interface SimpleDateProps<Values extends {}, S extends Schema<Date>>
   extends Omit<DateFieldProps, 'name'>,
     Named<Values> {
   readonly schema: S
@@ -96,7 +96,7 @@ interface SimpleDateProps<Values extends object, S extends Schema<Date>>
   // readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
-function SimpleDate<Values extends object, S extends Schema<Date>>(
+function SimpleDate<Values extends {}, S extends Schema<Date>>(
   args: SimpleDateProps<Values, S>,
 ): JSX.Element {
   const { schema, label, ...props } = args
@@ -109,21 +109,21 @@ function SimpleDate<Values extends object, S extends Schema<Date>>(
   )
 }
 
-export interface SimpleCheckboxProps<Values extends object>
+export interface SimpleCheckboxProps<Values extends {}>
   extends Omit<CheckboxFieldProps, 'name'>,
     Named<Values> {
   readonly noLabel?: boolean
 }
 
-export interface SimpleRadioGroupProps<Values extends object>
+export interface SimpleRadioGroupProps<Values extends {}>
   extends Omit<RadioFieldProps, 'name'>,
     Named<Values> {}
 
-export interface SimpleSelectProps<Values extends object>
+export interface SimpleSelectProps<Values extends {}>
   extends Omit<SelectFieldProps, 'name'>,
     Named<Values> {}
 
-export interface SimpleTextAreaProps<Values extends object>
+export interface SimpleTextAreaProps<Values extends {}>
   extends Omit<TextAreaFieldProps, 'name'>,
     Named<Values> {
   readonly name: keyof Values & string
@@ -168,7 +168,7 @@ export interface SimpleFormProps<Values> {
   onSubmit?(values: Values, actions: FormikActions<Values>): void
 }
 
-export interface TypedForm<Values extends object> {
+export interface TypedForm<Values extends {}> {
   readonly Text: React.FC<GenericInputProps<Values, StringSchema>>
   readonly Date: React.FC<Omit<SimpleDateProps<Values, DateSchema>, 'schema'>>
   readonly Number: React.FC<GenericInputProps<Values, NumberSchema>>
@@ -183,7 +183,7 @@ export interface TypedForm<Values extends object> {
   readonly Form: React.FC<SimpleFormProps<Values>>
 }
 
-export function typedForm<Values extends object>(): TypedForm<Values> {
+export function typedForm<Values extends {}>(): TypedForm<Values> {
   return {
     Text: props => <SimpleInput {...props} type="text" schema={string()} />,
     Date: props => <SimpleDate {...props} schema={date()} />,

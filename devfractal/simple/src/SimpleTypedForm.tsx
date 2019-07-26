@@ -22,14 +22,14 @@ import {
   SimpleTextAreaProps,
 } from './SimpleForm'
 
-interface Named<Values extends Object, Value> {
+interface Named<Values extends {}, Value> {
   readonly name: keyof Values & string
   readonly value?: Value
 }
 
 // @TODO: value must by typed!
 interface SimpleInputProps<
-  Values extends Object,
+  Values extends {},
   Value extends string | number | ReadonlyArray<string>
 > extends Omit<InputFieldProps, 'name' | 'value'>, Named<Values, Value> {
   readonly schema: yup.Schema<Value>
@@ -40,7 +40,7 @@ interface SimpleInputProps<
 }
 
 interface GenericInputProps<
-  Values extends Object,
+  Values extends {},
   Value extends string | number | ReadonlyArray<string>
 > extends Omit<SimpleInputProps<Values, Value>, 'type' | 'schema'> {}
 
@@ -65,7 +65,7 @@ function validator<S extends yup.Schema<any>>(
   }
 }
 function SimpleInput<
-  Values extends Object,
+  Values extends {},
   Value extends string | number | string[]
 >(args: SimpleInputProps<Values, Value>): JSX.Element {
   const { schema, label, validations, ...props } = args
@@ -80,7 +80,7 @@ function SimpleInput<
   )
 }
 
-export interface TypedFormChildren<Values extends Object> {
+export interface TypedFormChildren<Values extends {}> {
   readonly Text: React.FC<GenericInputProps<Values, string>>
   readonly Number: React.FC<GenericInputProps<Values, number>>
   readonly Password: React.FC<GenericInputProps<Values, string>>
@@ -97,11 +97,11 @@ export interface TypedFormChildren<Values extends Object> {
   ): React.FC<Omit<NestedProps<Values, Name>, 'name'>>
 }
 
-interface Children<Values extends Object> {
+interface Children<Values extends {}> {
   children(Simple: TypedFormChildren<Values>): React.ReactNode
 }
 
-export interface TypedFormProps<Values extends Object>
+export interface TypedFormProps<Values extends {}>
   extends SimpleFormProps<Values>,
     Children<Values> {}
 
@@ -256,7 +256,7 @@ const childArgs: TypedFormChildren<any> = {
   nested: (name: any) => props => <Nested<any, any> name={name} {...props} />,
 }
 
-export function TypedForm<Values extends Object>(
+export function TypedForm<Values extends {}>(
   props: TypedFormProps<Values>,
 ): JSX.Element {
   const { initialValues, validationSchema, onSubmit, children } = props

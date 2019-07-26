@@ -1,9 +1,9 @@
 {
-  "name": "technoidentity-devfractal--foo",
+  "name": "technoidentity-devfractal",
   "version": "0.9.19",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/technoidentity-devfractal-foo.esm.js",
+  "module": "dist/technoidentity-devfractal.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "tsdx watch",

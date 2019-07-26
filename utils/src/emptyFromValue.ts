@@ -27,7 +27,7 @@ function emptyFromPrimitiveValue(v: unknown): any {
   warn(false, `Unsupported value ${v}`)
 }
 
-function emptyFromObjectValue<T extends Object>(value: T): T {
+function emptyFromObjectValue<T extends {}>(value: T): T {
   return buildObject(value, emptyFromValue) as T
 }
 

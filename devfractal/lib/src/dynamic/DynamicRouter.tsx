@@ -9,7 +9,7 @@ export interface DynamicRouterResult {
 }
 
 // tslint:disable typedef
-export function dynamicRouter<T extends object>(
+export function dynamicRouter<T extends {}>(
   components: T,
   baseUrl: string,
 ): DynamicRouterResult {

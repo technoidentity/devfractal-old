@@ -1,4 +1,5 @@
 import tcomb from 'tcomb'
+import { keys } from 'technoidentity-utils'
 
 export type ClassNameArg =
   | string
@@ -23,7 +24,7 @@ export function classNames(...args: ClassNameArg[]): string {
         draft.push(res)
       }
     } else if (tcomb.Object.is(arg)) {
-      Object.keys(arg).forEach(key => {
+      keys(arg).forEach(key => {
         if (arg[key]) {
           draft.push(key)
         }

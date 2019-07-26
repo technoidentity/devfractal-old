@@ -3,6 +3,8 @@
   "private": true,
   "workspaces": [
     "devfractal/*",
+    "meta/*",
+    "demos/task-manager/*",
     "utils"
   ],
   "devDependencies": {

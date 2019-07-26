@@ -4,14 +4,14 @@ import { ErrorView, Loading } from './Components'
 import { AsyncResult, useGet } from './useGet'
 
 // tslint:disable readonly-array
-export interface GetProps<T extends Object, P extends AnyTuple> {
+export interface GetProps<T extends {}, P extends AnyTuple> {
   readonly deps?: P | []
   // You should pass a global function, not a closure. Pass all deps to 'deps' instead.
   asyncFn(...params: P | []): Promise<T>
   children(data: T, fetchAgain: () => void): JSX.Element
 }
 
-export function Get<T extends Object, P extends AnyTuple>({
+export function Get<T extends {}, P extends AnyTuple>({
   asyncFn,
   deps = [],
   children,

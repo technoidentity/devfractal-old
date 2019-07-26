@@ -3,7 +3,7 @@ import { array, string, Type } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import { String } from 'tcomb'
-import { chop, debug, verify } from 'technoidentity-utils'
+import { chop, debug, keys, verify } from 'technoidentity-utils'
 
 export interface MethodArgs {
   readonly resource?: string
@@ -45,7 +45,7 @@ function buildPath(path?: string | ReadonlyArray<string>): string {
 }
 
 function buildQueryString(query?: string | Record<string, any>): string {
-  return query === undefined || Object.keys(query).length === 0
+  return query === undefined || keys(query).length === 0
     ? ''
     : `?${String.is(query) ? query : stringify(query)}`
 }

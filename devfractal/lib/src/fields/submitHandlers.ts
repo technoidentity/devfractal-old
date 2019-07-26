@@ -2,7 +2,7 @@ import axios from 'axios'
 import { FormikActions, FormikErrors } from 'formik'
 import { jsonStringify } from 'technoidentity-utils'
 
-export function consoleSubmit<Values extends object>(
+export function consoleSubmit<Values extends {}>(
   milliseconds: number = 0,
 ): (values: Values, formikArgs: FormikActions<Values>) => Promise<void> {
   return async (values, { setSubmitting }) =>

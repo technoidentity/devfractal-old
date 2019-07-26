@@ -3,12 +3,12 @@ import { History } from 'history'
 import React from 'react'
 import { useHistory } from '../router'
 
-export interface SubmitResult<T extends Object> {
+export interface SubmitResult<T extends {}> {
   readonly serverError: string | undefined
   onSubmit(values: T, actions: FormikActions<T>): Promise<void>
 }
 
-export function useSubmit<T extends Object>(
+export function useSubmit<T extends {}>(
   asyncFn: (formValues: T) => Promise<T>,
   onSuccess: (values: T, actions: FormikActions<T>) => void,
   onFailure?: (err: any, actions: FormikActions<T>) => void,
@@ -47,7 +47,7 @@ export function useRedirect(): { onRedirect(path?: string): void } {
   }
 }
 
-export function useSubmitRedirect<T extends Object>(
+export function useSubmitRedirect<T extends {}>(
   asyncFn: (formValues: T) => Promise<T>,
   redirectPath?: string,
 ): SubmitResult<T> {
@@ -55,7 +55,7 @@ export function useSubmitRedirect<T extends Object>(
   return useSubmit(asyncFn, () => onRedirect(redirectPath))
 }
 
-export function useSubmitReset<T extends Object>(
+export function useSubmitReset<T extends {}>(
   asyncFn: (formValues: T) => Promise<T>,
   noReset?: boolean,
 ): SubmitResult<T> {

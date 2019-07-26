@@ -50,7 +50,7 @@ export function repeatedly<T>(
 
 export const buildArray: typeof repeatedly = repeatedly
 
-export function buildObject<T extends Object, R>(
+export function buildObject<T extends {}, R>(
   obj: T,
   f: (value: T[typeof key], key: keyof T) => R,
 ): Record<keyof T, R> {

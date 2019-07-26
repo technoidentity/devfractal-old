@@ -1,6 +1,6 @@
 import { Constructor, Irreducible } from 'tcomb'
 import { verify } from './assertions'
-import { buildObject, nop } from './common'
+import { buildObject, keys, nop } from './common'
 import {
   isDict,
   isEnums,
@@ -98,7 +98,7 @@ export function emptyFromRT(rt: Constructor<any>): any {
   }
 
   if (isEnums(rt)) {
-    return Object.keys(rt.meta.map)[0]
+    return keys(rt.meta.map)[0]
   }
 
   // case 'subtype':

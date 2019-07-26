@@ -1,8 +1,8 @@
 import express from 'express'
 
 export interface Request<
-  Body extends Object | undefined = undefined,
-  Query extends Object | undefined = undefined,
+  Body extends {} | undefined = undefined,
+  Query extends {} | undefined = undefined,
   Session extends Express.Session = Express.Session
 > extends express.Request {
   body: Body
@@ -10,7 +10,7 @@ export interface Request<
   session?: Session
 }
 
-export interface Response<Body extends Object = {}> extends express.Response {
+export interface Response<Body extends {} = {}> extends express.Response {
   send(body?: Body): Response<Body>
 }
 
