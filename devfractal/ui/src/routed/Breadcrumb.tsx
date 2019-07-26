@@ -1,14 +1,12 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { NavLink } from 'react-router-dom'
-import { chop } from 'technoidentity-utils'
 import {
-  classNamesHelper,
-  El,
-  Helpers,
   removeRouteComponentProps,
   WithRouter,
-} from '../lib'
+} from 'technoidentity-devfractal-router'
+import { chop } from 'technoidentity-utils'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 

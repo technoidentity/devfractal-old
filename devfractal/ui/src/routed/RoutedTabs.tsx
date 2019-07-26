@@ -1,13 +1,11 @@
 import React from 'react'
 import { NavLink, RouteComponentProps } from 'react-router-dom'
-import { chop, extractSegment } from 'technoidentity-utils'
 import {
-  classNamesHelper,
-  El,
-  Helpers,
   removeRouteComponentProps,
   WithRouter,
-} from '../lib'
+} from 'technoidentity-devfractal-router'
+import { chop, extractSegment } from 'technoidentity-utils'
+import { classNamesHelper, El, Helpers } from '../lib'
 
 interface RoutedTabsContext {
   readonly baseURL?: string

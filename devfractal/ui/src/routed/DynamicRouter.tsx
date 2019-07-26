@@ -1,7 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import { SimpleRedirect } from 'technoidentity-devfractal-router'
 import { capitalizeAll, toLower } from 'technoidentity-utils'
-import { RoutedTabs, RoutedTabsItem, SimpleRedirect } from '../lib'
+import { RoutedTabs, RoutedTabsItem } from '../lib'
 
 export interface DynamicRouterResult {
   readonly Routes: React.FC

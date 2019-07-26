@@ -1,7 +1,8 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
+import { WithRouter } from 'technoidentity-devfractal-router'
 import { capitalizeAll, chop } from 'technoidentity-utils'
-import { Breadcrumb, BreadcrumbItem, Null, WithRouter } from '../lib'
+import { Breadcrumb, BreadcrumbItem, Null } from '../lib'
 
 const DynamicBreadcrumbWithRouter: React.FC<RouteComponentProps> = ({
   location,

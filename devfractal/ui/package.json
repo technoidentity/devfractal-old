@@ -34,6 +34,7 @@
     "react-content-loader": "4.2.2",
     "tcomb": "3.2.29",
     "technoidentity-utils": "*",
+    "technoidentity-devfractal-router": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
