@@ -1,8 +1,20 @@
-import React from 'react';
-import { Boolean, Date, Function } from 'tcomb';
-import { Get } from 'technoidentity-devfractal-api';
-import { CheckBox, formatDate, Table, TableBody, TableHead, TableProps, Td, Text, Th, Tr } from 'technoidentity-devfractal-ui';
-import { camelCaseToPhrase } from 'technoidentity-utils';
+import * as t from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
+import React from 'react'
+import { Get } from 'technoidentity-devfractal-api'
+import {
+  CheckBox,
+  formatDate,
+  Table,
+  TableBody,
+  TableHead,
+  TableProps,
+  Td,
+  Text,
+  Th,
+  Tr,
+} from 'technoidentity-devfractal-ui'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 export interface RowClickEvent<T> {
   readonly value: T
 }
@@ -32,9 +44,9 @@ function Rows<T>(props: RowsProps<T>): JSX.Element {
         >
           {headers.map(key => (
             <Td key={key}>
-              {Date.is(value[key]) ? (
+              {date.is(value[key]) ? (
                 <Text>{formatDate(value[key])}</Text>
-              ) : Boolean.is(value[key]) ? (
+              ) : t.boolean.is(value[key]) ? (
                 <CheckBox readOnly checked={value[key]} />
               ) : value[key] !== undefined ? (
                 value[key]
@@ -86,7 +98,7 @@ function TableView<T>(args: TableViewProps<T>): JSX.Element {
 export function SimpleTable<T>(args: SimpleTableProps<T>): JSX.Element {
   const { data, ...props } = args
 
-  return Function.is(data) ? (
+  return typeof data === 'function' ? (
     <Get asyncFn={data}>{data => <TableView {...props} data={data} />}</Get>
   ) : (
     <TableView data={data} {...props} />
