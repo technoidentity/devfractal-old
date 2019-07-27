@@ -6,7 +6,7 @@ import {
   CardImage,
   SubTitle,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import { GithubUserInfo } from './types'
 
 export interface CardViewProps {

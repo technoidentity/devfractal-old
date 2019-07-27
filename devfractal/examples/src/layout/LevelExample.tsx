@@ -9,7 +9,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const LevelLeftExample: React.FC = () => (
   <Section>

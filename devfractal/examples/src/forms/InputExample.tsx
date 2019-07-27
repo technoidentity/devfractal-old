@@ -10,7 +10,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const DynamicInputExample: React.FC = () => {
   const [change, setChange] = React.useState('')

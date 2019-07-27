@@ -4,14 +4,16 @@ import {
   DropDown,
   DropDownDivider,
   DropDownItem,
+  RoutedTabs,
+  RoutedTabsItem,
+} from 'technoidentity-devfractal-ui'
+import {
   Field,
   Level,
   LevelItem,
-  RoutedTabs,
-  RoutedTabsItem,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const DropdownExampleTab: React.FC = () => (
   <>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Section } from 'technoidentity-devfractal'
+import { Section } from 'technoidentity-devfractal-ui-core'
 import { Card } from './Card'
 import { SearchForm } from './SearchForm'
 

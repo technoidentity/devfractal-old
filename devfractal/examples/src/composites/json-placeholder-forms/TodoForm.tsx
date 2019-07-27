@@ -8,7 +8,7 @@ export const TodoForm: number = 100
 //   Section,
 //   Simple,
 //   typeInvariant,
-// } from 'technoidentity-devfractal'
+// } from 'technoidentity-devfractal-ui-core'
 
 // // tslint:disable typedef
 

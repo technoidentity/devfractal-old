@@ -8,7 +8,7 @@ import {
   Th,
   Title,
   Tr,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export interface Product {
   readonly id: number

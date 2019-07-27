@@ -1,5 +1,6 @@
 import React from 'react'
-import { Box, Label, Viewer } from 'technoidentity-devfractal'
+import { Viewer } from 'technoidentity-devfractal-crud'
+import { Box, Label } from 'technoidentity-devfractal-ui-core'
 import { MT } from 'technoidentity-meta-core'
 
 export interface MetaViewProps {

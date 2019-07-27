@@ -7,7 +7,7 @@ import {
   Th,
   Title,
   Tr,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import { Product } from './Product'
 
 interface CartItem {

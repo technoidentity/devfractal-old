@@ -14,10 +14,9 @@ import {
   NavbarMenu,
   Section,
   SubTitle,
-  Tabs,
-  TabsItem,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
+import { Tabs, TabsItem } from 'technoidentity-devfractal-ui'
 
 const SimpleHeroExample: React.FC = () => (
   <Section>

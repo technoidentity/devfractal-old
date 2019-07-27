@@ -1,17 +1,12 @@
 import React from 'react'
-import {
-  consoleSubmit,
-  max,
-  min,
-  required,
-  Section,
-  Simple,
-} from 'technoidentity-devfractal'
+import { max, min, required } from 'technoidentity-devfractal-forms'
+import { Simple } from 'technoidentity-devfractal-simple'
+import { Section } from 'technoidentity-devfractal-ui-core'
 import { initialLoginValues } from './common'
 
 export const SimpleLoginForm: React.FC = () => (
   <Section>
-    <Simple.Form initialValues={initialLoginValues} onSubmit={consoleSubmit(0)}>
+    <Simple.Form initialValues={initialLoginValues}>
       <Simple.Text
         label="Username:"
         name="username"

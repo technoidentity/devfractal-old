@@ -24,7 +24,7 @@ import {
   Ol,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export const ImageModalExample: React.FC = () => {
   const [modal, setModal] = React.useState(false)

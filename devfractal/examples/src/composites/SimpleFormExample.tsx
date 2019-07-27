@@ -1,10 +1,6 @@
 import React from 'react'
-import {
-  consoleSubmit,
-  Radio,
-  Section,
-  Simple,
-} from 'technoidentity-devfractal'
+import { Simple } from 'technoidentity-devfractal-simple'
+import { Radio, Section } from 'technoidentity-devfractal-ui-core'
 import { number, object, ObjectSchema, string } from 'yup'
 
 interface SimpleValues {
@@ -48,11 +44,7 @@ const simpleSchema: ObjectSchema<Partial<SimpleValues>> = object({
 
 export const SimpleFormExample: React.FC = () => (
   <Section>
-    <Simple.Form
-      initialValues={initialValues}
-      validationSchema={simpleSchema}
-      onSubmit={consoleSubmit(0)}
-    >
+    <Simple.Form initialValues={initialValues} validationSchema={simpleSchema}>
       <Simple.Text label="Username" name="username" />
       <Simple.Password label="Password" name="password" />
       <Simple.Email label="Email" name="email" />

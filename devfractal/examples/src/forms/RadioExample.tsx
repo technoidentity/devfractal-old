@@ -9,7 +9,7 @@ import {
   RadioGroup,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const DynamicRadioExample: React.FC = () => {
   const [select, setSelect] = React.useState('red')

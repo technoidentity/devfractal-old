@@ -1,4 +1,5 @@
 import React from 'react'
+import { SimplePagerView } from 'technoidentity-devfractal-simple'
 import {
   Pagination,
   PaginationEllipsis,
@@ -6,11 +7,8 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-  Section,
-  SimplePagerView,
-  Text,
-  Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui'
+import { Section, Text, Title } from 'technoidentity-devfractal-ui-core'
 
 export const SimplePaginationExample: React.FC = () => (
   <>

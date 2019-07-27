@@ -4,6 +4,7 @@
   "workspaces": [
     "utils",
     "devfractal/*",
+    "meta/*",
     "demos/task-manager/*"
   ],
   "devDependencies": {

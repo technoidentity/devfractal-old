@@ -1,5 +1,6 @@
 import React from 'react'
-import { Simple, Title } from 'technoidentity-devfractal'
+import { Simple } from 'technoidentity-devfractal-simple'
+import { Title } from 'technoidentity-devfractal-ui-core'
 import { Product } from './fakeData'
 
 export interface AddProductFormProps {

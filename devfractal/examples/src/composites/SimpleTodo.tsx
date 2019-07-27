@@ -1,5 +1,6 @@
 import React from 'react'
-import { SimpleTable, Viewer } from 'technoidentity-devfractal'
+import { Viewer } from 'technoidentity-devfractal-crud'
+import { SimpleTable } from 'technoidentity-devfractal-simple'
 import { SimpleAddTodo } from './AddTodo'
 
 interface Todo {

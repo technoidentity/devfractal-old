@@ -17,7 +17,7 @@ import {
   Section,
   TextArea,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const SimpleMediaObjectExample: React.FC = () => (
   <Section>

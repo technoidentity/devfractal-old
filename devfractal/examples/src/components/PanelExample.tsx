@@ -15,7 +15,7 @@ import {
   PanelTabs,
   PanelTabsItem,
   Section,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export const PanelExample: React.FC = () => (
   <Section>

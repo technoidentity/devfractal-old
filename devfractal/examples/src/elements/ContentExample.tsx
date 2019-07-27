@@ -6,7 +6,7 @@ import {
   Section,
   Text,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const BasicContentExample: React.FC = () => (
   <Section>

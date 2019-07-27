@@ -3,7 +3,7 @@ import {
   Content,
   Footer as FooterComponent,
   Section,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export const Footer: React.FC = () => (
   <Section>

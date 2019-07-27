@@ -4,7 +4,7 @@ import {
   Field,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const DynamicCheckBoxExample: React.FC = () => {
   const [checked, setChecked] = React.useState(false)

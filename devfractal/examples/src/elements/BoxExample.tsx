@@ -7,7 +7,7 @@ import {
   MediaContent,
   MediaLeft,
   Section,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export const Box: React.FC = () => (
   <Section>

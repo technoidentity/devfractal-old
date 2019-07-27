@@ -4,7 +4,7 @@ import {
   Notification,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const CenteredContainerExample: React.FC = () => (
   <Section>

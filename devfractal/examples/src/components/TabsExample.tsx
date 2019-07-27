@@ -8,14 +8,8 @@ import {
   faMusic,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import {
-  Box,
-  Icon,
-  Section,
-  Tabs,
-  TabsItem,
-  Title,
-} from 'technoidentity-devfractal'
+import { Tabs, TabsItem } from 'technoidentity-devfractal-ui'
+import { Box, Icon, Section, Title } from 'technoidentity-devfractal-ui-core'
 
 export const TabsExamples: React.FC = () => (
   <>

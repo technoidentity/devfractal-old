@@ -4,7 +4,7 @@ import {
   Section as SectionComponent,
   SubTitle,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const LargeSectionExample: React.FC = () => (
   <SectionComponent>

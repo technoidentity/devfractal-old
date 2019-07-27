@@ -11,7 +11,7 @@ import {
   Icon as IconComponent,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const BasicIconExample: React.FC = () => (
   <Section>

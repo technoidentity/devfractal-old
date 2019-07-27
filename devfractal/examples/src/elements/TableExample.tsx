@@ -9,7 +9,7 @@ import {
   Th,
   Title,
   Tr,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const BorderedTableExample: React.FC = () => (
   <Section>

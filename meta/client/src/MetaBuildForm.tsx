@@ -1,17 +1,19 @@
 import { Form, Formik, FormikActions } from 'formik'
 import React from 'react'
 import {
+  Simple,
+  SimpleArrayField,
+  SimpleArrayFieldComponentProps,
+} from 'technoidentity-devfractal-simple'
+import {
   CheckBox,
   Column,
   Columns,
   Container,
   Input,
   Select,
-  Simple,
-  SimpleArrayField,
-  SimpleArrayFieldComponentProps,
   Text,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import { PrimitiveMT } from 'technoidentity-meta-core'
 
 export interface MetaBuildFormProps {

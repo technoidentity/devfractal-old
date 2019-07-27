@@ -1,5 +1,6 @@
 import React from 'react'
-import { consoleSubmit, Section, Simple } from 'technoidentity-devfractal'
+import { Simple } from 'technoidentity-devfractal-simple'
+import { Section } from 'technoidentity-devfractal-ui-core'
 import { boolean, object, ObjectSchema, string } from 'yup'
 
 export interface AddTodoValues {
@@ -25,7 +26,6 @@ export const SimpleAddTodo: React.FC = () => (
     <Simple.Form
       initialValues={initialAddTodoValues}
       validationSchema={AddTodoSchema}
-      onSubmit={consoleSubmit(0)}
     >
       <Simple.Text label="Title:" name="title" />
       <Simple.TextArea label="Description:" name="description" />

@@ -8,7 +8,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export const Sizes: React.FC = () => (
   <div>

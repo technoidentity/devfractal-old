@@ -1,7 +1,0 @@
-export * from './StepComponent'
-export * from './types'
-export * from './StepItem'
-export * from './AccountForm'
-export * from './FinishForm'
-export * from './ProfileForm'
-export * from './SocialForm'

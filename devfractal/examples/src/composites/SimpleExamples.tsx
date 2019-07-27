@@ -1,10 +1,6 @@
 import React from 'react'
-import {
-  Section,
-  SimpleRoutedTabs,
-  SimpleTabs,
-  Text,
-} from 'technoidentity-devfractal'
+import { SimpleRoutedTabs, SimpleTabs } from 'technoidentity-devfractal-simple'
+import { Section, Text } from 'technoidentity-devfractal-ui-core'
 
 const SimpleTabsExample: React.FC = () => (
   <SimpleTabs

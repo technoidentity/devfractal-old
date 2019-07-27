@@ -1,6 +1,6 @@
 import Cleave from 'cleave.js/react'
 import React from 'react'
-import { Section } from 'technoidentity-devfractal'
+import { Section } from 'technoidentity-devfractal-ui-core'
 
 export const CleaveComponent: React.FC = () => (
   <Section>

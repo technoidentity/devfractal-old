@@ -1,6 +1,7 @@
 import { FormikActions } from 'formik'
 import React from 'react'
-import { Field, Label, Simple } from 'technoidentity-devfractal'
+import { Simple } from 'technoidentity-devfractal-simple'
+import { Field, Label } from 'technoidentity-devfractal-ui-core'
 import { EnumMT, Mixed, MT, PrimitiveMT } from 'technoidentity-meta-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import { metaToInitialValues } from './metaToInitialValues'

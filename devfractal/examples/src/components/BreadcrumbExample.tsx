@@ -6,14 +6,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Route } from 'react-router'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Container,
-  Icon,
-  Section,
-  SimpleRedirect,
-} from 'technoidentity-devfractal'
+import { SimpleRedirect } from 'technoidentity-devfractal-router'
+import { Breadcrumb, BreadcrumbItem } from 'technoidentity-devfractal-ui'
+import { Container, Icon, Section } from 'technoidentity-devfractal-ui-core'
 
 export const BreadcrumbAlignmentsExample: React.FC = () => (
   <>

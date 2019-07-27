@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
+import { DynamicBreadcrumb } from 'technoidentity-devfractal-ui'
 import {
   Button,
   ButtonsGroup,
@@ -19,7 +20,6 @@ import {
   Columns,
   Container,
   Content,
-  DynamicBreadcrumb,
   Hero,
   HeroHead,
   Icon,
@@ -35,7 +35,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import { default as developer } from '../src/images/asset/developer.png'
 import logo from '../src/images/asset/logo.png'
 import { default as contentLoader } from '../src/images/contentLoader.png'

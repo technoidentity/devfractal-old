@@ -5,7 +5,7 @@ import {
   Notification as NotificationComponent,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const BasicNotificationExample: React.FC = () => (
   <Section>

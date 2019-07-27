@@ -10,7 +10,7 @@ export const PhotoForm: number = 100
 //   Title,
 //   typeInvariant,
 //   url,
-// } from 'technoidentity-devfractal'
+// } from 'technoidentity-devfractal-ui-core'
 
 // // tslint:disable typedef
 

@@ -4,7 +4,7 @@ import {
   Section,
   SubTitle,
   Title as TitleComponent,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const TitleSizeExample: React.FC = () => (
   <Section>

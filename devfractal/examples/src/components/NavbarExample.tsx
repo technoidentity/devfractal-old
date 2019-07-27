@@ -21,7 +21,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export const BasicNavbarExample: React.FC = () => (
   <>

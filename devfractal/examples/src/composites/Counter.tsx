@@ -7,7 +7,7 @@ import {
   Columns,
   Icon,
   Text,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 interface CounterProps {
   readonly value: number

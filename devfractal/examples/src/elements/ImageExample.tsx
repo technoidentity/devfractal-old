@@ -3,7 +3,7 @@ import {
   Image as ImageComponent,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const BasicImageExample: React.FC = () => (
   <Section>

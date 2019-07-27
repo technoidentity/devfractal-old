@@ -1,5 +1,5 @@
 import React from 'react'
-import { consoleSubmit, Simple } from 'technoidentity-devfractal'
+import { Simple } from 'technoidentity-devfractal-simple'
 import { number, object, ObjectSchema, string } from 'yup'
 
 interface LoginValues {
@@ -30,7 +30,6 @@ export const UserForm: React.FC = () => (
   <Simple.Form
     initialValues={initialLoginValues}
     validationSchema={loginSchema}
-    onSubmit={consoleSubmit()}
   >
     <Simple.Text label="Name:" name="name" />
     <Simple.Text label="UserName:" name="username" />

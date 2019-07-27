@@ -3,7 +3,7 @@ import {
   Section,
   TextArea as TextAreaComponent,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 const DynamicTextAreaExample: React.FC = () => {
   const [change, setChange] = React.useState('')

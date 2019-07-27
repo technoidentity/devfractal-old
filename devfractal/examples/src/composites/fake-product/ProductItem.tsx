@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Td, Tr } from 'technoidentity-devfractal'
+import { Button, Td, Tr } from 'technoidentity-devfractal-ui-core'
 import { Product } from './fakeData'
 
 export interface ProductItemProps {

@@ -9,7 +9,7 @@ import {
   TableHead,
   Td,
   Tr,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 interface Todo {
   readonly id: number

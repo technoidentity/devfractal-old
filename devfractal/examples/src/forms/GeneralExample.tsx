@@ -23,7 +23,7 @@ import {
   Section,
   Select,
   TextArea,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export const General: React.FC = () => (
   <>

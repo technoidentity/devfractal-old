@@ -5,7 +5,7 @@ import {
   MediaContent,
   MediaLeft,
   Text,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import columnsIcon from '../src/images/column.png'
 import componentsIcon from '../src/images/components.png'
 import compositesIcon from '../src/images/composites.png'

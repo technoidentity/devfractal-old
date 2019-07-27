@@ -7,7 +7,7 @@ import {
   MessageHeader,
   Section,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 
 export const SimpleMessageExample: React.FC = () => (
   <Section>

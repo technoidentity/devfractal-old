@@ -31,7 +31,7 @@
     "react-dom": "^16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-devfractal": "0.9.19",
+    "technoidentity-devfractal-ui-core": "*",
     "technoidentity-devfractal-examples": "*",
     "technoidentity-utils": "0.1.1"
   },
