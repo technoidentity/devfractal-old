@@ -8,6 +8,5 @@
     "declarationMap": false,
     "esModuleInterop": true,
     "isolatedModules": true
-  },
-  "include": ["src"]
+  }
 }
