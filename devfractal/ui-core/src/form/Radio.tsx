@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { warn } from 'technoidentity-utils'
+import { debug } from 'technoidentity-utils'
 import {
   AllControlHelpers,
   classNamesHelper,
@@ -38,7 +38,7 @@ const RadioGroupView: React.FC<RadioGroupViewProps> = ({
   return (
     <ControlWrapper {...props}>
       {React.Children.map(children, (child: any, i) => {
-        warn(
+        debug(
           child.type.displayName === 'Radio',
           "Every child to 'RadioGroup' must be 'Radio'",
         )
@@ -91,7 +91,7 @@ function RadioGroupInner({
 export const RadioGroup: React.FC<RadioGroupProps> = args => {
   const { defaultValue, children, ...props } = args
 
-  warn(
+  debug(
     !(props.selected && !props.onChange && !props.readOnly),
     `For Radio ${props.name} 'selected' provided, but not 'onChange', make this component readOnly.`,
   )

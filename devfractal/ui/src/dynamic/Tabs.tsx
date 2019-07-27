@@ -7,7 +7,7 @@ import {
   Uncontrolled,
   ValueChangeEvent,
 } from 'technoidentity-devfractal-ui-core'
-import { warn } from 'technoidentity-utils'
+import { debug } from 'technoidentity-utils'
 
 export interface TabsChangeEvent extends ValueChangeEvent<string> {}
 
@@ -98,7 +98,7 @@ const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
     <El {...props} className={classes}>
       <ul>
         {React.Children.map(children, (child: any, i: number) => {
-          warn(
+          debug(
             child.type.displayName === 'TabsItem',
             "Every child to 'Tabs' must be 'TabsItem'",
           )
