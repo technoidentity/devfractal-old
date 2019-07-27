@@ -1,5 +1,4 @@
 {
   "extends": "../../tsconfig.client.json",
-  "references": [{ "path": "../../utils" }, { "path": "../../meta/core" }],
   "include": ["src"]
 }

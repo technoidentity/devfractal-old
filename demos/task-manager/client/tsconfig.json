@@ -2,6 +2,7 @@
   "extends": "../../../tsconfig.client.json",
   "compilerOptions": {
     "jsx": "react",
+    "noEmit": false,
     "composite": false,
     "declaration": false,
     "declarationMap": false,
