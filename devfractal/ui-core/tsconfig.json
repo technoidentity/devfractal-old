@@ -1,11 +1,4 @@
 {
-  "extends": "./tsconfig.client.json",
-  "compilerOptions": {
-    "jsx": "react",
-    "composite": false,
-    "declaration": false,
-    "declarationMap": false,
-    "esModuleInterop": true,
-    "isolatedModules": true
-  }
+  "extends": "../../tsconfig.client.json",
+  "include": ["src"]
 }

@@ -3,14 +3,8 @@
   "private": true,
   "workspaces": [
     "utils",
-    "devfractal/router",
-    "devfractal/ui-core",
-    "devfractal/ui",
-    "devfractal/api",
-    "devfractal/forms",
-    "devfractal/simple",
-    "devfractal/crud",
-    "demos/task-manager/client"
+    "devfractal/*",
+    "demos/task-manager/*"
   ],
   "devDependencies": {
     "cross-env": "5.2.0",
