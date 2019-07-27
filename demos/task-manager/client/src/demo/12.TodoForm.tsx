@@ -1,7 +1,6 @@
 import { FormikActions } from 'formik'
 import { TypeOf } from 'io-ts'
 import React from 'react'
-import 'react-datepicker/dist/react-datepicker.css'
 import { Simple } from 'technoidentity-devfractal-simple'
 import { component, Section } from 'technoidentity-devfractal-ui-core'
 import { fn, props } from 'technoidentity-utils'

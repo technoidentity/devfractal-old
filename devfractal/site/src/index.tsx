@@ -2,6 +2,7 @@
 
 import 'bulma/css/bulma.css'
 import React from 'react'
+import 'react-datepicker/dist/react-datepicker.css'
 import ReactDOM from 'react-dom'
 import { App } from './App'
 import * as serviceWorker from './serviceWorker'

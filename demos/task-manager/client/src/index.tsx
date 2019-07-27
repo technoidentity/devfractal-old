@@ -1,6 +1,8 @@
 // tslint:disable file-name-casing
 
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.min.css'
+import 'react-datepicker/dist/react-datepicker.css'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './App'

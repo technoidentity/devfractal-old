@@ -1,6 +1,6 @@
 import React from 'react'
 import { Post } from 'technoidentity-devfractal-api'
-import { sessionApi } from '../common'
+import { sessionAPI } from '../common'
 import { useAuth } from '../utils'
 import { LoginForm } from '../views'
 
@@ -10,7 +10,7 @@ export const LoginRoute: React.FC = () => {
     <Post
       redirectPath="/tasks"
       onPost={async data => {
-        const result = await sessionApi.create(data)
+        const result = await sessionAPI.create(data)
         login()
         return result
       }}

@@ -1,7 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import React from 'react'
 import { classNames } from '../lib'
-import { Icon } from '../visual'
 
 export interface ControlHelpers {
   readonly loading?: boolean
@@ -48,22 +46,3 @@ export const removeControlHelpers: <T extends ControlHelpers>(
   noControl,
   ...props
 }) => props
-
-export interface ControlWrapperProps
-  extends React.HTMLAttributes<HTMLElement>,
-    ControlHelpers {}
-
-export const ControlWrapper: React.FC<ControlWrapperProps> = ({
-  noControl,
-  children,
-  ...props
-}) =>
-  noControl ? (
-    <>{children}</>
-  ) : (
-    <div className={controlClasses(props)}>
-      {children}
-      {props.leftIcon && <Icon icon={props.leftIcon} direction="left" />}
-      {props.rightIcon && <Icon icon={props.rightIcon} direction="right" />}
-    </div>
-  )

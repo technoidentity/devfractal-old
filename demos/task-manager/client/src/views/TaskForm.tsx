@@ -2,7 +2,7 @@ import { format } from 'date-fns'
 import { FormikActions } from 'formik'
 import { produce } from 'immer'
 import React from 'react'
-import 'react-datepicker/dist/react-datepicker.css'
+import { DateField } from 'technoidentity-devfractal-forms'
 import { Simple } from 'technoidentity-devfractal-simple'
 import {
   Column,
@@ -12,7 +12,7 @@ import {
 } from 'technoidentity-devfractal-ui-core'
 import { empty, fn, props } from 'technoidentity-utils'
 import * as yup from 'yup'
-import { DatePickerField, Task } from '../common'
+import { Task } from '../common'
 
 const currentDate = format(new Date(), 'YYYY-MM-DD')
 
@@ -94,10 +94,10 @@ export const TaskForm = component(TaskFormProps, ({ onSubmit, initial }) => (
         <Column size="half">
           <Simple.Text name="title" />
           <Simple.TextArea name="description" />
-          <DatePickerField label="Scheduled" name="dateInfo.scheduled" />
-          <DatePickerField label="Deadline" name="dateInfo.deadline" />
-          <DatePickerField label="Started" name="dateInfo.started" />
-          <DatePickerField label="Completed" name="dateInfo.completed" />
+          <DateField name="dateInfo.scheduled" />
+          <DateField name="dateInfo.deadline" />
+          <DateField name="dateInfo.started" />
+          <DateField name="dateInfo.completed" />
           <Simple.FormButtons />
         </Column>
       </Columns>

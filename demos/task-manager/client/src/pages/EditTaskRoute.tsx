@@ -4,7 +4,7 @@ import { Put } from 'technoidentity-devfractal-api'
 import { useMatch } from 'technoidentity-devfractal-router'
 import { Section, Title } from 'technoidentity-devfractal-ui-core'
 import { req } from 'technoidentity-utils'
-import { Task, taskApi } from '../common'
+import { Task, taskAPI } from '../common'
 import { TaskForm } from '../views'
 
 const Params = req({ id: string })
@@ -16,8 +16,8 @@ export const EditTaskRoute: React.FC = () => {
       <Title textAlignment="centered">Edit Task</Title>
       <Put<Task>
         id={params.id}
-        doGet={taskApi.get}
-        onPut={taskApi.update}
+        doGet={taskAPI.get}
+        onPut={taskAPI.update}
         component={TaskForm}
         redirectPath={'/tasks'}
       />

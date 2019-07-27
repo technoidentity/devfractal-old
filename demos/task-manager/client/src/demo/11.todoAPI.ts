@@ -1,4 +1,3 @@
-import React from 'react'
 import { boolean, number, string, TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
