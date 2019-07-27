@@ -1,6 +1,6 @@
 import { Field, FieldConfig, FieldProps } from 'formik'
 import React from 'react'
-import { DateInput, DateInputProps } from 'technoidentity-devfractal-ui-core'
+import { DateInput, DateInputProps } from './DateInput'
 import { OmitForm } from './types'
 
 type DateInputInnerProps<V> = FieldProps<V> & OmitForm<DateInputProps>

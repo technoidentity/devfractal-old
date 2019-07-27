@@ -1,9 +1,6 @@
 import { Field, FieldConfig, FieldProps } from 'formik'
 import React from 'react'
-import {
-  CleaveInput,
-  CleaveInputProps,
-} from 'technoidentity-devfractal-ui-core'
+import { CleaveInput, CleaveInputProps } from './CleaveInput'
 import { OmitForm } from './types'
 
 type CleaveInputInnerProps<V> = FieldProps<V> & OmitForm<CleaveInputProps>

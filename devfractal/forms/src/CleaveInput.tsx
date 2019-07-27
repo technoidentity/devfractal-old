@@ -1,6 +1,6 @@
+import Cleave from 'cleave.js/react'
+import { Props as CleaveProps } from 'cleave.js/react/props'
 import React from 'react'
-import DatePicker, { ReactDatePickerProps } from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
 import {
   classNamesHelper,
   ControlWrapper,
@@ -8,18 +8,19 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from '../lib'
+} from 'technoidentity-devfractal-ui-core'
 
-export type DateInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
-  ReactDatePickerProps
+export interface CleaveInputProps
+  extends Omit<InputProps, 'value' | 'onChange' | 'type'>,
+    CleaveProps {}
 
-export const DateInput: React.FC<DateInputProps> = ({
+export const CleaveInput: React.FC<CleaveInputProps> = ({
   variant,
   fullWidth,
   inline,
   rounded,
-  onChange,
   state,
+  options,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'input', {
@@ -33,11 +34,14 @@ export const DateInput: React.FC<DateInputProps> = ({
 
   return (
     <ControlWrapper {...props}>
-      <DatePicker
+      <Cleave
         {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
-        onChange={onChange}
+        options={options}
         className={classes}
       />
     </ControlWrapper>
   )
 }
+
+// tslint:disable no-default-export
+export default CleaveInput
