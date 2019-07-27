@@ -1,16 +1,5 @@
 {
-  "extends": "../../../tsconfig.base.json",
-  "compilerOptions": {
-    "composite": false,
-    "declaration": false,
-    "declarationMap": false,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "jsx": "react",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "noFallthroughCasesInSwitch": true,
-    "suppressImplicitAnyIndexErrors": true
-  },
+  "extends": "../../../tsconfig.app.json",
   "references": [
     { "path": "../../../utils" },
     { "path": "../../../meta/core" }
