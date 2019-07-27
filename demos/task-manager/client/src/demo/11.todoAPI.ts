@@ -1,3 +1,4 @@
+import React from 'react'
 import { boolean, number, string, TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
@@ -19,24 +20,24 @@ export const Todo = props(
 
 export type Todo = TypeOf<typeof Todo>
 
-export const todoApi = rest({
+export const todoAPI = rest({
   baseURL: 'http://localhost:3000',
   resource: 'todos',
   type: Todo,
 })
 
 export const checkApi = async () => {
-  const one = await todoApi.get('2')
+  const one = await todoAPI.get('2')
   console.log(one)
 
-  const postTodo = await todoApi.create({
+  const postTodo = await todoAPI.create({
     title: 'do programming',
     scheduled: '2019-07-07T07:39:53.863Z',
     done: false,
   })
   console.log(postTodo)
 
-  const putTodo = await todoApi.update('1', {
+  const putTodo = await todoAPI.update('1', {
     id: 1,
     title: 'bring cupcake',
     done: false,
@@ -44,9 +45,9 @@ export const checkApi = async () => {
   })
   console.log(putTodo)
 
-  await todoApi.del((postTodo.id || '2').toString())
+  await todoAPI.del((postTodo.id || '2').toString())
 
-  const todos = await todoApi.many()
+  const todos = await todoAPI.many()
   console.log(todos)
 }
 

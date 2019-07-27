@@ -19,11 +19,6 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-utils": "*",
-    "technoidentity-devfractal-api": "*",
-    "technoidentity-devfractal-ui-core": "*",
-    "technoidentity-devfractal-simple": "*",
-    "technoidentity-devfractal-forms": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -55,6 +50,11 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
+    "technoidentity-utils": "*",
+    "technoidentity-devfractal-api": "*",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-devfractal-simple": "*",
+    "technoidentity-devfractal-forms": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
@@ -66,7 +66,12 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
-    "react-router-dom": "5.0.1"
+    "react-router-dom": "5.0.1",
+    "technoidentity-utils": "*",
+    "technoidentity-devfractal-api": "*",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-devfractal-simple": "*",
+    "technoidentity-devfractal-forms": "*"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

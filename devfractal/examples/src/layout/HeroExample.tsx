@@ -1,4 +1,5 @@
 import React from 'react'
+import { Tabs, TabsItem } from 'technoidentity-devfractal-ui'
 import {
   Button,
   Container,
@@ -16,7 +17,6 @@ import {
   SubTitle,
   Title,
 } from 'technoidentity-devfractal-ui-core'
-import { Tabs, TabsItem } from 'technoidentity-devfractal-ui'
 
 const SimpleHeroExample: React.FC = () => (
   <Section>

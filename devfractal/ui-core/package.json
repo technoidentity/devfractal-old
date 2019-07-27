@@ -8,6 +8,7 @@
   "scripts": {
     "lib": "tsdx watch",
     "build": "tsdx build",
+    "start": "parcel index.html --open",
     "test": "cross-env NODE_ENV='test' jest",
     "test:watch": "yarn test --watch",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",
@@ -27,10 +28,10 @@
     "@fortawesome/free-solid-svg-icons": "5.9.0",
     "@fortawesome/react-fontawesome": "0.1.4",
     "bulma": "0.7.5",
-    "technoidentity-utils": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
+    "@babel/core": "7.5.5",
     "@testing-library/jest-dom": "4.0.0",
     "@testing-library/react": "8.0.7",
     "@types/jest": "24.0.15",
@@ -59,6 +60,7 @@
     "react-router-dom": "5.0.1",
     "react-styleguidist": "9.1.13",
     "rimraf": "2.6.3",
+    "technoidentity-utils": "*",
     "tsdx": "0.7.2",
     "webpack": "4.38.0",
     "webpack-blocks": "2.0.1",

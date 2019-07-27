@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { Simple } from 'technoidentity-devfractal-simple'
 import { component, Section } from 'technoidentity-devfractal-ui-core'
 import { fn, props } from 'technoidentity-utils'
-import { Todo } from './11.Todo'
+import { Todo } from './11.todoAPI'
 
 export const initialValues: Todo = {
   title: '',

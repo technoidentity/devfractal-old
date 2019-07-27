@@ -9,7 +9,7 @@ import {
   Th,
   Tr,
 } from 'technoidentity-devfractal-ui-core'
-import { Todo } from './11.Todo'
+import { Todo } from './11.todoAPI'
 
 export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (
   <Tr>

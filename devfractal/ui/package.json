@@ -21,9 +21,6 @@
     "sg:build": "styleguidist build"
   },
   "dependencies": {
-    "technoidentity-utils": "*",
-    "technoidentity-devfractal-ui-core": "*",
-    "technoidentity-devfractal-router": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -57,6 +54,9 @@
     "react-router-dom": "5.0.1",
     "react-styleguidist": "9.1.13",
     "rimraf": "2.6.3",
+    "technoidentity-utils": "*",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-devfractal-router": "*",
     "tsdx": "0.7.2",
     "webpack": "4.38.0",
     "webpack-blocks": "2.0.1"
@@ -70,7 +70,10 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
-    "react-router-dom": "5.0.1"
+    "react-router-dom": "5.0.1",
+    "technoidentity-utils": "*",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-devfractal-router": "*"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

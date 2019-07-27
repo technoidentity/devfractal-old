@@ -20,8 +20,6 @@
   },
   "dependencies": {
     "tcomb": "3.2.29",
-    "technoidentity-meta-core": "*",
-    "technoidentity-utils": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -40,6 +38,8 @@
     "mongoose": "5.6.7",
     "monocle-ts": "2.0.0",
     "supertest": "4.0.2",
+    "technoidentity-meta-core": "*",
+    "technoidentity-utils": "*",
     "tcomb": "3.2.29",
     "ts-jest": "24.0.2",
     "tsdx": "0.7.2"
@@ -51,7 +51,9 @@
     "io-ts": "2.0.0",
     "mongodb": "3.2.7",
     "mongoose": "5.6.7",
-    "monocle-ts": "2.0.0"
+    "monocle-ts": "2.0.0",
+    "technoidentity-meta-core": "*",
+    "technoidentity-utils": "*"
   },
   "husky": {
     "hooks": {

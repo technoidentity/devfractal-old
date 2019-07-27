@@ -1,8 +1,7 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.client.json",
   "compilerOptions": {
-    "jsx": "react",
-    "suppressImplicitAnyIndexErrors": true
+    "jsx": "react"
   },
   "include": ["src"]
 }

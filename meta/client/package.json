@@ -20,11 +20,6 @@
     "sb": "start-storybook"
   },
   "dependencies": {
-    "technoidentity-devfractal-ui-core": "*",
-    "technoidentity-devfractal-simple": "*",
-    "technoidentity-devfractal-crud": "*",
-    "technoidentity-meta-core": "*",
-    "technoidentity-utils": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -50,6 +45,11 @@
     "react-router-dom": "5.0.1",
     "react-router": "5.0.1",
     "react": "16.8.6",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-devfractal-simple": "*",
+    "technoidentity-devfractal-crud": "*",
+    "technoidentity-meta-core": "*",
+    "technoidentity-utils": "*",
     "tcomb": "3.2.29",
     "ts-jest": "24.0.2",
     "tsdx": "0.7.2",
@@ -67,6 +67,11 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-devfractal-simple": "*",
+    "technoidentity-devfractal-crud": "*",
+    "technoidentity-meta-core": "*",
+    "technoidentity-utils": "*",
     "yup": "0.27.0"
   },
   "husky": {
