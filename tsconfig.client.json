@@ -5,5 +5,4 @@
     "noEmit": false,
     "suppressImplicitAnyIndexErrors": true
   },
-  "include": ["src"]
 }

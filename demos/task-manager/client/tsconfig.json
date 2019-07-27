@@ -1,8 +1,12 @@
 {
-  "extends": "../../../tsconfig.app.json",
-  "references": [
-    { "path": "../../../utils" },
-    { "path": "../../../meta/core" }
-  ],
+  "extends": "./tsconfig.client.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "esModuleInterop": true,
+    "isolatedModules": true
+  },
   "include": ["src"]
 }

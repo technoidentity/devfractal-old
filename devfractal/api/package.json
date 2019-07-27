@@ -24,9 +24,10 @@
     "immer": "3.1.3",
     "io-ts-promise": "2.0.0",
     "query-string": "6.8.1",
-    "technoidentity-utils": "*",
     "technoidentity-devfractal-router": "*",
-    "tslib": "1.10.0"
+    "technoidentity-utils": "*",
+    "tslib": "1.10.0",
+    "typelevel-ts": "^0.3.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "4.0.0",
