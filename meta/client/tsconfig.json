@@ -1,12 +1,5 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "allowJs": false,
-    "isolatedModules": false,
-    "jsx": "react",
-    "noEmit": false,
-    "suppressImplicitAnyIndexErrors": true
-  },
+  "extends": "../../tsconfig.client.json",
   "references": [{ "path": "../../utils" }, { "path": "../../meta/core" }],
   "include": ["src"]
 }
