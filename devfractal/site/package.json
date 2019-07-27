@@ -13,7 +13,7 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",
     "types:watch": "tsc --noEmit -p tsconfig.json --watch",
-    "validate": "yarn lint && yarn types && yarn test",
+    "validate": "yarn lint:fix && yarn types && yarn test",
     "prebuild": "yarn validate"
   },
   "dependencies": {

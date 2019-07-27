@@ -4,7 +4,7 @@ import React from 'react'
 import { Get } from 'technoidentity-devfractal-api'
 import {
   CheckBox,
-  formatDate,
+  
   Table,
   TableBody,
   TableHead,
@@ -15,6 +15,8 @@ import {
   Tr,
 } from 'technoidentity-devfractal-ui-core'
 import { camelCaseToPhrase, keys } from 'technoidentity-utils'
+import {formatDate} from './utils'
+
 export interface RowClickEvent<T> {
   readonly value: T
 }

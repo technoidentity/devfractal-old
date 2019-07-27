@@ -5,14 +5,13 @@ import { Get } from 'technoidentity-devfractal-api'
 import {
   CheckBox,
   Column,
-  Columns,
-  formatDate,
+  Columns,  
   Section,
   Text,
   Title,
 } from 'technoidentity-devfractal-ui-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
-import { isFunction } from './utils'
+import { formatDate,isFunction } from './utils'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (
   <Title size="6">{camelCaseToPhrase(objectKey)}</Title>
