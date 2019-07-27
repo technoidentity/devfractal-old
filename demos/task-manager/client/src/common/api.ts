@@ -1,4 +1,4 @@
-import { rest } from 'technoidentity-devfractal'
+import { rest } from 'technoidentity-devfractal-api'
 import { verify } from 'technoidentity-utils'
 import { Session, Task, TaskFilter, User } from './types'
 
@@ -20,5 +20,8 @@ export const taskApi = rest({ resource: 'tasks', type: Task, ...apiOptions })
 export async function getTasks(path: TaskFilter): Promise<ReadonlyArray<Task>> {
   verify(TaskFilter, path)
 
-  return taskApi.many({ path: path !== 'all' ? path : undefined ,query:{limit:2,page:2}})
+  return taskApi.many({
+    path: path !== 'all' ? path : undefined,
+    query: { limit: 2, page: 2 },
+  })
 }

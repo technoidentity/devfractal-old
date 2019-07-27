@@ -1,5 +1,5 @@
 import React from 'react'
-import { Post } from 'technoidentity-devfractal'
+import { Post } from 'technoidentity-devfractal-api'
 import { sessionApi } from '../common'
 import { useAuth } from '../utils'
 import { LoginForm } from '../views'

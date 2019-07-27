@@ -1,16 +1,15 @@
-import 'bulma/css/bulma.css'
 import { format } from 'date-fns'
 import { FormikActions } from 'formik'
 import { produce } from 'immer'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
+import { Simple } from 'technoidentity-devfractal-simple'
 import {
   Column,
   Columns,
   component,
   Section,
-  Simple,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import { empty, fn, props } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { DatePickerField, Task } from '../common'
@@ -79,7 +78,7 @@ export const TaskFormProps = props(
 )
 
 const initialValues: Task = produce(empty(Task), draft => {
-  draft._id=undefined
+  draft._id = undefined
   draft.dateInfo.completed = undefined
   draft.dateInfo.started = undefined
 })

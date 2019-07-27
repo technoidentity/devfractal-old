@@ -1,11 +1,23 @@
-import { format } from 'date-fns';
-import { readonlyArray } from 'io-ts';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ButtonsGroup, component, Field, Section, Table, TableBody, TableHead, Td, Th, Title, Tr } from 'technoidentity-devfractal';
-import { req } from 'technoidentity-utils';
-import { Task } from '../common';
-import { PaginationView } from './PaginateView';
+import { format } from 'date-fns'
+import { readonlyArray } from 'io-ts'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import {
+  ButtonsGroup,
+  component,
+  Field,
+  Section,
+  Table,
+  TableBody,
+  TableHead,
+  Td,
+  Th,
+  Title,
+  Tr,
+} from 'technoidentity-devfractal-ui-core'
+import { req } from 'technoidentity-utils'
+import { Task } from '../common'
+import { PaginationView } from './PaginateView'
 
 const TaskItemProps = req({ taskItem: Task })
 
@@ -83,8 +95,8 @@ export const TaskListView = component(TaskListViewProps, ({ taskList }) => (
         Deadline Today
       </Link>
     </Field>
-    <Section >
-      <PaginationView/>
+    <Section>
+      <PaginationView />
     </Section>
   </Section>
 ))

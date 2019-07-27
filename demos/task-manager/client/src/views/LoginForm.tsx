@@ -1,13 +1,13 @@
 import { FormikActions } from 'formik'
 import { string, TypeOf } from 'io-ts'
 import React from 'react'
+import { Simple } from 'technoidentity-devfractal-simple'
 import {
   Column,
   Columns,
   component,
   Section,
-  Simple,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import { empty, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 

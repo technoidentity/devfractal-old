@@ -1,5 +1,6 @@
 import React from 'react'
-import { Post, Section, Title } from 'technoidentity-devfractal'
+import { Post } from 'technoidentity-devfractal-api'
+import { Section, Title } from 'technoidentity-devfractal-ui-core'
 import { Task, taskApi } from '../common'
 import { TaskForm } from '../views'
 

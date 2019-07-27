@@ -5,21 +5,20 @@ import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import React from 'react'
 import { Switch } from 'react-router'
 import {
-  component,
-  Editor,
   Get,
   Post,
   Put,
   rest,
-  Router,
-  RowClickEvent,
-  SafeRoute as Route,
-  Section,
-  SimpleTable,
-  Title,
-  useMatch,
   useRedirect,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-api'
+import { Editor } from 'technoidentity-devfractal-crud'
+import {
+  Router,
+  SafeRoute as Route,
+  useMatch,
+} from 'technoidentity-devfractal-router'
+import { RowClickEvent, SimpleTable } from 'technoidentity-devfractal-simple'
+import { component, Section, Title } from 'technoidentity-devfractal-ui-core'
 import { fn, props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])

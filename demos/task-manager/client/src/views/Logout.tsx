@@ -1,6 +1,7 @@
 import { string } from 'io-ts'
 import React from 'react'
-import { Button, component, useRedirect } from 'technoidentity-devfractal'
+import { useRedirect } from 'technoidentity-devfractal-api'
+import { Button, component } from 'technoidentity-devfractal-ui-core'
 import { req } from 'technoidentity-utils'
 import { sessionApi } from '../common'
 import { useAuth } from '../utils'

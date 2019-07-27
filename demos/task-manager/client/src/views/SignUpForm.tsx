@@ -1,16 +1,15 @@
-import 'bulma/css/bulma.css'
 import { FormikActions } from 'formik'
 import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Simple } from 'technoidentity-devfractal-simple'
 import {
   Column,
   Columns,
   component,
   Section,
-  Simple,
   Text,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import { empty, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 

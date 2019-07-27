@@ -1,5 +1,5 @@
 import React from 'react'
-import { Get } from 'technoidentity-devfractal'
+import { Get } from 'technoidentity-devfractal-api'
 import { todoApi } from './11.Todo'
 import { TodoListView } from './14.TodoListView'
 

@@ -1,6 +1,7 @@
 import { string } from 'io-ts'
 import React from 'react'
-import { Put, useMatch } from 'technoidentity-devfractal'
+import { Put } from 'technoidentity-devfractal-api'
+import { useMatch } from 'technoidentity-devfractal-router'
 import { req } from 'technoidentity-utils'
 import { Todo, todoApi } from './11.Todo'
 import { TodoForm } from './12.TodoForm'

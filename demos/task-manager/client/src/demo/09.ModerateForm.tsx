@@ -1,13 +1,12 @@
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
+import { ErrorField, InputField } from 'technoidentity-devfractal-forms'
 import {
   Button,
   Container,
-  ErrorField,
   Field as FieldGroup,
-  InputField,
   Label,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-devfractal-ui-core'
 import yup from 'yup'
 
 interface LoginValues {

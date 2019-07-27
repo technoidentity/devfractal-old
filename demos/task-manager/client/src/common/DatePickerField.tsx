@@ -1,7 +1,7 @@
 import { Field, FieldProps } from 'formik'
 import React from 'react'
 import DatePicker from 'react-datepicker'
-import { ErrorField } from 'technoidentity-devfractal'
+import { ErrorField } from 'technoidentity-devfractal-forms'
 
 const FormikDatePicker: React.FC<FieldProps> = ({ field, form }) => (
   <div className="control">
