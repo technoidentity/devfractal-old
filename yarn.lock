@@ -2409,7 +2409,7 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/json-schema@^7.0.3":
+"@types/json-schema@7.0.3", "@types/json-schema@^7.0.3":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.3.tgz#bdfd69d61e464dcc81b25159c270d75a73c1a636"
   integrity sha512-Il2DtDVRGDcqjDtE+rF8iqg1CArehSK84HZJCT7AMITlyXRBpuPhqGLDQMowraqqu1coEaimg4ZOqggt6L6L+A==
@@ -3003,7 +3003,7 @@ ajv-keywords@^3.1.0:
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.4.1.tgz#ef916e271c64ac12171fd8384eaae6b2345854da"
   integrity sha512-RO1ibKvd27e6FEShVFfPALuHI3WjSVNeK5FIsmme/LYRNxjKuNj+Dt7bucLa6NdSv3JcVTyMlm9kGR84z1XpaQ==
 
-ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5:
+ajv@6.10.2, ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5:
   version "6.10.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.10.2.tgz#d3cea04d6b017b2894ad69040fec8b623eb4bd52"
   integrity sha512-TXtUUEYHuaTEbLZWIKUr5pmBuhDLy+8KYtPYdcV8qC+pOZL+NKqYwvWSRrVXHn+ZmRRAu8vJTAznH7Oag6RVRw==
@@ -12171,11 +12171,6 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-content-loader@4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-4.2.2.tgz#8b014eab0f0218888b8f064f0373b41f2203c8be"
-  integrity sha512-8zn2OmjP/BhsW0spc5/nsYFsS3ybqwkoZypFl7PU92Jt1cJAjOo8Y7kfo/+ja4c/88UNLBTLfMcnlE+4Diq/5w==
-
 react-datepicker@2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-2.8.0.tgz#d93423a2abe9eeef8d3eaa7ff437f31be8a3a2f5"
@@ -14306,39 +14301,17 @@ tar@^4, tar@^4.4.10, tar@^4.4.8:
     safe-buffer "^5.1.2"
     yallist "^3.0.3"
 
-tcomb@3.2.29:
+tcomb-validation@3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/tcomb-validation/-/tcomb-validation-3.4.1.tgz#a7696ec176ce56a081d9e019f8b732a5a8894b65"
+  integrity sha512-urVVMQOma4RXwiVCa2nM2eqrAomHROHvWPuj6UkDGz/eb5kcy0x6P0dVt6kzpUZtYMNoAqJLWmz1BPtxrtjtrA==
+  dependencies:
+    tcomb "^3.0.0"
+
+tcomb@3.2.29, tcomb@^3.0.0:
   version "3.2.29"
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
-
-technoidentity-devfractal@0.9.19:
-  version "0.9.19"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.9.19.tgz#a51aa3568e279e8f5fd7726cf3ac963cb71d9ab0"
-  integrity sha512-M4APWqdI2zS/7sU17z6/t+xlRNWn3NHEkH0wH6WeRCjA/GVlN/o4kYapzPqkPASImBwkw/r5WFGo5E/i3/aI8A==
-  dependencies:
-    "@fortawesome/fontawesome-svg-core" "1.2.19"
-    "@fortawesome/free-brands-svg-icons" "5.9.0"
-    "@fortawesome/free-regular-svg-icons" "5.9.0"
-    "@fortawesome/free-solid-svg-icons" "5.9.0"
-    "@fortawesome/react-fontawesome" "0.1.4"
-    axios "0.19.0"
-    bulma "0.7.5"
-    cleave.js "1.5.3"
-    date-fns "1.30.1"
-    immer "3.1.3"
-    query-string "6.8.1"
-    react-content-loader "4.2.2"
-    tcomb "3.2.29"
-    technoidentity-utils "0.0.8"
-    tslib "1.10.0"
-    typelevel-ts "0.3.5"
-
-technoidentity-utils@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.8.tgz#a09ed3e831933d465e8db8d5bfd65103f5b83457"
-  integrity sha512-ZSKpf+ZOiLoLc1wIihvpVdKbnu5HNX/QI9jQVbLHu2s71+tbzQ8da0oeiucqolFZ7sujK0If9PVmgsQ34gJXyg==
-  dependencies:
-    tslib "1.10.0"
 
 temp-dir@^1.0.0:
   version "1.0.0"
@@ -14866,7 +14839,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typelevel-ts@0.3.5, typelevel-ts@^0.3.5:
+typelevel-ts@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/typelevel-ts/-/typelevel-ts-0.3.5.tgz#9f242c193fa6c5489d2342c642ab8912a065af9d"
   integrity sha512-VZKF0ak5RNgrPkpI2uJJL0WBqNcj67+hzYzD6SwoxzrgvgjP24gskqniXd62UY5rrJCxd3q/iChtxKcHC6fRvA==

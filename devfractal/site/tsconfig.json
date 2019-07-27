@@ -1,12 +1,15 @@
 {
-  "extends": "../../tsconfig.client.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "react",
     "composite": false,
     "declaration": false,
     "declarationMap": false,
     "esModuleInterop": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "noFallthroughCasesInSwitch": true,
+    "suppressImplicitAnyIndexErrors": true
   },
   "include": ["src"]
 }
