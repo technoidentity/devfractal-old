@@ -1,4 +1,4 @@
-import { nop } from 'technoidentity-utils'
+import { nop } from './common'
 
 export async function timeout<T>(delay: number, f: () => T = nop): Promise<T> {
   return new Promise(resolve => setTimeout(() => resolve(f()), delay))

@@ -35,8 +35,9 @@
     "react-router-dom": "5.0.1",
     "react-router": "5.0.1",
     "tcomb": "3.2.29",
-    "technoidentity-devfractal": "*",
-    "technoidentity-utils": "*"
+    "technoidentity-devfractal-examples": "*",
+    "technoidentity-devfractal": "0.9.19",
+    "technoidentity-utils": "0.1.1"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",

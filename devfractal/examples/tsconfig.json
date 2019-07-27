@@ -1,10 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "allowJs": false,
-    "isolatedModules": false,
     "jsx": "react",
-    "noEmit": false,
     "suppressImplicitAnyIndexErrors": true
   },
   "references": [{ "path": "../lib" }, { "path": "../../utils" }],
