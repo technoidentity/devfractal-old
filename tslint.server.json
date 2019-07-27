@@ -3,6 +3,7 @@
   "rules": {
     "readonly-keyword": false,
     "readonly-array": false,
-    "no-object-mutation": false
+    "no-object-mutation": false,
+    "no-array-mutation": false
   }
 }
