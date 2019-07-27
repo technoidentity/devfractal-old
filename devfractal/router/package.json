@@ -6,8 +6,7 @@
   "module": "dist/technoidentity-devfractal-router.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "start": "tsdx watch",
-    "dev": "parcel index.html --open",
+    "lib": "tsdx watch",
     "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "test:watch": "yarn test --watch",
     "build": "tsdx build",
@@ -46,7 +45,6 @@
     "jest-cli": "24.8.0",
     "lint-staged": "9.2.1",
     "monocle-ts": "2.0.0",
-    "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",

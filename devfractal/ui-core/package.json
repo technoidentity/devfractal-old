@@ -7,7 +7,6 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "lib": "tsdx watch",
-    "start": "parcel index.html --open",
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest",
     "test:watch": "yarn test --watch",
@@ -51,7 +50,6 @@
     "jest-cli": "24.8.0",
     "lint-staged": "9.2.1",
     "monocle-ts": "2.0.0",
-    "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
     "react": "16.8.6",
     "react-docgen-typescript": "1.12.5",
