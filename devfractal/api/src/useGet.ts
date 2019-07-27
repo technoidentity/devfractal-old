@@ -20,7 +20,9 @@ export function useGet<T extends {}, P extends AnyTuple>(
   const [data, setData] = React.useState<T | undefined>(undefined)
   const [error, setError] = React.useState<Error | undefined>(undefined)
   const [loading, setLoading] = React.useState(false)
+
   const [fetchAgain, setFetchAgain] = React.useState(0)
+
   const mounted: React.MutableRefObject<boolean> = React.useRef(false)
 
   React.useEffect(() => {
