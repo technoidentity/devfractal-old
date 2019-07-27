@@ -1,5 +1,5 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Field,
   Section,
@@ -9,7 +9,7 @@ import {
 } from 'technoidentity-devfractal'
 
 const DynamicSelectExample: React.FC = () => {
-  const [select, setSelect] = useState('red')
+  const [select, setSelect] = React.useState('red')
   return (
     <Section>
       <Title size="4">Dynamic Select({select})</Title>

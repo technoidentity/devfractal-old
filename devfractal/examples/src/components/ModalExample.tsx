@@ -1,5 +1,5 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Box,
   Button,
@@ -27,7 +27,7 @@ import {
 } from 'technoidentity-devfractal'
 
 export const ImageModalExample: React.FC = () => {
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = React.useState(false)
   return (
     <Section>
       <Button onClick={() => setModal(true)} variant="primary" size="large">
@@ -47,7 +47,7 @@ export const ImageModalExample: React.FC = () => {
 }
 
 export const MediaModalExample: React.FC = () => {
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = React.useState(false)
   return (
     <Section>
       <Button onClick={() => setModal(true)} variant="primary" size="large">
@@ -94,7 +94,7 @@ export const MediaModalExample: React.FC = () => {
 }
 
 export const ModalCardExample: React.FC = () => {
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = React.useState(false)
   const onModalClose: () => void = () => setModal(false)
   return (
     <Section>

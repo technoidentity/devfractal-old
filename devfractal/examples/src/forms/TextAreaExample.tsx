@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Section,
   TextArea as TextAreaComponent,
@@ -6,7 +6,7 @@ import {
 } from 'technoidentity-devfractal'
 
 const DynamicTextAreaExample: React.FC = () => {
-  const [change, setChange] = useState('')
+  const [change, setChange] = React.useState('')
   return (
     <Section>
       <Title size="4">Dynamic Textarea(Upper case)</Title>

@@ -1,5 +1,5 @@
 import { Mixed, TypeOf } from 'io-ts'
-import React, { FC } from 'react'
+import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { formikSubmit } from 'technoidentity-devfractal-forms'
 import { APIRepository, Repository } from './api'
@@ -63,10 +63,10 @@ interface APIComponentsArgs<RT extends Mixed, ID extends keyof TypeOf<RT>>
   extends ComponentsArgsBase<RT, ID, APIRepository<RT, ID>> {}
 
 export interface ComponentsResult {
-  readonly List: FC<RouteComponentProps>
-  readonly Create: FC<RouteComponentProps>
-  readonly Edit: FC<RouteComponentProps<{ readonly id: string }>>
-  readonly View: FC<RouteComponentProps<{ readonly id: string }>>
+  readonly List: React.FC<RouteComponentProps>
+  readonly Create: React.FC<RouteComponentProps>
+  readonly Edit: React.FC<RouteComponentProps<{ readonly id: string }>>
+  readonly View: React.FC<RouteComponentProps<{ readonly id: string }>>
 }
 
 export function components<RT extends Mixed, ID extends keyof TypeOf<RT>>(

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import { debug } from 'technoidentity-utils'
 import {
   AllControlHelpers,
@@ -50,7 +50,7 @@ const RadioGroupView: React.FC<RadioGroupViewProps> = ({
           value: child.props.value || i.toString(),
           onBlur,
           readOnly,
-          onChange: (evt: ChangeEvent<HTMLInputElement>) => {
+          onChange: (evt: React.ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
               onChange({
                 name: evt.currentTarget.name,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Column,
   Columns,
@@ -12,7 +12,7 @@ import {
 } from 'technoidentity-devfractal'
 
 const DynamicRadioExample: React.FC = () => {
-  const [select, setSelect] = useState('red')
+  const [select, setSelect] = React.useState('red')
 
   return (
     <Section>

@@ -1,9 +1,11 @@
-import React, { OlHTMLAttributes } from 'react'
+import React from 'react'
 import { classNamesHelper, El, Helpers } from '../lib'
 
 type OlModifier = 'lower-alpha' | 'lower-roman' | 'upper-alpha' | 'upper-roman'
 
-export interface OlProps extends OlHTMLAttributes<HTMLOListElement>, Helpers {
+export interface OlProps
+  extends React.OlHTMLAttributes<HTMLOListElement>,
+    Helpers {
   /**
    * different types of items markers
    */

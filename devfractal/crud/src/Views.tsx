@@ -1,6 +1,6 @@
 import { FormikActions } from 'formik'
 import { Mixed, TypeOf } from 'io-ts'
-import React, { FC } from 'react'
+import React from 'react'
 import { RowClickEvent, SimpleTable } from 'technoidentity-devfractal-simple'
 import { Button, Container, Field } from 'technoidentity-devfractal-ui-core'
 import { empty } from 'technoidentity-utils'
@@ -28,10 +28,10 @@ export interface ListProps<T extends Record<string, any>> {
 }
 
 export interface CrudViewsResult<T extends Mixed, ID extends keyof T> {
-  readonly List: FC<ListProps<TypeOf<T>>>
-  readonly Create: FC<CreateProps<Omit<TypeOf<T>, ID>>>
-  readonly Edit: FC<EditProps<TypeOf<T>>>
-  readonly View: FC<ViewProps<TypeOf<T>>>
+  readonly List: React.FC<ListProps<TypeOf<T>>>
+  readonly Create: React.FC<CreateProps<Omit<TypeOf<T>, ID>>>
+  readonly Edit: React.FC<EditProps<TypeOf<T>>>
+  readonly View: React.FC<ViewProps<TypeOf<T>>>
 }
 
 export function Views<RT extends Mixed, ID extends keyof RT>(

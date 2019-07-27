@@ -9,7 +9,7 @@ import {
   faTimes,
   faUnderline,
 } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Box,
   Button as ButtonComponent,
@@ -23,7 +23,7 @@ import {
 } from 'technoidentity-devfractal'
 
 const DynamicButtonExample: React.FC = () => {
-  const [click, setClick] = useState(false)
+  const [click, setClick] = React.useState(false)
   return (
     <Section>
       <Title size="4">Dynamic Button</Title>

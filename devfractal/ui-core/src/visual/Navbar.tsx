@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { classNamesHelper, El, Helpers } from '../lib'
 
 interface NavbarContext {
@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   children,
   ...props
 }) => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = React.useState(false)
   const classes: string = classNamesHelper(props, 'navbar', {
     [`is-${variant}`]: variant,
     [`is-${modifier}`]: modifier,
@@ -73,7 +73,7 @@ export const NavbarBurger: React.FC<NavbarBurgerProps> = ({
   children,
   ...props
 }) => {
-  const { visible, setVisible } = useContext(NavbarContext)
+  const { visible, setVisible } = React.useContext(NavbarContext)
 
   const classes: string = classNamesHelper(props, 'navbar-burger', 'burger', {
     'is-active': active || visible,
@@ -148,7 +148,7 @@ export const NavbarMenu: React.FC<NavbarMenuProps> = ({
   children,
   ...props
 }) => {
-  const { visible, setVisible } = useContext(NavbarContext)
+  const { visible, setVisible } = React.useContext(NavbarContext)
 
   const classes: string = classNamesHelper(props, 'navbar-menu', {
     'is-active': active || visible,

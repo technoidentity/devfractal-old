@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Pagination,
   PaginationEllipsis,
@@ -195,7 +195,7 @@ export const PaginationSizesExample: React.FC = () => (
 )
 
 export const DynamicPaginationExample: React.FC = () => {
-  const [page, setPageChange] = useState(1)
+  const [page, setPageChange] = React.useState(1)
   return (
     <>
       <Title>Dynamic Pagination(CurrentPage:{page})</Title>
