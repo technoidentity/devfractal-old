@@ -2,10 +2,10 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "utils",
-    "devfractal/*",
-    "meta/*",
-    "demos/task-manager/*"
+    "packages/utils",
+    "packages/devfractal/*",
+    "packages/meta/*",
+    "packages/demos/task-manager/*"
   ],
   "devDependencies": {
     "cross-env": "5.2.0",

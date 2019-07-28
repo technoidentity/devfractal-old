@@ -1,7 +1,0 @@
-{
-  "extends": "../../tsconfig.client.json",
-  "include": ["src"],
-  "compilerOptions": {
-    "jsx": "react"
-  }
-}
