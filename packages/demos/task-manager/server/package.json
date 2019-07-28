@@ -15,10 +15,10 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "@types/mongoose-paginate": "5.0.6",
     "body-parser": "1.19.0",
     "connect-mongo": "3.0.0",
     "cors": "2.8.5",
@@ -49,6 +49,7 @@
     "@types/mongodb": "3.1.30",
     "@types/mongoose": "5.5.11",
     "@types/mongoose-unique-validator": "1.0.2",
+    "@types/mongoose-paginate": "5.0.6",
     "babel-jest": "24.8.0",
     "babel-loader": "8.0.6",
     "backpack-core": "0.8.4",
@@ -69,7 +70,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn validate"
+      "pre-push": "yarn validate:noFix"
     }
   },
   "lint-staged": {

@@ -14,6 +14,7 @@
     "types": "tsc --noEmit -p tsconfig.json",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling tsc --noEmit -p tsconfig.json --watch",
     "validate": "yarn lint:fix && yarn types && yarn test",
+    "validate:noFix": "yarn lint:fix && yarn types && yarn test",
     "prebuild": "yarn validate"
   },
   "dependencies": {
@@ -72,7 +73,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn validate"
+      "pre-push": "yarn validate:noFix"
     }
   },
   "lint-staged": {

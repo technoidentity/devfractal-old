@@ -16,6 +16,7 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
@@ -71,6 +72,12 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "yup": "0.27.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn validate:noFix"
+    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

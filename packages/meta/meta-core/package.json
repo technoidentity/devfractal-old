@@ -19,10 +19,10 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-utils": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -38,6 +38,7 @@
     "monocle-ts": "2.0.0",
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1",
+    "technoidentity-utils": "*",
     "ts-jest": "24.0.2",
     "tsdx": "0.7.2"
   },
@@ -46,12 +47,13 @@
     "io-ts": "2.0.0",
     "io-ts-types": "0.5.0",
     "monocle-ts": "2.0.0",
-    "tcomb": "3.2.29"
+    "tcomb": "3.2.29",
+    "technoidentity-utils": "*"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn validate"
+      "pre-push": "yarn validate:noFix"
     }
   },
   "lint-staged": {
