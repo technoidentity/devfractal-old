@@ -1,5 +1,5 @@
 {
-  "name": "task-manager-client",
+  "name": "demo-task-manager-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
