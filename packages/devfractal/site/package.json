@@ -1,5 +1,5 @@
 {
-  "name": "technoidentity-devfractal-site",
+  "name": "devfractal-site",
   "version": "0.0.1",
   "private": true,
   "main": "build/index.js",
