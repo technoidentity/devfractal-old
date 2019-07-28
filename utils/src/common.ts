@@ -71,3 +71,14 @@ export function keys<T extends Object>(obj: T): ReadonlyArray<keyof T> {
 export function today(): Date {
   return startOfDay(new Date())
 }
+
+export async function timeout<T>(delay: number, f: () => T = nop): Promise<T> {
+  return new Promise(resolve => setTimeout(() => resolve(f()), delay))
+}
+
+export async function interval<T>(
+  interval: number,
+  f: () => T = nop,
+): Promise<T> {
+  return new Promise(resolve => setInterval(() => resolve(f()), interval))
+}
