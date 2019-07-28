@@ -12,7 +12,7 @@
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p tsconfig.json",
-    "types:watch": "tsc --noEmit -p tsconfig.json --watch",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling tsc --noEmit -p tsconfig.json --watch",
     "validate": "yarn lint:fix && yarn types && yarn test",
     "prebuild": "yarn validate"
   },

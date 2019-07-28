@@ -17,7 +17,7 @@
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
-    "types:watch": "yarn types --watch",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
