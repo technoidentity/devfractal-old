@@ -15,7 +15,6 @@ export function toBoolean(from: string): boolean {
 export function toNumber(from: string): number {
   return cast(NumberFromString, from)
 }
-
 export function toDate(from: string): Date {
   return cast(DateFromISOString, from)
 }
