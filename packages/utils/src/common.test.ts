@@ -34,7 +34,7 @@ it('today', () => {
 const square: (a: number) => number = a => a * a
 
 it('buildObject', () => {
-  expect(buildObject({ x: 2, y: 3 }, value => square(value))).toEqual({
+  expect(buildObject({ x: 2, y: 3 }, square)).toEqual({
     x: 4,
     y: 9,
   })
