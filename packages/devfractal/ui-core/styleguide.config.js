@@ -35,13 +35,5 @@ module.exports = {
 
   webpackConfig: createConfig([babel(), typescript(), css(), fsErrorFix()]),
   components: './src/**/[A-Z]*.tsx',
-  ignore: [
-    './src/App.tsx',
-    './src/crud/Views.tsx',
-    './src/base/TableContentLoader.tsx',
-    './src/dynamic/DynamicRouter.tsx',
-    './src/simple/SimpleForm.tsx',
-    './src/**/*.test.tsx',
-    './src/**/*.test.ts',
-  ],
+  ignore: ['./src/App.tsx', './src/**/*.test.tsx', './src/**/*.test.ts'],
 }
