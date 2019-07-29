@@ -8,6 +8,6 @@
     "declarationMap": false,
     "isolatedModules": true
   },
-  "include": ["pages"],
+  "include": ["pages", "components/Medias.tsx"],
   "exclude": ["node_modules"]
 }

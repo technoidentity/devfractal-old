@@ -4,27 +4,15 @@
   "private": true,
   "dependencies": {
     "bulma": "0.7.5",
-    "formik": "1.5.8",
     "fp-ts": "2.0.2",
     "io-ts": "2.0.0",
-    "io-ts-types": "0.5.0",
     "monocle-ts": "2.0.0",
     "next": "^9.0.2",
-    "node-sass": "^4.12.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-router": "5.0.1",
-    "react-router-dom": "5.0.1",
     "technoidentity-devfractal-examples": "*",
-    "technoidentity-devfractal-api": "*",
-    "technoidentity-devfractal-crud": "*",
-    "technoidentity-devfractal-forms": "*",
-    "technoidentity-devfractal-router": "*",
-    "technoidentity-devfractal-simple": "*",
-    "technoidentity-devfractal-ui": "*",
     "technoidentity-devfractal-ui-core": "*",
-    "technoidentity-utils": "*",
-    "yup": "0.27.0"
+    "technoidentity-utils": "*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "4.0.0",
@@ -33,7 +21,6 @@
     "@types/node": "12.6.6",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
-    "@types/react-router-dom": "4.3.4",
     "@types/yup": "0.26.22",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
@@ -41,6 +28,7 @@
     "husky": "3.0.0",
     "jest": "24.8.0",
     "lint-staged": "9.2.0",
+    "node-sass": "^4.12.0",
     "prettier": "1.18.2",
     "react-testing-library": "8.0.1",
     "rimraf": "2.6.3",
@@ -63,12 +51,13 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
     "types:watch": "yarn types --watch",
-    "validate": "yarn lint && yarn types && yarn test"
+    "validate": "yarn lint:fix && yarn types && yarn test",
+    "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn validate"
+      "pre-push": "yarn validate:noFix"
     }
   },
   "lint-staged": {
