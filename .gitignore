@@ -27,3 +27,4 @@ yarn-error.log*
 .cache/
 dist/
 lerna-debug.log
+.next/

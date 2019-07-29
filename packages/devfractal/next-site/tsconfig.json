@@ -1,0 +1,13 @@
+{
+  "extends": "../../../tsconfig.client.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "composite": false,
+    "noEmit": false,
+    "declaration": false,
+    "declarationMap": false,
+    "isolatedModules": true
+  },
+  "include": ["pages"],
+  "exclude": ["node_modules"]
+}

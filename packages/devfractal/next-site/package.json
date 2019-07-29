@@ -1,9 +1,9 @@
 {
-  "name": "next-starter",
+  "name": "next-site",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bulma": "^0.7.5",
+    "bulma": "0.7.5",
     "formik": "1.5.8",
     "fp-ts": "2.0.2",
     "io-ts": "2.0.0",
@@ -15,8 +15,15 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-devfractal": "0.9.19",
-    "technoidentity-utils": "0.0.8",
+    "technoidentity-devfractal-examples": "*",
+    "technoidentity-devfractal-api": "*",
+    "technoidentity-devfractal-crud": "*",
+    "technoidentity-devfractal-forms": "*",
+    "technoidentity-devfractal-router": "*",
+    "technoidentity-devfractal-simple": "*",
+    "technoidentity-devfractal-ui": "*",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-utils": "*",
     "yup": "0.27.0"
   },
   "devDependencies": {
