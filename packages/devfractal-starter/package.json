@@ -13,8 +13,8 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-devfractal": "0.9.19",
-    "technoidentity-utils": "0.1.1",
+    "technoidentity-devfractal": "*",
+    "technoidentity-utils": "*",
     "yup": "0.27.0"
   },
   "devDependencies": {
@@ -57,9 +57,6 @@
     "types:watch": "yarn types --watch",
     "validate": "yarn lint:fix && yarn types && yarn test",
     "validate:noFix": "yarn lint && yarn types && yarn test"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "husky": {
     "hooks": {
