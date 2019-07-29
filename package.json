@@ -5,6 +5,7 @@
     "packages/utils",
     "packages/devfractal/*",
     "packages/meta/*",
+    "packages/demos/presentation",
     "packages/demos/task-manager/*"
   ],
   "devDependencies": {
