@@ -277,9 +277,8 @@ export const ExploreUIComponents: React.FC = () => (
       </Title>
       <Section>
         <Columns>
-          <Column style={{ margin: '30px' }}>
+          <Column style={{ margin: '30px' }} className="is-hidden-touch">
             <Title
-              className="is-hidden-touch"
               textColor="white-ter"
               style={{
                 fontFamily: 'Poppins',
@@ -288,11 +287,7 @@ export const ExploreUIComponents: React.FC = () => (
             >
               Why Devfractal Components
             </Title>
-            <SubTitle
-              className="is-hidden-touch"
-              textColor="white-ter"
-              style={{ paddingTop: '20px' }}
-            >
+            <SubTitle textColor="white-ter" style={{ paddingTop: '20px' }}>
               Devfractal helps create beautiful, responsive layouts using
               human-friendly HTML
             </SubTitle>
@@ -502,3 +497,6 @@ export const IndexPage: React.FC = () => (
     <FooterSection />
   </Container>
 )
+
+// tslint:disable-next-line: no-default-export
+export default IndexPage
