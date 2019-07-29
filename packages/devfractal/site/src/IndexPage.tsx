@@ -285,6 +285,7 @@ export const ExploreUIComponents: React.FC = () => (
         <Columns>
           <Column style={{ margin: '30px' }}>
             <Title
+              className="is-hidden-touch"
               textColor="white-ter"
               style={{
                 fontFamily: 'Poppins',
@@ -293,7 +294,11 @@ export const ExploreUIComponents: React.FC = () => (
             >
               Why Devfractal Components
             </Title>
-            <SubTitle textColor="white-ter" style={{ paddingTop: '20px' }}>
+            <SubTitle
+              className="is-hidden-touch"
+              textColor="white-ter"
+              style={{ paddingTop: '20px' }}
+            >
               Devfractal helps create beautiful, responsive layouts using
               human-friendly HTML
             </SubTitle>
