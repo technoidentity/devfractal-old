@@ -6,6 +6,7 @@
   "module": "dist/technoidentity-devfractal-crud.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "start": "parcel index.html --open",
     "lib": "tsdx watch",
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
@@ -45,17 +46,18 @@
     "jest-cli": "24.8.0",
     "lint-staged": "9.2.1",
     "monocle-ts": "2.0.0",
+    "parcel-bundler": "^1.12.3",
     "prettier": "1.18.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "technoidentity-utils": "*",
     "technoidentity-devfractal-api": "*",
-    "technoidentity-devfractal-ui-core": "*",
-    "technoidentity-devfractal-simple": "*",
     "technoidentity-devfractal-forms": "*",
+    "technoidentity-devfractal-simple": "*",
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-utils": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
@@ -68,11 +70,11 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-utils": "*",
     "technoidentity-devfractal-api": "*",
-    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-devfractal-forms": "*",
     "technoidentity-devfractal-simple": "*",
-    "technoidentity-devfractal-forms": "*"
+    "technoidentity-devfractal-ui-core": "*",
+    "technoidentity-utils": "*"
   },
   "husky": {
     "hooks": {
