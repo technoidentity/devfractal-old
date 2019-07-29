@@ -17,7 +17,6 @@ import {
   ButtonsGroup,
   Column,
   Columns,
-  Container,
   Content,
   Hero,
   HeroHead,
@@ -488,14 +487,14 @@ export const FooterSection: React.FC = () => (
 )
 
 export const IndexPage: React.FC = () => (
-  <Container>
+  <>
     <IndexPageHeader />
     <UIComponentsOverview />
     <ExploreUIComponents />
     <BottomSection />
     <ResourceSection />
     <FooterSection />
-  </Container>
+  </>
 )
 
 // tslint:disable-next-line: no-default-export
