@@ -8,7 +8,7 @@
   "author": "Pervez Iqbal",
   "private": true,
   "scripts": {
-    "start": "tsdx watch",
+    "lib": "tsdx watch",
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest",
     "test:watch": "yarn test --watch",
