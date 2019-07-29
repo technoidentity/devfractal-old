@@ -1,6 +1,11 @@
-import React from 'react';
-import { Container, Media, MediaContent, MediaLeft, Text } from 'technoidentity-devfractal';
-
+import React from 'react'
+import {
+  Container,
+  Media,
+  MediaContent,
+  MediaLeft,
+  Text,
+} from 'technoidentity-devfractal-ui-core'
 
 export const FormMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>
@@ -22,7 +27,7 @@ export const FormMedia: React.FC = () => (
       </MediaContent>
     </Media>
   </Container>
-);
+)
 
 export const ColumnsMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>
@@ -44,7 +49,7 @@ export const ColumnsMedia: React.FC = () => (
       </MediaContent>
     </Media>
   </Container>
-);
+)
 
 export const LayoutMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>
@@ -66,7 +71,7 @@ export const LayoutMedia: React.FC = () => (
       </MediaContent>
     </Media>
   </Container>
-);
+)
 
 export const ElementsMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>
@@ -88,7 +93,7 @@ export const ElementsMedia: React.FC = () => (
       </MediaContent>
     </Media>
   </Container>
-);
+)
 
 export const ComponentsMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>
@@ -110,7 +115,7 @@ export const ComponentsMedia: React.FC = () => (
       </MediaContent>
     </Media>
   </Container>
-);
+)
 
 export const ModifiersMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>
@@ -132,7 +137,7 @@ export const ModifiersMedia: React.FC = () => (
       </MediaContent>
     </Media>
   </Container>
-);
+)
 
 export const CompositesMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>
@@ -154,7 +159,7 @@ export const CompositesMedia: React.FC = () => (
       </MediaContent>
     </Media>
   </Container>
-);
+)
 
 export const CrudMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>
@@ -176,4 +181,4 @@ export const CrudMedia: React.FC = () => (
       </MediaContent>
     </Media>
   </Container>
-);
+)

@@ -1,9 +1,50 @@
-import { faFacebook, faGooglePlus, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faArrowRight, faCircle, faStar } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import { Button, ButtonsGroup, Column, Columns, Container, Content, DynamicBreadcrumb, Hero, HeroHead, Icon, Navbar, NavbarBrand, NavbarBurger, NavbarEnd, NavbarItem, NavbarMenu, Notification, Ol, Section, SubTitle, Text, Title } from 'technoidentity-devfractal';
-import { ColumnsMedia, ComponentsMedia, CompositesMedia, CrudMedia, ElementsMedia, FormMedia, LayoutMedia, ModifiersMedia } from './Medias';
+import {
+  faFacebook,
+  faGooglePlus,
+  faLinkedin,
+  faTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons'
+import {
+  faArrowRight,
+  faCircle,
+  faStar,
+} from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
+import React from 'react'
+import {
+  Button,
+  ButtonsGroup,
+  Column,
+  Columns,
+  Container,
+  Content,
+  Hero,
+  HeroHead,
+  Icon,
+  Navbar,
+  NavbarBrand,
+  NavbarBurger,
+  NavbarEnd,
+  NavbarItem,
+  NavbarMenu,
+  Notification,
+  Ol,
+  Section,
+  SubTitle,
+  Text,
+  Title,
+} from 'technoidentity-devfractal-ui-core'
+import {
+  ColumnsMedia,
+  ComponentsMedia,
+  CompositesMedia,
+  CrudMedia,
+  ElementsMedia,
+  FormMedia,
+  LayoutMedia,
+  ModifiersMedia,
+} from '../components/Medias'
 import '../sass/styles.scss'
 
 export const HeroBodySection: React.FC = () => (
@@ -11,7 +52,7 @@ export const HeroBodySection: React.FC = () => (
     <Title
       textColor="white"
       textWeight="light"
-      className=" is-family-sans-serif is-size-1-desktop is-size-3-tablet is-size-4-mobile"
+      className="is-family-sans-serif is-size-1-desktop is-size-3-tablet is-size-4-mobile"
     >
       React, Simplified!
     </Title>
@@ -22,6 +63,7 @@ export const HeroBodySection: React.FC = () => (
     >
       Complete React UI components Library
     </SubTitle>
+
     <ButtonsGroup alignment="centered">
       <Button
         rounded
@@ -33,6 +75,7 @@ export const HeroBodySection: React.FC = () => (
         Get Started
       </Button>
     </ButtonsGroup>
+
     <img
       src="/static/contentLoader.png"
       alt="contentLoader"
@@ -40,11 +83,11 @@ export const HeroBodySection: React.FC = () => (
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
-        width: '50%'
+        width: '50%',
       }}
     />
   </Section>
-);
+)
 
 export const IndexPageHeader: React.FC = () => (
   <>
@@ -57,7 +100,7 @@ export const IndexPageHeader: React.FC = () => (
             </NavbarItem>
             <NavbarBurger
               style={{
-                color: 'white'
+                color: 'white',
               }}
             >
               <span />
@@ -68,7 +111,7 @@ export const IndexPageHeader: React.FC = () => (
           <NavbarMenu style={{ backgroundColor: '#5A77D6' }}>
             <NavbarEnd
               style={{
-                paddingRight: '6rem'
+                paddingRight: '6rem',
               }}
             >
               <NavbarItem
@@ -77,8 +120,8 @@ export const IndexPageHeader: React.FC = () => (
                 textWeight="bold"
                 active
               >
-                <Link to="/" style={{ color: 'white' }}>
-                  HOME
+                <Link href="/">
+                  <a style={{ color: 'white' }}>HOME</a>
                 </Link>
               </NavbarItem>
               <NavbarItem textColor="white" textSize="7" textWeight="bold">
@@ -102,13 +145,10 @@ export const IndexPageHeader: React.FC = () => (
           </NavbarMenu>
         </Navbar>
       </HeroHead>
-      <Route exact path="/" component={HeroBodySection} />
+      <HeroBodySection />
     </Hero>
-    <Section>
-      <DynamicBreadcrumb />
-    </Section>
   </>
-);
+)
 
 export const UIComponentsOverview: React.FC = () => (
   <>
@@ -118,7 +158,7 @@ export const UIComponentsOverview: React.FC = () => (
           color: '#DD051B',
           fontFamily: 'Poppins',
           fontWeight: 'bold',
-          fontSize: '20px'
+          fontSize: '20px',
         }}
         textAlignment="centered"
         className="is-size-4-desktop is-size-4-desktop is-size-5-mobile"
@@ -223,7 +263,7 @@ export const UIComponentsOverview: React.FC = () => (
       </Columns>
     </Section>
   </>
-);
+)
 
 export const ExploreUIComponents: React.FC = () => (
   <>
@@ -243,7 +283,7 @@ export const ExploreUIComponents: React.FC = () => (
               textColor="white-ter"
               style={{
                 fontFamily: 'Poppins',
-                fontWeight: 'lighter'
+                fontWeight: 'lighter',
               }}
             >
               Why Devfractal Components
@@ -258,30 +298,30 @@ export const ExploreUIComponents: React.FC = () => (
             </SubTitle>
           </Column>
           <Column>
-            <Link to="/form">
+            <Link href="/form">
               <FormMedia />
             </Link>
-            <Link to="/composites">
+            <Link href="/composites">
               <CompositesMedia />
             </Link>
-            <Link to="/components">
+            <Link href="/components">
               <ComponentsMedia />
             </Link>
-            <Link to="/modifiers">
+            <Link href="/modifiers">
               <ModifiersMedia />
             </Link>
           </Column>
           <Column>
-            <Link to="/crud">
+            <Link href="/crud">
               <CrudMedia />
             </Link>
-            <Link to="/columns">
+            <Link href="/columns">
               <ColumnsMedia />
             </Link>
-            <Link to="/layout">
+            <Link href="/layout">
               <LayoutMedia />
             </Link>
-            <Link to="/elements">
+            <Link href="/elements">
               <ElementsMedia />
             </Link>
           </Column>
@@ -289,7 +329,7 @@ export const ExploreUIComponents: React.FC = () => (
       </Section>
     </Section>
   </>
-);
+)
 
 export const BottomSection: React.FC = () => (
   <Columns>
@@ -302,7 +342,7 @@ export const BottomSection: React.FC = () => (
             marginTop: '40px',
             color: '#DD051B',
             fontFamily: 'Poppins',
-            fontWeight: 'lighter'
+            fontWeight: 'lighter',
           }}
         >
           Happy Developers
@@ -338,7 +378,7 @@ export const BottomSection: React.FC = () => (
       />
     </Column>
   </Columns>
-);
+)
 
 export const ResourceSection: React.FC = () => (
   <Section style={{ backgroundColor: '#F5F5F5' }}>
@@ -431,14 +471,14 @@ export const ResourceSection: React.FC = () => (
     </Columns>
     <hr />
   </Section>
-);
+)
 
 export const FooterSection: React.FC = () => (
   <Section
     style={{
       backgroundColor: '#F5F5F5',
       borderTop: '1px solid',
-      borderTopColor: 'white'
+      borderTopColor: 'white',
     }}
   >
     Copyright © 2019 TechnoIdentity Solutions.All rights reserved.
@@ -450,7 +490,7 @@ export const FooterSection: React.FC = () => (
       <Icon icon={faYoutube} color="#004267" />
     </Content>
   </Section>
-);
+)
 
 export const IndexPage: React.FC = () => (
   <Container>
@@ -461,4 +501,4 @@ export const IndexPage: React.FC = () => (
     <ResourceSection />
     <FooterSection />
   </Container>
-);
+)
