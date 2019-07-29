@@ -10,7 +10,8 @@
   ],
   "author": "Pervez Iqbal",
   "scripts": {
-    "start": "tsdx watch",
+    "start": "parcel index.html --open",
+    "lib": "tsdx watch",
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest",
     "test:watch": "yarn test --watch",
@@ -35,6 +36,7 @@
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
     "monocle-ts": "2.0.0",
+    "parcel-bundler": "1.12.3",
     "tcomb": "3.2.29",
     "ts-jest": "24.0.2",
     "tsdx": "0.7.2"
