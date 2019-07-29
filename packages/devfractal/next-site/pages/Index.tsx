@@ -293,30 +293,46 @@ export const ExploreUIComponents: React.FC = () => (
           </Column>
           <Column>
             <Link href="/form">
-              <FormMedia />
+              <a>
+                <FormMedia />
+              </a>
             </Link>
             <Link href="/composites">
-              <CompositesMedia />
+              <a>
+                <CompositesMedia />
+              </a>
             </Link>
             <Link href="/components">
-              <ComponentsMedia />
+              <a>
+                <ComponentsMedia />
+              </a>
             </Link>
             <Link href="/modifiers">
-              <ModifiersMedia />
+              <a>
+                <ModifiersMedia />
+              </a>
             </Link>
           </Column>
           <Column>
             <Link href="/crud">
-              <CrudMedia />
+              <a>
+                <CrudMedia />
+              </a>
             </Link>
             <Link href="/columns">
-              <ColumnsMedia />
+              <a>
+                <ColumnsMedia />
+              </a>
             </Link>
             <Link href="/layout">
-              <LayoutMedia />
+              <a>
+                <LayoutMedia />
+              </a>
             </Link>
             <Link href="/elements">
-              <ElementsMedia />
+              <a>
+                <ElementsMedia />
+              </a>
             </Link>
           </Column>
         </Columns>
