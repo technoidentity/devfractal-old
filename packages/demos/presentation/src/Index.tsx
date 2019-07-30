@@ -1,4 +1,7 @@
 import 'bulma/bulma.sass'
+import React from 'react'
+import { render } from 'react-dom'
+import { TodoApp } from './17.CompleteTodo'
 
 // import './demo/01.checked'
 // import './demo/03.fake'
@@ -15,3 +18,5 @@ import 'bulma/bulma.sass'
 // import './demo/14.TodoListView'
 // import './demo/15.TodoListRoute'
 // import './demo/16.EditTodo'
+
+render(<TodoApp />, document.getElementById('root'))

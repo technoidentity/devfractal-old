@@ -114,11 +114,9 @@ export const TodoListRoute = () => {
 export const TodoApp = () => (
   <Section>
     <Router variant="browser">
-      <Switch>
-        <Route exact path="/" component={TodoListRoute} />
-        <Route exact path="/todos/add" component={CreateTodoRoute} />
-        <Route exact path="/todos/:id/edit" component={EditTodoRoute} />
-      </Switch>
+      <Route exact path="/" component={TodoListRoute} />
+      <Route exact path="/todos/add" component={CreateTodoRoute} />
+      <Route exact path="/todos/:id/edit" component={EditTodoRoute} />
     </Router>
   </Section>
 )
