@@ -1,8 +1,7 @@
 import { Either, isRight } from 'fp-ts/lib/Either'
 import * as t from 'io-ts'
 import { PathReporter } from 'io-ts/lib/PathReporter'
-import { assert, String } from 'tcomb'
-import { fatal } from './assertions'
+import { assert, fatal } from './assertions'
 
 export function cast<A, O, I>(spec: t.Type<A, O, I>, args: I): A {
   const decoded: Either<t.Errors, A> = spec.decode(args)
@@ -29,7 +28,7 @@ export async function rejected<T>(
 ): Promise<T> {
   return Promise.reject(
     new Error(
-      String.is(decoded) ? decoded : PathReporter.report(decoded).join('\n'),
+      t.string.is(decoded) ? decoded : PathReporter.report(decoded).join('\n'),
     ),
   )
 }
@@ -68,6 +67,8 @@ export function props<O extends t.Props, R extends t.Props>(
 export const lit: typeof t.literal = t.literal
 
 export function intToNumber(i: t.Branded<number, t.IntBrand>): number {
-  const decoded: Either<t.Errors, t.Branded<number, t.IntBrand>> = t.Int.decode(i)
+  const decoded: Either<t.Errors, t.Branded<number, t.IntBrand>> = t.Int.decode(
+    i,
+  )
   return isRight(decoded) ? decoded.right : fatal('Not an integer!')
 }
