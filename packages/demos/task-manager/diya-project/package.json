@@ -1,0 +1,92 @@
+{
+  "name": "react-starter",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "4.0.0",
+    "@testing-library/react": "8.0.5",
+    "@types/jest": "24.0.15",
+    "@types/node": "12.6.8",
+    "@types/react": "16.8.23",
+    "@types/react-dom": "16.8.4",
+    "@types/yup": "0.26.22",
+    "axios": "0.19.0",
+    "chance": "^1.0.18",
+    "cross-env": "5.2.0",
+    "date-fns": "1.30.1",
+    "font-awesome-icons": "^1.6.0",
+    "formik": "^1.5.8",
+    "fp-ts": "2.0.2",
+    "husky": "3.0.1",
+    "io-ts": "2.0.0",
+    "io-ts-promise": "^2.0.0",
+    "io-ts-types": "0.5.0",
+    "lint-staged": "9.2.0",
+    "monocle-ts": "^2.0.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "1.18.2",
+    "react": "16.8.6",
+    "react-datepicker": "^2.8.0",
+    "react-docgen-typescript": "1.12.5",
+    "react-dom": "16.8.6",
+    "react-router": "5.0.1",
+    "react-router-dom": "5.0.1",
+    "react-scripts": "3.0.1",
+    "react-styleguidist": "9.1.11",
+    "rimraf": "2.6.3",
+    "tcomb": "3.2.29",
+    "technoidentity-devfractal": "^0.9.19",
+    "tslint": "5.18.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-immutable": "6.0.1",
+    "tslint-react": "4.0.0",
+    "typescript": "3.5.3",
+    "typescript-tslint-plugin": "0.5.4",
+    "yup": "0.27.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "pstart": "parcel index.html --open",
+    "pbuild": "parcel build index.html",
+    "test": "react-scripts test",
+    "destroy": "git clean -dfx",
+    "up": "lerna exec -- ncu -u",
+    "test:single": "CI=true react-scripts test",
+    "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
+    "lint:fix": "yarn lint --fix",
+    "types": "tsc --noEmit -p .",
+    "types:watch": "yarn types --watch",
+    "validate": "yarn lint && yarn types && yarn test:single",
+    "sg": "styleguidist server",
+    "sg:build": "styleguidist build",
+    "all": "yarn validate && yarn start",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn validate",
+      "pre-build": "yarn validate"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint:fix",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,js,jsx,json,css}": [
+      "yarn prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
