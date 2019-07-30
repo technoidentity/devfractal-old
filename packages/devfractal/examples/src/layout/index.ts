@@ -1,6 +1,7 @@
-import { dynamicRouter } from 'technoidentity-devfractal-ui'
-import * as components from './internal'
-export const { Links: LayoutLinks, Routes: LayoutRoutes } = dynamicRouter(
-  components,
-  '/layout',
-)
+export * from './ContainerExample'
+export * from './HeroExample'
+export * from './LevelExample'
+export * from './MediaObjectExample'
+export * from './SectionExample'
+export * from './TileExample'
+export * from './FooterExample'

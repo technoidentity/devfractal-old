@@ -1,6 +1,8 @@
-import { dynamicRouter } from 'technoidentity-devfractal-ui'
-import * as components from './internal'
-export const { Links: FormLinks, Routes: FormRoutes } = dynamicRouter(
-  components,
-  '/forms',
-)
+export * from './GeneralExample'
+export * from './InputExample'
+export * from './ButtonExample'
+export * from './CheckBoxExample'
+export * from './RadioExample'
+export * from './SelectExample'
+export * from './TextAreaExample'
+export * from './FileExample'
