@@ -3,12 +3,18 @@ import { number, string, TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import React from 'react'
+// import 'react-datepicker/dist/react-datepicker.css'
 import {
+  Box,
+  Button,
   Column,
   Columns,
   component,
   DateField,
-  Label,
+  Image,
+  Media,
+  MediaContent,
+  Section,
   Simple,
   Title,
 } from 'technoidentity-devfractal'
@@ -39,25 +45,44 @@ const VehicleDetailsFormProps = req({
 export const VehicleDetailsForm = component(
   VehicleDetailsFormProps,
   ({ onSubmit }) => (
-    <Columns columnCentered>
-      <Column size="half">
-        <Title>Vehicle Details</Title>
-        <Simple.Form initialValues={empty(VehicleDetails)} onSubmit={onSubmit}>
-          <Simple.Text name="vehicleId" />
-          <Simple.Text name="makersClass" label="Maker's Class" />
-          <Simple.Text name="vehicleClass" />
-          <Simple.Text name="yearOfManufacturing" />
-          <Simple.Text name="color" />
-
-          <Simple.Text name="regnNumber" label="Regn. Number" />
-          <Simple.Text name="warranty" />
-          <Label>Last Serviced Date</Label>
-          <DateField name="lastServicedDate" />
-          <Label>Insurance Expiry Date</Label>
-          <DateField name="insuranceExpiryDate" />
-          <Simple.FormButtons />
-        </Simple.Form>
-      </Column>
-    </Columns>
+    <Section>
+      <Title textAlignment="centered">Vehicle Details</Title>
+      <Simple.Form initialValues={empty(VehicleDetails)} onSubmit={onSubmit}>
+        <Columns columnCentered>
+          <Column size="half">
+            <div>
+              <Simple.Text name="vehicleId" />
+              <Simple.Text name="makersClass" label="Maker's Class" />
+              <Simple.Text name="vehicleClass" />
+              <Simple.Text name="yearOfManufacturing" />
+              <Simple.Text name="color" />
+            </div>
+          </Column>
+          <Column>
+            <div>
+              <Simple.Text name="regnNumber" label="Regn. Number" />
+              <Simple.Text name="warranty" />
+              <DateField name="lastServicedDate" />
+              <DateField name="insuranceExpiryDate" />
+            </div>
+          </Column>
+          <Column>
+            <Title size="6">Vehicle Photo</Title>
+            <Box>
+              <Media>
+                <MediaContent>
+                  <Image
+                    size="128x128"
+                    src="https://bulma.io/images/placeholders/128x128.png"
+                  />
+                </MediaContent>
+              </Media>
+            </Box>
+            <Button variant="dark">Upload Photo</Button>
+          </Column>
+        </Columns>
+        <Simple.FormButtons />
+      </Simple.Form>
+    </Section>
   ),
 )
