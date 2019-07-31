@@ -1,13 +1,18 @@
 import { FormikActions } from 'formik'
-import { string, TypeOf } from 'io-ts'
+import { number, string, TypeOf } from 'io-ts'
 import React from 'react'
 import {
+  Box,
+  Button,
   Column,
   Columns,
   component,
+  DateField,
+  Image,
+  Media,
+  MediaContent,
   Section,
   Simple,
-  DateField,
   Title,
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
@@ -18,7 +23,7 @@ const BatteryDetails = req({
   batteryMake: string,
   batteryModel: string,
   capacity: string,
-  batteryCycles: string,
+  batteryCycles: number,
   lastCharged: ISODate,
 })
 
@@ -35,22 +40,35 @@ export const BatteryDetailsForm = component(
   ({ onSubmit }) => (
     <Section>
       <Title textAlignment="centered">Battery Details</Title>
-      <Columns columnCentered>
-        <Column size="half">
-          <Simple.Form
-            initialValues={empty(BatteryDetails)}
-            onSubmit={onSubmit}
-          >
+      <Simple.Form initialValues={empty(BatteryDetails)} onSubmit={onSubmit}>
+        <Columns columnCentered>
+          <Column size="half">
             <Simple.Text name="batteryId" />
             <Simple.Text name="batteryMake" />
             <Simple.Text name="batteryModel" />
+          </Column>
+          <Column>
             <Simple.Text name="capacity" />
             <Simple.Text name="batteryCycles" />
             <DateField name="lastCharged" />
-            <Simple.FormButtons />
-          </Simple.Form>
-        </Column>
-      </Columns>
+          </Column>
+          <Column>
+            <Title size="6">Battery Photo</Title>
+            <Box>
+              <Media>
+                <MediaContent>
+                  <Image
+                    size="128x128"
+                    src="https://bulma.io/images/placeholders/128x128.png"
+                  />
+                </MediaContent>
+              </Media>
+            </Box>
+            <Button variant="dark">Upload Photo</Button>
+          </Column>
+        </Columns>
+        <Simple.FormButtons />
+      </Simple.Form>
     </Section>
   ),
 )
