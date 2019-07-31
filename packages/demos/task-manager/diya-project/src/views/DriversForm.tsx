@@ -2,10 +2,15 @@ import { FormikActions } from 'formik'
 import { intersection, keyof, number, string, TypeOf } from 'io-ts'
 import React from 'react'
 import {
+  Box,
+  Button,
   Column,
   Columns,
   component,
+  Image,
   Label,
+  Media,
+  MediaContent,
   Simple,
   Title,
 } from 'technoidentity-devfractal'
@@ -85,6 +90,20 @@ export const DriverPersonalForm = component(
           <Simple.Text name="bankName" />
           <Simple.Text name="bankBranch" />
           <Simple.Text name="branchIfscNumber" label="Branch IFSC Number" />
+        </Column>
+        <Column>
+          <Title size="6">Profile Photo</Title>
+          <Box>
+            <Media>
+              <MediaContent>
+                <Image
+                  size="128x128"
+                  src="https://bulma.io/images/placeholders/128x128.png"
+                />
+              </MediaContent>
+            </Media>
+          </Box>
+          <Button variant="dark">Upload Photo</Button>
         </Column>
       </Columns>
       <Simple.FormButtons />
