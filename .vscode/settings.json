@@ -3,6 +3,7 @@
     "devfractal",
     "formik",
     "gmail",
+    "middlewares",
     "technoidentity"
   ],
   "typescript.tsdk": "node_modules/typescript/lib"
