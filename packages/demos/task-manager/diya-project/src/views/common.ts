@@ -38,3 +38,12 @@ export const SingleBatteryDetails = req({
   lastCharged: date,
   status: Status,
 })
+
+export const SingleVehicleDetails = req({
+  name: string,
+  numberPlate: string,
+  group: Group,
+  nextService: date,
+  insuranceDue: date,
+  vehicleStatus: Status,
+})
