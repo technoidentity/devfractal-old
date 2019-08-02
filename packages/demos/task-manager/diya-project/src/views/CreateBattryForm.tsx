@@ -11,12 +11,13 @@ import {
   Image,
   Media,
   MediaContent,
+  required,
   Section,
   Simple,
   Title,
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
-import { ISODate } from './VehicleForm'
+import { ISODate } from './CreateVehicleForm'
 
 const BatteryDetails = req({
   batteryId: string,
@@ -35,7 +36,7 @@ const BatteryDetailsFormProps = req({
   >(),
 })
 
-export const BatteryDetailsForm = component(
+export const CreateBatteryForm = component(
   BatteryDetailsFormProps,
   ({ onSubmit }) => (
     <Section>
@@ -43,14 +44,14 @@ export const BatteryDetailsForm = component(
       <Simple.Form initialValues={empty(BatteryDetails)} onSubmit={onSubmit}>
         <Columns columnCentered>
           <Column size="half">
-            <Simple.Text name="batteryId" />
-            <Simple.Text name="batteryMake" />
-            <Simple.Text name="batteryModel" />
+            <Simple.Text name="batteryId" validations={[required()]} />
+            <Simple.Text name="batteryMake" validations={[required()]} />
+            <Simple.Text name="batteryModel" validations={[required()]} />
           </Column>
           <Column>
-            <Simple.Text name="capacity" />
-            <Simple.Text name="batteryCycles" />
-            <DateField name="lastCharged" />
+            <Simple.Text name="capacity" validations={[required()]} />
+            <Simple.Text name="batteryCycles" validations={[required()]} />
+            <DateField name="lastCharged" validations={[required()]} />
           </Column>
           <Column>
             <Title size="6">Battery Photo</Title>
