@@ -15080,7 +15080,7 @@ tcomb@3.2.29, tcomb@^3.0.0:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-devfractal@*:
+technoidentity-devfractal@0.9.19:
   version "0.9.19"
   resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.9.19.tgz#a51aa3568e279e8f5fd7726cf3ac963cb71d9ab0"
   integrity sha512-M4APWqdI2zS/7sU17z6/t+xlRNWn3NHEkH0wH6WeRCjA/GVlN/o4kYapzPqkPASImBwkw/r5WFGo5E/i3/aI8A==
