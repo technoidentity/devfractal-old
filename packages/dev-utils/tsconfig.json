@@ -1,12 +1,4 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es5"
-  },
+  "extends": "../../tsconfig.base.json",
   "include": ["src"]
 }
