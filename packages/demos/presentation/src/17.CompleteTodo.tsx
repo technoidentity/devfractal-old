@@ -3,7 +3,6 @@ import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import React from 'react'
-import { Switch } from 'react-router'
 import {
   Get,
   Post,
