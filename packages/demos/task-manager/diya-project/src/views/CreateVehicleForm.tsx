@@ -14,6 +14,7 @@ import {
   Image,
   Media,
   MediaContent,
+  required,
   Section,
   Simple,
   Title,
@@ -42,7 +43,7 @@ const VehicleDetailsFormProps = req({
   >(),
 })
 
-export const VehicleDetailsForm = component(
+export const CreateVehicleForm = component(
   VehicleDetailsFormProps,
   ({ onSubmit }) => (
     <Section>
@@ -51,19 +52,33 @@ export const VehicleDetailsForm = component(
         <Columns columnCentered>
           <Column size="half">
             <div>
-              <Simple.Text name="vehicleId" />
-              <Simple.Text name="makersClass" label="Maker's Class" />
-              <Simple.Text name="vehicleClass" />
-              <Simple.Text name="yearOfManufacturing" />
-              <Simple.Text name="color" />
+              <Simple.Text name="vehicleId" validations={[required()]} />
+              <Simple.Text
+                name="makersClass"
+                label="Maker's Class"
+                validations={[required()]}
+              />
+              <Simple.Text name="vehicleClass" validations={[required()]} />
+              <Simple.Text
+                name="yearOfManufacturing"
+                validations={[required()]}
+              />
+              <Simple.Text name="color" validations={[required()]} />
             </div>
           </Column>
           <Column>
             <div>
-              <Simple.Text name="regnNumber" label="Regn. Number" />
-              <Simple.Text name="warranty" />
-              <DateField name="lastServicedDate" />
-              <DateField name="insuranceExpiryDate" />
+              <Simple.Text
+                name="regnNumber"
+                label="Regn. Number"
+                validations={[required()]}
+              />
+              <Simple.Text name="warranty" validations={[required()]} />
+              <DateField name="lastServicedDate" validations={[required()]} />
+              <DateField
+                name="insuranceExpiryDate"
+                validations={[required()]}
+              />
             </div>
           </Column>
           <Column>
