@@ -15,8 +15,8 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "react-use": "10.3.0",
-    "technoidentity-devfractal": "^1.2.1",
-    "technoidentity-utils": "^1.2.1",
+    "technoidentity-devfractal": "1.2.1",
+    "technoidentity-utils": "1.2.1",
     "yup": "0.27.0"
   },
   "devDependencies": {
