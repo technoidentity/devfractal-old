@@ -1,7 +1,8 @@
 // tslint:disable no-console
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import { Column, Columns, Section } from 'technoidentity-devfractal'
+import { Column, Columns, Image, Section } from 'technoidentity-devfractal'
+import diyaLogo from '../src/images/diyaLogo.png'
 import {
   BatteryList,
   CreateBatteryForm,
@@ -16,11 +17,21 @@ import {
 
 export const App = () => (
   <Columns>
-    <Column narrow>
+    <Column
+      narrow
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <Section>
+        <Image src={diyaLogo} alt="diyaImage" size="96x96" />
+      </Section>
       <MenuComponent />
     </Column>
     <Column>
-      <Section>
+      <>
         <BrowserRouter>
           <Route exact path="/vehicles" component={VehicleList} />
           <Route exact path="/vehicles/add" component={CreateVehicleForm} />
@@ -29,7 +40,7 @@ export const App = () => (
           <Route exact path="/drivers" component={DriverList} />
           <Route exact path="/drivers/add" component={CreateDriverForm} />
         </BrowserRouter>
-      </Section>
+      </>
     </Column>
   </Columns>
 )
