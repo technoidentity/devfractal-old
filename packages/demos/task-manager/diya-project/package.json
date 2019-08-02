@@ -36,6 +36,7 @@
     "react-styleguidist": "9.1.13",
     "rimraf": "2.6.3",
     "tcomb": "3.2.29",
+    "technoidentity-dev-utils": "^1.2.1",
     "technoidentity-devfractal": "^0.9.19",
     "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
@@ -46,6 +47,7 @@
     "yup": "0.27.0"
   },
   "scripts": {
+    "server": "cross-env PORT=9999 ts-node --project tsconfig.tsnode.json src/db.ts",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "pstart": "parcel index.html --open",
@@ -89,5 +91,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "ts-node": "^8.3.0"
+  }
 }

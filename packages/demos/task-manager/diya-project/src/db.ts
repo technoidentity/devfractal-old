@@ -1,0 +1,10 @@
+import { startFakeJSONServer } from 'technoidentity-dev-utils'
+import { Battery, Driver, Vehicle } from './views/common'
+
+const faker = {
+  drivers: Driver,
+  batteries: Battery,
+  vehicles: Vehicle,
+}
+
+startFakeJSONServer(faker)
