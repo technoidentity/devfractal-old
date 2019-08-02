@@ -3,14 +3,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ButtonsGroup, component, SimpleTable } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { SingleVehicle } from './common'
+import { Vehicle } from './common'
 
-const SingleVehicleProps = req({ singleVehicleDetails: SingleVehicle })
+const SingleVehicleProps = req({ singleVehicleDetails: Vehicle })
 
 type SingleVehicleProps = TypeOf<typeof SingleVehicleProps>
 
 const VehicleListProps = req({
-  vehicleList: readonlyArray(SingleVehicle),
+  vehicleList: readonlyArray(Vehicle),
 })
 
 type VehicleListProps = TypeOf<typeof VehicleListProps>
@@ -32,7 +32,7 @@ export const VehicleListForm = component(
 export const multipleVehicles = (n: Number) => {
   const vehicles = []
   for (let i = 0; i < n; i += 1) {
-    vehicles.push(fake(SingleVehicle))
+    vehicles.push(fake(Vehicle))
   }
   return vehicles
 }

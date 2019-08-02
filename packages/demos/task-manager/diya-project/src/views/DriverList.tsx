@@ -13,9 +13,9 @@ import {
   Tr,
 } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { SingleDriver } from './common'
+import { Driver } from './common'
 
-const SingleDriverProps = req({ singleDriverDetails: SingleDriver })
+const SingleDriverProps = req({ singleDriverDetails: Driver })
 
 type SingleDriverProps = TypeOf<typeof SingleDriverProps>
 
@@ -31,7 +31,7 @@ export const SingleDriverView: React.FC<SingleDriverProps> = ({
 )
 
 const DriverListProps = req({
-  driverList: readonlyArray(SingleDriver),
+  driverList: readonlyArray(Driver),
 })
 
 type DriverListProps = TypeOf<typeof DriverListProps>
@@ -64,7 +64,7 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
 export const multipleDrivers = (n: Number) => {
   const drivers = []
   for (let i = 0; i < n; i += 1) {
-    drivers.push(fake(SingleDriver))
+    drivers.push(fake(Driver))
   }
   return drivers
 }
