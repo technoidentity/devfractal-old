@@ -1,7 +1,16 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ButtonsGroup, component, SimpleTable } from 'technoidentity-devfractal'
+import {
+  ButtonsGroup,
+  component,
+  Navbar,
+  NavbarBrand,
+  NavbarItem,
+  Section,
+  SimpleTable,
+  Title,
+} from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
 import { Vehicle } from './common'
 
@@ -38,5 +47,16 @@ export const multipleVehicles = (n: Number) => {
 }
 
 export const VehicleList: React.FC = () => (
-  <VehicleListForm vehicleList={multipleVehicles(10)} />
+  <>
+    <Navbar textColor="info" textBackgroundColor="light">
+      <NavbarBrand>
+        <NavbarItem>
+          <Title size="4">Vehicles</Title>
+        </NavbarItem>
+      </NavbarBrand>
+    </Navbar>
+    <Section>
+      <VehicleListForm vehicleList={multipleVehicles(10)} />
+    </Section>
+  </>
 )
