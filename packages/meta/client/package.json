@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
+  "private": true,
   "scripts": {
     "lib": "tsdx watch",
     "test": "cross-env NODE_ENV='test' jest",

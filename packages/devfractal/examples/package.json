@@ -1,7 +1,6 @@
 {
   "name": "devfractal-examples",
   "version": "0.0.1",
-  "private": true,
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-examples.esm.js",
