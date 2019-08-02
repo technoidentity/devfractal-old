@@ -54,5 +54,6 @@
       "pre-commit": "lerna run --concurrency 1 --stream precommit",
       "pre-push": "yarn validate"
     }
-  }
+  },
+  "version": "0.0.0"
 }
