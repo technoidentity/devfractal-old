@@ -2577,14 +2577,6 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.3.tgz#bdfd69d61e464dcc81b25159c270d75a73c1a636"
   integrity sha512-Il2DtDVRGDcqjDtE+rF8iqg1CArehSK84HZJCT7AMITlyXRBpuPhqGLDQMowraqqu1coEaimg4ZOqggt6L6L+A==
 
-"@types/json-server@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@types/json-server/-/json-server-0.14.0.tgz#7f959205f2da275b2cbc6f4daa563c553d7a78b7"
-  integrity sha512-KOeg0AUeGvXxcinixGboYXrGsn4+cWiL30gkKq5fNWXm6tBRkYDv6Gp6BRCeK40KxZ6lZtQ5t6v+f6Ze1apBXA==
-  dependencies:
-    "@types/connect" "*"
-    "@types/express" "*"
-
 "@types/long@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.0.tgz#719551d2352d301ac8b81db732acb6bdc28dbdef"
@@ -7102,7 +7094,7 @@ fp-ts@2.0.2:
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.2.tgz#8f27d76e24097c3ab4e766ea7526872d6ba0555d"
   integrity sha512-ZCeu5MkqNDBWe1ewjZQ9Q9JNcPKEKXpitYzJ4ygCWpfJ3skW3imZ45EqsZd+9N8rkBvmsb64ToZTI2xXNO9IcQ==
 
-fp-ts@2.0.3, fp-ts@^2.0.3:
+fp-ts@2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.3.tgz#b6af5481aa5df027de250bacefa19d36d79edd51"
   integrity sha512-b/WPo5AVPDYbdye/AGOMST/tqudtgbpMjm3TJGkd36ROihD67UEKFeUH83V3iSdrIG4wwoFsd6lLpjtpek1oVw==
@@ -8298,12 +8290,12 @@ io-ts-promise@2.0.0:
   dependencies:
     deep-equal "^1.0.1"
 
-io-ts-types@0.5.0, io-ts-types@^0.5.0:
+io-ts-types@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.0.tgz#f69be9131362c31bbc6b5044f1d95892604f8f23"
   integrity sha512-+v88rlA76FmlQQcTImFq5iigoPA3OKO+BIdrpsfXlhWUdiVvOnDDiLKCsiIAW9eRj+OJgG31Sctebr77bqKhzw==
 
-io-ts@2.0.0, io-ts@^2.0.0:
+io-ts@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.0.0.tgz#560f8ddf92cce7ea73820cedab7b31044e464d1e"
   integrity sha512-6i8PKyNR/dvEbUU9uE+v4iVFU7l674ZEGQsh92y6xEZF/rj46fXbPy+uPPXJEsCP0J0X3UpzXAxp04K4HR2jVw==
@@ -9407,7 +9399,7 @@ json-schema@0.2.3:
   resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
   integrity sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=
 
-json-server@0.15.0, json-server@^0.15.0:
+json-server@0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/json-server/-/json-server-0.15.0.tgz#b8b0840077e46f15608e9eff2c34fc4d63d19139"
   integrity sha512-mo9CuRVoEzJ82g/IaxU0ljSKgPpRoj6rYiJoDIUK7VEqplOca2Saq6eTwmRULRgPiRe4hHC0aYB9tNKJUAQGgQ==
@@ -10613,7 +10605,7 @@ mongoose@5.6.7:
     sift "7.0.1"
     sliced "1.0.1"
 
-monocle-ts@2.0.0, monocle-ts@^2.0.0:
+monocle-ts@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/monocle-ts/-/monocle-ts-2.0.0.tgz#f695dbfb5b017846d95f0c377bd4c8acb10f7e02"
   integrity sha512-vPM02WypUz0Xo2MtLUPgvdelCRn70VT05pdAB7qmHJSNY4CAoQt3ClpH77AG3yZk7PY8CA6++ezHcENUDOiuEA==
