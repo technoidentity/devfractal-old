@@ -18,18 +18,13 @@ import {
 
 export const MenuComponent: React.FC = () => (
   <Section>
-    <Menu
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 's',
-      }}
-    >
-      <MenuList>
-        {/* <MenuItem>
-            <Image src={diyaLogo} alt="diyaImage" size="64x64" />
-          </MenuItem> */}
-
+    <Menu>
+      <MenuList
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         <MenuItem>
           <a href="/drivers">
             <Icon icon={faUsers} /> Drivers
