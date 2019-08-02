@@ -1,6 +1,6 @@
 {
   "name": "devfractal-api",
-  "version": "0.10.0",
+  "version": "1.0.0",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-api.esm.js",
@@ -38,6 +38,7 @@
     "@types/react-router-dom": "4.3.4",
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
+    "devfractal-router": "^1.0.0",
     "eslint": "6.1.0",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-prettier": "3.1.0",
@@ -58,11 +59,11 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "devfractal-router": "*",
-    "technoidentity-utils": "*",
+    "technoidentity-utils": "^1.0.0",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
+    "devfractal-router": "*",
     "formik": "1.5.8",
     "fp-ts": "2.0.3",
     "io-ts": "2.0.0",
@@ -73,7 +74,6 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "devfractal-router": "*",
     "technoidentity-utils": "*"
   },
   "husky": {

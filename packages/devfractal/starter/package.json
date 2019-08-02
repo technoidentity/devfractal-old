@@ -1,6 +1,6 @@
 {
   "name": "devfractal-starter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "formik": "1.5.8",
@@ -14,7 +14,7 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "technoidentity-devfractal": "*",
-    "technoidentity-utils": "*",
+    "technoidentity-utils": "^1.0.0",
     "yup": "0.27.0"
   },
   "devDependencies": {

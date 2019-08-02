@@ -34,7 +34,7 @@
     "mongoose-unique-validator": "2.0.3",
     "monocle-ts": "2.0.0",
     "tcomb": "3.2.29",
-    "technoidentity-utils": "*"
+    "technoidentity-utils": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
@@ -48,8 +48,8 @@
     "@types/jest": "24.0.16",
     "@types/mongodb": "3.1.31",
     "@types/mongoose": "5.5.11",
-    "@types/mongoose-unique-validator": "1.0.2",
     "@types/mongoose-paginate": "5.0.6",
+    "@types/mongoose-unique-validator": "1.0.2",
     "babel-jest": "24.8.0",
     "babel-loader": "8.0.6",
     "backpack-core": "0.8.4",
