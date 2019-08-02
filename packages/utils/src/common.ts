@@ -82,3 +82,5 @@ export async function interval<T>(
 ): Promise<T> {
   return new Promise(resolve => setInterval(() => resolve(f()), interval))
 }
+
+export const ISODate = union([date, DateFromISOString])
