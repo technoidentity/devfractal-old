@@ -11,6 +11,9 @@ import {
   Label,
   Media,
   MediaContent,
+  Navbar,
+  NavbarBrand,
+  NavbarItem,
   required,
   Section,
   Simple,
@@ -69,55 +72,70 @@ const DriverPersonalFormProps = req({
 export const CreateDriverForm = component(
   DriverPersonalFormProps,
   ({ onSubmit }) => (
-    <Section>
-      <Simple.Form initialValues={empty(DriverDetails)} onSubmit={onSubmit}>
-        <Columns>
-          <Column>
-            <Title>Personal Details</Title>
-            <Simple.Text name="name" validations={[required()]} />
-            <Simple.Text name="driverId" validations={[required()]} />
-            <Simple.Telephone name="phone" validations={[required()]} />
-            <Simple.Text name="driverLicence" validations={[required()]} />
-            <Simple.Text name="adharNumber" validations={[required()]} />
-            <Label>Shift</Label>
-            <Simple.Select name="shift">
-              <option value="morning">Morning</option>
-              <option value="evening">Evening</option>
-            </Simple.Select>
-          </Column>
-          <Column>
-            <Title>Bank Details</Title>
-            <Simple.Text name="accountName" validations={[required()]} />
-            <Simple.Text name="accountNumber" validations={[required()]} />
-            <Simple.Text
-              name="reEnterAccountNumber"
-              validations={[required()]}
-            />
-            <Simple.Text name="bankName" validations={[required()]} />
-            <Simple.Text name="bankBranch" validations={[required()]} />
-            <Simple.Text
-              name="branchIfscNumber"
-              label="Branch IFSC Number"
-              validations={[required()]}
-            />
-          </Column>
-          <Column>
-            <Title size="6">Profile Photo</Title>
-            <Box>
-              <Media>
-                <MediaContent>
-                  <Image
-                    size="128x128"
-                    src="https://bulma.io/images/placeholders/128x128.png"
-                  />
-                </MediaContent>
-              </Media>
-            </Box>
-            <Button variant="dark">Upload Photo</Button>
-          </Column>
-        </Columns>
-        <Simple.FormButtons />
-      </Simple.Form>
-    </Section>
+    <>
+      <Navbar textBackgroundColor="light">
+        <NavbarBrand>
+          <NavbarItem>
+            <Title size="4" textColor="info">
+              Create Driver
+            </Title>
+          </NavbarItem>
+        </NavbarBrand>
+      </Navbar>
+      <Section>
+        <Simple.Form initialValues={empty(DriverDetails)} onSubmit={onSubmit}>
+          <Columns>
+            <Column>
+              <Title size="5" textColor="info">
+                Personal Details
+              </Title>
+              <Simple.Text name="name" validations={[required()]} />
+              <Simple.Text name="driverId" validations={[required()]} />
+              <Simple.Telephone name="phone" validations={[required()]} />
+              <Simple.Text name="driverLicence" validations={[required()]} />
+              <Simple.Text name="adharNumber" validations={[required()]} />
+              <Label>Shift</Label>
+              <Simple.Select name="shift">
+                <option value="morning">Morning</option>
+                <option value="evening">Evening</option>
+              </Simple.Select>
+            </Column>
+            <Column>
+              <Title size="5" textColor="info">
+                Bank Details
+              </Title>
+              <Simple.Text name="accountName" validations={[required()]} />
+              <Simple.Text name="accountNumber" validations={[required()]} />
+              <Simple.Text
+                name="reEnterAccountNumber"
+                validations={[required()]}
+              />
+              <Simple.Text name="bankName" validations={[required()]} />
+              <Simple.Text name="bankBranch" validations={[required()]} />
+              <Simple.Text
+                name="branchIfscNumber"
+                label="Branch IFSC Number"
+                validations={[required()]}
+              />
+            </Column>
+            <Column narrow>
+              <Title size="6">Profile Photo</Title>
+              <Box>
+                <Media>
+                  <MediaContent>
+                    <Image
+                      size="128x128"
+                      src="https://bulma.io/images/placeholders/128x128.png"
+                    />
+                  </MediaContent>
+                </Media>
+              </Box>
+              <Button variant="dark">Upload Photo</Button>
+            </Column>
+          </Columns>
+          <Simple.FormButtons />
+        </Simple.Form>
+      </Section>
+    </>
   ),
 )

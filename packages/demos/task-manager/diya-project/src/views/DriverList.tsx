@@ -4,12 +4,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   ButtonsGroup,
+  Navbar,
+  NavbarBrand,
+  NavbarItem,
   Section,
   Table,
   TableBody,
   TableHead,
   Td,
   Th,
+  Title,
   Tr,
 } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
@@ -37,7 +41,7 @@ const DriverListProps = req({
 type DriverListProps = TypeOf<typeof DriverListProps>
 
 export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
-  <Section>
+  <>
     <ButtonsGroup alignment="right">
       <Link to="/drivers/add" className="button is-primary">
         Add Driver
@@ -58,7 +62,7 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
         ))}
       </TableBody>
     </Table>
-  </Section>
+  </>
 )
 
 export const multipleDrivers = (n: Number) => {
@@ -70,5 +74,16 @@ export const multipleDrivers = (n: Number) => {
 }
 
 export const DriverList = () => (
-  <DriverListForm driverList={multipleDrivers(10)} />
+  <>
+    <Navbar textColor="info" textBackgroundColor="light">
+      <NavbarBrand>
+        <NavbarItem>
+          <Title size="4">Drivers</Title>
+        </NavbarItem>
+      </NavbarBrand>
+    </Navbar>
+    <Section>
+      <DriverListForm driverList={multipleDrivers(10)} />
+    </Section>
+  </>
 )
