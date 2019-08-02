@@ -13,13 +13,13 @@ import {
   Tr,
 } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { SingleDriverDetails } from './common'
+import { SingleDriver } from './common'
 
-const SingleDriverProps = req({ singleDriverDetails: SingleDriverDetails })
+const SingleDriverProps = req({ singleDriverDetails: SingleDriver })
 
 type SingleDriverProps = TypeOf<typeof SingleDriverProps>
 
-export const SingleDriver: React.FC<SingleDriverProps> = ({
+export const SingleDriverView: React.FC<SingleDriverProps> = ({
   singleDriverDetails,
 }) => (
   <Tr>
@@ -31,7 +31,7 @@ export const SingleDriver: React.FC<SingleDriverProps> = ({
 )
 
 const DriverListProps = req({
-  driverList: readonlyArray(SingleDriverDetails),
+  driverList: readonlyArray(SingleDriver),
 })
 
 type DriverListProps = TypeOf<typeof DriverListProps>
@@ -54,7 +54,7 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
       </TableHead>
       <TableBody>
         {driverList.map((driver, index) => (
-          <SingleDriver key={index} singleDriverDetails={driver} />
+          <SingleDriverView key={index} singleDriverDetails={driver} />
         ))}
       </TableBody>
     </Table>
@@ -64,7 +64,7 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
 export const multipleDrivers = (n: Number) => {
   const drivers = []
   for (let i = 0; i < n; i += 1) {
-    drivers.push(fake(SingleDriverDetails))
+    drivers.push(fake(SingleDriver))
   }
   return drivers
 }

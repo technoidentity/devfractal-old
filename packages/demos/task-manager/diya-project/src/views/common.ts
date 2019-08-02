@@ -16,7 +16,7 @@ type Shift = TypeOf<typeof Shift>
 
 type Status = TypeOf<typeof Status>
 
-export const SingleDriverDetails = req({
+export const SingleDriver = req({
   name: string,
   lastActive: date,
   shift: Shift,
@@ -30,7 +30,7 @@ const Group = keyof({
 
 type Group = TypeOf<typeof Group>
 
-export const SingleBatteryDetails = req({
+export const SingleBattery = req({
   name: string,
   id: string,
   group: Group,
@@ -39,7 +39,7 @@ export const SingleBatteryDetails = req({
   status: Status,
 })
 
-export const SingleVehicleDetails = req({
+export const SingleVehicle = req({
   name: string,
   numberPlate: string,
   group: Group,

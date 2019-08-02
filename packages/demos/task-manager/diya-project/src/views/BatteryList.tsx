@@ -3,16 +3,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ButtonsGroup, component, SimpleTable } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { SingleBatteryDetails } from './common'
+import { SingleBattery } from './common'
 
 export const SingleBatteryProps = req({
-  singleBatteryDetails: SingleBatteryDetails,
+  singleBatteryDetails: SingleBattery,
 })
 
 export type SingleBatteryProps = TypeOf<typeof SingleBatteryProps>
 
 const BatteryListProps = req({
-  batteryList: readonlyArray(SingleBatteryDetails),
+  batteryList: readonlyArray(SingleBattery),
 })
 
 type BatteryListProps = TypeOf<typeof BatteryListProps>
@@ -34,7 +34,7 @@ export const BatteryListForm = component(
 export const multipleBatteries = (n: Number) => {
   const batteries = []
   for (let i = 0; i < n; i += 1) {
-    batteries.push(fake(SingleBatteryDetails))
+    batteries.push(fake(SingleBattery))
   }
   return batteries
 }
