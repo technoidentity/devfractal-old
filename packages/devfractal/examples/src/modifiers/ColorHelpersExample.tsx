@@ -1,5 +1,5 @@
+import { Box, Section, Text, Title } from 'devfractal-ui-core'
 import React from 'react'
-import { Box, Section, Text, Title } from 'technoidentity-devfractal-ui-core'
 
 const TextColorExample: React.FC = () => (
   <Section>

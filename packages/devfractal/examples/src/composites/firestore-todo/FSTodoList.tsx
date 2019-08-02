@@ -1,12 +1,12 @@
-import React from 'react'
-import { Get } from 'technoidentity-devfractal-api'
+import { Get } from 'devfractal-api'
 import {
   Table,
   TableBody,
   TableHead,
   Th,
   Tr,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 import { FSTodoItem } from './FSTodoItem'
 import { all, FSTodo, remove } from './todoAPI'
 

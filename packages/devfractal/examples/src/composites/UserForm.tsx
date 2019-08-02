@@ -1,5 +1,5 @@
+import { Simple } from 'devfractal-simple'
 import React from 'react'
-import { Simple } from 'technoidentity-devfractal-simple'
 import { number, object, ObjectSchema, string } from 'yup'
 
 interface LoginValues {

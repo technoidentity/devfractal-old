@@ -1,5 +1,3 @@
-import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
-import React from 'react'
 import {
   CheckboxField,
   CheckboxFieldProps,
@@ -16,13 +14,15 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from 'technoidentity-devfractal-forms'
+} from 'devfractal-forms'
 import {
   Button,
   Field,
   FieldProps,
   Label,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
+import React from 'react'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   date,

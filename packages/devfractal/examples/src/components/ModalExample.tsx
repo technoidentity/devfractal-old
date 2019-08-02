@@ -1,5 +1,4 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
 import {
   Box,
   Button,
@@ -24,7 +23,8 @@ import {
   Ol,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export const ImageModalExample: React.FC = () => {
   const [modal, setModal] = React.useState(false)

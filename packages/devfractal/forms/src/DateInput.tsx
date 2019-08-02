@@ -1,5 +1,3 @@
-import React from 'react'
-import DatePicker, { ReactDatePickerProps } from 'react-datepicker'
 import {
   classNamesHelper,
   ControlWrapper,
@@ -7,7 +5,9 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
+import DatePicker, { ReactDatePickerProps } from 'react-datepicker'
 
 export type DateInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
   ReactDatePickerProps

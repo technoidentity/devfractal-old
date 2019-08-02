@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   RoutedTabs,
   RoutedTabsItem,
@@ -6,7 +5,8 @@ import {
   Tabs,
   TabsItem,
   TabsProps,
-} from 'technoidentity-devfractal-ui'
+} from 'devfractal-ui'
+import React from 'react'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {

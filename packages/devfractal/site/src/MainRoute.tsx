@@ -1,9 +1,9 @@
-import React from 'react'
 import {
   DropdownExampleRoutes,
   LoginFormVariantsRoutes,
   TodoRoutes,
-} from 'technoidentity-devfractal-examples'
+} from 'devfractal-examples'
+import React from 'react'
 import {
   ColumnsRoutes,
   ComponentsRoutes,

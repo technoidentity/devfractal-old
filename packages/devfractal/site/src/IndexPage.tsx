@@ -10,9 +10,7 @@ import {
   faCircle,
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
-import { Link, Route } from 'react-router-dom'
-import { DynamicBreadcrumb } from 'technoidentity-devfractal-ui'
+import { DynamicBreadcrumb } from 'devfractal-ui'
 import {
   Button,
   ButtonsGroup,
@@ -35,7 +33,9 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
+import { Link, Route } from 'react-router-dom'
 import { default as developer } from '../src/images/asset/developer.png'
 import logo from '../src/images/asset/logo.png'
 import { default as contentLoader } from '../src/images/contentLoader.png'

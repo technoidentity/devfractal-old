@@ -1,15 +1,15 @@
 import { format } from 'date-fns'
-import { FormikActions } from 'formik'
-import { produce } from 'immer'
-import React from 'react'
-import { DateField } from 'technoidentity-devfractal-forms'
-import { Simple } from 'technoidentity-devfractal-simple'
+import { DateField } from 'devfractal-forms'
+import { Simple } from 'devfractal-simple'
 import {
   Column,
   Columns,
   component,
   Section,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import { FormikActions } from 'formik'
+import { produce } from 'immer'
+import React from 'react'
 import { empty, fn, props } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { Task } from '../common'

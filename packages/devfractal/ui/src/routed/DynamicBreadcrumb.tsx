@@ -1,7 +1,7 @@
+import { WithRouter } from 'devfractal-router'
+import { Null } from 'devfractal-ui-core'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { WithRouter } from 'technoidentity-devfractal-router'
-import { Null } from 'technoidentity-devfractal-ui-core'
 import { capitalizeAll, chop } from 'technoidentity-utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 

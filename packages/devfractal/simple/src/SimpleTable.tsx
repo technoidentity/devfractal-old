@@ -1,10 +1,7 @@
-import * as t from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import React from 'react'
-import { Get } from 'technoidentity-devfractal-api'
+import { Get } from 'devfractal-api'
 import {
   CheckBox,
-  
+
   Table,
   TableBody,
   TableHead,
@@ -13,7 +10,10 @@ import {
   Text,
   Th,
   Tr,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import * as t from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
+import React from 'react'
 import { camelCaseToPhrase, keys } from 'technoidentity-utils'
 import {formatDate} from './utils'
 

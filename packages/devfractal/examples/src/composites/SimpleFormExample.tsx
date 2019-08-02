@@ -1,6 +1,6 @@
+import { Simple } from 'devfractal-simple'
+import { Radio, Section } from 'devfractal-ui-core'
 import React from 'react'
-import { Simple } from 'technoidentity-devfractal-simple'
-import { Radio, Section } from 'technoidentity-devfractal-ui-core'
 import { number, object, ObjectSchema, string } from 'yup'
 
 interface SimpleValues {

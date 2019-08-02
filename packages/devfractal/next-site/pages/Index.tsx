@@ -33,7 +33,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
 import {
   ColumnsMedia,
   ComponentsMedia,

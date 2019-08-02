@@ -1,5 +1,4 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
 import {
   Button,
   CheckBox,
@@ -17,7 +16,8 @@ import {
   Section,
   TextArea,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const SimpleMediaObjectExample: React.FC = () => (
   <Section>

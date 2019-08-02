@@ -1,11 +1,11 @@
-import React from 'react'
 import {
   Table,
   TableBody,
   TableHead,
   Th,
   Tr,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 import { Product } from './fakeData'
 import { ProductItem } from './ProductItem'
 

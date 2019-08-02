@@ -1,11 +1,11 @@
-import React from 'react'
 import {
   Box,
   Delete,
   Notification as NotificationComponent,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const BasicNotificationExample: React.FC = () => (
   <Section>

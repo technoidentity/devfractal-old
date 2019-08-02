@@ -6,7 +6,6 @@ import {
   faLock,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
 import {
   Button,
   CheckBox,
@@ -23,7 +22,8 @@ import {
   Section,
   Select,
   TextArea,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export const General: React.FC = () => (
   <>

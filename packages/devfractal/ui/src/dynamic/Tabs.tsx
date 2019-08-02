@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   classNamesHelper,
   ControlledProps,
@@ -6,7 +5,8 @@ import {
   Helpers,
   Uncontrolled,
   ValueChangeEvent,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 import { debug } from 'technoidentity-utils'
 
 export interface TabsChangeEvent extends ValueChangeEvent<string> {}

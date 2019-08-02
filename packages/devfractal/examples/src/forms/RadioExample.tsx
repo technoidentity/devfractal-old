@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Column,
   Columns,
@@ -9,7 +8,8 @@ import {
   RadioGroup,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const DynamicRadioExample: React.FC = () => {
   const [select, setSelect] = React.useState('red')

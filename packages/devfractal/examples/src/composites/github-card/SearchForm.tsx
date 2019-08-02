@@ -1,7 +1,7 @@
+import { InputField } from 'devfractal-forms'
+import { Button, Field } from 'devfractal-ui-core'
 import { Form, Formik } from 'formik'
 import React from 'react'
-import { InputField } from 'technoidentity-devfractal-forms'
-import { Button, Field } from 'technoidentity-devfractal-ui-core'
 
 export interface SearchFormProps {
   onSearch(name: string): void

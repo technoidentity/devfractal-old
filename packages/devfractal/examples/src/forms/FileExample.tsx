@@ -1,11 +1,11 @@
-import React from 'react'
 import {
   Box,
   Field,
   File as FileComponent,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const BasicFileExample: React.FC = () => (
   <Section>

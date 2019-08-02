@@ -1,5 +1,5 @@
+import { useRouter } from 'devfractal-router'
 import React from 'react'
-import { useRouter } from 'technoidentity-devfractal-router'
 
 export const Loading: React.FC = () => (
   <h1 className="is-text is-size-1 is-info">Loading....</h1>

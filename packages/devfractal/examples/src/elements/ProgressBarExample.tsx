@@ -1,10 +1,10 @@
-import React from 'react'
 import {
   Box,
   ProgressBar as ProgressBarComponent,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const BasicProgressBarExample: React.FC = () => (
   <Section>

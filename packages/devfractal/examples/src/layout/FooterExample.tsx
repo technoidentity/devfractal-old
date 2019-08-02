@@ -1,9 +1,9 @@
-import React from 'react'
 import {
   Content,
   Footer as FooterComponent,
   Section,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export const Footer: React.FC = () => (
   <Section>

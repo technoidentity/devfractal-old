@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Table,
   TableBody,
@@ -7,7 +6,8 @@ import {
   Th,
   Title,
   Tr,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 import { Product } from './Product'
 
 interface CartItem {

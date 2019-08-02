@@ -1,6 +1,6 @@
+import { TextArea, TextAreaProps } from 'devfractal-ui-core'
 import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
-import { TextArea, TextAreaProps } from 'technoidentity-devfractal-ui-core'
 import { FormikFieldConfig, OmitForm } from './types'
 
 type FormikTextAreaProps<V> = FormikFieldProps<V> & OmitForm<TextAreaProps>

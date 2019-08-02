@@ -1,7 +1,7 @@
+import { NotFound } from 'devfractal-api'
+import { Router, SafeRoute as Route } from 'devfractal-router'
 import React from 'react'
 import { Switch } from 'react-router'
-import { NotFound } from 'technoidentity-devfractal-api'
-import { Router, SafeRoute as Route } from 'technoidentity-devfractal-router'
 import {
   CreateTaskRoute,
   EditTaskRoute,

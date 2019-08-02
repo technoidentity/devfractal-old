@@ -1,10 +1,10 @@
+import { Get } from 'devfractal-api'
+import { Simple } from 'devfractal-simple'
+import { Section } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import * as t from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import React from 'react'
-import { Get } from 'technoidentity-devfractal-api'
-import { Simple } from 'technoidentity-devfractal-simple'
-import { Section } from 'technoidentity-devfractal-ui-core'
 import { isFunction } from './utils'
 
 export interface EditorViewProps<T extends {}> {

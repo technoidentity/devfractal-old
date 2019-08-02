@@ -1,14 +1,14 @@
-import React from 'react'
-import { NavLink, RouteComponentProps } from 'react-router-dom'
 import {
   removeRouteComponentProps,
   WithRouter,
-} from 'technoidentity-devfractal-router'
+} from 'devfractal-router'
 import {
   classNamesHelper,
   El,
   Helpers,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
+import { NavLink, RouteComponentProps } from 'react-router-dom'
 import { chop, extractSegment } from 'technoidentity-utils'
 
 interface RoutedTabsContext {

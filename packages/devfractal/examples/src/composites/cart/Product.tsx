@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Button,
   Table,
@@ -8,7 +7,8 @@ import {
   Th,
   Title,
   Tr,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export interface Product {
   readonly id: number

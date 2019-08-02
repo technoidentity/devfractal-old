@@ -1,6 +1,5 @@
 import Cleave from 'cleave.js/react'
 import { Props as CleaveProps } from 'cleave.js/react/props'
-import React from 'react'
 import {
   classNamesHelper,
   ControlWrapper,
@@ -8,7 +7,8 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export interface CleaveInputProps
   extends Omit<InputProps, 'value' | 'onChange' | 'type'>,

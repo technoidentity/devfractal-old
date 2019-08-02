@@ -1,6 +1,6 @@
+import { CheckBox, CheckBoxProps } from 'devfractal-ui-core'
 import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
-import { CheckBox, CheckBoxProps } from 'technoidentity-devfractal-ui-core'
 import { FormikFieldConfig, OmitForm } from './types'
 
 type FormikCheckboxProps<V> = FormikFieldProps<V> & OmitForm<CheckBoxProps>

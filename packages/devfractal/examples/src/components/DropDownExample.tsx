@@ -1,19 +1,19 @@
-import React from 'react'
-import { Redirect, Route } from 'react-router'
 import {
   DropDown,
   DropDownDivider,
   DropDownItem,
   RoutedTabs,
   RoutedTabsItem,
-} from 'technoidentity-devfractal-ui'
+} from 'devfractal-ui'
 import {
   Field,
   Level,
   LevelItem,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
+import { Redirect, Route } from 'react-router'
 
 const DropdownExampleTab: React.FC = () => (
   <>

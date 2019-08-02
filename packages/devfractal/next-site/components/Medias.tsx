@@ -5,7 +5,7 @@ import {
   MediaContent,
   MediaLeft,
   Text,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
 
 export const FormMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>

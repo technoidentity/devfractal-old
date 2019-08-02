@@ -1,5 +1,3 @@
-import React from 'react'
-import { Route } from 'react-router'
 import {
   CardApp,
   Cart,
@@ -9,8 +7,10 @@ import {
   SimpleFormExample,
   SimpleTodo,
   Todo,
-} from 'technoidentity-devfractal-examples'
-import { SimpleRedirect } from 'technoidentity-devfractal-router'
+} from 'devfractal-examples'
+import { SimpleRedirect } from 'devfractal-router'
+import React from 'react'
+import { Route } from 'react-router'
 
 export const CompositesRoutes: React.FC = () => (
   <>

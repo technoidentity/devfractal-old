@@ -1,9 +1,9 @@
-import React from 'react'
 import {
   classNamesHelper,
   El,
   Helpers,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export interface PaginationProps
   extends React.HTMLAttributes<HTMLElement>,

@@ -1,6 +1,6 @@
+import { FieldHelp, FieldHelpProps } from 'devfractal-ui-core'
 import { ErrorMessage, ErrorMessageProps } from 'formik'
 import React from 'react'
-import { FieldHelp, FieldHelpProps } from 'technoidentity-devfractal-ui-core'
 
 type FormikErrorProps = Omit<FieldHelpProps, 'variant'>
 

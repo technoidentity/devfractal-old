@@ -1,7 +1,7 @@
+import { max, min, required } from 'devfractal-forms'
+import { Simple } from 'devfractal-simple'
+import { Section } from 'devfractal-ui-core'
 import React from 'react'
-import { max, min, required } from 'technoidentity-devfractal-forms'
-import { Simple } from 'technoidentity-devfractal-simple'
-import { Section } from 'technoidentity-devfractal-ui-core'
 import { initialLoginValues } from './09.ModerateForm'
 
 export const SimpleLoginForm: React.FC = () => (

@@ -1,5 +1,3 @@
-import { Form, Formik } from 'formik'
-import React from 'react'
 import {
   CheckboxField,
   consoleSubmit,
@@ -9,8 +7,10 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from 'technoidentity-devfractal-forms'
-import { Field, Label } from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-forms'
+import { Field, Label } from 'devfractal-ui-core'
+import { Form, Formik } from 'formik'
+import React from 'react'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import * as yup from 'yup'
 import {

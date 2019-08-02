@@ -1,15 +1,15 @@
-import React from 'react'
-import { RouteComponentProps } from 'react-router'
-import { NavLink } from 'react-router-dom'
 import {
   removeRouteComponentProps,
   WithRouter,
-} from 'technoidentity-devfractal-router'
+} from 'devfractal-router'
 import {
   classNamesHelper,
   El,
   Helpers,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
+import { RouteComponentProps } from 'react-router'
+import { NavLink } from 'react-router-dom'
 import { chop } from 'technoidentity-utils'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'

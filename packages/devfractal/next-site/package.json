@@ -8,8 +8,8 @@
     "io-ts": "2.0.0",
     "monocle-ts": "2.0.0",
     "next": "9.0.3",
-    "technoidentity-devfractal-examples": "*",
-    "technoidentity-devfractal-ui-core": "*",
+    "devfractal-examples": "*",
+    "devfractal-ui-core": "*",
     "technoidentity-utils": "*"
   },
   "devDependencies": {

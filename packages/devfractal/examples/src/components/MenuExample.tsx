@@ -1,11 +1,11 @@
-import React from 'react'
 import {
   Menu,
   MenuItem,
   MenuLabel,
   MenuList,
-} from 'technoidentity-devfractal-ui'
-import { Box, Section } from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui'
+import { Box, Section } from 'devfractal-ui-core'
+import React from 'react'
 
 export const MenuExample: React.FC = () => (
   <Section>

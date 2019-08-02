@@ -1,6 +1,6 @@
+import { Section } from 'devfractal-ui-core'
 import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { Section } from 'technoidentity-devfractal-ui-core'
 import * as yup from 'yup'
 
 interface LoginValues {

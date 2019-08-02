@@ -12,7 +12,7 @@ export const AlbumForm: number = 100
 //   Simple,
 //   Title,
 //   typeInvariant,
-// } from 'technoidentity-devfractal-ui-core'
+// } from 'devfractal-ui-core'
 
 // // tslint:disable typedef
 

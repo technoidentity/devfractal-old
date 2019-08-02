@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Section,
   Table as TableComponent,
@@ -9,7 +8,8 @@ import {
   Th,
   Title,
   Tr,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const BorderedTableExample: React.FC = () => (
   <Section>

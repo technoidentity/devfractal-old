@@ -1,6 +1,6 @@
+import { SimpleTable } from 'devfractal-simple'
+import { Container, Title } from 'devfractal-ui-core'
 import React from 'react'
-import { SimpleTable } from 'technoidentity-devfractal-simple'
-import { Container, Title } from 'technoidentity-devfractal-ui-core'
 import { MT } from 'technoidentity-meta-core'
 
 export interface MetaListProps {

@@ -1,10 +1,10 @@
-import React from 'react'
 import {
   Container as ContainerComponent,
   Notification,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const CenteredContainerExample: React.FC = () => (
   <Section>

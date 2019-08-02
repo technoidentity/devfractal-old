@@ -1,11 +1,11 @@
-import React from 'react'
 import {
   Box,
   Button,
   Section,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export const Helpers: React.FC = () => (
   <>

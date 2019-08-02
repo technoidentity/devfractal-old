@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Box,
   Delete as DeleteComponent,
@@ -10,7 +9,8 @@ import {
   Tag,
   Tags,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const DynamicDeleteExample: React.FC = () => {
   const [click, setDeleted] = React.useState('click Me!')

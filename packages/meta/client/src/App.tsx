@@ -1,6 +1,6 @@
+import { Section, Title } from 'devfractal-ui-core'
 import React from 'react'
 import { render } from 'react-dom'
-import { Section, Title } from 'technoidentity-devfractal-ui-core'
 import { MBool, MDate, MMT, MNumber, MString } from 'technoidentity-meta-core'
 import { MetaForm } from './MetaForm'
 import { MetaList } from './MetaList'

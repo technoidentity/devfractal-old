@@ -1,5 +1,4 @@
 import { faCheck, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
 import {
   Container,
   FieldBody,
@@ -10,7 +9,8 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const DynamicInputExample: React.FC = () => {
   const [change, setChange] = React.useState('')

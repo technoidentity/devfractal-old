@@ -1,9 +1,9 @@
 {
-  "name": "technoidentity-devfractal-crud",
+  "name": "devfractal-crud",
   "version": "0.10.0",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/technoidentity-devfractal-crud.esm.js",
+  "module": "dist/devfractal-crud.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "parcel index.html --open",
@@ -53,10 +53,10 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "technoidentity-devfractal-api": "*",
-    "technoidentity-devfractal-forms": "*",
-    "technoidentity-devfractal-simple": "*",
-    "technoidentity-devfractal-ui-core": "*",
+    "devfractal-api": "*",
+    "devfractal-forms": "*",
+    "devfractal-simple": "*",
+    "devfractal-ui-core": "*",
     "technoidentity-utils": "*",
     "tsdx": "0.7.2"
   },
@@ -70,10 +70,10 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-devfractal-api": "*",
-    "technoidentity-devfractal-forms": "*",
-    "technoidentity-devfractal-simple": "*",
-    "technoidentity-devfractal-ui-core": "*",
+    "devfractal-api": "*",
+    "devfractal-forms": "*",
+    "devfractal-simple": "*",
+    "devfractal-ui-core": "*",
     "technoidentity-utils": "*"
   },
   "husky": {

@@ -1,6 +1,5 @@
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
 import {
   Button,
   ButtonsGroup,
@@ -21,7 +20,8 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export const BasicNavbarExample: React.FC = () => (
   <>

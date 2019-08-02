@@ -1,5 +1,4 @@
-import React from 'react'
-import { Control } from 'technoidentity-devfractal-ui-core'
+import { Control } from 'devfractal-ui-core'
 import {
   Box,
   Delete,
@@ -9,7 +8,8 @@ import {
   Tags,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const BasicTagExample: React.FC = () => (
   <Section>

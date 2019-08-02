@@ -1,12 +1,12 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
 import {
   Field,
   Section,
   Select as SelectComponent,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const DynamicSelectExample: React.FC = () => {
   const [select, setSelect] = React.useState('red')

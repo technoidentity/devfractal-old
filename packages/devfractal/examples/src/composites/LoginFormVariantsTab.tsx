@@ -1,8 +1,8 @@
+import { SimpleRedirect } from 'devfractal-router'
+import { RoutedTabs, RoutedTabsItem } from 'devfractal-ui'
+import { Section, Title } from 'devfractal-ui-core'
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { SimpleRedirect } from 'technoidentity-devfractal-router'
-import { RoutedTabs, RoutedTabsItem } from 'technoidentity-devfractal-ui'
-import { Section, Title } from 'technoidentity-devfractal-ui-core'
 import {
   FieldsLoginForm,
   FormikLoginForm,

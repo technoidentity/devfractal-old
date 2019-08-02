@@ -1,12 +1,12 @@
 import axios from 'axios'
-import React from 'react'
 import {
   Card as DfCard,
   CardContent,
   CardImage,
   SubTitle,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 import { GithubUserInfo } from './types'
 
 export interface CardViewProps {

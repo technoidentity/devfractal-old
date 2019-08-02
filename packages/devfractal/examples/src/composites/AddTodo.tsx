@@ -1,6 +1,6 @@
+import { Simple } from 'devfractal-simple'
+import { Section } from 'devfractal-ui-core'
 import React from 'react'
-import { Simple } from 'technoidentity-devfractal-simple'
-import { Section } from 'technoidentity-devfractal-ui-core'
 import { boolean, object, ObjectSchema, string } from 'yup'
 
 export interface AddTodoValues {

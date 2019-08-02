@@ -1,4 +1,7 @@
 import { startOfDay } from 'date-fns'
+import { union } from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { assert } from 'tcomb'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
@@ -83,4 +86,5 @@ export async function interval<T>(
   return new Promise(resolve => setInterval(() => resolve(f()), interval))
 }
 
+// tslint:disable-next-line: typedef
 export const ISODate = union([date, DateFromISOString])

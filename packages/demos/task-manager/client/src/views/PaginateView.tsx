@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Pagination,
   PaginationEllipsis,
@@ -6,7 +5,8 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from 'technoidentity-devfractal-ui'
+} from 'devfractal-ui'
+import React from 'react'
 
 export const PaginationView: React.FC = () => (
   <Pagination alignment="centered">

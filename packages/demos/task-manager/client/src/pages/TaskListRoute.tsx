@@ -1,6 +1,6 @@
+import { Get } from 'devfractal-api'
+import { useMatch } from 'devfractal-router'
 import React from 'react'
-import { Get } from 'technoidentity-devfractal-api'
-import { useMatch } from 'technoidentity-devfractal-router'
 import { opt } from 'technoidentity-utils'
 import { getTasks, TaskFilter } from '../common'
 import { TaskListView } from '../views'

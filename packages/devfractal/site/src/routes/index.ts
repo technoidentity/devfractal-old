@@ -4,12 +4,14 @@ export * from './CrudRoutes'
 export * from './IndexRoutes'
 export * from './TabRoutes'
 
-import * as columns from 'technoidentity-devfractal-examples/dist/columns'
-import * as elements from 'technoidentity-devfractal-examples/dist/elements'
-import * as forms from 'technoidentity-devfractal-examples/dist/forms'
-import * as layout from 'technoidentity-devfractal-examples/dist/layout'
-import * as modifiers from 'technoidentity-devfractal-examples/dist/modifiers'
-import { dynamicRouter } from 'technoidentity-devfractal-ui'
+import {
+  columns,
+  elements,
+  forms,
+  layout,
+  modifiers,
+} from 'devfractal-examples'
+import { dynamicRouter } from 'devfractal-ui'
 
 export const { Links: ColumnsLinks, Routes: ColumnsRoutes } = dynamicRouter(
   columns,

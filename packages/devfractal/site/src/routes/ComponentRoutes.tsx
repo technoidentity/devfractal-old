@@ -1,5 +1,3 @@
-import React from 'react'
-import { Route } from 'react-router'
 import {
   BreadcrumbExample,
   CardExample,
@@ -11,8 +9,10 @@ import {
   PaginationExample,
   PanelExample,
   TabsExample,
-} from 'technoidentity-devfractal-examples'
-import { SimpleRedirect } from 'technoidentity-devfractal-router'
+} from 'devfractal-examples'
+import { SimpleRedirect } from 'devfractal-router'
+import React from 'react'
+import { Route } from 'react-router'
 
 export const ComponentsRoutes: React.FC = () => (
   <>

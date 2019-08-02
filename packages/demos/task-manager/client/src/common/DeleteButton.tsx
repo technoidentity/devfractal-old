@@ -1,5 +1,5 @@
+import { Button } from 'devfractal-ui-core'
 import React from 'react'
-import { Button } from 'technoidentity-devfractal-ui-core'
 
 export interface DeleteButtonProps {
   readonly id?: string | number

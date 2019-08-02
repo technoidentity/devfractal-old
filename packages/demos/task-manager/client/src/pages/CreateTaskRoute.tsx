@@ -1,6 +1,6 @@
+import { Post } from 'devfractal-api'
+import { Section, Title } from 'devfractal-ui-core'
 import React from 'react'
-import { Post } from 'technoidentity-devfractal-api'
-import { Section, Title } from 'technoidentity-devfractal-ui-core'
 import { Task, taskAPI } from '../common'
 import { TaskForm } from '../views'
 

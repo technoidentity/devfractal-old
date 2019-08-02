@@ -1,9 +1,9 @@
 {
-  "name": "technoidentity-devfractal-router",
+  "name": "devfractal-router",
   "version": "0.9.19",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/technoidentity-devfractal-router.esm.js",
+  "module": "dist/devfractal-router.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "parcel index.html --open",

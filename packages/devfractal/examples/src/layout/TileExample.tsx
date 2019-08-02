@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Content,
   Image,
@@ -6,7 +5,8 @@ import {
   SubTitle,
   Tile as TileComponent,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const SimpleTilesExample: React.FC = () => (
   <Section>

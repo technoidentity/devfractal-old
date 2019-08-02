@@ -1,9 +1,9 @@
-import React from 'react'
 import {
   Navbar,
   NavbarEnd,
   NavbarItem,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 import { Logout } from './Logout'
 
 export const Header: React.FC = () => (

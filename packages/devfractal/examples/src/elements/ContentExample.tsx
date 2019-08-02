@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Box,
   Content as ContentComponent,
@@ -6,7 +5,8 @@ import {
   Section,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const BasicContentExample: React.FC = () => (
   <Section>

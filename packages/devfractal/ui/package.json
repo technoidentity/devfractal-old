@@ -1,9 +1,9 @@
 {
-  "name": "technoidentity-devfractal-ui",
+  "name": "devfractal-ui",
   "version": "0.10.0",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/technoidentity-devfractal-ui.esm.js",
+  "module": "dist/devfractal-ui.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "parcel index.html --open",
@@ -57,8 +57,8 @@
     "react-styleguidist": "9.1.13",
     "rimraf": "2.6.3",
     "technoidentity-utils": "*",
-    "technoidentity-devfractal-ui-core": "*",
-    "technoidentity-devfractal-router": "*",
+    "devfractal-ui-core": "*",
+    "devfractal-router": "*",
     "tsdx": "0.7.2",
     "webpack": "4.39.0",
     "webpack-blocks": "2.0.1"
@@ -74,8 +74,8 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "technoidentity-utils": "*",
-    "technoidentity-devfractal-ui-core": "*",
-    "technoidentity-devfractal-router": "*"
+    "devfractal-ui-core": "*",
+    "devfractal-router": "*"
   },
   "husky": {
     "hooks": {

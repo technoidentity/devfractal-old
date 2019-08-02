@@ -1,9 +1,9 @@
 {
-  "name": "technoidentity-devfractal-forms",
+  "name": "devfractal-forms",
   "version": "0.10.0",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/technoidentity-devfractal-forms.esm.js",
+  "module": "dist/devfractal-forms.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "parcel index.html --open",
@@ -56,8 +56,8 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "rimraf": "2.6.3",
-    "technoidentity-devfractal-ui": "*",
-    "technoidentity-devfractal-ui-core": "*",
+    "devfractal-ui": "*",
+    "devfractal-ui-core": "*",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {

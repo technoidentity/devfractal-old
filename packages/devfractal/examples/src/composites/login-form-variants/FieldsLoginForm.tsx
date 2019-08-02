@@ -1,12 +1,12 @@
-import { Form, Formik, FormikProps } from 'formik'
-import React from 'react'
-import { ErrorField, InputField } from 'technoidentity-devfractal-forms'
+import { ErrorField, InputField } from 'devfractal-forms'
 import {
   Button,
   Container,
   Field as FieldGroup,
   Label,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import { Form, Formik, FormikProps } from 'formik'
+import React from 'react'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
 const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (

@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Box,
   Delete,
@@ -7,7 +6,8 @@ import {
   MessageHeader,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export const SimpleMessageExample: React.FC = () => (
   <Section>

@@ -1,9 +1,9 @@
 {
-  "name": "technoidentity-devfractal-ui-core",
+  "name": "devfractal-ui-core",
   "version": "0.10.0",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/technoidentity-devfractal-ui-core.esm.js",
+  "module": "dist/devfractal-ui-core.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "lib": "tsdx watch",

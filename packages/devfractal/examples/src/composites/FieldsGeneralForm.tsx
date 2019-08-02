@@ -1,5 +1,3 @@
-import { Form, Formik, FormikProps } from 'formik'
-import React from 'react'
 import {
   CheckboxField,
   ErrorField,
@@ -7,8 +5,8 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from 'technoidentity-devfractal-forms'
-import { Simple } from 'technoidentity-devfractal-simple'
+} from 'devfractal-forms'
+import { Simple } from 'devfractal-simple'
 import {
   Button,
   Container,
@@ -16,7 +14,9 @@ import {
   Label,
   Radio,
   Section,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import { Form, Formik, FormikProps } from 'formik'
+import React from 'react'
 import { boolean, object, ObjectSchema, string } from 'yup'
 
 interface GeneralFormProps {

@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Button,
   Field,
@@ -9,7 +8,8 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const LevelLeftExample: React.FC = () => (
   <Section>

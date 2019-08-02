@@ -6,12 +6,12 @@ import {
   faInfoCircle,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
 import {
   Icon as IconComponent,
   Section,
   Title,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 const BasicIconExample: React.FC = () => (
   <Section>

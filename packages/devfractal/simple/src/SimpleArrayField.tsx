@@ -1,11 +1,11 @@
-import { FieldArray } from 'formik'
-import React from 'react'
 import {
   Button,
   Delete,
   Field,
   Notification,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import { FieldArray } from 'formik'
+import React from 'react'
 
 export interface SimpleArrayFieldComponentProps<T> {
   readonly name: string

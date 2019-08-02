@@ -1,5 +1,4 @@
 import { format } from 'date-fns'
-import React from 'react'
 import {
   CheckBox,
   Input,
@@ -9,7 +8,8 @@ import {
   TableHead,
   Td,
   Tr,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 interface Todo {
   readonly id: number

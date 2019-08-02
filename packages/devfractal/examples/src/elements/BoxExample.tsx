@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Box as BoxComponent,
   Content,
@@ -7,7 +6,8 @@ import {
   MediaContent,
   MediaLeft,
   Section,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 
 export const Box: React.FC = () => (
   <Section>

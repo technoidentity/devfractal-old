@@ -1,4 +1,4 @@
-import { rest } from 'technoidentity-devfractal-api'
+import { rest } from 'devfractal-api'
 import { verify } from 'technoidentity-utils'
 import { Session, Task, TaskFilter, User } from './types'
 

@@ -1,8 +1,8 @@
+import { components, paths } from 'devfractal-crud'
+import { SimpleRedirect } from 'devfractal-router'
+import { Section } from 'devfractal-ui-core'
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import { components, paths } from 'technoidentity-devfractal-crud'
-import { SimpleRedirect } from 'technoidentity-devfractal-router'
-import { Section } from 'technoidentity-devfractal-ui-core'
 import { inMemoryAPI } from './inMemoryAPI'
 import { TodoRT } from './types'
 
@@ -34,7 +34,7 @@ export const TodoRoutes: React.FC = () => {
 }
 
 // import React from 'react'
-// import { api, Crud, Section, SimpleRedirect } from 'technoidentity-devfractal-ui-core'
+// import { api, Crud, Section, SimpleRedirect } from 'devfractal-ui-core'
 // import { TodoRT } from './types'
 
 // const resource: string = 'todos'

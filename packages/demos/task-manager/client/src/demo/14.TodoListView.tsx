@@ -1,5 +1,4 @@
 import { format } from 'date-fns'
-import React from 'react'
 import {
   CheckBox,
   Table,
@@ -8,7 +7,8 @@ import {
   Td,
   Th,
   Tr,
-} from 'technoidentity-devfractal-ui-core'
+} from 'devfractal-ui-core'
+import React from 'react'
 import { Todo } from './11.todoAPI'
 
 export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (
