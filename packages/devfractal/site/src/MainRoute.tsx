@@ -1,18 +1,18 @@
 import React from 'react'
 import {
-  ColumnsRoutes,
   DropdownExampleRoutes,
-  ElementsRoutes,
-  FormRoutes,
-  LayoutRoutes,
   LoginFormVariantsRoutes,
-  ModifiersRoutes,
   TodoRoutes,
 } from 'technoidentity-devfractal-examples'
 import {
+  ColumnsRoutes,
   ComponentsRoutes,
   CompositesRoutes,
+  ElementsRoutes,
+  FormsRoutes,
   IndexRoutes,
+  LayoutRoutes,
+  ModifiersRoutes,
   TabsRoutes,
 } from './routes'
 
@@ -22,7 +22,7 @@ export const MainRoute: React.FC = () => (
   <>
     <IndexRoutes />
     <TabsRoutes />
-    <FormRoutes />
+    <FormsRoutes />
     <CompositesRoutes />
     <TodoRoutes />
     <ElementsRoutes />

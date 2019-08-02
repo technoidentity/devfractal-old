@@ -1,17 +1,17 @@
 import React from 'react'
 import { Route } from 'react-router'
+import { ComponentsTab, CompositesTab } from '../Tabs'
 import {
   ColumnsLinks,
   ElementsLinks,
-  FormLinks,
+  FormsLinks,
   LayoutLinks,
   ModifiersLinks,
-} from 'technoidentity-devfractal-examples'
-import { ComponentsTab, CompositesTab } from '../Tabs'
+} from './index'
 
 export const TabsRoutes: React.FC = () => (
   <>
-    <Route path="/form" component={FormLinks} />
+    <Route path="/form" component={FormsLinks} />
     <Route path="/composites" component={CompositesTab} />
     <Route path="/components" component={ComponentsTab} />
     <Route path="/elements" component={ElementsLinks} />
