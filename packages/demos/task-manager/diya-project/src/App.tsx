@@ -1,16 +1,18 @@
 // tslint:disable no-console
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import { Column, Columns, Router, Section } from 'technoidentity-devfractal'
-import { BatteryList } from './views/BatteryList'
-import { CreateBatteryForm } from './views/CreateBattryForm'
-import { CreateDriverForm } from './views/CreateDriverForm'
-import { CreateVehicleForm } from './views/CreateVehicleForm'
-import { DriverList } from './views/DriverList'
-import { MenuComponent } from './views/MenuComponent'
-import { VehicleList } from './views/VehicleList'
-// tslint:disable-next-line: no-console
-// tslint:disable-next-line: no-void-expression
+import { Column, Columns, Section } from 'technoidentity-devfractal'
+import {
+  BatteryList,
+  CreateBatteryForm,
+  CreateDriverForm,
+  CreateVehicleForm,
+  DriverList,
+  MenuComponent,
+  VehicleList,
+} from './views'
+
+// tslint:disable-next-line: no-console no-void-expression
 
 export const App = () => (
   <Columns>
