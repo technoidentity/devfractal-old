@@ -3,6 +3,7 @@
   "private": true,
   "workspaces": [
     "packages/utils",
+    "packages/dev-utils",
     "packages/devfractal/*",
     "packages/meta/*",
     "packages/demos/presentation",
