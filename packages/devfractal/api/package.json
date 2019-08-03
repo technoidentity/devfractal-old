@@ -7,6 +7,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "parcel index.html --open",
+    "server": "ts-node-dev --project tsconfig.tsnode.json src/db.ts",
     "lib": "tsdx watch",
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
@@ -59,7 +60,9 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
+    "technoidentity-dev-utils": "1.2.1",
     "technoidentity-utils": "1.2.1",
+    "ts-node-dev": "^1.0.0-pre.40",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
