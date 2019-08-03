@@ -43,7 +43,7 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
   return produce(options, draft => {
     if (draft.path === undefined) {
       draft.path = id
-    } else if (Array.is(draft.path)) {
+    } else if (t.UnknownArray.is(draft.path)) {
       draft.path.unshift(id)
     } else {
       draft.path = [id, draft.path]
