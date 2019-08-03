@@ -69,13 +69,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "yarn lint-staged",
       "pre-push": "yarn validate:noFix"
     }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn lint:cmd --fix",
+      "yarn lint:fix",
       "git add"
     ],
     "src/**/*.{ts,tsx,js,jsx,json,css}": [
