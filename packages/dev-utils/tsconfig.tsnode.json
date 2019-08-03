@@ -1,12 +1,1 @@
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es5"
-  },
-  "include": ["src"]
-}
+{ "extends": "../../tsconfig.tsnode.json" }
