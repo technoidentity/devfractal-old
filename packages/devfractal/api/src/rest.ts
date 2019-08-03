@@ -3,6 +3,7 @@ import * as t from 'io-ts'
 import { stringify } from 'query-string'
 import { cast, opt } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
+
 // tslint:disable typedef
 
 const Page = opt({ current: t.number, limit: t.number })
@@ -79,8 +80,8 @@ export function toJSONServerQuery<C extends t.Props>(
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
 interface API<
-  A extends Record<string, any>,
-  I extends Record<string, any> | unknown = unknown
+  A extends Record<string, unknown>,
+  I extends Record<string, unknown> | unknown = unknown
 > {
   many(options?: APIMethodArgs): Promise<readonly A[]>
   one(options?: APIMethodArgs): Promise<A>
@@ -103,18 +104,18 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
 }
 
 interface RestArgs<
-  A extends Record<string, any>,
-  O extends Record<string, any>,
-  I extends Record<string, any> | unknown = unknown
+  A extends Record<string, unknown>,
+  O extends Record<string, unknown>,
+  I extends Record<string, unknown> | unknown = unknown
 > extends RequestConfig {
   readonly resource: string
   readonly type: t.Mixed & t.Type<A, O, I>
 }
 
 export function rest<
-  A extends Record<string, any>,
-  O extends Record<string, any>,
-  I extends Record<string, any> | unknown = unknown
+  A extends Record<string, unknown>,
+  O extends Record<string, unknown>,
+  I extends Record<string, unknown> | unknown = unknown
 >(args: RestArgs<A, O, I>): API<A, I> {
   const { resource, type, ...options } = args
 

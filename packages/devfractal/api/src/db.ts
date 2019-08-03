@@ -4,6 +4,6 @@ import { req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
-const todo = req({ id: t.number, title: t.string, done: t.boolean })
+export const todo = req({ id: t.number, title: t.string, done: t.boolean })
 
 startFakeJSONServer({ todos: todo }, 9999, 50)
