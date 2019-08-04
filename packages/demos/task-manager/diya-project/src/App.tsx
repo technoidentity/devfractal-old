@@ -4,10 +4,10 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { Column, Columns, Image, Section } from 'technoidentity-devfractal'
 import diyaLogo from '../src/images/diyaLogo.png'
 import {
+  AddDriverForm,
   BatteryList,
   CreateBatteryForm,
-  CreateDriverForm,
-  CreateVehicleForm,
+  AddVehicleForm,
   DriverList,
   MenuComponent,
   VehicleList,
@@ -34,11 +34,11 @@ export const App = () => (
       <>
         <BrowserRouter>
           <Route exact path="/vehicles" component={VehicleList} />
-          <Route exact path="/vehicles/add" component={CreateVehicleForm} />
+          <Route exact path="/vehicles/add" component={AddVehicleForm} />
           <Route exact path="/batteries" component={BatteryList} />
           <Route exact path="/batteries/add" component={CreateBatteryForm} />
           <Route exact path="/drivers" component={DriverList} />
-          <Route exact path="/drivers/add" component={CreateDriverForm} />
+          <Route exact path="/drivers/add" component={AddDriverForm} />
         </BrowserRouter>
       </>
     </Column>
