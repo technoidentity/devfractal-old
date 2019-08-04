@@ -7,7 +7,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "parcel index.html --open",
-    "server": "ts-node-dev --project tsconfig.tsnode.json src/db.ts",
+    "server": "ts-node-dev --project tsconfig.tsnode.json src/server.ts",
     "lib": "tsdx watch",
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
