@@ -12,7 +12,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { Vehicle } from './common'
+import { Vehicle } from '../common/common'
 
 const SingleVehicleProps = req({ singleVehicleDetails: Vehicle })
 

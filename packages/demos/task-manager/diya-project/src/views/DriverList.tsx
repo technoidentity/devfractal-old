@@ -17,7 +17,7 @@ import {
   Tr,
 } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { Driver } from './common'
+import { Driver } from '../common/common'
 
 const SingleDriverProps = req({ singleDriverDetails: Driver })
 
@@ -27,8 +27,11 @@ export const SingleDriverView: React.FC<SingleDriverProps> = ({
   singleDriverDetails,
 }) => (
   <Tr>
-    <Td>{singleDriverDetails.name}</Td>
-    <Td>{format(singleDriverDetails.lastActive, 'YYYY/MM/DD')} </Td>
+    <Td>{singleDriverDetails && singleDriverDetails.name}</Td>
+    <Td>
+      {singleDriverDetails.lastActive &&
+        format(singleDriverDetails.lastActive, 'YYYY/MM/DD')}{' '}
+    </Td>
     <Td>{singleDriverDetails.shift}</Td>
     <Td>{singleDriverDetails.status}</Td>
   </Tr>
