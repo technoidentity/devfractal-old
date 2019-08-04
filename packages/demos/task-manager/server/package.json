@@ -6,6 +6,8 @@
   "author": "Pervez Iqbal",
   "private": true,
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "start": "backpack",
     "build": "backpack build",
     "test": "cross-env NODE_ENV='test' jest",
@@ -66,12 +68,6 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",
     "typescript": "3.5.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

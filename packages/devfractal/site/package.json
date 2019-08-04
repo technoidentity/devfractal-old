@@ -5,6 +5,8 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
     "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
@@ -68,12 +70,6 @@
   "resolutions": {
     "react": "16.8.6",
     "react-dom": "16.8.6"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

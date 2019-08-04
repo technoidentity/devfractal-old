@@ -47,6 +47,8 @@
     "typescript-tslint-plugin": "0.5.4"
   },
   "scripts": {
+    "precommit": "lint-staged",
+    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
     "server": "json-server data/todos.json",
@@ -62,12 +64,6 @@
   "resolutions": {
     "react": "16.8.6",
     "react-dom": "16.8.6"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

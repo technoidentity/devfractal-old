@@ -6,6 +6,8 @@
   "module": "dist/devfractal-simple.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "lib": "tsdx watch",
     "build": "tsdx build",
@@ -79,12 +81,6 @@
     "react-router-dom": "5.0.1",
     "technoidentity-utils": "*",
     "yup": "0.27.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

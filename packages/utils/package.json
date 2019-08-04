@@ -10,6 +10,8 @@
   ],
   "author": "Pervez Iqbal",
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "lib": "tsdx watch",
     "build": "tsdx build",
@@ -47,12 +49,6 @@
     "io-ts-types": "0.5.0",
     "monocle-ts": "2.0.0",
     "tcomb": "3.2.29"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

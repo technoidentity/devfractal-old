@@ -11,6 +11,8 @@
   "author": "Pervez Iqbal",
   "private": true,
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "lib": "tsdx watch",
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest",
@@ -49,12 +51,6 @@
     "monocle-ts": "2.0.0",
     "tcomb": "3.2.29",
     "technoidentity-utils": "*"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

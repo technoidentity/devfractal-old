@@ -6,6 +6,8 @@
   "module": "dist/devfractal-forms.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "lib": "tsdx watch",
     "build": "tsdx build",
@@ -69,12 +71,6 @@
     "monocle-ts": "2.0.0",
     "react": "16.8.6",
     "react-dom": "16.8.6"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

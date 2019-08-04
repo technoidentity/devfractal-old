@@ -10,6 +10,8 @@
   ],
   "author": "Pervez Iqbal",
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "server": "ts-node-dev --project tsconfig.tsnode.json src/app.ts",
     "lib": "tsdx watch",
@@ -47,12 +49,6 @@
     "tsdx": "0.7.2",
     "tslint": "5.18.0",
     "typescript": "3.5.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

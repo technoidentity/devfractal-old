@@ -37,6 +37,8 @@
     "typescript-tslint-plugin": "0.5.4"
   },
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "dev": "next start",
     "build": "next build",
     "start": "next",
@@ -49,12 +51,6 @@
     "types:watch": "yarn types --watch",
     "validate": "yarn lint:fix && yarn types && yarn test",
     "validate:noFix": "yarn lint && yarn types && yarn test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate:noFix"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
