@@ -20,7 +20,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
-import { ISODate } from './CreateVehicleForm'
+import { ISODate } from './AddVehicleForm'
 
 const BatteryDetails = req({
   batteryId: string,
