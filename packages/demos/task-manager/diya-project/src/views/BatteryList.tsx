@@ -12,7 +12,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { Battery } from './common'
+import { Battery } from '../common/common'
 
 export const SingleBatteryProps = req({
   singleBatteryDetails: Battery,
