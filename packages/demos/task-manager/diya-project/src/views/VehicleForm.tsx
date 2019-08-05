@@ -59,7 +59,11 @@ export const VehicleForm = component(
           <Columns>
             <Column>
               <div>
-                <Simple.Text name="vehicleId" validations={[required()]} />
+                <Simple.Text
+                  name="vehicleID"
+                  label="Vehicle ID"
+                  validations={[required()]}
+                />
                 <Simple.Text
                   name="makersClass"
                   label="Maker's Class"
