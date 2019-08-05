@@ -3,6 +3,7 @@ import {
   InterfaceType,
   IntersectionType,
   Mixed,
+  OutputOf,
   PartialType,
   Props,
   ReadonlyType,
@@ -21,7 +22,7 @@ export type HasProps =
   | ExactType<any, any, any, any>
   | PartialType<any, any, any, any>
 
-export function getProps<T extends Mixed>(codec: T & HasProps): T['_O'] {
+export function getProps<T extends Mixed>(codec: T & HasProps): OutputOf<T> {
   switch (codec._tag) {
     case 'ReadonlyType':
     case 'ExactType':
