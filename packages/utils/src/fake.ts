@@ -134,13 +134,10 @@ export function fake<T extends Mixed>(
     return fakeArray(spec, options)
   }
 
-  if (spec instanceof InterfaceType) {
+  if (spec instanceof InterfaceType || spec instanceof PartialType) {
     return fakeObject(spec, options)
   }
 
-  if (spec instanceof PartialType) {
-    return fakeObject(spec, options)
-  }
   if (spec instanceof IntersectionType) {
     return spec.types
       .map((t: Type<any>) => fake(t, options))
