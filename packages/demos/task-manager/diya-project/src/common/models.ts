@@ -25,16 +25,16 @@ export const Driver = opt({
   lastActive: date,
   shift: Shift,
   status: Status,
-  driverId: string,
+  driverID: string,
   phone: string,
   driverLicence: string,
   adharNumber: string,
   accountName: string,
   accountNumber: number,
-  reEnterAccountNumber: number,
+  confirmAccountNumber: number,
   bankName: string,
   bankBranch: string,
-  branchIfscNumber: string,
+  branchIFSCNumber: string,
 })
 
 export type Driver = TypeOf<typeof Driver>
