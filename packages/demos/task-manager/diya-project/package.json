@@ -15,8 +15,8 @@
     "react-router": "5.0.1",
     "react": "16.8.6",
     "tcomb": "3.2.29",
-    "technoidentity-dev-utils": "1.2.1",
-    "technoidentity-devfractal": "1.2.1",
+    "technoidentity-dev-utils": "1.2.3",
+    "technoidentity-devfractal": "1.2.3",
     "yup": "0.27.0"
   },
   "devDependencies": {
