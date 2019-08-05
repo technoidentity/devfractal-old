@@ -4,6 +4,7 @@ import {
   Int,
   keyof,
   number,
+  partial,
   readonly,
   readonlyArray,
   string,
@@ -73,10 +74,10 @@ describe('fake from spec', () => {
             isoDate: DateFromISOString,
             enum: keyof({ foo: 0, bar: 0 }),
             array: readonlyArray(string),
-            object: type({ x: number, y: number }),
+            object: partial({ x: number, y: number }),
             ro: readonly(
               type({
-                fizz: array(readonly(type({ buzz: boolean }))),
+                fizz: array(readonly(partial({ buzz: boolean }))),
               }),
             ),
           }),

@@ -12,6 +12,8 @@ import {
   Mixed,
   NullType,
   NumberType,
+  PartialC,
+  PartialType,
   Props,
   ReadonlyArrayC,
   ReadonlyArrayType,
@@ -62,7 +64,7 @@ function fakeArray<T extends Mixed>(
 }
 
 function fakeObject<T extends Props>(
-  spec: TypeC<T>,
+  spec: TypeC<T> | PartialC<T>,
   options: FakeOptions,
 ): TypeOf<typeof spec> {
   return buildObject(spec.props, v => fake(v, options))
@@ -136,6 +138,9 @@ export function fake<T extends Mixed>(
     return fakeObject(spec, options)
   }
 
+  if (spec instanceof PartialType) {
+    return fakeObject(spec, options)
+  }
   if (spec instanceof IntersectionType) {
     return spec.types
       .map((t: Type<any>) => fake(t, options))
