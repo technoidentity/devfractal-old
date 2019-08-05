@@ -10,7 +10,7 @@ render(<h1>hello world</h1>, document.getElementById('root'))
 const todoAPI = rest({
   baseURL: 'http://localhost:9999',
   resource: 'todos',
-  type: todo,
+  spec: todo,
 })
 
 todoAPI

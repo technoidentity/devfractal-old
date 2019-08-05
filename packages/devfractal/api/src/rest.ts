@@ -109,7 +109,7 @@ interface RestArgs<
   I extends Record<string, unknown> | unknown = unknown
 > extends RequestConfig {
   readonly resource: string
-  readonly type: t.Mixed & t.Type<A, O, I>
+  readonly spec: t.Mixed & t.Type<A, O, I>
 }
 
 export function rest<
@@ -117,22 +117,22 @@ export function rest<
   O extends Record<string, unknown>,
   I extends Record<string, unknown> | unknown = unknown
 >(args: RestArgs<A, O, I>): API<A, I> {
-  const { resource, type, ...options } = args
+  const { resource, spec, ...options } = args
 
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(options: APIMethodArgs): Promise<ReadonlyArray<A>> {
-    return http.get({ ...options, resource }, t.readonlyArray(type))
+    return http.get({ ...options, resource }, t.readonlyArray(spec))
   }
 
   async function one(options: APIMethodArgs): Promise<A> {
-    return http.get({ ...options, resource }, type)
+    return http.get({ ...options, resource }, spec)
   }
 
   async function create(data: I, options: APIMethodArgs): Promise<A> {
-    cast(type, data)
+    cast(spec, data)
 
-    return http.post({ ...options, resource }, data, type)
+    return http.post({ ...options, resource }, data, spec)
   }
 
   async function del(id: string, options?: APIMethodArgs): Promise<void> {
@@ -148,9 +148,9 @@ export function rest<
     data: I,
     options: APIMethodArgs,
   ): Promise<A> {
-    cast(type, data)
+    cast(spec, data)
 
-    return http.put(appendId({ ...options, resource }, id), data, type)
+    return http.put(appendId({ ...options, resource }, id), data, spec)
   }
 
   return { one, many, get, update, create, del }
