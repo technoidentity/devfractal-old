@@ -5,9 +5,9 @@ import { Column, Columns, Image, Section } from 'technoidentity-devfractal'
 import diyaLogo from '../src/images/diyaLogo.png'
 import {
   AddDriverForm,
+  AddVehicleForm,
   BatteryList,
   CreateBatteryForm,
-  AddVehicleForm,
   DriverList,
   MenuComponent,
   VehicleList,
