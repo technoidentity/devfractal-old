@@ -1,8 +1,15 @@
 // tslint:disable no-console
 import 'bulma/css/bulma.css'
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
-import { Column, Columns, Image, Section } from 'technoidentity-devfractal'
+import {
+  Column,
+  Columns,
+  Image,
+  Router,
+  SafeRoute as Route,
+  Section,
+  SimpleRedirect,
+} from 'technoidentity-devfractal'
 import diyaLogo from '../src/images/diyaLogo.png'
 import {
   CreateBatteryRoute,
@@ -33,7 +40,8 @@ export const App = () => (
     </Column>
     <Column>
       <>
-        <BrowserRouter>
+        <Router variant="browser">
+          <Route exact path="/" component={DriverList} />
           <Route exact path="/vehicles" component={VehicleList} />
           <Route exact path="/vehicles/add" component={CreateVehicleRoute} />
           <Route exact path="/vehicles/:id/edit" component={EditVehicleRoute} />
@@ -47,7 +55,7 @@ export const App = () => (
           <Route exact path="/drivers" component={DriverList} />
           <Route exact path="/drivers/add" component={CreateDriverRoute} />
           <Route exact path="/drivers/:id/edit" component={EditDriverRoute} />
-        </BrowserRouter>
+        </Router>
       </>
     </Column>
   </Columns>
