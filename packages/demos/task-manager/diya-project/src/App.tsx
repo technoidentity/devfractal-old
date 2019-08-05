@@ -39,7 +39,7 @@ export const App = () => (
           <Route exact path="/batteries" component={BatteryList} />
           <Route exact path="/batteries/add" component={CreateBatteryForm} />
           <Route exact path="/drivers" component={DriverList} />
-          <Route exact path="/drivers/add" component={AddDriverForm} />
+          <Route exact path="/drivers/add" component={CreateDriverForm} />
         </BrowserRouter>
       </>
     </Column>
