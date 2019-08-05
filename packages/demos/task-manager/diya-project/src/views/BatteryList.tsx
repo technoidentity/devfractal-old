@@ -29,7 +29,11 @@ export const BatteryListForm = component(
           Add Battery
         </Link>
       </ButtonsGroup>
-      <SimpleTable data={batteryList} striped />
+      <SimpleTable
+        data={batteryList}
+        headers={['name', 'id', 'group', 'remainingCycles', 'status']}
+        striped
+      />
     </>
   ),
 )
