@@ -4,7 +4,7 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Column, Columns, Image, Section } from 'technoidentity-devfractal'
 import diyaLogo from '../src/images/diyaLogo.png'
-import { CreateDriverForm } from './pages/CreateDriverForm'
+import { CreateDriverRoute } from './pages'
 import {
   AddVehicleForm,
   BatteryList,
@@ -39,7 +39,7 @@ export const App = () => (
           <Route exact path="/batteries" component={BatteryList} />
           <Route exact path="/batteries/add" component={CreateBatteryForm} />
           <Route exact path="/drivers" component={DriverList} />
-          <Route exact path="/drivers/add" component={CreateDriverForm} />
+          <Route exact path="/drivers/add" component={CreateDriverRoute} />
         </BrowserRouter>
       </>
     </Column>

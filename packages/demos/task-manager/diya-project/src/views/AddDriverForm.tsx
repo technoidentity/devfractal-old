@@ -20,7 +20,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { empty, fn, props } from 'technoidentity-utils'
-import { Driver } from '../common/common'
+import { Driver } from '../common'
 
 // const validationSchema = yup.object().shape({
 //   name: yup.string().required(),

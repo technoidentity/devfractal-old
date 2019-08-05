@@ -1,10 +1,9 @@
 import React from 'react'
 import { Post, Section } from 'technoidentity-devfractal'
-import { driverAPI } from '../common/api'
-import { Driver } from '../views'
-import { AddDriverForm } from '../views/AddDriverForm'
+import { Driver, driverAPI } from '../common'
+import { AddDriverForm } from '../views'
 
-export const CreateDriverForm: React.FC = () => (
+export const CreateDriverRoute: React.FC = () => (
   <Section>
     <Post<Driver>
       redirectPath="/drivers"

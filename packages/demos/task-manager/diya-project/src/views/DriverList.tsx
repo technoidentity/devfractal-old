@@ -17,7 +17,7 @@ import {
   Tr,
 } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { Driver } from '../common/common'
+import { Driver } from '../common'
 
 const SingleDriverProps = req({ singleDriverDetails: Driver })
 

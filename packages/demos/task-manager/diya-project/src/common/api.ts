@@ -1,5 +1,5 @@
 import { rest } from 'technoidentity-devfractal'
-import { Driver } from '../views'
+import { Driver } from './models'
 
 export const apiOptions = {
   baseURL: 'http://localhost:5555',

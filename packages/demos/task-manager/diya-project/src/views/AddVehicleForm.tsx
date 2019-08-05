@@ -1,7 +1,5 @@
 import { FormikActions } from 'formik'
-import { number, string, TypeOf, union } from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
+import { number, string, TypeOf } from 'io-ts'
 import React from 'react'
 // import 'react-datepicker/dist/react-datepicker.css'
 import {
@@ -22,9 +20,7 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { empty, fn, req } from 'technoidentity-utils'
-
-export const ISODate = union([date, DateFromISOString])
+import { empty, fn, ISODate, req } from 'technoidentity-utils'
 
 const VehicleDetails = req({
   vehicleId: string,

@@ -12,15 +12,9 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { fake, req } from 'technoidentity-utils'
-import { Vehicle } from '../common/common'
+import { Vehicle } from '../common'
 
-const SingleVehicleProps = req({ singleVehicleDetails: Vehicle })
-
-type SingleVehicleProps = TypeOf<typeof SingleVehicleProps>
-
-const VehicleListProps = req({
-  vehicleList: readonlyArray(Vehicle),
-})
+const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
 
 type VehicleListProps = TypeOf<typeof VehicleListProps>
 
