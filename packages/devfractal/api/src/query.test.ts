@@ -26,7 +26,7 @@ it('toJSONServerQuery', () => {
     `"_limit=10&_order=asc,desc&_page=0&_sort=name,age&age=20&embed=address&name=foo&q=p"`,
   )
 
-  const query2: ManyQuery<typeof User.type.props> = {
+  const query2: ManyQuery<typeof User> = {
     asc: ['name', 'age'],
     range: { start: 0, end: 10 },
   }

@@ -15,7 +15,7 @@ const todoAPI = rest(Todo, {
 
 todoAPI
   .many({
-    query: toJSONServerQuery(manyQuery(Todo.type.props), {
+    query: toJSONServerQuery(manyQuery(Todo), {
       range: { current: 1, limit: 5 },
     }),
   })
