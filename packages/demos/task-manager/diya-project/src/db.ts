@@ -7,4 +7,4 @@ const faker = {
   vehicles: Vehicle,
 }
 
-startFakeJSONServer(faker)
+startFakeJSONServer(faker, 9999, 2)
