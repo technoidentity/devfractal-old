@@ -71,8 +71,8 @@
     "webpack-blocks": "2.0.1"
   },
   "peerDependencies": {
-    "devfractal-router": "*",
-    "devfractal-ui-core": "*",
+    "devfractal-router": "1.2.3",
+    "devfractal-ui-core": "1.2.3",
     "fp-ts": "2.0.3",
     "io-ts": "2.0.0",
     "io-ts-promise": "2.0.0",
@@ -82,7 +82,7 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-utils": "*"
+    "technoidentity-utils": "1.2.3"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

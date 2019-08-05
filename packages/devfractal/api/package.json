@@ -68,7 +68,7 @@
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
-    "devfractal-router": "*",
+    "devfractal-router": "1.2.3",
     "formik": "1.5.8",
     "fp-ts": "2.0.3",
     "io-ts": "2.0.0",
@@ -79,7 +79,7 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-utils": "*"
+    "technoidentity-utils": "1.2.3"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
