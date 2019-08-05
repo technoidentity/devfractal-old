@@ -14,12 +14,6 @@ import {
 import { fake, req } from 'technoidentity-utils'
 import { Battery } from '../common/models'
 
-export const SingleBatteryProps = req({
-  singleBatteryDetails: Battery,
-})
-
-export type SingleBatteryProps = TypeOf<typeof SingleBatteryProps>
-
 const BatteryListProps = req({
   batteryList: readonlyArray(Battery),
 })
