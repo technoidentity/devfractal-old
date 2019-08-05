@@ -35,10 +35,9 @@ const Todo = req({
 
 type Todo = TypeOf<typeof Todo>
 
-const todoApi = rest({
+const todoApi = rest(Todo, {
   baseURL: 'http://localhost:3000',
   resource: 'todos',
-  type: Todo,
 })
 
 const TodoFormProps = props(

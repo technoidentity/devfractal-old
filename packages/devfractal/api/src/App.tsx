@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { todo } from './db'
+import { todo as Todo } from './db'
 import { manyQuery, toJSONServerQuery } from './query'
 import { rest } from './rest'
 
@@ -8,15 +8,14 @@ import { rest } from './rest'
 
 render(<h1>hello world</h1>, document.getElementById('root'))
 
-const todoAPI = rest({
+const todoAPI = rest(Todo, {
   baseURL: 'http://localhost:9999',
   resource: 'todos',
-  spec: todo,
 })
 
 todoAPI
   .many({
-    query: toJSONServerQuery(manyQuery(todo.type.props), {
+    query: toJSONServerQuery(manyQuery(Todo.type.props), {
       range: { current: 1, limit: 5 },
     }),
   })

@@ -1,11 +1,5 @@
 import { Simple } from 'devfractal-simple'
-import {
-  Column,
-  Columns,
-  component,
-  Section,
-  Text,
-} from 'devfractal-ui-core'
+import { Column, Columns, component, Section, Text } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import { string, TypeOf } from 'io-ts'
 import React from 'react'
@@ -19,6 +13,8 @@ const SignUpValues = req({
   password: string,
   confirmPassword: string,
 })
+
+type SignUpValues = TypeOf<typeof SignUpValues>
 
 const schema = yup.object().shape({
   name: yup
@@ -42,8 +38,8 @@ const schema = yup.object().shape({
 const SignUpFormProps = req({
   onSubmit: fn<
     (
-      values: TypeOf<typeof SignUpValues>,
-      actions: FormikActions<TypeOf<typeof SignUpValues>>,
+      values: Omit<SignUpValues, 'confirmPassword'>,
+      actions: FormikActions<Omit<SignUpValues, 'confirmPassword'>>,
     ) => Promise<void>
   >(),
 })

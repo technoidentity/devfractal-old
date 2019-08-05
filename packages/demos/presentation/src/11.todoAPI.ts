@@ -19,10 +19,9 @@ export const Todo = props(
 
 export type Todo = TypeOf<typeof Todo>
 
-export const todoApi = rest({
+export const todoApi = rest(Todo, {
   baseURL: 'http://localhost:3000',
   resource: 'todos',
-  type: Todo,
 })
 
 export const checkApi = async () => {

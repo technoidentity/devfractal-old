@@ -7,15 +7,14 @@ export const apiOptions = {
   withCredentials: true,
 }
 
-export const userAPI = rest({ resource: 'users', type: User, ...apiOptions })
+export const userAPI = rest(User, { resource: 'users', ...apiOptions })
 
-export const sessionAPI = rest({
+export const sessionAPI = rest(Session, {
   resource: 'session',
-  type: Session,
   ...apiOptions,
 })
 
-export const taskAPI = rest({ resource: 'tasks', type: Task, ...apiOptions })
+export const taskAPI = rest(Task, { resource: 'tasks', ...apiOptions })
 
 export async function getTasks(path: TaskFilter): Promise<ReadonlyArray<Task>> {
   verify(TaskFilter, path)

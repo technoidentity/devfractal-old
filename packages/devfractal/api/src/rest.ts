@@ -4,15 +4,19 @@ import { cast } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
-interface API<
-  A extends Record<string, unknown>,
-  I extends Record<string, unknown> | unknown = unknown
-> {
-  many(options?: APIMethodArgs): Promise<readonly A[]>
-  one(options?: APIMethodArgs): Promise<A>
-  create(data: I, options?: APIMethodArgs): Promise<A>
-  get(id: string, options?: APIMethodArgs): Promise<A>
-  update(id: string, data: I, options?: APIMethodArgs): Promise<A>
+export interface API<Spec extends t.Mixed> {
+  many(options?: APIMethodArgs): Promise<ReadonlyArray<t.TypeOf<Spec>>>
+  one(options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+  create(
+    data: t.InputOf<Spec>,
+    options?: APIMethodArgs,
+  ): Promise<t.TypeOf<Spec>>
+  get(id: string, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+  update(
+    id: string,
+    data: t.InputOf<Spec>,
+    options?: APIMethodArgs,
+  ): Promise<t.TypeOf<Spec>>
   del(id: string, options?: APIMethodArgs): Promise<void>
 }
 
@@ -28,33 +32,31 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
   })
 }
 
-interface RestArgs<
-  A extends Record<string, unknown>,
-  O extends Record<string, unknown>,
-  I extends Record<string, unknown> | unknown = unknown
-> extends RequestConfig {
+interface RestArgs extends RequestConfig {
   readonly resource: string
-  readonly spec: t.Mixed & t.Type<A, O, I>
 }
 
-export function rest<
-  A extends Record<string, unknown>,
-  O extends Record<string, unknown>,
-  I extends Record<string, unknown> | unknown = unknown
->(args: RestArgs<A, O, I>): API<A, I> {
-  const { resource, spec, ...options } = args
-
+export function rest<Spec extends t.Mixed>(
+  spec: Spec,
+  { resource, ...options }: RestArgs,
+): API<Spec> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
-  async function many(options: APIMethodArgs): Promise<ReadonlyArray<A>> {
+  async function many(
+    options: APIMethodArgs,
+  ): Promise<ReadonlyArray<t.TypeOf<Spec>>> {
+    // @TODO: cast to t.Mixed looks safe
     return http.get({ ...options, resource }, t.readonlyArray(spec))
   }
 
-  async function one(options: APIMethodArgs): Promise<A> {
+  async function one(options: APIMethodArgs): Promise<t.TypeOf<Spec>> {
     return http.get({ ...options, resource }, spec)
   }
 
-  async function create(data: I, options: APIMethodArgs): Promise<A> {
+  async function create(
+    data: t.InputOf<Spec>,
+    options: APIMethodArgs,
+  ): Promise<t.TypeOf<Spec>> {
     cast(spec, data)
 
     return http.post({ ...options, resource }, data, spec)
@@ -64,15 +66,18 @@ export function rest<
     return http.del(appendId({ ...options, resource }, id))
   }
 
-  async function get(id: string, options: APIMethodArgs): Promise<A> {
+  async function get(
+    id: string,
+    options: APIMethodArgs,
+  ): Promise<t.TypeOf<Spec>> {
     return one(appendId({ ...options, resource }, id))
   }
 
   async function update(
     id: string,
-    data: I,
+    data: t.InputOf<Spec>,
     options: APIMethodArgs,
-  ): Promise<A> {
+  ): Promise<t.TypeOf<Spec>> {
     cast(spec, data)
 
     return http.put(appendId({ ...options, resource }, id), data, spec)
