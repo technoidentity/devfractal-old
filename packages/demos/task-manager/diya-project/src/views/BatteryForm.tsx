@@ -58,7 +58,11 @@ export const BatteryForm = component(
         >
           <Columns>
             <Column>
-              <Simple.Text name="batteryId" validations={[required()]} />
+              <Simple.Text
+                name="batteryID"
+                label="Battery ID"
+                validations={[required()]}
+              />
               <Simple.Text name="batteryMake" validations={[required()]} />
               <Simple.Text name="batteryModel" validations={[required()]} />
             </Column>
