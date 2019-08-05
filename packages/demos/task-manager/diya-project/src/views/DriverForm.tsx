@@ -66,7 +66,11 @@ export const DriverForm = component(
                 Personal Details
               </Title>
               <Simple.Text name="name" validations={[required()]} />
-              <Simple.Text name="driverId" validations={[required()]} />
+              <Simple.Text
+                name="driverID"
+                label="Driver ID"
+                validations={[required()]}
+              />
               <Simple.Telephone name="phone" validations={[required()]} />
               <Simple.Text name="driverLicence" validations={[required()]} />
               <Simple.Text name="adharNumber" validations={[required()]} />
@@ -83,13 +87,13 @@ export const DriverForm = component(
               <Simple.Text name="accountName" validations={[required()]} />
               <Simple.Text name="accountNumber" validations={[required()]} />
               <Simple.Text
-                name="reEnterAccountNumber"
+                name="confirmAccountNumber"
                 validations={[required()]}
               />
               <Simple.Text name="bankName" validations={[required()]} />
               <Simple.Text name="bankBranch" validations={[required()]} />
               <Simple.Text
-                name="branchIfscNumber"
+                name="branchIFSCNumber"
                 label="Branch IFSC Number"
                 validations={[required()]}
               />
