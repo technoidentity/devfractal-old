@@ -26,7 +26,11 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
         Add Driver
       </Link>
     </ButtonsGroup>
-    <SimpleTable data={driverList} striped />
+    <SimpleTable
+      data={driverList}
+      headers={['name', 'lastActive', 'shift', 'status']}
+      striped
+    />
   </>
 )
 
