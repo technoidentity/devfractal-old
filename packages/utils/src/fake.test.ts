@@ -70,6 +70,7 @@ describe('fake from spec', () => {
       fake(
         readonly(
           type({
+            int: Int,
             date,
             isoDate: DateFromISOString,
             enum: keyof({ foo: 0, bar: 0 }),
@@ -89,6 +90,7 @@ describe('fake from spec', () => {
       ),
     ).toEqual(
       expect.objectContaining({
+        int: expect.any(Number),
         date: expect.any(Date),
         isoDate: expect.any(Date),
         enum: expect.stringMatching(/foo|bar/),
