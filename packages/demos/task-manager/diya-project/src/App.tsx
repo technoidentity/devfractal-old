@@ -12,14 +12,7 @@ import {
   EditDriverRoute,
   EditVehicleRoute,
 } from './pages'
-import {
-  BatteryForm,
-  BatteryList,
-  DriverList,
-  MenuComponent,
-  VehicleForm,
-  VehicleList,
-} from './views'
+import { BatteryList, DriverList, MenuComponent, VehicleList } from './views'
 
 // tslint:disable-next-line: no-console no-void-expression
 
