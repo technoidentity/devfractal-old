@@ -713,38 +713,38 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-common-types@^0.2.19":
-  version "0.2.20"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.20.tgz#b5450b07400aea96d87d24e98e22d4a3d8d59305"
-  integrity sha512-5wo0pMNS4gWTkplFAPSfNq4poXwLcgj8+khZs9/zbWMxC0hi6qnehXOrX7i7+Y7XyTQForja2WpR7Nz6LY2BtQ==
+"@fortawesome/fontawesome-common-types@^0.2.20":
+  version "0.2.21"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.21.tgz#f1c26ae24761cca583de7cafd1273ab4c70a4d87"
+  integrity sha512-iJtcrU2BtF9Wyr0zm3tHEJy3HqA6sADExhCqCv3SKaJJKKp4ORJ40t4nyHvcWXSVFtd7r1gcdqcRsAfoREGTFA==
 
-"@fortawesome/fontawesome-svg-core@1.2.19":
-  version "1.2.19"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.19.tgz#0eca1ce9285c3d99e6e340633ee8f615f9d1a2e0"
-  integrity sha512-D4ICXg9oU08eF9o7Or392gPpjmwwgJu8ecCFusthbID95CLVXOgIyd4mOKD9Nud5Ckz+Ty59pqkNtThDKR0erA==
+"@fortawesome/fontawesome-svg-core@1.2.20":
+  version "1.2.20"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.20.tgz#2b562dd73df08c835e1f42c04061029ee77b90b5"
+  integrity sha512-p18GsDaPeZOFKENyigYcEg0ez9UHqUO7wxcdxpoxsb0pMxvt4kW8RTrgUIW1z3/19E/Z1iRQDmB3ZyfZ+CcpSQ==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.19"
+    "@fortawesome/fontawesome-common-types" "^0.2.20"
 
-"@fortawesome/free-brands-svg-icons@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.9.0.tgz#4ebedba0ea026368f8c21f2c598b4458c32236e5"
-  integrity sha512-sOz1wFyslaHUak8tY6IEhSAV1mAWbCLssBR8yFQV6f065k8nUCkjyrcxW4RVl9+wiLXmeG1CJUABUJV9DiW+7Q==
+"@fortawesome/free-brands-svg-icons@5.10.0":
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.10.0.tgz#59c8cb53e860c79dcba98e59085abc2b03e89768"
+  integrity sha512-Wj4MSV4J4DL8+HgnRTt2mk3pE2n3RZojDAlcN2G+2yzsdkI5TbXODY9bnfxs7Ik02GMqdhTdeHj/orxJYcYGLA==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.19"
+    "@fortawesome/fontawesome-common-types" "^0.2.20"
 
-"@fortawesome/free-regular-svg-icons@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.9.0.tgz#b16b325bdcdf51abebc547313cb75c3ef722ca04"
-  integrity sha512-6ZO0jLhk/Yrso0u5pXeYYSfZiHCNoCF7SgtqStdlEX8WtWD4IOfAB1N+MlSnMo12P5KR4cmucX/K0NCOPrhJwg==
+"@fortawesome/free-regular-svg-icons@5.10.0":
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.10.0.tgz#a5976d2e1e8862ea7485ecfcad909ee7736399f9"
+  integrity sha512-febPe8b7Ejq9XWyiiUhy0D0JunkmarDRLT4Vrm0JQ1PjYYjFTC8t0z6ducHZxovXoowFAEh4nxBj/uCFTm7hSA==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.19"
+    "@fortawesome/fontawesome-common-types" "^0.2.20"
 
-"@fortawesome/free-solid-svg-icons@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.9.0.tgz#1c73e7bac17417d23f934d83f7fff5b100a7fda9"
-  integrity sha512-U8YXPfWcSozsCW0psCtlRGKjjRs5+Am5JJwLOUmVHFZbIEWzaz4YbP84EoPwUsVmSAKrisu3QeNcVOtmGml0Xw==
+"@fortawesome/free-solid-svg-icons@5.10.0":
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.10.0.tgz#ccc803828f6b71db78414550faa7b1c4ebf494b2"
+  integrity sha512-Ndt0GR9wU66lBLGMRZN2jv8LEDx+VTfwmnqYKLQ3VttH4ikgTpqBhdr7UF4M3GFYt1CwftrPVuKOUAFleYg7xA==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.19"
+    "@fortawesome/fontawesome-common-types" "^0.2.20"
 
 "@fortawesome/react-fontawesome@0.1.4":
   version "0.1.4"
@@ -2569,6 +2569,73 @@ detect-libc@^1.0.2:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
 
+devfractal-api@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/devfractal-api/-/devfractal-api-1.2.1.tgz#74c8e883a60c0d129ab9cf112b1fc1dc4ddf7db9"
+  integrity sha512-MeXcNc5xCliJKDIwr4Z0mMVS9nQ6bExBt8bPr/YDcAIt9h4Gnj6URsV3L2gxXL8g4qhcOzTuYV6CvL5nvcNuYw==
+  dependencies:
+    axios "0.19.0"
+    immer "3.1.3"
+    io-ts-promise "2.0.0"
+    query-string "6.8.2"
+    tslib "1.10.0"
+    typelevel-ts "0.3.5"
+
+devfractal-crud@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/devfractal-crud/-/devfractal-crud-1.2.1.tgz#bc8495e756c64f5db33a75175257d33fa4528a5b"
+  integrity sha512-MKKpUeukQCda4hlBX/Z0gzsPjj8hm3klbVCMHjNH/0GdVi+Ihw55Uj1m74UQGg4Jpch2dUgGG7mGb4APAaVu8Q==
+  dependencies:
+    tslib "1.10.0"
+
+devfractal-forms@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/devfractal-forms/-/devfractal-forms-1.2.1.tgz#f6286bf9f1a6f896b1bde5c37a1c487833929502"
+  integrity sha512-25TgGMxwOK2FUPu57cB8b0V+EiOgedPT7JnAFM0UfwfGnAnVZrFFZaQ5W5zqxK7nIvroQ4CNVN1JR1BXSyQMkA==
+  dependencies:
+    cleave.js "1.5.3"
+    date-fns "1.30.1"
+    immer "3.1.3"
+    react-datepicker "2.8.0"
+    technoidentity-utils "^1.2.1"
+    tslib "1.10.0"
+
+devfractal-router@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/devfractal-router/-/devfractal-router-1.2.1.tgz#d3c68234b29dc83434f95993126febc2644dc829"
+  integrity sha512-FQmg/nzD6MoNfeWAbeo5pceisppJBDSta40hu7jd2DKfMkhu4ZiXxmNdJHXaLtUr8HLEaRL1UGnraRCFfhd3mw==
+  dependencies:
+    query-string "6.8.2"
+    technoidentity-utils "^1.2.1"
+    tslib "1.10.0"
+
+devfractal-simple@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/devfractal-simple/-/devfractal-simple-1.2.1.tgz#e9c002dc161de47183923637a053606f0d67796f"
+  integrity sha512-8RyuxITERRld+nfGjuyeY9UYBK+fYBQ5etX6DirjHo3Ct8Y4XimZanjMlJT2nEl885Ci214NToDG6zQpB5svIQ==
+  dependencies:
+    tslib "1.10.0"
+
+devfractal-ui-core@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/devfractal-ui-core/-/devfractal-ui-core-1.2.1.tgz#d4c351bb0777513ee620f1f5b14dfc8dc84b2548"
+  integrity sha512-UI9sYSiLKa7dzrOqkrZ/O6JkoFiVoPkuPZTH0t52WBBn7EzQdE8HPsPCK+hE9H5VtIXHNACB7TpRQUzcgjdHvA==
+  dependencies:
+    "@fortawesome/fontawesome-svg-core" "1.2.20"
+    "@fortawesome/free-brands-svg-icons" "5.10.0"
+    "@fortawesome/free-regular-svg-icons" "5.10.0"
+    "@fortawesome/free-solid-svg-icons" "5.10.0"
+    "@fortawesome/react-fontawesome" "0.1.4"
+    bulma "0.7.5"
+    tslib "1.10.0"
+
+devfractal-ui@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/devfractal-ui/-/devfractal-ui-1.2.1.tgz#1443865260a10485aa640106909a8dd0a5844e9d"
+  integrity sha512-s94BctSxL9+jn6lw7qmNwRO8LuTnzlD6dUyG0JSbLgLB5iVaZyeBCc0JqVLc7ACZWUIiHUPj7COoXIYu7/FOww==
+  dependencies:
+    tslib "1.10.0"
+
 diff-sequences@^24.3.0:
   version "24.3.0"
   resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-24.3.0.tgz#0f20e8a1df1abddaf4d9c226680952e64118b975"
@@ -3780,7 +3847,7 @@ invariant@^2.2.2:
   dependencies:
     loose-envify "^1.0.0"
 
-io-ts-promise@^2.0.0:
+io-ts-promise@2.0.0, io-ts-promise@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/io-ts-promise/-/io-ts-promise-2.0.0.tgz#42a933b46f120dc47ccbe7a978d362df7ef4fa6e"
   integrity sha512-N39nidAcxsuPoiAbKcV3krvZUJxHpU6byMnltB4XEKvD75otMklQERAP8ZDSmL5riZJHgEXBuzq+hF+CcxfFBw==
@@ -6088,10 +6155,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-string@6.8.1:
-  version "6.8.1"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.8.1.tgz#62c54a7ef37d01b538c8fd56f95740c81d438a26"
-  integrity sha512-g6y0Lbq10a5pPQpjlFuojfMfV1Pd2Jw9h75ypiYPPia3Gcq2rgkKiIwbkS6JxH7c5f5u/B/sB+d13PU+g1eu4Q==
+query-string@6.8.2:
+  version "6.8.2"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.8.2.tgz#36cb7e452ae11a4b5e9efee83375e0954407b2f6"
+  integrity sha512-J3Qi8XZJXh93t2FiKyd/7Ec6GNifsjKXUsVFkSBj/kjLsDylWhnCz4NT1bkPcKotttPW+QbKGqqPH8OoI2pdqw==
   dependencies:
     decode-uri-component "^0.2.0"
     split-on-first "^1.0.0"
@@ -6156,12 +6223,7 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-content-loader@4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-4.2.2.tgz#8b014eab0f0218888b8f064f0373b41f2203c8be"
-  integrity sha512-8zn2OmjP/BhsW0spc5/nsYFsS3ybqwkoZypFl7PU92Jt1cJAjOo8Y7kfo/+ja4c/88UNLBTLfMcnlE+4Diq/5w==
-
-react-datepicker@^2.8.0:
+react-datepicker@2.8.0, react-datepicker@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-2.8.0.tgz#d93423a2abe9eeef8d3eaa7ff437f31be8a3a2f5"
   integrity sha512-TL9YemykqK77hq1LRGIWbLFpHvNfSb8yZr3q1zk5XTGdSLsVtZ6mlXby3zuGwi8sL0+h9SEnNaqK8IeOl0R2iQ==
@@ -7167,33 +7229,18 @@ technoidentity-dev-utils@^1.2.1:
     technoidentity-utils "^1.2.1"
     tslib "1.10.0"
 
-technoidentity-devfractal@^0.9.19:
-  version "0.9.19"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-0.9.19.tgz#a51aa3568e279e8f5fd7726cf3ac963cb71d9ab0"
-  integrity sha512-M4APWqdI2zS/7sU17z6/t+xlRNWn3NHEkH0wH6WeRCjA/GVlN/o4kYapzPqkPASImBwkw/r5WFGo5E/i3/aI8A==
+technoidentity-devfractal@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-1.2.1.tgz#9771424100ef941dc0413221edc0326e825afd22"
+  integrity sha512-BjOf9yoS6a1PFbPkQMvDuhc++45ZrFdr9Oi3hLf6Om8Q9ET9EN8cBSbDZq6hPothZ/z7ABg+o936kDSqx1qRWA==
   dependencies:
-    "@fortawesome/fontawesome-svg-core" "1.2.19"
-    "@fortawesome/free-brands-svg-icons" "5.9.0"
-    "@fortawesome/free-regular-svg-icons" "5.9.0"
-    "@fortawesome/free-solid-svg-icons" "5.9.0"
-    "@fortawesome/react-fontawesome" "0.1.4"
-    axios "0.19.0"
-    bulma "0.7.5"
-    cleave.js "1.5.3"
-    date-fns "1.30.1"
-    immer "3.1.3"
-    query-string "6.8.1"
-    react-content-loader "4.2.2"
-    tcomb "3.2.29"
-    technoidentity-utils "0.0.8"
-    tslib "1.10.0"
-    typelevel-ts "0.3.5"
-
-technoidentity-utils@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-0.0.8.tgz#a09ed3e831933d465e8db8d5bfd65103f5b83457"
-  integrity sha512-ZSKpf+ZOiLoLc1wIihvpVdKbnu5HNX/QI9jQVbLHu2s71+tbzQ8da0oeiucqolFZ7sujK0If9PVmgsQ34gJXyg==
-  dependencies:
+    devfractal-api "^1.2.1"
+    devfractal-crud "^1.2.1"
+    devfractal-forms "^1.2.1"
+    devfractal-router "^1.2.1"
+    devfractal-simple "^1.2.1"
+    devfractal-ui "^1.2.1"
+    devfractal-ui-core "^1.2.1"
     tslib "1.10.0"
 
 technoidentity-utils@^1.2.1:
