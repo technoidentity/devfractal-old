@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { todo } from './db'
-import { manyQuery, rest, toJSONServerQuery } from './rest'
+import { manyQuery, toJSONServerQuery } from './query'
+import { rest } from './rest'
 
 // tslint:disable typedef no-unbound-method
 

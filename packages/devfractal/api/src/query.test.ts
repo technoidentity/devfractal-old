@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { opt, req } from 'technoidentity-utils'
-import { manyQuery, ManyQuerySpec, toJSONServerQuery } from './rest'
+import { manyQuery, ManyQuerySpec, toJSONServerQuery } from './query'
 
 // tslint:disable typedef
 
