@@ -23,13 +23,13 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "devfractal-api": "^1.2.3",
-    "devfractal-crud": "^1.2.3",
-    "devfractal-forms": "^1.2.3",
-    "devfractal-router": "^1.2.3",
-    "devfractal-simple": "^1.2.3",
-    "devfractal-ui": "^1.2.3",
-    "devfractal-ui-core": "^1.2.3",
+    "devfractal-api": "^*",
+    "devfractal-crud": "^*",
+    "devfractal-forms": "^*",
+    "devfractal-router": "^*",
+    "devfractal-simple": "^*",
+    "devfractal-ui": "^*",
+    "devfractal-ui-core": "^*",
     "tslib": "1.10.0"
   },
   "devDependencies": {

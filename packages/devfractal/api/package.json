@@ -41,7 +41,7 @@
     "@types/react-router-dom": "4.3.4",
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
-    "devfractal-router": "^1.2.3",
+    "devfractal-router": "^*",
     "eslint": "6.1.0",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-prettier": "3.1.0",
@@ -62,13 +62,13 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "technoidentity-dev-utils": "^1.2.3",
-    "technoidentity-utils": "^1.2.3",
+    "technoidentity-dev-utils": "*",
+    "technoidentity-utils": "*",
     "ts-node-dev": "^1.0.0-pre.40",
     "tsdx": "0.7.2"
   },
   "peerDependencies": {
-    "devfractal-router": "1.2.3",
+    "devfractal-router": "*",
     "formik": "1.5.8",
     "fp-ts": "2.0.3",
     "io-ts": "2.0.0",
@@ -79,7 +79,7 @@
     "react-dom": "16.8.6",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-utils": "1.2.3"
+    "technoidentity-utils": "*"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
