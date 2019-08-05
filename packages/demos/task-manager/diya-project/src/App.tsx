@@ -1,11 +1,11 @@
 // tslint:disable no-console
+import 'bulma/css/bulma.css'
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Column, Columns, Image, Section } from 'technoidentity-devfractal'
 import diyaLogo from '../src/images/diyaLogo.png'
 import { CreateDriverForm } from './pages/CreateDriverForm'
 import {
-  AddDriverForm,
   AddVehicleForm,
   BatteryList,
   CreateBatteryForm,
