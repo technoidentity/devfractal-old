@@ -1,6 +1,6 @@
 import { Int, keyof, number, string, TypeOf } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
-import { opt, req } from 'technoidentity-utils'
+import { opt, props, req } from 'technoidentity-utils'
 
 const Shift = keyof({
   morning: true,
@@ -20,22 +20,27 @@ type Status = TypeOf<typeof Status>
 
 // @TODO: use props instead of opt
 
-export const Driver = opt({
-  name: string,
-  lastActive: date,
-  shift: Shift,
-  status: Status,
-  driverID: string,
-  phone: string,
-  driverLicence: string,
-  adharNumber: string,
-  accountName: string,
-  accountNumber: number,
-  confirmAccountNumber: number,
-  bankName: string,
-  bankBranch: string,
-  branchIFSCNumber: string,
-})
+export const Driver = props(
+  {
+    lastActive: date,
+
+    status: Status,
+  },
+  {
+    name: string,
+    driverID: string,
+    phone: string,
+    driverLicence: string,
+    shift: Shift,
+    adharNumber: string,
+    accountName: string,
+    accountNumber: number,
+    confirmAccountNumber: number,
+    bankName: string,
+    bankBranch: string,
+    branchIFSCNumber: string,
+  },
+)
 
 export type Driver = TypeOf<typeof Driver>
 
@@ -46,39 +51,47 @@ const Group = keyof({
 
 type Group = TypeOf<typeof Group>
 
-export const Battery = opt({
-  name: string,
-  id: string,
-  group: Group,
-  remainingCycles: Int,
-  lastCharged: date,
-  status: Status,
-  batteryId: string,
-  batteryMake: string,
-  batteryModel: string,
-  capacity: string,
-  batteryCycles: number,
-})
+export const Battery = props(
+  {
+    name: string,
+    id: string,
+    group: Group,
+    remainingCycles: Int,
+    status: Status,
+  },
+  {
+    batteryID: string,
+    batteryMake: string,
+    batteryModel: string,
+    capacity: string,
+    batteryCycles: Int,
+    lastCharged: date,
+  },
+)
 
 export type Battery = TypeOf<typeof Battery>
 
-export const Vehicle = opt({
-  name: string,
-  numberPlate: string,
-  group: Group,
-  nextService: date,
-  insuranceDue: date,
-  vehicleStatus: Status,
-  vehicleId: string,
-  makersClass: string,
-  vehicleClass: string,
-  yearOfManufacturing: number,
-  color: string,
-  regnNumber: string,
-  warranty: number,
-  lastServicedDate: date,
-  insuranceExpiryDate: date,
-})
+export const Vehicle = props(
+  {
+    name: string,
+    numberPlate: string,
+    group: Group,
+    nextService: date,
+    insuranceDue: date,
+    vehicleStatus: Status,
+  },
+  {
+    vehicleID: string,
+    makersClass: string,
+    vehicleClass: string,
+    yearOfManufacturing: number,
+    color: string,
+    regnNumber: string,
+    warranty: number,
+    lastServicedDate: date,
+    insuranceExpiryDate: date,
+  },
+)
 
 export type Vehicle = TypeOf<typeof Vehicle>
 
