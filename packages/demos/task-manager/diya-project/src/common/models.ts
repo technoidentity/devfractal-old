@@ -46,20 +46,40 @@ const Group = keyof({
 
 type Group = TypeOf<typeof Group>
 
-export const Battery = req({
+export const Battery = opt({
   name: string,
   id: string,
   group: Group,
   remainingCycles: Int,
   lastCharged: date,
   status: Status,
+  batteryId: string,
+  batteryMake: string,
+  batteryModel: string,
+  capacity: string,
+  batteryCycles: number,
 })
 
-export const Vehicle = req({
+export type Battery = TypeOf<typeof Battery>
+
+export const Vehicle = opt({
   name: string,
   numberPlate: string,
   group: Group,
   nextService: date,
   insuranceDue: date,
   vehicleStatus: Status,
+  vehicleId: string,
+  makersClass: string,
+  vehicleClass: string,
+  yearOfManufacturing: number,
+  color: string,
+  regnNumber: string,
+  warranty: number,
+  lastServicedDate: date,
+  insuranceExpiryDate: date,
 })
+
+export type Vehicle = TypeOf<typeof Vehicle>
+
+export const Params = req({ id: string })
