@@ -8,9 +8,10 @@ import {
   ReadonlyType,
 } from 'io-ts'
 
-interface HasPropsReadonly extends ReadonlyType<HasProps, any, any, any> {}
+export interface HasPropsReadonly
+  extends ReadonlyType<HasProps, any, any, any> {}
 
-interface HasPropsIntersection  // tslint:disable-next-line: readonly-array
+export interface HasPropsIntersection  // tslint:disable-next-line: readonly-array
   extends IntersectionType<HasProps[], any, any, any> {}
 
 export type HasProps =
