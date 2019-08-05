@@ -5,7 +5,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "4.0.0",
     "@testing-library/react": "8.0.7",
-    "@types/jest": "24.0.16",
+    "@types/jest": "^24.0.16",
     "@types/node": "12.6.9",
     "@types/react": "16.8.24",
     "@types/react-dom": "16.8.5",
@@ -22,6 +22,8 @@
     "io-ts": "2.0.0",
     "io-ts-promise": "^2.0.0",
     "io-ts-types": "0.5.0",
+    "jest": "^24.8.0",
+    "jest-cli": "^24.8.0",
     "lint-staged": "9.2.1",
     "monocle-ts": "^2.0.0",
     "parcel-bundler": "^1.12.3",
@@ -35,6 +37,7 @@
     "tcomb": "3.2.29",
     "technoidentity-dev-utils": "^1.2.1",
     "technoidentity-devfractal": "^1.2.1",
+    "ts-jest": "^24.0.2",
     "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",
@@ -47,7 +50,7 @@
     "server": "cross-env PORT=9999 ts-node --project tsconfig.tsnode.json src/db.ts",
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
-    "test": "jest --env=jsdom",
+    "test": "jest",
     "test:watch": "jest --env=jsdom --watch",
     "destroy": "git clean -dfx",
     "up": "lerna exec -- ncu -u",
@@ -55,11 +58,8 @@
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
     "types:watch": "yarn types --watch",
-    "validate": "yarn lint && yarn types && yarn test:single",
+    "validate": "yarn lint && yarn types && yarn test",
     "all": "yarn validate && yarn start"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "husky": {
     "hooks": {
