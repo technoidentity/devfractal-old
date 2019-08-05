@@ -2,10 +2,11 @@ import { useHistory } from 'devfractal-router'
 import { FormikActions } from 'formik'
 import { History } from 'history'
 import React from 'react'
+import { SubmitAction } from './common'
 
 export interface SubmitResult<T extends {}> {
   readonly serverError: string | undefined
-  onSubmit(values: T, actions: FormikActions<T>): Promise<void>
+  readonly onSubmit: SubmitAction<T>
 }
 
 export function useSubmit<T extends {}>(

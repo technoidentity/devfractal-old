@@ -1,15 +1,13 @@
-import { FormikActions } from 'formik'
 import React from 'react'
+import { SubmitAction } from './common'
 import { ServerError } from './ServerError'
 import { useSubmitRedirect } from './useSubmit'
 
 export interface PostProps<T> {
   readonly title?: string
   readonly redirectPath?: string
-  readonly component: React.FC<{
-    onSubmit(data: T, actions: FormikActions<T>): Promise<void>
-  }>
-  onPost(data: T): Promise<T>
+  readonly component: React.FC<{ readonly onSubmit: SubmitAction<T> }>
+  onPost(values: T): Promise<T>
 }
 
 export function Post<T>({

@@ -1,12 +1,12 @@
-import { FormikActions } from 'formik'
 import React from 'react'
+import { SubmitAction } from './common'
 import { Get } from './Get'
 import { ServerError } from './ServerError'
 import { useSubmitRedirect } from './useSubmit'
 
 export interface PutComponentProps<T> {
   readonly initial?: T
-  onSubmit(values: T, actions: FormikActions<T>): Promise<void>
+  readonly onSubmit: SubmitAction<T>
 }
 
 export interface PutProps<T> {
