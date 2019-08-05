@@ -27,7 +27,18 @@ export const VehicleListForm = component(
           Add Vehicle
         </Link>
       </ButtonsGroup>
-      <SimpleTable data={vehicleList} striped />
+      <SimpleTable
+        data={vehicleList}
+        headers={[
+          'name',
+          'numberPlate',
+          'group',
+          'nextService',
+          'insuranceDue',
+          'vehicleStatus',
+        ]}
+        striped
+      />
     </>
   ),
 )
