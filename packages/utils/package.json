@@ -17,8 +17,6 @@
     "build": "tsdx build",
     "test": "cross-env NODE_ENV='test' jest",
     "test:watch": "yarn test --watch",
-    "elint": "eslint './src/**/*.{js,ts,tsx}'",
-    "elint:fix": "yarn elint --quiet --fix",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
@@ -34,6 +32,7 @@
   "devDependencies": {
     "@types/chance": "1.0.5",
     "@types/jest": "24.0.16",
+    "eslint": "^6.1.0",
     "fp-ts": "2.0.3",
     "io-ts": "2.0.0",
     "io-ts-types": "0.5.0",
