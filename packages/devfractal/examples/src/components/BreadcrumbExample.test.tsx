@@ -1,12 +1,12 @@
+import { Router } from 'devfractal-router'
 import React from 'react'
-import { HashRouter } from 'react-router-dom'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
 import { BreadcrumbExample } from './BreadcrumbExample'
 
 const Ex: React.FC = () => (
-  <HashRouter>
+  <Router variant="hash">
     <BreadcrumbExample />
-  </HashRouter>
+  </Router>
 )
 
 test.skip('Breadcrumb Example', () => {

@@ -1,12 +1,12 @@
+import { Router } from 'devfractal-router'
 import React from 'react'
-import { HashRouter } from 'react-router-dom'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
 import { DropdownExample } from './DropDownExample'
 
 const Ex: React.FC = () => (
-  <HashRouter>
+  <Router variant="hash">
     <DropdownExample />
-  </HashRouter>
+  </Router>
 )
 test('Dropdown Example', () => {
   const component: ReactTestRenderer = renderer.create(<Ex />)

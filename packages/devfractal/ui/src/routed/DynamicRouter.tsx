@@ -1,6 +1,5 @@
-import { SimpleRedirect } from 'devfractal-router'
+import { SafeRoute as Route, SimpleRedirect } from 'devfractal-router'
 import React from 'react'
-import { Route } from 'react-router-dom'
 import { capitalizeAll, toLower } from 'technoidentity-utils'
 import { RoutedTabs, RoutedTabsItem } from './RoutedTabs'
 

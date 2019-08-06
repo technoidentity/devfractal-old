@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect, Route, RouteComponentProps } from 'react-router'
+import { useRouter } from './RouterContext'
 
 export interface SimpleRedirectProps {
   readonly from: string
@@ -11,7 +12,21 @@ export const SimpleRedirect: React.FC<SimpleRedirectProps> = ({
   from,
   to,
   exact,
-}) => <Route exact={exact} path={from} render={() => <Redirect to={to} />} />
+}) => {
+  const { setRouteMatched } = useRouter()
+  return (
+    <Route
+      exact={exact}
+      path={from}
+      render={() => {
+        if (setRouteMatched) {
+          setRouteMatched(true)
+        }
+        return <Redirect to={to} />
+      }}
+    />
+  )
+}
 
 export type RouteComponentPropsRemoved<T> = Omit<T, keyof RouteComponentProps>
 

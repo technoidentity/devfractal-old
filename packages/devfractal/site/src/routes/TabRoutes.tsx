@@ -1,5 +1,5 @@
+import { SafeRoute as Route } from 'devfractal-router'
 import React from 'react'
-import { Route } from 'react-router'
 import { ComponentsTab, CompositesTab } from '../Tabs'
 import {
   ColumnsLinks,

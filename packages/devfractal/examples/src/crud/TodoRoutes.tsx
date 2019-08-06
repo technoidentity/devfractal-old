@@ -1,8 +1,8 @@
 import { components, paths } from 'devfractal-crud'
-import { SimpleRedirect } from 'devfractal-router'
+import { SafeRoute as Route, SimpleRedirect } from 'devfractal-router'
 import { Section } from 'devfractal-ui-core'
 import React from 'react'
-import { Route, Switch } from 'react-router'
+import { Switch } from 'react-router'
 import { inMemoryAPI } from './inMemoryAPI'
 import { TodoRT } from './types'
 
