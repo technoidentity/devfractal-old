@@ -21,7 +21,7 @@ export const Container: React.FC<ContainerProps> = ({
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'container', {
-    ['is-fluid']: fluid,
+    'is-fluid': fluid,
     [`is-${breakpoint}`]: breakpoint,
   })
 

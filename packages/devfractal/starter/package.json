@@ -55,6 +55,8 @@
     "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "elint:fix": "yarn elint --quiet --fix",
     "types": "tsc --noEmit -p .",
     "types:watch": "yarn types --watch",
     "validate": "yarn lint:fix && yarn types && yarn test",

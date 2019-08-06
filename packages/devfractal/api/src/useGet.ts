@@ -48,6 +48,7 @@ export function useGet<T extends {}, P extends AnyTuple>(
     return () => {
       mounted.current = false
     }
+    /* eslint-disable react-hooks/exhaustive-deps */
   }, [...deps, fetchAgain])
 
   return {

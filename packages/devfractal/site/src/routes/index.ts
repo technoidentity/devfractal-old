@@ -1,9 +1,3 @@
-export * from './ComponentRoutes'
-export * from './CompositesRoutes'
-export * from './CrudRoutes'
-export * from './IndexRoutes'
-export * from './TabRoutes'
-
 import {
   columns,
   elements,
@@ -12,6 +6,12 @@ import {
   modifiers,
 } from 'devfractal-examples'
 import { dynamicRouter } from 'devfractal-ui'
+
+export * from './ComponentRoutes'
+export * from './CompositesRoutes'
+export * from './CrudRoutes'
+export * from './IndexRoutes'
+export * from './TabRoutes'
 
 export const { Links: ColumnsLinks, Routes: ColumnsRoutes } = dynamicRouter(
   columns,

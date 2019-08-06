@@ -47,6 +47,7 @@ export const TabsItem: React.FC<TabsItemProps> = args => {
       className={classNamesHelper(props, { 'is-active': _active })}
     >
       <a
+        href="#!"
         onClick={() => {
           if (_setSelectedTab) {
             _setSelectedTab({ name, value })

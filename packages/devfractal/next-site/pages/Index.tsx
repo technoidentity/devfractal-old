@@ -10,8 +10,6 @@ import {
   faCircle,
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import Link from 'next/link'
-import React from 'react'
 import {
   Button,
   ButtonsGroup,
@@ -34,6 +32,8 @@ import {
   Text,
   Title,
 } from 'devfractal-ui-core'
+import Link from 'next/link'
+import React from 'react'
 import {
   ColumnsMedia,
   ComponentsMedia,
