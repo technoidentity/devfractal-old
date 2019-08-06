@@ -31,7 +31,7 @@
     "@types/jest": "24.0.16",
     "@types/json-schema": "7.0.3",
     "ajv": "6.10.2",
-    "eslint": "^6.1.0",
+    "eslint": "6.1.0",
     "fp-ts": "2.0.3",
     "io-ts": "2.0.0",
     "io-ts-types": "0.5.0",
@@ -41,7 +41,7 @@
     "monocle-ts": "2.0.0",
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1",
-    "technoidentity-utils": "^*",
+    "technoidentity-utils": "*",
     "ts-jest": "24.0.2",
     "tsdx": "0.7.2"
   },

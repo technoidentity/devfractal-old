@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "query-string": "6.8.2",
-    "technoidentity-utils": "^*",
+    "technoidentity-utils": "*",
     "tslib": "1.10.0"
   },
   "devDependencies": {
