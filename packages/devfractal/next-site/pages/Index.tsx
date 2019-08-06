@@ -118,10 +118,9 @@ export const IndexPageHeader: React.FC = () => (
                 textSize="7"
                 textWeight="bold"
                 active
-              >
-                <Link href="/">
-                  <a style={{ color: 'white' }}>HOME</a>
-                </Link>
+              >              
+                  <a style={{ color: 'white' }} href="/">HOME</a>
+                
               </NavbarItem>
               <NavbarItem textColor="white" textSize="7" textWeight="bold">
                 OVERVIEW
@@ -292,45 +291,45 @@ export const ExploreUIComponents: React.FC = () => (
             </SubTitle>
           </Column>
           <Column>
-            <Link href="/form">
-              <a>
+            <Link >
+              <a href="/form">
                 <FormMedia />
               </a>
             </Link>
-            <Link href="/composites">
-              <a>
+            <Link >
+              <a href="/composites">
                 <CompositesMedia />
               </a>
             </Link>
-            <Link href="/components">
-              <a>
+            <Link >
+              <a href="/components">
                 <ComponentsMedia />
               </a>
             </Link>
-            <Link href="/modifiers">
-              <a>
+            <Link >
+              <a href="/modifiers">
                 <ModifiersMedia />
               </a>
             </Link>
           </Column>
           <Column>
-            <Link href="/crud">
-              <a>
+            <Link >
+              <a href="/crud">
                 <CrudMedia />
               </a>
             </Link>
-            <Link href="/columns">
-              <a>
+            <Link >
+              <a href="/columns">
                 <ColumnsMedia />
               </a>
             </Link>
-            <Link href="/layout">
-              <a>
+            <Link >
+              <a href="/layout">
                 <LayoutMedia />
               </a>
             </Link>
-            <Link href="/elements">
-              <a>
+            <Link >
+              <a href="/elements">
                 <ElementsMedia />
               </a>
             </Link>
