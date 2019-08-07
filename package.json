@@ -31,7 +31,7 @@
     "lib": "yarn lib:lib && yarn lib:meta",
     "build:lib": "lerna run build --scope='devfractal-*' --scope='technoidentity-*'",
     "build:meta": "lerna run build --scope='technoidentity-meta-*'",
-    "build": "yarn build:lib && yarn build:meta",
+    "build": "lerna run build",
     "test:lib": "lerna run test --scope='technoidentity-meta-*'",
     "test:meta": "lerna run test --scope='devfractal-*' --scope='technoidentity-*'",
     "test": "lerna run test",
@@ -44,6 +44,7 @@
     "validate:lib": "lerna run validate --scope='devfractal-*' --scope='technoidentity-*'",
     "validate:meta": "lerna run validate --scope='technoidentity-meta-*'",
     "validate": "lerna run validate",
+    "validate:noFix": "lerna run validate:noFix",
     "clean": "lerna exec -- yarn run rimraf dist .cache build .rts2_cache_*",
     "clean:dist": "lerna clean && yarn run rimraf node_modules",
     "clean:all": "yarn clean && yarn clean:dist",
@@ -51,13 +52,15 @@
     "publish:lib": "lerna publish --scope='devfractal-*' --scope='technoidentity-*'",
     "publish:meta": "lerna publish --scope='technoidentity-meta-*'",
     "destroy": "git clean -dfx",
+    "up:lib": "ncu -u && lerna exec -- ncu -u --scope='devfractal-*' --scope='technoidentity-*'",
+    "up:meta": "ncu -u && lerna exec -- ncu -u --scope='technoidentity-meta-*'",
     "up": "ncu -u && lerna exec -- ncu -u",
     "upr": "lerna run up && yarn refresh"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lerna run --concurrency 1 --stream precommit",
-      "pre-push": "yarn validate"
+      "pre-push": "yarn validate:noFix"
     }
   },
   "version": "0.0.0"
