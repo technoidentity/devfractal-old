@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom'
 import {
   ButtonsGroup,
   component,
-  Navbar,
-  NavbarBrand,
-  NavbarItem,
+  Get,
   Section,
   SimpleTable,
   Title,
 } from 'technoidentity-devfractal'
-import { fake, req } from 'technoidentity-utils'
+import { fake, range, req } from 'technoidentity-utils'
 import { Vehicle } from '../common'
 
 const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
@@ -43,25 +41,18 @@ export const VehicleListForm = component(
   ),
 )
 
-export const multipleVehicles = (n: Number) => {
-  const vehicles = []
-  for (let i = 0; i < n; i += 1) {
-    vehicles.push(fake(Vehicle))
-  }
-  return vehicles
-}
+export const VehicleListTable = component(
+  VehicleListProps,
+  ({ vehicleList }) => (
+    <Section>
+      <Title size="4">Vehicles</Title>
+      <VehicleListForm vehicleList={vehicleList} />
+    </Section>
+  ),
+)
 
 export const VehicleList: React.FC = () => (
-  <>
-    <Navbar textColor="info" textBackgroundColor="light">
-      <NavbarBrand>
-        <NavbarItem>
-          <Title size="4">Vehicles</Title>
-        </NavbarItem>
-      </NavbarBrand>
-    </Navbar>
-    <Section>
-      <VehicleListForm vehicleList={multipleVehicles(10)} />
-    </Section>
-  </>
+  <Get asyncFn={async () => range(10).map(i => fake(Vehicle))}>
+    {data => <VehicleListTable vehicleList={data} />}
+  </Get>
 )

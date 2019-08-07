@@ -3,14 +3,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   ButtonsGroup,
-  Navbar,
-  NavbarBrand,
-  NavbarItem,
+  component,
+  Get,
   Section,
   SimpleTable,
   Title,
 } from 'technoidentity-devfractal'
-import { fake, req } from 'technoidentity-utils'
+import { fake, range, req } from 'technoidentity-utils'
 import { Driver } from '../common'
 
 const DriverListProps = req({
@@ -34,25 +33,15 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
   </>
 )
 
-export const multipleDrivers = (n: Number) => {
-  const drivers = []
-  for (let i = 0; i < n; i += 1) {
-    drivers.push(fake(Driver))
-  }
-  return drivers
-}
+export const DriverListTable = component(DriverListProps, ({ driverList }) => (
+  <Section>
+    <Title size="4">Drivers</Title>
+    <DriverListForm driverList={driverList} />
+  </Section>
+))
 
-export const DriverList = () => (
-  <>
-    <Navbar textColor="info" textBackgroundColor="light">
-      <NavbarBrand>
-        <NavbarItem>
-          <Title size="4">Drivers</Title>
-        </NavbarItem>
-      </NavbarBrand>
-    </Navbar>
-    <Section>
-      <DriverListForm driverList={multipleDrivers(10)} />
-    </Section>
-  </>
+export const DriverList: React.FC = () => (
+  <Get asyncFn={async () => range(10).map(i => fake(Driver))}>
+    {data => <DriverListTable driverList={data} />}
+  </Get>
 )

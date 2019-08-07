@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 import {
   ButtonsGroup,
   component,
+  Get,
   Section,
   SimpleTable,
   Title,
 } from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
+import { fake, range, req } from 'technoidentity-utils'
 import { Battery } from '../common'
 
 const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
@@ -32,9 +33,18 @@ export const BatteryListForm = component(
   ),
 )
 
-export const BatteryList = component(BatteryListProps, ({ batteryList }) => (
-  <Section>
-    <Title size="4">Battery</Title>
-    <BatteryListForm batteryList={batteryList} />
-  </Section>
-))
+export const BatteryListTable = component(
+  BatteryListProps,
+  ({ batteryList }) => (
+    <Section>
+      <Title size="4">Battery</Title>
+      <BatteryListForm batteryList={batteryList} />
+    </Section>
+  ),
+)
+
+export const BatteryList: React.FC = () => (
+  <Get asyncFn={async () => range(10).map(i => fake(Battery))}>
+    {data => <BatteryListTable batteryList={data} />}
+  </Get>
+)
