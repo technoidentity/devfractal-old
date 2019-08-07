@@ -145,13 +145,15 @@ export function fake<T extends Mixed>(
   }
 
   if (spec instanceof UnionType) {
-    const one = chance.integer({ min: 0, max: spec.types.length })
-    return chance.pickone(fake(spec.types[one], options))
+    const one = chance.integer({ min: 0, max: spec.types.length - 1 })
+
+    return fake(spec.types[one], options)
   }
 
   if (spec instanceof TupleType) {
     return spec.types.map((p: Type<any>) => fake(p, options))
   }
 
+  console.log('hello')
   throw new Error(`Unsupported type: ${spec.name}`)
 }
