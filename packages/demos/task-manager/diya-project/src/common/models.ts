@@ -1,6 +1,5 @@
 import { Int, keyof, number, string, TypeOf } from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { opt, props, req } from 'technoidentity-utils'
+import { ISODate, props, req } from 'technoidentity-utils'
 
 const Shift = keyof({
   morning: true,
@@ -22,7 +21,7 @@ type Status = TypeOf<typeof Status>
 
 export const Driver = props(
   {
-    lastActive: date,
+    lastActive: ISODate,
 
     status: Status,
   },
@@ -34,8 +33,8 @@ export const Driver = props(
     shift: Shift,
     adharNumber: string,
     accountName: string,
-    accountNumber: number,
-    confirmAccountNumber: number,
+    accountNumber: Int,
+    confirmAccountNumber: Int,
     bankName: string,
     bankBranch: string,
     branchIFSCNumber: string,
@@ -56,7 +55,7 @@ export const Battery = props(
     name: string,
     id: string,
     group: Group,
-    remainingCycles: Int,
+    remainingCycles: number,
     status: Status,
   },
   {
@@ -64,8 +63,8 @@ export const Battery = props(
     batteryMake: string,
     batteryModel: string,
     capacity: string,
-    batteryCycles: Int,
-    lastCharged: date,
+    batteryCycles: number,
+    lastCharged: ISODate,
   },
 )
 
@@ -76,8 +75,8 @@ export const Vehicle = props(
     name: string,
     numberPlate: string,
     group: Group,
-    nextService: date,
-    insuranceDue: date,
+    nextService: ISODate,
+    insuranceDue: ISODate,
     vehicleStatus: Status,
   },
   {
@@ -88,8 +87,8 @@ export const Vehicle = props(
     color: string,
     regnNumber: string,
     warranty: number,
-    lastServicedDate: date,
-    insuranceExpiryDate: date,
+    lastServicedDate: ISODate,
+    insuranceExpiryDate: ISODate,
   },
 )
 
