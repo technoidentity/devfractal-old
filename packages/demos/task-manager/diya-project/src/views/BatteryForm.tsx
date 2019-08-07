@@ -69,11 +69,7 @@ export const BatteryForm = component(
             <Column>
               <Simple.Text name="capacity" validations={[required()]} />
               <Simple.Text name="batteryCycles" validations={[required()]} />
-              <DateField
-                name="lastCharged"
-                label="Last charged"
-                validations={[required()]}
-              />
+              <Simple.Date name="lastCharged" validations={[required()]} />
             </Column>
             <Column narrow>
               <Title size="6">Battery Photo</Title>

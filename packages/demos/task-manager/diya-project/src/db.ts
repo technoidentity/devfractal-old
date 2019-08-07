@@ -1,5 +1,5 @@
 import { startFakeJSONServer } from 'technoidentity-dev-utils'
-import { Battery, Driver, Vehicle } from './common/models'
+import { Battery, Driver, Vehicle } from './common'
 
 const faker = {
   drivers: Driver,

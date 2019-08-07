@@ -1,4 +1,5 @@
 import { FormikActions } from 'formik'
+import { TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
@@ -7,7 +8,6 @@ import {
   Column,
   Columns,
   component,
-  DateField,
   Image,
   Media,
   MediaContent,
@@ -34,6 +34,8 @@ const VehicleFormProps = props(
 )
 
 const initialValues = empty(Vehicle)
+
+export type VehicleFormProps = TypeOf<typeof VehicleFormProps>
 
 export const VehicleForm = component(
   VehicleFormProps,
@@ -85,14 +87,12 @@ export const VehicleForm = component(
                   validations={[required()]}
                 />
                 <Simple.Text name="warranty" validations={[required()]} />
-                <DateField
+                <Simple.Date
                   name="lastServicedDate"
-                  label="Last service date"
                   validations={[required()]}
                 />
-                <DateField
+                <Simple.Date
                   name="insuranceExpiryDate"
-                  label="Insurance expiry date"
                   validations={[required()]}
                 />
               </div>

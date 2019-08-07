@@ -10,7 +10,7 @@ import {
   Section,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
-import diyaLogo from '../src/images/diyaLogo.png'
+import diyaLogo from './images/diyaLogo.png'
 import {
   CreateBatteryRoute,
   CreateDriverRoute,

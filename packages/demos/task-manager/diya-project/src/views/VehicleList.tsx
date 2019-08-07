@@ -16,7 +16,7 @@ import { Vehicle } from '../common'
 
 const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
 
-type VehicleListProps = TypeOf<typeof VehicleListProps>
+export type VehicleListProps = TypeOf<typeof VehicleListProps>
 
 export const VehicleListForm = component(
   VehicleListProps,

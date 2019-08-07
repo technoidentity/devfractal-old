@@ -1,24 +1,17 @@
-import { readonlyArray, TypeOf } from 'io-ts'
+import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   ButtonsGroup,
   component,
-  Navbar,
-  NavbarBrand,
-  NavbarItem,
   Section,
   SimpleTable,
   Title,
 } from 'technoidentity-devfractal'
-import { fake, req } from 'technoidentity-utils'
-import { Battery } from '../common/models'
+import { req } from 'technoidentity-utils'
+import { Battery } from '../common'
 
-const BatteryListProps = req({
-  batteryList: readonlyArray(Battery),
-})
-
-type BatteryListProps = TypeOf<typeof BatteryListProps>
+const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
 
 export const BatteryListForm = component(
   BatteryListProps,
@@ -29,6 +22,7 @@ export const BatteryListForm = component(
           Add Battery
         </Link>
       </ButtonsGroup>
+
       <SimpleTable
         data={batteryList}
         headers={['name', 'id', 'group', 'remainingCycles', 'status']}
@@ -38,25 +32,9 @@ export const BatteryListForm = component(
   ),
 )
 
-export const multipleBatteries = (n: Number) => {
-  const batteries = []
-  for (let i = 0; i < n; i += 1) {
-    batteries.push(fake(Battery))
-  }
-  return batteries
-}
-
-export const BatteryList: React.FC = () => (
-  <>
-    <Navbar textColor="info" textBackgroundColor="light">
-      <NavbarBrand>
-        <NavbarItem>
-          <Title size="4">Battery</Title>
-        </NavbarItem>
-      </NavbarBrand>
-    </Navbar>
-    <Section>
-      <BatteryListForm batteryList={multipleBatteries(10)} />
-    </Section>
-  </>
-)
+export const BatteryList = component(BatteryListProps, ({ batteryList }) => (
+  <Section>
+    <Title size="4">Battery</Title>
+    <BatteryListForm batteryList={batteryList} />
+  </Section>
+))

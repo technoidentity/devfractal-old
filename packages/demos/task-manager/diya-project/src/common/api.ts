@@ -5,20 +5,11 @@ export const apiOptions = {
   baseURL: 'http://localhost:9999',
 }
 
-export const driverAPI = rest({
-  resource: 'drivers',
-  type: Driver,
-  ...apiOptions,
-})
+export const driverAPI = rest(Driver, { resource: 'drivers', ...apiOptions })
 
-export const batteryAPI = rest({
+export const vehicleAPI = rest(Vehicle, { resource: 'vehicles', ...apiOptions })
+
+export const batteryAPI = rest(Battery, {
   resource: 'batteries',
-  type: Battery,
-  ...apiOptions,
-})
-
-export const vehicleAPI = rest({
-  resource: 'vehicles',
-  type: Vehicle,
   ...apiOptions,
 })
