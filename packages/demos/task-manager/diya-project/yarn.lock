@@ -1058,10 +1058,10 @@
     pretty-format "^24.0.0"
     redent "^3.0.0"
 
-"@testing-library/react@8.0.7":
-  version "8.0.7"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-8.0.7.tgz#b5992c9156e926850a0e3a7c882ae1aed83b1c77"
-  integrity sha512-6XoeWSr3UCdxMswbkW0BmuXYw8a6w+stt+5gg4D4zAcljfhXETQ5o28bjJFwNab4OPg8gBNK8KIVot86L4Q8Vg==
+"@testing-library/react@8.0.8":
+  version "8.0.8"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-8.0.8.tgz#aeba59adaf2b9258117bea927428a8fe4240db06"
+  integrity sha512-GvA5rcyT2TsFozqijEejXI64P4mMmzX2qkEfb7JNKrkdFXLiXdZqSYr/96PerLpsN23gJkKicAhqqT8qo9Kr3g==
   dependencies:
     "@babel/runtime" "^7.5.4"
     "@testing-library/dom" "^5.5.4"
@@ -1143,10 +1143,10 @@
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
   integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
 
-"@types/jest@24.0.16":
-  version "24.0.16"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.16.tgz#8d3e406ec0f0dc1688d6711af3062ff9bd428066"
-  integrity sha512-JrAiyV+PPGKZzw6uxbI761cHZ0G7QMOHXPhtSpcl08rZH6CswXaaejckn3goFKmF7M3nzEoJ0lwYCbqLMmjziQ==
+"@types/jest@24.0.17":
+  version "24.0.17"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.17.tgz#b66ea026efb746eb5db1356ee28518aaff7af416"
+  integrity sha512-1cy3xkOAfSYn78dsBWy4M3h/QF/HeWPchNFDjysVtp3GHeTdSmtluNnELfCmfNRRHo0OWEcpf+NsEJQvwQfdqQ==
   dependencies:
     "@types/jest-diff" "*"
 
@@ -1160,10 +1160,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.8.tgz#e469b4bf9d1c9832aee4907ba8a051494357c12c"
   integrity sha512-aX+gFgA5GHcDi89KG5keey2zf0WfZk/HAQotEamsK2kbey+8yGKcson0hbK8E+v0NArlCJQCqMP161YhV6ZXLg==
 
-"@types/node@12.6.9":
-  version "12.6.9"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.9.tgz#ffeee23afdc19ab16e979338e7b536fdebbbaeaf"
-  integrity sha512-+YB9FtyxXGyD54p8rXwWaN1EWEyar5L58GlGWgtH2I9rGmLGBQcw63+0jw+ujqVavNuO47S1ByAjm9zdHMnskw==
+"@types/node@12.7.0":
+  version "12.7.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.0.tgz#545dde2a1a5c27d281cfb8308d6736e0708f5d6c"
+  integrity sha512-vqcj1MVm2Sla4PpMfYKh1MyDN4D2f/mPIZD7RdAGqEsbE+JxfeqQHHVbRDQ0Nqn8i73gJa1HQ1Pu3+nH4Q0Yiw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
