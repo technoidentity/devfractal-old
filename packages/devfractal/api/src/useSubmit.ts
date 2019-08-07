@@ -25,9 +25,13 @@ export function useSubmit<T extends {}>(
       .catch(err => {
         if (err && err.response && err.response.data) {
           setServerError(err.response.data.error)
-        }
-        if (onFailure) {
+          if (onFailure) {
+            onFailure(err, actions)
+          }
+        } else if (onFailure) {
           onFailure(err, actions)
+        } else {
+          throw err
         }
       })
       .finally(() => actions.setSubmitting(false))
