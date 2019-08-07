@@ -50,7 +50,7 @@
     "server": "cross-env PORT=9999 ts-node --project tsconfig.tsnode.json src/db.ts",
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --env=jsdom --watch",
     "destroy": "git clean -dfx",
     "up": "lerna exec -- ncu -u",
