@@ -10,9 +10,6 @@ import {
   Image,
   Media,
   MediaContent,
-  Navbar,
-  NavbarBrand,
-  NavbarItem,
   required,
   Section,
   Simple,
@@ -38,15 +35,9 @@ export const BatteryForm = component(
   BatteryFormProps,
   ({ onSubmit, initial }) => (
     <>
-      <Navbar textBackgroundColor="light">
-        <NavbarBrand>
-          <NavbarItem>
-            <Title size="4" textColor="info">
-              Add Battery
-            </Title>
-          </NavbarItem>
-        </NavbarBrand>
-      </Navbar>
+      <Title size="4" textColor="info">
+        Add Battery
+      </Title>
       <Section>
         <Title textAlignment="left" size="5" textColor="info">
           Battery Details

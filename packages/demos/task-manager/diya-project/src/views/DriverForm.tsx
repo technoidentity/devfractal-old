@@ -10,9 +10,6 @@ import {
   Label,
   Media,
   MediaContent,
-  Navbar,
-  NavbarBrand,
-  NavbarItem,
   required,
   Section,
   Simple,
@@ -46,15 +43,10 @@ export const DriverForm = component(
   DriverFormProps,
   ({ initial, onSubmit }) => (
     <>
-      <Navbar textBackgroundColor="light">
-        <NavbarBrand>
-          <NavbarItem>
-            <Title size="4" textColor="info">
-              Create Driver
-            </Title>
-          </NavbarItem>
-        </NavbarBrand>
-      </Navbar>
+      <Title size="4" textColor="info">
+        Create Driver
+      </Title>
+
       <Section>
         <Simple.Form
           initialValues={initial || initialValues}

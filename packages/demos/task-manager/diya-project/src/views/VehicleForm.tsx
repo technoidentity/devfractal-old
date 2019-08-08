@@ -11,9 +11,6 @@ import {
   Image,
   Media,
   MediaContent,
-  Navbar,
-  NavbarBrand,
-  NavbarItem,
   required,
   Section,
   Simple,
@@ -41,15 +38,10 @@ export const VehicleForm = component(
   VehicleFormProps,
   ({ onSubmit, initial }) => (
     <>
-      <Navbar textBackgroundColor="light">
-        <NavbarBrand>
-          <NavbarItem>
-            <Title size="4" textColor="info">
-              Add Vehicle
-            </Title>
-          </NavbarItem>
-        </NavbarBrand>
-      </Navbar>
+      <Title size="4" textColor="info">
+        Add Vehicle
+      </Title>
+
       <Section>
         <Title textAlignment="left" size="5" textColor="info">
           Vehicle Details
