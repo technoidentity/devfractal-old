@@ -1,12 +1,35 @@
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { TypeOf } from 'io-ts'
 import React from 'react'
-import { Icon, Section } from 'technoidentity-devfractal'
+import { Button, Icon, Section } from 'technoidentity-devfractal'
+import { fn, req } from 'technoidentity-utils'
 
-export const Actions: React.FC = () => (
+const ActionsProps = req({
+  onEdit: fn<() => void>(),
+  onDelete: fn<() => void>(),
+})
+
+type ActionsProps = TypeOf<typeof ActionsProps>
+
+export const Actions: React.FC<ActionsProps> = ({ onEdit, onDelete }) => (
   <Section>
     <>
-      <Icon icon={faEdit}>Edit</Icon>
-      <Icon icon={faTrashAlt}>Delete</Icon>
+      <Button
+        onClick={() => {
+          onEdit()
+        }}
+      >
+        <Icon icon={faTrashAlt} />
+        Delete
+      </Button>
+      <Button
+        onClick={() => {
+          onDelete()
+        }}
+      >
+        <Icon icon={faTrashAlt} />
+        Delete
+      </Button>
     </>
   </Section>
 )
