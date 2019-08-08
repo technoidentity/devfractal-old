@@ -11,6 +11,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Vehicle, vehicleAPI } from '../common'
+import { StaticPagination } from './Pagination'
 
 const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
 
@@ -47,6 +48,7 @@ export const VehicleListTable = component(
     <Section>
       <Title size="4">Vehicles</Title>
       <VehicleListForm vehicleList={vehicleList} />
+      <StaticPagination />
     </Section>
   ),
 )

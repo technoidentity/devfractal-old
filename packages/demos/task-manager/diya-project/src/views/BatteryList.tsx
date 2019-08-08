@@ -11,6 +11,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Battery, batteryAPI } from '../common'
+import { StaticPagination } from './Pagination'
 
 const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
 
@@ -39,6 +40,7 @@ export const BatteryListTable = component(
     <Section>
       <Title size="4">Battery</Title>
       <BatteryListForm batteryList={batteryList} />
+      <StaticPagination />
     </Section>
   ),
 )

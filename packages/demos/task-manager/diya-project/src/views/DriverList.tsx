@@ -11,6 +11,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Driver, driverAPI } from '../common'
+import { StaticPagination } from './Pagination'
 
 const DriverListProps = req({
   driverList: readonlyArray(Driver),
@@ -37,6 +38,7 @@ export const DriverListTable = component(DriverListProps, ({ driverList }) => (
   <Section>
     <Title size="4">Drivers</Title>
     <DriverListForm driverList={driverList} />
+    <StaticPagination />
   </Section>
 ))
 
