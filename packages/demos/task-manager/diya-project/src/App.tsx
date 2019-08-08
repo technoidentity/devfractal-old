@@ -8,11 +8,11 @@ import {
   Router,
   SafeRoute as Route,
   Section,
-  SimpleRedirect,
 } from 'technoidentity-devfractal'
 import diyaLogo from './images/diyaLogo.png'
 import {
   CreateBatteryRoute,
+  CreateClientRoute,
   CreateDriverRoute,
   CreateVehicleRoute,
   EditBatteryRoute,
@@ -20,6 +20,7 @@ import {
   EditVehicleRoute,
 } from './pages'
 import { BatteryList, DriverList, MenuComponent, VehicleList } from './views'
+import { ClientList } from './views/ClientList'
 
 // tslint:disable-next-line: no-console no-void-expression
 
@@ -42,6 +43,8 @@ export const App = () => (
       <>
         <Router variant="browser">
           <Route exact path="/" component={DriverList} />
+          <Route exact path="/clients" component={ClientList} />
+          <Route exact path="/clients/add" component={CreateClientRoute} />
           <Route exact path="/vehicles" component={VehicleList} />
           <Route exact path="/vehicles/add" component={CreateVehicleRoute} />
           <Route exact path="/vehicles/:id/edit" component={EditVehicleRoute} />
