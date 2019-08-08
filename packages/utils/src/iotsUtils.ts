@@ -66,8 +66,6 @@ export function props<O extends t.Props, R extends t.Props>(
 
 export const lit: typeof t.literal = t.literal
 
-import * as t from 'io-ts'
-
 // tslint:disable readonly-array array-type readonly-keyword
 export interface HasPropsReadonly
   extends t.ReadonlyType<HasProps, any, any, any> {}
