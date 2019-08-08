@@ -85,7 +85,9 @@ export const VehicleForm = component(
               </div>
             </Column>
             <Column narrow>
-              <Title size="6">Vehicle Photo</Title>
+              <Title size="6" textColor="info">
+                Vehicle Photo
+              </Title>
               <Box>
                 <Media>
                   <MediaContent>

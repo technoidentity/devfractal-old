@@ -46,7 +46,9 @@ export const VehicleListTable = component(
   VehicleListProps,
   ({ vehicleList }) => (
     <Section>
-      <Title size="4">Vehicles</Title>
+      <Title size="4" textColor="info">
+        Vehicles
+      </Title>
       <VehicleListForm vehicleList={vehicleList} />
       <StaticPagination />
     </Section>
