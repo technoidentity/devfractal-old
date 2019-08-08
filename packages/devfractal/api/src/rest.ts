@@ -4,20 +4,27 @@ import { cast } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
-export interface API<Spec extends t.Mixed> {
+export interface API<Spec extends t.Mixed, IDType extends string | number> {
+  readonly idKey: IDType
+
   many(options?: APIMethodArgs): Promise<ReadonlyArray<t.TypeOf<Spec>>>
+
   one(options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+
   create(
-    data: t.InputOf<Spec>,
+    data: Omit<t.InputOf<Spec>, IDType>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
-  get(id: string, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+
+  get(id: IDType, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+
   update(
-    id: string,
+    id: IDType,
     data: t.InputOf<Spec>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
-  del(id: string, options?: APIMethodArgs): Promise<void>
+
+  del(id: IDType, options?: APIMethodArgs): Promise<void>
 }
 
 function appendId(options: MethodArgs, id: string): MethodArgs {
@@ -32,20 +39,28 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
   })
 }
 
+function omit<T, ID extends keyof T>(obj: T, id: ID): Omit<T, ID> {
+  const { [id]: _, ...result } = obj
+  return result
+}
+
 interface RestArgs extends RequestConfig {
   readonly resource: string
 }
 
-export function rest<Spec extends t.Mixed>(
+export function rest<
+  Spec extends t.Mixed,
+  ID extends string & keyof t.TypeOf<Spec>
+>(
   spec: Spec,
+  id: ID /* = 'id' as any */,
   { resource, ...options }: RestArgs,
-): API<Spec> {
+): API<Spec, t.TypeOf<Spec>[ID]> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(
     options: APIMethodArgs,
   ): Promise<ReadonlyArray<t.TypeOf<Spec>>> {
-    // @TODO: cast to t.Mixed looks safe
     return http.get({ ...options, resource }, t.readonlyArray(spec))
   }
 
@@ -54,27 +69,35 @@ export function rest<Spec extends t.Mixed>(
   }
 
   async function create(
-    data: t.InputOf<Spec>,
+    data: Omit<t.InputOf<Spec>, ID>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
     cast(spec, data)
 
-    return http.post({ ...options, resource }, data, spec)
+    return http.post(
+      { ...options, resource },
+      // typescript is strange! drops 'id' even if data contains it.
+      omit<t.InputOf<Spec>, ID>(data, id),
+      spec,
+    )
   }
 
-  async function del(id: string, options?: APIMethodArgs): Promise<void> {
+  async function del(
+    id: t.TypeOf<Spec>[ID],
+    options?: APIMethodArgs,
+  ): Promise<void> {
     return http.del(appendId({ ...options, resource }, id))
   }
 
   async function get(
-    id: string,
+    id: t.TypeOf<Spec>[ID],
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
     return one(appendId({ ...options, resource }, id))
   }
 
   async function update(
-    id: string,
+    id: t.TypeOf<Spec>[ID],
     data: t.InputOf<Spec>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
@@ -83,5 +106,5 @@ export function rest<Spec extends t.Mixed>(
     return http.put(appendId({ ...options, resource }, id), data, spec)
   }
 
-  return { one, many, get, update, create, del }
+  return { one, many, get, update, create, del, idKey: id }
 }

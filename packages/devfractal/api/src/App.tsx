@@ -26,18 +26,18 @@ import { rest } from './rest'
 
 // tslint:disable typedef
 
-const Status = keyof({ active: true, inActive: true })
-const Group = keyof({ Retail: true, Cargo: true })
+const Status = keyof({ active: 0, inActive: 1 })
+const Group = keyof({ Retail: 0, Cargo: 1 })
+
 const Battery = props(
   {
     name: string,
-    id: string,
+    batteryID: Int,
     group: Group,
     remainingCycles: Int,
     status: Status,
   },
   {
-    batteryID: string,
     batteryMake: string,
     batteryModel: string,
     capacity: string,
@@ -63,57 +63,50 @@ const initialValues = empty(Battery)
 export const BatteryForm = component(
   BatteryFormProps,
   ({ onSubmit, initial }) => (
-    <>
-      <Section>
-        <Title textAlignment="left" size="5" textColor="info">
-          Battery Details
-        </Title>
-        <Simple.Form
-          initialValues={initial || initialValues}
-          onSubmit={onSubmit}
-        >
-          <Columns>
-            <Column>
-              <Simple.Text name="batteryMake" validations={[required()]} />
-              <Simple.Text name="batteryModel" validations={[required()]} />
-            </Column>
-            <Column>
-              <Simple.Text name="capacity" validations={[required()]} />
-              <Simple.Text name="batteryCycles" validations={[required()]} />
-            </Column>
-            <Column narrow>
-              <Title size="6">Battery Photo</Title>
-              <Box>
-                <Media>
-                  <MediaContent>
-                    <Image
-                      size="128x128"
-                      src="https://bulma.io/images/placeholders/128x128.png"
-                    />
-                  </MediaContent>
-                </Media>
-              </Box>
-              <Button variant="dark">Upload Photo</Button>
-            </Column>
-          </Columns>
-          <Simple.FormButtons />
-        </Simple.Form>
-      </Section>
-    </>
+    <Section>
+      <Title textAlignment="left" size="5" textColor="info">
+        Battery Details
+      </Title>
+      <Simple.Form initialValues={initial || initialValues} onSubmit={onSubmit}>
+        <Columns>
+          <Column>
+            <Simple.Text name="batteryMake" validations={[required()]} />
+            <Simple.Text name="batteryModel" validations={[required()]} />
+          </Column>
+          <Column>
+            <Simple.Text name="capacity" validations={[required()]} />
+            <Simple.Text name="batteryCycles" validations={[required()]} />
+          </Column>
+          <Column narrow>
+            <Title size="6">Battery Photo</Title>
+            <Box>
+              <Media>
+                <MediaContent>
+                  <Image
+                    size="128x128"
+                    src="https://bulma.io/images/placeholders/128x128.png"
+                  />
+                </MediaContent>
+              </Media>
+            </Box>
+            <Button variant="dark">Upload Photo</Button>
+          </Column>
+        </Columns>
+        <Simple.FormButtons />
+      </Simple.Form>
+    </Section>
   ),
 )
 
-const batterAPI = rest(Battery, {
+const batterAPI = rest(Battery, 'batteryID', {
   baseURL: 'http://localhost:9999',
   resource: 'batteries',
 })
 
-const BatteryComponent = () => {
-  return (
-    // tslint:disable-next-line: no-unbound-method
-    <Post component={BatteryForm} onPost={batterAPI.create} redirectPath="/" />
-  )
-}
+const BatteryComponent = () => (
+  // tslint:disable-next-line: no-unbound-method
+  <Post component={BatteryForm} onPost={batterAPI.create} redirectPath="/" />
+)
 
 const Index = () => <Link to="/batteries">Batteries</Link>
 
