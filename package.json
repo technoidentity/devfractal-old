@@ -53,7 +53,7 @@
     "publish:meta": "lerna publish --scope='technoidentity-meta-*'",
     "prepublish:lib": "yarn destroy && yarn boot:lib",
     "prepublish:meta": "yarn destroy && yarn boot:meta",
-    "prepublish": "yarn destroy && yarn boot",
+    "prepublishOnly": "yarn destroy && yarn boot",
     "publish": "lerna publish",
     "destroy": "git clean -dfx",
     "up:lib": "ncu -u && lerna exec -- ncu -u --scope='devfractal-*' --scope='technoidentity-*'",
