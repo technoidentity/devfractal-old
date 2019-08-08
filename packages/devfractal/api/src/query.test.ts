@@ -1,15 +1,20 @@
 import * as t from 'io-ts'
-import { opt, req } from 'technoidentity-utils'
+import { opt, props } from 'technoidentity-utils'
 import { Query, toJSONServerQuery } from './query'
 
 // tslint:disable typedef
 
 it('toJSONServerQuery', () => {
-  const User = req({
-    name: t.string,
-    age: t.number,
-    address: opt({ street: t.string, city: t.string }),
-  })
+  const User = props(
+    {
+      id: t.number,
+      name: t.string,
+    },
+    {
+      age: t.number,
+      address: opt({ street: t.string, city: t.string }),
+    },
+  )
 
   type User = t.TypeOf<typeof User>
 

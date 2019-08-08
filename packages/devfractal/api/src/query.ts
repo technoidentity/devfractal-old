@@ -27,7 +27,7 @@ export interface Query<C> {
   readonly embed?: keyof C
 }
 
-export function querySpec(codec: HasProps) {
+function querySpec(codec: HasProps) {
   const props = getProps(codec)
 
   return opt({

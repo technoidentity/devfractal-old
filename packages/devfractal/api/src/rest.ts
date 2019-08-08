@@ -4,27 +4,31 @@ import { cast } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
-export interface API<Spec extends t.Mixed, IDType extends string | number> {
-  readonly idKey: IDType
+export interface API<
+  Spec extends t.Mixed,
+  IDValueType extends string | number
+> {
+  // @TODO: this is wrong!
+  readonly idKey: IDValueType
 
   many(options?: APIMethodArgs): Promise<ReadonlyArray<t.TypeOf<Spec>>>
 
   one(options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
 
   create(
-    data: Omit<t.InputOf<Spec>, IDType>,
+    data: Omit<t.InputOf<Spec>, IDValueType>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
 
-  get(id: IDType, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+  get(id: IDValueType, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
 
   update(
-    id: IDType,
+    id: IDValueType,
     data: t.InputOf<Spec>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
 
-  del(id: IDType, options?: APIMethodArgs): Promise<void>
+  del(id: IDValueType, options?: APIMethodArgs): Promise<void>
 }
 
 function appendId(options: MethodArgs, id: string): MethodArgs {
