@@ -1,6 +1,7 @@
 import * as io from 'io-ts'
 import * as server from 'json-server'
-import { buildObject, fake, range } from 'technoidentity-utils'
+import { buildObject, range } from 'technoidentity-utils'
+import { fake } from './fake'
 
 export function startFakeJSONServer<
   T extends Record<string, io.Type<any, any>>

@@ -19,13 +19,13 @@ export const Todo = props(
 
 export type Todo = TypeOf<typeof Todo>
 
-export const todoApi = rest(Todo, {
+export const todoApi = rest(Todo, 'id', {
   baseURL: 'http://localhost:3000',
   resource: 'todos',
 })
 
 export const checkApi = async () => {
-  const one = await todoApi.get('2')
+  const one = await todoApi.get(2)
   console.log(one)
 
   const postTodo = await todoApi.create({
@@ -35,7 +35,7 @@ export const checkApi = async () => {
   })
   console.log(postTodo)
 
-  const putTodo = await todoApi.update('1', {
+  const putTodo = await todoApi.update(1, {
     id: 1,
     title: 'bring cupcake',
     done: false,
@@ -43,7 +43,7 @@ export const checkApi = async () => {
   })
   console.log(putTodo)
 
-  await todoApi.del((postTodo.id || '2').toString())
+  await todoApi.del(postTodo.id || 2)
 
   const todos = await todoApi.many()
   console.log(todos)

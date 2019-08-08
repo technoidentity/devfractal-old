@@ -9,7 +9,7 @@ import {
   type,
 } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
-import { fake } from 'technoidentity-utils'
+import { fake } from 'technoidentity-dev-utils'
 
 console.log(
   fake(

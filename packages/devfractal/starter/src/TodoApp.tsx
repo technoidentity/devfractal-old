@@ -35,7 +35,7 @@ const Todo = req({
 
 type Todo = TypeOf<typeof Todo>
 
-const todoApi = rest(Todo, {
+const todoApi = rest(Todo, 'id', {
   baseURL: 'http://localhost:3000',
   resource: 'todos',
 })
@@ -68,8 +68,8 @@ export const EditTodoRoute = () => {
   return (
     <Put<Todo>
       id={params.id}
-      doGet={todoApi.get}
-      onPut={todoApi.update}
+      doGet={todoApi.get as any}
+      onPut={todoApi.update as any}
       component={TodoForm}
       redirectPath="/"
     />

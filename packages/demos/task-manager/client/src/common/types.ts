@@ -16,10 +16,16 @@ export const Task = props(
 )
 export type Task = TypeOf<typeof Task>
 
-export const User = req({ name: string, email: string, password: string })
+export const User = req({
+  id: string,
+  name: string,
+  email: string,
+  password: string,
+})
 export type User = TypeOf<typeof User>
 
 export const Session = req({
+  id: string,
   name: string,
   password: string,
 })

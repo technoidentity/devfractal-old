@@ -13,8 +13,8 @@ export const EditTodoRoute: React.FC = () => {
   return (
     <Put<Todo>
       id={params.id}
-      doGet={todoApi.get}
-      onPut={todoApi.update}
+      doGet={todoApi.get as any}
+      onPut={todoApi.update as any}
       component={TodoForm}
       redirectPath="/"
     />
