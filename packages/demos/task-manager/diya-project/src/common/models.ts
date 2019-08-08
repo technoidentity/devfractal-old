@@ -93,3 +93,35 @@ export const Vehicle = props(
 export type Vehicle = TypeOf<typeof Vehicle>
 
 export const Params = req({ id: string })
+
+const ContractType = keyof({
+  Weekly: true,
+  Monthly: true,
+})
+
+export const Client = props(
+  { id: string },
+  {
+    clientName: string,
+    contractType: ContractType,
+    email: string,
+    numberOfEVS: Int,
+    rateOfEVS: Int,
+    assignedEVSHistory: Int,
+  },
+)
+
+export type Client = TypeOf<typeof Client>
+
+// export const Role = keyof({
+//   Admin: true,
+//   Reporter: true,
+//   Dispatcher: true,
+// })
+
+// export const User = props(
+//   { dateOfJoining: ISODate, id: string },
+//   { userName: string, role: Role },
+// )
+
+// export type User = TypeOf<typeof User>
