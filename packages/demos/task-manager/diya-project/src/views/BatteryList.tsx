@@ -9,8 +9,8 @@ import {
   SimpleTable,
   Title,
 } from 'technoidentity-devfractal'
-import { fake, range, req } from 'technoidentity-utils'
-import { Battery } from '../common'
+import { req } from 'technoidentity-utils'
+import { Battery, batteryAPI, vehicleAPI } from '../common'
 
 const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
 
@@ -44,7 +44,7 @@ export const BatteryListTable = component(
 )
 
 export const BatteryList: React.FC = () => (
-  <Get asyncFn={async () => range(10).map(i => fake(Battery))}>
+  <Get asyncFn={() => batteryAPI.many()}>
     {data => <BatteryListTable batteryList={data} />}
   </Get>
 )

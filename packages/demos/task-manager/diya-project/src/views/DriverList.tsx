@@ -10,7 +10,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { fake, range, req } from 'technoidentity-utils'
-import { Driver } from '../common'
+import { Driver, driverAPI } from '../common'
 
 const DriverListProps = req({
   driverList: readonlyArray(Driver),
@@ -41,7 +41,7 @@ export const DriverListTable = component(DriverListProps, ({ driverList }) => (
 ))
 
 export const DriverList: React.FC = () => (
-  <Get asyncFn={async () => range(10).map(i => fake(Driver))}>
+  <Get asyncFn={() => driverAPI.many()}>
     {data => <DriverListTable driverList={data} />}
   </Get>
 )

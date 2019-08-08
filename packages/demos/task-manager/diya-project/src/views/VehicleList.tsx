@@ -10,7 +10,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { fake, range, req } from 'technoidentity-utils'
-import { Vehicle } from '../common'
+import { Vehicle, vehicleAPI } from '../common'
 
 const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
 
@@ -52,7 +52,7 @@ export const VehicleListTable = component(
 )
 
 export const VehicleList: React.FC = () => (
-  <Get asyncFn={async () => range(10).map(i => fake(Vehicle))}>
+  <Get asyncFn={() => vehicleAPI.many()}>
     {data => <VehicleListTable vehicleList={data} />}
   </Get>
 )
