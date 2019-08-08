@@ -16,4 +16,4 @@ export const batteryAPI = rest(Battery, {
 
 export const clientAPI = rest(Client, { resource: 'clients', ...apiOptions })
 
-// export const userAPI = rest(User, { resource: 'users', ...apiOptions })
+export const userAPI = rest(User, { resource: 'users', ...apiOptions })
