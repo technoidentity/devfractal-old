@@ -41,7 +41,7 @@ export const MenuComponent: React.FC = () => (
           </a>
         </MenuItem>
         <MenuItem>
-          <a href="#!">
+          <a href="/clients">
             <Icon icon={faUserFriends} /> Clients
           </a>
         </MenuItem>
