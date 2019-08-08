@@ -10,7 +10,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Battery, batteryAPI, vehicleAPI } from '../common'
+import { Battery, batteryAPI } from '../common'
 
 const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
 

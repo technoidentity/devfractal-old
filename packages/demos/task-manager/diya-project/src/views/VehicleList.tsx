@@ -9,7 +9,7 @@ import {
   SimpleTable,
   Title,
 } from 'technoidentity-devfractal'
-import { fake, range, req } from 'technoidentity-utils'
+import { req } from 'technoidentity-utils'
 import { Vehicle, vehicleAPI } from '../common'
 
 const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })

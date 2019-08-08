@@ -9,7 +9,7 @@ import {
   SimpleTable,
   Title,
 } from 'technoidentity-devfractal'
-import { fake, range, req } from 'technoidentity-utils'
+import { req } from 'technoidentity-utils'
 import { Driver, driverAPI } from '../common'
 
 const DriverListProps = req({
