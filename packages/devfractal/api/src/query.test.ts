@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { opt, req } from 'technoidentity-utils'
-import { manyQuery, ManyQuery, ManyQuerySpec, toJSONServerQuery } from './query'
+import { Query, toJSONServerQuery } from './query'
 
 // tslint:disable typedef
 
@@ -11,9 +11,9 @@ it('toJSONServerQuery', () => {
     address: opt({ street: t.string, city: t.string }),
   })
 
-  const UserQuery: ManyQuerySpec<typeof User> = manyQuery(User)
+  type User = t.TypeOf<typeof User>
 
-  const query: ManyQuery<typeof User> = {
+  const query: Query<User> = {
     filter: { name: 'foo', age: 20 },
     asc: ['name'],
     desc: ['age'],
@@ -22,16 +22,16 @@ it('toJSONServerQuery', () => {
     embed: 'address',
   }
 
-  expect(toJSONServerQuery(UserQuery, query)).toMatchInlineSnapshot(
+  expect(toJSONServerQuery(User, query)).toMatchInlineSnapshot(
     `"_limit=10&_order=asc,desc&_page=0&_sort=name,age&age=20&embed=address&name=foo&q=p"`,
   )
 
-  const query2: ManyQuery<typeof User> = {
+  const query2: Query<User> = {
     asc: ['name', 'age'],
     range: { start: 0, end: 10 },
   }
 
-  expect(toJSONServerQuery(UserQuery, query2)).toMatchInlineSnapshot(
+  expect(toJSONServerQuery(User, query2)).toMatchInlineSnapshot(
     `"_end=10&_order=asc,asc&_sort=name,age&_start=0"`,
   )
 })
