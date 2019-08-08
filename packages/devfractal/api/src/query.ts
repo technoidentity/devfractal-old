@@ -18,7 +18,6 @@ const Slice = opt({ start: t.number, end: t.number, limit: t.number })
 
 export interface Query<C> {
   readonly filter?: Partial<C>
-  // tslint:disable-next-line: readonly-array
   readonly range?: t.TypeOf<typeof Page> | t.TypeOf<typeof Slice>
   readonly asc?: ReadonlyArray<keyof C>
   readonly desc?: ReadonlyArray<keyof C>
@@ -70,6 +69,21 @@ export function toJSONServerQuery<C extends HasProps>(
   const { filter, fullText: q, embed } = query
   return stringify(
     { ...filter, ...page, ...slice, _sort, _order, q, embed },
+    { arrayFormat: 'comma' },
+  )
+}
+
+export function toQuery<C extends HasProps>(
+  codec: C,
+  query: Query<t.TypeOf<typeof codec>>,
+): string {
+  cast(querySpec(codec), query)
+
+  const { asc, desc } = query
+
+  const { filter, fullText: q, embed } = query
+  return stringify(
+    { ...filter, ...(query.range || {}), asc, desc, q, embed },
     { arrayFormat: 'comma' },
   )
 }
