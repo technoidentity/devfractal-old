@@ -65,11 +65,3 @@ export function props<O extends t.Props, R extends t.Props>(
 // tslint:enable readonly-array
 
 export const lit: typeof t.literal = t.literal
-
-// @TODO: This is not needed?
-export function intToNumber(i: t.Branded<number, t.IntBrand>): number {
-  const decoded: Either<t.Errors, t.Branded<number, t.IntBrand>> = t.Int.decode(
-    i,
-  )
-  return isRight(decoded) ? decoded.right : fatal('Not an integer!')
-}
