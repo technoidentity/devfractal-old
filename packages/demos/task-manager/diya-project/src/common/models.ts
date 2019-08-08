@@ -113,15 +113,15 @@ export const Client = props(
 
 export type Client = TypeOf<typeof Client>
 
-// export const Role = keyof({
-//   Admin: true,
-//   Reporter: true,
-//   Dispatcher: true,
-// })
+export const Role = keyof({
+  Admin: true,
+  Reporter: true,
+  Dispatcher: true,
+})
 
-// export const User = props(
-//   { dateOfJoining: ISODate, id: string },
-//   { userName: string, role: Role },
-// )
+export const User = props(
+  { dateOfJoining: ISODate, id: string },
+  { userName: string, role: Role },
+)
 
-// export type User = TypeOf<typeof User>
+export type User = TypeOf<typeof User>
