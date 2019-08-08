@@ -18,6 +18,7 @@ import {
   CreateVehicleRoute,
   EditBatteryRoute,
   EditDriverRoute,
+  EditUserRoute,
   EditVehicleRoute,
 } from './pages'
 import {
@@ -54,6 +55,7 @@ export const App = () => (
           <Route exact path="/clients/add" component={CreateClientRoute} />
           <Route exact path="/users" component={UserList} />
           <Route exact path="/users/add" component={CreateUserRoute} />
+          <Route exact path="/users/:id/edit" component={EditUserRoute} />
           <Route exact path="/vehicles" component={VehicleList} />
           <Route exact path="/vehicles/add" component={CreateVehicleRoute} />
           <Route exact path="/vehicles/:id/edit" component={EditVehicleRoute} />
