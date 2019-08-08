@@ -36,7 +36,9 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
 
 export const DriverListTable = component(DriverListProps, ({ driverList }) => (
   <Section>
-    <Title size="4">Drivers</Title>
+    <Title size="4" textColor="info">
+      Drivers
+    </Title>
     <DriverListForm driverList={driverList} />
     <StaticPagination />
   </Section>

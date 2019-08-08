@@ -38,7 +38,9 @@ export const BatteryListTable = component(
   BatteryListProps,
   ({ batteryList }) => (
     <Section>
-      <Title size="4">Battery</Title>
+      <Title size="4" textColor="info">
+        Batteries
+      </Title>
       <BatteryListForm batteryList={batteryList} />
       <StaticPagination />
     </Section>

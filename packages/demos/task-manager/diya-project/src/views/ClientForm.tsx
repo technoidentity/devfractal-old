@@ -31,7 +31,9 @@ export const ClientForm = component(
   ClientFormProps,
   ({ initial, onSubmit }) => (
     <>
-      <Title size="4">Add Client</Title>
+      <Title size="4" textColor="info">
+        Add Client
+      </Title>
       <Section>
         <Simple.Form
           initialValues={initial || initialValues}

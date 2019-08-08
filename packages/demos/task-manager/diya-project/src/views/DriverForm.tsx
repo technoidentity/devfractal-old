@@ -92,7 +92,9 @@ export const DriverForm = component(
               />
             </Column>
             <Column narrow>
-              <Title size="6">Profile Photo</Title>
+              <Title size="6" textColor="info">
+                Profile Photo
+              </Title>
               <Box>
                 <Media>
                   <MediaContent>

@@ -30,7 +30,9 @@ export const ClientListForm = component(ClientListProps, ({ clientList }) => (
 
 export const ClientListTable = component(ClientListProps, ({ clientList }) => (
   <Section>
-    <Title size="4">Clients</Title>
+    <Title size="4" textColor="info">
+      Clients
+    </Title>
     <ClientListForm clientList={clientList} />
     <StaticPagination />
   </Section>

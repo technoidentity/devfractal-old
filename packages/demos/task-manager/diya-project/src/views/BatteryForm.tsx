@@ -57,7 +57,9 @@ export const BatteryForm = component(
               <Simple.Number name="batteryCycles" validations={[required()]} />
             </Column>
             <Column narrow>
-              <Title size="6">Battery Photo</Title>
+              <Title size="6" textColor="info">
+                Battery Photo
+              </Title>
               <Box>
                 <Media>
                   <MediaContent>
