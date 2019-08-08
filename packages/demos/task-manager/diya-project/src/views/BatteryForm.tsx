@@ -7,7 +7,6 @@ import {
   Column,
   Columns,
   component,
-  DateField,
   Image,
   Media,
   MediaContent,
@@ -58,18 +57,13 @@ export const BatteryForm = component(
         >
           <Columns>
             <Column>
-              <Simple.Text
-                name="batteryID"
-                label="Battery ID"
-                validations={[required()]}
-              />
               <Simple.Text name="batteryMake" validations={[required()]} />
               <Simple.Text name="batteryModel" validations={[required()]} />
+              <Simple.Date name="lastCharged" />
             </Column>
             <Column>
               <Simple.Text name="capacity" validations={[required()]} />
-              <Simple.Text name="batteryCycles" validations={[required()]} />
-              <Simple.Date name="lastCharged" validations={[required()]} />
+              <Simple.Number name="batteryCycles" validations={[required()]} />
             </Column>
             <Column narrow>
               <Title size="6">Battery Photo</Title>

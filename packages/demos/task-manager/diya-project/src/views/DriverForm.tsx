@@ -66,11 +66,11 @@ export const DriverForm = component(
                 Personal Details
               </Title>
               <Simple.Text name="name" validations={[required()]} />
-              <Simple.Text
+              {/* <Simple.Text
                 name="driverID"
                 label="Driver ID"
                 validations={[required()]}
-              />
+              /> */}
               <Simple.Telephone name="phone" validations={[required()]} />
               <Simple.Text name="driverLicence" validations={[required()]} />
               <Simple.Text name="adharNumber" validations={[required()]} />
@@ -86,6 +86,7 @@ export const DriverForm = component(
               </Title>
               <Simple.Text name="accountName" validations={[required()]} />
               <Simple.Text name="accountNumber" validations={[required()]} />
+
               <Simple.Text
                 name="confirmAccountNumber"
                 validations={[required()]}

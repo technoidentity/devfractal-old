@@ -62,17 +62,12 @@ export const VehicleForm = component(
             <Column>
               <div>
                 <Simple.Text
-                  name="vehicleID"
-                  label="Vehicle ID"
-                  validations={[required()]}
-                />
-                <Simple.Text
                   name="makersClass"
                   label="Maker's Class"
                   validations={[required()]}
                 />
                 <Simple.Text name="vehicleClass" validations={[required()]} />
-                <Simple.Text
+                <Simple.Number
                   name="yearOfManufacturing"
                   validations={[required()]}
                 />
@@ -86,7 +81,7 @@ export const VehicleForm = component(
                   label="Regn. Number"
                   validations={[required()]}
                 />
-                <Simple.Text name="warranty" validations={[required()]} />
+                <Simple.Number name="warranty" validations={[required()]} />
                 <Simple.Date
                   name="lastServicedDate"
                   validations={[required()]}
