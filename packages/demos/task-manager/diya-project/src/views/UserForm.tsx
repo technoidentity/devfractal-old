@@ -1,6 +1,12 @@
 import { FormikActions } from 'formik'
 import React from 'react'
-import { component, Section, Simple, Title } from 'technoidentity-devfractal'
+import {
+  component,
+  Label,
+  Section,
+  Simple,
+  Title,
+} from 'technoidentity-devfractal'
 import { empty, fn, props } from 'technoidentity-utils'
 import { User } from '../common'
 
@@ -32,7 +38,7 @@ export const UserForm = component(
           onSubmit={onSubmit}
         >
           <Simple.Text name="userName" />
-          <label>Role</label>
+          <Label>Role</Label>
           <Simple.Select name="Admin">
             <option value="Admin">Admin</option>
             <option value="Reporter">Reporter</option>
