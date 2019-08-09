@@ -74,10 +74,10 @@ export function toJSONServerQuery<C extends HasProps>(
 }
 
 export function toQuery<C extends HasProps>(
-  codec: C,
-  query: Query<t.TypeOf<typeof codec>>,
+  spec: C,
+  query: Query<t.TypeOf<typeof spec>>,
 ): string {
-  cast(querySpec(codec), query)
+  cast(querySpec(spec), query)
 
   const { asc, desc } = query
 
