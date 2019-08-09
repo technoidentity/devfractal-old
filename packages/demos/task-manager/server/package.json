@@ -1,6 +1,6 @@
 {
   "name": "demo-task-manager-server",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Node Web API Starter using express and mongoose",
   "main": "build/main.js",
   "author": "Pervez Iqbal",
