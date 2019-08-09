@@ -1,7 +1,6 @@
 import { Get } from 'devfractal-api'
 import {
   CheckBox,
-
   Table,
   TableBody,
   TableHead,
@@ -15,21 +14,22 @@ import * as t from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import React from 'react'
 import { camelCaseToPhrase, keys } from 'technoidentity-utils'
-import {formatDate} from './utils'
+import { formatDate } from './utils'
 
 export interface RowClickEvent<T> {
   readonly value: T
 }
 
 export interface SimpleTableProps<T> extends TableProps {
-  readonly headers?: ReadonlyArray<string>
+  readonly headers?: readonly string[]
+  readonly headerLabels?: readonly string[]
   readonly data: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
   onRowClicked?(value: RowClickEvent<T>): void
   children?(key: string, value: T): React.ReactNode
 }
 
 export interface RowsProps<T> {
-  readonly headers: ReadonlyArray<string>
+  readonly headers: readonly string[]
   readonly data: ReadonlyArray<T>
   onRowClicked?(value: RowClickEvent<T>): void
   render?(key: string, value: T): React.ReactNode
@@ -64,25 +64,37 @@ function Rows<T>(props: RowsProps<T>): JSX.Element {
 }
 
 export interface TableViewProps<T> extends TableProps {
-  readonly headers?: ReadonlyArray<string>
+  readonly headers?: readonly string[]
+  readonly headerLabels?: readonly string[]
   readonly data: ReadonlyArray<T>
   onRowClicked?(value: RowClickEvent<T>): void
   children?(key: string, value: T): React.ReactNode
 }
 
+interface HeaderProps {
+  readonly headerLabels: readonly string[]
+}
+
+const Header: React.FC<HeaderProps> = ({ headerLabels }) => (
+  <TableHead>
+    <Tr>
+      {headerLabels.map(h => (
+        <Th key={h}>{h}</Th>
+      ))}
+    </Tr>
+  </TableHead>
+)
+
 function TableView<T>(args: TableViewProps<T>): JSX.Element {
-  const { headers, data, onRowClicked, children, ...props } = args
-  const allHeaders: ReadonlyArray<string> = headers || keys(data[0] || {})
+  const { headers, headerLabels, data, onRowClicked, children, ...props } = args
+  const allHeaders: readonly string[] = headers || keys(data[0] || {})
+  const labels: readonly string[] = headerLabels
+    ? headerLabels
+    : allHeaders.map(camelCaseToPhrase)
 
   return (
     <Table {...props} fullWidth>
-      <TableHead>
-        <Tr>
-          {allHeaders.map(h => (
-            <Th key={h}>{camelCaseToPhrase(h)}</Th>
-          ))}
-        </Tr>
-      </TableHead>
+      <Header headerLabels={labels} />
 
       <TableBody>
         <Rows
