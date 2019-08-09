@@ -1,6 +1,6 @@
 {
   "name": "devfractal-site",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "private": true,
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -31,7 +31,7 @@
     "@fortawesome/react-fontawesome": "0.1.4",
     "devfractal-api": "^1.2.6",
     "devfractal-crud": "^1.2.7",
-    "devfractal-examples": "^1.2.7",
+    "devfractal-examples": "^1.2.8",
     "devfractal-forms": "^1.2.6",
     "devfractal-router": "^1.2.6",
     "devfractal-simple": "^1.2.7",
