@@ -19,15 +19,18 @@ export function useSubmit<T extends {}>(
   )
 
   async function onSubmit(values: T, actions: FormikActions<T>): Promise<void> {
-    // tslint:disable-next-line: no-floating-promises
-    asyncFn(values)
+    return asyncFn(values)
       .then(values => onSuccess(values, actions))
       .catch(err => {
         if (err && err.response && err.response.data) {
           setServerError(err.response.data.error)
-        }
-        if (onFailure) {
+          if (onFailure) {
+            onFailure(err, actions)
+          }
+        } else if (onFailure) {
           onFailure(err, actions)
+        } else {
+          throw err
         }
       })
       .finally(() => actions.setSubmitting(false))

@@ -35,7 +35,7 @@ const Todo = req({
 
 type Todo = TypeOf<typeof Todo>
 
-const todoApi = rest(Todo, {
+const todoApi = rest(Todo, 'id', {
   baseURL: 'http://localhost:3000',
   resource: 'todos',
 })
@@ -66,7 +66,7 @@ export const EditTodoRoute = () => {
   const { params } = useMatch(Params)
 
   return (
-    <Put<Todo>
+    <Put
       id={params.id}
       doGet={todoApi.get}
       onPut={todoApi.update}

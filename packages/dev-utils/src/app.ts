@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { req } from 'technoidentity-utils'
-import { startFakeJSONServer } from './index'
+import { startFakeJSONServer } from './fakeServer'
 
 const User = req({
   id: t.Int,

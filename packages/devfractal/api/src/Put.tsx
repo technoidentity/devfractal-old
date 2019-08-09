@@ -9,21 +9,21 @@ export interface PutComponentProps<T> {
   readonly onSubmit: SubmitAction<T>
 }
 
-export interface PutProps<T> {
+export interface PutProps<T, ID extends keyof T> {
   readonly redirectPath?: string
-  readonly id: string
-  doGet(id: string): Promise<T>
-  onPut(id: string, values: T): Promise<T>
+  readonly id: T[ID]
+  doGet(id: T[ID]): Promise<T>
+  onPut(id: T[ID], values: T): Promise<T>
   readonly component: React.FC<PutComponentProps<T>>
 }
 
-export function Put<T>({
+export function Put<T, ID extends keyof T>({
   id,
   redirectPath,
   doGet,
   onPut,
   component: Component,
-}: PutProps<T>): JSX.Element {
+}: PutProps<T, ID>): JSX.Element {
   async function update(data: T): Promise<T> {
     return onPut(id, data)
   }

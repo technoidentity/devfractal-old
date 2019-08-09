@@ -1,9 +1,9 @@
 import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { array, string, Type } from 'io-ts'
+import { array, InputOf, Mixed, partial, string, TypeOf } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import { String } from 'tcomb'
-import { chop, debug, keys, verify } from 'technoidentity-utils'
+import { chop, debug, getProps, keys, verify } from 'technoidentity-utils'
 
 export interface MethodArgs {
   readonly resource?: string
@@ -63,34 +63,45 @@ export function http(config: RequestConfig) {
     baseURL: chop(config.baseURL),
   })
 
-  async function get<A, O, I>(
+  async function get<Spec extends Mixed>(
     options: MethodArgs,
-    type: Type<A, O, I>,
-  ): Promise<A> {
+    type: Spec,
+  ): Promise<TypeOf<Spec>> {
     return axios
-      .get<I>(buildUrl(options))
+      .get<InputOf<Spec>>(buildUrl(options))
       .then(res => res.data)
       .then(decode(type))
   }
 
-  async function post<A, O, I>(
+  async function post<Spec extends Mixed>(
     options: Omit<MethodArgs, 'query'>,
-    data: I,
-    type: Type<A, O, I>,
-  ): Promise<A> {
+    data: InputOf<Spec>,
+    type: Spec,
+  ): Promise<TypeOf<Spec>> {
     return axios
-      .post<I>(buildUrl(options), data)
+      .post<InputOf<Spec>>(buildUrl(options), data)
       .then(res => res.data)
       .then(decode(type))
   }
 
-  async function put<A, O, I>(
+  async function patch<Spec extends Mixed>(
     options: Omit<MethodArgs, 'query'>,
-    data: I,
-    type: Type<A, O, I>,
-  ): Promise<A> {
+    data: Partial<InputOf<Spec>>,
+    type: Spec,
+  ): Promise<TypeOf<Spec>> {
     return axios
-      .put<I>(buildUrl(options), data)
+      .patch<InputOf<Spec>>(buildUrl(options), data)
+      .then(res => res.data)
+      .then(decode(partial(getProps(type as any))))
+  }
+
+  async function put<Spec extends Mixed>(
+    options: Omit<MethodArgs, 'query'>,
+    data: InputOf<Spec>,
+    type: Spec,
+  ): Promise<TypeOf<Spec>> {
+    return axios
+      .put<InputOf<Spec>>(buildUrl(options), data)
       .then(res => res.data)
       .then(decode(type))
   }
@@ -99,5 +110,5 @@ export function http(config: RequestConfig) {
     return axios.delete(buildUrl(options))
   }
 
-  return { get, del, put, post }
+  return { get, del, put, post, patch }
 }

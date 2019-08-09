@@ -1,23 +1,42 @@
 import { produce } from 'immer'
 import * as t from 'io-ts'
-import { cast } from 'technoidentity-utils'
+import { HasProps } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
+import { Query, toQuery as toQueryFn } from './query'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
-export interface API<Spec extends t.Mixed> {
+export interface API<Spec extends t.Mixed, ID extends t.TypeOf<Spec>> {
+  readonly spec: Spec
+  readonly idKey: ID
+
   many(options?: APIMethodArgs): Promise<ReadonlyArray<t.TypeOf<Spec>>>
+
   one(options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+
   create(
+    data: Omit<t.InputOf<Spec>, ID>,
+    options?: APIMethodArgs,
+  ): Promise<t.TypeOf<Spec>>
+
+  get(id: t.TypeOf<Spec[ID]>, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+  list(
+    query: Query<t.TypeOf<Spec>>,
+    options?: Omit<APIMethodArgs, 'query'>,
+  ): Promise<ReadonlyArray<t.TypeOf<Spec>>>
+
+  replace(
+    id: t.TypeOf<Spec[ID]>,
     data: t.InputOf<Spec>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
-  get(id: string, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+
   update(
-    id: string,
-    data: t.InputOf<Spec>,
+    id: t.TypeOf<Spec[ID]>,
+    data: Partial<t.InputOf<Spec>>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
-  del(id: string, options?: APIMethodArgs): Promise<void>
+
+  del(id: t.TypeOf<Spec>[ID], options?: APIMethodArgs): Promise<void>
 }
 
 function appendId(options: MethodArgs, id: string): MethodArgs {
@@ -32,20 +51,29 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
   })
 }
 
+function omit<T, ID extends keyof T>(obj: T, id: ID): Omit<T, ID> {
+  const { [id]: _, ...result } = obj
+  return result
+}
+
 interface RestArgs extends RequestConfig {
   readonly resource: string
 }
 
-export function rest<Spec extends t.Mixed>(
+export function rest<
+  Spec extends t.Mixed & HasProps,
+  ID extends keyof t.TypeOf<Spec>
+>(
   spec: Spec,
+  id: ID /* = 'id' as any */,
   { resource, ...options }: RestArgs,
-): API<Spec> {
+  toQuery: (spec: Spec, query: Query<t.TypeOf<Spec>>) => string = toQueryFn,
+): API<Spec, ID> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(
     options: APIMethodArgs,
   ): Promise<ReadonlyArray<t.TypeOf<Spec>>> {
-    // @TODO: cast to t.Mixed looks safe
     return http.get({ ...options, resource }, t.readonlyArray(spec))
   }
 
@@ -54,34 +82,53 @@ export function rest<Spec extends t.Mixed>(
   }
 
   async function create(
-    data: t.InputOf<Spec>,
+    data: Omit<t.InputOf<Spec>, ID>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
-    cast(spec, data)
-
-    return http.post({ ...options, resource }, data, spec)
+    return http.post(
+      { ...options, resource },
+      // typescript is strange! drops 'id' even if 'data' contains it.
+      omit<t.InputOf<Spec>, ID>(data, id),
+      spec,
+    )
   }
 
-  async function del(id: string, options?: APIMethodArgs): Promise<void> {
+  async function del(
+    id: t.TypeOf<Spec>[ID],
+    options?: APIMethodArgs,
+  ): Promise<void> {
     return http.del(appendId({ ...options, resource }, id))
   }
 
   async function get(
-    id: string,
+    id: t.TypeOf<Spec>[ID],
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
     return one(appendId({ ...options, resource }, id))
   }
 
-  async function update(
-    id: string,
+  async function list(
+    query: Query<t.TypeOf<Spec>>,
+    options?: Omit<APIMethodArgs, 'query'>,
+  ): Promise<ReadonlyArray<t.TypeOf<Spec>>> {
+    return many({ query: toQuery(spec, query), ...options })
+  }
+
+  async function replace(
+    id: t.TypeOf<Spec>[ID],
     data: t.InputOf<Spec>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
-    cast(spec, data)
-
     return http.put(appendId({ ...options, resource }, id), data, spec)
   }
 
-  return { one, many, get, update, create, del }
+  async function update(
+    id: t.TypeOf<Spec>[ID],
+    data: Partial<t.InputOf<Spec>>,
+    options: APIMethodArgs,
+  ): Promise<t.TypeOf<Spec>> {
+    return http.patch(appendId({ ...options, resource }, id), data, spec)
+  }
+
+  return { one, many, replace, update, create, del, get, list, idKey: id, spec }
 }

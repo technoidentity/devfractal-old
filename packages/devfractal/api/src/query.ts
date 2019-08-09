@@ -16,22 +16,17 @@ const Slice = opt({ start: t.number, end: t.number, limit: t.number })
 //   like: t.string,
 // })
 
-export type ManyQuerySpec<C extends t.Mixed> = t.ReadonlyC<
-  t.PartialC<{
-    readonly filter: t.PartialC<t.OutputOf<C>>
-    // tslint:disable-next-line: readonly-array
-    readonly range: t.UnionC<[typeof Page, typeof Slice]>
-    readonly asc: t.ReadonlyArrayC<t.KeyofC<t.OutputOf<C>>>
-    readonly desc: t.ReadonlyArrayC<t.KeyofC<t.OutputOf<C>>>
-    readonly fullText: t.StringC
-    // readonly operators: t.RecordC<t.KeyofC<t.OutputOf<C>, typeof Operators>>
-    readonly embed: t.KeyofC<t.OutputOf<C>>
-  }>
->
+export interface Query<C> {
+  readonly filter?: Partial<C>
+  readonly range?: t.TypeOf<typeof Page> | t.TypeOf<typeof Slice>
+  readonly asc?: ReadonlyArray<keyof C>
+  readonly desc?: ReadonlyArray<keyof C>
+  readonly fullText?: string
+  //  readonly operators?: t.RecordC<t.KeyofC<C>, typeof Operators>
+  readonly embed?: keyof C
+}
 
-export function manyQuery<C extends t.Mixed>(
-  codec: C & HasProps,
-): ManyQuerySpec<C> {
+function querySpec(codec: HasProps) {
   const props = getProps(codec)
 
   return opt({
@@ -45,13 +40,11 @@ export function manyQuery<C extends t.Mixed>(
   })
 }
 
-export type ManyQuery<C extends t.Mixed> = t.TypeOf<ManyQuerySpec<C>>
-
-export function toJSONServerQuery<C extends t.Mixed>(
-  codec: ManyQuerySpec<C>,
-  query: ManyQuery<C>,
+export function toJSONServerQuery<C extends HasProps>(
+  codec: C,
+  query: Query<t.TypeOf<typeof codec>>,
 ): string {
-  cast(codec, query)
+  cast(querySpec(codec), query)
 
   const { range } = query
   const page = Page.is(range)
@@ -76,6 +69,21 @@ export function toJSONServerQuery<C extends t.Mixed>(
   const { filter, fullText: q, embed } = query
   return stringify(
     { ...filter, ...page, ...slice, _sort, _order, q, embed },
+    { arrayFormat: 'comma' },
+  )
+}
+
+export function toQuery<C extends HasProps>(
+  spec: C,
+  query: Query<t.TypeOf<typeof spec>>,
+): string {
+  cast(querySpec(spec), query)
+
+  const { asc, desc } = query
+
+  const { filter, fullText: q, embed } = query
+  return stringify(
+    { ...filter, ...(query.range || {}), asc, desc, q, embed },
     { arrayFormat: 'comma' },
   )
 }

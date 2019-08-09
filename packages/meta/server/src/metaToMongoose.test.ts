@@ -10,7 +10,7 @@ import { metaToModel } from './metaToMongoose'
 
 // tslint:disable typedef no-object-mutation
 
-test('metaToModel', () => {
+test.skip('metaToModel', () => {
   const meta = MMT({
     name: MString(),
     living: MBool(),
