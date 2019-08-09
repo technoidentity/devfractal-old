@@ -1,6 +1,6 @@
 import { produce } from 'immer'
 import * as t from 'io-ts'
-import { cast, HasProps } from 'technoidentity-utils'
+import { HasProps } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 import { Query, toQuery as toQueryFn } from './query'
 
@@ -85,8 +85,6 @@ export function rest<
     data: Omit<t.InputOf<Spec>, ID>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
-    cast(spec, data)
-
     return http.post(
       { ...options, resource },
       // typescript is strange! drops 'id' even if 'data' contains it.
@@ -121,8 +119,6 @@ export function rest<
     data: t.InputOf<Spec>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
-    cast(spec, data)
-
     return http.put(appendId({ ...options, resource }, id), data, spec)
   }
 
@@ -131,8 +127,6 @@ export function rest<
     data: Partial<t.InputOf<Spec>>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
-    cast(spec, data)
-
     return http.patch(appendId({ ...options, resource }, id), data, spec)
   }
 
