@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/express": "4.17.0",
     "@types/jest": "24.0.17",
-    "@types/mongodb": "3.1.31",
+    "@types/mongodb": "3.1.32",
     "@types/mongoose": "5.5.12",
     "babel-eslint": "^10.0.2",
     "eslint": "6.1.0",
@@ -40,7 +40,7 @@
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
     "mongodb": "3.2.7",
-    "mongoose": "5.6.8",
+    "mongoose": "5.6.9",
     "monocle-ts": "2.0.0",
     "supertest": "4.0.2",
     "technoidentity-meta-core": "^1.2.5",
@@ -54,7 +54,7 @@
     "io-ts": "2.0.1",
     "io-ts-types": "0.5.0",
     "mongodb": "3.2.7",
-    "mongoose": "5.6.8",
+    "mongoose": "5.6.9",
     "monocle-ts": "2.0.0",
     "technoidentity-meta-core": "*",
     "technoidentity-utils": "*"
