@@ -1,9 +1,16 @@
 import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { array, InputOf, Mixed, string, TypeOf } from 'io-ts'
+import { array, InputOf, Mixed, partial, string, TypeOf } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import { String } from 'tcomb'
-import { chop, debug, keys, verify } from 'technoidentity-utils'
+import {
+  chop,
+  debug,
+  getProps,
+  HasProps,
+  keys,
+  verify,
+} from 'technoidentity-utils'
 
 export interface MethodArgs {
   readonly resource?: string
@@ -87,12 +94,12 @@ export function http(config: RequestConfig) {
   async function patch<Spec extends Mixed>(
     options: Omit<MethodArgs, 'query'>,
     data: Partial<InputOf<Spec>>,
-    type: Spec,
+    type: Spec & HasProps,
   ): Promise<TypeOf<Spec>> {
     return axios
       .patch<InputOf<Spec>>(buildUrl(options), data)
       .then(res => res.data)
-      .then(decode(type))
+      .then(decode(partial(getProps(type))))
   }
 
   async function put<Spec extends Mixed>(

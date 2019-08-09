@@ -6,6 +6,7 @@ const axiosMock = {
   get: jest.fn(),
   post: jest.fn(),
   put: jest.fn(),
+  patch: jest.fn(),
   delete: jest.fn(),
 }
 
@@ -72,9 +73,9 @@ test('get with incorrect value', async () => {
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(`
-                  "Invalid value undefined supplied to : Readonly<{ id: string, title: string, done: boolean }>/title: string
-                  Invalid value \\"false\\" supplied to : Readonly<{ id: string, title: string, done: boolean }>/done: boolean"
-            `)
+                              "Invalid value undefined supplied to : Readonly<{ id: string, title: string, done: boolean }>/title: string
+                              Invalid value \\"false\\" supplied to : Readonly<{ id: string, title: string, done: boolean }>/done: boolean"
+                    `)
   }
 })
 
@@ -106,9 +107,9 @@ test('post with incorrect value', async () => {
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(`
-            "Invalid value undefined supplied to : Readonly<{ id: string, title: string, done: boolean }>/title: string
-            Invalid value \\"false\\" supplied to : Readonly<{ id: string, title: string, done: boolean }>/done: boolean"
-        `)
+                        "Invalid value undefined supplied to : Readonly<{ id: string, title: string, done: boolean }>/title: string
+                        Invalid value \\"false\\" supplied to : Readonly<{ id: string, title: string, done: boolean }>/done: boolean"
+                `)
   }
 })
 
@@ -140,9 +141,42 @@ test('put with incorrect value', async () => {
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(`
-      "Invalid value undefined supplied to : Readonly<{ id: string, title: string, done: boolean }>/title: string
-      Invalid value \\"true\\" supplied to : Readonly<{ id: string, title: string, done: boolean }>/done: boolean"
-    `)
+                  "Invalid value undefined supplied to : Readonly<{ id: string, title: string, done: boolean }>/title: string
+                  Invalid value \\"true\\" supplied to : Readonly<{ id: string, title: string, done: boolean }>/done: boolean"
+            `)
+  }
+})
+
+test('patch', async () => {
+  axiosMock.patch.mockResolvedValue({
+    data: { id: '1', title: 'todo', done: true },
+  })
+  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
+  // tslint:disable-next-line:typedef
+  const taskType = readonly(type({ id: string, title: string, done: boolean }))
+  const actual: TypeOf<typeof taskType> = await http.patch(
+    { resource: 'tasks', path: '1' },
+    { title: 'todo' },
+    taskType,
+  )
+  expect(actual).toEqual({ id: '1', title: 'todo', done: true })
+})
+
+test('patch with incorrect value', async () => {
+  axiosMock.patch.mockResolvedValue({
+    data: { id: '1', description: 'todo', done: 'true' },
+  })
+  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
+  try {
+    await http.patch(
+      { resource: 'tasks', path: '1' },
+      { done: 'true' },
+      readonly(type({ id: string, title: string, done: boolean })),
+    )
+  } catch (e) {
+    expect(e.message).toMatchInlineSnapshot(
+      `"Invalid value \\"true\\" supplied to : Partial<{ id: string, title: string, done: boolean }>/done: boolean"`,
+    )
   }
 })
 
