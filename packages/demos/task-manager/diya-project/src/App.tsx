@@ -17,18 +17,19 @@ import {
   CreateUserRoute,
   CreateVehicleRoute,
   EditBatteryRoute,
+  EditClientRoute,
   EditDriverRoute,
   EditUserRoute,
   EditVehicleRoute,
 } from './pages'
 import {
   BatteryList,
+  ClientList,
   DriverList,
   MenuComponent,
   UserList,
   VehicleList,
 } from './views'
-import { ClientList } from './views/ClientList'
 
 // tslint:disable-next-line: no-console no-void-expression
 
@@ -53,6 +54,7 @@ export const App = () => (
           <Route exact path="/" component={DriverList} />
           <Route exact path="/clients" component={ClientList} />
           <Route exact path="/clients/add" component={CreateClientRoute} />
+          <Route exact path="/clients/:id/edit" component={EditClientRoute} />
           <Route exact path="/users" component={UserList} />
           <Route exact path="/users/add" component={CreateUserRoute} />
           <Route exact path="/users/:id/edit" component={EditUserRoute} />
