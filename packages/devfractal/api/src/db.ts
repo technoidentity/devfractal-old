@@ -1,8 +1,8 @@
 import * as t from 'io-ts'
-import { props, req } from 'technoidentity-utils'
+import { props } from 'technoidentity-utils'
 // tslint:disable typedef
 
-export const todo = req({ id: t.number, title: t.string, done: t.boolean })
+// export const todo = req({ id: t.number, title: t.string, done: t.boolean })
 
 const Status = t.keyof({ active: true, inActive: true })
 
