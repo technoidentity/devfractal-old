@@ -165,7 +165,7 @@ export interface SimpleFormProps<Values> {
 
 export interface TypedForm<Values extends {}> {
   readonly Text: React.FC<GenericInputProps<Values, StringSchema>>
-  readonly Date: React.FC<Omit<SimpleDateProps<Values>, 'schema'>>
+  readonly Date: React.FC<SimpleDateProps<Values>>
   readonly Number: React.FC<GenericInputProps<Values, NumberSchema>>
   readonly Password: React.FC<GenericInputProps<Values, StringSchema>>
   readonly Email: React.FC<GenericInputProps<Values, StringSchema>>
