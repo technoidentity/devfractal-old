@@ -11,6 +11,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Vehicle, vehicleAPI } from '../common'
+import { Actions } from './Actions'
 import { StaticPagination } from './Pagination'
 
 const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
@@ -35,9 +36,17 @@ export const VehicleListForm = component(
           'nextService',
           'insuranceDue',
           'vehicleStatus',
+          'Actions',
         ]}
         striped
-      />
+      >
+        {(key, values) =>
+          key === 'Actions' ? (
+            <Actions editUrl={`vehicles/${values.id}/edit`} />
+          ) : // tslint:disable-next-line: no-null-keyword
+          null
+        }
+      </SimpleTable>
     </>
   ),
 )

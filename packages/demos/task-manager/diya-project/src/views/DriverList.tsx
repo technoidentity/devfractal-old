@@ -11,6 +11,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Driver, driverAPI } from '../common'
+import { Actions } from './Actions'
 import { StaticPagination } from './Pagination'
 
 const DriverListProps = req({
@@ -28,9 +29,16 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
     </ButtonsGroup>
     <SimpleTable
       data={driverList}
-      headers={['name', 'lastActive', 'shift', 'status']}
+      headers={['name', 'lastActive', 'shift', 'status', 'Actions']}
       striped
-    />
+    >
+      {(key, values) =>
+        key === 'Actions' ? (
+          <Actions editUrl={`drivers/${values.id}/edit`} />
+        ) : // tslint:disable-next-line: no-null-keyword
+        null
+      }
+    </SimpleTable>
   </>
 )
 

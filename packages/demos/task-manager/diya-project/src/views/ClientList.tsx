@@ -11,6 +11,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Client, clientAPI } from '../common'
+import { Actions } from './Actions'
 import { StaticPagination } from './Pagination'
 
 export const ClientListProps = req({
@@ -24,7 +25,26 @@ export const ClientListForm = component(ClientListProps, ({ clientList }) => (
         Add Client
       </Link>
     </ButtonsGroup>
-    <SimpleTable data={clientList} striped />
+    <SimpleTable
+      data={clientList}
+      striped
+      headers={[
+        'clientName',
+        'contractType',
+        'email',
+        'numberOfEVS',
+        'rateOfEVS',
+        'assignedEVSHistory',
+        'Actions',
+      ]}
+    >
+      {(key, values) =>
+        key === 'Actions' ? (
+          <Actions editUrl={`/clients/${values.id}/edit`} />
+        ) : // tslint:disable-next-line: no-null-keyword
+        null
+      }
+    </SimpleTable>
   </>
 ))
 
