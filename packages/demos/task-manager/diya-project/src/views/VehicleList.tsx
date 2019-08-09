@@ -42,7 +42,7 @@ export const VehicleListForm = component(
       >
         {(key, values) =>
           key === 'Actions' ? (
-            <Actions editUrl={`vehicles/${values.id}/edit`} />
+            <Actions editUrl={`vehicles/${values.vehicleID}/edit`} />
           ) : // tslint:disable-next-line: no-null-keyword
           null
         }

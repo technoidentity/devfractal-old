@@ -3,7 +3,7 @@ import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Get, SimpleTable } from 'technoidentity-devfractal'
-import { fn, req } from 'technoidentity-utils'
+import { req } from 'technoidentity-utils'
 import { User, userAPI } from '../common'
 import { Actions } from './Actions'
 import { StaticPagination } from './Pagination'
@@ -25,7 +25,7 @@ export const UserListForm = component(UserFormProps, ({ userList }) => {
       <SimpleTable data={userList} headers={['userName', 'role', 'Actions']}>
         {(key, value) =>
           key === 'Actions' ? (
-            <Actions editUrl={`users/${value.id}/edit`} />
+            <Actions editUrl={`users/${value.userID}/edit`} />
           ) : // tslint:disable-next-line: no-null-keyword
           null
         }
