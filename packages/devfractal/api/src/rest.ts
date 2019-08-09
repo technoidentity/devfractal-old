@@ -1,8 +1,8 @@
 import { produce } from 'immer'
 import * as t from 'io-ts'
-import { cast } from 'technoidentity-utils'
+import { cast, HasProps } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
-// import { Query } from './query'
+import { Query, toQuery as toQueryFn } from './query'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
 export interface API<Spec extends t.Mixed, ID extends t.TypeOf<Spec>> {
@@ -19,14 +19,20 @@ export interface API<Spec extends t.Mixed, ID extends t.TypeOf<Spec>> {
   ): Promise<t.TypeOf<Spec>>
 
   get(id: t.TypeOf<Spec[ID]>, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
-  // list(
-  //   query: Query<t.TypeOf<Spec>>,
-  //   options?: Omit<APIMethodArgs, 'query'>,
-  // ): Promise<ReadonlyArray<t.TypeOf<Spec>>>
+  list(
+    query: Query<t.TypeOf<Spec>>,
+    options?: Omit<APIMethodArgs, 'query'>,
+  ): Promise<ReadonlyArray<t.TypeOf<Spec>>>
+
+  replace(
+    id: t.TypeOf<Spec[ID]>,
+    data: t.InputOf<Spec>,
+    options?: APIMethodArgs,
+  ): Promise<t.TypeOf<Spec>>
 
   update(
     id: t.TypeOf<Spec[ID]>,
-    data: t.InputOf<Spec>,
+    data: Partial<t.InputOf<Spec>>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
 
@@ -54,10 +60,14 @@ interface RestArgs extends RequestConfig {
   readonly resource: string
 }
 
-export function rest<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>>(
+export function rest<
+  Spec extends t.Mixed & HasProps,
+  ID extends keyof t.TypeOf<Spec>
+>(
   spec: Spec,
   id: ID /* = 'id' as any */,
   { resource, ...options }: RestArgs,
+  toQuery: (spec: Spec, query: Query<t.TypeOf<Spec>>) => string = toQueryFn,
 ): API<Spec, ID> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
@@ -99,14 +109,14 @@ export function rest<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>>(
     return one(appendId({ ...options, resource }, id))
   }
 
-  // async function list(
-  //   query: Query<t.TypeOf<Spec>>,
-  //   options?: Omit<APIMethodArgs, 'query'>,
-  // ): Promise<ReadonlyArray<t.TypeOf<Spec>>> {
-  //   return many( {query: , ...options})
-  // }
+  async function list(
+    query: Query<t.TypeOf<Spec>>,
+    options?: Omit<APIMethodArgs, 'query'>,
+  ): Promise<ReadonlyArray<t.TypeOf<Spec>>> {
+    return many({ query: toQuery(spec, query), ...options })
+  }
 
-  async function update(
+  async function replace(
     id: t.TypeOf<Spec>[ID],
     data: t.InputOf<Spec>,
     options: APIMethodArgs,
@@ -116,5 +126,15 @@ export function rest<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>>(
     return http.put(appendId({ ...options, resource }, id), data, spec)
   }
 
-  return { one, many, get, update, create, del, idKey: id, spec }
+  async function update(
+    id: t.TypeOf<Spec>[ID],
+    data: Partial<t.InputOf<Spec>>,
+    options: APIMethodArgs,
+  ): Promise<t.TypeOf<Spec>> {
+    cast(spec, data)
+
+    return http.patch(appendId({ ...options, resource }, id), data, spec)
+  }
+
+  return { one, many, replace, update, create, del, get, list, idKey: id, spec }
 }
