@@ -15,7 +15,14 @@ import {
   TextAreaField,
   TextAreaFieldProps,
 } from 'devfractal-forms'
-import { Button, Field, FieldProps, Label } from 'devfractal-ui-core'
+import {
+  Button,
+  ButtonsGroup,
+  ButtonsGroupProps,
+  Field,
+  FieldProps,
+  Label,
+} from 'devfractal-ui-core'
 import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import React from 'react'
 import { camelCaseToPhrase } from 'technoidentity-utils'
@@ -125,7 +132,7 @@ export interface SimpleTextAreaProps<Values extends {}>
   readonly label?: string
 }
 
-export interface SimpleFormButtonsProps {
+export interface SimpleFormButtonsProps extends ButtonsGroupProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
 }
@@ -133,10 +140,11 @@ export interface SimpleFormButtonsProps {
 const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
+  ...props
 }) => (
   <FormikConsumer>
     {({ dirty, isSubmitting, handleReset }) => (
-      <Field groupModifier="grouped-centered">
+      <ButtonsGroup {...props}>
         {submit !== false && (
           <Button type="submit" variant="info" disabled={isSubmitting}>
             {submit}
@@ -152,7 +160,7 @@ const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
             {reset}
           </Button>
         )}
-      </Field>
+      </ButtonsGroup>
     )}
   </FormikConsumer>
 )
