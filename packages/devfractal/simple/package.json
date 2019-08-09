@@ -39,6 +39,7 @@
     "@types/yup": "0.26.22",
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
+    "babel-eslint": "^10.0.2",
     "devfractal-forms": "^1.2.4",
     "devfractal-router": "^1.2.4",
     "devfractal-ui": "^1.2.4",

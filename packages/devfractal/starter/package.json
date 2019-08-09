@@ -26,6 +26,7 @@
     "@types/react-dom": "16.8.5",
     "@types/react-router-dom": "4.3.4",
     "@types/yup": "0.26.22",
+    "babel-eslint": "^10.0.2",
     "chance": "1.0.18",
     "confusing-browser-globals": "1.0.7",
     "cross-env": "5.2.0",

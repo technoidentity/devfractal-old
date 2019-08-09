@@ -38,6 +38,7 @@
     "@types/react-router-dom": "4.3.4",
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
+    "babel-eslint": "^10.0.2",
     "devfractal-api": "^1.2.4",
     "devfractal-forms": "^1.2.4",
     "devfractal-simple": "^1.2.4",
