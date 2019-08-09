@@ -11,6 +11,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Battery, batteryAPI } from '../common'
+import { Actions } from './Actions'
 import { StaticPagination } from './Pagination'
 
 const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
@@ -27,9 +28,23 @@ export const BatteryListForm = component(
 
       <SimpleTable
         data={batteryList}
-        headers={['name', 'id', 'group', 'remainingCycles', 'status']}
+        headers={[
+          'name',
+          'id',
+          'group',
+          'remainingCycles',
+          'status',
+          'Actions',
+        ]}
         striped
-      />
+      >
+        {(key, values) =>
+          key === 'Actions' ? (
+            <Actions editUrl={`batteries/${values.id}/edit`} />
+          ) : // tslint:disable-next-line: no-null-keyword
+          null
+        }
+      </SimpleTable>
     </>
   ),
 )
