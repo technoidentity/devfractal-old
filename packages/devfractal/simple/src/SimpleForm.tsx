@@ -123,7 +123,9 @@ export interface SimpleRadioGroupProps<Values extends {}>
 
 export interface SimpleSelectProps<Values extends {}>
   extends Omit<SelectFieldProps, 'name'>,
-    Named<Values> {}
+    Named<Values> {
+  readonly label?: string
+}
 
 export interface SimpleTextAreaProps<Values extends {}>
   extends Omit<TextAreaFieldProps, 'name'>,
@@ -220,8 +222,9 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
       </Field>
     ),
 
-    Select: ({ children, ...props }) => (
+    Select: ({ children, label, ...props }) => (
       <Field>
+        <Label>{label || camelCaseToPhrase(props.name)}</Label>
         <SelectField {...props}>{children}</SelectField>
         <ErrorField name={props.name} />
       </Field>
