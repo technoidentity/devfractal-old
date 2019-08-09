@@ -1,3 +1,4 @@
+import { SafeRoute as Route } from 'devfractal-router'
 import {
   DropDown,
   DropDownDivider,
@@ -5,15 +6,9 @@ import {
   RoutedTabs,
   RoutedTabsItem,
 } from 'devfractal-ui'
-import {
-  Field,
-  Level,
-  LevelItem,
-  Section,
-  Title,
-} from 'devfractal-ui-core'
+import { Field, Level, LevelItem, Section, Title } from 'devfractal-ui-core'
 import React from 'react'
-import { Redirect, Route } from 'react-router'
+import { Redirect } from 'react-router'
 
 const DropdownExampleTab: React.FC = () => (
   <>

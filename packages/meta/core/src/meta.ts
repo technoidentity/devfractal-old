@@ -24,13 +24,13 @@ export const StringRefinements = opt({
 
 export type StringRefinements = t.TypeOf<typeof StringRefinements>
 
-export const stringRefinements: ReadonlyArray<string> = keys(
+export const stringRefinements: readonly string[] = keys(
   StringRefinements.type.props,
 )
 
 export const DateRefinements = opt({ minDate: date, maxDate: date })
 
-export const dateRefinements: ReadonlyArray<string> = keys(
+export const dateRefinements: readonly string[] = keys(
   DateRefinements.type.props,
 )
 
@@ -41,7 +41,7 @@ export const ArrayRefinements = opt({
   minArrayLength: t.number,
 })
 
-export const arrayRefinements: ReadonlyArray<string> = keys(
+export const arrayRefinements: readonly string[] = keys(
   ArrayRefinements.type.props,
 )
 

@@ -1,7 +1,8 @@
+import { SafeRoute as Route } from 'devfractal-router'
 import { Section } from 'devfractal-ui-core'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
-import { Route, Switch } from 'react-router'
+import { Switch } from 'react-router'
 import { APIRepository } from './api'
 import {
   components as comps,

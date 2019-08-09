@@ -11,7 +11,7 @@ import { camelCaseToPhrase } from 'technoidentity-utils'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {
   readonly name?: string
-  readonly values?: ReadonlyArray<string>
+  readonly values?: readonly string[]
 }
 
 export const SimpleTabs: React.FC<SimpleTabsProps> = ({
@@ -46,7 +46,7 @@ export const SimpleTabs: React.FC<SimpleTabsProps> = ({
 export interface SimpleRoutedTabsProps
   extends Omit<RoutedTabsProps, 'selectedTab'> {
   readonly name?: string
-  readonly values?: ReadonlyArray<string>
+  readonly values?: readonly string[]
 }
 
 export const SimpleRoutedTabs: React.FC<SimpleRoutedTabsProps> = ({

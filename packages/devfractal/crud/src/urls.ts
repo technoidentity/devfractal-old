@@ -17,7 +17,7 @@ export interface URLs {
 interface URLsArgs {
   readonly baseURL: string
   readonly resource: string
-  readonly paths?: string | ReadonlyArray<string>
+  readonly paths?: string | readonly string[]
   readonly query?: string | Object
 }
 

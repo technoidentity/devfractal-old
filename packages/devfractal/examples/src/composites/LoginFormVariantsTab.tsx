@@ -1,8 +1,7 @@
-import { SimpleRedirect } from 'devfractal-router'
+import { SafeRoute as Route, SimpleRedirect } from 'devfractal-router'
 import { RoutedTabs, RoutedTabsItem } from 'devfractal-ui'
 import { Section, Title } from 'devfractal-ui-core'
 import React from 'react'
-import { Route } from 'react-router-dom'
 import {
   FieldsLoginForm,
   FormikLoginForm,

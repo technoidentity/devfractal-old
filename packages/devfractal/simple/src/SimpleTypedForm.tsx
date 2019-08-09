@@ -30,7 +30,7 @@ interface Named<Values extends {}, Value> {
 // @TODO: value must by typed!
 interface SimpleInputProps<
   Values extends {},
-  Value extends string | number | ReadonlyArray<string>
+  Value extends string | number | readonly string[]
 > extends Omit<InputFieldProps, 'name' | 'value'>, Named<Values, Value> {
   readonly schema: yup.Schema<Value>
   readonly label?: string
@@ -41,7 +41,7 @@ interface SimpleInputProps<
 
 interface GenericInputProps<
   Values extends {},
-  Value extends string | number | ReadonlyArray<string>
+  Value extends string | number | readonly string[]
 > extends Omit<SimpleInputProps<Values, Value>, 'type' | 'schema'> {}
 
 function validator<S extends yup.Schema<any>>(
@@ -69,7 +69,7 @@ function SimpleInput<
   Value extends string | number | string[]
 >(args: SimpleInputProps<Values, Value>): JSX.Element {
   const { schema, label, validations, ...props } = args
-  const names: ReadonlyArray<string> = props.name.split('../index')
+  const names: readonly string[] = props.name.split('../index')
 
   return (
     <Field>
@@ -106,7 +106,7 @@ export interface TypedFormProps<Values extends {}>
     Children<Values> {}
 
 interface NestedContext {
-  readonly names: ReadonlyArray<string>
+  readonly names: readonly string[]
 }
 
 const NestedContext: React.Context<NestedContext> = React.createContext<

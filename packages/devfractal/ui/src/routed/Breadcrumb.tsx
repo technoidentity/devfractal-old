@@ -1,14 +1,6 @@
-import {
-  removeRouteComponentProps,
-  WithRouter,
-} from 'devfractal-router'
-import {
-  classNamesHelper,
-  El,
-  Helpers,
-} from 'devfractal-ui-core'
+import { useRouter } from 'devfractal-router'
+import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
-import { RouteComponentProps } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import { chop } from 'technoidentity-utils'
 
@@ -29,31 +21,21 @@ export interface BreadcrumbItemProps
   readonly href?: string
 }
 
-export const BreadcrumbItemWithRouter: React.FC<
-  BreadcrumbItemProps & RouteComponentProps
-> = args => {
-  const { active, href, children, ...props } = removeRouteComponentProps(args)
-
+export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = args => {
+  const { active, href, children, ...props } = args
+  const { location } = useRouter()
   return (
     <El
       as="li"
       {...props}
       className={classNamesHelper(props, {
-        'is-active':
-          active || (href && chop(href)) === chop(args.location.pathname),
+        'is-active': active || (href && chop(href)) === chop(location.pathname),
       })}
     >
       {<NavLink to={href || '#'}>{children}</NavLink>}
     </El>
   )
 }
-
-export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = props => (
-  <WithRouter<BreadcrumbItemProps>
-    {...props}
-    component={BreadcrumbItemWithRouter}
-  />
-)
 
 export interface BreadcrumbProps
   extends React.HTMLAttributes<HTMLElement>,
