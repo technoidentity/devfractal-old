@@ -1,9 +1,8 @@
-import {
-  classNamesHelper,
-  El,
-  Helpers,
-} from 'devfractal-ui-core'
+import { useRouter } from 'devfractal-router'
+import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import { chop } from 'technoidentity-utils'
 
 type MenuSize = 'small' | 'medium' | 'large'
 
@@ -12,15 +11,28 @@ export interface MenuProps extends React.HTMLAttributes<HTMLElement>, Helpers {
    * To resize the Menu Content
    */
   readonly size?: MenuSize
+  readonly baseURL?: string
 }
 
-export const Menu: React.FC<MenuProps> = ({ size, children, ...props }) => {
+export const Menu: React.FC<MenuProps> = ({
+  size,
+  baseURL,
+  children,
+  ...props
+}) => {
   const classes: string = classNamesHelper(props, 'menu', {
     [`is-${size}`]: size,
   })
   return (
     <El as="aside" {...props} className={classes}>
-      {children}
+      <ul>
+        {React.Children.map(children, (child: any) =>
+          React.cloneElement(
+            child,
+            baseURL ? { href: `${chop(baseURL)}/${child.props.value}` } : {},
+          ),
+        )}
+      </ul>
     </El>
   )
 }
@@ -56,19 +68,22 @@ export interface MenuItemProps
     Helpers {
   readonly href?: string
   readonly active?: boolean
+  readonly value?: string
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({
+  href,
   active,
   children,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, {
-    'is-active': active,
+    'is-active': active || (href && chop(href)) === chop(location.pathname),
   })
+
   return (
     <El as="li" {...props} className={classes}>
-      {children}
+      {<Link to={href || '#'}>{children}</Link>}
     </El>
   )
 }
