@@ -7,7 +7,7 @@ import { chop, debug, keys, verify } from 'technoidentity-utils'
 
 export interface MethodArgs {
   readonly resource?: string
-  readonly path?: string | ReadonlyArray<string>
+  readonly path?: string | readonly string[]
   readonly query?: string | Record<string, any>
 }
 
@@ -29,7 +29,7 @@ function buildResource(resource?: string): string {
   return ''
 }
 
-function buildPath(path?: string | ReadonlyArray<string>): string {
+function buildPath(path?: string | readonly string[]): string {
   if (array(string).is(path)) {
     const paths: string[] = path.filter(p => p.trim() !== '')
     paths.forEach(slashWarn)
