@@ -1,11 +1,11 @@
-import { Router } from 'devfractal-router'
+import { Router, SafeRoute as Route } from 'devfractal-router'
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
 import { DropdownExample } from './DropDownExample'
 
 const Ex: React.FC = () => (
   <Router variant="hash">
-    <DropdownExample />
+    <Route path="/" component={DropdownExample} />
   </Router>
 )
 test('Dropdown Example', () => {

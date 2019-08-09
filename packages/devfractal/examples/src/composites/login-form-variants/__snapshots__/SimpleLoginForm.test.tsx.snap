@@ -51,7 +51,7 @@ exports[`Simple Login Form 1`] = `
       </div>
     </div>
     <div
-      className="field is-grouped is-grouped-centered"
+      className="buttons"
     >
       <div
         className="control"
