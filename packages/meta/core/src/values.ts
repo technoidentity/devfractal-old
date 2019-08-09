@@ -27,7 +27,7 @@ export function MDate(refinements?: DateRefinements): PrimitiveMT {
   return { kind: 'date', refinements }
 }
 
-export function MEnum(values: ReadonlyArray<string>, name?: string): EnumMT {
+export function MEnum(values: readonly string[], name?: string): EnumMT {
   return { kind: 'enum', values, name }
 }
 

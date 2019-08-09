@@ -41,7 +41,7 @@ const errorMessages = {
   minDate: (value: Date) =>
     `should not be smaller than ${jsonStringify(value)}`,
 
-  enum: (values: ReadonlyArray<string>) =>
+  enum: (values: readonly string[]) =>
     `should be one of ${jsonStringify(values)}`,
 
   array: 'should be an array',
@@ -93,7 +93,7 @@ const validators = {
   // TODO: may be tcomb is wrong about object?
   object: (v: unknown): v is object => t.Object.is(v),
 
-  enum: (values: ReadonlyArray<string>) => (v: string) => values.includes(v),
+  enum: (values: readonly string[]) => (v: string) => values.includes(v),
 }
 
 // tslint:disable no-array-mutation
@@ -214,21 +214,21 @@ function errorMessage(meta: Mixed): string {
 
 interface ErrorsPrimitive {
   readonly kind: PrimitiveMT['kind']
-  readonly errors?: ReadonlyArray<string>
+  readonly errors?: readonly string[]
 }
 interface ErrorsEnum {
   readonly kind: EnumMT['kind']
-  readonly errors?: ReadonlyArray<string>
+  readonly errors?: readonly string[]
 }
 interface ErrorsArray {
   readonly kind: ArrayMT['kind']
-  readonly errors?: ReadonlyArray<string>
+  readonly errors?: readonly string[]
   readonly elements?: ReadonlyArray<Errors>
 }
 
 interface ErrorsObject {
   readonly kind: MT['kind']
-  readonly errors?: ReadonlyArray<string>
+  readonly errors?: readonly string[]
   readonly properties?: { readonly [s: string]: Errors }
 }
 
@@ -255,7 +255,7 @@ function validatePrimitive(
         return { kind: meta.kind, errors: [errorMessage(meta)] }
       }
       if (meta.refinements) {
-        const errors: ReadonlyArray<string> = errorsForNumberRefinements(
+        const errors: readonly string[] = errorsForNumberRefinements(
           meta.refinements,
           value,
         )
@@ -270,7 +270,7 @@ function validatePrimitive(
         return { kind: meta.kind, errors: [errorMessage(meta)] }
       }
       if (meta.refinements) {
-        const errors: ReadonlyArray<string> = errorsForStringRefinements(
+        const errors: readonly string[] = errorsForStringRefinements(
           meta.refinements,
           value,
         )
@@ -295,7 +295,7 @@ function validatePrimitive(
         return { kind: meta.kind, errors: [errorMessage(meta)] }
       }
       if (meta.refinements) {
-        const errors: ReadonlyArray<string> = errorsForDateRefinements(
+        const errors: readonly string[] = errorsForDateRefinements(
           meta.refinements,
           value,
         )
@@ -326,7 +326,7 @@ function validateArray(meta: ArrayMT, value: unknown): ErrorsArray | undefined {
     value.map(e => validate(meta.of, e)),
   )
 
-  const errors: ReadonlyArray<string> = meta.refinements
+  const errors: readonly string[] = meta.refinements
     ? errorsForArrayRefinements(meta.refinements, value)
     : []
 
