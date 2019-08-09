@@ -4,7 +4,7 @@ import { Section, Title } from 'devfractal-ui-core'
 import { string } from 'io-ts'
 import React from 'react'
 import { req } from 'technoidentity-utils'
-import { Task, taskAPI } from '../common'
+import { taskAPI } from '../common'
 import { TaskForm } from '../views'
 
 const Params = req({ id: string })
@@ -14,7 +14,7 @@ export const EditTaskRoute: React.FC = () => {
   return (
     <Section>
       <Title textAlignment="centered">Edit Task</Title>
-      <Put<Task>
+      <Put
         id={params.id}
         doGet={taskAPI.get}
         onPut={taskAPI.update}
