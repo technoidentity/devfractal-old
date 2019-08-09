@@ -22,7 +22,7 @@ type Status = TypeOf<typeof Status>
 export const Driver = props(
   {
     lastActive: ISODate,
-    id: string,
+    driverID: string,
     status: Status,
   },
   {
@@ -52,7 +52,7 @@ type Group = TypeOf<typeof Group>
 export const Battery = props(
   {
     name: string,
-    id: string,
+    batteryID: string,
     group: Group,
     remainingCycles: Int,
     status: Status,
@@ -76,7 +76,7 @@ export const Vehicle = props(
     nextService: ISODate,
     insuranceDue: ISODate,
     vehicleStatus: Status,
-    id: string,
+    vehicleID: string,
   },
   {
     makersClass: string,
@@ -100,7 +100,7 @@ const ContractType = keyof({
 })
 
 export const Client = props(
-  { id: string },
+  { clientID: string },
   {
     clientName: string,
     contractType: ContractType,
@@ -120,7 +120,7 @@ export const Role = keyof({
 })
 
 export const User = props(
-  { dateOfJoining: ISODate, id: string },
+  { dateOfJoining: ISODate, userID: string },
   { userName: string, role: Role },
 )
 
