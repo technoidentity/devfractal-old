@@ -741,38 +741,38 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@fortawesome/fontawesome-common-types@^0.2.20":
+"@fortawesome/fontawesome-common-types@^0.2.21":
   version "0.2.21"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.21.tgz#f1c26ae24761cca583de7cafd1273ab4c70a4d87"
   integrity sha512-iJtcrU2BtF9Wyr0zm3tHEJy3HqA6sADExhCqCv3SKaJJKKp4ORJ40t4nyHvcWXSVFtd7r1gcdqcRsAfoREGTFA==
 
-"@fortawesome/fontawesome-svg-core@1.2.20":
-  version "1.2.20"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.20.tgz#2b562dd73df08c835e1f42c04061029ee77b90b5"
-  integrity sha512-p18GsDaPeZOFKENyigYcEg0ez9UHqUO7wxcdxpoxsb0pMxvt4kW8RTrgUIW1z3/19E/Z1iRQDmB3ZyfZ+CcpSQ==
+"@fortawesome/fontawesome-svg-core@1.2.21":
+  version "1.2.21"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.21.tgz#5b08a28d6e1ea198e002447b158abba00fd12122"
+  integrity sha512-EhrgMZLJS0tTYZhUbodurZBqDgAFLDNdxJP/q5unrZJwiFo8Dd7xGvJdhAhY5WcX4khzkPQcbLTCMPHBtutD7Q==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.20"
+    "@fortawesome/fontawesome-common-types" "^0.2.21"
 
-"@fortawesome/free-brands-svg-icons@5.10.0":
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.10.0.tgz#59c8cb53e860c79dcba98e59085abc2b03e89768"
-  integrity sha512-Wj4MSV4J4DL8+HgnRTt2mk3pE2n3RZojDAlcN2G+2yzsdkI5TbXODY9bnfxs7Ik02GMqdhTdeHj/orxJYcYGLA==
+"@fortawesome/free-brands-svg-icons@5.10.1":
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.10.1.tgz#79e0928269e818a18ee19cec56dc8d767e65cd8f"
+  integrity sha512-xrq2+coLZUGcQsmbdoyyp5O5X4a6FhEQj3cGdlM14/bZ6lHCeKlZElsvr/ETtFtD8w2UgQpb3E7Eylo69utD1g==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.20"
+    "@fortawesome/fontawesome-common-types" "^0.2.21"
 
-"@fortawesome/free-regular-svg-icons@5.10.0":
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.10.0.tgz#a5976d2e1e8862ea7485ecfcad909ee7736399f9"
-  integrity sha512-febPe8b7Ejq9XWyiiUhy0D0JunkmarDRLT4Vrm0JQ1PjYYjFTC8t0z6ducHZxovXoowFAEh4nxBj/uCFTm7hSA==
+"@fortawesome/free-regular-svg-icons@5.10.1":
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.10.1.tgz#4096d169520a5ed8ab31a34edb6d7710fefbe160"
+  integrity sha512-2qU3IE4PeqZjMrVuHsE5sjgK64HlpijMhBv66TEhFEGCLpB2bwRdGvies6vpUvmTRRHhUat4IcRayLUWuGbKXQ==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.20"
+    "@fortawesome/fontawesome-common-types" "^0.2.21"
 
-"@fortawesome/free-solid-svg-icons@5.10.0":
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.10.0.tgz#ccc803828f6b71db78414550faa7b1c4ebf494b2"
-  integrity sha512-Ndt0GR9wU66lBLGMRZN2jv8LEDx+VTfwmnqYKLQ3VttH4ikgTpqBhdr7UF4M3GFYt1CwftrPVuKOUAFleYg7xA==
+"@fortawesome/free-solid-svg-icons@5.10.1":
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.10.1.tgz#535fd5429dbe99656de4f1a8ee42d9f8f5a7aef9"
+  integrity sha512-MKH+SCt0DnVoXdemxf6JEdTRtCPwYLMCWZcwgGccYU/ab6QcDtbAMn6Xm4Zub6YqQCcaiy0hU294YdHOldSBRA==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.20"
+    "@fortawesome/fontawesome-common-types" "^0.2.21"
 
 "@fortawesome/react-fontawesome@0.1.4":
   version "0.1.4"
@@ -2833,70 +2833,70 @@ detect-newline@^2.1.0:
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
   integrity sha1-9B8cEL5LAOh7XxPaaAdZ8sW/0+I=
 
-devfractal-api@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/devfractal-api/-/devfractal-api-1.2.4.tgz#06d2b4b1c990c2c8bb119bd7912394bf48c57ccc"
-  integrity sha512-9CHhpO6cXRDrpdUtKO/AMTj07KNSVuJSPNAF2ArbU054EHlHR2GZ/RSFAuSdwv2jV5Czmy+5JfRqO9c62M9ICA==
+devfractal-api@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/devfractal-api/-/devfractal-api-1.2.5.tgz#26f142fd7421131647a32cbca24236594e86a9fc"
+  integrity sha512-rNbHf9MpVafDicY8YoL7RnH6/S6m1kY1aQqX8rQXngNsaTmSF0CFJT/tYakkNK3OYa6qTBY99mLKozQEgQd2jA==
   dependencies:
     axios "0.19.0"
-    immer "3.1.3"
+    immer "3.2.0"
     io-ts-promise "2.0.0"
     query-string "6.8.2"
     tslib "1.10.0"
     typelevel-ts "0.3.5"
 
-devfractal-crud@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/devfractal-crud/-/devfractal-crud-1.2.4.tgz#e79fca6b8af528a04cbd8c6629151c83b99889b9"
-  integrity sha512-RVvtgYJn9ZR7CZQPS+BgvFprqtKNRzFbzSyoytkl8z1U0d+Yzc/07ZsCbn7k46f1/9IQt+cQngpdG+nP8ywP7Q==
+devfractal-crud@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/devfractal-crud/-/devfractal-crud-1.2.5.tgz#e6b3c1aae13cfce92e35e0631fd0e1541d2f3012"
+  integrity sha512-CQYXBWbLKwZxmQhKnUt0xBfDvg39AuDFyjXB7Rwf+ZMMzz34Ci9F6jbvAtEfyosk8/YIbh2gqAHvx6WgQxSLUw==
   dependencies:
     tslib "1.10.0"
 
-devfractal-forms@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/devfractal-forms/-/devfractal-forms-1.2.4.tgz#20eace617745b0cc78219b2afd1656365bb3697e"
-  integrity sha512-KDDHjr/57NjlCUctIC2LI/n34uhPR08MqmVEE04gWqA7rYz0X8r7Rm0/39iZsCBpKclmagRcZo3GApIOaZBZUA==
+devfractal-forms@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/devfractal-forms/-/devfractal-forms-1.2.5.tgz#345fc5c747dccd2cae5318404ee6d8b15f64e658"
+  integrity sha512-JDGmB1IWZwowhSdHf6sR2esylAcFegauB34zUPopG21kJ3SKPM0la0UWz/fSaLXGCfJHNr5YOJjv0UTPv0ka4Q==
   dependencies:
     cleave.js "1.5.3"
     date-fns "1.30.1"
-    immer "3.1.3"
+    immer "3.2.0"
     react-datepicker "2.8.0"
-    technoidentity-utils "^1.2.4"
+    technoidentity-utils "^1.2.5"
     tslib "1.10.0"
 
-devfractal-router@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/devfractal-router/-/devfractal-router-1.2.4.tgz#4299ccbb75cb59e07aff47ae50dfc211215238b1"
-  integrity sha512-o4oEqz3j6n8bTMIWr/YCQt2YaUOklJJmixlT5yXmH4VI83E8tLAsAI4w85kUtH0BqThsx7+D/nhjQbkp7Q3R0w==
+devfractal-router@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/devfractal-router/-/devfractal-router-1.2.5.tgz#c37f636ffee1794c363518db1b2a77b0afe28717"
+  integrity sha512-llrSZjS4J4hukvSEhE5b14WdF4J9o9WJHaCNhq6EhMTpTFHNS/WOZDyXRJX2/FXWO+uZg2YPNjjUcs8nMS9deA==
   dependencies:
     query-string "6.8.2"
-    technoidentity-utils "^1.2.4"
+    technoidentity-utils "^1.2.5"
     tslib "1.10.0"
 
-devfractal-simple@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/devfractal-simple/-/devfractal-simple-1.2.4.tgz#a294cb0242379ced5e6a7c1d4a754d19f689a76c"
-  integrity sha512-1WtP6vewfbixhcPv8MrGK5Q8yqApprf22Ke9emCz/vq69iin6r/QbNJaTpxQk4CwgnpMcen40Zt7PkZfOYSj7w==
+devfractal-simple@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/devfractal-simple/-/devfractal-simple-1.2.5.tgz#960995fd0d39b1f2734b6e31e6f85ae69502d87d"
+  integrity sha512-lfo5RzPntj6m26RT3Xsa7HZu2eyfu5Zqrvoyf/IsQkerMyvx6PBDTgpI+xZcYuhl6bifw44YAcxeKDcsGcIQiw==
   dependencies:
     tslib "1.10.0"
 
-devfractal-ui-core@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/devfractal-ui-core/-/devfractal-ui-core-1.2.4.tgz#80d98de590921393c3d84c4d0a18780b97ce6d0e"
-  integrity sha512-Kfz7U9RSfIHt481c3oU7TSlI5cNEovqA3oxbxPV1ypc7dKxsxkl06a4VlLEN7z48EhIfROTnCaxepx1JaOT0UA==
+devfractal-ui-core@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/devfractal-ui-core/-/devfractal-ui-core-1.2.5.tgz#867b6648a9f02af2bb9957d85cce464ed3cb9648"
+  integrity sha512-IujfC0L4hGU2B/C1vcY5ctZcjWE4aVHh/77KkI1LBUR09B9B9727ogXYp7zjDkllZ2AiQdT3erLxKb8mrYFVZw==
   dependencies:
-    "@fortawesome/fontawesome-svg-core" "1.2.20"
-    "@fortawesome/free-brands-svg-icons" "5.10.0"
-    "@fortawesome/free-regular-svg-icons" "5.10.0"
-    "@fortawesome/free-solid-svg-icons" "5.10.0"
+    "@fortawesome/fontawesome-svg-core" "1.2.21"
+    "@fortawesome/free-brands-svg-icons" "5.10.1"
+    "@fortawesome/free-regular-svg-icons" "5.10.1"
+    "@fortawesome/free-solid-svg-icons" "5.10.1"
     "@fortawesome/react-fontawesome" "0.1.4"
     bulma "0.7.5"
     tslib "1.10.0"
 
-devfractal-ui@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/devfractal-ui/-/devfractal-ui-1.2.4.tgz#34c7ecfbdc8da46ef3087614e7e079aa1be251e1"
-  integrity sha512-KH537VKzRvCjys2/2Wx2y3Viviht9VX8zFjcVeQrKK27ZCTp7Z5yTkaH/BG5HpuEg5Mm4S6Ehw+zb+OweiClog==
+devfractal-ui@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/devfractal-ui/-/devfractal-ui-1.2.5.tgz#e67dc09fe08585ef76cac483bc6c62b02e0aeab5"
+  integrity sha512-KLn2u8JX5ef5j0o0NT8Vv2foOvmFMAqTdRVTL3Kl2ddYq5LB/H8feCAbwWdAUMph6neBW+ET9i3UFntc7w7ahw==
   dependencies:
     tslib "1.10.0"
 
@@ -4057,10 +4057,10 @@ ignore@^5.1.1:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.2.tgz#e28e584d43ad7e92f96995019cc43b9e1ac49558"
   integrity sha512-vdqWBp7MyzdmHkkRWV5nY+PfGRbYbahfuvsBCh277tq+w9zyNi7h5CYJCK0kmzti9kU+O/cB7sE8HvKv6aXAKQ==
 
-immer@3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-3.1.3.tgz#59bc742b2aab6e2c676445edb653e588a23c70fc"
-  integrity sha512-HG5SXTXTTVy9lGNwS075cNhQoV375jHsIJO3UtMjuUWJOuwlMr0u42FlsKTJcppt5AzsFAsmj9r4kHvsSHh3hQ==
+immer@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-3.2.0.tgz#53686471e9dd2b070e0fb5500c6fdecd3a99375f"
+  integrity sha512-+a2R8z9eELHst6aht++nzVzJ8LJ+Hsg49qttfg9Kc/vmoxEdPXw5/rV6+4DYWGgnq+B36KbLr4OTaGtS9mDjtg==
 
 import-fresh@^2.0.0:
   version "2.0.0"
@@ -8132,18 +8132,18 @@ technoidentity-dev-utils@1.2.4:
     technoidentity-utils "^1.2.4"
     tslib "1.10.0"
 
-technoidentity-devfractal@1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-1.2.4.tgz#39641ba7f03a390789b54440aea1fb8094280800"
-  integrity sha512-YKi1zgXgTEkDY9U8a0EK4IJ3CBY0RpWF8U++JrHx4F+++JFyeTzEDvqXoPLzIcr7tRaBB6pgzihjhqm0cbuyKw==
+technoidentity-devfractal@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-1.2.5.tgz#af7424102c3fbf31543110c5485d0acea3c38795"
+  integrity sha512-SSektUCTT0rO+zTt0bMe7pMVhtIQ6gL/2Vs55TewMhgRZ0KeEEB7+1bRv1bmPVA9fT/KTb+9JAozbpu5+JJsfA==
   dependencies:
-    devfractal-api "^1.2.4"
-    devfractal-crud "^1.2.4"
-    devfractal-forms "^1.2.4"
-    devfractal-router "^1.2.4"
-    devfractal-simple "^1.2.4"
-    devfractal-ui "^1.2.4"
-    devfractal-ui-core "^1.2.4"
+    devfractal-api "^1.2.5"
+    devfractal-crud "^1.2.5"
+    devfractal-forms "^1.2.5"
+    devfractal-router "^1.2.5"
+    devfractal-simple "^1.2.5"
+    devfractal-ui "^1.2.5"
+    devfractal-ui-core "^1.2.5"
     tslib "1.10.0"
 
 technoidentity-utils@^1.2.4:
@@ -8152,6 +8152,14 @@ technoidentity-utils@^1.2.4:
   integrity sha512-5cJi+18kZSBoHMTYZex1s/xGJ5gKl/RtANHxOsk5boZGN7K4OlfoT9Oa4hsXFjZq3ENkN+syocKApVBqQJJc1w==
   dependencies:
     chance "1.0.18"
+    date-fns "1.30.1"
+    tslib "1.10.0"
+
+technoidentity-utils@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-1.2.5.tgz#e44685e3e8be6c818284bd4641fb5803b69747c4"
+  integrity sha512-WoPGePav0mGFCM07FMGl1cYNkf6Psu4wR1psktOwPXE88RyRtjkfZ+z+7oSgpPGaTPg2NE1OGFrM++gmdSRcwA==
+  dependencies:
     date-fns "1.30.1"
     tslib "1.10.0"
 
