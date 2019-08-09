@@ -1,14 +1,7 @@
-import {
-  removeRouteComponentProps,
-  WithRouter,
-} from 'devfractal-router'
-import {
-  classNamesHelper,
-  El,
-  Helpers,
-} from 'devfractal-ui-core'
+import { useRouter } from 'devfractal-router'
+import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
-import { NavLink, RouteComponentProps } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { chop, extractSegment } from 'technoidentity-utils'
 
 interface RoutedTabsContext {
@@ -84,9 +77,7 @@ export interface RoutedTabsProps
   readonly urlSeparator?: string
 }
 
-const RoutedTabsWithRouter: React.FC<
-  RoutedTabsProps & RouteComponentProps
-> = args => {
+export const RoutedTabs: React.FC<RoutedTabsProps> = args => {
   const {
     to,
     urlSeparator = '/',
@@ -96,7 +87,7 @@ const RoutedTabsWithRouter: React.FC<
     tabsStyle,
     children,
     ...props
-  } = removeRouteComponentProps(args)
+  } = args
 
   const classes: string = classNamesHelper(props, 'tabs', {
     [`is-${size}`]: size,
@@ -104,13 +95,13 @@ const RoutedTabsWithRouter: React.FC<
     [`is-${tabsStyle}`]: tabsStyle,
     'is-fullwidth': fullWidth,
   })
-
+  const { location } = useRouter()
   return (
     <RoutedTabsContext.Provider
       value={{
         baseURL: to,
         separator: urlSeparator,
-        currentLocation: args.location.pathname,
+        currentLocation: location.pathname,
       }}
     >
       <El {...props} className={classes}>
@@ -119,7 +110,3 @@ const RoutedTabsWithRouter: React.FC<
     </RoutedTabsContext.Provider>
   )
 }
-
-export const RoutedTabs: React.FC<RoutedTabsProps> = props => (
-  <WithRouter<RoutedTabsProps> {...props} component={RoutedTabsWithRouter} />
-)

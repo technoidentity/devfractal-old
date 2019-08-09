@@ -1,13 +1,11 @@
-import { WithRouter } from 'devfractal-router'
+import { useRouter } from 'devfractal-router'
 import { Null } from 'devfractal-ui-core'
 import React from 'react'
-import { RouteComponentProps } from 'react-router'
 import { capitalizeAll, chop } from 'technoidentity-utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 
-const DynamicBreadcrumbWithRouter: React.FC<RouteComponentProps> = ({
-  location,
-}) => {
+export const DynamicBreadcrumb: React.FC = () => {
+  const { location } = useRouter()
   const segments: string[] = chop(location.pathname).split('/')
 
   if (segments.length <= 1) {
@@ -29,7 +27,3 @@ const DynamicBreadcrumbWithRouter: React.FC<RouteComponentProps> = ({
     </Breadcrumb>
   )
 }
-
-export const DynamicBreadcrumb: React.FC = () => (
-  <WithRouter<{}> component={DynamicBreadcrumbWithRouter} />
-)
