@@ -2,6 +2,7 @@ import { Either, isRight } from 'fp-ts/lib/Either'
 import * as t from 'io-ts'
 import { PathReporter } from 'io-ts/lib/PathReporter'
 import { assert, fatal } from './assertions'
+import { omit, pick } from './common'
 
 export function cast<A, O, I>(spec: t.Type<A, O, I>, args: I): A {
   const decoded: Either<t.Errors, A> = spec.decode(args)
@@ -100,4 +101,18 @@ export function getProps<T extends t.Mixed>(codec: T & HasProps): t.Props {
         {},
       )
   }
+}
+
+export function pickProps<T extends t.Props, K extends keyof T>(
+  props: T,
+  keys: ReadonlyArray<K>,
+): Pick<T, K> {
+  return pick(props, keys)
+}
+
+export function omitProps<T extends t.Props, K extends keyof T>(
+  props: T,
+  keys: ReadonlyArray<K>,
+): Omit<T, K> {
+  return omit(props, keys)
 }
