@@ -1,7 +1,7 @@
 import { Field, FieldConfig, FieldProps } from 'formik'
 import React from 'react'
-import { CleaveInput, CleaveInputProps } from './CleaveInput'
-import { OmitForm } from './types'
+import { CleaveInput, CleaveInputProps } from '../components'
+import { OmitForm } from '../types'
 
 type CleaveInputInnerProps<V> = FieldProps<V> & OmitForm<CleaveInputProps>
 

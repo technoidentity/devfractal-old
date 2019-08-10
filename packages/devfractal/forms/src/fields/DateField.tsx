@@ -1,7 +1,7 @@
 import { Field, FieldConfig, FieldProps } from 'formik'
 import React from 'react'
-import { DateInput, DateInputProps } from './DateInput'
-import { OmitForm } from './types'
+import { DateInput, DateInputProps } from '../components'
+import { OmitForm } from '../types'
 
 type DateInputInnerProps<V> = FieldProps<V> & OmitForm<DateInputProps>
 
