@@ -1,4 +1,4 @@
-import { buildObject, range, repeatedly, today } from './common'
+import { buildObject, omit, pick, range, repeatedly, today } from './common'
 
 it('range', () => {
   expect(range(0, -2)).toEqual([])
@@ -51,4 +51,16 @@ it('buildObject', () => {
   })
   expect(buildObject({ x: '0' }, Boolean)).toEqual({ x: true })
   expect(buildObject({ x: 'true' }, value => value.length)).toEqual({ x: 4 })
+})
+
+it('omit', () => {
+  expect(omit({ x: 1, y: '2' }, ['x'])).toEqual({ y: '2' })
+  expect(omit({ x: 1, y: '2' }, ['z'] as any)).toEqual({ x: 1, y: '2' })
+  expect(omit({ x: 1, y: '2' }, ['x', 'y'])).toEqual({})
+})
+
+it('pick', () => {
+  expect(pick({ x: 1, y: '2' }, ['x'])).toEqual({ x: 1 })
+  expect(pick({ x: 1, y: '2' }, ['z'] as any)).toEqual({})
+  expect(pick({ x: 1, y: '2' }, ['x', 'y'])).toEqual({ x: 1, y: '2' })
 })

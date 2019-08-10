@@ -53,6 +53,10 @@ export function repeatedly<T>(
 
 export const buildArray: typeof repeatedly = repeatedly
 
+export function keys<T extends Object>(obj: T): ReadonlyArray<keyof T> {
+  return Object.keys(obj) as ReadonlyArray<keyof T>
+}
+
 export function buildObject<T extends {}, R>(
   obj: T,
   f: (value: T[typeof key], key: keyof T) => R,
@@ -65,10 +69,6 @@ export function buildObject<T extends {}, R>(
     }
   }
   return result
-}
-
-export function keys<T extends Object>(obj: T): ReadonlyArray<keyof T> {
-  return Object.keys(obj) as ReadonlyArray<keyof T>
 }
 
 export function today(): Date {
@@ -88,3 +88,33 @@ export async function interval<T>(
 
 // tslint:disable-next-line: typedef
 export const ISODate = union([date, DateFromISOString])
+
+export function pick<T extends {}, K extends keyof T>(
+  obj: T,
+  ks: ReadonlyArray<K>,
+): Pick<T, K> {
+  const result: any = {}
+
+  for (const k of keys(obj)) {
+    if (ks.includes(k as K)) {
+      result[k] = obj[k]
+    }
+  }
+
+  return result
+}
+
+export function omit<T extends {}, K extends keyof T>(
+  obj: T,
+  ks: ReadonlyArray<K>,
+): Omit<T, K> {
+  const result: any = {}
+
+  for (const k of keys(obj)) {
+    if (!ks.includes(k as K)) {
+      result[k] = obj[k]
+    }
+  }
+
+  return result
+}
