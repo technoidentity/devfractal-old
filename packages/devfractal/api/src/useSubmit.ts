@@ -63,7 +63,8 @@ export function useSubmitReset<T extends {}>(
   asyncFn: (formValues: T) => Promise<T>,
   noReset?: boolean,
 ): SubmitResult<T> {
-  return useSubmit(asyncFn, (_, actions) => {
+  return useSubmit(asyncFn, (values, actions) => {
+    actions.setValues(values)
     if (!noReset) {
       actions.resetForm()
     }
