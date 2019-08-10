@@ -11,7 +11,7 @@ export function SafeRoute<
 
   return (
     <Route
-      exact={exact || true}
+      exact={exact !== undefined ? exact : true}
       {...props}
       render={({ match, ...renderProps }) => {
         if (setRouteMatched) {
