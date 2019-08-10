@@ -1,18 +1,18 @@
 import React from 'react'
-import { SubmitAction } from './common'
+import { SubmitAction } from '../common'
+import { useSubmitReset } from '../useSubmit'
 import { ServerError } from './ServerError'
-import { useSubmitReset } from './useSubmit'
 
-export interface PostFormProps<T> {
+export interface PostResetProps<T> {
   // readonly inlineErrors?: boolean
   readonly component: React.FC<{ readonly onSubmit: SubmitAction<T> }>
   onPost(values: T): Promise<T>
 }
 
-export function PostForm<T>({
+export function PostReset<T>({
   onPost,
   component: Component,
-}: PostFormProps<T>): JSX.Element {
+}: PostResetProps<T>): JSX.Element {
   const { serverError, onSubmit } = useSubmitReset(onPost)
 
   return (

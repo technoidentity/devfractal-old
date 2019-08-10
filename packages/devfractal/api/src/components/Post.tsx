@@ -1,7 +1,7 @@
 import React from 'react'
-import { SubmitAction } from './common'
+import { SubmitAction } from '../common'
+import { useSubmitRedirect } from '../useSubmit'
 import { ServerError } from './ServerError'
-import { useSubmitRedirect } from './useSubmit'
 
 export interface PostProps<T> {
   readonly redirectPath?: string

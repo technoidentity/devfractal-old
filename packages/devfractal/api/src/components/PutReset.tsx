@@ -1,29 +1,29 @@
 import React from 'react'
-import { SubmitAction } from './common'
+import { SubmitAction } from '../common'
+import { useSubmitReset } from '../useSubmit'
 import { Get } from './Get'
 import { ServerError } from './ServerError'
-import { useSubmitReset } from './useSubmit'
 
-export interface PatchComponentProps<T> {
+export interface PutResetComponentProps<T> {
   readonly initial?: T
   readonly onSubmit: SubmitAction<T>
 }
 
-export interface PatchProps<T, ID extends keyof T> {
+export interface PutResetProps<T, ID extends keyof T> {
   readonly id: T[ID]
   doGet(id: T[ID]): Promise<T>
-  onPatch(id: T[ID], values: Partial<T>): Promise<T>
-  readonly component: React.FC<PatchComponentProps<T>>
+  onPut(id: T[ID], values: T): Promise<T>
+  readonly component: React.FC<PutResetComponentProps<T>>
 }
 
-export function Patch<T, ID extends keyof T>({
+export function PutReset<T, ID extends keyof T>({
   id,
   doGet,
-  onPatch,
+  onPut,
   component: Component,
-}: PatchProps<T, ID>): JSX.Element {
+}: PutResetProps<T, ID>): JSX.Element {
   async function update(data: T): Promise<T> {
-    return onPatch(id, data)
+    return onPut(id, data)
   }
 
   const { serverError, onSubmit } = useSubmitReset(update)

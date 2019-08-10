@@ -1,31 +1,31 @@
 import React from 'react'
-import { SubmitAction } from './common'
+import { SubmitAction } from '../common'
+import { useSubmitRedirect } from '../useSubmit'
 import { Get } from './Get'
 import { ServerError } from './ServerError'
-import { useSubmitRedirect } from './useSubmit'
 
-export interface PatchComponentProps<T> {
+export interface PutComponentProps<T> {
   readonly initial?: T
   readonly onSubmit: SubmitAction<T>
 }
 
-export interface PatchProps<T, ID extends keyof T> {
+export interface PutProps<T, ID extends keyof T> {
   readonly redirectPath?: string
   readonly id: T[ID]
   doGet(id: T[ID]): Promise<T>
-  onPatch(id: T[ID], values: Partial<T>): Promise<T>
-  readonly component: React.FC<PatchComponentProps<T>>
+  onPut(id: T[ID], values: T): Promise<T>
+  readonly component: React.FC<PutComponentProps<T>>
 }
 
-export function Patch<T, ID extends keyof T>({
+export function Put<T, ID extends keyof T>({
   id,
   redirectPath,
   doGet,
-  onPatch,
+  onPut,
   component: Component,
-}: PatchProps<T, ID>): JSX.Element {
+}: PutProps<T, ID>): JSX.Element {
   async function update(data: T): Promise<T> {
-    return onPatch(id, data)
+    return onPut(id, data)
   }
 
   const { serverError, onSubmit } = useSubmitRedirect(update, redirectPath)

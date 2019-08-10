@@ -1,7 +1,7 @@
 import React from 'react'
 import { AnyTuple } from 'typelevel-ts'
+import { AsyncResult, useGet } from '../useGet'
 import { ErrorView, Loading } from './Components'
-import { AsyncResult, useGet } from './useGet'
 
 // tslint:disable readonly-array
 export interface GetProps<T extends {}, P extends AnyTuple> {
