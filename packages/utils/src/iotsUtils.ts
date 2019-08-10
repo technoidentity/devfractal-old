@@ -103,6 +103,29 @@ export function getProps<T extends t.Mixed>(codec: T & HasProps): t.Props {
   }
 }
 
+export function getProp<T extends t.Mixed>(
+  codec: T & HasProps,
+  key: string,
+): t.Mixed | undefined {
+  switch (codec._tag) {
+    case 'ReadonlyType':
+    case 'ExactType':
+      return getProp(codec.type, key)
+    case 'InterfaceType':
+    case 'PartialType':
+      return codec.props[key]
+    case 'IntersectionType':
+      for (const t of codec.types) {
+        // tslint:disable-next-line: typedef
+        const result = getProp(t, key)
+        if (result !== undefined) {
+          return result
+        }
+      }
+      return undefined
+  }
+}
+
 export function pickProps<T extends t.Props, K extends keyof T>(
   props: T,
   keys: ReadonlyArray<K>,
