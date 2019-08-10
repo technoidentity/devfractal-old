@@ -1,4 +1,4 @@
-import { Get } from 'devfractal-api'
+import { Get } from 'devfractal-ui-api'
 import {
   CheckBox,
   Table,

@@ -1,34 +1,31 @@
+import { SubmitAction, useSubmitReset } from 'devfractal-api'
 import React from 'react'
-import { SubmitAction } from '../common'
-import { useSubmitRedirect } from '../useSubmit'
 import { Get } from './Get'
 import { ServerError } from './ServerError'
 
-export interface PatchComponentProps<T> {
+export interface PatchResetComponentProps<T> {
   readonly initial?: T
   readonly onSubmit: SubmitAction<T>
 }
 
-export interface PatchProps<T, ID extends keyof T> {
-  readonly redirectPath?: string
+export interface PatchResetProps<T, ID extends keyof T> {
   readonly id: T[ID]
   doGet(id: T[ID]): Promise<T>
   onPatch(id: T[ID], values: Partial<T>): Promise<T>
-  readonly component: React.FC<PatchComponentProps<T>>
+  readonly component: React.FC<PatchResetComponentProps<T>>
 }
 
-export function Patch<T, ID extends keyof T>({
+export function PatchReset<T, ID extends keyof T>({
   id,
-  redirectPath,
   doGet,
   onPatch,
   component: Component,
-}: PatchProps<T, ID>): JSX.Element {
+}: PatchResetProps<T, ID>): JSX.Element {
   async function update(data: T): Promise<T> {
     return onPatch(id, data)
   }
 
-  const { serverError, onSubmit } = useSubmitRedirect(update, redirectPath)
+  const { serverError, onSubmit } = useSubmitReset(update)
 
   return (
     <>

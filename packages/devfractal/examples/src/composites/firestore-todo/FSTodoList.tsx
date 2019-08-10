@@ -1,11 +1,5 @@
-import { Get } from 'devfractal-api'
-import {
-  Table,
-  TableBody,
-  TableHead,
-  Th,
-  Tr,
-} from 'devfractal-ui-core'
+import { Get } from 'devfractal-ui-api'
+import { Table, TableBody, TableHead, Th, Tr } from 'devfractal-ui-core'
 import React from 'react'
 import { FSTodoItem } from './FSTodoItem'
 import { all, FSTodo, remove } from './todoAPI'

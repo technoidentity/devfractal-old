@@ -1,5 +1,5 @@
-import { Put } from 'devfractal-api'
 import { useMatch } from 'devfractal-router'
+import { Put } from 'devfractal-ui-api'
 import { Section, Title } from 'devfractal-ui-core'
 import { string } from 'io-ts'
 import React from 'react'

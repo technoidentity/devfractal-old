@@ -1,6 +1,5 @@
+import { SubmitAction, useSubmitReset } from 'devfractal-api'
 import React from 'react'
-import { SubmitAction } from '../common'
-import { useSubmitReset } from '../useSubmit'
 import { ServerError } from './ServerError'
 
 export interface PostResetProps<T> {

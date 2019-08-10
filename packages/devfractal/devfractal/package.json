@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "devfractal-api": "^1.2.12",
+    "devfractal-ui-api": "^1.2.12",
     "devfractal-crud": "^1.2.12",
     "devfractal-forms": "^1.2.12",
     "devfractal-router": "^1.2.12",

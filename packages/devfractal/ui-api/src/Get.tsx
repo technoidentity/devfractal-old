@@ -1,6 +1,6 @@
+import { AsyncResult, useGet } from 'devfractal-api'
 import React from 'react'
 import { AnyTuple } from 'typelevel-ts'
-import { AsyncResult, useGet } from '../useGet'
 import { ErrorView, Loading } from './Components'
 
 // tslint:disable readonly-array

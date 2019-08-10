@@ -1,4 +1,5 @@
 export * from 'devfractal-api'
+export * from 'devfractal-ui-api'
 export * from 'devfractal-crud'
 export * from 'devfractal-forms'
 export * from 'devfractal-router'

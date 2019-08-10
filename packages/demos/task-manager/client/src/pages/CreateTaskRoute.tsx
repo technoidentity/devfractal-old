@@ -1,4 +1,4 @@
-import { Post } from 'devfractal-api'
+import { Post } from 'devfractal-ui-api'
 import { Section, Title } from 'devfractal-ui-core'
 import React from 'react'
 import { Task, taskAPI } from '../common'

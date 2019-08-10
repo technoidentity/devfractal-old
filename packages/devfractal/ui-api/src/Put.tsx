@@ -1,6 +1,6 @@
+import { SubmitAction } from 'devfractal-api'
+import { useSubmitRedirect } from 'devfractal-api'
 import React from 'react'
-import { SubmitAction } from '../common'
-import { useSubmitRedirect } from '../useSubmit'
 import { Get } from './Get'
 import { ServerError } from './ServerError'
 

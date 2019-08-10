@@ -1,5 +1,5 @@
-import { Get } from 'devfractal-api'
 import { Simple } from 'devfractal-simple'
+import { Get } from 'devfractal-ui-api'
 import { Section } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
