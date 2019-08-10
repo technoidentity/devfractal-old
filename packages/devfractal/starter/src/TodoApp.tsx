@@ -26,12 +26,14 @@ import { empty, fn, props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])
 
-const Todo = req({
-  id: number,
-  title: string,
-  scheduled: ISODate,
-  done: boolean,
-})
+const Todo = props(
+  { id: number },
+  {
+    title: string,
+    scheduled: ISODate,
+    done: boolean,
+  },
+)
 
 type Todo = TypeOf<typeof Todo>
 
@@ -49,9 +51,12 @@ const TodoFormProps = props(
   },
 )
 
-const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
-  <Editor id="id" data={initial || empty(Todo)} onSubmit={onSubmit} />
-))
+const TodoForm = component(
+  TodoFormProps,
+  ({ onSubmit, initial = empty(Todo) }) => (
+    <Editor id="id" data={initial} onSubmit={onSubmit} />
+  ),
+)
 
 const CreateTodoRoute = () => (
   <>
@@ -60,7 +65,7 @@ const CreateTodoRoute = () => (
   </>
 )
 
-const Params = req({ id: string })
+const Params = req({ id: number })
 
 export const EditTodoRoute = () => {
   const { params } = useMatch(Params)
