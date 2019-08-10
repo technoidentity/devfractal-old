@@ -1,6 +1,6 @@
 {
   "name": "devfractal-forms",
-  "version": "1.2.10",
+  "version": "1.2.12",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-forms.esm.js",
@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
     "babel-eslint": "^10.0.2",
-    "devfractal-ui": "^1.2.10",
+    "devfractal-ui": "^1.2.12",
     "devfractal-ui-core": "^1.2.10",
     "eslint": "6.1.0",
     "eslint-config-prettier": "6.0.0",
