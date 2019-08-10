@@ -1,16 +1,16 @@
 {
   "name": "next-site",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "private": true,
   "dependencies": {
     "bulma": "0.7.5",
-    "devfractal-examples": "^1.2.9",
-    "devfractal-ui-core": "^1.2.9",
+    "devfractal-examples": "^1.2.10",
+    "devfractal-ui-core": "^1.2.10",
     "fp-ts": "2.0.4",
     "io-ts": "2.0.1",
     "monocle-ts": "2.0.0",
     "next": "9.0.3",
-    "technoidentity-utils": "^1.2.9"
+    "technoidentity-utils": "^1.2.10"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "4.0.0",
