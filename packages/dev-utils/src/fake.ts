@@ -29,7 +29,7 @@ import {
   unknown,
   VoidType,
 } from 'io-ts'
-import { buildObject, repeatedly } from 'technoidentity-utils/src/common'
+import { buildObject, repeatedly } from 'technoidentity-utils'
 
 const chance: Chance.Chance = new Chance()
 
