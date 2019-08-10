@@ -1,13 +1,12 @@
-import { Put } from 'devfractal-api'
-import { useMatch } from 'devfractal-router'
 import React from 'react'
-import { Params, User, userAPI } from '../common'
+import { Put, useMatch } from 'technoidentity-devfractal'
+import { Params, userAPI } from '../common'
 import { UserForm } from '../views'
 
 export const EditUserRoute: React.FC = () => {
   const { params } = useMatch(Params)
   return (
-    <Put<User>
+    <Put
       id={params.id}
       doGet={userAPI.get}
       onPut={userAPI.update}

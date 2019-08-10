@@ -1,6 +1,6 @@
 import { omit } from 'lodash-es'
 import React from 'react'
-import { Post, Section } from 'technoidentity-devfractal'
+import { Post } from 'technoidentity-devfractal'
 import { User, userAPI } from '../common'
 import { UserForm } from '../views'
 

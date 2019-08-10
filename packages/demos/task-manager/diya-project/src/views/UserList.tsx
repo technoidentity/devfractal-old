@@ -1,8 +1,14 @@
-import { ButtonsGroup, component, Section, Title } from 'devfractal-ui-core'
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Get, SimpleTable } from 'technoidentity-devfractal'
+import {
+  ButtonsGroup,
+  component,
+  Get,
+  Section,
+  SimpleTable,
+  Title,
+} from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { User, userAPI } from '../common'
 import { Actions } from './Actions'

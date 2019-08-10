@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Pagination,
   PaginationEllipsis,
@@ -5,9 +6,8 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from 'devfractal-ui'
-import { Section } from 'devfractal-ui-core'
-import React from 'react'
+  Section,
+} from 'technoidentity-devfractal'
 
 export const StaticPagination: React.FC = () => (
   <>

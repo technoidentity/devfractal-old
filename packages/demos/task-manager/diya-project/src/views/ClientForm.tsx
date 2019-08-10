@@ -1,15 +1,15 @@
-import { Simple } from 'devfractal-simple'
+import { FormikActions } from 'formik'
+import { TypeOf } from 'io-ts'
+import React from 'react'
 import {
   Column,
   Columns,
   component,
   Label,
   Section,
+  Simple,
   Title,
-} from 'devfractal-ui-core'
-import { FormikActions } from 'formik'
-import { TypeOf } from 'io-ts'
-import React from 'react'
+} from 'technoidentity-devfractal'
 import { empty, fn, props } from 'technoidentity-utils'
 import { Client } from '../common'
 
