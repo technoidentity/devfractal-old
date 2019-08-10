@@ -1,19 +1,15 @@
 import axios from 'axios'
 import { FormikActions, FormikErrors } from 'formik'
-import { jsonStringify } from 'technoidentity-utils'
+import { jsonStringify, timeout } from 'technoidentity-utils'
 
 export function consoleSubmit<Values extends {}>(
   milliseconds: number = 0,
 ): (values: Values, formikArgs: FormikActions<Values>) => Promise<void> {
   return async (values, { setSubmitting }) =>
-    new Promise(resolve =>
-      setTimeout(() => {
-        // tslint:disable-next-line: no-console
-        console.log(jsonStringify(values))
-        setSubmitting(false)
-        resolve()
-      }, milliseconds),
-    )
+    timeout(milliseconds, () => {
+      console.log(jsonStringify(values))
+      setSubmitting(false)
+    })
 }
 
 interface APISubmitArgs<Values, Result extends Values> {
@@ -68,12 +64,12 @@ export function apiSubmit<Values extends {}, Result extends Values = Values>({
 }
 
 export function formikSubmit<Values, Result extends Values>(
-  promise: (values: Values) => Promise<Result>,
+  asyncFn: (values: Values) => Promise<Result>,
   resetOnSubmit: boolean = true,
 ): APISubmitResult<Values, Result> {
   return async (values, { setValues, setErrors, setSubmitting, resetForm }) => {
     try {
-      const response: Result = await promise(values)
+      const response: Result = await asyncFn(values)
 
       setValues(response)
       setSubmitting(false)
