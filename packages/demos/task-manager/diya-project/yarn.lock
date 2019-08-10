@@ -653,7 +653,7 @@
     js-levenshtein "^1.1.3"
     semver "^5.3.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
   integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
@@ -1032,16 +1032,16 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@^5.5.4":
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-5.6.0.tgz#18a7c162a6a79964e731ad7b810022a28218047c"
-  integrity sha512-nAsRvQLr/b6TGNjuHMEbWXCNPLrQYnzqa/KKQZL7wBOtfptUxsa4Ah9aqkHW0ZmCSFmUDj4nFUxWPVTeMu0iCw==
+"@testing-library/dom@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-6.0.0.tgz#34e28e69e49bd6347fc64a5dde4c4f9aabbd17d3"
+  integrity sha512-B5XTz3uMsbqbdR9CZlnwpZjTE3fCWuqRkz/zvDc2Ej/vuHmTM0Ur2v0XPwr7usWfGIBsahEK5HL1E91+4IFiBg==
   dependencies:
-    "@babel/runtime" "^7.4.5"
+    "@babel/runtime" "^7.5.5"
     "@sheerun/mutationobserver-shim" "^0.3.2"
     aria-query "3.0.0"
     pretty-format "^24.8.0"
-    wait-for-expect "^1.2.0"
+    wait-for-expect "^1.3.0"
 
 "@testing-library/jest-dom@4.0.0":
   version "4.0.0"
@@ -1058,13 +1058,13 @@
     pretty-format "^24.0.0"
     redent "^3.0.0"
 
-"@testing-library/react@8.0.8":
-  version "8.0.8"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-8.0.8.tgz#aeba59adaf2b9258117bea927428a8fe4240db06"
-  integrity sha512-GvA5rcyT2TsFozqijEejXI64P4mMmzX2qkEfb7JNKrkdFXLiXdZqSYr/96PerLpsN23gJkKicAhqqT8qo9Kr3g==
+"@testing-library/react@9.0.2":
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-9.0.2.tgz#6164cef63e9cd1a721ca8d5f2edd23e6387057d2"
+  integrity sha512-bM7NczdgG9p/Uni5kTAACU8ofuwbLsI4X8bKjuUAxnrQ+fX2XMbo2juur1sYn9wcNReStxbZIXAwcRcUBi5aug==
   dependencies:
-    "@babel/runtime" "^7.5.4"
-    "@testing-library/dom" "^5.5.4"
+    "@babel/runtime" "^7.5.5"
+    "@testing-library/dom" "^6.0.0"
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
@@ -1172,10 +1172,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.8.tgz#e469b4bf9d1c9832aee4907ba8a051494357c12c"
   integrity sha512-aX+gFgA5GHcDi89KG5keey2zf0WfZk/HAQotEamsK2kbey+8yGKcson0hbK8E+v0NArlCJQCqMP161YhV6ZXLg==
 
-"@types/node@12.7.0":
-  version "12.7.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.0.tgz#545dde2a1a5c27d281cfb8308d6736e0708f5d6c"
-  integrity sha512-vqcj1MVm2Sla4PpMfYKh1MyDN4D2f/mPIZD7RdAGqEsbE+JxfeqQHHVbRDQ0Nqn8i73gJa1HQ1Pu3+nH4Q0Yiw==
+"@types/node@12.7.1":
+  version "12.7.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.1.tgz#3b5c3a26393c19b400844ac422bd0f631a94d69d"
+  integrity sha512-aK9jxMypeSrhiYofWWBf/T7O+KwaiAHzM4sveCdWPn71lzUSMimRnKzhXDKfKwV1kWoBo2P1aGgaIYGLf9/ljw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -1224,10 +1224,10 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/react@16.8.24":
-  version "16.8.24"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.24.tgz#8d1ea1fcbfa214220da3d3c04e506f1077b0deac"
-  integrity sha512-VpFHUoD37YNY2+lr/+c7qL/tZsIU/bKuskUF3tmGUArbxIcQdb5j3zvo4cuuzu2A6UaVmVn7sJ4PgWYNFEBGzg==
+"@types/react@16.9.1":
+  version "16.9.1"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.1.tgz#862c83b4c9d5cd116e42fd9a4f3694843cd2c051"
+  integrity sha512-jGM2x8F7m7/r+81N/BOaUKVwbC5Cdw6ExlWEUpr77XPwVeNvAppnPEnMMLMfxRDYL8FPEX8MHjwtD2NQMJ0yyQ==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -2833,10 +2833,10 @@ detect-newline@^2.1.0:
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
   integrity sha1-9B8cEL5LAOh7XxPaaAdZ8sW/0+I=
 
-devfractal-api@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/devfractal-api/-/devfractal-api-1.2.5.tgz#26f142fd7421131647a32cbca24236594e86a9fc"
-  integrity sha512-rNbHf9MpVafDicY8YoL7RnH6/S6m1kY1aQqX8rQXngNsaTmSF0CFJT/tYakkNK3OYa6qTBY99mLKozQEgQd2jA==
+devfractal-api@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/devfractal-api/-/devfractal-api-1.2.10.tgz#4d537928a520e07abba2d58624043c9419832e8b"
+  integrity sha512-2vou+xHe/wHXbHMncURvJENMxwEEMq+jO8TvLWmO44edh+pvHSIeIKk1Ouw97I6kmPVb+0xHGj6eGqdSuj+NCg==
   dependencies:
     axios "0.19.0"
     immer "3.2.0"
@@ -2845,45 +2845,45 @@ devfractal-api@^1.2.5:
     tslib "1.10.0"
     typelevel-ts "0.3.5"
 
-devfractal-crud@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/devfractal-crud/-/devfractal-crud-1.2.5.tgz#e6b3c1aae13cfce92e35e0631fd0e1541d2f3012"
-  integrity sha512-CQYXBWbLKwZxmQhKnUt0xBfDvg39AuDFyjXB7Rwf+ZMMzz34Ci9F6jbvAtEfyosk8/YIbh2gqAHvx6WgQxSLUw==
+devfractal-crud@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/devfractal-crud/-/devfractal-crud-1.2.10.tgz#358050d4f11a8a9ace1da8a645641855689d6031"
+  integrity sha512-6CgrAS3Sb/+HgEwDKYaL9tcUWK27OiLpZXDTU+Vflo7HnjRptm8+UVIuSqKfd9uFRHvPgi2jXlCNqEaNm2Z+rw==
   dependencies:
     tslib "1.10.0"
 
-devfractal-forms@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/devfractal-forms/-/devfractal-forms-1.2.5.tgz#345fc5c747dccd2cae5318404ee6d8b15f64e658"
-  integrity sha512-JDGmB1IWZwowhSdHf6sR2esylAcFegauB34zUPopG21kJ3SKPM0la0UWz/fSaLXGCfJHNr5YOJjv0UTPv0ka4Q==
+devfractal-forms@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/devfractal-forms/-/devfractal-forms-1.2.10.tgz#eb7d84bd9320c1c89ce2f3486ac2b3cb30141554"
+  integrity sha512-TxHiDhvorl3R+Ny5Ilphzfr5vVoGo95Dk2qMma1P3s/ANeO/WAiC/vFmAyCP1KDKhLHJlGEJp5tjmgCx1G4YYg==
   dependencies:
     cleave.js "1.5.3"
     date-fns "1.30.1"
     immer "3.2.0"
     react-datepicker "2.8.0"
-    technoidentity-utils "^1.2.5"
+    technoidentity-utils "^1.2.10"
     tslib "1.10.0"
 
-devfractal-router@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/devfractal-router/-/devfractal-router-1.2.5.tgz#c37f636ffee1794c363518db1b2a77b0afe28717"
-  integrity sha512-llrSZjS4J4hukvSEhE5b14WdF4J9o9WJHaCNhq6EhMTpTFHNS/WOZDyXRJX2/FXWO+uZg2YPNjjUcs8nMS9deA==
+devfractal-router@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/devfractal-router/-/devfractal-router-1.2.10.tgz#677fa6a151e5e48454c0c8ce0ec05a3d6c7664ad"
+  integrity sha512-/a0FUHizaU+4EEhWepIWG86EE2PlU4Ikqm4zBQII/r+FvaB+51KmUujHL/JIlY6j+givPgHMMcgD2P5ZFHPjeQ==
   dependencies:
     query-string "6.8.2"
-    technoidentity-utils "^1.2.5"
+    technoidentity-utils "^1.2.10"
     tslib "1.10.0"
 
-devfractal-simple@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/devfractal-simple/-/devfractal-simple-1.2.5.tgz#960995fd0d39b1f2734b6e31e6f85ae69502d87d"
-  integrity sha512-lfo5RzPntj6m26RT3Xsa7HZu2eyfu5Zqrvoyf/IsQkerMyvx6PBDTgpI+xZcYuhl6bifw44YAcxeKDcsGcIQiw==
+devfractal-simple@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/devfractal-simple/-/devfractal-simple-1.2.10.tgz#4793290484b81356bd76777b7a9fc54c88a4cb64"
+  integrity sha512-SiPQi0LIUUqK6C63S1HGwnlt6p2p1mCKtsMEf7VBEC5qqnkAUU9FKT3oDYqrU1WEJbhHWSHxkEyOO1GXnseaKQ==
   dependencies:
     tslib "1.10.0"
 
-devfractal-ui-core@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/devfractal-ui-core/-/devfractal-ui-core-1.2.5.tgz#867b6648a9f02af2bb9957d85cce464ed3cb9648"
-  integrity sha512-IujfC0L4hGU2B/C1vcY5ctZcjWE4aVHh/77KkI1LBUR09B9B9727ogXYp7zjDkllZ2AiQdT3erLxKb8mrYFVZw==
+devfractal-ui-core@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/devfractal-ui-core/-/devfractal-ui-core-1.2.10.tgz#f78e9e0f4aca45306ac7dd035d27bdf5effd3f39"
+  integrity sha512-4f8hgfBVQbR2r2vrY/i/A9YfTRJaJRdkIOQ3TF1SaJMMvzmFINQD5mQfCIj5cvUJFXrvFvvfL5Po2ZHmrJEAUA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "1.2.21"
     "@fortawesome/free-brands-svg-icons" "5.10.1"
@@ -2893,10 +2893,10 @@ devfractal-ui-core@^1.2.5:
     bulma "0.7.5"
     tslib "1.10.0"
 
-devfractal-ui@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/devfractal-ui/-/devfractal-ui-1.2.5.tgz#e67dc09fe08585ef76cac483bc6c62b02e0aeab5"
-  integrity sha512-KLn2u8JX5ef5j0o0NT8Vv2foOvmFMAqTdRVTL3Kl2ddYq5LB/H8feCAbwWdAUMph6neBW+ET9i3UFntc7w7ahw==
+devfractal-ui@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/devfractal-ui/-/devfractal-ui-1.2.10.tgz#62923a79bcc5cb63c77bf700b8c3dcc0dc6bd722"
+  integrity sha512-OA5mW3D/KyhTZ+QHjWoworHelef8kKDrtZVVqA7lDKXcY5VxP+AH0o5AGx1CeSI/85PcpbSFjJX1KXED3EY9wA==
   dependencies:
     tslib "1.10.0"
 
@@ -3549,10 +3549,15 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
-fp-ts@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.3.tgz#b6af5481aa5df027de250bacefa19d36d79edd51"
-  integrity sha512-b/WPo5AVPDYbdye/AGOMST/tqudtgbpMjm3TJGkd36ROihD67UEKFeUH83V3iSdrIG4wwoFsd6lLpjtpek1oVw==
+fp-ts@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.4.tgz#a07ceef59c2460616fcf70367708ebe4d1c2212f"
+  integrity sha512-oRQbFqqGcvorkEj92dAcM4/RH1TARJCt8wVgynRIp8v4uOzVCe4kCs7vKSYpIXQsvtpyCt9nVVFqufSX8VYghg==
+
+fp-ts@2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.5.tgz#9560d8a6a4f53cbda9f9b31ed8d1458e41939e07"
+  integrity sha512-opI5r+rVlpZE7Rhk0YtqsrmxGkbIw0dRNqGca8FEAMMnjomXotG+R9QkLQg20onx7R8qhepAn4CCOP8usma/Xw==
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -4011,10 +4016,10 @@ humps@^2.0.1:
   resolved "https://registry.yarnpkg.com/humps/-/humps-2.0.1.tgz#dd02ea6081bd0568dc5d073184463957ba9ef9aa"
   integrity sha1-3QLqYIG9BWjcXQcxhEY5V7qe+ao=
 
-husky@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-3.0.2.tgz#e78fd2ae16edca59fc88e56aeb8d70acdcc1c082"
-  integrity sha512-WXCtaME2x0o4PJlKY4ap8BzLA+D0zlvefqAvLCPriOOu+x0dpO5uc5tlB7CY6/0SE2EESmoZsj4jW5D09KrJoA==
+husky@3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-3.0.3.tgz#6f3fb99f60ef72cdf34e5d78445c2f798c441b1d"
+  integrity sha512-DBBMPSiBYEMx7EVUTRE/ymXJa/lOL+WplcsV/lZu+/HHGt0gzD+5BIz9EJnCrWyUa7hkMuBh7/9OZ04qDkM+Nw==
   dependencies:
     chalk "^2.4.2"
     cosmiconfig "^5.2.1"
@@ -4023,7 +4028,7 @@ husky@3.0.2:
     is-ci "^2.0.0"
     opencollective-postinstall "^2.0.2"
     pkg-dir "^4.2.0"
-    please-upgrade-node "^3.1.1"
+    please-upgrade-node "^3.2.0"
     read-pkg "^5.1.1"
     run-node "^1.0.0"
     slash "^3.0.0"
@@ -4155,10 +4160,10 @@ io-ts-types@0.5.0:
   resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.0.tgz#f69be9131362c31bbc6b5044f1d95892604f8f23"
   integrity sha512-+v88rlA76FmlQQcTImFq5iigoPA3OKO+BIdrpsfXlhWUdiVvOnDDiLKCsiIAW9eRj+OJgG31Sctebr77bqKhzw==
 
-io-ts@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.0.0.tgz#560f8ddf92cce7ea73820cedab7b31044e464d1e"
-  integrity sha512-6i8PKyNR/dvEbUU9uE+v4iVFU7l674ZEGQsh92y6xEZF/rj46fXbPy+uPPXJEsCP0J0X3UpzXAxp04K4HR2jVw==
+io-ts@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.0.1.tgz#1261c12f915c2f48d16393a36966636b48a45aa1"
+  integrity sha512-RezD+WcCfW4VkMkEcQWL/Nmy/nqsWTvTYg7oUmTGzglvSSV2P9h2z1PVeREPFf0GWNzruYleAt1XCMQZSg1xxQ==
 
 ip-regex@^2.1.0:
   version "2.1.0"
@@ -6451,6 +6456,13 @@ please-upgrade-node@^3.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
+please-upgrade-node@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/please-upgrade-node/-/please-upgrade-node-3.2.0.tgz#aeddd3f994c933e4ad98b99d9a556efa0e2fe942"
+  integrity sha512-gQR3WpIgNIKwBMVLkpMUeR3e1/E1y42bqDQZfql+kDeXd8COYfM8PQA4X6y7a8u9Ua9FHmsrrmirW2vHs45hWg==
+  dependencies:
+    semver-compare "^1.0.0"
+
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
@@ -7051,15 +7063,15 @@ react-datepicker@2.8.0:
     react-onclickoutside "^6.7.1"
     react-popper "^1.0.2"
 
-react-dom@16.8.6:
-  version "16.8.6"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
-  integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
+react-dom@16.9.0:
+  version "16.9.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
+  integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.6"
+    scheduler "^0.15.0"
 
 react-fast-compare@^2.0.1:
   version "2.0.4"
@@ -7117,15 +7129,14 @@ react-router@5.0.1:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react@16.8.6:
-  version "16.8.6"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
-  integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
+react@16.9.0:
+  version "16.9.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
+  integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.6"
 
 read-pkg-up@^4.0.0:
   version "4.0.0"
@@ -7548,10 +7559,10 @@ saxes@^3.1.9:
   dependencies:
     xmlchars "^2.1.1"
 
-scheduler@^0.13.6:
-  version "0.13.6"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
-  integrity sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
+scheduler@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
+  integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -8117,48 +8128,40 @@ tcomb@3.2.29:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-dev-utils@1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/technoidentity-dev-utils/-/technoidentity-dev-utils-1.2.4.tgz#7d03251cdaa1efa1ec6945097ba0c69c5b5b6801"
-  integrity sha512-vQe7JbQyYaepvExAOYBUcOtwxl11s7+ETpo4oAZXzfnNZriyJhYabBCgEbybTS3WOVe/e7385bfr0lvbCQwHbw==
+technoidentity-dev-utils@1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/technoidentity-dev-utils/-/technoidentity-dev-utils-1.2.10.tgz#74a547b5a703ffaf394101717d041c6cc55f672d"
+  integrity sha512-W2kpRDd74nROb0sLT0KtxoQqc6FYJpHfjIoB66h/6+4qTpwuBmSxZd+J8FTscFklQLm+fpVCOjr4X+A2vA+3AQ==
   dependencies:
     chance "1.0.18"
     date-fns "1.30.1"
-    fp-ts "2.0.3"
-    io-ts "2.0.0"
+    fp-ts "2.0.4"
+    io-ts "2.0.1"
     io-ts-types "0.5.0"
     json-server "0.15.0"
     monocle-ts "2.0.0"
-    technoidentity-utils "^1.2.4"
+    tcomb "3.2.29"
+    technoidentity-utils "^1.2.10"
     tslib "1.10.0"
 
-technoidentity-devfractal@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-1.2.5.tgz#af7424102c3fbf31543110c5485d0acea3c38795"
-  integrity sha512-SSektUCTT0rO+zTt0bMe7pMVhtIQ6gL/2Vs55TewMhgRZ0KeEEB7+1bRv1bmPVA9fT/KTb+9JAozbpu5+JJsfA==
+technoidentity-devfractal@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-1.2.10.tgz#f327be9b948ef3aaf8997ea1d39cabe544e33efa"
+  integrity sha512-MqWxyVjOzyOw63Y0suO4s6Cz4/kqK3gU4ip5bl2uQXFXUdb/3doIZq8eAqNgeCgF741rYX7LEEeI91kU25Iy4A==
   dependencies:
-    devfractal-api "^1.2.5"
-    devfractal-crud "^1.2.5"
-    devfractal-forms "^1.2.5"
-    devfractal-router "^1.2.5"
-    devfractal-simple "^1.2.5"
-    devfractal-ui "^1.2.5"
-    devfractal-ui-core "^1.2.5"
+    devfractal-api "^1.2.10"
+    devfractal-crud "^1.2.10"
+    devfractal-forms "^1.2.10"
+    devfractal-router "^1.2.10"
+    devfractal-simple "^1.2.10"
+    devfractal-ui "^1.2.10"
+    devfractal-ui-core "^1.2.10"
     tslib "1.10.0"
 
-technoidentity-utils@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-1.2.4.tgz#2593b44ff8f57a13d5584e1ae9c446caa008d0d9"
-  integrity sha512-5cJi+18kZSBoHMTYZex1s/xGJ5gKl/RtANHxOsk5boZGN7K4OlfoT9Oa4hsXFjZq3ENkN+syocKApVBqQJJc1w==
-  dependencies:
-    chance "1.0.18"
-    date-fns "1.30.1"
-    tslib "1.10.0"
-
-technoidentity-utils@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-1.2.5.tgz#e44685e3e8be6c818284bd4641fb5803b69747c4"
-  integrity sha512-WoPGePav0mGFCM07FMGl1cYNkf6Psu4wR1psktOwPXE88RyRtjkfZ+z+7oSgpPGaTPg2NE1OGFrM++gmdSRcwA==
+technoidentity-utils@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-1.2.10.tgz#616feaf02c4eb8d599c9be3b5bfdfc40430ed1e6"
+  integrity sha512-yrGXkKqGcVrq7SkuWjOW/ohp6WkbyL0RXw76sCO5aVgoXQVKxLlHNw57VoOuteRzEUJhUP3mGYkXzHE6p8Vjvg==
   dependencies:
     date-fns "1.30.1"
     tslib "1.10.0"
@@ -8786,10 +8789,10 @@ w3c-xmlserializer@^1.1.2:
     webidl-conversions "^4.0.2"
     xml-name-validator "^3.0.0"
 
-wait-for-expect@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-1.2.0.tgz#fdab6a26e87d2039101db88bff3d8158e5c3e13f"
-  integrity sha512-EJhKpA+5UHixduMBEGhTFuLuVgQBKWxkFbefOdj2bbk2/OpA5Opsc4aUTGmF+qJ+v3kTGxDRNYwKaT4j6g5n8Q==
+wait-for-expect@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-1.3.0.tgz#65241ce355425f907f5d127bdb5e72c412ff830c"
+  integrity sha512-8fJU7jiA96HfGPt+P/UilelSAZfhMBJ52YhKzlmZQvKEZU2EcD1GQ0yqGB6liLdHjYtYAoGVigYwdxr5rktvzA==
 
 walker@^1.0.7, walker@~1.0.5:
   version "1.0.7"
