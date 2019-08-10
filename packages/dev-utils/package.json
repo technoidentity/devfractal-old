@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-dev-utils",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "devlopment utils for all devfractal libs",
   "main": "dist/index.js",
   "module": "dist/technoidentity-dev-utils.esm.js",

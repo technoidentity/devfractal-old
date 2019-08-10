@@ -1,6 +1,6 @@
 {
   "name": "devfractal-crud",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-crud.esm.js",
@@ -39,7 +39,7 @@
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
     "babel-eslint": "^10.0.2",
-    "devfractal-api": "^1.2.10",
+    "devfractal-api": "^1.2.11",
     "devfractal-forms": "^1.2.10",
     "devfractal-simple": "^1.2.10",
     "devfractal-ui-core": "^1.2.10",

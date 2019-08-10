@@ -1,6 +1,6 @@
 {
   "name": "devfractal-api",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-api.esm.js",
@@ -66,7 +66,7 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "rimraf": "2.6.3",
-    "technoidentity-dev-utils": "^1.2.10",
+    "technoidentity-dev-utils": "^1.2.11",
     "technoidentity-utils": "^1.2.10",
     "ts-node-dev": "1.0.0-pre.40",
     "tsdx": "0.7.2"

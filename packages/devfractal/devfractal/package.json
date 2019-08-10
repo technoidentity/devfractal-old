@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/technoidentity-devfractal.esm.js",
@@ -26,8 +26,8 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "devfractal-api": "^1.2.10",
-    "devfractal-crud": "^1.2.10",
+    "devfractal-api": "^1.2.11",
+    "devfractal-crud": "^1.2.11",
     "devfractal-forms": "^1.2.10",
     "devfractal-router": "^1.2.10",
     "devfractal-simple": "^1.2.10",

@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-meta-client",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -44,7 +44,7 @@
     "babel-eslint": "^10.0.2",
     "chance": "1.0.18",
     "date-fns": "1.30.1",
-    "devfractal-crud": "^1.2.10",
+    "devfractal-crud": "^1.2.11",
     "devfractal-simple": "^1.2.10",
     "devfractal-ui-core": "^1.2.10",
     "eslint": "6.1.0",
