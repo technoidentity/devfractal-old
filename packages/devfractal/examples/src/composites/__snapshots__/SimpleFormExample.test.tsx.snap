@@ -121,6 +121,11 @@ exports[`Simple Form Example 1`] = `
     <div
       className="field"
     >
+      <label
+        className="label"
+      >
+        Gender
+      </label>
       <div
         className="control"
       >
@@ -155,6 +160,11 @@ exports[`Simple Form Example 1`] = `
     <div
       className="field"
     >
+      <label
+        className="label"
+      >
+        Select
+      </label>
       <div
         className="control"
       >

@@ -1,6 +1,7 @@
 import Chance from 'chance'
 import t, { Any, Constructor, Irreducible } from 'tcomb'
 import {
+  buildObject,
   isDict,
   isEnums,
   isInteger,
@@ -13,9 +14,9 @@ import {
   isTuple,
   isType,
   isUnion,
+  repeatedly,
+  verify,
 } from 'technoidentity-utils'
-import { verify } from 'technoidentity-utils/src/assertions'
-import { buildObject, repeatedly } from 'technoidentity-utils/src/common'
 import { defaultOptions, FakeOptions } from './fake'
 
 // tslint:disable typedef

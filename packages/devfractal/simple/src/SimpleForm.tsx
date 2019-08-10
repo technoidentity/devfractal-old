@@ -119,11 +119,15 @@ export interface SimpleCheckboxProps<Values extends {}>
 
 export interface SimpleRadioGroupProps<Values extends {}>
   extends Omit<RadioFieldProps, 'name'>,
-    Named<Values> {}
+    Named<Values> {
+  readonly label?: string
+}
 
 export interface SimpleSelectProps<Values extends {}>
   extends Omit<SelectFieldProps, 'name'>,
-    Named<Values> {}
+    Named<Values> {
+  readonly label?: string
+}
 
 export interface SimpleTextAreaProps<Values extends {}>
   extends Omit<TextAreaFieldProps, 'name'>,
@@ -213,15 +217,17 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
       </Field>
     ),
 
-    RadioGroup: ({ children, ...props }) => (
+    RadioGroup: ({ children, label, ...props }) => (
       <Field>
+        <Label>{label || camelCaseToPhrase(props.name)}</Label>
         <RadioGroupField {...props}>{children}</RadioGroupField>
         <ErrorField name={props.name} />
       </Field>
     ),
 
-    Select: ({ children, ...props }) => (
+    Select: ({ children, label, ...props }) => (
       <Field>
+        <Label>{label || camelCaseToPhrase(props.name)}</Label>
         <SelectField {...props}>{children}</SelectField>
         <ErrorField name={props.name} />
       </Field>

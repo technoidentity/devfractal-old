@@ -1,6 +1,6 @@
 {
   "name": "devfractal-examples",
-  "version": "1.2.6",
+  "version": "1.2.9",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-examples.esm.js",
@@ -32,15 +32,15 @@
     "@fortawesome/free-solid-svg-icons": "5.10.1",
     "@fortawesome/react-fontawesome": "0.1.4",
     "date-fns": "1.30.1",
-    "devfractal-api": "^1.2.6",
-    "devfractal-crud": "^1.2.6",
-    "devfractal-forms": "^1.2.6",
-    "devfractal-router": "^1.2.6",
-    "devfractal-simple": "^1.2.6",
-    "devfractal-ui": "^1.2.6",
-    "devfractal-ui-core": "^1.2.6",
+    "devfractal-api": "^1.2.9",
+    "devfractal-crud": "^1.2.9",
+    "devfractal-forms": "^1.2.9",
+    "devfractal-router": "^1.2.9",
+    "devfractal-simple": "^1.2.9",
+    "devfractal-ui": "^1.2.9",
+    "devfractal-ui-core": "^1.2.9",
     "tcomb": "3.2.29",
-    "technoidentity-utils": "1.2.5",
+    "technoidentity-utils": "^1.2.9",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -106,5 +106,6 @@
       "yarn prettier --write",
       "git add"
     ]
-  }
+  },
+  "gitHead": "c904aa8f531b4c7b986520b5583f9c0e13a28aa8"
 }
