@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, El, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../base'
 
 interface NavbarContext {
   readonly visible?: boolean

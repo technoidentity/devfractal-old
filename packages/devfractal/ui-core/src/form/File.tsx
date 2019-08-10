@@ -1,6 +1,7 @@
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { classNamesHelper, Helpers, Icon } from '../lib'
+import { classNamesHelper, Helpers } from '../base'
+import { Icon } from '../visual'
 
 type FileVariant =
   | 'white'

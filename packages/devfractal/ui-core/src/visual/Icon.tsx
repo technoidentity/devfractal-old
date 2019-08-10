@@ -3,7 +3,7 @@ import {
   Props as FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { classNamesHelper, El, Helpers, removeHelpers } from '../lib'
+import { classNamesHelper, El, Helpers, removeHelpers } from '../base'
 
 type IconDirection = 'left' | 'right'
 

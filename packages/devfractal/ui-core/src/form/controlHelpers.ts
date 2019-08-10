@@ -1,5 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { classNames } from '../lib'
+import { classNames } from '../base'
 
 export interface ControlHelpers {
   readonly loading?: boolean

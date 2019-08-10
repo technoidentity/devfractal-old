@@ -1,4 +1,4 @@
-import { classNames } from '../lib'
+import { classNames } from './classNames'
 
 type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 

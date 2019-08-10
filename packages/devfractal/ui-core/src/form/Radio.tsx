@@ -1,12 +1,8 @@
 import React from 'react'
 import { debug } from 'technoidentity-utils'
-import {
-  AllControlHelpers,
-  classNamesHelper,
-  ControlWrapper,
-  El,
-  Helpers,
-} from '../lib'
+import { classNamesHelper, El, Helpers } from '../base'
+import { AllControlHelpers } from './controlDiv'
+import { ControlWrapper } from './ControlWrapper'
 
 export interface RadioChangeEvent {
   readonly name: string

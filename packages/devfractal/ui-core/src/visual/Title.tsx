@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, El, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../base'
 
 type TitleSize = '1' | '2' | '3' | '4' | '5' | '6'
 

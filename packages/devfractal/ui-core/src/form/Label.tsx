@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, El, Helpers } from '../lib'
+import { classNamesHelper, El, Helpers } from '../base'
 
 export type LabelSize = 'small' | 'medium' | 'large'
 

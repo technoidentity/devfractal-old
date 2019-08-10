@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNamesHelper, El, Helpers, TextHelpers } from '../lib'
+import { classNamesHelper, El, Helpers, TextHelpers } from '../base'
 
 type HeaderTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 

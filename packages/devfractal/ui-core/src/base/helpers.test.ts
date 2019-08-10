@@ -1,4 +1,4 @@
-import { helpersClasses } from '../lib'
+import { helpersClasses } from './helpers'
 
 it('helper classes', () => {
   expect(

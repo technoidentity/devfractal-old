@@ -1,10 +1,7 @@
 import React from 'react'
-import {
-  AllControlHelpers,
-  classNamesHelper,
-  ControlDiv,
-  ControlWrapper,
-} from '../lib'
+import { classNamesHelper } from '../base'
+import { AllControlHelpers, ControlDiv } from './controlDiv'
+import { ControlWrapper } from './ControlWrapper'
 
 type TextAreaVariant =
   | 'primary'
