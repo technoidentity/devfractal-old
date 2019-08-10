@@ -1,6 +1,5 @@
 export * from './Breadcrumb'
 export * from './DynamicBreadcrumb'
 export * from './DynamicRouter'
+export * from './Menu'
 export * from './RoutedTabs'
-export * from './RoutedMenuExample'
-export * from './RouteComponent'
