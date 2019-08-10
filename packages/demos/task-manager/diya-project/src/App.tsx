@@ -33,46 +33,44 @@ import {
 
 // tslint:disable-next-line: no-console no-void-expression
 
+export const SideMenu = () => (
+  <Column
+    narrow
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    }}
+  >
+    <Section>
+      <Image src={diyaLogo} alt="diyaImage" size="96x96" />
+    </Section>
+    <MenuComponent />
+  </Column>
+)
+
 export const App = () => (
-  <Columns>
-    <Column
-      narrow
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
-      <Section>
-        <Image src={diyaLogo} alt="diyaImage" size="96x96" />
-      </Section>
-      <MenuComponent />
-    </Column>
-    <Column>
-      <>
-        <Router variant="browser">
-          <Route exact path="/" component={DriverList} />
-          <Route exact path="/clients" component={ClientList} />
-          <Route exact path="/clients/add" component={CreateClientRoute} />
-          <Route exact path="/clients/:id/edit" component={EditClientRoute} />
-          <Route exact path="/users" component={UserList} />
-          <Route exact path="/users/add" component={CreateUserRoute} />
-          <Route exact path="/users/:id/edit" component={EditUserRoute} />
-          <Route exact path="/vehicles" component={VehicleList} />
-          <Route exact path="/vehicles/add" component={CreateVehicleRoute} />
-          <Route exact path="/vehicles/:id/edit" component={EditVehicleRoute} />
-          <Route exact path="/batteries" component={BatteryList} />
-          <Route exact path="/batteries/add" component={CreateBatteryRoute} />
-          <Route
-            exact
-            path="/batteries/:id/edit"
-            component={EditBatteryRoute}
-          />
-          <Route exact path="/drivers" component={DriverList} />
-          <Route exact path="/drivers/add" component={CreateDriverRoute} />
-          <Route exact path="/drivers/:id/edit" component={EditDriverRoute} />
-        </Router>
-      </>
-    </Column>
-  </Columns>
+  <Router variant="browser">
+    <Columns>
+      <Route exact={false} path="/" component={SideMenu} />
+      <Column>
+        <Route path="/" component={DriverList} />
+        <Route path="/clients" component={ClientList} />
+        <Route path="/clients/add" component={CreateClientRoute} />
+        <Route path="/clients/:id/edit" component={EditClientRoute} />
+        <Route path="/users" component={UserList} />
+        <Route path="/users/add" component={CreateUserRoute} />
+        <Route path="/users/:id/edit" component={EditUserRoute} />
+        <Route path="/vehicles" component={VehicleList} />
+        <Route path="/vehicles/add" component={CreateVehicleRoute} />
+        <Route path="/vehicles/:id/edit" component={EditVehicleRoute} />
+        <Route path="/batteries" component={BatteryList} />
+        <Route path="/batteries/add" component={CreateBatteryRoute} />
+        <Route path="/batteries/:id/edit" component={EditBatteryRoute} />
+        <Route path="/drivers" component={DriverList} />
+        <Route path="/drivers/add" component={CreateDriverRoute} />
+        <Route path="/drivers/:id/edit" component={EditDriverRoute} />
+      </Column>
+    </Columns>
+  </Router>
 )

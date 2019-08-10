@@ -25,45 +25,29 @@ export const MenuComponent: React.FC = () => (
           flexDirection: 'column',
         }}
       >
-        <MenuItem>
-          <a href="/drivers">
-            <Icon icon={faUsers} /> Drivers
-          </a>
+        <MenuItem href="/drivers">
+          <Icon icon={faUsers} /> Drivers
         </MenuItem>
-        <MenuItem>
-          <a href="/vehicles">
-            <Icon icon={faBus} /> Vehicles
-          </a>
+        <MenuItem href="/vehicles">
+          <Icon icon={faBus} /> Vehicles
         </MenuItem>
-        <MenuItem>
-          <a href="/batteries">
-            <Icon icon={faCarBattery} /> Battery
-          </a>
+        <MenuItem href="/batteries">
+          <Icon icon={faCarBattery} /> Battery
         </MenuItem>
-        <MenuItem>
-          <a href="/clients">
-            <Icon icon={faUserFriends} /> Clients
-          </a>
+        <MenuItem href="/clients">
+          <Icon icon={faUserFriends} /> Clients
         </MenuItem>
-        <MenuItem>
-          <a href="#!">
-            <Icon icon={faMapMarked} /> Geofences
-          </a>
+        <MenuItem href="#!">
+          <Icon icon={faMapMarked} /> Geofences
         </MenuItem>
-        <MenuItem>
-          <a href="/users">
-            <Icon icon={faUsers} /> Users
-          </a>
+        <MenuItem href="/users">
+          <Icon icon={faUsers} /> Users
         </MenuItem>
-        <MenuItem>
-          <a href="#!">
-            <Icon icon={faBell} /> Alerts
-          </a>
+        <MenuItem href="#!">
+          <Icon icon={faBell} /> Alerts
         </MenuItem>
-        <MenuItem>
-          <a href="#!">
-            <Icon icon={faPaperPlane} /> Reports
-          </a>
+        <MenuItem href="#!">
+          <Icon icon={faPaperPlane} /> Reports
         </MenuItem>
       </MenuList>
     </Menu>
