@@ -3,24 +3,33 @@ import { Route, RouteProps } from 'react-router'
 import { MatchContext } from './MatchContext'
 import { useRouter } from './RouterContext'
 
-export function SafeRoute<
-  T extends Omit<RouteProps, 'render' | 'children'> = RouteProps
->({ component, exact, ...props }: T): JSX.Element {
+export function SafeRoute({
+  component: Component,
+  render,
+  children,
+  exact,
+  ...props
+}: RouteProps): JSX.Element {
   const { setRouteMatched } = useRouter()
-  const Comp: any = component
 
   return (
     <Route
-      exact={exact !== undefined ? exact : true}
       {...props}
-      render={({ match, ...renderProps }) => {
+      exact={exact !== undefined ? exact : true}
+      render={renderProps => {
         if (setRouteMatched) {
           setRouteMatched(true)
         }
 
         return (
-          <MatchContext.Provider value={match}>
-            <Comp {...renderProps} />
+          <MatchContext.Provider value={renderProps.match}>
+            {Component ? (
+              <Component {...renderProps} />
+            ) : render ? (
+              render(renderProps)
+            ) : (
+              children
+            )}
           </MatchContext.Provider>
         )
       }}
