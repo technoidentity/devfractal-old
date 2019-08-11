@@ -5,7 +5,7 @@ import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 import { Query, toQuery as toQueryFn } from './query'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
-export interface API<Spec extends t.Mixed, ID extends t.TypeOf<Spec>> {
+export interface API<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>> {
   readonly spec: Spec
   readonly idKey: ID
 
@@ -18,20 +18,20 @@ export interface API<Spec extends t.Mixed, ID extends t.TypeOf<Spec>> {
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
 
-  get(id: t.TypeOf<Spec[ID]>, options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+  get(id: t.TypeOf<Spec>[ID], options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
   list(
     query: Query<t.TypeOf<Spec>>,
     options?: Omit<APIMethodArgs, 'query'>,
   ): Promise<ReadonlyArray<t.TypeOf<Spec>>>
 
   replace(
-    id: t.TypeOf<Spec[ID]>,
+    id: t.TypeOf<Spec>[ID],
     data: t.InputOf<Spec>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
 
   update(
-    id: t.TypeOf<Spec[ID]>,
+    id: t.TypeOf<Spec>[ID],
     data: Partial<t.InputOf<Spec>>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
