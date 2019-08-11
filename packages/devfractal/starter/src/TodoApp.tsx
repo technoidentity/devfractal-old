@@ -9,20 +9,14 @@ import {
   ButtonsGroup,
   component,
   Editor,
-  Get,
-  Post,
-  Put,
   rest,
   Router,
-  RowClickEvent,
-  SafeRoute as Route,
   Section,
   SimpleTable,
   Title,
-  useMatch,
-  useRouter,
 } from 'technoidentity-devfractal'
 import { empty, fn, props, req } from 'technoidentity-utils'
+import { SimpleGet, SimplePost, SimplePut } from './rest'
 
 const ISODate = union([date, DateFromISOString])
 
@@ -61,57 +55,42 @@ const TodoForm = component(
 const CreateTodoRoute = () => (
   <>
     <Title textAlignment="centered">Create Todo</Title>
-    <Post component={TodoForm} onPost={todoApi.create} redirectPath={'/'} />
+    <SimplePost
+      path="/todos/new"
+      component={TodoForm}
+      api={todoApi}
+      redirectPath={'/'}
+    />
   </>
 )
 
-const Params = req({ id: number })
+export const EditTodoRoute = () => (
+  <SimplePut
+    path="/todos/:id/edit"
+    api={todoApi}
+    component={TodoForm}
+    redirectPath="/"
+  />
+)
 
-export const EditTodoRoute = () => {
-  const { params } = useMatch(Params)
+const TodoListViewProps = req({ data: readonlyArray(Todo) })
 
-  return (
-    <Put
-      id={params.id}
-      doGet={todoApi.get}
-      onPut={todoApi.update}
-      component={TodoForm}
-      redirectPath="/"
-    />
-  )
-}
-
-const TodoListViewProps = req({
-  todoList: readonlyArray(Todo),
-  onEdit: fn<(evt: RowClickEvent<Todo>) => void>(),
-})
-
-const TodoListView = component(TodoListViewProps, ({ todoList, onEdit }) => (
+const TodoListView = component(TodoListViewProps, ({ data }) => (
   <>
     <ButtonsGroup alignment="right">
-      <NavLink to="/todos/add" className="button is-primary">
+      <NavLink to="/todos/new" className="button is-primary">
         Add
       </NavLink>
     </ButtonsGroup>
-    <SimpleTable data={todoList} onRowClicked={onEdit} />
+    <SimpleTable data={data} />
   </>
 ))
 
 const TodoListRoute = () => {
-  // @TODO: replace with useRedirect, takes parameters.
-  const { history } = useRouter()
-
   return (
     <>
       <Title textAlignment="centered">Todo List</Title>
-      <Get asyncFn={() => todoApi.many()}>
-        {data => (
-          <TodoListView
-            todoList={data}
-            onEdit={evt => history.push(`/todos/${evt.value.id}/edit`)}
-          />
-        )}
-      </Get>
+      <SimpleGet path="/" api={todoApi} component={TodoListView} />
     </>
   )
 }
@@ -119,9 +98,9 @@ const TodoListRoute = () => {
 export const TodoApp = () => (
   <Section>
     <Router variant="browser">
-      <Route exact path="/" component={TodoListRoute} />
-      <Route exact path="/todos/add" component={CreateTodoRoute} />
-      <Route exact path="/todos/:id/edit" component={EditTodoRoute} />
+      <TodoListRoute />
+      <CreateTodoRoute />
+      <EditTodoRoute />
     </Router>
   </Section>
 )
