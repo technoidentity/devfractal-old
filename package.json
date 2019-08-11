@@ -10,7 +10,7 @@
     "packages/demos/task-manager/*"
   ],
   "devDependencies": {
-    "confusing-browser-globals": "1.0.7",
+    "confusing-browser-globals": "1.0.8",
     "cross-env": "5.2.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jsx-a11y": "6.2.3",

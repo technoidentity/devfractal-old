@@ -6,7 +6,7 @@
     "bulma": "0.7.5",
     "devfractal-examples": "^1.2.12",
     "devfractal-ui-core": "^1.2.10",
-    "fp-ts": "2.0.4",
+    "fp-ts": "2.0.5",
     "io-ts": "2.0.1",
     "monocle-ts": "2.0.0",
     "next": "9.0.3",
