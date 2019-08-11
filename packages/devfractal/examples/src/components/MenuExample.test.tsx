@@ -6,7 +6,7 @@ import { MenuExample } from './MenuExample'
 test('Menu Example', () => {
   const component: ReactTestRenderer = renderer.create(
     <Router variant="hash">
-      <Route to="/" component={MenuExample} />
+      <Route path="/" component={MenuExample} />
     </Router>,
   )
   expect(component.toJSON()).toMatchSnapshot()
