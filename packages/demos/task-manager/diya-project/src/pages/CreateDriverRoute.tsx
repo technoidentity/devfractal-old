@@ -1,4 +1,3 @@
-import { omit } from 'lodash-es'
 import React from 'react'
 import { Post, Section } from 'technoidentity-devfractal'
 import { Driver, driverAPI } from '../common'
@@ -8,7 +7,7 @@ export const CreateDriverRoute: React.FC = () => (
   <Section>
     <Post<Driver>
       redirectPath="/drivers"
-      onPost={values => driverAPI.create(omit(values, 'id'))}
+      onPost={driverAPI.create}
       component={DriverForm}
     />
   </Section>

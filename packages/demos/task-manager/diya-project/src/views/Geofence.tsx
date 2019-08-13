@@ -1,9 +1,14 @@
-import { Get } from 'devfractal-api'
-import { SimpleTable } from 'devfractal-simple'
-import { ButtonsGroup, component, Section, Title } from 'devfractal-ui-core'
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {
+  ButtonsGroup,
+  component,
+  Get,
+  Section,
+  SimpleTable,
+  Title,
+} from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Geofence, geofenceAPI } from '../common'
 import { Actions } from '../views'

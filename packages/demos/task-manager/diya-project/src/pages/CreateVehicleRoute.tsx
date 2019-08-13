@@ -8,7 +8,7 @@ export const CreateVehicleRoute: React.FC = () => (
   <Section>
     <Post<Vehicle>
       redirectPath="/vehicles"
-      onPost={values => vehicleAPI.create(omit(values, 'id'))}
+      onPost={values => vehicleAPI.create(values)}
       component={VehicleForm}
     />
   </Section>

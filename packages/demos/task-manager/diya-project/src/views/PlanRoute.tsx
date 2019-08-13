@@ -1,8 +1,12 @@
-import { Get } from 'devfractal-api'
-import { SimpleTable } from 'devfractal-simple'
-import { component, Section, Title } from 'devfractal-ui-core'
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
+import {
+  component,
+  Get,
+  Section,
+  SimpleTable,
+  Title,
+} from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { PlanRoute, planRouteAPI } from '../common'
 import { Actions } from '../views'

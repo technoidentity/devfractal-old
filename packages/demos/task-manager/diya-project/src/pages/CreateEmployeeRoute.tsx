@@ -1,14 +1,12 @@
-import { Post } from 'devfractal-api'
-import { Section } from 'devfractal-ui-core'
-import { omit } from 'lodash-es'
 import React from 'react'
+import { Post, Section } from 'technoidentity-devfractal'
 import { Employee, employeeAPI } from '../common'
 import { EmployeeForm } from '../views/EmployeeForm'
 
 export const CreateEmployeeRoute: React.FC = () => (
   <Section>
     <Post<Employee>
-      onPost={values => employeeAPI.create(omit(values, 'id'))}
+      onPost={employeeAPI.create}
       redirectPath="/employees"
       component={EmployeeForm}
     />

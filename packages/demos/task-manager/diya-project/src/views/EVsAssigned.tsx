@@ -1,15 +1,8 @@
-import { Get } from 'devfractal-api'
-import { SimpleTable } from 'devfractal-simple'
-import {
-  Button,
-  ButtonsGroup,
-  component,
-  Section,
-  Title,
-} from 'devfractal-ui-core'
+import { ButtonsGroup, component, Section, Title } from 'devfractal-ui-core'
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Get, SimpleTable } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Evs, evsAPI } from '../common'
 import { ActionsRoutes } from './ActionsRoute'

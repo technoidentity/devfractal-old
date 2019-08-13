@@ -1,4 +1,3 @@
-import { omit } from 'lodash-es'
 import React from 'react'
 import { Post, Section } from 'technoidentity-devfractal'
 import { Battery, batteryAPI } from '../common'
@@ -8,7 +7,7 @@ export const CreateBatteryRoute: React.FC = () => (
   <Section>
     <Post<Battery>
       redirectPath="/batteries"
-      onPost={values => batteryAPI.create(omit(values, 'id'))}
+      onPost={batteryAPI.create}
       component={BatteryForm}
     />
   </Section>
