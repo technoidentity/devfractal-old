@@ -1,14 +1,12 @@
+import { API, SubmitAction } from 'devfractal-api'
+import { SafeRoute as Route, useMatch } from 'devfractal-router'
 import { Mixed, string, type, TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import {
-  API,
-  Put,
-  SafeRoute as Route,
-  SubmitAction,
-  useMatch,
-} from 'technoidentity-devfractal'
 import { getProp, HasProps } from 'technoidentity-utils'
+import { Put } from './Put'
+
+// tslint:disable no-unbound-method
 
 export interface SimplePutComponentProps<T> {
   readonly initial?: T
@@ -29,8 +27,8 @@ function SimplePutChildren<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   api,
   redirectPath,
   component: Component,
-}: Omit<SimplePutProps<Spec, ID>, 'path'>) {
-  const idPropSpec = getProp(api.spec, api.idKey as string)
+}: Omit<SimplePutProps<Spec, ID>, 'path'>): JSX.Element {
+  const idPropSpec: Mixed | undefined = getProp(api.spec, api.idKey as string)
   if (idPropSpec === undefined) {
     throw new Error(`${api.idKey} not defined`)
   }

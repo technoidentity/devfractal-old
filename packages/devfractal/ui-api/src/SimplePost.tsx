@@ -1,13 +1,12 @@
+import { API, SubmitAction } from 'devfractal-api'
+import { SafeRoute as Route } from 'devfractal-router'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import {
-  API,
-  Post,
-  SafeRoute as Route,
-  SubmitAction,
-} from 'technoidentity-devfractal'
 import { HasProps } from 'technoidentity-utils'
+import { Post } from './Post'
+
+// tslint:disable no-unbound-method
 
 export interface SimplePostProps<
   Spec extends Mixed & HasProps,

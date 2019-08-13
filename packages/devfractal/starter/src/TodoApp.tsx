@@ -12,11 +12,13 @@ import {
   rest,
   Router,
   Section,
+  SimpleGet,
+  SimplePost,
+  SimplePut,
   SimpleTable,
   Title,
 } from 'technoidentity-devfractal'
 import { empty, fn, props, req } from 'technoidentity-utils'
-import { SimpleGet, SimplePost, SimplePut } from './rest'
 
 const ISODate = union([date, DateFromISOString])
 

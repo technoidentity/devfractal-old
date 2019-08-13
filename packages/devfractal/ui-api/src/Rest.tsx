@@ -1,23 +1,23 @@
-import { type } from 'io-ts'
+import { API, SubmitAction } from 'devfractal-api'
+import { SafeRoute as Route, useMatch } from 'devfractal-router'
+import { Mixed, type } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import {
-  API,
-  Get,
-  Post,
-  Put,
-  SafeRoute as Route,
-  SubmitAction,
-  useMatch,
-} from 'technoidentity-devfractal'
 import { getProp } from 'technoidentity-utils'
+import { Get } from './Get'
+import { Post } from './Post'
+import { Put } from './Put'
+
+// tslint:disable no-unbound-method
 
 export interface RestContext {
   readonly redirectPath: string
   readonly api: API<any, any>
 }
 
-const RestContext = React.createContext<RestContext | undefined>(undefined)
+const RestContext: React.Context<RestContext | undefined> = React.createContext<
+  RestContext | undefined
+>(undefined)
 
 export interface RestProps extends RestContext {
   readonly children: React.ReactNode
@@ -32,7 +32,7 @@ export function Rest({ redirectPath, api, children }: RestProps): JSX.Element {
 }
 
 export function useRest(): RestContext {
-  const result = React.useContext(RestContext)
+  const result: RestContext | undefined = React.useContext(RestContext)
   if (result === undefined) {
     throw new Error(`no RestContext.Provider`)
   }
@@ -108,7 +108,7 @@ export function RestPut<T>({
 }: RestPutProps<T>): JSX.Element {
   const { api, redirectPath } = useRest()
 
-  const idPropSpec = getProp(api.spec, api.idKey)
+  const idPropSpec: Mixed | undefined = getProp(api.spec, api.idKey)
   if (idPropSpec === undefined) {
     throw new Error(`${api.idKey} not defined`)
   }

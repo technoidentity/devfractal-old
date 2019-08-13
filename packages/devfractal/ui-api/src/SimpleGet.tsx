@@ -1,6 +1,10 @@
+import { API } from 'devfractal-api'
+import { SafeRoute as Route } from 'devfractal-router'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
-import { API, Get, SafeRoute as Route } from 'technoidentity-devfractal'
+import { Get } from './Get'
+
+// tslint:disable no-unbound-method
 
 export interface SimpleGetComponentProps<T> {
   readonly data: ReadonlyArray<T>
