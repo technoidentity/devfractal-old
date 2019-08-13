@@ -9,11 +9,15 @@ import {
   SafeRoute as Route,
   Section,
 } from 'technoidentity-devfractal'
+import { range } from 'technoidentity-utils'
 import diyaLogo from './images/diyaLogo.png'
 import {
   CreateBatteryRoute,
   CreateClientRoute,
   CreateDriverRoute,
+  CreateEmployeeRoute,
+  CreateGeofenceRoute,
+  CreateRaiseRequestRoute,
   CreateUserRoute,
   CreateVehicleRoute,
   EditBatteryRoute,
@@ -23,13 +27,22 @@ import {
   EditVehicleRoute,
 } from './pages'
 import {
+  ActionsRoutes,
   BatteryList,
   ClientList,
   DriverList,
+  EmployeeList,
+  EmployeeListTable,
+  GeofenceList,
+  InvoiceList,
   MenuComponent,
+  MenuComponentRoute,
+  PlanRouteMap,
   UserList,
   VehicleList,
 } from './views'
+import { EmployeeForm } from './views/EmployeeForm'
+import { EVsAssigned } from './views/EVsAssigned'
 
 // tslint:disable-next-line: no-console no-void-expression
 
@@ -61,6 +74,8 @@ export const App = () => (
         <Route path="/users" component={UserList} />
         <Route path="/users/add" component={CreateUserRoute} />
         <Route path="/users/:id/edit" component={EditUserRoute} />
+        <Route path="/geofence" component={GeofenceList} />
+        <Route path="/geofence/add" component={CreateGeofenceRoute} />
         <Route path="/vehicles" component={VehicleList} />
         <Route path="/vehicles/add" component={CreateVehicleRoute} />
         <Route path="/vehicles/:id/edit" component={EditVehicleRoute} />
@@ -74,3 +89,19 @@ export const App = () => (
     </Columns>
   </Router>
 )
+
+// export const App = () => (
+//   <Router variant="browser">
+//     <Columns>
+//       <Route exact={false} path="/" component={SideMenu} />
+//       <Column>
+//         <Route path="/evs" component={EVsAssigned} />
+//         <Route path="/evs/add" component={CreateRaiseRequestRoute} />
+//         <Route path="/invoices" component={InvoiceList} />
+//         <Route path="/planRoute" component={PlanRouteMap} />
+//         <Route path="/employees" component={EmployeeList} />
+//         <Route path="/employees/add" component={CreateEmployeeRoute} />
+//       </Column>
+//     </Columns>
+//   </Router>
+// )
