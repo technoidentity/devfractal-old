@@ -1,5 +1,16 @@
 import { rest } from 'technoidentity-devfractal'
-import { Battery, Client, Driver, User, Vehicle } from './models'
+import {
+  Battery,
+  Client,
+  Driver,
+  Employee,
+  Evs,
+  Geofence,
+  Invoice,
+  PlanRoute,
+  User,
+  Vehicle,
+} from './models'
 
 export const apiOptions = {
   baseURL: 'http://localhost:9999',
@@ -27,5 +38,27 @@ export const clientAPI = rest(Client, 'clientID', {
 
 export const userAPI = rest(User, 'userID', {
   resource: 'users',
+  ...apiOptions,
+})
+
+export const evsAPI = rest(Evs, 'evID', { resource: 'evs', ...apiOptions })
+
+export const planRouteAPI = rest(PlanRoute, 'ID', {
+  resource: 'planRoute',
+  ...apiOptions,
+})
+
+export const employeeAPI = rest(Employee, 'employeeID', {
+  resource: 'employees',
+  ...apiOptions,
+})
+
+export const invoiceAPI = rest(Invoice, 'ID', {
+  resource: 'invoices',
+  ...apiOptions,
+})
+
+export const geofenceAPI = rest(Geofence, 'ID', {
+  resource: 'geofence',
   ...apiOptions,
 })
