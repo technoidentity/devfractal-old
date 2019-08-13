@@ -15,15 +15,15 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "react-use": "10.5.0",
-    "technoidentity-devfractal": "^1.2.13",
-    "technoidentity-utils": "^1.2.13",
+    "technoidentity-devfractal": "1.2.13",
+    "technoidentity-utils": "1.2.13",
     "yup": "0.27.0"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
     "@babel/plugin-proposal-class-properties": "7.5.5",
     "@testing-library/jest-dom": "4.0.0",
-    "@testing-library/react": "9.1.0",
+    "@testing-library/react": "9.1.1",
     "@types/jest": "24.0.17",
     "@types/node": "12.7.1",
     "@types/react": "16.9.1",

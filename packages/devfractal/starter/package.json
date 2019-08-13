@@ -13,8 +13,8 @@
     "react-dom": "16.9.0",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-devfractal": "^1.2.13",
-    "technoidentity-utils": "^1.2.13",
+    "technoidentity-devfractal": "1.2.13",
+    "technoidentity-utils": "1.2.13",
     "yup": "0.27.0"
   },
   "devDependencies": {
@@ -26,7 +26,7 @@
     "@types/react-dom": "16.8.5",
     "@types/react-router-dom": "4.3.4",
     "@types/yup": "0.26.22",
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "10.0.2",
     "chance": "1.0.18",
     "confusing-browser-globals": "1.0.8",
     "cross-env": "5.2.0",

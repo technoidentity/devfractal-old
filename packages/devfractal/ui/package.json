@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "4.0.0",
-    "@testing-library/react": "9.1.0",
+    "@testing-library/react": "9.1.1",
     "@types/jest": "24.0.17",
     "@types/react": "16.9.1",
     "@types/react-dom": "16.8.5",
@@ -40,9 +40,9 @@
     "@types/react-router-dom": "4.3.4",
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
-    "babel-eslint": "^10.0.2",
-    "devfractal-router": "^1.2.13",
-    "devfractal-ui-core": "^1.2.13",
+    "babel-eslint": "10.0.2",
+    "devfractal-router": "1.2.13",
+    "devfractal-ui-core": "1.2.13",
     "eslint": "6.1.0",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-prettier": "3.1.0",
@@ -64,7 +64,7 @@
     "react-router-dom": "5.0.1",
     "react-styleguidist": "9.1.14",
     "rimraf": "2.6.3",
-    "technoidentity-utils": "^1.2.13",
+    "technoidentity-utils": "1.2.13",
     "tsdx": "0.7.2",
     "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
@@ -75,8 +75,8 @@
     "webpack-blocks": "2.0.1"
   },
   "peerDependencies": {
-    "devfractal-router": "1.2.12",
-    "devfractal-ui-core": "1.2.10",
+    "devfractal-router": "1.2.13",
+    "devfractal-ui-core": "1.2.13",
     "fp-ts": "2.0.5",
     "io-ts": "2.0.1",
     "io-ts-promise": "2.0.0",
@@ -86,7 +86,7 @@
     "react-dom": "16.9.0",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "technoidentity-utils": "1.2.10"
+    "technoidentity-utils": "1.2.13"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
