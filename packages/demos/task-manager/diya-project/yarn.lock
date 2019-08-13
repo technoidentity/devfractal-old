@@ -1058,13 +1058,14 @@
     pretty-format "^24.0.0"
     redent "^3.0.0"
 
-"@testing-library/react@9.0.2":
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-9.0.2.tgz#6164cef63e9cd1a721ca8d5f2edd23e6387057d2"
-  integrity sha512-bM7NczdgG9p/Uni5kTAACU8ofuwbLsI4X8bKjuUAxnrQ+fX2XMbo2juur1sYn9wcNReStxbZIXAwcRcUBi5aug==
+"@testing-library/react@9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-9.1.1.tgz#ee5b15c02b64cfbd14cdcad87fee2ed5f28fc2d1"
+  integrity sha512-mjX9l/onA5eVe8/4/obe7ZAw05U8s+kinXVglySVOMJo/oCSam9D9Dcg+aYVGsuBEuYV2W9m2LTP4KbNZh8BOw==
   dependencies:
     "@babel/runtime" "^7.5.5"
     "@testing-library/dom" "^6.0.0"
+    "@types/react-dom" "^16.8.5"
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
@@ -1150,7 +1151,7 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/lodash-es@^4.17.3":
+"@types/lodash-es@4.17.3":
   version "4.17.3"
   resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.3.tgz#87eb0b3673b076b8ee655f1890260a136af09a2d"
   integrity sha512-iHI0i7ZAL1qepz1Y7f3EKg/zUMDwDfTzitx+AlHhJJvXwenP682ZyGbgPSc5Ej3eEAKVbNWKFuwOadCj5vBbYQ==
@@ -1187,7 +1188,7 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
-"@types/react-dom@16.8.5":
+"@types/react-dom@16.8.5", "@types/react-dom@^16.8.5":
   version "16.8.5"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.8.5.tgz#3e3f4d99199391a7fb40aa3a155c8dd99b899cbd"
   integrity sha512-idCEjROZ2cqh29+trmTmZhsBAUNQuYrF92JHKzZ5+aiFM1mlSk3bb23CK7HhYuOY75Apgap5y2jTyHzaM2AJGA==
@@ -2812,10 +2813,10 @@ detect-newline@^2.1.0:
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
   integrity sha1-9B8cEL5LAOh7XxPaaAdZ8sW/0+I=
 
-devfractal-api@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/devfractal-api/-/devfractal-api-1.2.12.tgz#91da132ea02eb8562886492992053b886dc98f47"
-  integrity sha512-wG3pk0QAEuLvaCOtVhz26eIhnIcabI+7UyaO+36tYnwR1WgZRIj0efr6EU5o1um0fBltepzvoffo90qOpeZmbQ==
+devfractal-api@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/devfractal-api/-/devfractal-api-1.2.14.tgz#7b278e4d1d94194433e61d7fc9e74dc17d2d37fb"
+  integrity sha512-7FIHoqKUQ90JY24sQF/+uZ1dpyic19pdMHijfsvXH1kKGANp5SnxnuQBBE58/wGZuNi+FWzos1qDzxuZgRKVOQ==
   dependencies:
     axios "0.19.0"
     immer "3.2.0"
@@ -2824,45 +2825,57 @@ devfractal-api@^1.2.12:
     tslib "1.10.0"
     typelevel-ts "0.3.5"
 
-devfractal-crud@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/devfractal-crud/-/devfractal-crud-1.2.12.tgz#c5b477efc2c05b060cd8b251a19ba5b028b56e4f"
-  integrity sha512-m0tplLvG5+s2AZZmPVCLoYtJbOp5rWGFZFmimbCY6awGfezQXm+IEW518SZUV6TlNBLbvSiTDYITxIMU8dCifA==
+devfractal-crud@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/devfractal-crud/-/devfractal-crud-1.2.14.tgz#03ddc3a11c261267f5e3ffd7bac5d107bce5a58f"
+  integrity sha512-uNwK1Loo5PYimN+IZIeAopZm0kEHwsdIHYUyUMs89fcUZ+SCExbzuMcxnR01Ahzv+Furb2W4jRyjCfaXiyKgaw==
   dependencies:
     tslib "1.10.0"
 
-devfractal-forms@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/devfractal-forms/-/devfractal-forms-1.2.12.tgz#57669133b0c00c95f8a4ca4808ae20dd6ce4b944"
-  integrity sha512-qvlAecumHRbiEWp17lvvUUoXHhB4xMITwMCoWpl5ELBbHbcnJHzQvMUXROiWF/EG3272K8VNCf6W+LIjd8Rm/Q==
+devfractal-forms@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/devfractal-forms/-/devfractal-forms-1.2.14.tgz#d5d133687503562a4d12971c71d3e88e7a2fa5b9"
+  integrity sha512-P1VufAsO9zVyhuLclIDx0RkTc3dnZ5BOpofavbvIq8JrXq1nExFb3Xc0qsQ7T+7tMNfdDktiXweDEf+jTHj9Zw==
   dependencies:
     cleave.js "1.5.3"
     date-fns "1.30.1"
     immer "3.2.0"
     react-datepicker "2.8.0"
-    technoidentity-utils "^1.2.10"
+    technoidentity-utils "^1.2.14"
     tslib "1.10.0"
 
-devfractal-router@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/devfractal-router/-/devfractal-router-1.2.12.tgz#e1240a6bf386f97ed94deff152724f224bc172db"
-  integrity sha512-qbype6gfMnXcJhDXekxKmQbqRwQ0KL5eiKk28X4SQLD0St93HoW5ksHYWRrrQ2lIuRslX4iVPgUoEEQHNWZJCw==
+devfractal-router@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/devfractal-router/-/devfractal-router-1.2.14.tgz#3994e32860429c0c5b59cc60d20f8a70b8ec0def"
+  integrity sha512-NEKBZmGpGna4g/3jryo9OLszWRcYa3Axk/2XIx/NuZUu683ClaLelNN9Vcvmzky9qm1JUMeFNzSabM50b1ZXSA==
   dependencies:
     query-string "6.8.2"
-    technoidentity-utils "^1.2.10"
+    technoidentity-utils "^1.2.14"
     tslib "1.10.0"
 
-devfractal-simple@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/devfractal-simple/-/devfractal-simple-1.2.12.tgz#3022218b90e5ca9c3ce7d53e6377e4bb16fae834"
-  integrity sha512-gDnxHz9xC0KzUXVqEvh07If2D3YZ2+DsN76eWn5pmJUpKAkOP5Ybq1OzXciqRwbfIE+LFnWodN/j4K2F8SqNTA==
+devfractal-simple@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/devfractal-simple/-/devfractal-simple-1.2.14.tgz#e6f7b14efbd68471e241039ad41a7b19d970c4a4"
+  integrity sha512-mwuHlCGc/DCvYqlkte+ow7OKwGAyuT1p58VYJp5W18Q+Un8QGYmmmu0iiPrM6vHQbClBYnN5SjdqY6nUVigSaQ==
   dependencies:
     tslib "1.10.0"
 
-devfractal-ui-core@^1.2.10:
-  version "1.2.10"
-  resolved "https://registry.yarnpkg.com/devfractal-ui-core/-/devfractal-ui-core-1.2.10.tgz#f78e9e0f4aca45306ac7dd035d27bdf5effd3f39"
-  integrity sha512-4f8hgfBVQbR2r2vrY/i/A9YfTRJaJRdkIOQ3TF1SaJMMvzmFINQD5mQfCIj5cvUJFXrvFvvfL5Po2ZHmrJEAUA==
+devfractal-ui-api@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/devfractal-ui-api/-/devfractal-ui-api-1.2.14.tgz#fa4e84bec219f95d495d7f3491f7708642e86549"
+  integrity sha512-dApsdpUYJsQI7Skm1eUuQg3tXo8/jo8F3e2ndAUP0hE3sRasPk271yMG4ddoG8i+WxUY8lTk4M+ds7gx8Ijgew==
+  dependencies:
+    cleave.js "1.5.3"
+    date-fns "1.30.1"
+    immer "3.2.0"
+    react-datepicker "2.8.0"
+    technoidentity-utils "^1.2.14"
+    tslib "1.10.0"
+
+devfractal-ui-core@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/devfractal-ui-core/-/devfractal-ui-core-1.2.14.tgz#96bf38d8e884737910d32f7ee70768c222eb14b9"
+  integrity sha512-YeyF4cnDZHE4G+WgW5OYD32EzBXJNhr8JtHFKTnmwtY0X86FOo4ITt7iQQXkiN4hkWW/aHJ0egXVe3GKQiTtVQ==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "1.2.21"
     "@fortawesome/free-brands-svg-icons" "5.10.1"
@@ -2872,10 +2885,10 @@ devfractal-ui-core@^1.2.10:
     bulma "0.7.5"
     tslib "1.10.0"
 
-devfractal-ui@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/devfractal-ui/-/devfractal-ui-1.2.12.tgz#0550a04a2c53b103e058098137437b5545aacb3a"
-  integrity sha512-4DMoFSPf5YxTF35dPboB5IbGZDR/ukdmgURaEOSvnpG2ek3byKOvBqaPMpSdEK23nu0SqwxYGt+1LSVbhWrDZg==
+devfractal-ui@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/devfractal-ui/-/devfractal-ui-1.2.14.tgz#71fe52480d5567728ff1b6eed12f1d37a24e37de"
+  integrity sha512-LNTMach4dv90Vi8jEq3oEibVsC5SLBI2na2ejoAewq6oryDjCOmEgDt2jDCf8GTtTiD2Ar8SLTt9Tq//B60pUw==
   dependencies:
     tslib "1.10.0"
 
@@ -3537,11 +3550,6 @@ forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
-
-fp-ts@2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.0.4.tgz#a07ceef59c2460616fcf70367708ebe4d1c2212f"
-  integrity sha512-oRQbFqqGcvorkEj92dAcM4/RH1TARJCt8wVgynRIp8v4uOzVCe4kCs7vKSYpIXQsvtpyCt9nVVFqufSX8VYghg==
 
 fp-ts@2.0.5:
   version "2.0.5"
@@ -5269,7 +5277,7 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash-es@^4.17.14, lodash-es@^4.17.15:
+lodash-es@4.17.15, lodash-es@^4.17.14:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
@@ -8107,40 +8115,41 @@ tcomb@3.2.29:
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
-technoidentity-dev-utils@1.2.11:
-  version "1.2.11"
-  resolved "https://registry.yarnpkg.com/technoidentity-dev-utils/-/technoidentity-dev-utils-1.2.11.tgz#117eca117b75d3b70908a6491a082ccc4db4f44b"
-  integrity sha512-Ior/uvLyDS52cpcqCgkUbeXN7X2xuqGsq2BpzUTR1t9huV1n6IDq8/BxJvWUEzAXMk1BX1xmWwWUdz1wt0nHaw==
+technoidentity-dev-utils@1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/technoidentity-dev-utils/-/technoidentity-dev-utils-1.2.14.tgz#0b6caeb7bb8de97e0294fae74f0546d9e14e4af4"
+  integrity sha512-tDIgDRmI7/kxc1pSjFQguJMugXjLG9oKVt0EItbRX4f4wCuSu/8bQmpsXwmlXcaoxe2actRDjuvdM45V+9eG8g==
   dependencies:
     chance "1.0.18"
     date-fns "1.30.1"
-    fp-ts "2.0.4"
+    fp-ts "2.0.5"
     io-ts "2.0.1"
     io-ts-types "0.5.0"
     json-server "0.15.0"
     monocle-ts "2.0.0"
     tcomb "3.2.29"
-    technoidentity-utils "^1.2.10"
+    technoidentity-utils "^1.2.14"
     tslib "1.10.0"
 
-technoidentity-devfractal@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-1.2.12.tgz#38c653f98b40c8d7c1d5deab516cc4b35adb4324"
-  integrity sha512-mA8bH9ADir5ekKHGvyO+uZK+DnwdfxeR4cp2rGNtt5lK02f43PZ/UvU8ul4yZpl0gdng0to9tJic2tFTlcR30Q==
+technoidentity-devfractal@1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/technoidentity-devfractal/-/technoidentity-devfractal-1.2.14.tgz#4527ec146bb67cb92e99efaa39c97e15da70f517"
+  integrity sha512-n4EJ/jJvsHvst6cUT5CDwWHynG7FRY82TZj2kxUOyH9s+8sKlhVyU0yz5fgTcSbvsLzLz+J2ctqizQvsDGet+g==
   dependencies:
-    devfractal-api "^1.2.12"
-    devfractal-crud "^1.2.12"
-    devfractal-forms "^1.2.12"
-    devfractal-router "^1.2.12"
-    devfractal-simple "^1.2.12"
-    devfractal-ui "^1.2.12"
-    devfractal-ui-core "^1.2.10"
+    devfractal-api "^1.2.14"
+    devfractal-crud "^1.2.14"
+    devfractal-forms "^1.2.14"
+    devfractal-router "^1.2.14"
+    devfractal-simple "^1.2.14"
+    devfractal-ui "^1.2.14"
+    devfractal-ui-api "^1.2.14"
+    devfractal-ui-core "^1.2.14"
     tslib "1.10.0"
 
-technoidentity-utils@^1.2.10:
-  version "1.2.10"
-  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-1.2.10.tgz#616feaf02c4eb8d599c9be3b5bfdfc40430ed1e6"
-  integrity sha512-yrGXkKqGcVrq7SkuWjOW/ohp6WkbyL0RXw76sCO5aVgoXQVKxLlHNw57VoOuteRzEUJhUP3mGYkXzHE6p8Vjvg==
+technoidentity-utils@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/technoidentity-utils/-/technoidentity-utils-1.2.14.tgz#55c8f5c2043e614ebf686dbd294b1f3a150bf4d0"
+  integrity sha512-f1EiP5jlyJZYEgsqrEd0B4eE89lm4WVMSPM0l5mxvx/aaMDiNtdm4sYX+M24UagrtFv72rdk6NIMGoEyw1zK+g==
   dependencies:
     date-fns "1.30.1"
     tslib "1.10.0"
