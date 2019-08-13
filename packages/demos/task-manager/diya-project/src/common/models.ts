@@ -1,4 +1,5 @@
-import { Int, keyof, number, string, TypeOf } from 'io-ts'
+import { Int, keyof, string, TypeOf } from 'io-ts'
+import { number } from 'prop-types'
 import { ISODate, props, req } from 'technoidentity-utils'
 
 const Shift = keyof({
@@ -125,3 +126,74 @@ export const User = props(
 )
 
 export type User = TypeOf<typeof User>
+
+const Frequency = keyof({
+  once: true,
+  weekly: true,
+  monthly: true,
+  yearly: true,
+})
+
+export const Evs = props(
+  { evID: string },
+  { driverName: string, additionalEVsRequired: Int, frequency: Frequency },
+)
+
+export type Evs = TypeOf<typeof Evs>
+
+const RouteStatus = keyof({ Enroute: true, complete: true })
+
+export const PlanRoute = props(
+  { ID: string },
+  {
+    customerName: string,
+    address: string,
+    contactNumber: Int,
+    status: RouteStatus,
+  },
+)
+
+const EmployeeRole = keyof({
+  ClientDispatcher: true,
+  Reporter: true,
+})
+
+export const Employee = props(
+  {
+    employeeID: string,
+  },
+  {
+    name: string,
+    phone: Int,
+    adharNumber: string,
+    role: EmployeeRole,
+    accountName: string,
+    accountNumber: Int,
+    confirmAccountNumber: Int,
+    bankName: string,
+    branchIFSCNumber: string,
+  },
+)
+
+export type Employee = TypeOf<typeof Employee>
+
+export const Invoice = props(
+  { ID: string },
+  { invoicesNo: Int, valid: ISODate, dueDate: ISODate, amount: Int },
+)
+
+export type Invoice = TypeOf<typeof Invoice>
+
+export const Geofence = props(
+  {
+    ID: string,
+  },
+  {
+    areaName: string,
+    assignVehicle: string,
+    assignClient: string,
+    comments: string,
+  },
+)
+
+export type Geofence = TypeOf<typeof Geofence>
