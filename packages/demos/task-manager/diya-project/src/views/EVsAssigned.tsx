@@ -1,0 +1,54 @@
+import { Get } from 'devfractal-api'
+import { SimpleTable } from 'devfractal-simple'
+import {
+  Button,
+  ButtonsGroup,
+  component,
+  Section,
+  Title,
+} from 'devfractal-ui-core'
+import { readonlyArray, TypeOf } from 'io-ts'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { req } from 'technoidentity-utils'
+import { Evs, evsAPI } from '../common'
+import { ActionsRoutes } from './ActionsRoute'
+
+const EVSListProps = req({ evsList: readonlyArray(Evs) })
+
+type EVSListProps = TypeOf<typeof EVSListProps>
+
+export const EVSListView: React.FC<EVSListProps> = ({ evsList }) => (
+  <>
+    <ButtonsGroup alignment="right">
+      <Link to="evs/add" className="button is-primary">
+        Request New EV
+      </Link>
+    </ButtonsGroup>
+    <SimpleTable
+      data={evsList}
+      headers={['evID', 'driverName', 'Actions']}
+      headerLabels={['EV ID', 'Driver', 'Actions']}
+    >
+      {key =>
+        // tslint:disable-next-line: no-null-keyword
+        key === 'Actions' ? <ActionsRoutes changeUrl={`/planRoute`} /> : null
+      }
+    </SimpleTable>
+  </>
+)
+
+export const EVSListTable = component(EVSListProps, ({ evsList }) => (
+  <Section>
+    <Title>EVS assigned</Title>
+    <EVSListView evsList={evsList} />
+  </Section>
+))
+
+export const EVsAssigned: React.FC = () => (
+  <>
+    <Get asyncFn={() => evsAPI.many()}>
+      {data => <EVSListTable evsList={data} />}
+    </Get>
+  </>
+)
