@@ -22,6 +22,7 @@ export const EVSListView: React.FC<EVSListProps> = ({ evsList }) => (
       data={evsList}
       headers={['evID', 'driverName', 'Actions']}
       headerLabels={['EV ID', 'Driver', 'Actions']}
+      striped
     >
       {key =>
         // tslint:disable-next-line: no-null-keyword

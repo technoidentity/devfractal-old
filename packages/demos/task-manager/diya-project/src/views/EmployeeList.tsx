@@ -22,6 +22,7 @@ const EmployeeListView: React.FC<EmployeeListProps> = ({ employeeList }) => (
     <SimpleTable
       data={employeeList}
       headers={['name', 'employeeID', 'role', 'Actions']}
+      striped
     >
       {(key, values) =>
         key === 'Actions' ? (

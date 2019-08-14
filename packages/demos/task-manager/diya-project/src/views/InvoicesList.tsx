@@ -20,6 +20,7 @@ const InvoiceListView: React.FC<InvoiceListProps> = ({ invoiceList }) => (
     data={invoiceList}
     headers={['invoicesNo', 'valid', 'dueDate', 'amount']}
     headerLabels={['InVoices No.', 'Valid', 'Due Date', 'Amount']}
+    striped
   />
 )
 

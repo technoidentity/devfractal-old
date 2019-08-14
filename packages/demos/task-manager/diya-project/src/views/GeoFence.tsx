@@ -28,6 +28,7 @@ const GeoFenceListView: React.FC<GeoFenceListProps> = ({ geofenceList }) => (
     <SimpleTable
       data={geofenceList}
       headers={['areaName', 'assignVehicle', 'assignClient', 'Actions']}
+      striped
     >
       {(key, values) =>
         key === 'Actions' ? (

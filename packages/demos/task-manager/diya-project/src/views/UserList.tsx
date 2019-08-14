@@ -28,7 +28,11 @@ export const UserListForm = component(UserFormProps, ({ userList }) => {
           Add user
         </Link>
       </ButtonsGroup>
-      <SimpleTable data={userList} headers={['userName', 'role', 'Actions']}>
+      <SimpleTable
+        data={userList}
+        headers={['userName', 'role', 'Actions']}
+        striped
+      >
         {(key, value) =>
           key === 'Actions' ? (
             <Actions editURL={`users/${value.userID}/edit`} />

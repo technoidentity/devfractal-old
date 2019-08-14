@@ -19,6 +19,7 @@ export const PlanRouteView: React.FC<PlanRouteProps> = ({ data }) => (
   <SimpleTable
     data={data}
     headers={['customerName', 'address', 'contactNumber', 'status', 'Actions']}
+    striped
   >
     {(key, values) =>
       // tslint:disable-next-line: no-null-keyword
