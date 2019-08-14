@@ -197,3 +197,15 @@ export const GeoFence = props(
 )
 
 export type GeoFence = TypeOf<typeof GeoFence>
+
+export const ViewTrips = props(
+  { ID: string },
+  {
+    customerName: string,
+    address: string,
+    contactNumber: Int,
+    status: RouteStatus,
+  },
+)
+
+export type ViewTrips = TypeOf<typeof ViewTrips>
