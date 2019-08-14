@@ -58,7 +58,7 @@ export const SideMenu = () => (
     <Section>
       <Image src={diyaLogo} alt="diyaImage" size="96x96" />
     </Section>
-    <MenuComponentRoute />
+    <MenuComponent />
   </Column>
 )
 
