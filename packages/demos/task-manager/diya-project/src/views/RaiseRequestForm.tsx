@@ -20,13 +20,18 @@ export const RaiseRequestForm = component(
   RaiseRequestFormProps,
   ({ initial, onSubmit }) => (
     <>
-      <Title size="4">Raise Request</Title>
+      <Title size="4" textColor="info">
+        Raise Request
+      </Title>
       <Section>
         <Simple.Form
           initialValues={initial || initialValues}
           onSubmit={onSubmit}
         >
-          <Simple.Select name="addtionalEVsRequired">
+          <Simple.Select
+            name="addtionalEVsRequired"
+            label="Additional EVs required"
+          >
             <option>select</option>
           </Simple.Select>
           <Simple.Select name="frequency">
