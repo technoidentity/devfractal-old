@@ -2,7 +2,6 @@ import { API, SubmitAction } from 'devfractal-api'
 import { SafeRoute as Route } from 'devfractal-router'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
-import 'react-datepicker/dist/react-datepicker.css'
 import { HasProps } from 'technoidentity-utils'
 import { Post } from './Post'
 
