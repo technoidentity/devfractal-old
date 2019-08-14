@@ -101,7 +101,7 @@ export const VehicleForm = component(
               <Button variant="dark">Upload Photo</Button>
             </Column>
           </Columns>
-          <Simple.FormButtons />
+          <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>
     </>
