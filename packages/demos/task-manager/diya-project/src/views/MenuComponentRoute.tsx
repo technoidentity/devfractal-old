@@ -1,12 +1,8 @@
 import {
-  faBookReader,
   faBus,
   faLocationArrow,
   faMapMarked,
-  faMoneyBill,
-  faNotesMedical,
   faStickyNote,
-  faUser,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
 import { Menu, MenuItem, MenuList } from 'devfractal-ui'
@@ -22,7 +18,7 @@ export const MenuComponentRoute: React.FC = () => (
           flexDirection: 'column',
         }}
       >
-        <MenuItem href="/employees">
+        <MenuItem href="/">
           <Icon icon={faUsers} /> Employee
         </MenuItem>
         <MenuItem href="/evs">
