@@ -58,7 +58,7 @@ export const SideMenu = () => (
     <Section>
       <Image src={diyaLogo} alt="diyaImage" size="96x96" />
     </Section>
-    <MenuComponent />
+    <MenuComponentRoute />
   </Column>
 )
 
@@ -95,12 +95,12 @@ export const App = () => (
 //     <Columns>
 //       <Route exact={false} path="/" component={SideMenu} />
 //       <Column>
+//         <Route path="/" component={EmployeeList} />
 //         <Route path="/evs" component={EVsAssigned} />
-//         <Route path="/evs/add" component={CreateRaiseRequestRoute} />
+//         <Route path="/evs/add" component={RaiseRequestRoute} />
 //         <Route path="/invoices" component={InvoiceList} />
 //         <Route path="/planRoute" component={PlanRouteMap} />
-//         <Route path="/employees" component={EmployeeList} />
-//         <Route path="/employees/add" component={CreateEmployeeRoute} />
+//         <Route path="/employees/add" component={EmployeeRoute} />
 //       </Column>
 //     </Columns>
 //   </Router>
