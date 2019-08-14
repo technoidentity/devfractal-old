@@ -20,8 +20,8 @@ export const EVSListView: React.FC<EVSListProps> = ({ evsList }) => (
     </ButtonsGroup>
     <SimpleTable
       data={evsList}
-      headers={['evID', 'driverName', 'Actions']}
-      headerLabels={['EV ID', 'Driver', 'Actions']}
+      headers={['driverName', 'Actions']}
+      headerLabels={['Driver', 'Actions']}
       striped
     >
       {key =>
