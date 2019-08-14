@@ -5,7 +5,7 @@ import {
   Driver,
   Employee,
   Evs,
-  Geofence,
+  GeoFence,
   Invoice,
   PlanRoute,
   User,
@@ -58,7 +58,7 @@ export const invoiceAPI = rest(Invoice, 'ID', {
   ...apiOptions,
 })
 
-export const geofenceAPI = rest(Geofence, 'ID', {
+export const geofenceAPI = rest(GeoFence, 'ID', {
   resource: 'geofence',
   ...apiOptions,
 })

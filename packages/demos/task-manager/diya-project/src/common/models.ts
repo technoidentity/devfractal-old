@@ -184,7 +184,7 @@ export const Invoice = props(
 
 export type Invoice = TypeOf<typeof Invoice>
 
-export const Geofence = props(
+export const GeoFence = props(
   {
     ID: string,
   },
@@ -196,4 +196,4 @@ export const Geofence = props(
   },
 )
 
-export type Geofence = TypeOf<typeof Geofence>
+export type GeoFence = TypeOf<typeof GeoFence>

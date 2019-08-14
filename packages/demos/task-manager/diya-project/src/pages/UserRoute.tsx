@@ -3,7 +3,7 @@ import { Post } from 'technoidentity-devfractal'
 import { User, userAPI } from '../common'
 import { UserForm } from '../views'
 
-export const CreateUserRoute: React.FC = () => (
+export const UserRoute: React.FC = () => (
   <>
     <Post<User>
       onPost={values => userAPI.create(values)}

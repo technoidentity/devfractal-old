@@ -31,7 +31,7 @@ export const UserListForm = component(UserFormProps, ({ userList }) => {
       <SimpleTable data={userList} headers={['userName', 'role', 'Actions']}>
         {(key, value) =>
           key === 'Actions' ? (
-            <Actions editUrl={`users/${value.userID}/edit`} />
+            <Actions editURL={`users/${value.userID}/edit`} />
           ) : // tslint:disable-next-line: no-null-keyword
           null
         }

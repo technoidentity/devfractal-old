@@ -5,6 +5,7 @@ import { BatteryForm } from '../views'
 
 export const EditBatteryRoute: React.FC = () => {
   const { params } = useMatch(Params)
+
   return (
     <Section>
       <Put

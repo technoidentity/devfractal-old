@@ -10,18 +10,18 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Geofence, geofenceAPI } from '../common'
+import { GeoFence, geofenceAPI } from '../common'
 import { Actions } from '../views'
 
-export const GeofenceListProps = req({ geofenceList: readonlyArray(Geofence) })
+export const GeoFenceListProps = req({ geofenceList: readonlyArray(GeoFence) })
 
-type GeofenceListProps = TypeOf<typeof GeofenceListProps>
+type GeoFenceListProps = TypeOf<typeof GeoFenceListProps>
 
-const GeofenceListView: React.FC<GeofenceListProps> = ({ geofenceList }) => (
+const GeoFenceListView: React.FC<GeoFenceListProps> = ({ geofenceList }) => (
   <>
     <ButtonsGroup alignment="right">
       <Link to="geofence/add" className="button is-primary">
-        Create Geofence
+        Create GeoFence
       </Link>
     </ButtonsGroup>
     <SimpleTable
@@ -30,7 +30,7 @@ const GeofenceListView: React.FC<GeofenceListProps> = ({ geofenceList }) => (
     >
       {(key, values) =>
         key === 'Actions' ? (
-          <Actions editUrl={`geofence/${values.ID}/edit`} />
+          <Actions editURL={`geofence/${values.ID}/edit`} />
         ) : // tslint:disable-next-line: no-null-keyword
         null
       }
@@ -38,15 +38,15 @@ const GeofenceListView: React.FC<GeofenceListProps> = ({ geofenceList }) => (
   </>
 )
 
-const GeofenceListTable = component(GeofenceListProps, ({ geofenceList }) => (
+const GeoFenceListTable = component(GeoFenceListProps, ({ geofenceList }) => (
   <Section>
-    <Title size="4">Geofence</Title>
-    <GeofenceListView geofenceList={geofenceList} />
+    <Title size="4">GeoFence</Title>
+    <GeoFenceListView geofenceList={geofenceList} />
   </Section>
 ))
 
-export const GeofenceList: React.FC = () => (
+export const GeoFenceList: React.FC = () => (
   <Get asyncFn={() => geofenceAPI.many()}>
-    {data => <GeofenceListTable geofenceList={data} />}
+    {data => <GeoFenceListTable geofenceList={data} />}
   </Get>
 )

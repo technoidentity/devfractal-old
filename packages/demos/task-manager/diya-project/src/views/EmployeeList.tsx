@@ -24,7 +24,7 @@ const EmployeeListView: React.FC<EmployeeListProps> = ({ employeeList }) => (
     >
       {(key, values) =>
         key === 'Actions' ? (
-          <Actions editUrl={`employees/${values.employeeID}/edit`} />
+          <Actions editURL={`employees/${values.employeeID}/edit`} />
         ) : // tslint:disable-next-line: no-null-keyword
         null
       }

@@ -12,19 +12,19 @@ import {
 import { range } from 'technoidentity-utils'
 import diyaLogo from './images/diyaLogo.png'
 import {
-  CreateBatteryRoute,
-  CreateClientRoute,
-  CreateDriverRoute,
-  CreateEmployeeRoute,
-  CreateGeofenceRoute,
-  CreateRaiseRequestRoute,
-  CreateUserRoute,
-  CreateVehicleRoute,
+  BatteryRoute,
+  ClientRoute,
+  DriverRoute,
   EditBatteryRoute,
   EditClientRoute,
   EditDriverRoute,
   EditUserRoute,
   EditVehicleRoute,
+  EmployeeRoute,
+  GeoFenceRoute,
+  RaiseRequestRoute,
+  UserRoute,
+  VehicleRoute,
 } from './pages'
 import {
   ActionsRoutes,
@@ -33,7 +33,7 @@ import {
   DriverList,
   EmployeeList,
   EmployeeListTable,
-  GeofenceList,
+  GeoFenceList,
   InvoiceList,
   MenuComponent,
   MenuComponentRoute,
@@ -69,21 +69,21 @@ export const App = () => (
       <Column>
         <Route path="/" component={DriverList} />
         <Route path="/clients" component={ClientList} />
-        <Route path="/clients/add" component={CreateClientRoute} />
+        <Route path="/clients/add" component={ClientRoute} />
         <Route path="/clients/:id/edit" component={EditClientRoute} />
         <Route path="/users" component={UserList} />
-        <Route path="/users/add" component={CreateUserRoute} />
+        <Route path="/users/add" component={UserRoute} />
         <Route path="/users/:id/edit" component={EditUserRoute} />
-        <Route path="/geofence" component={GeofenceList} />
-        <Route path="/geofence/add" component={CreateGeofenceRoute} />
+        <Route path="/geofence" component={GeoFenceList} />
+        <Route path="/geofence/add" component={GeoFenceRoute} />
         <Route path="/vehicles" component={VehicleList} />
-        <Route path="/vehicles/add" component={CreateVehicleRoute} />
+        <Route path="/vehicles/add" component={VehicleRoute} />
         <Route path="/vehicles/:id/edit" component={EditVehicleRoute} />
         <Route path="/batteries" component={BatteryList} />
-        <Route path="/batteries/add" component={CreateBatteryRoute} />
+        <Route path="/batteries/add" component={BatteryRoute} />
         <Route path="/batteries/:id/edit" component={EditBatteryRoute} />
         <Route path="/drivers" component={DriverList} />
-        <Route path="/drivers/add" component={CreateDriverRoute} />
+        <Route path="/drivers/add" component={DriverRoute} />
         <Route path="/drivers/:id/edit" component={EditDriverRoute} />
       </Column>
     </Columns>

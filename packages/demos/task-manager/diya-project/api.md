@@ -59,7 +59,7 @@ included in body for these methods
 - PUT -> /clients
 - DELETE -> /clients/:id
 
-## Resource: Areas(Geofence)
+## Resource: Areas(GeoFence)
 
 - GET -> /areas
 - GET -> /areas/:id

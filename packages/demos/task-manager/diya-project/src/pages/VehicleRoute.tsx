@@ -4,7 +4,7 @@ import { Post, Section } from 'technoidentity-devfractal'
 import { Vehicle, vehicleAPI } from '../common'
 import { VehicleForm } from '../views'
 
-export const CreateVehicleRoute: React.FC = () => (
+export const VehicleRoute: React.FC = () => (
   <Section>
     <Post<Vehicle>
       redirectPath="/vehicles"

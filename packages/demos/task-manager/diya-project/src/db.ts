@@ -5,7 +5,7 @@ import {
   Driver,
   Employee,
   Evs,
-  Geofence,
+  GeoFence,
   Invoice,
   PlanRoute,
   User,
@@ -22,7 +22,7 @@ const faker = {
   planRoute: PlanRoute,
   employees: Employee,
   invoices: Invoice,
-  geofence: Geofence,
+  geofence: GeoFence,
 }
 
 startFakeJSONServer(faker, 9999, 10)

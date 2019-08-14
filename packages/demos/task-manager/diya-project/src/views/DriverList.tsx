@@ -34,7 +34,7 @@ export const DriverListForm: React.FC<DriverListProps> = ({ driverList }) => (
     >
       {(key, values) =>
         key === 'Actions' ? (
-          <Actions editUrl={`drivers/${values.driverID}/edit`} />
+          <Actions editURL={`drivers/${values.driverID}/edit`} />
         ) : // tslint:disable-next-line: no-null-keyword
         null
       }

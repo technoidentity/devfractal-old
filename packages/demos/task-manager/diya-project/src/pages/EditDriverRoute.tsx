@@ -5,6 +5,7 @@ import { DriverForm } from '../views'
 
 export const EditDriverRoute: React.FC = () => {
   const { params } = useMatch(Params)
+
   return (
     <Put
       id={params.id}

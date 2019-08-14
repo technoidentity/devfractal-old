@@ -3,26 +3,26 @@ import { TypeOf } from 'io-ts'
 import React from 'react'
 import { component, Section, Simple, Title } from 'technoidentity-devfractal'
 import { empty, fn, props } from 'technoidentity-utils'
-import { Geofence } from '../common'
+import { GeoFence } from '../common'
 
-const GeofenceFormProps = props(
-  { initial: Geofence },
+const GeoFenceFormProps = props(
+  { initial: GeoFence },
   {
     onSubmit: fn<
-      (values: Geofence, actions: FormikActions<Geofence>) => Promise<void>
+      (values: GeoFence, actions: FormikActions<GeoFence>) => Promise<void>
     >(),
   },
 )
 
-type GeofenceFormProps = TypeOf<typeof GeofenceFormProps>
+type GeoFenceFormProps = TypeOf<typeof GeoFenceFormProps>
 
-const initialValues = empty(Geofence)
+const initialValues = empty(GeoFence)
 
-export const GeofenceForm = component(
-  GeofenceFormProps,
+export const GeoFenceForm = component(
+  GeoFenceFormProps,
   ({ initial, onSubmit }) => (
     <>
-      <Title size="4">Create Geofence</Title>
+      <Title size="4">Create GeoFence</Title>
       <Section>
         <Simple.Form
           initialValues={initial || initialValues}

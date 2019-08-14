@@ -3,7 +3,7 @@ import { Post, Section } from 'technoidentity-devfractal'
 import { Client, clientAPI } from '../common'
 import { ClientForm } from '../views'
 
-export const CreateClientRoute: React.FC = () => (
+export const ClientRoute: React.FC = () => (
   <Section>
     <Post<Client>
       onPost={clientAPI.create}

@@ -5,6 +5,7 @@ import { UserForm } from '../views'
 
 export const EditUserRoute: React.FC = () => {
   const { params } = useMatch(Params)
+
   return (
     <Put
       id={params.id}

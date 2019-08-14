@@ -3,7 +3,7 @@ import { Post, Section } from 'technoidentity-devfractal'
 import { Battery, batteryAPI } from '../common'
 import { BatteryForm } from '../views'
 
-export const CreateBatteryRoute: React.FC = () => (
+export const BatteryRoute: React.FC = () => (
   <Section>
     <Post<Battery>
       redirectPath="/batteries"
