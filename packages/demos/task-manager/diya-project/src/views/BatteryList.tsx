@@ -28,14 +28,7 @@ export const BatteryListForm = component(
 
       <SimpleTable
         data={batteryList}
-        headers={[
-          'name',
-          'id',
-          'group',
-          'remainingCycles',
-          'status',
-          'Actions',
-        ]}
+        headers={['name', 'group', 'remainingCycles', 'status', 'Actions']}
         striped
       >
         {(key, values) =>
