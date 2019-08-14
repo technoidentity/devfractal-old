@@ -10,6 +10,7 @@ import {
   PlanRoute,
   User,
   Vehicle,
+  ViewTrips,
 } from './common'
 
 const faker = {
@@ -23,6 +24,7 @@ const faker = {
   employees: Employee,
   invoices: Invoice,
   geofence: GeoFence,
+  viewTrips: ViewTrips,
 }
 
 startFakeJSONServer(faker, 9999, 10)
