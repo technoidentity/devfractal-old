@@ -29,7 +29,9 @@ export const PlanRouteView: React.FC<PlanRouteProps> = ({ data }) => (
 
 export const PlanRouteList = component(PlanRouteProps, ({ data }) => (
   <Section>
-    <Title size="4">Plan Route</Title>
+    <Title size="4" textColor="info">
+      Plan Route
+    </Title>
     <PlanRouteView data={data} />
   </Section>
 ))

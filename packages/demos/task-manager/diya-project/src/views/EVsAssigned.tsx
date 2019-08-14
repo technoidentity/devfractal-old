@@ -33,7 +33,9 @@ export const EVSListView: React.FC<EVSListProps> = ({ evsList }) => (
 
 export const EVSListTable = component(EVSListProps, ({ evsList }) => (
   <Section>
-    <Title>EVS assigned</Title>
+    <Title size="4" textColor="info">
+      EVS assigned
+    </Title>
     <EVSListView evsList={evsList} />
   </Section>
 ))
