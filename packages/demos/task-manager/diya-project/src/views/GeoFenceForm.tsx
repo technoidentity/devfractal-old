@@ -22,7 +22,9 @@ export const GeoFenceForm = component(
   GeoFenceFormProps,
   ({ initial, onSubmit }) => (
     <>
-      <Title size="4">Create GeoFence</Title>
+      <Title size="4" textColor="info">
+        Create GeoFence
+      </Title>
       <Section>
         <Simple.Form
           initialValues={initial || initialValues}
@@ -32,7 +34,7 @@ export const GeoFenceForm = component(
           <Simple.Text name="assignVehicle" />
           <Simple.Text name="assignClient" />
           <Simple.TextArea name="comments" />
-          <Simple.FormButtons alignment="centered" />
+          <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>
     </>
