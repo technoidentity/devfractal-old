@@ -12,6 +12,7 @@ import {
 import { req } from 'technoidentity-utils'
 import { GeoFence, geofenceAPI } from '../common'
 import { Actions } from '../views'
+import { StaticPagination } from './Pagination'
 
 export const GeoFenceListProps = req({ geofenceList: readonlyArray(GeoFence) })
 
@@ -40,8 +41,11 @@ const GeoFenceListView: React.FC<GeoFenceListProps> = ({ geofenceList }) => (
 
 const GeoFenceListTable = component(GeoFenceListProps, ({ geofenceList }) => (
   <Section>
-    <Title size="4">GeoFence</Title>
+    <Title size="4" textColor="info">
+      GeoFence
+    </Title>
     <GeoFenceListView geofenceList={geofenceList} />
+    <StaticPagination />
   </Section>
 ))
 
