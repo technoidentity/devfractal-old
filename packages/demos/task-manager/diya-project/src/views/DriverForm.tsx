@@ -66,8 +66,8 @@ export const DriverForm = component(
               <Simple.Telephone name="phone" validations={[required()]} />
               <Simple.Text name="driverLicence" validations={[required()]} />
               <Simple.Text name="adharNumber" validations={[required()]} />
-              <Label>Shift</Label>
               <Simple.Select name="shift">
+                <option>Select</option>
                 <option value="morning">Morning</option>
                 <option value="evening">Evening</option>
               </Simple.Select>
@@ -108,7 +108,7 @@ export const DriverForm = component(
               <Button variant="dark">Upload Photo</Button>
             </Column>
           </Columns>
-          <Simple.FormButtons />
+          <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>
     </>

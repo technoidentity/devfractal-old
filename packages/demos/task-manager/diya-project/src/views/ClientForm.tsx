@@ -42,8 +42,8 @@ export const ClientForm = component(
           <Columns>
             <Column>
               <Simple.Text name="clientName" />
-              <Label>Contract Type</Label>
-              <Simple.Select name="Weekly">
+
+              <Simple.Select name="contractType">
                 <option value="Weekly">Weekly</option>
                 <option value="Monthly">Monthly</option>
               </Simple.Select>
@@ -58,7 +58,7 @@ export const ClientForm = component(
               />
             </Column>
           </Columns>
-          <Simple.FormButtons />
+          <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>
     </>

@@ -38,13 +38,13 @@ export const UserForm = component(
           onSubmit={onSubmit}
         >
           <Simple.Text name="userName" />
-          <Label>Role</Label>
-          <Simple.Select name="Admin">
+
+          <Simple.Select name="role">
             <option value="Admin">Admin</option>
             <option value="Reporter">Reporter</option>
             <option value="Dispatcher">Dispatcher</option>
           </Simple.Select>
-          <Simple.FormButtons />
+          <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>
     </>
