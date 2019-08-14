@@ -37,6 +37,15 @@ export const ClientListForm = component(ClientListProps, ({ clientList }) => (
         'assignedEVSHistory',
         'Actions',
       ]}
+      headerLabels={[
+        'Client Name',
+        'Contract Type',
+        'Email',
+        'No. of EVS',
+        'Rate of EVS',
+        'Assigned EVS History',
+        'Actions',
+      ]}
     >
       {(key, values) =>
         key === 'Actions' ? (
