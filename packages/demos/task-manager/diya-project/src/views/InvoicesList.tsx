@@ -9,12 +9,13 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Invoice, invoiceAPI } from '../common'
+import { StaticPagination } from './Pagination'
 
 const InvoiceListProps = req({ invoiceList: readonlyArray(Invoice) })
 
 type InvoiceListProps = TypeOf<typeof InvoiceListProps>
 
-const InoviceListView: React.FC<InvoiceListProps> = ({ invoiceList }) => (
+const InvoiceListView: React.FC<InvoiceListProps> = ({ invoiceList }) => (
   <SimpleTable
     data={invoiceList}
     headers={['invoicesNo', 'valid', 'dueDate', 'amount']}
@@ -24,8 +25,11 @@ const InoviceListView: React.FC<InvoiceListProps> = ({ invoiceList }) => (
 
 const InvoiceListTable = component(InvoiceListProps, ({ invoiceList }) => (
   <Section>
-    <Title size="4">Invoices</Title>
-    <InoviceListView invoiceList={invoiceList} />
+    <Title size="4" textColor="info">
+      Invoices
+    </Title>
+    <InvoiceListView invoiceList={invoiceList} />
+    <StaticPagination />
   </Section>
 ))
 

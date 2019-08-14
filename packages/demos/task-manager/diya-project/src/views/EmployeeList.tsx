@@ -6,6 +6,7 @@ import { Get, SimpleTable } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Employee, employeeAPI } from '../common'
 import { Actions } from './Actions'
+import { StaticPagination } from './Pagination'
 
 export const EmployeeListProps = req({ employeeList: readonlyArray(Employee) })
 
@@ -40,6 +41,7 @@ export const EmployeeListTable = component(
         Employee
       </Title>
       <EmployeeListView employeeList={employeeList} />
+      <StaticPagination />
     </Section>
   ),
 )
