@@ -10,6 +10,7 @@ import {
   PlanRoute,
   User,
   Vehicle,
+  ViewTrips,
 } from './models'
 
 export const apiOptions = {
@@ -60,5 +61,10 @@ export const invoiceAPI = rest(Invoice, 'ID', {
 
 export const geofenceAPI = rest(GeoFence, 'ID', {
   resource: 'geofence',
+  ...apiOptions,
+})
+
+export const viewTripsAPI = rest(ViewTrips, 'ID', {
+  resource: 'viewTrips',
   ...apiOptions,
 })
