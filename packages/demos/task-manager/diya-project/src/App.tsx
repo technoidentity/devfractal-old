@@ -9,40 +9,15 @@ import {
   SafeRoute as Route,
   Section,
 } from 'technoidentity-devfractal'
-import { range } from 'technoidentity-utils'
 import diyaLogo from './images/diyaLogo.png'
+import { EmployeeRoute, RaiseRequestRoute } from './pages'
 import {
-  BatteryRoute,
-  ClientRoute,
-  DriverRoute,
-  EditBatteryRoute,
-  EditClientRoute,
-  EditDriverRoute,
-  EditUserRoute,
-  EditVehicleRoute,
-  EmployeeRoute,
-  GeoFenceRoute,
-  RaiseRequestRoute,
-  UserRoute,
-  VehicleRoute,
-} from './pages'
-import {
-  ActionsRoutes,
-  BatteryList,
-  ClientList,
-  DriverList,
   EmployeeList,
-  EmployeeListTable,
-  GeoFenceList,
   InvoiceList,
-  MenuComponent,
   MenuComponentRoute,
   PlanRouteMap,
-  UserList,
-  VehicleList,
-  ViewTripsList,
+  TripsList,
 } from './views'
-import { EmployeeForm } from './views/EmployeeForm'
 import { EVsAssigned } from './views/EVsAssigned'
 
 // tslint:disable-next-line: no-console no-void-expression
@@ -75,8 +50,8 @@ export const SideMenu = () => (
 //         <Route path="/users" component={UserList} />
 //         <Route path="/users/add" component={UserRoute} />
 //         <Route path="/users/:id/edit" component={EditUserRoute} />
-//         <Route path="/geofence" component={GeoFenceList} />
-//         <Route path="/geofence/add" component={GeoFenceRoute} />
+//         <Route path="/geo_fence" component={GeoFenceList} />
+//         <Route path="/geo_fence/add" component={GeoFenceRoute} />
 //         <Route path="/vehicles" component={VehicleList} />
 //         <Route path="/vehicles/add" component={VehicleRoute} />
 //         <Route path="/vehicles/:id/edit" component={EditVehicleRoute} />
@@ -101,7 +76,7 @@ export const App = () => (
         <Route path="/evs/add" component={RaiseRequestRoute} />
         <Route path="/invoices" component={InvoiceList} />
         <Route path="/planRoute" component={PlanRouteMap} />
-        <Route path="/viewTrips" component={ViewTripsList} />
+        <Route path="/trips" component={TripsList} />
         <Route path="/employees/add" component={EmployeeRoute} />
       </Column>
     </Columns>

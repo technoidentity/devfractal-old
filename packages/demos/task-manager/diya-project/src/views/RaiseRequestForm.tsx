@@ -3,18 +3,18 @@ import { TypeOf } from 'io-ts'
 import React from 'react'
 import { component, Section, Simple, Title } from 'technoidentity-devfractal'
 import { empty, fn, props } from 'technoidentity-utils'
-import { Evs } from '../common'
+import { Ev } from '../common'
 
 const RaiseRequestFormProps = props(
-  { initial: Evs },
+  { initial: Ev },
   {
-    onSubmit: fn<(values: Evs, Actions: FormikActions<Evs>) => Promise<void>>(),
+    onSubmit: fn<(values: Ev, Actions: FormikActions<Ev>) => Promise<void>>(),
   },
 )
 
 type RaiseRequestFormProps = TypeOf<typeof RaiseRequestFormProps>
 
-const initialValues = empty(Evs)
+const initialValues = empty(Ev)
 
 export const RaiseRequestForm = component(
   RaiseRequestFormProps,
@@ -29,8 +29,8 @@ export const RaiseRequestForm = component(
           onSubmit={onSubmit}
         >
           <Simple.Select
-            name="addtionalEVsRequired"
-            label="Additional EVs required"
+            name="addtionalEvRequired"
+            label="Additional Ev required"
           >
             <option>select</option>
           </Simple.Select>

@@ -4,67 +4,67 @@ import {
   Client,
   Driver,
   Employee,
-  Evs,
+  Ev,
   GeoFence,
   Invoice,
   PlanRoute,
+  Trip,
   User,
   Vehicle,
-  ViewTrips,
 } from './models'
 
 export const apiOptions = {
   baseURL: 'http://localhost:9999',
 }
 
-export const driverAPI = rest(Driver, 'driverID', {
+export const driverAPI = rest(Driver, 'id', {
   resource: 'drivers',
   ...apiOptions,
 })
 
-export const vehicleAPI = rest(Vehicle, 'vehicleID', {
+export const vehicleAPI = rest(Vehicle, 'id', {
   resource: 'vehicles',
   ...apiOptions,
 })
 
-export const batteryAPI = rest(Battery, 'batteryID', {
+export const batteryAPI = rest(Battery, 'id', {
   resource: 'batteries',
   ...apiOptions,
 })
 
-export const clientAPI = rest(Client, 'clientID', {
+export const clientAPI = rest(Client, 'id', {
   resource: 'clients',
   ...apiOptions,
 })
 
-export const userAPI = rest(User, 'userID', {
+export const userAPI = rest(User, 'id', {
   resource: 'users',
   ...apiOptions,
 })
 
-export const evsAPI = rest(Evs, 'evID', { resource: 'evs', ...apiOptions })
+export const evAPI = rest(Ev, 'id', { resource: 'evs', ...apiOptions })
 
-export const planRouteAPI = rest(PlanRoute, 'ID', {
-  resource: 'planRoute',
+export const planRouteAPI = rest(PlanRoute, 'id', {
+  resource: 'routes',
   ...apiOptions,
 })
 
-export const employeeAPI = rest(Employee, 'employeeID', {
+export const employeeAPI = rest(Employee, 'id', {
   resource: 'employees',
   ...apiOptions,
 })
 
-export const invoiceAPI = rest(Invoice, 'ID', {
+export const invoiceAPI = rest(Invoice, 'id', {
   resource: 'invoices',
   ...apiOptions,
 })
 
-export const geofenceAPI = rest(GeoFence, 'ID', {
-  resource: 'geofence',
+export const geoFenceAPI = rest(GeoFence, 'id', {
+  resource: 'geo_fences',
   ...apiOptions,
 })
 
-export const viewTripsAPI = rest(ViewTrips, 'ID', {
-  resource: 'viewTrips',
+export const tripAPI = rest(Trip, 'id', {
+  resource: 'trips',
   ...apiOptions,
 })

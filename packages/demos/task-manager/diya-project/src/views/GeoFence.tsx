@@ -10,29 +10,29 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { GeoFence, geofenceAPI } from '../common'
+import { GeoFence, geoFenceAPI } from '../common'
 import { Actions } from '../views'
 import { StaticPagination } from './Pagination'
 
-export const GeoFenceListProps = req({ geofenceList: readonlyArray(GeoFence) })
+export const GeoFenceListProps = req({ geoFenceList: readonlyArray(GeoFence) })
 
 type GeoFenceListProps = TypeOf<typeof GeoFenceListProps>
 
-const GeoFenceListView: React.FC<GeoFenceListProps> = ({ geofenceList }) => (
+const GeoFenceListView: React.FC<GeoFenceListProps> = ({ geoFenceList }) => (
   <>
     <ButtonsGroup alignment="right">
-      <Link to="geofence/add" className="button is-primary">
+      <Link to="geo_fence/add" className="button is-primary">
         Create GeoFence
       </Link>
     </ButtonsGroup>
     <SimpleTable
-      data={geofenceList}
+      data={geoFenceList}
       headers={['areaName', 'assignVehicle', 'assignClient', 'Actions']}
       striped
     >
       {(key, values) =>
         key === 'Actions' ? (
-          <Actions editURL={`geofence/${values.ID}/edit`} />
+          <Actions editURL={`geo_fence/${values.id}/edit`} />
         ) : // tslint:disable-next-line: no-null-keyword
         null
       }
@@ -40,18 +40,18 @@ const GeoFenceListView: React.FC<GeoFenceListProps> = ({ geofenceList }) => (
   </>
 )
 
-const GeoFenceListTable = component(GeoFenceListProps, ({ geofenceList }) => (
+const GeoFenceListTable = component(GeoFenceListProps, ({ geoFenceList }) => (
   <Section>
     <Title size="4" textColor="info">
       GeoFence
     </Title>
-    <GeoFenceListView geofenceList={geofenceList} />
+    <GeoFenceListView geoFenceList={geoFenceList} />
     <StaticPagination />
   </Section>
 ))
 
 export const GeoFenceList: React.FC = () => (
-  <Get asyncFn={() => geofenceAPI.many()}>
-    {data => <GeoFenceListTable geofenceList={data} />}
+  <Get asyncFn={() => geoFenceAPI.many()}>
+    {data => <GeoFenceListTable geoFenceList={data} />}
   </Get>
 )

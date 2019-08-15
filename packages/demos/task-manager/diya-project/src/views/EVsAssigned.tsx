@@ -1,13 +1,19 @@
-import { ButtonsGroup, component, Section, Title } from 'devfractal-ui-core'
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Get, SimpleTable } from 'technoidentity-devfractal'
+import {
+  ButtonsGroup,
+  component,
+  Get,
+  Section,
+  SimpleTable,
+  Title,
+} from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Evs, evsAPI } from '../common'
+import { Ev, evAPI } from '../common'
 import { ActionsRoutes } from './ActionsRoute'
 
-const EVSListProps = req({ evsList: readonlyArray(Evs) })
+const EVSListProps = req({ evsList: readonlyArray(Ev) })
 
 type EVSListProps = TypeOf<typeof EVSListProps>
 
@@ -43,7 +49,7 @@ export const EVSListTable = component(EVSListProps, ({ evsList }) => (
 
 export const EVsAssigned: React.FC = () => (
   <>
-    <Get asyncFn={() => evsAPI.many()}>
+    <Get asyncFn={() => evAPI.many()}>
       {data => <EVSListTable evsList={data} />}
     </Get>
   </>

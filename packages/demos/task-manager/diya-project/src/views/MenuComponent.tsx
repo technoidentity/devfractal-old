@@ -37,7 +37,7 @@ export const MenuComponent: React.FC = () => (
         <MenuItem href="/clients">
           <Icon icon={faUserFriends} /> Clients
         </MenuItem>
-        <MenuItem href="/geofence">
+        <MenuItem href="/geo_fence">
           <Icon icon={faMapMarked} /> GeoFences
         </MenuItem>
         <MenuItem href="/users">

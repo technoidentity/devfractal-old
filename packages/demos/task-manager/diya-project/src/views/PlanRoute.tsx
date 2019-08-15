@@ -23,7 +23,7 @@ export const PlanRouteView: React.FC<PlanRouteProps> = ({ data }) => (
   >
     {(key, values) =>
       // tslint:disable-next-line: no-null-keyword
-      key === 'Actions' ? <Actions editURL={`plans/${values.ID}/edit`} /> : null
+      key === 'Actions' ? <Actions editURL={`plans/${values.id}/edit`} /> : null
     }
   </SimpleTable>
 )

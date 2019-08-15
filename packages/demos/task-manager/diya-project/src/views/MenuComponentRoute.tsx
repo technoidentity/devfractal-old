@@ -5,9 +5,14 @@ import {
   faStickyNote,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
-import { Menu, MenuItem, MenuList } from 'devfractal-ui'
-import { Icon, Section } from 'devfractal-ui-core'
 import React from 'react'
+import {
+  Icon,
+  Menu,
+  MenuItem,
+  MenuList,
+  Section,
+} from 'technoidentity-devfractal'
 
 export const MenuComponentRoute: React.FC = () => (
   <Section>
@@ -30,7 +35,7 @@ export const MenuComponentRoute: React.FC = () => (
         <MenuItem href="/invoices">
           <Icon icon={faStickyNote} /> Invoices
         </MenuItem>
-        <MenuItem href="/viewTrips">
+        <MenuItem href="/trips">
           <Icon icon={faMapMarked} /> View Trips
         </MenuItem>
       </MenuList>

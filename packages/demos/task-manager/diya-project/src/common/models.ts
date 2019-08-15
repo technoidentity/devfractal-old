@@ -1,5 +1,4 @@
 import { Int, keyof, string, TypeOf } from 'io-ts'
-import { number } from 'prop-types'
 import { ISODate, props, req } from 'technoidentity-utils'
 
 const Shift = keyof({
@@ -23,7 +22,7 @@ type Status = TypeOf<typeof Status>
 export const Driver = props(
   {
     lastActive: ISODate,
-    driverID: string,
+    id: string,
     status: Status,
   },
   {
@@ -53,16 +52,16 @@ type Group = TypeOf<typeof Group>
 export const Battery = props(
   {
     name: string,
-    batteryID: string,
+    id: string,
     group: Group,
     remainingCycles: Int,
     status: Status,
   },
   {
-    batteryMake: string,
-    batteryModel: string,
+    make: string,
+    model: string,
     capacity: string,
-    batteryCycles: Int,
+    cycles: Int,
     lastCharged: ISODate,
   },
 )
@@ -76,8 +75,8 @@ export const Vehicle = props(
     group: Group,
     nextService: ISODate,
     insuranceDue: ISODate,
-    vehicleStatus: Status,
-    vehicleID: string,
+    status: Status,
+    id: string,
   },
   {
     makersClass: string,
@@ -101,7 +100,7 @@ const ContractType = keyof({
 })
 
 export const Client = props(
-  { clientID: string },
+  { id: string },
   {
     clientName: string,
     contractType: ContractType,
@@ -121,7 +120,7 @@ export const Role = keyof({
 })
 
 export const User = props(
-  { dateOfJoining: ISODate, userID: string },
+  { dateOfJoining: ISODate, id: string },
   { userName: string, role: Role },
 )
 
@@ -134,17 +133,17 @@ const Frequency = keyof({
   yearly: true,
 })
 
-export const Evs = props(
-  { evID: string },
+export const Ev = props(
+  { id: string },
   { driverName: string, additionalEVsRequired: Int, frequency: Frequency },
 )
 
-export type Evs = TypeOf<typeof Evs>
+export type Ev = TypeOf<typeof Ev>
 
 const RouteStatus = keyof({ Enroute: true, complete: true })
 
 export const PlanRoute = props(
-  { ID: string },
+  { id: string },
   {
     customerName: string,
     address: string,
@@ -160,7 +159,7 @@ const EmployeeRole = keyof({
 
 export const Employee = props(
   {
-    employeeID: string,
+    id: string,
   },
   {
     name: string,
@@ -178,7 +177,7 @@ export const Employee = props(
 export type Employee = TypeOf<typeof Employee>
 
 export const Invoice = props(
-  { ID: string },
+  { id: string },
   { invoicesNo: Int, valid: ISODate, dueDate: ISODate, amount: Int },
 )
 
@@ -186,7 +185,7 @@ export type Invoice = TypeOf<typeof Invoice>
 
 export const GeoFence = props(
   {
-    ID: string,
+    id: string,
   },
   {
     areaName: string,
@@ -198,8 +197,8 @@ export const GeoFence = props(
 
 export type GeoFence = TypeOf<typeof GeoFence>
 
-export const ViewTrips = props(
-  { ID: string },
+export const Trip = props(
+  { id: string },
   {
     customerName: string,
     address: string,
@@ -208,4 +207,4 @@ export const ViewTrips = props(
   },
 )
 
-export type ViewTrips = TypeOf<typeof ViewTrips>
+export type Trip = TypeOf<typeof Trip>

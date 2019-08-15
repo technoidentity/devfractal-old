@@ -49,7 +49,7 @@ export const ClientListForm = component(ClientListProps, ({ clientList }) => (
     >
       {(key, values) =>
         key === 'Actions' ? (
-          <Actions editURL={`/clients/${values.clientID}/edit`} />
+          <Actions editURL={`/clients/${values.id}/edit`} />
         ) : // tslint:disable-next-line: no-null-keyword
         null
       }

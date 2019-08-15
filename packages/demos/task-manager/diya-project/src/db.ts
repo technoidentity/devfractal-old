@@ -4,13 +4,13 @@ import {
   Client,
   Driver,
   Employee,
-  Evs,
+  Ev,
   GeoFence,
   Invoice,
   PlanRoute,
+  Trip,
   User,
   Vehicle,
-  ViewTrips,
 } from './common'
 
 const faker = {
@@ -19,12 +19,12 @@ const faker = {
   batteries: Battery,
   clients: Client,
   users: User,
-  evs: Evs,
-  planRoute: PlanRoute,
+  evs: Ev,
+  routes: PlanRoute,
   employees: Employee,
   invoices: Invoice,
-  geofence: GeoFence,
-  viewTrips: ViewTrips,
+  geo_fences: GeoFence,
+  trips: Trip,
 }
 
 startFakeJSONServer(faker, 9999, 10)
