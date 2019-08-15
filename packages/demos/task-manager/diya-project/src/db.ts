@@ -11,7 +11,7 @@ import {
   Trip,
   User,
   Vehicle,
-} from './common'
+} from './common/models'
 
 const faker = {
   drivers: Driver,

@@ -17,7 +17,7 @@ import {
   MenuList,
   Section,
 } from 'technoidentity-devfractal'
-import diyaLogo from './images/diyaLogo.png'
+import diyaLogo from '../images/diyaLogo.png'
 
 export const SideMenu = () => (
   <Column
