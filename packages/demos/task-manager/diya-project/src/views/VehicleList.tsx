@@ -1,62 +1,44 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import {
-  ButtonsGroup,
-  component,
-  Get,
-  Section,
-  SimpleTable,
-  Title,
-} from 'technoidentity-devfractal'
+import { component, Get, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Actions, StaticPagination, Vehicle, vehicleAPI } from '../common'
+import {
+  CreateLink,
+  CrudTable,
+  HeadTitle,
+  StaticPagination,
+  Vehicle,
+  vehicleAPI,
+} from '../common'
 
-const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
+const VehicleListViewProps = req({ vehicleList: readonlyArray(Vehicle) })
 
-export type VehicleListProps = TypeOf<typeof VehicleListProps>
+export type VehicleListViewProps = TypeOf<typeof VehicleListViewProps>
 
-export const VehicleListForm = component(
-  VehicleListProps,
-  ({ vehicleList }) => (
-    <>
-      <ButtonsGroup alignment="right">
-        <Link to="/vehicles/add" className="button is-primary">
-          Add Vehicle
-        </Link>
-      </ButtonsGroup>
-      <SimpleTable
-        data={vehicleList}
-        headers={[
-          'name',
-          'numberPlate',
-          'group',
-          'nextService',
-          'insuranceDue',
-          'vehicleStatus',
-          'Actions',
-        ]}
-        striped
-      >
-        {(key, values) =>
-          key === 'Actions' ? (
-            <Actions editURL={`vehicles/${values.id}/edit`} />
-          ) : // tslint:disable-next-line: no-null-keyword
-          null
-        }
-      </SimpleTable>
-    </>
-  ),
+export const VehicleListTable: React.FC<VehicleListViewProps> = ({
+  vehicleList,
+}) => (
+  <CrudTable
+    data={vehicleList}
+    headers={[
+      'name',
+      'numberPlate',
+      'group',
+      'nextService',
+      'insuranceDue',
+      'vehicleStatus',
+    ]}
+    editURL={v => `vehicles/${v.id}/edit`}
+  />
 )
 
-export const VehicleListTable = component(
-  VehicleListProps,
+export const VehicleListView = component(
+  VehicleListViewProps,
   ({ vehicleList }) => (
     <Section>
-      <Title size="4" textColor="info">
-        Vehicles
-      </Title>
-      <VehicleListForm vehicleList={vehicleList} />
+      <HeadTitle>Vehicles</HeadTitle>
+      <CreateLink to="/vehicles/add">Add Vehicle</CreateLink>
+      <VehicleListTable vehicleList={vehicleList} />
       <StaticPagination />
     </Section>
   ),
@@ -64,6 +46,6 @@ export const VehicleListTable = component(
 
 export const VehicleList: React.FC = () => (
   <Get asyncFn={() => vehicleAPI.many()}>
-    {data => <VehicleListTable vehicleList={data} />}
+    {data => <VehicleListView vehicleList={data} />}
   </Get>
 )
