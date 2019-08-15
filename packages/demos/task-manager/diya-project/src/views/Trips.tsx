@@ -10,11 +10,11 @@ import {
 import { req } from 'technoidentity-utils'
 import { Actions, Trip, tripAPI } from '../common'
 
-const TripsProps = req({ tripsList: readonlyArray(Trip) })
+const TripsViewProps = req({ tripsList: readonlyArray(Trip) })
 
-type TripsProps = TypeOf<typeof TripsProps>
+type TripsViewProps = TypeOf<typeof TripsViewProps>
 
-const TripsView: React.FC<TripsProps> = ({ tripsList }) => (
+const TripsView: React.FC<TripsViewProps> = ({ tripsList }) => (
   <SimpleTable
     data={tripsList}
     headers={['customerName', 'address', 'contactNumber', 'status', 'Actions']}
@@ -29,7 +29,7 @@ const TripsView: React.FC<TripsProps> = ({ tripsList }) => (
   </SimpleTable>
 )
 
-export const TripsTable = component(TripsProps, ({ tripsList }) => (
+export const TripsTable = component(TripsViewProps, ({ tripsList }) => (
   <Section>
     <Title size="4" textColor="info">
       View Trips
