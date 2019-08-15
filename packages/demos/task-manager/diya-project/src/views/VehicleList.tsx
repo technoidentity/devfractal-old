@@ -1,8 +1,8 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import { component, Get, Section } from 'technoidentity-devfractal'
+import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Vehicle, vehicleAPI } from '../common'
+import { Vehicle } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -34,9 +34,3 @@ export const VehicleList = component(VehicleListProps, ({ vehicleList }) => (
     <StaticPagination />
   </Section>
 ))
-
-export const VehicleListRoute: React.FC = () => (
-  <Get asyncFn={() => vehicleAPI.many()}>
-    {data => <VehicleList vehicleList={data} />}
-  </Get>
-)

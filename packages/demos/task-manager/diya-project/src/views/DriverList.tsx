@@ -1,8 +1,8 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import { component, Get, Section } from 'technoidentity-devfractal'
+import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Driver, driverAPI } from '../common'
+import { Driver } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -27,9 +27,3 @@ export const DriverList = component(DriverListProps, ({ driverList }) => (
     <StaticPagination />
   </Section>
 ))
-
-export const DriverListRoute: React.FC = () => (
-  <Get asyncFn={() => driverAPI.many()}>
-    {data => <DriverList driverList={data} />}
-  </Get>
-)

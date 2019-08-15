@@ -13,12 +13,12 @@ import diyaLogo from './images/diyaLogo.png'
 import { EmployeeRoute, RaiseRequestRoute } from './pages'
 import {
   EmployeeListRoute,
+  EVSAssignedRoute,
   InvoiceListRoute,
   MenuComponentRoute,
   PlanRouteMapRoute,
   TripListRoute,
-} from './views'
-import { EVsAssignedRoute } from './views/EVSAssigned'
+} from './pages'
 
 // tslint:disable-next-line: no-console no-void-expression
 
@@ -72,7 +72,7 @@ export const App = () => (
       <Route exact={false} path="/" component={SideMenu} />
       <Column>
         <Route path="/" component={EmployeeListRoute} />
-        <Route path="/evs" component={EVsAssignedRoute} />
+        <Route path="/evs" component={EVSAssignedRoute} />
         <Route path="/evs/add" component={RaiseRequestRoute} />
         <Route path="/invoices" component={InvoiceListRoute} />
         <Route path="/planRoute" component={PlanRouteMapRoute} />

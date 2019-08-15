@@ -1,8 +1,8 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import { component, Get, Section, Title } from 'technoidentity-devfractal'
+import { component, Section, Title } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Trip, tripAPI } from '../common'
+import { Trip } from '../common'
 import { CrudTable, HeadTitle } from '../components'
 
 const TripListProps = req({ tripsList: readonlyArray(Trip) })
@@ -18,9 +18,3 @@ export const TripList = component(TripListProps, ({ tripsList }) => (
     />
   </Section>
 ))
-
-export const TripListRoute: React.FC = () => (
-  <Get asyncFn={async () => tripAPI.many()}>
-    {data => <TripList tripsList={data} />}
-  </Get>
-)

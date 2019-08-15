@@ -1,8 +1,8 @@
 import { readonlyArray } from 'io-ts'
 import React from 'react'
-import { component, Get, Section } from 'technoidentity-devfractal'
+import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Employee, employeeAPI } from '../common'
+import { Employee } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -29,9 +29,3 @@ export const EmployeeList = component(EmployeeListProps, ({ employeeList }) => (
     <StaticPagination />
   </Section>
 ))
-
-export const EmployeeListRoute: React.FC = () => (
-  <Get asyncFn={() => employeeAPI.many()}>
-    {data => <EmployeeList employeeList={data} />}
-  </Get>
-)

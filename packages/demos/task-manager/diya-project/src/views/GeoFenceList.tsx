@@ -1,8 +1,8 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import { component, Get, Section } from 'technoidentity-devfractal'
+import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { GeoFence, geoFenceAPI } from '../common'
+import { GeoFence } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -12,7 +12,7 @@ import {
 
 export const GeoFenceListProps = req({ geoFenceList: readonlyArray(GeoFence) })
 
-const GeoFenceList = component(GeoFenceListProps, ({ geoFenceList }) => (
+export const GeoFenceList = component(GeoFenceListProps, ({ geoFenceList }) => (
   <Section>
     <HeadTitle>GeoFence</HeadTitle>
 
@@ -27,9 +27,3 @@ const GeoFenceList = component(GeoFenceListProps, ({ geoFenceList }) => (
     <StaticPagination />
   </Section>
 ))
-
-export const GeoFenceListRoute: React.FC = () => (
-  <Get asyncFn={() => geoFenceAPI.many()}>
-    {data => <GeoFenceList geoFenceList={data} />}
-  </Get>
-)

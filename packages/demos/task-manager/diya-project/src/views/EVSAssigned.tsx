@@ -1,14 +1,8 @@
-import { readonlyArray, TypeOf } from 'io-ts'
+import { readonlyArray } from 'io-ts'
 import React from 'react'
-import {
-  component,
-  Get,
-  Section,
-  SimpleTable,
-  Title,
-} from 'technoidentity-devfractal'
+import { component, SimpleTable } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Ev, evAPI } from '../common'
+import { Ev } from '../common'
 import { ActionsRoutes, CreateLink, HeadTitle } from '../components'
 
 const EVSListProps = req({ evsList: readonlyArray(Ev) })
@@ -32,9 +26,3 @@ export const EVSList = component(EVSListProps, ({ evsList }) => (
     </SimpleTable>
   </>
 ))
-
-export const EVsAssignedRoute: React.FC = () => (
-  <>
-    <Get asyncFn={() => evAPI.many()}>{data => <EVSList evsList={data} />}</Get>
-  </>
-)

@@ -1,8 +1,8 @@
 import { readonlyArray } from 'io-ts'
 import React from 'react'
-import { component, Get, Section, SimpleTable } from 'technoidentity-devfractal'
+import { component, Section, SimpleTable } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Actions, Client, clientAPI } from '../common'
+import { Actions, Client } from '../common'
 import { CreateLink, HeadTitle, StaticPagination } from '../components'
 
 export const ClientListProps = req({ clientList: readonlyArray(Client) })
@@ -46,9 +46,3 @@ export const ClientList = component(ClientListProps, ({ clientList }) => (
     <StaticPagination />
   </Section>
 ))
-
-export const ClientListRoute: React.FC = () => (
-  <Get asyncFn={async () => clientAPI.many()}>
-    {data => <ClientList clientList={data} />}
-  </Get>
-)
