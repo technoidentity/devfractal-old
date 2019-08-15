@@ -1,32 +1,34 @@
 import React from 'react'
-import { Get, Post, Put, useMatch } from 'technoidentity-devfractal'
-import { Params, userAPI } from '../common'
+import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
+import { userAPI } from '../common'
 import { UserForm, UserList } from '../views'
 
-export const UserRoute: React.FC = () => (
-  <Post
-    onPost={values => userAPI.create(values)}
+const UserRoute: React.FC = () => (
+  <SimplePost
+    path="/users/add"
+    api={userAPI}
     redirectPath="/users"
     component={UserForm}
   />
 )
 
-export const UserListRoute: React.FC = () => (
-  <Get asyncFn={() => userAPI.many()}>
-    {data => <UserList userList={data} />}
-  </Get>
+const UserListRoute: React.FC = () => (
+  <SimpleGet api={userAPI} path="/users" component={UserList} />
 )
 
-export const EditUserRoute = () => {
-  const { params } = useMatch(Params)
+const EditUserRoute = () => (
+  <SimplePut
+    path="/users/:id/edit"
+    api={userAPI}
+    component={UserForm}
+    redirectPath="/users"
+  />
+)
 
-  return (
-    <Put
-      id={params.id}
-      doGet={userAPI.get}
-      onPut={userAPI.update}
-      component={UserForm}
-      redirectPath="/users"
-    />
-  )
-}
+export const UserRoutes = () => (
+  <>
+    <UserListRoute />
+    <EditUserRoute />
+    <UserRoute />
+  </>
+)

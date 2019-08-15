@@ -10,27 +10,30 @@ import {
   StaticPagination,
 } from '../components'
 
-const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
+const VehicleListProps = req({ data: readonlyArray(Vehicle) })
 
-export const VehicleList = component(VehicleListProps, ({ vehicleList }) => (
-  <Section>
-    <HeadTitle>Vehicles</HeadTitle>
+export const VehicleList = component(
+  VehicleListProps,
+  ({ data: vehicleList }) => (
+    <Section>
+      <HeadTitle>Vehicles</HeadTitle>
 
-    <CreateLink to="/vehicles/add">Add Vehicle</CreateLink>
+      <CreateLink to="/vehicles/add">Add Vehicle</CreateLink>
 
-    <CrudTable
-      data={vehicleList}
-      headers={[
-        'name',
-        'numberPlate',
-        'group',
-        'nextService',
-        'insuranceDue',
-        'vehicleStatus',
-      ]}
-      editURL={v => `vehicles/${v.id}/edit`}
-    />
+      <CrudTable
+        data={vehicleList}
+        headers={[
+          'name',
+          'numberPlate',
+          'group',
+          'nextService',
+          'insuranceDue',
+          'vehicleStatus',
+        ]}
+        editURL={v => `vehicles/${v.id}/edit`}
+      />
 
-    <StaticPagination />
-  </Section>
-))
+      <StaticPagination />
+    </Section>
+  ),
+)

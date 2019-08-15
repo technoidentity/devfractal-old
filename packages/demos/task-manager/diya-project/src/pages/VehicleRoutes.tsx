@@ -1,32 +1,34 @@
 import React from 'react'
-import { Get, Post, Put, useMatch } from 'technoidentity-devfractal'
-import { Params, vehicleAPI } from '../common'
+import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
+import { vehicleAPI } from '../common'
 import { VehicleForm, VehicleList } from '../views'
 
-export const VehicleRoute = () => (
-  <Post
+const VehicleRoute = () => (
+  <SimplePost
+    path="/vehicles/add"
     redirectPath="/vehicles"
-    onPost={values => vehicleAPI.create(values)}
+    api={vehicleAPI}
     component={VehicleForm}
   />
 )
 
-export const VehicleListRoute: React.FC = () => (
-  <Get asyncFn={() => vehicleAPI.many()}>
-    {data => <VehicleList vehicleList={data} />}
-  </Get>
+const VehicleListRoute: React.FC = () => (
+  <SimpleGet api={vehicleAPI} path="/vehicles" component={VehicleList} />
 )
 
-export const EditVehicleRoute = () => {
-  const { params } = useMatch(Params)
+const EditVehicleRoute = () => (
+  <SimplePut
+    path="/vehicles/:id/edit"
+    api={vehicleAPI}
+    component={VehicleForm}
+    redirectPath="/vehicles"
+  />
+)
 
-  return (
-    <Put
-      id={params.id}
-      doGet={vehicleAPI.get}
-      onPut={vehicleAPI.update}
-      component={VehicleForm}
-      redirectPath="/vehicles"
-    />
-  )
-}
+export const VehicleRoutes = () => (
+  <>
+    <VehicleListRoute />
+    <EditVehicleRoute />
+    <VehicleRoute />
+  </>
+)

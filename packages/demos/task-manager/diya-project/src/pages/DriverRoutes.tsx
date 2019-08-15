@@ -1,32 +1,34 @@
 import React from 'react'
-import { Get, Post, Put, useMatch } from 'technoidentity-devfractal'
-import { driverAPI, Params } from '../common'
+import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
+import { driverAPI } from '../common'
 import { DriverForm, DriverList } from '../views'
 
-export const DriverRoute = () => (
-  <Post
+const DriverRoute = () => (
+  <SimplePost
+    path="/drivers/add"
     redirectPath="/drivers"
-    onPost={driverAPI.create}
+    api={driverAPI}
     component={DriverForm}
   />
 )
 
-export const DriverListRoute = () => (
-  <Get asyncFn={() => driverAPI.many()}>
-    {data => <DriverList driverList={data} />}
-  </Get>
+const DriverListRoute = () => (
+  <SimpleGet api={driverAPI} path="/drivers" component={DriverList} />
 )
 
-export const EditDriverRoute = () => {
-  const { params } = useMatch(Params)
+const EditDriverRoute = () => (
+  <SimplePut
+    path="/drivers"
+    api={driverAPI}
+    component={DriverForm}
+    redirectPath="/drivers"
+  />
+)
 
-  return (
-    <Put
-      id={params.id}
-      doGet={driverAPI.get}
-      onPut={driverAPI.update}
-      component={DriverForm}
-      redirectPath="/drivers"
-    />
-  )
-}
+export const DriverRoutes = () => (
+  <>
+    <DriverListRoute />
+    <EditDriverRoute />
+    <DriverRoute />
+  </>
+)

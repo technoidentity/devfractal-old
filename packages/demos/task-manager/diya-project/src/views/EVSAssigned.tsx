@@ -5,9 +5,9 @@ import { req } from 'technoidentity-utils'
 import { Ev } from '../common'
 import { ActionsRoutes, CreateLink, HeadTitle } from '../components'
 
-const EVSListProps = req({ evsList: readonlyArray(Ev) })
+const EVSListProps = req({ data: readonlyArray(Ev) })
 
-export const EVSList = component(EVSListProps, ({ evsList }) => (
+export const EVSList = component(EVSListProps, ({ data: evsList }) => (
   <>
     <HeadTitle>EVS assigned</HeadTitle>
 

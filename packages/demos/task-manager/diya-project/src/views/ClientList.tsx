@@ -5,9 +5,9 @@ import { req } from 'technoidentity-utils'
 import { Actions, Client } from '../common'
 import { CreateLink, HeadTitle, StaticPagination } from '../components'
 
-export const ClientListProps = req({ clientList: readonlyArray(Client) })
+export const ClientListProps = req({ data: readonlyArray(Client) })
 
-export const ClientList = component(ClientListProps, ({ clientList }) => (
+export const ClientList = component(ClientListProps, ({ data: clientList }) => (
   <Section>
     <HeadTitle>Clients</HeadTitle>
 

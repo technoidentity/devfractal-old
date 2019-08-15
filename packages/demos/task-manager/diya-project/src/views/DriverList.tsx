@@ -10,9 +10,9 @@ import {
   StaticPagination,
 } from '../components'
 
-const DriverListProps = req({ driverList: readonlyArray(Driver) })
+const DriverListProps = req({ data: readonlyArray(Driver) })
 
-export const DriverList = component(DriverListProps, ({ driverList }) => (
+export const DriverList = component(DriverListProps, ({ data: driverList }) => (
   <Section>
     <HeadTitle>Drivers</HeadTitle>
 

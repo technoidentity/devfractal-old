@@ -6,23 +6,21 @@ import {
   Columns,
   Router,
   SafeRoute as Route,
+  SimpleRedirect,
 } from 'technoidentity-devfractal'
 import { SideMenu } from './components'
 import {
-  DriverListRoute,
+  BatteryRoutes,
+  ClientRoutes,
+  DriverRoutes,
+  EmployeeRoutes,
+  EVSRoutes,
+  GeoFenceRoutes,
   InvoiceListRoute,
   PlanRouteMapRoute,
   TripListRoute,
+  VehicleRoutes,
 } from './pages'
-import {
-  BatteriesRoutes,
-  ClientsRoutes,
-  DriversRoutes,
-  EmployeesRoutes,
-  EVSRoutes,
-  GeoFencesRoutes,
-  VehiclesRoutes,
-} from './Routes'
 
 // tslint:disable-next-line: no-console no-void-expression
 
@@ -31,15 +29,14 @@ export const App = () => (
     <Columns>
       <Route exact={false} path="/" component={SideMenu} />
       <Column>
-        <Route path="/" component={DriverListRoute} />
-        <BatteriesRoutes />
-        <ClientsRoutes />
-        <DriversRoutes />
-        <VehiclesRoutes />
-        <EmployeesRoutes />
-        <GeoFencesRoutes />
+        <SimpleRedirect from="/" to="/drivers" />
+        <BatteryRoutes />
+        <ClientRoutes />
+        <DriverRoutes />
+        <VehicleRoutes />
+        <EmployeeRoutes />
+        <GeoFenceRoutes />
         <EVSRoutes />
-
         <Route path="/invoices" component={InvoiceListRoute} />
         <Route path="/planRoute" component={PlanRouteMapRoute} />
         <Route path="/trips" component={TripListRoute} />

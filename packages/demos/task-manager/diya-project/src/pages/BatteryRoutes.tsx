@@ -1,32 +1,34 @@
 import React from 'react'
-import { Get, Post, Put, useMatch } from 'technoidentity-devfractal'
-import { batteryAPI, Params } from '../common'
+import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
+import { batteryAPI } from '../common'
 import { BatteryForm, BatteryList } from '../views'
 
-export const BatteryEditRoute = () => {
-  const { params } = useMatch(Params)
-
-  return (
-    <Put
-      id={params.id}
-      doGet={batteryAPI.get}
-      onPut={batteryAPI.update}
-      component={BatteryForm}
-      redirectPath="/batteries"
-    />
-  )
-}
-
-export const BatteryListRoute = () => (
-  <Get asyncFn={() => batteryAPI.many()}>
-    {data => <BatteryList batteryList={data} />}
-  </Get>
+const BatteryEditRoute = () => (
+  <SimplePut
+    path="/batteries/:id/edit"
+    api={batteryAPI}
+    component={BatteryForm}
+    redirectPath="/batteries"
+  />
 )
 
-export const BatteryRoute = () => (
-  <Post
+const BatteryListRoute = () => (
+  <SimpleGet api={batteryAPI} component={BatteryList} path="/batteries" />
+)
+
+const BatteryRoute = () => (
+  <SimplePost
+    path="/batteries/add"
     redirectPath="/batteries"
-    onPost={batteryAPI.create}
+    api={batteryAPI}
     component={BatteryForm}
   />
+)
+
+export const BatteryRoutes = () => (
+  <>
+    <BatteryListRoute />
+    <BatteryEditRoute />
+    <BatteryRoute />
+  </>
 )

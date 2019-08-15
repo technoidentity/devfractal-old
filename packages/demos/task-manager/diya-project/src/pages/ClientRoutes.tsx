@@ -1,32 +1,34 @@
 import React from 'react'
-import { Get, Post, Put, useMatch } from 'technoidentity-devfractal'
-import { clientAPI, Params } from '../common'
+import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
+import { clientAPI } from '../common'
 import { ClientForm, ClientList } from '../views'
 
-export const ClientRoute = () => (
-  <Post
-    onPost={clientAPI.create}
+const ClientRoute = () => (
+  <SimplePost
+    path="/clients/add"
+    api={clientAPI}
     redirectPath="/clients"
     component={ClientForm}
   />
 )
 
-export const ClientListRoute = () => (
-  <Get asyncFn={async () => clientAPI.many()}>
-    {data => <ClientList clientList={data} />}
-  </Get>
+const ClientListRoute = () => (
+  <SimpleGet path="/clients" api={clientAPI} component={ClientList} />
 )
 
-export const EditClientRoute = () => {
-  const { params } = useMatch(Params)
+const EditClientRoute = () => (
+  <SimplePut
+    path="/clients/:id/edit"
+    component={ClientForm}
+    api={clientAPI}
+    redirectPath="/clients"
+  />
+)
 
-  return (
-    <Put
-      id={params.id}
-      doGet={clientAPI.get}
-      onPut={clientAPI.update}
-      component={ClientForm}
-      redirectPath="/clients"
-    />
-  )
-}
+export const ClientRoutes = () => (
+  <>
+    <ClientListRoute />
+    <EditClientRoute />
+    <ClientRoute />
+  </>
+)

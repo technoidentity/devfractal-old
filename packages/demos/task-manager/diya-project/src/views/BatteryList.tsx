@@ -5,21 +5,24 @@ import { req } from 'technoidentity-utils'
 import { Battery } from '../common'
 import { CreateLink, CrudTable, StaticPagination } from '../components'
 
-const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
+const BatteryListProps = req({ data: readonlyArray(Battery) })
 
-export const BatteryList = component(BatteryListProps, ({ batteryList }) => (
-  <Section>
-    <Title size="4" textColor="info">
-      Batteries
-    </Title>
-    <CreateLink to="/batteries/add">Add Battery</CreateLink>
+export const BatteryList = component(
+  BatteryListProps,
+  ({ data: batteryList }) => (
+    <Section>
+      <Title size="4" textColor="info">
+        Batteries
+      </Title>
+      <CreateLink to="/batteries/add">Add Battery</CreateLink>
 
-    <CrudTable
-      data={batteryList}
-      headers={['name', 'group', 'remainingCycles', 'status', 'Actions']}
-      editURL={v => `batteries/${v.id}/edit`}
-    />
+      <CrudTable
+        data={batteryList}
+        headers={['name', 'group', 'remainingCycles', 'status', 'Actions']}
+        editURL={v => `batteries/${v.id}/edit`}
+      />
 
-    <StaticPagination />
-  </Section>
-))
+      <StaticPagination />
+    </Section>
+  ),
+)

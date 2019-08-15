@@ -1,18 +1,24 @@
 import React from 'react'
-import { Get, Post } from 'technoidentity-devfractal'
+import { Get, Post, SimpleGet, SimplePost } from 'technoidentity-devfractal'
 import { employeeAPI } from '../common'
 import { EmployeeForm, EmployeeList } from '../views'
 
-export const EmployeeRoute = () => (
-  <Post
-    onPost={employeeAPI.create}
+const EmployeeRoute = () => (
+  <SimplePost
+    path="/employees/add"
+    api={employeeAPI}
     redirectPath="/employees"
     component={EmployeeForm}
   />
 )
 
-export const EmployeeListRoute = () => (
-  <Get asyncFn={() => employeeAPI.many()}>
-    {data => <EmployeeList employeeList={data} />}
-  </Get>
+const EmployeeListRoute = () => (
+  <SimpleGet api={employeeAPI} path="/employees" component={EmployeeList} />
+)
+
+export const EmployeeRoutes = () => (
+  <>
+    <EmployeeListRoute />
+    <EmployeeRoute />
+  </>
 )

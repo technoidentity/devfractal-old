@@ -10,9 +10,9 @@ import {
   StaticPagination,
 } from '../components'
 
-const UserListProps = req({ userList: readonlyArray(User) })
+const UserListProps = req({ data: readonlyArray(User) })
 
-export const UserList = component(UserListProps, ({ userList }) => (
+export const UserList = component(UserListProps, ({ data: userList }) => (
   <Section>
     <HeadTitle>Users</HeadTitle>
     <CreateLink to="/users/add">Add user</CreateLink>

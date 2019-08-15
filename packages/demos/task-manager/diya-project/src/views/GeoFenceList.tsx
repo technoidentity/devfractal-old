@@ -10,20 +10,23 @@ import {
   StaticPagination,
 } from '../components'
 
-export const GeoFenceListProps = req({ geoFenceList: readonlyArray(GeoFence) })
+export const GeoFenceListProps = req({ data: readonlyArray(GeoFence) })
 
-export const GeoFenceList = component(GeoFenceListProps, ({ geoFenceList }) => (
-  <Section>
-    <HeadTitle>GeoFence</HeadTitle>
+export const GeoFenceList = component(
+  GeoFenceListProps,
+  ({ data: geoFenceList }) => (
+    <Section>
+      <HeadTitle>GeoFence</HeadTitle>
 
-    <CreateLink to="geo_fence/add">Create GeoFence</CreateLink>
+      <CreateLink to="geo_fence/add">Create GeoFence</CreateLink>
 
-    <CrudTable
-      data={geoFenceList}
-      headers={['areaName', 'assignVehicle', 'assignClient']}
-      editURL={v => `geo_fence/${v.id}/edit`}
-    />
+      <CrudTable
+        data={geoFenceList}
+        headers={['areaName', 'assignVehicle', 'assignClient']}
+        editURL={v => `geo_fence/${v.id}/edit`}
+      />
 
-    <StaticPagination />
-  </Section>
-))
+      <StaticPagination />
+    </Section>
+  ),
+)
