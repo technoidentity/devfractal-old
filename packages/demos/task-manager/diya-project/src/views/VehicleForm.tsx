@@ -1,5 +1,5 @@
 import { FormikActions } from 'formik'
-import { TypeOf } from 'io-ts'
+import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
@@ -17,39 +17,39 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { empty, fn, props } from 'technoidentity-utils'
-import { Vehicle } from '../common'
+import { HeadTitle, Vehicle } from '../common'
 
-const VehicleFormProps = props(
-  {
-    initial: Vehicle,
-  },
-  {
-    onSubmit: fn<
-      (values: Vehicle, actions: FormikActions<Vehicle>) => Promise<void>
-    >(),
-  },
-)
+// tslint:disable-next-line: typedef
+export function formProps<Spec extends Mixed>(spec: Spec) {
+  return props(
+    { initial: spec },
+    {
+      onSubmit: fn<
+        (
+          values: TypeOf<Spec>,
+          actions: FormikActions<TypeOf<Spec>>,
+        ) => Promise<void>
+      >(),
+    },
+  )
+}
 
-const initialValues = empty(Vehicle)
+const VehicleFormProps = formProps(Vehicle)
 
 export type VehicleFormProps = TypeOf<typeof VehicleFormProps>
 
 export const VehicleForm = component(
   VehicleFormProps,
-  ({ onSubmit, initial }) => (
+  ({ onSubmit, initial = empty(Vehicle) }) => (
     <>
-      <Title size="4" textColor="info">
-        Add Vehicle
-      </Title>
+      <HeadTitle>Add Vehicle</HeadTitle>
 
       <Section>
         <Title textAlignment="left" size="5" textColor="info">
           Vehicle Details
         </Title>
-        <Simple.Form
-          initialValues={initial || initialValues}
-          onSubmit={onSubmit}
-        >
+
+        <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>
             <Column>
               <div>
@@ -58,7 +58,9 @@ export const VehicleForm = component(
                   label="Maker's Class"
                   validations={[required()]}
                 />
+
                 <Simple.Text name="vehicleClass" validations={[required()]} />
+
                 <Simple.Number
                   name="yearOfManufacturing"
                   validations={[required()]}
@@ -66,6 +68,7 @@ export const VehicleForm = component(
                 <Simple.Text name="color" validations={[required()]} />
               </div>
             </Column>
+
             <Column>
               <div>
                 <Simple.Text
@@ -73,7 +76,9 @@ export const VehicleForm = component(
                   label="Regn. Number"
                   validations={[required()]}
                 />
+
                 <Simple.Number name="warranty" validations={[required()]} />
+
                 <Simple.Date
                   name="lastServicedDate"
                   validations={[required()]}
@@ -84,10 +89,12 @@ export const VehicleForm = component(
                 />
               </div>
             </Column>
+
             <Column narrow>
               <Title size="6" textColor="info">
                 Vehicle Photo
               </Title>
+
               <Box>
                 <Media>
                   <MediaContent>
@@ -98,9 +105,11 @@ export const VehicleForm = component(
                   </MediaContent>
                 </Media>
               </Box>
+
               <Button variant="dark">Upload Photo</Button>
             </Column>
           </Columns>
+
           <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>
