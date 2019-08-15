@@ -1,8 +1,6 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {
-  ButtonsGroup,
   component,
   Get,
   Section,
@@ -11,19 +9,16 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Ev, evAPI } from '../common'
-import { ActionsRoutes } from '../components'
+import { ActionsRoutes, CreateLink, HeadTitle } from '../components'
 
 const EVSListProps = req({ evsList: readonlyArray(Ev) })
 
-type EVSListProps = TypeOf<typeof EVSListProps>
-
-export const EVSListView: React.FC<EVSListProps> = ({ evsList }) => (
+export const EVSListView = component(EVSListProps, ({ evsList }) => (
   <>
-    <ButtonsGroup alignment="right">
-      <Link to="evs/add" className="button is-primary">
-        Request New EV
-      </Link>
-    </ButtonsGroup>
+    <HeadTitle>EVS assigned</HeadTitle>
+
+    <CreateLink to="evs/add"> Request New EV</CreateLink>
+
     <SimpleTable
       data={evsList}
       headers={['driverName', 'Actions']}
@@ -36,21 +31,12 @@ export const EVSListView: React.FC<EVSListProps> = ({ evsList }) => (
       }
     </SimpleTable>
   </>
-)
-
-export const EVSListTable = component(EVSListProps, ({ evsList }) => (
-  <Section>
-    <Title size="4" textColor="info">
-      EVS assigned
-    </Title>
-    <EVSListView evsList={evsList} />
-  </Section>
 ))
 
 export const EVsAssigned: React.FC = () => (
   <>
     <Get asyncFn={() => evAPI.many()}>
-      {data => <EVSListTable evsList={data} />}
+      {data => <EVSListView evsList={data} />}
     </Get>
   </>
 )

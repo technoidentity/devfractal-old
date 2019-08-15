@@ -35,6 +35,7 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
           leftIcon={faUser}
         />
       </Field>
+
       <Field>
         <Input
           type="password"
@@ -43,6 +44,7 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
           leftIcon={faLock}
         />
       </Field>
+
       <Field>
         <ButtonsGroup alignment="centered">
           <Button type="submit">Login</Button>

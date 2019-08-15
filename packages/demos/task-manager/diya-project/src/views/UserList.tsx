@@ -12,8 +12,6 @@ import {
 
 const UserListViewProps = req({ userList: readonlyArray(User) })
 
-type UserListViewProps = TypeOf<typeof UserListViewProps>
-
 export const UserListView = component(UserListViewProps, ({ userList }) => (
   <Section>
     <HeadTitle>Users</HeadTitle>

@@ -21,8 +21,6 @@ import { HeadTitle } from '../components'
 
 const VehicleFormProps = formProps(Vehicle)
 
-export type VehicleFormProps = TypeOf<typeof VehicleFormProps>
-
 export const VehicleForm = component(
   VehicleFormProps,
   ({ onSubmit, initial = empty(Vehicle) }) => (
@@ -68,6 +66,7 @@ export const VehicleForm = component(
                   name="lastServicedDate"
                   validations={[required()]}
                 />
+
                 <Simple.Date
                   name="insuranceExpiryDate"
                   validations={[required()]}

@@ -18,7 +18,7 @@ import {
   PlanRouteMap,
   TripList,
 } from './views'
-import { EVsAssigned } from './views/EVsAssigned'
+import { EVsAssigned } from './views/EVSAssigned'
 
 // tslint:disable-next-line: no-console no-void-expression
 

@@ -1,4 +1,3 @@
-import { FormikActions } from 'formik'
 import React from 'react'
 import {
   Box,
@@ -7,7 +6,6 @@ import {
   Columns,
   component,
   Image,
-  Label,
   Media,
   MediaContent,
   required,
@@ -15,43 +13,29 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { empty, fn, props } from 'technoidentity-utils'
-import { Driver, Employee } from '../common'
+import { empty } from 'technoidentity-utils'
+import { Employee, formProps } from '../common'
 
 // const validationSchema = yup.object().shape({
 //   name: yup.string().required(),
 //   driverId: yup.string().required(),
 //   phone: yup.string().required(),
 //   driverLicence: yup.string().required(),
-//   adharNumber: yup.string().required(),
+//   adharNuzmber: yup.string().required(),
 // })
 
-const EmployeeFormProps = props(
-  {
-    initial: Employee,
-  },
-  {
-    onSubmit: fn<
-      (values: Employee, actions: FormikActions<Employee>) => Promise<void>
-    >(),
-  },
-)
-
-const initialValues = empty(Employee)
+const EmployeeFormProps = formProps(Employee)
 
 export const EmployeeForm = component(
   EmployeeFormProps,
-  ({ initial, onSubmit }) => (
+  ({ initial = empty(Employee), onSubmit }) => (
     <>
       <Title size="4" textColor="info">
         Add Employee
       </Title>
 
       <Section>
-        <Simple.Form
-          initialValues={initial || initialValues}
-          onSubmit={onSubmit}
-        >
+        <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>
             <Column>
               <Title size="5" textColor="info">
@@ -65,12 +49,14 @@ export const EmployeeForm = component(
               /> */}
               <Simple.Telephone name="phone" validations={[required()]} />
               <Simple.Text name="adharNumber" validations={[required()]} />
+
               <Simple.Select name="Role">
                 <option>Select</option>
                 <option value="Reporter">Reporter</option>
                 <option value="ClientDispatcher">ClientDispatcher</option>
               </Simple.Select>
             </Column>
+
             <Column>
               <Title size="5" textColor="info">
                 Bank Details
@@ -90,10 +76,12 @@ export const EmployeeForm = component(
                 validations={[required()]}
               />
             </Column>
+
             <Column narrow>
               <Title size="6" textColor="info">
                 Profile Photo
               </Title>
+
               <Box>
                 <Media>
                   <MediaContent>
@@ -104,9 +92,11 @@ export const EmployeeForm = component(
                   </MediaContent>
                 </Media>
               </Box>
+
               <Button variant="dark">Upload Photo</Button>
             </Column>
           </Columns>
+
           <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>

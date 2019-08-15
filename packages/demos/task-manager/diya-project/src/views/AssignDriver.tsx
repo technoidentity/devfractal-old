@@ -12,10 +12,7 @@ import {
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
 
-const VehicleNumbers = keyof({
-  number1: true,
-  number2: true,
-})
+const VehicleNumbers = keyof({ number1: true, number2: true })
 
 const AssignDriverDetails = req({
   vehicleNumber: VehicleNumbers,
@@ -46,12 +43,15 @@ export const AssignDriverForm = component(
             onSubmit={onSubmit}
           >
             <Label>Vehicle Number</Label>
+
             <Simple.Select name="vehicleNumber">
               <option value="number1">TSO1A0428</option>
               <option value="number2">TSO1A0429</option>
             </Simple.Select>
+
             <Simple.Text name="batteryId" />
             <Simple.Text name="client" />
+
             <Simple.FormButtons />
           </Simple.Form>
         </Column>

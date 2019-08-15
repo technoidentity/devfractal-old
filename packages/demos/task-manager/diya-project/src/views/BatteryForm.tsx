@@ -1,4 +1,3 @@
-import { FormikActions } from 'formik'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
@@ -15,51 +14,41 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { empty, fn, props } from 'technoidentity-utils'
-import { Battery } from '../common'
+import { empty } from 'technoidentity-utils'
+import { Battery, formProps } from '../common'
+import { HeadTitle } from '../components'
 
-const BatteryFormProps = props(
-  {
-    initial: Battery,
-  },
-  {
-    onSubmit: fn<
-      (values: Battery, actions: FormikActions<Battery>) => Promise<void>
-    >(),
-  },
-)
-
-const initialValues = empty(Battery)
+const BatteryFormProps = formProps(Battery)
 
 export const BatteryForm = component(
   BatteryFormProps,
-  ({ onSubmit, initial }) => (
+  ({ onSubmit, initial = empty(Battery) }) => (
     <>
-      <Title size="4" textColor="info">
-        Add Battery
-      </Title>
+      <HeadTitle>Add Battery</HeadTitle>
+
       <Section>
         <Title textAlignment="left" size="5" textColor="info">
           Battery Details
         </Title>
-        <Simple.Form
-          initialValues={initial || initialValues}
-          onSubmit={onSubmit}
-        >
+
+        <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>
             <Column>
               <Simple.Text name="batteryMake" validations={[required()]} />
               <Simple.Text name="batteryModel" validations={[required()]} />
               <Simple.Date name="lastCharged" />
             </Column>
+
             <Column>
               <Simple.Text name="capacity" validations={[required()]} />
               <Simple.Number name="batteryCycles" validations={[required()]} />
             </Column>
+
             <Column narrow>
               <Title size="6" textColor="info">
                 Battery Photo
               </Title>
+
               <Box>
                 <Media>
                   <MediaContent>
@@ -70,9 +59,11 @@ export const BatteryForm = component(
                   </MediaContent>
                 </Media>
               </Box>
+
               <Button variant="dark">Upload Photo</Button>
             </Column>
           </Columns>
+
           <Simple.FormButtons alignment="centered" />
         </Simple.Form>
       </Section>

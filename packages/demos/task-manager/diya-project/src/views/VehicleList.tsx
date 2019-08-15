@@ -12,13 +12,12 @@ import {
 
 const VehicleListViewProps = req({ vehicleList: readonlyArray(Vehicle) })
 
-export type VehicleListViewProps = TypeOf<typeof VehicleListViewProps>
-
 export const VehicleListView = component(
   VehicleListViewProps,
   ({ vehicleList }) => (
     <Section>
       <HeadTitle>Vehicles</HeadTitle>
+
       <CreateLink to="/vehicles/add">Add Vehicle</CreateLink>
 
       <CrudTable

@@ -9,30 +9,21 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Actions, PlanRoute, planRouteAPI } from '../common'
+import { CrudTable, HeadTitle } from '../components'
 
 const PlanRouteProps = req({ data: readonlyArray(PlanRoute) })
 
 type PlanRouteProps = TypeOf<typeof PlanRouteProps>
 
-export const PlanRouteView: React.FC<PlanRouteProps> = ({ data }) => (
-  <SimpleTable
-    data={data}
-    headers={['customerName', 'address', 'contactNumber', 'status', 'Actions']}
-    striped
-  >
-    {(key, values) =>
-      // tslint:disable-next-line: no-null-keyword
-      key === 'Actions' ? <Actions editURL={`plans/${values.id}/edit`} /> : null
-    }
-  </SimpleTable>
-)
-
 export const PlanRouteList = component(PlanRouteProps, ({ data }) => (
   <Section>
-    <Title size="4" textColor="info">
-      Plan Route
-    </Title>
-    <PlanRouteView data={data} />
+    <HeadTitle>Plan Route</HeadTitle>
+
+    <CrudTable
+      data={data}
+      headers={['customerName', 'address', 'contactNumber', 'status']}
+      editURL={v => `plans/${v.id}/edit`}
+    />
   </Section>
 ))
 

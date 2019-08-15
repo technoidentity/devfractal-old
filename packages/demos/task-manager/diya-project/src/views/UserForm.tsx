@@ -7,8 +7,6 @@ import { HeadTitle } from '../components'
 
 export const UserFormProps = formProps(User)
 
-export type UserFormProps = TypeOf<typeof UserFormProps>
-
 export const UserForm = component(
   UserFormProps,
   ({ initial = empty(User), onSubmit }) => (

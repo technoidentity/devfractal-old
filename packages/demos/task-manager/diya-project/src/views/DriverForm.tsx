@@ -1,4 +1,3 @@
-import { FormikActions } from 'formik'
 import React from 'react'
 import {
   Box,
@@ -7,7 +6,6 @@ import {
   Columns,
   component,
   Image,
-  Label,
   Media,
   MediaContent,
   required,
@@ -15,8 +13,9 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { empty, fn, props } from 'technoidentity-utils'
-import { Driver } from '../common'
+import { empty } from 'technoidentity-utils'
+import { Driver, formProps } from '../common'
+import { HeadTitle } from '../components'
 
 // const validationSchema = yup.object().shape({
 //   name: yup.string().required(),
@@ -26,32 +25,16 @@ import { Driver } from '../common'
 //   adharNumber: yup.string().required(),
 // })
 
-const DriverFormProps = props(
-  {
-    initial: Driver,
-  },
-  {
-    onSubmit: fn<
-      (values: Driver, actions: FormikActions<Driver>) => Promise<void>
-    >(),
-  },
-)
-
-const initialValues = empty(Driver)
+const DriverFormProps = formProps(Driver)
 
 export const DriverForm = component(
   DriverFormProps,
-  ({ initial, onSubmit }) => (
+  ({ initial = empty(Driver), onSubmit }) => (
     <>
-      <Title size="4" textColor="info">
-        Create Driver
-      </Title>
+      <HeadTitle>Create Driver</HeadTitle>
 
       <Section>
-        <Simple.Form
-          initialValues={initial || initialValues}
-          onSubmit={onSubmit}
-        >
+        <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>
             <Column>
               <Title size="5" textColor="info">
@@ -66,12 +49,14 @@ export const DriverForm = component(
               <Simple.Telephone name="phone" validations={[required()]} />
               <Simple.Text name="driverLicence" validations={[required()]} />
               <Simple.Text name="adharNumber" validations={[required()]} />
+
               <Simple.Select name="shift">
                 <option>Select</option>
                 <option value="morning">Morning</option>
                 <option value="evening">Evening</option>
               </Simple.Select>
             </Column>
+
             <Column>
               <Title size="5" textColor="info">
                 Bank Details
@@ -91,10 +76,12 @@ export const DriverForm = component(
                 validations={[required()]}
               />
             </Column>
+
             <Column narrow>
               <Title size="6" textColor="info">
                 Profile Photo
               </Title>
+
               <Box>
                 <Media>
                   <MediaContent>
@@ -105,9 +92,11 @@ export const DriverForm = component(
                   </MediaContent>
                 </Media>
               </Box>
+
               <Button variant="dark">Upload Photo</Button>
             </Column>
           </Columns>
+
           <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>

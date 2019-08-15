@@ -1,35 +1,23 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import {
-  component,
-  Get,
-  Section,
-  SimpleTable,
-  Title,
-} from 'technoidentity-devfractal'
+import { component, Get, Section, SimpleTable } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Invoice, invoiceAPI } from '../common'
-import { StaticPagination } from '../components'
+import { HeadTitle, StaticPagination } from '../components'
 
 const InvoiceListProps = req({ invoiceList: readonlyArray(Invoice) })
 
-type InvoiceListProps = TypeOf<typeof InvoiceListProps>
-
-const InvoiceListView: React.FC<InvoiceListProps> = ({ invoiceList }) => (
-  <SimpleTable
-    data={invoiceList}
-    headers={['invoicesNo', 'valid', 'dueDate', 'amount']}
-    headerLabels={['InVoices No.', 'Valid', 'Due Date', 'Amount']}
-    striped
-  />
-)
-
 const InvoiceListTable = component(InvoiceListProps, ({ invoiceList }) => (
   <Section>
-    <Title size="4" textColor="info">
-      Invoices
-    </Title>
-    <InvoiceListView invoiceList={invoiceList} />
+    <HeadTitle>Invoices</HeadTitle>
+
+    <SimpleTable
+      data={invoiceList}
+      headers={['invoicesNo', 'valid', 'dueDate', 'amount']}
+      headerLabels={['InVoices No.', 'Valid', 'Due Date', 'Amount']}
+      striped
+    />
+
     <StaticPagination />
   </Section>
 ))
