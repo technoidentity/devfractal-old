@@ -1,8 +1,6 @@
-import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
-import { Driver } from '../common'
+import { Driver, listProps } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -10,7 +8,7 @@ import {
   StaticPagination,
 } from '../components'
 
-const DriverListProps = req({ data: readonlyArray(Driver) })
+const DriverListProps = listProps(Driver)
 
 export const DriverList = component(DriverListProps, ({ data: driverList }) => (
   <Section>

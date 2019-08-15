@@ -1,11 +1,9 @@
-import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { component, Section, SimpleTable } from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
-import { Actions, Client } from '../common'
+import { Actions, Client, listProps } from '../common'
 import { CreateLink, HeadTitle, StaticPagination } from '../components'
 
-export const ClientListProps = req({ data: readonlyArray(Client) })
+export const ClientListProps = listProps(Client)
 
 export const ClientList = component(ClientListProps, ({ data: clientList }) => (
   <Section>

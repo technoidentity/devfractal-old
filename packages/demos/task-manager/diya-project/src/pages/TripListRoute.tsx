@@ -5,6 +5,6 @@ import { TripList } from '../views'
 
 export const TripListRoute: React.FC = () => (
   <Get asyncFn={async () => tripAPI.many()}>
-    {data => <TripList tripsList={data} />}
+    {data => <TripList data={data} />}
   </Get>
 )

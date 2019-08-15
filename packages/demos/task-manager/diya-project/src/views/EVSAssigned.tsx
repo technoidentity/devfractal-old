@@ -1,11 +1,9 @@
-import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { component, SimpleTable } from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
-import { Ev } from '../common'
+import { Ev, listProps } from '../common'
 import { ActionsRoutes, CreateLink, HeadTitle } from '../components'
 
-const EVSListProps = req({ data: readonlyArray(Ev) })
+const EVSListProps = listProps(Ev)
 
 export const EVSList = component(EVSListProps, ({ data: evsList }) => (
   <>

@@ -5,6 +5,6 @@ import { InvoiceList } from '../views'
 
 export const InvoiceListRoute = () => (
   <Get asyncFn={() => invoiceAPI.many()}>
-    {data => <InvoiceList invoiceList={data} />}
+    {data => <InvoiceList data={data} />}
   </Get>
 )

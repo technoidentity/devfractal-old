@@ -1,8 +1,6 @@
-import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
-import { Employee } from '../common'
+import { Employee, listProps } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -10,7 +8,7 @@ import {
   StaticPagination,
 } from '../components'
 
-export const EmployeeListProps = req({ data: readonlyArray(Employee) })
+export const EmployeeListProps = listProps(Employee)
 
 export const EmployeeList = component(
   EmployeeListProps,

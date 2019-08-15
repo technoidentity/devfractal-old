@@ -1,8 +1,6 @@
-import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
-import { GeoFence } from '../common'
+import { GeoFence, listProps } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -10,7 +8,7 @@ import {
   StaticPagination,
 } from '../components'
 
-export const GeoFenceListProps = req({ data: readonlyArray(GeoFence) })
+export const GeoFenceListProps = listProps(GeoFence)
 
 export const GeoFenceList = component(
   GeoFenceListProps,

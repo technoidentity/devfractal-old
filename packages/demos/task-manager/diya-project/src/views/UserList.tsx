@@ -1,4 +1,4 @@
-import { readonlyArray, TypeOf } from 'io-ts'
+import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'

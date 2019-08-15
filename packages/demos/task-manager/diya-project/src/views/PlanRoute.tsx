@@ -1,16 +1,10 @@
-import { readonlyArray, TypeOf } from 'io-ts'
+import { TypeOf } from 'io-ts'
 import React from 'react'
-import {
-  component,
-  Section,
-  SimpleTable,
-  Title,
-} from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
-import { Actions, PlanRoute } from '../common'
+import { component, Section } from 'technoidentity-devfractal'
+import { listProps, PlanRoute } from '../common'
 import { CrudTable, HeadTitle } from '../components'
 
-const PlanRouteProps = req({ data: readonlyArray(PlanRoute) })
+const PlanRouteProps = listProps(PlanRoute)
 
 type PlanRouteProps = TypeOf<typeof PlanRouteProps>
 

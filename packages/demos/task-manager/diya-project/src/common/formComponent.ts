@@ -1,8 +1,8 @@
 import { FormikActions } from 'formik'
-import { Mixed, TypeOf } from 'io-ts'
+import { Mixed, readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { component } from 'technoidentity-devfractal'
-import { empty, fn, props } from 'technoidentity-utils'
+import { empty, fn, props, req } from 'technoidentity-utils'
 
 interface FormProps<Spec extends Mixed> {
   readonly initial: TypeOf<Spec>
@@ -12,7 +12,8 @@ interface FormProps<Spec extends Mixed> {
   ): Promise<void>
 }
 
-// tslint:disable-next-line: typedef
+// tslint:disable typedef
+
 export function formProps<Spec extends Mixed>(spec: Spec) {
   return props(
     { initial: spec },
@@ -27,7 +28,10 @@ export function formProps<Spec extends Mixed>(spec: Spec) {
   )
 }
 
-// tslint:disable-next-line: typedef
+export function listProps<Spec extends Mixed>(spec: Spec) {
+  return req({ data: readonlyArray(spec) })
+}
+
 export function formComponent<Spec extends Mixed>(
   spec: Spec,
   inner: React.FC<FormProps<Spec>>,

@@ -1,11 +1,9 @@
-import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { component, Section, Title } from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
-import { Battery } from '../common'
+import { Battery, listProps } from '../common'
 import { CreateLink, CrudTable, StaticPagination } from '../components'
 
-const BatteryListProps = req({ data: readonlyArray(Battery) })
+const BatteryListProps = listProps(Battery)
 
 export const BatteryList = component(
   BatteryListProps,

@@ -1,13 +1,11 @@
-import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import { component, Section, Title } from 'technoidentity-devfractal'
-import { req } from 'technoidentity-utils'
-import { Trip } from '../common'
+import { component, Section } from 'technoidentity-devfractal'
+import { listProps, Trip } from '../common'
 import { CrudTable, HeadTitle } from '../components'
 
-const TripListProps = req({ tripsList: readonlyArray(Trip) })
+const TripListProps = listProps(Trip)
 
-export const TripList = component(TripListProps, ({ tripsList }) => (
+export const TripList = component(TripListProps, ({ data: tripsList }) => (
   <Section>
     <HeadTitle>View Trips</HeadTitle>
 
