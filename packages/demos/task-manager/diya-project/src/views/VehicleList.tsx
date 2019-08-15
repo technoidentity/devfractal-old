@@ -2,14 +2,13 @@ import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
 import { component, Get, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
+import { Vehicle, vehicleAPI } from '../common'
 import {
   CreateLink,
   CrudTable,
   HeadTitle,
   StaticPagination,
-  Vehicle,
-  vehicleAPI,
-} from '../common'
+} from '../components'
 
 const VehicleListViewProps = req({ vehicleList: readonlyArray(Vehicle) })
 

@@ -16,7 +16,8 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
-import { formProps, HeadTitle, Vehicle } from '../common'
+import { formProps, Vehicle } from '../common'
+import { HeadTitle } from '../components'
 
 const VehicleFormProps = formProps(Vehicle)
 

@@ -10,7 +10,8 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Actions, Employee, employeeAPI, StaticPagination } from '../common'
+import { Actions, Employee, employeeAPI } from '../common'
+import { StaticPagination } from '../components'
 
 export const EmployeeListProps = req({ employeeList: readonlyArray(Employee) })
 

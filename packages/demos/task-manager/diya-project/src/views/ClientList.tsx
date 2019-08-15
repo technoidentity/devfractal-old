@@ -10,7 +10,8 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Actions, Client, clientAPI, StaticPagination } from '../common'
+import { Actions, Client, clientAPI } from '../common'
+import { StaticPagination } from '../components'
 
 export const ClientListProps = req({
   clientList: readonlyArray(Client),

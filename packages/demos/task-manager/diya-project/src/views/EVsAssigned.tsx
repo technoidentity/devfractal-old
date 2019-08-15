@@ -11,7 +11,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Ev, evAPI } from '../common'
-import { ActionsRoutes } from './ActionsRoute'
+import { ActionsRoutes } from '../components'
 
 const EVSListProps = req({ evsList: readonlyArray(Ev) })
 

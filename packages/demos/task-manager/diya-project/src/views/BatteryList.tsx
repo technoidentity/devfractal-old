@@ -10,7 +10,8 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Actions, Battery, batteryAPI, StaticPagination } from '../common'
+import { Actions, Battery, batteryAPI } from '../common'
+import { StaticPagination } from '../components'
 
 const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
 
