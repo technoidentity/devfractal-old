@@ -15,30 +15,26 @@ const VehicleListViewProps = req({ vehicleList: readonlyArray(Vehicle) })
 
 export type VehicleListViewProps = TypeOf<typeof VehicleListViewProps>
 
-export const VehicleListTable: React.FC<VehicleListViewProps> = ({
-  vehicleList,
-}) => (
-  <CrudTable
-    data={vehicleList}
-    headers={[
-      'name',
-      'numberPlate',
-      'group',
-      'nextService',
-      'insuranceDue',
-      'vehicleStatus',
-    ]}
-    editURL={v => `vehicles/${v.id}/edit`}
-  />
-)
-
 export const VehicleListView = component(
   VehicleListViewProps,
   ({ vehicleList }) => (
     <Section>
       <HeadTitle>Vehicles</HeadTitle>
       <CreateLink to="/vehicles/add">Add Vehicle</CreateLink>
-      <VehicleListTable vehicleList={vehicleList} />
+
+      <CrudTable
+        data={vehicleList}
+        headers={[
+          'name',
+          'numberPlate',
+          'group',
+          'nextService',
+          'insuranceDue',
+          'vehicleStatus',
+        ]}
+        editURL={v => `vehicles/${v.id}/edit`}
+      />
+
       <StaticPagination />
     </Section>
   ),
