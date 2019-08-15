@@ -1,58 +1,35 @@
 import { readonlyArray, TypeOf } from 'io-ts'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import {
-  ButtonsGroup,
-  component,
-  Get,
-  Section,
-  SimpleTable,
-  Title,
-} from 'technoidentity-devfractal'
+import { component, Get, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Actions, StaticPagination, User, userAPI } from '../common'
+import {
+  CreateLink,
+  CrudTable,
+  HeadTitle,
+  StaticPagination,
+  User,
+  userAPI,
+} from '../common'
 
-export const UserFormProps = req({
-  userList: readonlyArray(User),
-})
+const UserListViewProps = req({ userList: readonlyArray(User) })
 
-type UserFormProps = TypeOf<typeof UserFormProps>
+type UserListViewProps = TypeOf<typeof UserListViewProps>
 
-export const UserListForm = component(UserFormProps, ({ userList }) => {
-  return (
-    <>
-      <ButtonsGroup alignment="right">
-        <Link to="/users/add" className="button is-primary">
-          Add user
-        </Link>
-      </ButtonsGroup>
-      <SimpleTable
-        data={userList}
-        headers={['userName', 'role', 'Actions']}
-        striped
-      >
-        {(key, value) =>
-          key === 'Actions' ? (
-            <Actions editURL={`users/${value.id}/edit`} />
-          ) : // tslint:disable-next-line: no-null-keyword
-          null
-        }
-      </SimpleTable>
-    </>
-  )
-})
-export const UserListTable = component(UserFormProps, ({ userList }) => (
+export const UserListView = component(UserListViewProps, ({ userList }) => (
   <Section>
-    <Title size="4" textColor="info">
-      Users
-    </Title>
-    <UserListForm userList={userList} />
+    <HeadTitle>Users</HeadTitle>
+    <CreateLink to="/users/add">Add user</CreateLink>
+    <CrudTable
+      data={userList}
+      headers={['userName', 'role']}
+      editURL={value => `users/${value.id}/edit`}
+    />
     <StaticPagination />
   </Section>
 ))
 
 export const UserList: React.FC = () => (
   <Get asyncFn={() => userAPI.many()}>
-    {data => <UserListTable userList={data} />}
+    {data => <UserListView userList={data} />}
   </Get>
 )

@@ -1,42 +1,21 @@
-import { FormikActions } from 'formik'
+import { TypeOf } from 'io-ts'
 import React from 'react'
-import {
-  component,
-  Label,
-  Section,
-  Simple,
-  Title,
-} from 'technoidentity-devfractal'
-import { empty, fn, props } from 'technoidentity-utils'
-import { User } from '../common'
+import { component, Section, Simple } from 'technoidentity-devfractal'
+import { empty } from 'technoidentity-utils'
+import { formProps, HeadTitle, User } from '../common'
 
-export const CreateUserFormProps = props(
-  {
-    initial: User,
-  },
-  {
-    onSubmit: fn<
-      (values: User, actions: FormikActions<User>) => Promise<void>
-    >(),
-  },
-)
+export const UserFormProps = formProps(User)
 
-const initialValues = empty(User)
+export type UserFormProps = TypeOf<typeof UserFormProps>
 
 export const UserForm = component(
-  CreateUserFormProps,
-  ({ initial, onSubmit }) => (
+  UserFormProps,
+  ({ initial = empty(User), onSubmit }) => (
     <>
+      <HeadTitle>Add User</HeadTitle>
+
       <Section>
-        <Title size="4" textColor="info">
-          Add User
-        </Title>
-      </Section>
-      <Section>
-        <Simple.Form
-          initialValues={initial || initialValues}
-          onSubmit={onSubmit}
-        >
+        <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Simple.Text name="userName" />
 
           <Simple.Select name="role">
@@ -44,6 +23,7 @@ export const UserForm = component(
             <option value="Reporter">Reporter</option>
             <option value="Dispatcher">Dispatcher</option>
           </Simple.Select>
+
           <Simple.FormButtons alignment="centered" size="medium" />
         </Simple.Form>
       </Section>
