@@ -12,7 +12,7 @@ import {
 
 export const GeoFenceListProps = req({ geoFenceList: readonlyArray(GeoFence) })
 
-const GeoFenceListView = component(GeoFenceListProps, ({ geoFenceList }) => (
+const GeoFenceList = component(GeoFenceListProps, ({ geoFenceList }) => (
   <Section>
     <HeadTitle>GeoFence</HeadTitle>
 
@@ -28,8 +28,8 @@ const GeoFenceListView = component(GeoFenceListProps, ({ geoFenceList }) => (
   </Section>
 ))
 
-export const GeoFenceList: React.FC = () => (
+export const GeoFenceListRoute: React.FC = () => (
   <Get asyncFn={() => geoFenceAPI.many()}>
-    {data => <GeoFenceListView geoFenceList={data} />}
+    {data => <GeoFenceList geoFenceList={data} />}
   </Get>
 )

@@ -12,7 +12,7 @@ import {
 
 const DriverListProps = req({ driverList: readonlyArray(Driver) })
 
-export const DriverListView = component(DriverListProps, ({ driverList }) => (
+export const DriverList = component(DriverListProps, ({ driverList }) => (
   <Section>
     <HeadTitle>Drivers</HeadTitle>
 
@@ -28,8 +28,8 @@ export const DriverListView = component(DriverListProps, ({ driverList }) => (
   </Section>
 ))
 
-export const DriverList: React.FC = () => (
+export const DriverListRoute: React.FC = () => (
   <Get asyncFn={() => driverAPI.many()}>
-    {data => <DriverListView driverList={data} />}
+    {data => <DriverList driverList={data} />}
   </Get>
 )

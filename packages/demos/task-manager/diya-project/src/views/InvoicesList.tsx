@@ -7,7 +7,7 @@ import { HeadTitle, StaticPagination } from '../components'
 
 const InvoiceListProps = req({ invoiceList: readonlyArray(Invoice) })
 
-const InvoiceListTable = component(InvoiceListProps, ({ invoiceList }) => (
+const InvoiceList = component(InvoiceListProps, ({ invoiceList }) => (
   <Section>
     <HeadTitle>Invoices</HeadTitle>
 
@@ -22,8 +22,8 @@ const InvoiceListTable = component(InvoiceListProps, ({ invoiceList }) => (
   </Section>
 ))
 
-export const InvoiceList: React.FC = () => (
+export const InvoiceListRoute: React.FC = () => (
   <Get asyncFn={() => invoiceAPI.many()}>
-    {data => <InvoiceListTable invoiceList={data} />}
+    {data => <InvoiceList invoiceList={data} />}
   </Get>
 )

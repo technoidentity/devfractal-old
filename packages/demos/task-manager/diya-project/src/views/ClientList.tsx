@@ -7,7 +7,7 @@ import { CreateLink, HeadTitle, StaticPagination } from '../components'
 
 export const ClientListProps = req({ clientList: readonlyArray(Client) })
 
-export const ClientListView = component(ClientListProps, ({ clientList }) => (
+export const ClientList = component(ClientListProps, ({ clientList }) => (
   <Section>
     <HeadTitle>Clients</HeadTitle>
 
@@ -47,8 +47,8 @@ export const ClientListView = component(ClientListProps, ({ clientList }) => (
   </Section>
 ))
 
-export const ClientList: React.FC = () => (
+export const ClientListRoute: React.FC = () => (
   <Get asyncFn={async () => clientAPI.many()}>
-    {data => <ClientListView clientList={data} />}
+    {data => <ClientList clientList={data} />}
   </Get>
 )

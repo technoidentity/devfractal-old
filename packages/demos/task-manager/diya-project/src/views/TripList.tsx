@@ -5,9 +5,9 @@ import { req } from 'technoidentity-utils'
 import { Trip, tripAPI } from '../common'
 import { CrudTable, HeadTitle } from '../components'
 
-const TripListViewProps = req({ tripsList: readonlyArray(Trip) })
+const TripListProps = req({ tripsList: readonlyArray(Trip) })
 
-export const TripListView = component(TripListViewProps, ({ tripsList }) => (
+export const TripList = component(TripListProps, ({ tripsList }) => (
   <Section>
     <HeadTitle>View Trips</HeadTitle>
 
@@ -19,8 +19,8 @@ export const TripListView = component(TripListViewProps, ({ tripsList }) => (
   </Section>
 ))
 
-export const TripList: React.FC = () => (
+export const TripListRoute: React.FC = () => (
   <Get asyncFn={async () => tripAPI.many()}>
-    {data => <TripListView tripsList={data} />}
+    {data => <TripList tripsList={data} />}
   </Get>
 )

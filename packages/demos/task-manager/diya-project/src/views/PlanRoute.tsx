@@ -27,7 +27,7 @@ export const PlanRouteList = component(PlanRouteProps, ({ data }) => (
   </Section>
 ))
 
-export const PlanRouteMap = () => (
+export const PlanRouteMapRoute = () => (
   <Get asyncFn={() => planRouteAPI.many()}>
     {data => <PlanRouteList data={data} />}
   </Get>

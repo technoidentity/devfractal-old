@@ -7,28 +7,25 @@ import { CreateLink, CrudTable, StaticPagination } from '../components'
 
 const BatteryListProps = req({ batteryList: readonlyArray(Battery) })
 
-export const BatteryListView = component(
-  BatteryListProps,
-  ({ batteryList }) => (
-    <Section>
-      <Title size="4" textColor="info">
-        Batteries
-      </Title>
-      <CreateLink to="/batteries/add">Add Battery</CreateLink>
+export const BatteryList = component(BatteryListProps, ({ batteryList }) => (
+  <Section>
+    <Title size="4" textColor="info">
+      Batteries
+    </Title>
+    <CreateLink to="/batteries/add">Add Battery</CreateLink>
 
-      <CrudTable
-        data={batteryList}
-        headers={['name', 'group', 'remainingCycles', 'status', 'Actions']}
-        editURL={v => `batteries/${v.id}/edit`}
-      />
+    <CrudTable
+      data={batteryList}
+      headers={['name', 'group', 'remainingCycles', 'status', 'Actions']}
+      editURL={v => `batteries/${v.id}/edit`}
+    />
 
-      <StaticPagination />
-    </Section>
-  ),
-)
+    <StaticPagination />
+  </Section>
+))
 
-export const BatteryList: React.FC = () => (
+export const BatteryListRoute: React.FC = () => (
   <Get asyncFn={() => batteryAPI.many()}>
-    {data => <BatteryListView batteryList={data} />}
+    {data => <BatteryList batteryList={data} />}
   </Get>
 )

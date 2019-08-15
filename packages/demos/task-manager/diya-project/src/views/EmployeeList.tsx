@@ -10,29 +10,28 @@ import {
   StaticPagination,
 } from '../components'
 
-export const EmployeeListProps = req({ employeeList: readonlyArray(Employee) })
+export const EmployeeListProps = req({
+  employeeList: readonlyArray(Employee),
+})
 
-export const EmployeeListTable = component(
-  EmployeeListProps,
-  ({ employeeList }) => (
-    <Section>
-      <HeadTitle>Employee</HeadTitle>
+export const EmployeeList = component(EmployeeListProps, ({ employeeList }) => (
+  <Section>
+    <HeadTitle>Employee</HeadTitle>
 
-      <CreateLink to="/employees/add"> Add Employee</CreateLink>
+    <CreateLink to="/employees/add"> Add Employee</CreateLink>
 
-      <CrudTable
-        data={employeeList}
-        headers={['name', 'role']}
-        editURL={v => `employees/${v.id}/edit`}
-      />
+    <CrudTable
+      data={employeeList}
+      headers={['name', 'role']}
+      editURL={v => `employees/${v.id}/edit`}
+    />
 
-      <StaticPagination />
-    </Section>
-  ),
-)
+    <StaticPagination />
+  </Section>
+))
 
-export const EmployeeList: React.FC = () => (
+export const EmployeeListRoute: React.FC = () => (
   <Get asyncFn={() => employeeAPI.many()}>
-    {data => <EmployeeListTable employeeList={data} />}
+    {data => <EmployeeList employeeList={data} />}
   </Get>
 )

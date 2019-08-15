@@ -10,9 +10,9 @@ import {
   StaticPagination,
 } from '../components'
 
-const UserListViewProps = req({ userList: readonlyArray(User) })
+const UserListProps = req({ userList: readonlyArray(User) })
 
-export const UserListView = component(UserListViewProps, ({ userList }) => (
+export const UserList = component(UserListProps, ({ userList }) => (
   <Section>
     <HeadTitle>Users</HeadTitle>
     <CreateLink to="/users/add">Add user</CreateLink>
@@ -25,8 +25,8 @@ export const UserListView = component(UserListViewProps, ({ userList }) => (
   </Section>
 ))
 
-export const UserList: React.FC = () => (
+export const UserListRoute: React.FC = () => (
   <Get asyncFn={() => userAPI.many()}>
-    {data => <UserListView userList={data} />}
+    {data => <UserList userList={data} />}
   </Get>
 )

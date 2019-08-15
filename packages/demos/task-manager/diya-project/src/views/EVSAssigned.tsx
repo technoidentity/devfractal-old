@@ -13,7 +13,7 @@ import { ActionsRoutes, CreateLink, HeadTitle } from '../components'
 
 const EVSListProps = req({ evsList: readonlyArray(Ev) })
 
-export const EVSListView = component(EVSListProps, ({ evsList }) => (
+export const EVSList = component(EVSListProps, ({ evsList }) => (
   <>
     <HeadTitle>EVS assigned</HeadTitle>
 
@@ -33,10 +33,8 @@ export const EVSListView = component(EVSListProps, ({ evsList }) => (
   </>
 ))
 
-export const EVsAssigned: React.FC = () => (
+export const EVsAssignedRoute: React.FC = () => (
   <>
-    <Get asyncFn={() => evAPI.many()}>
-      {data => <EVSListView evsList={data} />}
-    </Get>
+    <Get asyncFn={() => evAPI.many()}>{data => <EVSList evsList={data} />}</Get>
   </>
 )

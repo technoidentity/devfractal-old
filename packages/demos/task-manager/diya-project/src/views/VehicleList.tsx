@@ -10,36 +10,33 @@ import {
   StaticPagination,
 } from '../components'
 
-const VehicleListViewProps = req({ vehicleList: readonlyArray(Vehicle) })
+const VehicleListProps = req({ vehicleList: readonlyArray(Vehicle) })
 
-export const VehicleListView = component(
-  VehicleListViewProps,
-  ({ vehicleList }) => (
-    <Section>
-      <HeadTitle>Vehicles</HeadTitle>
+export const VehicleList = component(VehicleListProps, ({ vehicleList }) => (
+  <Section>
+    <HeadTitle>Vehicles</HeadTitle>
 
-      <CreateLink to="/vehicles/add">Add Vehicle</CreateLink>
+    <CreateLink to="/vehicles/add">Add Vehicle</CreateLink>
 
-      <CrudTable
-        data={vehicleList}
-        headers={[
-          'name',
-          'numberPlate',
-          'group',
-          'nextService',
-          'insuranceDue',
-          'vehicleStatus',
-        ]}
-        editURL={v => `vehicles/${v.id}/edit`}
-      />
+    <CrudTable
+      data={vehicleList}
+      headers={[
+        'name',
+        'numberPlate',
+        'group',
+        'nextService',
+        'insuranceDue',
+        'vehicleStatus',
+      ]}
+      editURL={v => `vehicles/${v.id}/edit`}
+    />
 
-      <StaticPagination />
-    </Section>
-  ),
-)
+    <StaticPagination />
+  </Section>
+))
 
-export const VehicleList: React.FC = () => (
+export const VehicleListRoute: React.FC = () => (
   <Get asyncFn={() => vehicleAPI.many()}>
-    {data => <VehicleListView vehicleList={data} />}
+    {data => <VehicleList vehicleList={data} />}
   </Get>
 )
