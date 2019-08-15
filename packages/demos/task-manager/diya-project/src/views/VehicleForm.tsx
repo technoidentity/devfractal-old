@@ -1,5 +1,4 @@
-import { FormikActions } from 'formik'
-import { Mixed, TypeOf } from 'io-ts'
+import { TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
@@ -16,23 +15,8 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { empty, fn, props } from 'technoidentity-utils'
-import { HeadTitle, Vehicle } from '../common'
-
-// tslint:disable-next-line: typedef
-export function formProps<Spec extends Mixed>(spec: Spec) {
-  return props(
-    { initial: spec },
-    {
-      onSubmit: fn<
-        (
-          values: TypeOf<Spec>,
-          actions: FormikActions<TypeOf<Spec>>,
-        ) => Promise<void>
-      >(),
-    },
-  )
-}
+import { empty } from 'technoidentity-utils'
+import { formProps, HeadTitle, Vehicle } from '../common'
 
 const VehicleFormProps = formProps(Vehicle)
 
