@@ -10,9 +10,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { GeoFence, geoFenceAPI } from '../common'
-import { Actions } from '../views'
-import { StaticPagination } from './Pagination'
+import { Actions, GeoFence, geoFenceAPI, StaticPagination } from '../common'
 
 export const GeoFenceListProps = req({ geoFenceList: readonlyArray(GeoFence) })
 

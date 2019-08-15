@@ -8,8 +8,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Trip, tripAPI } from '../common'
-import { Actions } from './Actions'
+import { Actions, Trip, tripAPI } from '../common'
 
 const TripsProps = req({ tripsList: readonlyArray(Trip) })
 

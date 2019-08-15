@@ -10,9 +10,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { User, userAPI } from '../common'
-import { Actions } from './Actions'
-import { StaticPagination } from './Pagination'
+import { Actions, StaticPagination, User, userAPI } from '../common'
 
 export const UserFormProps = req({
   userList: readonlyArray(User),

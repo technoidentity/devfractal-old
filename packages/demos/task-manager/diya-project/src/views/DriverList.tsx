@@ -10,9 +10,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Driver, driverAPI } from '../common'
-import { Actions } from './Actions'
-import { StaticPagination } from './Pagination'
+import { Actions, Driver, driverAPI, StaticPagination } from '../common'
 
 const DriverListProps = req({
   driverList: readonlyArray(Driver),

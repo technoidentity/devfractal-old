@@ -8,8 +8,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Invoice, invoiceAPI } from '../common'
-import { StaticPagination } from './Pagination'
+import { Invoice, invoiceAPI, StaticPagination } from '../common'
 
 const InvoiceListProps = req({ invoiceList: readonlyArray(Invoice) })
 

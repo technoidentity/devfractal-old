@@ -8,8 +8,7 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { PlanRoute, planRouteAPI } from '../common'
-import { Actions } from '../views'
+import { Actions, PlanRoute, planRouteAPI } from '../common'
 
 const PlanRouteProps = req({ data: readonlyArray(PlanRoute) })
 
