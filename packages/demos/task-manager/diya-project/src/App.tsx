@@ -16,7 +16,7 @@ import {
   InvoiceList,
   MenuComponentRoute,
   PlanRouteMap,
-  TripsList,
+  TripList,
 } from './views'
 import { EVsAssigned } from './views/EVsAssigned'
 
@@ -76,7 +76,7 @@ export const App = () => (
         <Route path="/evs/add" component={RaiseRequestRoute} />
         <Route path="/invoices" component={InvoiceList} />
         <Route path="/planRoute" component={PlanRouteMap} />
-        <Route path="/trips" component={TripsList} />
+        <Route path="/trips" component={TripList} />
         <Route path="/employees/add" component={EmployeeRoute} />
       </Column>
     </Columns>
