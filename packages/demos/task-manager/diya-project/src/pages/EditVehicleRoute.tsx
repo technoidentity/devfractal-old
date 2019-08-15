@@ -3,7 +3,7 @@ import { Put, useMatch } from 'technoidentity-devfractal'
 import { Params, vehicleAPI } from '../common'
 import { VehicleForm } from '../views'
 
-export const EditVehicleRoute: React.FC = () => {
+export const EditVehicleRoute = () => {
   const { params } = useMatch(Params)
 
   return (

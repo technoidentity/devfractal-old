@@ -1,14 +1,12 @@
 import React from 'react'
-import { Post, Section } from 'technoidentity-devfractal'
-import { GeoFence, geoFenceAPI } from '../common'
+import { Post } from 'technoidentity-devfractal'
+import { geoFenceAPI } from '../common'
 import { GeoFenceForm } from '../views'
 
-export const GeoFenceRoute: React.FC = () => (
-  <Section>
-    <Post<GeoFence>
-      onPost={geoFenceAPI.create}
-      component={GeoFenceForm}
-      redirectPath="/geo_fences"
-    />
-  </Section>
+export const GeoFenceRoute = () => (
+  <Post
+    onPost={geoFenceAPI.create}
+    component={GeoFenceForm}
+    redirectPath="/geo_fences"
+  />
 )

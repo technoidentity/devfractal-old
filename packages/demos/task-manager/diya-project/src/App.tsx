@@ -4,39 +4,21 @@ import React from 'react'
 import {
   Column,
   Columns,
-  Image,
   Router,
   SafeRoute as Route,
-  Section,
 } from 'technoidentity-devfractal'
-import diyaLogo from './images/diyaLogo.png'
-import { EmployeeRoute, RaiseRequestRoute } from './pages'
+import { SideMenu } from './components'
 import {
   EmployeeListRoute,
+  EmployeeRoute,
   EVSAssignedRoute,
   InvoiceListRoute,
-  MenuComponentRoute,
   PlanRouteMapRoute,
+  RaiseRequestRoute,
   TripListRoute,
 } from './pages'
 
 // tslint:disable-next-line: no-console no-void-expression
-
-export const SideMenu = () => (
-  <Column
-    narrow
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    }}
-  >
-    <Section>
-      <Image src={diyaLogo} alt="diyaImage" size="96x96" />
-    </Section>
-    <MenuComponentRoute />
-  </Column>
-)
 
 // export const App = () => (
 //   <Router variant="browser">

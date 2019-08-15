@@ -3,7 +3,7 @@ import { Put, useMatch } from 'technoidentity-devfractal'
 import { Params, userAPI } from '../common'
 import { UserForm } from '../views'
 
-export const EditUserRoute: React.FC = () => {
+export const EditUserRoute = () => {
   const { params } = useMatch(Params)
 
   return (

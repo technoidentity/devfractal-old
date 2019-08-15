@@ -4,11 +4,9 @@ import { User, userAPI } from '../common'
 import { UserForm } from '../views'
 
 export const UserRoute: React.FC = () => (
-  <>
-    <Post<User>
-      onPost={values => userAPI.create(values)}
-      redirectPath="/users"
-      component={UserForm}
-    />
-  </>
+  <Post
+    onPost={values => userAPI.create(values)}
+    redirectPath="/users"
+    component={UserForm}
+  />
 )

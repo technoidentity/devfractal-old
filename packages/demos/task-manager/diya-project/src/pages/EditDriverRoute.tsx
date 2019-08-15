@@ -3,7 +3,7 @@ import { Put, useMatch } from 'technoidentity-devfractal'
 import { driverAPI, Params } from '../common'
 import { DriverForm } from '../views'
 
-export const EditDriverRoute: React.FC = () => {
+export const EditDriverRoute = () => {
   const { params } = useMatch(Params)
 
   return (
