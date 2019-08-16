@@ -1,12 +1,13 @@
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { Driver, links, listProps } from '../common'
+import { Driver } from '../common'
 import {
   CreateLink,
   CrudTable,
   HeadTitle,
   StaticPagination,
 } from '../components'
+import { links, listProps } from '../crud'
 
 const DriverListProps = listProps(Driver)
 

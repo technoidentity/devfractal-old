@@ -1,7 +1,8 @@
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { links, listProps, Trip } from '../common'
+import { Trip } from '../common'
 import { CrudTable, HeadTitle } from '../components'
+import { links, listProps } from '../crud'
 
 const TripListProps = listProps(Trip)
 

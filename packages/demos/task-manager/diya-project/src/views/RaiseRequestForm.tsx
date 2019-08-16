@@ -1,10 +1,9 @@
-import { FormikActions } from 'formik'
-import { TypeOf } from 'io-ts'
 import React from 'react'
-import { component, Section, Simple, Title } from 'technoidentity-devfractal'
-import { empty, fn, props } from 'technoidentity-utils'
-import { Ev, formProps } from '../common'
+import { component, Section, Simple } from 'technoidentity-devfractal'
+import { empty } from 'technoidentity-utils'
+import { Ev } from '../common'
 import { HeadTitle } from '../components'
+import { formProps } from '../crud'
 
 const RaiseRequestFormProps = formProps(Ev)
 

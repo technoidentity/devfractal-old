@@ -1,17 +1,15 @@
-import { FormikActions } from 'formik'
-import { TypeOf } from 'io-ts'
 import React from 'react'
 import {
   Column,
   Columns,
   component,
-  Label,
   Section,
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { empty, fn, props } from 'technoidentity-utils'
-import { Client, formProps } from '../common'
+import { empty } from 'technoidentity-utils'
+import { Client } from '../common'
+import { formProps } from '../crud'
 
 export const ClientFormProps = formProps(Client)
 

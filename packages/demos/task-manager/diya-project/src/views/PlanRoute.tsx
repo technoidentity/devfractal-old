@@ -1,7 +1,8 @@
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { links, listProps, PlanRoute } from '../common'
+import { PlanRoute } from '../common'
 import { CrudTable, HeadTitle } from '../components'
+import { links, listProps } from '../crud'
 
 const PlanRouteProps = listProps(PlanRoute)
 

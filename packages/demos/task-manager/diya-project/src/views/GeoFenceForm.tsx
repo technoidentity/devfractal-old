@@ -1,9 +1,9 @@
-import { TypeOf } from 'io-ts'
 import React from 'react'
-import { component, Section, Simple, Title } from 'technoidentity-devfractal'
+import { component, Section, Simple } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
-import { formProps, GeoFence } from '../common'
+import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
+import { formProps } from '../crud'
 
 const GeoFenceFormProps = formProps(GeoFence)
 

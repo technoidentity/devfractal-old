@@ -13,8 +13,9 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { formComponent, Vehicle } from '../common'
+import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
+import { formComponent } from '../crud'
 
 export const VehicleForm = formComponent(
   Vehicle,

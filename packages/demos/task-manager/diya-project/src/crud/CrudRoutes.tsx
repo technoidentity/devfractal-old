@@ -9,7 +9,7 @@ import {
   SimplePutComponentProps,
 } from 'technoidentity-devfractal'
 import { HasProps } from 'technoidentity-utils'
-import { paths as resPaths } from '../common'
+import { paths as resPaths } from '../crud'
 
 interface RoutesProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
   readonly api: API<Spec & HasProps, ID>

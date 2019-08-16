@@ -2,13 +2,14 @@ import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { links, User } from '../common'
+import { User } from '../common'
 import {
   CreateLink,
   CrudTable,
   HeadTitle,
   StaticPagination,
 } from '../components'
+import { links } from '../crud'
 
 const UserListProps = req({ data: readonlyArray(User) })
 

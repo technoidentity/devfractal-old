@@ -1,7 +1,8 @@
 import React from 'react'
 import { component, Section, SimpleTable } from 'technoidentity-devfractal'
-import { Invoice, listProps } from '../common'
+import { Invoice } from '../common'
 import { HeadTitle, StaticPagination } from '../components'
+import { listProps } from '../crud'
 
 const InvoiceListProps = listProps(Invoice)
 

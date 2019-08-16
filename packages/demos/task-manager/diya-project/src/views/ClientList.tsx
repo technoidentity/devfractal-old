@@ -1,7 +1,8 @@
 import React from 'react'
 import { component, Section, SimpleTable } from 'technoidentity-devfractal'
-import { Client, links, listProps } from '../common'
+import { Client } from '../common'
 import { Actions, CreateLink, HeadTitle, StaticPagination } from '../components'
+import { links, listProps } from '../crud'
 
 export const ClientListProps = listProps(Client)
 

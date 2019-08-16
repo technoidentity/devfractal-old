@@ -1,7 +1,8 @@
 import React from 'react'
 import { component, Section, Title } from 'technoidentity-devfractal'
-import { Battery, links, listProps } from '../common'
+import { Battery } from '../common'
 import { CreateLink, CrudTable, StaticPagination } from '../components'
+import { links, listProps } from '../crud'
 
 const BatteryListProps = listProps(Battery)
 

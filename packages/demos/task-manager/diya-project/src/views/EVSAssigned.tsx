@@ -10,8 +10,9 @@ import {
   SimpleTable,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { Ev, links, listProps } from '../common'
+import { Ev } from '../common'
 import { CreateLink, HeadTitle } from '../components'
+import { links, listProps } from '../crud'
 
 const ActionsRoutesProps = req({ editLink: string })
 

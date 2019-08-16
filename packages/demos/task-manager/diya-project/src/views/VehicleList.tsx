@@ -1,12 +1,13 @@
 import React from 'react'
 import { Section } from 'technoidentity-devfractal'
-import { links, listComponent, Vehicle } from '../common'
+import { Vehicle } from '../common'
 import {
   CreateLink,
   CrudTable,
   HeadTitle,
   StaticPagination,
 } from '../components'
+import { links, listComponent } from '../crud'
 
 const vehicleLinks = links('vehicles')
 

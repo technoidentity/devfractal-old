@@ -1,6 +1,7 @@
 import React from 'react'
 import { SimpleGet, SimplePost } from 'technoidentity-devfractal'
-import { employeeAPI, paths } from '../common'
+import { employeeAPI } from '../common'
+import { paths } from '../crud'
 import { EmployeeForm, EmployeeList } from '../views'
 
 const { create, list } = paths('employees')

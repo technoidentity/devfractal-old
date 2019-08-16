@@ -1,6 +1,7 @@
 import React from 'react'
 import { SimpleGet, SimplePost } from 'technoidentity-devfractal'
-import { evAPI, paths } from '../common'
+import { evAPI } from '../common'
+import { paths } from '../crud'
 import { EVSList, RaiseRequestForm } from '../views'
 
 const { create, list } = paths('evs')

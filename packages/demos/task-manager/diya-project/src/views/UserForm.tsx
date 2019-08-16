@@ -1,9 +1,9 @@
-import { TypeOf } from 'io-ts'
 import React from 'react'
 import { component, Section, Simple } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
-import { formProps, User } from '../common'
+import { User } from '../common'
 import { HeadTitle } from '../components'
+import { formProps } from '../crud'
 
 export const UserFormProps = formProps(User)
 

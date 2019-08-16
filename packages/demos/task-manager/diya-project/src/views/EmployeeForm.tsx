@@ -14,7 +14,8 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
-import { Employee, formProps } from '../common'
+import { Employee } from '../common'
+import { formProps } from '../crud'
 
 // const validationSchema = yup.object().shape({
 //   name: yup.string().required(),

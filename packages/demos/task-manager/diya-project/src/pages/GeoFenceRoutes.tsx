@@ -1,6 +1,7 @@
 import React from 'react'
 import { SimpleGet, SimplePost } from 'technoidentity-devfractal'
-import { geoFenceAPI, paths } from '../common'
+import { geoFenceAPI } from '../common'
+import { paths } from '../crud'
 import { GeoFenceForm, GeoFenceList } from '../views'
 
 const { create, list } = paths('geo_fences')

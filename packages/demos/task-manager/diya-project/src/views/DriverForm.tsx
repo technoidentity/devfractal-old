@@ -14,8 +14,9 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
-import { Driver, formProps } from '../common'
+import { Driver } from '../common'
 import { HeadTitle } from '../components'
+import { formProps } from '../crud'
 
 // const validationSchema = yup.object().shape({
 //   name: yup.string().required(),
