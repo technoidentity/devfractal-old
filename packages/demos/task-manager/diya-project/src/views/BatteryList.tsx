@@ -19,7 +19,7 @@ export const BatteryList = component(
       <CrudTable
         data={batteryList}
         headers={['name', 'group', 'remainingCycles', 'status']}
-        editURL={v => batteryLinks.edit(v.id)}
+        editLink={v => batteryLinks.edit(v.id)}
       />
 
       <StaticPagination />

@@ -21,7 +21,7 @@ export const DriverList = component(DriverListProps, ({ data: driverList }) => (
     <CrudTable
       data={driverList}
       headers={['name', 'lastActive', 'shift', 'status']}
-      editURL={v => driverLinks.edit(v.id)}
+      editLink={v => driverLinks.edit(v.id)}
     />
 
     <StaticPagination />

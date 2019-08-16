@@ -5,19 +5,19 @@ import { Actions } from '../common/Actions'
 export interface CrudTableProps<T>
   extends Pick<SimpleTableProps<T>, 'headers' | 'headerLabels'> {
   readonly data: ReadonlyArray<T>
-  editURL(value: T): string
+  editLink(value: T): string
 }
 
 export function CrudTable<T>({
   data,
   headers,
-  editURL,
+  editLink,
 }: CrudTableProps<T>): JSX.Element {
   return (
     <SimpleTable data={data} headers={[...(headers || []), 'Actions']} striped>
       {(key, value) =>
         key === 'Actions' ? (
-          <Actions editURL={editURL(value)} />
+          <Actions editLink={editLink(value)} />
         ) : // tslint:disable-next-line: no-null-keyword
         null
       }

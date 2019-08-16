@@ -23,7 +23,7 @@ export const GeoFenceList = component(
       <CrudTable
         data={geoFenceList}
         headers={['areaName', 'assignVehicle', 'assignClient']}
-        editURL={v => geoFenceLinks.edit(v.id)}
+        editLink={v => geoFenceLinks.edit(v.id)}
       />
 
       <StaticPagination />

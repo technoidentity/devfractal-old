@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 import { Button, ButtonsGroup, Icon } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 
-const ActionsRoutesProps = req({ changeUrl: string })
+const ActionsRoutesProps = req({ editLink: string })
 
 type ActionsRoutesProps = TypeOf<typeof ActionsRoutesProps>
 
-export const ActionsRoutes: React.FC<ActionsRoutesProps> = ({ changeUrl }) => (
+export const ActionsRoutes: React.FC<ActionsRoutesProps> = ({ editLink }) => (
   <ButtonsGroup>
-    <Link to={changeUrl} className="button is-small is-rounded">
+    <Link to={editLink} className="button is-small is-rounded">
       <Icon icon={faMapMarker} />
       <div>Plan Route</div>
     </Link>

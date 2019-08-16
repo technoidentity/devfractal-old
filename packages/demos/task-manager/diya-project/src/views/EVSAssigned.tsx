@@ -21,7 +21,7 @@ export const EVSList = component(EVSListProps, ({ data: evsList }) => (
     >
       {key =>
         // tslint:disable-next-line: no-null-keyword
-        key === 'Actions' ? <ActionsRoutes changeUrl={`/planRoute`} /> : null
+        key === 'Actions' ? <ActionsRoutes editLink={`/planRoute`} /> : null
       }
     </SimpleTable>
   </>

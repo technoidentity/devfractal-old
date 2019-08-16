@@ -21,7 +21,7 @@ export const UserList = component(UserListProps, ({ data: userList }) => (
     <CrudTable
       data={userList}
       headers={['userName', 'role']}
-      editURL={v => userLinks.edit(v.id)}
+      editLink={v => userLinks.edit(v.id)}
     />
     <StaticPagination />
   </Section>

@@ -37,7 +37,7 @@ export const ClientList = component(ClientListProps, ({ data: clientList }) => (
     >
       {(key, v) =>
         key === 'Actions' ? (
-          <Actions editURL={clientLinks.edit(v.id)} />
+          <Actions editLink={clientLinks.edit(v.id)} />
         ) : // tslint:disable-next-line: no-null-keyword
         null
       }

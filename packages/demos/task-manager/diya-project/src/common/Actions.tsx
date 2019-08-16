@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 import { Icon } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 
-const ActionsProps = req({ editURL: string })
+const ActionsProps = req({ editLink: string })
 
 type ActionsProps = TypeOf<typeof ActionsProps>
 
-export const Actions: React.FC<ActionsProps> = ({ editURL }) => (
+export const Actions: React.FC<ActionsProps> = ({ editLink }) => (
   <>
-    <Link to={editURL}>
+    <Link to={editLink}>
       <Icon icon={faEdit} />
     </Link>
     <Link to="">

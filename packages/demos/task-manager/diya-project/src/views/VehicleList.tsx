@@ -30,7 +30,7 @@ export const VehicleList = component(
           'insuranceDue',
           'vehicleStatus',
         ]}
-        editURL={v => vehicleLinks.edit(v.id)}
+        editLink={v => vehicleLinks.edit(v.id)}
       />
 
       <StaticPagination />

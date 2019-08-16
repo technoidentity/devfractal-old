@@ -23,7 +23,7 @@ export const EmployeeList = component(
       <CrudTable
         data={employeeList}
         headers={['name', 'role']}
-        editURL={v => employeeLinks.edit(v.id)}
+        editLink={v => employeeLinks.edit(v.id)}
       />
 
       <StaticPagination />
