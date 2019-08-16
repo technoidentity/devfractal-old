@@ -1,4 +1,3 @@
-import { FormikActions } from 'formik'
 import { keyof, string, TypeOf } from 'io-ts'
 import React from 'react'
 import {
@@ -8,6 +7,7 @@ import {
   Label,
   Section,
   Simple,
+  SubmitAction,
   Title,
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
@@ -23,12 +23,7 @@ const AssignDriverDetails = req({
 type AssignDriverDetails = TypeOf<typeof AssignDriverDetails>
 
 const AssignDriverFormProps = req({
-  onSubmit: fn<
-    (
-      values: AssignDriverDetails,
-      actions: FormikActions<typeof AssignDriverDetails>,
-    ) => void
-  >(),
+  onSubmit: fn<SubmitAction<AssignDriverDetails>>(),
 })
 
 export const AssignDriverForm = component(
