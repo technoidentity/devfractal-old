@@ -3,7 +3,7 @@ import { SimpleGet, SimplePost } from 'technoidentity-devfractal'
 import { evAPI, paths } from '../common'
 import { EVSList, RaiseRequestForm } from '../views'
 
-const { create, edit, list } = paths('evs')
+const { create, list } = paths('evs')
 
 const RaiseRequestRoute: React.FC = () => (
   <SimplePost

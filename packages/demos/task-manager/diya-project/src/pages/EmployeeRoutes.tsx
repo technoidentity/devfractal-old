@@ -3,7 +3,7 @@ import { SimpleGet, SimplePost } from 'technoidentity-devfractal'
 import { employeeAPI, paths } from '../common'
 import { EmployeeForm, EmployeeList } from '../views'
 
-const { create, edit, list } = paths('employees')
+const { create, list } = paths('employees')
 
 const EmployeeRoute = () => (
   <SimplePost
