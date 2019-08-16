@@ -1,5 +1,6 @@
 export * from './Actions'
 export * from './CreateButtonLink'
+export * from './CrudRoutes'
 export * from './CrudTable'
 export * from './HeadTitle'
 export * from './Pagination'

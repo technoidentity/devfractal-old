@@ -24,7 +24,7 @@ import {
 export const App = () => (
   <Router variant="browser">
     <Columns>
-      <Route exact={false} path="/" component={SideMenu} />
+      <SideMenu />
 
       <Column>
         <SimpleRedirect from="/" to="/drivers" />
