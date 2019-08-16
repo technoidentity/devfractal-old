@@ -1,15 +1,13 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { string, TypeOf } from 'io-ts'
+import { string } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Icon } from 'technoidentity-devfractal'
+import { component, Icon } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 
 const ActionsProps = req({ editLink: string })
 
-type ActionsProps = TypeOf<typeof ActionsProps>
-
-export const Actions: React.FC<ActionsProps> = ({ editLink }) => (
+export const Actions = component(ActionsProps, ({ editLink }) => (
   <>
     <Link to={editLink}>
       <Icon icon={faEdit} />
@@ -18,4 +16,4 @@ export const Actions: React.FC<ActionsProps> = ({ editLink }) => (
       <Icon icon={faTrash} />
     </Link>
   </>
-)
+))

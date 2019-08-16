@@ -1,5 +1,5 @@
-export * from './ActionsRoute'
-export * from './CreateLink'
+export * from './Actions'
+export * from './CreateButtonLink'
 export * from './CrudTable'
 export * from './HeadTitle'
 export * from './Pagination'

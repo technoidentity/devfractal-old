@@ -1,4 +1,3 @@
-// tslint:disable no-console
 import 'bulma/css/bulma.css'
 import React from 'react'
 import {
@@ -22,14 +21,14 @@ import {
   VehicleRoutes,
 } from './pages'
 
-// tslint:disable-next-line: no-console no-void-expression
-
 export const App = () => (
   <Router variant="browser">
     <Columns>
       <Route exact={false} path="/" component={SideMenu} />
+
       <Column>
-        <SimpleRedirect from="/" to="/employees" />
+        <SimpleRedirect from="/" to="/drivers" />
+
         <DriverRoutes />
         <BatteryRoutes />
         <ClientRoutes />
@@ -37,6 +36,7 @@ export const App = () => (
         <EmployeeRoutes />
         <GeoFenceRoutes />
         <EVSRoutes />
+
         <Route path="/invoices" component={InvoiceListRoute} />
         <Route path="/planRoute" component={PlanRouteMapRoute} />
         <Route path="/trips" component={TripListRoute} />

@@ -3,27 +3,27 @@ import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
 import { paths, userAPI } from '../common'
 import { UserForm, UserList } from '../views'
 
-const userPaths = paths('users')
+const { create, edit, list } = paths('users')
 
 const UserRoute: React.FC = () => (
   <SimplePost
-    path={userPaths.create}
+    path={create}
     api={userAPI}
-    redirectPath={userPaths.list}
+    redirectPath={list}
     component={UserForm}
   />
 )
 
 const UserListRoute: React.FC = () => (
-  <SimpleGet api={userAPI} path={userPaths.list} component={UserList} />
+  <SimpleGet api={userAPI} path={list} component={UserList} />
 )
 
 const EditUserRoute = () => (
   <SimplePut
-    path={userPaths.edit}
+    path={edit}
     api={userAPI}
     component={UserForm}
-    redirectPath={userPaths.list}
+    redirectPath={list}
   />
 )
 

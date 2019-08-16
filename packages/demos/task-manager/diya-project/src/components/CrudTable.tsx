@@ -1,6 +1,6 @@
 import React from 'react'
 import { SimpleTable, SimpleTableProps } from 'technoidentity-devfractal'
-import { Actions } from '../common/Actions'
+import { Actions } from './Actions'
 
 export interface CrudTableProps<T>
   extends Pick<SimpleTableProps<T>, 'headers' | 'headerLabels'> {

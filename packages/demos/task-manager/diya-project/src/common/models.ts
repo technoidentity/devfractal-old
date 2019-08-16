@@ -1,15 +1,9 @@
 import { Int, keyof, string, TypeOf } from 'io-ts'
 import { ISODate, props, req } from 'technoidentity-utils'
 
-const Shift = keyof({
-  morning: true,
-  evening: true,
-})
+const Shift = keyof({ morning: true, evening: true })
 
-const Status = keyof({
-  active: true,
-  inActive: true,
-})
+const Status = keyof({ active: true, inactive: true })
 
 type Shift = TypeOf<typeof Shift>
 
@@ -42,10 +36,7 @@ export const Driver = props(
 
 export type Driver = TypeOf<typeof Driver>
 
-const Group = keyof({
-  Retail: true,
-  Cargo: true,
-})
+const Group = keyof({ retail: true, cargo: true })
 
 type Group = TypeOf<typeof Group>
 
@@ -94,10 +85,7 @@ export type Vehicle = TypeOf<typeof Vehicle>
 
 export const Params = req({ id: string })
 
-const ContractType = keyof({
-  Weekly: true,
-  Monthly: true,
-})
+const ContractType = keyof({ weekly: true, monthly: true })
 
 export const Client = props(
   { id: string },
@@ -113,11 +101,7 @@ export const Client = props(
 
 export type Client = TypeOf<typeof Client>
 
-export const Role = keyof({
-  Admin: true,
-  Reporter: true,
-  Dispatcher: true,
-})
+export const Role = keyof({ admin: true, reporter: true, dispatcher: true })
 
 export const User = props(
   { dateOfJoining: ISODate, id: string },
@@ -140,7 +124,7 @@ export const Ev = props(
 
 export type Ev = TypeOf<typeof Ev>
 
-const RouteStatus = keyof({ Enroute: true, complete: true })
+const RouteStatus = keyof({ enroute: true, complete: true })
 
 export const PlanRoute = props(
   { id: string },
@@ -158,9 +142,7 @@ const EmployeeRole = keyof({
 })
 
 export const Employee = props(
-  {
-    id: string,
-  },
+  { id: string },
   {
     name: string,
     phone: Int,
@@ -184,9 +166,7 @@ export const Invoice = props(
 export type Invoice = TypeOf<typeof Invoice>
 
 export const GeoFence = props(
-  {
-    id: string,
-  },
+  { id: string },
   {
     areaName: string,
     assignVehicle: string,
@@ -208,3 +188,17 @@ export const Trip = props(
 )
 
 export type Trip = TypeOf<typeof Trip>
+
+export const resources = keyof({
+  batteries: 0,
+  clients: 1,
+  drivers: 2,
+  employees: 3,
+  evs: 4,
+  geoFences: 5,
+  invoices: 6,
+  plans: 7,
+  trips: 8,
+  users: 9,
+  vehicles: 10,
+})
