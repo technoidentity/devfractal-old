@@ -29,17 +29,17 @@ export const App = () => (
     <Columns>
       <Route exact={false} path="/" component={SideMenu} />
       <Column>
-        <SimpleRedirect from="/" to="/batteries" />
+        <SimpleRedirect from="/" to="/employees" />
         <DriverRoutes />
         <BatteryRoutes />
-        {/*<ClientRoutes />
+        <ClientRoutes />
         <VehicleRoutes />
         <EmployeeRoutes />
         <GeoFenceRoutes />
         <EVSRoutes />
         <Route path="/invoices" component={InvoiceListRoute} />
         <Route path="/planRoute" component={PlanRouteMapRoute} />
-        <Route path="/trips" component={TripListRoute} /> */}
+        <Route path="/trips" component={TripListRoute} />
       </Column>
     </Columns>
   </Router>

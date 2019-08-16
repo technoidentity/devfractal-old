@@ -16,12 +16,12 @@ export const GeoFenceList = component(
     <Section>
       <HeadTitle>GeoFence</HeadTitle>
 
-      <CreateLink to="geo_fence/add">Create GeoFence</CreateLink>
+      <CreateLink to="geo_fences/add">Create GeoFence</CreateLink>
 
       <CrudTable
         data={geoFenceList}
         headers={['areaName', 'assignVehicle', 'assignClient']}
-        editURL={v => `geo_fence/${v.id}/edit`}
+        editURL={v => `geo_fences/${v.id}/edit`}
       />
 
       <StaticPagination />

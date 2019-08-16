@@ -52,7 +52,7 @@ export const SideMenu = () => (
           <MenuItem href="/clients">
             <Icon icon={faUserFriends} /> Clients
           </MenuItem>
-          <MenuItem href="/geo_fence">
+          <MenuItem href="/geo_fences">
             <Icon icon={faMapMarked} /> GeoFences
           </MenuItem>
           <MenuItem href="/users">
