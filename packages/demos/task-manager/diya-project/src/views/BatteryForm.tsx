@@ -24,7 +24,7 @@ export const BatteryForm = component(
   BatteryFormProps,
   ({ onSubmit, initial = empty(Battery) }) => (
     <>
-      <HeadTitle>Add Battery</HeadTitle>
+      <HeadTitle>Add or Update Battery</HeadTitle>
 
       <Section>
         <Title textAlignment="left" size="5" textColor="info">

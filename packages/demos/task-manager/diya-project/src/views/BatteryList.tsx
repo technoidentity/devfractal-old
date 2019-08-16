@@ -16,7 +16,7 @@ export const BatteryList = component(
 
       <CrudTable
         data={batteryList}
-        headers={['name', 'group', 'remainingCycles', 'status', 'Actions']}
+        headers={['name', 'group', 'remainingCycles', 'status']}
         editURL={v => `batteries/${v.id}/edit`}
       />
 
