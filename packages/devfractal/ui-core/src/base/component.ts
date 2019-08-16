@@ -1,14 +1,18 @@
 import * as t from 'io-ts'
 import React from 'react'
-import { assert } from 'technoidentity-utils'
+import { assertCast } from 'technoidentity-utils'
 
 export function component<Spec extends t.Mixed>(
-  // displayName?: string,
-  propsRT: Spec,
+  spec: Spec,
   inner: React.FC<t.TypeOf<Spec>>,
+  displayName?: string,
 ): React.FC<t.TypeOf<Spec>> {
-  return props => {
-    assert(propsRT, props)
+  const Comp: React.FC<t.TypeOf<Spec>> = (props: t.TypeOf<Spec>) => {
+    assertCast(spec, props)
     return React.createElement(inner, props)
   }
+  // tslint:disable-next-line: no-object-mutation
+  Comp.displayName = displayName
+
+  return Comp
 }
