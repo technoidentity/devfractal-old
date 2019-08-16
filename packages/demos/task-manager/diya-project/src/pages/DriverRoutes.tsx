@@ -18,7 +18,7 @@ const DriverListRoute = () => (
 
 const EditDriverRoute = () => (
   <SimplePut
-    path="/drivers"
+    path="/drivers/:id/edit"
     api={driverAPI}
     component={DriverForm}
     redirectPath="/drivers"

@@ -31,7 +31,7 @@ export const DriverForm = component(
   DriverFormProps,
   ({ initial = empty(Driver), onSubmit }) => (
     <>
-      <HeadTitle>Create Driver</HeadTitle>
+      <HeadTitle>Create/Edit Driver</HeadTitle>
 
       <Section>
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>

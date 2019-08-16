@@ -18,7 +18,7 @@ export const DriverList = component(DriverListProps, ({ data: driverList }) => (
 
     <CrudTable
       data={driverList}
-      headers={['name', 'lastActive', 'shift', 'status', 'Actions']}
+      headers={['name', 'lastActive', 'shift', 'status']}
       editURL={v => `drivers/${v.id}/edit`}
     />
 
