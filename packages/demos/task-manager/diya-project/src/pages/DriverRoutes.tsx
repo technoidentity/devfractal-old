@@ -1,27 +1,29 @@
 import React from 'react'
 import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
-import { driverAPI } from '../common'
+import { driverAPI, paths } from '../common'
 import { DriverForm, DriverList } from '../views'
+
+const driverPaths = paths('drivers')
 
 const DriverRoute = () => (
   <SimplePost
-    path="/drivers/add"
-    redirectPath="/drivers"
+    path={driverPaths.create}
+    redirectPath={driverPaths.list}
     api={driverAPI}
     component={DriverForm}
   />
 )
 
 const DriverListRoute = () => (
-  <SimpleGet api={driverAPI} path="/drivers" component={DriverList} />
+  <SimpleGet api={driverAPI} path={driverPaths.list} component={DriverList} />
 )
 
 const EditDriverRoute = () => (
   <SimplePut
-    path="/drivers/:id/edit"
+    path={driverPaths.list}
     api={driverAPI}
     component={DriverForm}
-    redirectPath="/drivers"
+    redirectPath={driverPaths.list}
   />
 )
 

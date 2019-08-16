@@ -1,27 +1,29 @@
 import React from 'react'
 import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
-import { clientAPI } from '../common'
+import { clientAPI, paths } from '../common'
 import { ClientForm, ClientList } from '../views'
+
+const clientPaths = paths('clients')
 
 const ClientRoute = () => (
   <SimplePost
-    path="/clients/add"
+    path={clientPaths.create}
     api={clientAPI}
-    redirectPath="/clients"
+    redirectPath={clientPaths.list}
     component={ClientForm}
   />
 )
 
 const ClientListRoute = () => (
-  <SimpleGet path="/clients" api={clientAPI} component={ClientList} />
+  <SimpleGet path={clientPaths.list} api={clientAPI} component={ClientList} />
 )
 
 const EditClientRoute = () => (
   <SimplePut
-    path="/clients/:id/edit"
+    path={clientPaths.edit}
     component={ClientForm}
     api={clientAPI}
-    redirectPath="/clients"
+    redirectPath={clientPaths.list}
   />
 )
 

@@ -1,19 +1,25 @@
 import React from 'react'
-import { Post, SimpleGet, SimplePost } from 'technoidentity-devfractal'
-import { geoFenceAPI } from '../common'
+import { SimpleGet, SimplePost } from 'technoidentity-devfractal'
+import { geoFenceAPI, paths } from '../common'
 import { GeoFenceForm, GeoFenceList } from '../views'
+
+const geoFencePaths = paths('geo_fences')
 
 const GeoFenceRoute = () => (
   <SimplePost
-    path="/geo_fences/add"
+    path={geoFencePaths.create}
     api={geoFenceAPI}
     component={GeoFenceForm}
-    redirectPath="/geo_fences"
+    redirectPath={geoFencePaths.list}
   />
 )
 
 const GeoFenceListRoute = () => (
-  <SimpleGet path="/geo_fences" component={GeoFenceList} api={geoFenceAPI} />
+  <SimpleGet
+    path={geoFencePaths.list}
+    component={GeoFenceList}
+    api={geoFenceAPI}
+  />
 )
 
 export const GeoFenceRoutes = () => (

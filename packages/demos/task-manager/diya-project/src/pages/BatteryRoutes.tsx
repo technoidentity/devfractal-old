@@ -1,25 +1,31 @@
 import React from 'react'
 import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
-import { batteryAPI } from '../common'
+import { batteryAPI, paths } from '../common'
 import { BatteryForm, BatteryList } from '../views'
+
+const batteryPaths = paths('batteries')
 
 const BatteryEditRoute = () => (
   <SimplePut
-    path="/batteries/:id/edit"
+    path={batteryPaths.edit}
     api={batteryAPI}
     component={BatteryForm}
-    redirectPath="/batteries"
+    redirectPath={batteryPaths.list}
   />
 )
 
 const BatteryListRoute = () => (
-  <SimpleGet api={batteryAPI} component={BatteryList} path="/batteries" />
+  <SimpleGet
+    api={batteryAPI}
+    component={BatteryList}
+    path={batteryPaths.list}
+  />
 )
 
 const BatteryRoute = () => (
   <SimplePost
-    path="/batteries/add"
-    redirectPath="/batteries"
+    path={batteryPaths.create}
+    redirectPath={batteryPaths.list}
     api={batteryAPI}
     component={BatteryForm}
   />

@@ -1,19 +1,25 @@
 import React from 'react'
-import { Get, Post, SimpleGet, SimplePost } from 'technoidentity-devfractal'
-import { employeeAPI } from '../common'
+import { SimpleGet, SimplePost } from 'technoidentity-devfractal'
+import { employeeAPI, paths } from '../common'
 import { EmployeeForm, EmployeeList } from '../views'
+
+const employeePaths = paths('employees')
 
 const EmployeeRoute = () => (
   <SimplePost
-    path="/employees/add"
+    path={employeePaths.create}
     api={employeeAPI}
-    redirectPath="/employees"
+    redirectPath={employeePaths.list}
     component={EmployeeForm}
   />
 )
 
 const EmployeeListRoute = () => (
-  <SimpleGet api={employeeAPI} path="/employees" component={EmployeeList} />
+  <SimpleGet
+    api={employeeAPI}
+    path={employeePaths.list}
+    component={EmployeeList}
+  />
 )
 
 export const EmployeeRoutes = () => (

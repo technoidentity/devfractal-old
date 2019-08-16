@@ -1,27 +1,33 @@
 import React from 'react'
 import { SimpleGet, SimplePost, SimplePut } from 'technoidentity-devfractal'
-import { vehicleAPI } from '../common'
+import { paths, vehicleAPI } from '../common'
 import { VehicleForm, VehicleList } from '../views'
+
+const vehiclePaths = paths('vehicles')
 
 const VehicleRoute = () => (
   <SimplePost
-    path="/vehicles/add"
-    redirectPath="/vehicles"
+    path={vehiclePaths.create}
+    redirectPath={vehiclePaths.list}
     api={vehicleAPI}
     component={VehicleForm}
   />
 )
 
 const VehicleListRoute: React.FC = () => (
-  <SimpleGet api={vehicleAPI} path="/vehicles" component={VehicleList} />
+  <SimpleGet
+    api={vehicleAPI}
+    path={vehiclePaths.list}
+    component={VehicleList}
+  />
 )
 
 const EditVehicleRoute = () => (
   <SimplePut
-    path="/vehicles/:id/edit"
+    path={vehiclePaths.edit}
     api={vehicleAPI}
     component={VehicleForm}
-    redirectPath="/vehicles"
+    redirectPath={vehiclePaths.list}
   />
 )
 
