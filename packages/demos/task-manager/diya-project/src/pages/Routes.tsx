@@ -1,8 +1,0 @@
-export { BatteryRoutes } from './BatteryRoutes'
-export { ClientRoutes } from './ClientRoutes'
-export { DriverRoutes } from './DriverRoutes'
-export { EmployeeRoutes } from './EmployeeRoutes'
-export { GeoFenceRoutes } from './GeoFenceRoutes'
-export { UserRoutes } from './UserRoutes'
-export { VehicleRoutes } from './VehicleRoutes'
-export { EVSRoutes } from './EVSRoutes'
