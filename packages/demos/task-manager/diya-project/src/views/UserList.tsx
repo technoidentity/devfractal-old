@@ -2,7 +2,7 @@ import { readonlyArray } from 'io-ts'
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { User } from '../common'
+import { links, User } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -12,14 +12,16 @@ import {
 
 const UserListProps = req({ data: readonlyArray(User) })
 
+const userLinks = links('users')
+
 export const UserList = component(UserListProps, ({ data: userList }) => (
   <Section>
     <HeadTitle>Users</HeadTitle>
-    <CreateLink to="/users/add">Add user</CreateLink>
+    <CreateLink to={userLinks.create}>Add user</CreateLink>
     <CrudTable
       data={userList}
       headers={['userName', 'role']}
-      editURL={value => `users/${value.id}/edit`}
+      editURL={v => userLinks.edit(v.id)}
     />
     <StaticPagination />
   </Section>

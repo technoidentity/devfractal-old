@@ -1,6 +1,6 @@
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { listProps, Vehicle } from '../common'
+import { links, listProps, Vehicle } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -10,13 +10,15 @@ import {
 
 const VehicleListProps = listProps(Vehicle)
 
+const vehicleLinks = links('vehicles')
+
 export const VehicleList = component(
   VehicleListProps,
   ({ data: vehicleList }) => (
     <Section>
       <HeadTitle>Vehicles</HeadTitle>
 
-      <CreateLink to="/vehicles/add">Add Vehicle</CreateLink>
+      <CreateLink to={vehicleLinks.create}>Add Vehicle</CreateLink>
 
       <CrudTable
         data={vehicleList}
@@ -28,7 +30,7 @@ export const VehicleList = component(
           'insuranceDue',
           'vehicleStatus',
         ]}
-        editURL={v => `vehicles/${v.id}/edit`}
+        editURL={v => vehicleLinks.edit(v.id)}
       />
 
       <StaticPagination />

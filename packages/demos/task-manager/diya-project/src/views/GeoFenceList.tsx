@@ -1,6 +1,6 @@
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { GeoFence, listProps } from '../common'
+import { GeoFence, links, listProps } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -10,18 +10,20 @@ import {
 
 export const GeoFenceListProps = listProps(GeoFence)
 
+const geoFenceLinks = links('geo_fences')
+
 export const GeoFenceList = component(
   GeoFenceListProps,
   ({ data: geoFenceList }) => (
     <Section>
       <HeadTitle>GeoFence</HeadTitle>
 
-      <CreateLink to="geo_fences/add">Create GeoFence</CreateLink>
+      <CreateLink to={geoFenceLinks.create}>Create GeoFence</CreateLink>
 
       <CrudTable
         data={geoFenceList}
         headers={['areaName', 'assignVehicle', 'assignClient']}
-        editURL={v => `geo_fences/${v.id}/edit`}
+        editURL={v => geoFenceLinks.edit(v.id)}
       />
 
       <StaticPagination />

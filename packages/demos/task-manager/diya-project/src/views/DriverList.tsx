@@ -1,6 +1,6 @@
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { Driver, listProps } from '../common'
+import { Driver, links, listProps } from '../common'
 import {
   CreateLink,
   CrudTable,
@@ -10,16 +10,18 @@ import {
 
 const DriverListProps = listProps(Driver)
 
+const driverLinks = links('drivers')
+
 export const DriverList = component(DriverListProps, ({ data: driverList }) => (
   <Section>
     <HeadTitle>Drivers</HeadTitle>
 
-    <CreateLink to="/drivers/add">Add Driver</CreateLink>
+    <CreateLink to={driverLinks.create}>Add Driver</CreateLink>
 
     <CrudTable
       data={driverList}
       headers={['name', 'lastActive', 'shift', 'status']}
-      editURL={v => `drivers/${v.id}/edit`}
+      editURL={v => driverLinks.edit(v.id)}
     />
 
     <StaticPagination />

@@ -1,15 +1,17 @@
 import React from 'react'
 import { component, Section, SimpleTable } from 'technoidentity-devfractal'
-import { Actions, Client, listProps } from '../common'
+import { Actions, Client, links, listProps } from '../common'
 import { CreateLink, HeadTitle, StaticPagination } from '../components'
 
 export const ClientListProps = listProps(Client)
+
+const clientLinks = links('clients')
 
 export const ClientList = component(ClientListProps, ({ data: clientList }) => (
   <Section>
     <HeadTitle>Clients</HeadTitle>
 
-    <CreateLink to="/clients/add">Add Client</CreateLink>
+    <CreateLink to={clientLinks.create}>Add Client</CreateLink>
 
     <SimpleTable
       data={clientList}
@@ -33,9 +35,9 @@ export const ClientList = component(ClientListProps, ({ data: clientList }) => (
         'Actions',
       ]}
     >
-      {(key, values) =>
+      {(key, v) =>
         key === 'Actions' ? (
-          <Actions editURL={`/clients/${values.id}/edit`} />
+          <Actions editURL={clientLinks.edit(v.id)} />
         ) : // tslint:disable-next-line: no-null-keyword
         null
       }

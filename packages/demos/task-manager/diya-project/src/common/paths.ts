@@ -10,8 +10,7 @@ export function paths(resource: string) {
 
 export function links(resource: string) {
   return {
-    list: () => `/${resource}`,
-    create: () => `/${resource}/add`,
-    edit: (id: string | number) => `/${resource}/${id}/edit`,
+    ...paths(resource),
+    edit: (id: string | undefined) => `/${resource}/${id}/edit`,
   }
 }

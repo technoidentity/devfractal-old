@@ -1,15 +1,17 @@
 import React from 'react'
 import { component, SimpleTable } from 'technoidentity-devfractal'
-import { Ev, listProps } from '../common'
+import { Ev, links, listProps } from '../common'
 import { ActionsRoutes, CreateLink, HeadTitle } from '../components'
 
 const EVSListProps = listProps(Ev)
+
+const evsLinks = links('evs')
 
 export const EVSList = component(EVSListProps, ({ data: evsList }) => (
   <>
     <HeadTitle>EVS assigned</HeadTitle>
 
-    <CreateLink to="evs/add"> Request New EV</CreateLink>
+    <CreateLink to={evsLinks.create}> Request New EV</CreateLink>
 
     <SimpleTable
       data={evsList}

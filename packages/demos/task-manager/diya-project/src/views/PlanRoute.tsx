@@ -1,12 +1,11 @@
-import { TypeOf } from 'io-ts'
 import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
-import { listProps, PlanRoute } from '../common'
+import { links, listProps, PlanRoute } from '../common'
 import { CrudTable, HeadTitle } from '../components'
 
 const PlanRouteProps = listProps(PlanRoute)
 
-type PlanRouteProps = TypeOf<typeof PlanRouteProps>
+const planLinks = links('plans')
 
 export const PlanRouteList = component(PlanRouteProps, ({ data }) => (
   <Section>
@@ -15,7 +14,7 @@ export const PlanRouteList = component(PlanRouteProps, ({ data }) => (
     <CrudTable
       data={data}
       headers={['customerName', 'address', 'contactNumber', 'status']}
-      editURL={v => `plans/${v.id}/edit`}
+      editURL={v => planLinks.edit(v.id)}
     />
   </Section>
 ))
