@@ -8,6 +8,7 @@ type APIMethodArgs = Omit<MethodArgs, 'resource'>
 export interface API<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>> {
   readonly spec: Spec
   readonly idKey: ID
+  readonly resource: string
 
   many(options?: APIMethodArgs): Promise<ReadonlyArray<t.TypeOf<Spec>>>
 
@@ -130,5 +131,17 @@ export function rest<
     return http.patch(appendId({ ...options, resource }, id), data, spec)
   }
 
-  return { one, many, replace, update, create, del, get, list, idKey: id, spec }
+  return {
+    one,
+    many,
+    replace,
+    update,
+    create,
+    del,
+    get,
+    list,
+    idKey: id,
+    spec,
+    resource,
+  }
 }
