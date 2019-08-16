@@ -1,4 +1,3 @@
-import { TypeOf } from 'io-ts'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
@@ -6,7 +5,6 @@ import {
   Button,
   Column,
   Columns,
-  component,
   Image,
   Media,
   MediaContent,
@@ -15,17 +13,14 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { empty } from 'technoidentity-utils'
-import { formProps, Vehicle } from '../common'
+import { formComponent, Vehicle } from '../common'
 import { HeadTitle } from '../components'
 
-const VehicleFormProps = formProps(Vehicle)
-
-export const VehicleForm = component(
-  VehicleFormProps,
-  ({ onSubmit, initial = empty(Vehicle) }) => (
+export const VehicleForm = formComponent(
+  Vehicle,
+  ({ onSubmit, initial, edit }) => (
     <>
-      <HeadTitle>Add Vehicle</HeadTitle>
+      <HeadTitle>{edit ? 'Edit' : 'Add'} Vehicle</HeadTitle>
 
       <Section>
         <Title textAlignment="left" size="5" textColor="info">
