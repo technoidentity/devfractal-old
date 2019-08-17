@@ -5,7 +5,8 @@ import {
   CreateLink,
   CrudTable,
   HeadTitle,
-  StaticPagination,
+  Pager,
+  StatePager,
 } from '../components'
 import { links, listProps } from '../crud'
 
@@ -25,6 +26,6 @@ export const DriverList = component(DriverListProps, ({ data: driverList }) => (
       editLink={v => driverLinks.edit(v.id)}
     />
 
-    <StaticPagination />
+    <StatePager />
   </Section>
 ))

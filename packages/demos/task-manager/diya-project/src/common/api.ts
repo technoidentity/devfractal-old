@@ -1,5 +1,5 @@
 import { Mixed } from 'io-ts'
-import { rest } from 'technoidentity-devfractal'
+import { rest, toJSONServerQuery } from 'technoidentity-devfractal'
 import { HasProps } from 'technoidentity-utils'
 import {
   Battery,
@@ -17,7 +17,12 @@ import {
 
 // tslint:disable-next-line: typedef
 function api<Spec extends Mixed & HasProps>(spec: Spec, resource: string) {
-  return rest(spec, 'id', { resource, baseURL: 'http://localhost:9999' })
+  return rest(
+    spec,
+    'id',
+    { resource, baseURL: 'http://localhost:9999' },
+    toJSONServerQuery,
+  )
 }
 
 export const driverAPI = api(Driver, 'drivers')

@@ -27,4 +27,4 @@ const faker = {
   trips: Trip,
 }
 
-startFakeJSONServer(faker, 9999, 10)
+startFakeJSONServer(faker, 9999, 100)

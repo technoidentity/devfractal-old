@@ -1,12 +1,7 @@
 import React from 'react'
 import { Section } from 'technoidentity-devfractal'
 import { Vehicle } from '../common'
-import {
-  CreateLink,
-  CrudTable,
-  HeadTitle,
-  StaticPagination,
-} from '../components'
+import { CreateLink, CrudTable, HeadTitle, StatePager } from '../components'
 import { links, listComponent } from '../crud'
 
 const vehicleLinks = links('vehicles')
@@ -30,6 +25,6 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => (
       editLink={v => vehicleLinks.edit(v.id)}
     />
 
-    <StaticPagination />
+    <StatePager />
   </Section>
 ))

@@ -7,7 +7,8 @@ import {
   CreateLink,
   CrudTable,
   HeadTitle,
-  StaticPagination,
+  Pager,
+  StatePager,
 } from '../components'
 import { links } from '../crud'
 
@@ -24,6 +25,6 @@ export const UserList = component(UserListProps, ({ data: userList }) => (
       headers={['userName', 'role']}
       editLink={v => userLinks.edit(v.id)}
     />
-    <StaticPagination />
+    <StatePager />
   </Section>
 ))

@@ -1,7 +1,7 @@
 import React from 'react'
 import { component, Section, Title } from 'technoidentity-devfractal'
 import { Battery } from '../common'
-import { CreateLink, CrudTable, StaticPagination } from '../components'
+import { CreateLink, CrudTable, StatePager } from '../components'
 import { links, listProps } from '../crud'
 
 const BatteryListProps = listProps(Battery)
@@ -23,7 +23,7 @@ export const BatteryList = component(
         editLink={v => batteryLinks.edit(v.id)}
       />
 
-      <StaticPagination />
+      <StatePager />
     </Section>
   ),
 )
