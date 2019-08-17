@@ -1,4 +1,4 @@
-import { SafeRoute as Route } from 'devfractal-router'
+import { Route } from 'devfractal-router'
 import { Section } from 'devfractal-ui-core'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'

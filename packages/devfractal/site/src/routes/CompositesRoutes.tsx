@@ -8,7 +8,7 @@ import {
   SimpleTodo,
   Todo,
 } from 'devfractal-examples'
-import { SafeRoute as Route, SimpleRedirect } from 'devfractal-router'
+import { Route, SimpleRedirect } from 'devfractal-router'
 import React from 'react'
 
 export const CompositesRoutes: React.FC = () => (

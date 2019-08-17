@@ -1,4 +1,4 @@
-import { Router, SafeRoute as Route } from 'devfractal-router'
+import { Route, Router } from 'devfractal-router'
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
 import { DropdownExample } from './DropDownExample'

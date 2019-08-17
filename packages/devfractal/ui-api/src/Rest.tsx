@@ -1,5 +1,5 @@
 import { API, SubmitAction } from 'devfractal-api'
-import { SafeRoute as Route, useMatch } from 'devfractal-router'
+import { Route, useMatch } from 'devfractal-router'
 import { Mixed, type } from 'io-ts'
 import React from 'react'
 import { getProp } from 'technoidentity-utils'

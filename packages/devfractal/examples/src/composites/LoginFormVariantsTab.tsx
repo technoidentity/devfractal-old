@@ -1,4 +1,4 @@
-import { SafeRoute as Route, SimpleRedirect } from 'devfractal-router'
+import { Route, SimpleRedirect } from 'devfractal-router'
 import { RoutedTabs, RoutedTabsItem } from 'devfractal-ui'
 import { Section, Title } from 'devfractal-ui-core'
 import React from 'react'

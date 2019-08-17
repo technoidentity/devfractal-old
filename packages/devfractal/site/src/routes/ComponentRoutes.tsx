@@ -10,7 +10,7 @@ import {
   PanelExample,
   TabsExample,
 } from 'devfractal-examples'
-import { SafeRoute as Route, SimpleRedirect } from 'devfractal-router'
+import { Route, SimpleRedirect } from 'devfractal-router'
 import React from 'react'
 
 export const ComponentsRoutes: React.FC = () => (

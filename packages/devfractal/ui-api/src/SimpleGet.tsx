@@ -1,5 +1,5 @@
 import { API } from 'devfractal-api'
-import { SafeRoute as Route } from 'devfractal-router'
+import { Route } from 'devfractal-router'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { Get } from './Get'

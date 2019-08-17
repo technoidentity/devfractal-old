@@ -10,7 +10,7 @@ import {
   faCircle,
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import { SafeRoute as Route } from 'devfractal-router'
+import { Route } from 'devfractal-router'
 import { DynamicBreadcrumb } from 'devfractal-ui'
 import {
   Button,

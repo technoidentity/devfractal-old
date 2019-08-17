@@ -1,4 +1,4 @@
-import { SafeRoute as Route } from 'devfractal-router'
+import { Route } from 'devfractal-router'
 import React from 'react'
 import {
   BottomSection,

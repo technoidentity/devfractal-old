@@ -8,7 +8,7 @@ import {
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
 import 'bulma/css/bulma.css'
-import { Router, SafeRoute as Route } from 'devfractal-router'
+import { Route, Router } from 'devfractal-router'
 import { Icon, Section } from 'devfractal-ui-core'
 import React from 'react'
 import { render } from 'react-dom'
