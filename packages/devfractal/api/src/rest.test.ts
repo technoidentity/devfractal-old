@@ -1,6 +1,7 @@
 import { boolean, number, string } from 'io-ts'
 import { req } from 'technoidentity-utils'
-import { rest as httpAPI } from './rest'
+import { toJSONServerQuery } from './query'
+import { rest } from './rest'
 
 // tslint:disable typedef
 
@@ -24,12 +25,40 @@ describe('rest', () => {
   })
 
   const Todo = req({ id: number, title: string, done: boolean })
-  const todoAPI = httpAPI(Todo, 'id', {
-    resource: 'todos',
-    baseURL: 'https://test2',
-  })
+  const todoAPI = rest(
+    Todo,
+    'id',
+    {
+      resource: 'todos',
+      baseURL: 'https://test2',
+    },
+    toJSONServerQuery,
+  )
 
   const data = { id: 1, title: 'todo', done: false }
+
+  const manyData = [
+    { id: 1, title: 'todo', done: false },
+    { id: 2, title: 'todo 2', done: false },
+    { id: 3, title: 'todo 3', done: true },
+    { id: 4, title: 'todo 4', done: true },
+  ]
+
+  test('many', async () => {
+    axiosMock.get.mockResolvedValue({ data: manyData })
+
+    const actual = await todoAPI.many()
+
+    expect(actual).toEqual(manyData)
+  })
+
+  test('list', async () => {
+    axiosMock.get.mockResolvedValue({ data: manyData })
+
+    const actual = await todoAPI.list({ range: { current: 1, limit: 2 } })
+
+    expect(actual).toEqual(manyData)
+  })
 
   test('get', async () => {
     axiosMock.get.mockResolvedValue({ data })
