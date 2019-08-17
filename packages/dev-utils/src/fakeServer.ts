@@ -1,19 +1,31 @@
-import * as io from 'io-ts'
 import * as server from 'json-server'
-import { buildObject, range } from 'technoidentity-utils'
+import { HasProps, range } from 'technoidentity-utils'
 import { fake } from './fake'
 
-export function startFakeJSONServer<
-  T extends Record<string, io.Type<any, any>>
->(faker: T, port = process.env.PORT || 5555, eachCount: number = 10) {
+interface ResourceConfig {
+  readonly spec: HasProps
+  readonly name: string
+  readonly count: number
+}
+
+function fakeObjects(resources: readonly ResourceConfig[]) {
+  const result: any = {}
+  for (const { name, count, spec } of resources) {
+    // tslint:disable-next-line: no-object-mutation
+    result[name] = range(count).map(_ => fake(spec))
+  }
+
+  return result
+}
+
+export function startFakeJSONServer(
+  resources: readonly ResourceConfig[],
+  port = process.env.PORT || 5555,
+) {
   server
     .create()
     .use(server.defaults())
-    .use(
-      server.router(
-        buildObject(faker, v => range(eachCount).map(_ => fake(v))),
-      ),
-    )
+    .use(server.router(fakeObjects(resources)))
     .listen(port, () => {
       console.log(`fake JSON Server is running at port: ${port}`)
     })

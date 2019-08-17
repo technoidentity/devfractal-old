@@ -10,4 +10,4 @@ const User = req({
   dateOfBirth: date,
 })
 
-startFakeJSONServer({ users: User })
+startFakeJSONServer([{ count: 10, name: 'users', spec: User }])
