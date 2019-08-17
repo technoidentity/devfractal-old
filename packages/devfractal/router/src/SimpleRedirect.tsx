@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Route, RouteComponentProps } from 'react-router'
+import { Redirect, Route, RouteComponentProps } from 'react-router-dom'
 import { useRouter } from './RouterContext'
 
 export interface SimpleRedirectProps {
@@ -16,7 +16,7 @@ export const SimpleRedirect: React.FC<SimpleRedirectProps> = ({
   const { setRouteMatched } = useRouter()
   return (
     <Route
-      exact={exact}
+      exact={exact !== undefined ? exact : true}
       path={from}
       render={() => {
         if (setRouteMatched) {
