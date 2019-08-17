@@ -16,7 +16,7 @@ const Slice = opt({ start: t.number, end: t.number, limit: t.number })
 //   like: t.string,
 // })
 
-export interface Query<C> {
+export interface APIQuery<C> {
   readonly filter?: Partial<C>
   readonly range?: t.TypeOf<typeof Page> | t.TypeOf<typeof Slice>
   readonly asc?: ReadonlyArray<keyof C>
@@ -26,7 +26,7 @@ export interface Query<C> {
   readonly embed?: keyof C
 }
 
-function querySpec(codec: HasProps) {
+function apiQuerySpec(codec: HasProps) {
   const props = getProps(codec)
 
   return opt({
@@ -42,9 +42,9 @@ function querySpec(codec: HasProps) {
 
 export function toJSONServerQuery<C extends HasProps>(
   codec: C,
-  query: Query<t.TypeOf<typeof codec>>,
+  query: APIQuery<t.TypeOf<typeof codec>>,
 ): string {
-  cast(querySpec(codec), query)
+  cast(apiQuerySpec(codec), query)
 
   const { range } = query
   const page = Page.is(range)
@@ -73,11 +73,11 @@ export function toJSONServerQuery<C extends HasProps>(
   )
 }
 
-export function toQuery<C extends HasProps>(
+export function toAPIQuery<C extends HasProps>(
   spec: C,
-  query: Query<t.TypeOf<typeof spec>>,
+  query: APIQuery<t.TypeOf<typeof spec>>,
 ): string {
-  cast(querySpec(spec), query)
+  cast(apiQuerySpec(spec), query)
 
   const { asc, desc } = query
 

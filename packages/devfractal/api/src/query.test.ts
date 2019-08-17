@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { opt, props } from 'technoidentity-utils'
-import { Query, toJSONServerQuery, toQuery } from './query'
+import { APIQuery, toAPIQuery, toJSONServerQuery } from './query'
 
 // tslint:disable typedef
 
@@ -18,7 +18,7 @@ const User = props(
 type User = t.TypeOf<typeof User>
 
 describe('query', () => {
-  const query: Query<User> = {
+  const query: APIQuery<User> = {
     filter: { name: 'foo', age: 20 },
     asc: ['name'],
     desc: ['age'],
@@ -27,7 +27,7 @@ describe('query', () => {
     embed: 'address',
   }
 
-  const query2: Query<User> = {
+  const query2: APIQuery<User> = {
     asc: ['name', 'age'],
     range: { start: 0, end: 10 },
   }
@@ -43,11 +43,11 @@ describe('query', () => {
   })
 
   it('toQuery', () => {
-    expect(toQuery(User, query)).toMatchInlineSnapshot(
+    expect(toAPIQuery(User, query)).toMatchInlineSnapshot(
       `"age=20&asc=name&current=0&desc=age&embed=address&limit=10&name=foo&q=p"`,
     )
 
-    expect(toQuery(User, query2)).toMatchInlineSnapshot(
+    expect(toAPIQuery(User, query2)).toMatchInlineSnapshot(
       `"asc=name,age&end=10&start=0"`,
     )
   })

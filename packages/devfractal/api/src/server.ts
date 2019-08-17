@@ -3,4 +3,4 @@ import { Battery } from './db'
 
 // tslint:disable typedef
 
-startFakeJSONServer({ batteries: Battery }, 9999, 50)
+startFakeJSONServer([{ name: 'batteries', spec: Battery, count: 50 }], 9999)
