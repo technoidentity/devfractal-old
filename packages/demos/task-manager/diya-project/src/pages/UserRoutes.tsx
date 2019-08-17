@@ -6,7 +6,7 @@ import { UserForm, UserList } from '../views'
 export const UserRoutes = () => (
   <CrudRoutes
     api={userAPI}
-    resource="batteries"
+    resource="users"
     formComponent={UserForm}
     listComponent={UserList}
   />

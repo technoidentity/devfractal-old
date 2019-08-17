@@ -6,7 +6,7 @@ import { DriverForm, DriverList } from '../views'
 export const DriverRoutes = () => (
   <CrudRoutes
     api={driverAPI}
-    resource="batteries"
+    resource="drivers"
     formComponent={DriverForm}
     listComponent={DriverList}
   />

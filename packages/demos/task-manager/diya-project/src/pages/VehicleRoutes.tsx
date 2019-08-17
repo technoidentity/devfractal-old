@@ -6,7 +6,7 @@ import { VehicleForm, VehicleList } from '../views'
 export const VehicleRoutes = () => (
   <CrudRoutes
     api={vehicleAPI}
-    resource="batteries"
+    resource="vehicles"
     formComponent={VehicleForm}
     listComponent={VehicleList}
   />

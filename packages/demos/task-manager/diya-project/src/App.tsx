@@ -18,6 +18,7 @@ import {
   InvoiceListRoute,
   PlanRouteMapRoute,
   TripListRoute,
+  UserRoutes,
   VehicleRoutes,
 } from './pages'
 
@@ -35,6 +36,7 @@ export const App = () => (
         <VehicleRoutes />
         <EmployeeRoutes />
         <GeoFenceRoutes />
+        <UserRoutes />
         <EVSRoutes />
 
         <Route path="/invoices" component={InvoiceListRoute} />
