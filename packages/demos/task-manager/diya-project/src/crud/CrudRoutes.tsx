@@ -1,21 +1,19 @@
 import { Mixed, TypeOf } from 'io-ts'
-import { IntFromString } from 'io-ts-types/lib/IntFromString'
-import { parse } from 'query-string'
 import React from 'react'
 import {
   API,
   Get,
   Query,
   SafeRoute as Route,
-  SimpleGet,
   SimpleGetComponentProps,
   SimplePost,
   SimplePut,
   SimplePutComponentProps,
-  useLocation,
 } from 'technoidentity-devfractal'
-import { cast, HasProps } from 'technoidentity-utils'
+import { HasProps } from 'technoidentity-utils'
+import { ClientQuery } from '../common'
 import { paths as resPaths } from '../crud'
+import { useQuery } from './useQuery'
 
 interface RoutesProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
   readonly api: API<Spec & HasProps, ID>
@@ -37,12 +35,11 @@ function GetRoute<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   component: Component,
   path,
 }: GetRouteProps<Spec, ID>): JSX.Element {
-  const { search } = useLocation()
-  const page =
-    parse(search).page === undefined
-      ? 1
-      : cast(IntFromString, parse(search).page)
-  const query: Query<TypeOf<Spec>> = { range: { current: page, limit: 10 } }
+  const { page, limit } = useQuery(ClientQuery)
+
+  const query: Query<TypeOf<Spec>> = {
+    range: { current: page || 1, limit: limit || 10 },
+  }
 
   const asyncFn = (query: Query<TypeOf<Spec>>) => api.list(query)
 
