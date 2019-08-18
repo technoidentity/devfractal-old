@@ -2,21 +2,12 @@ import { Int, keyof, string, TypeOf } from 'io-ts'
 import { ISODate, props, req } from 'technoidentity-utils'
 
 const Shift = keyof({ morning: true, evening: true })
-
 const Status = keyof({ active: true, inactive: true })
-
-type Shift = TypeOf<typeof Shift>
-
-type Status = TypeOf<typeof Status>
-
-// @TODO: Remove re-enter account number
-
-// @TODO: use props instead of opt
 
 export const Driver = props(
   {
-    lastActive: ISODate,
     id: string,
+    lastActive: ISODate,
     status: Status,
   },
   {
@@ -38,12 +29,10 @@ export type Driver = TypeOf<typeof Driver>
 
 const Group = keyof({ retail: true, cargo: true })
 
-type Group = TypeOf<typeof Group>
-
 export const Battery = props(
   {
-    name: string,
     id: string,
+    name: string,
     group: Group,
     remainingCycles: Int,
     status: Status,
@@ -61,13 +50,13 @@ export type Battery = TypeOf<typeof Battery>
 
 export const Vehicle = props(
   {
+    id: string,
     name: string,
     numberPlate: string,
     group: Group,
     nextService: ISODate,
     insuranceDue: ISODate,
     status: Status,
-    id: string,
   },
   {
     makersClass: string,
@@ -82,8 +71,6 @@ export const Vehicle = props(
 )
 
 export type Vehicle = TypeOf<typeof Vehicle>
-
-export const Params = req({ id: string })
 
 const ContractType = keyof({ weekly: true, monthly: true })
 
@@ -136,10 +123,7 @@ export const PlanRoute = props(
   },
 )
 
-const EmployeeRole = keyof({
-  ClientDispatcher: true,
-  Reporter: true,
-})
+const EmployeeRole = keyof({ clientDispatcher: true, reporter: true })
 
 export const Employee = props(
   { id: string },
@@ -189,7 +173,7 @@ export const Trip = props(
 
 export type Trip = TypeOf<typeof Trip>
 
-export const resources = keyof({
+export const Resources = keyof({
   batteries: 0,
   clients: 1,
   drivers: 2,
@@ -202,3 +186,5 @@ export const resources = keyof({
   users: 9,
   vehicles: 10,
 })
+
+export const Params = req({ id: string })
