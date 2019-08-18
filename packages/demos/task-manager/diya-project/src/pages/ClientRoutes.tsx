@@ -1,6 +1,6 @@
 import React from 'react'
 import { clientAPI } from '../common'
-import { CrudRoutes } from '../components'
+import { CrudRoutes } from '../crud'
 import { ClientForm, ClientList } from '../views'
 
 export const ClientRoutes = () => (

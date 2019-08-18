@@ -1,6 +1,6 @@
 import React from 'react'
 import { userAPI } from '../common'
-import { CrudRoutes } from '../components'
+import { CrudRoutes } from '../crud'
 import { UserForm, UserList } from '../views'
 
 export const UserRoutes = () => (

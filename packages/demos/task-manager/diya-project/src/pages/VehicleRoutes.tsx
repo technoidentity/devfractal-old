@@ -1,6 +1,6 @@
 import React from 'react'
 import { vehicleAPI } from '../common'
-import { CrudRoutes } from '../components'
+import { CrudRoutes } from '../crud'
 import { VehicleForm, VehicleList } from '../views'
 
 export const VehicleRoutes = () => (

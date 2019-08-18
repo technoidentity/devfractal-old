@@ -1,6 +1,6 @@
 import React from 'react'
 import { driverAPI } from '../common'
-import { CrudRoutes } from '../components'
+import { CrudRoutes } from '../crud'
 import { DriverForm, DriverList } from '../views'
 
 export const DriverRoutes = () => (

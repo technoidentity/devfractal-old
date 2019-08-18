@@ -5,7 +5,9 @@ import { cast, empty, fn, props, req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
-export function paths(resource: string) {
+type CrudOperations = 'list' | 'edit' | 'create'
+
+export function paths(resource: string): Record<CrudOperations, string> {
   return {
     list: `/${resource}`,
     edit: `/${resource}/:id/edit`,

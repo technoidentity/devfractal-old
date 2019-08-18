@@ -3,14 +3,8 @@ import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { User } from '../common'
-import {
-  CreateLink,
-  CrudTable,
-  HeadTitle,
-  Pager,
-  StatePager,
-} from '../components'
-import { links } from '../crud'
+import { CreateLink, HeadTitle } from '../components'
+import { CrudTable, links, StatePager } from '../crud'
 
 const UserListProps = req({ data: readonlyArray(User) })
 

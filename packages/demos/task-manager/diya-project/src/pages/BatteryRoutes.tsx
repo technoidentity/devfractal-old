@@ -1,6 +1,6 @@
 import React from 'react'
 import { batteryAPI } from '../common'
-import { CrudRoutes } from '../components'
+import { CrudRoutes } from '../crud'
 import { BatteryForm, BatteryList } from '../views'
 
 export const BatteryRoutes = () => (
