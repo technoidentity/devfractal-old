@@ -35,11 +35,9 @@ function GetRoute<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   component: Component,
   path,
 }: GetRouteProps<Spec, ID>): JSX.Element {
+  // @TODO: convert clientQuery to apiQuery. take fn?
   const { page, limit } = useQuery(ClientQuery)
-
-  const query: Query<TypeOf<Spec>> = {
-    range: { current: page || 1, limit: limit || 10 },
-  }
+  const query: Query<TypeOf<Spec>> = { range: { current: page, limit } }
 
   const asyncFn = (query: Query<TypeOf<Spec>>) => api.list(query)
 
