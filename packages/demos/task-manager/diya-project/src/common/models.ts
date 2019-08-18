@@ -1,5 +1,5 @@
 import { Int, keyof, string, TypeOf } from 'io-ts'
-import { ISODate, props, req } from 'technoidentity-utils'
+import { ISODate, props } from 'technoidentity-utils'
 
 const Shift = keyof({ morning: true, evening: true })
 const Status = keyof({ active: true, inactive: true })
@@ -172,19 +172,3 @@ export const Trip = props(
 )
 
 export type Trip = TypeOf<typeof Trip>
-
-export const Resources = keyof({
-  batteries: 0,
-  clients: 1,
-  drivers: 2,
-  employees: 3,
-  evs: 4,
-  geoFences: 5,
-  invoices: 6,
-  plans: 7,
-  trips: 8,
-  users: 9,
-  vehicles: 10,
-})
-
-export const Params = req({ id: string })
