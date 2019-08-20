@@ -49,7 +49,7 @@ const TodoForm = component(TodoFormProps, ({ onSubmit, initial }) => (
 const CreateTodoRoute = () => (
   <>
     <Title textAlignment="centered">Create Todo</Title>
-    <Post component={TodoForm} onPost={todoApi.create} redirectPath={'/'} />
+    <Post component={TodoForm} onPost={todoApi.create} redirectTo={'/'} />
   </>
 )
 
@@ -64,7 +64,7 @@ export const EditTodoRoute = () => {
       doGet={todoApi.get as any}
       onPut={todoApi.update as any}
       component={TodoForm}
-      redirectPath="/"
+      redirectTo="/"
     />
   )
 }

@@ -53,10 +53,10 @@ export function useRedirect(): { onRedirect(path?: string): void } {
 
 export function useSubmitRedirect<T extends {}>(
   asyncFn: (formValues: T) => Promise<T>,
-  redirectPath?: string,
+  redirectTo?: string,
 ): SubmitResult<T> {
   const { onRedirect } = useRedirect()
-  return useSubmit(asyncFn, () => onRedirect(redirectPath))
+  return useSubmit(asyncFn, () => onRedirect(redirectTo))
 }
 
 export function useSubmitReset<T extends {}>(

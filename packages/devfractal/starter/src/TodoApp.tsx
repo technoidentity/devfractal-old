@@ -60,7 +60,7 @@ const CreateTodoRoute = () => (
       path="/todos/new"
       component={TodoForm}
       api={todoApi}
-      redirectPath={'/'}
+      redirectTo={'/'}
     />
   </>
 )
@@ -70,7 +70,7 @@ export const EditTodoRoute = () => (
     path="/todos/:id/edit"
     api={todoApi}
     component={TodoForm}
-    redirectPath="/"
+    redirectTo="/"
   />
 )
 

@@ -8,7 +8,7 @@ export const CreateTaskRoute: React.FC = () => (
   <Section>
     <Title textAlignment="centered">Create Task</Title>
     <Post<Task>
-      redirectPath="/tasks"
+      redirectTo="/tasks"
       onPost={taskAPI.create}
       component={TaskForm}
     />

@@ -10,7 +10,7 @@ import { Put } from './Put'
 // tslint:disable no-unbound-method
 
 export interface RestContext {
-  readonly redirectPath: string
+  readonly redirectTo: string
   readonly api: API<any, any>
 }
 
@@ -22,9 +22,9 @@ export interface RestProps extends RestContext {
   readonly children: React.ReactNode
 }
 
-export function Rest({ redirectPath, api, children }: RestProps): JSX.Element {
+export function Rest({ redirectTo, api, children }: RestProps): JSX.Element {
   return (
-    <RestContext.Provider value={{ redirectPath, api }}>
+    <RestContext.Provider value={{ redirectTo, api }}>
       {children}
     </RestContext.Provider>
   )
@@ -75,7 +75,7 @@ export function RestPost<T>({
   path,
   component: Component,
 }: RestPostProps<T>): JSX.Element {
-  const { api, redirectPath } = useRest()
+  const { api, redirectTo } = useRest()
 
   return (
     <Route
@@ -84,7 +84,7 @@ export function RestPost<T>({
         <Post
           component={Component}
           onPost={api.create}
-          redirectPath={redirectPath}
+          redirectTo={redirectTo}
         />
       )}
     />
@@ -105,7 +105,7 @@ export function RestPut<T>({
   path,
   component: Component,
 }: RestPutProps<T>): JSX.Element {
-  const { api, redirectPath } = useRest()
+  const { api, redirectTo } = useRest()
 
   const idPropSpec: Mixed | undefined = getProp(api.spec, api.idKey)
   if (idPropSpec === undefined) {
@@ -123,7 +123,7 @@ export function RestPut<T>({
           doGet={api.get}
           onPut={api.replace}
           component={Component}
-          redirectPath={redirectPath}
+          redirectTo={redirectTo}
         />
       )}
     />

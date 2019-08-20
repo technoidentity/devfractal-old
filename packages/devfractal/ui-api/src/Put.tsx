@@ -10,7 +10,7 @@ export interface PutComponentProps<T> {
 }
 
 export interface PutProps<T, ID extends keyof T> {
-  readonly redirectPath?: string
+  readonly redirectTo?: string
   readonly id: T[ID]
   doGet(id: T[ID]): Promise<T>
   onPut(id: T[ID], values: T): Promise<T>
@@ -19,7 +19,7 @@ export interface PutProps<T, ID extends keyof T> {
 
 export function Put<T, ID extends keyof T>({
   id,
-  redirectPath,
+  redirectTo,
   doGet,
   onPut,
   component: Component,
@@ -28,7 +28,7 @@ export function Put<T, ID extends keyof T>({
     return onPut(id, data)
   }
 
-  const { serverError, onSubmit } = useSubmitRedirect(update, redirectPath)
+  const { serverError, onSubmit } = useSubmitRedirect(update, redirectTo)
 
   return (
     <>

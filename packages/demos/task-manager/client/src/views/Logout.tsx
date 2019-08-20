@@ -6,9 +6,9 @@ import { req } from 'technoidentity-utils'
 import { sessionAPI } from '../common'
 import { useAuth } from '../utils'
 
-const LogoutProps = req({ redirectPath: string })
+const LogoutProps = req({ redirectTo: string })
 
-export const Logout = component(LogoutProps, ({ redirectPath }) => {
+export const Logout = component(LogoutProps, ({ redirectTo }) => {
   const { isLoggedIn, logout } = useAuth()
   const { onRedirect } = useRedirect()
 
@@ -20,7 +20,7 @@ export const Logout = component(LogoutProps, ({ redirectPath }) => {
           onClick={async () => {
             await sessionAPI.del('')
             logout()
-            onRedirect(redirectPath)
+            onRedirect(redirectTo)
           }}
         >
           Logout

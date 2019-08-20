@@ -1,7 +1,8 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { SimpleTable, SimpleTableProps } from 'devfractal-simple'
+import { Icon } from 'devfractal-ui-core'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Icon, SimpleTable, SimpleTableProps } from 'technoidentity-devfractal'
 
 export interface ActionsProps {
   readonly editLink: string
@@ -16,6 +17,7 @@ export const Actions: React.FC<ActionsProps> = ({ editLink, onDelete }) => {
       </Link>
       {onDelete && (
         <a
+          href="#!"
           onClick={evt => {
             evt.preventDefault()
             onDelete()

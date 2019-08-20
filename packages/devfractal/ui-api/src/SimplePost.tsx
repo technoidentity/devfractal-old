@@ -12,7 +12,7 @@ export interface SimplePostProps<
   ID extends keyof TypeOf<Spec>
 > {
   readonly path: string
-  readonly redirectPath?: string
+  readonly redirectTo?: string
   readonly component: React.FC<{
     readonly onSubmit: SubmitAction<TypeOf<Spec>>
   }>
@@ -24,15 +24,11 @@ function SimplePostChildren<
   ID extends keyof TypeOf<Spec>
 >({
   api,
-  redirectPath,
+  redirectTo,
   component: Component,
 }: Omit<SimplePostProps<Spec, ID>, 'path'>): JSX.Element {
   return (
-    <Post
-      component={Component}
-      onPost={api.create}
-      redirectPath={redirectPath}
-    />
+    <Post component={Component} onPost={api.create} redirectTo={redirectTo} />
   )
 }
 

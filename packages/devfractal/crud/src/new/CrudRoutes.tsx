@@ -1,16 +1,15 @@
-import { Mixed, TypeOf } from 'io-ts'
-import { IntFromString } from 'io-ts-types/lib/IntFromString'
-import React from 'react'
+import { API, APIQuery } from 'devfractal-api'
+import { Route } from 'devfractal-router'
 import {
-  API,
   Get,
-  Query,
-  Route,
   SimpleGetComponentProps,
   SimplePost,
   SimplePut,
   SimplePutComponentProps,
-} from 'technoidentity-devfractal'
+} from 'devfractal-ui-api'
+import { Mixed, TypeOf } from 'io-ts'
+import { IntFromString } from 'io-ts-types/lib/IntFromString'
+import React from 'react'
 import { HasProps, opt } from 'technoidentity-utils'
 import { paths as resPaths } from './common'
 import { useQuery } from './useQuery'
@@ -24,7 +23,7 @@ interface RoutesProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
   readonly formComponent: React.FC<SimplePutComponentProps<TypeOf<Spec>>>
   readonly listComponent: React.FC<SimpleGetComponentProps<TypeOf<Spec>>>
   readonly paths?: ReturnType<typeof resPaths>
-  readonly redirectPath?: string
+  readonly redirectTo?: string
 }
 
 interface GetRouteProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
@@ -42,10 +41,10 @@ function GetRoute<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   // Receive a function to convert string to query?
   const { page = 1, limit = 10 } = useQuery(ClientQuery)
 
-  const query: Query<TypeOf<Spec>> = { range: { current: page, limit } }
+  const query: APIQuery<TypeOf<Spec>> = { range: { current: page, limit } }
 
   async function asyncFn(
-    query: Query<TypeOf<Spec>>,
+    query: APIQuery<TypeOf<Spec>>,
   ): Promise<ReadonlyArray<Spec>> {
     return api.list(query)
   }
@@ -68,7 +67,7 @@ export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   listComponent,
   formComponent,
   paths: { edit, create, list } = resPaths(resource),
-  redirectPath = list,
+  redirectTo = list,
 }: RoutesProps<Spec, ID>): JSX.Element {
   return (
     <>
@@ -76,7 +75,7 @@ export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
         path={edit}
         api={api}
         component={formComponent}
-        redirectPath={redirectPath}
+        redirectTo={redirectTo}
       />
 
       <GetRoute api={api} component={listComponent} path={list} />
@@ -84,7 +83,7 @@ export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
 
       <SimplePost
         path={create}
-        redirectPath={redirectPath}
+        redirectTo={redirectTo}
         api={api}
         component={formComponent}
       />

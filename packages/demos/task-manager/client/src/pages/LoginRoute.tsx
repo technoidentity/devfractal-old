@@ -8,7 +8,7 @@ export const LoginRoute: React.FC = () => {
   const { login } = useAuth()
   return (
     <Post
-      redirectPath="/tasks"
+      redirectTo="/tasks"
       onPost={async data => {
         const result = await sessionAPI.create(data)
         login()

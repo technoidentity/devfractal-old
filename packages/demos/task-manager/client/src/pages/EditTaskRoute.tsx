@@ -19,7 +19,7 @@ export const EditTaskRoute: React.FC = () => {
         doGet={taskAPI.get}
         onPut={taskAPI.update}
         component={TaskForm}
-        redirectPath={'/tasks'}
+        redirectTo={'/tasks'}
       />
     </Section>
   )

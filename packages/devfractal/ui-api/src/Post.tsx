@@ -3,17 +3,17 @@ import React from 'react'
 import { ServerError } from './ServerError'
 
 export interface PostProps<T> {
-  readonly redirectPath?: string
+  readonly redirectTo?: string
   readonly component: React.FC<{ readonly onSubmit: SubmitAction<T> }>
   onPost(values: T): Promise<T>
 }
 
 export function Post<T>({
-  redirectPath,
+  redirectTo,
   onPost,
   component: Component,
 }: PostProps<T>): JSX.Element {
-  const { serverError, onSubmit } = useSubmitRedirect(onPost, redirectPath)
+  const { serverError, onSubmit } = useSubmitRedirect(onPost, redirectTo)
 
   return (
     <>

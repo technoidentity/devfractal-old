@@ -1,3 +1,4 @@
+import { useLocation } from 'devfractal-router'
 import {
   InterfaceType,
   PartialC,
@@ -9,7 +10,6 @@ import {
   TypeOf,
 } from 'io-ts'
 import { parse } from 'query-string'
-import { useLocation } from 'technoidentity-devfractal'
 import { cast } from 'technoidentity-utils'
 
 interface QueryProps {

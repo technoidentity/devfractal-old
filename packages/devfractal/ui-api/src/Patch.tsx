@@ -9,7 +9,7 @@ export interface PatchComponentProps<T> {
 }
 
 export interface PatchProps<T, ID extends keyof T> {
-  readonly redirectPath?: string
+  readonly redirectTo?: string
   readonly id: T[ID]
   doGet(id: T[ID]): Promise<T>
   onPatch(id: T[ID], values: Partial<T>): Promise<T>
@@ -18,7 +18,7 @@ export interface PatchProps<T, ID extends keyof T> {
 
 export function Patch<T, ID extends keyof T>({
   id,
-  redirectPath,
+  redirectTo,
   doGet,
   onPatch,
   component: Component,
@@ -27,7 +27,7 @@ export function Patch<T, ID extends keyof T>({
     return onPatch(id, data)
   }
 
-  const { serverError, onSubmit } = useSubmitRedirect(update, redirectPath)
+  const { serverError, onSubmit } = useSubmitRedirect(update, redirectTo)
 
   return (
     <>

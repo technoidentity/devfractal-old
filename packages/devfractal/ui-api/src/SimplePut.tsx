@@ -18,13 +18,13 @@ export interface SimplePutProps<
 > {
   readonly api: API<Spec & HasProps, ID>
   readonly path: string
-  readonly redirectPath?: string
+  readonly redirectTo?: string
   readonly component: React.FC<SimplePutComponentProps<TypeOf<Spec>>>
 }
 
 function SimplePutChildren<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   api,
-  redirectPath,
+  redirectTo,
   component: Component,
 }: Omit<SimplePutProps<Spec, ID>, 'path'>): JSX.Element {
   const idPropSpec: Mixed | undefined = getProp(api.spec, api.idKey as string)
@@ -40,7 +40,7 @@ function SimplePutChildren<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
       doGet={api.get}
       onPut={api.replace}
       component={Component}
-      redirectPath={redirectPath}
+      redirectTo={redirectTo}
     />
   )
 }

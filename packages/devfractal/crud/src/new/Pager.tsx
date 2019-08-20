@@ -1,13 +1,8 @@
+import { useHistory, useLocation } from 'devfractal-router'
+import { Pagination, PaginationNext, PaginationPrevious } from 'devfractal-ui'
 import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import { stringify } from 'query-string'
 import React from 'react'
-import {
-  Pagination,
-  PaginationNext,
-  PaginationPrevious,
-  useHistory,
-  useLocation,
-} from 'technoidentity-devfractal'
 import { opt } from 'technoidentity-utils'
 import { useQuery } from './useQuery'
 
