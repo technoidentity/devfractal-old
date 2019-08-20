@@ -1,11 +1,11 @@
 import * as t from 'io-ts'
 import { stringify } from 'query-string'
-import { cast, getProps, HasProps, opt } from 'technoidentity-utils'
+import { cast, getProps, HasProps, opt, req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
-const Page = opt({ current: t.number, limit: t.number })
-const Slice = opt({ start: t.number, end: t.number, limit: t.number })
+export const Page = req({ current: t.number, limit: t.number })
+export const Slice = req({ start: t.number, end: t.number, limit: t.number })
 
 // const Operators = opt({
 //   gt: t.number,
