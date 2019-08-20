@@ -1,4 +1,4 @@
-import { API } from 'devfractal-api'
+import { API, APIQuery } from 'devfractal-api'
 import { Route } from 'devfractal-router'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
@@ -17,15 +17,19 @@ export interface SimpleGetProps<
 > {
   readonly api: API<Spec, ID>
   readonly path: string
+  readonly query?: APIQuery<TypeOf<Spec>>
   readonly component: React.FC<SimpleGetComponentProps<TypeOf<Spec>>>
 }
 
 function SimpleGetChildren<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   api,
+  query,
   component: Component,
 }: Omit<SimpleGetProps<Spec, ID>, 'path'>): JSX.Element {
   return (
-    <Get asyncFn={() => api.many()}>{data => <Component data={data} />}</Get>
+    <Get asyncFn={async () => (query ? api.list(query) : api.many())}>
+      {data => <Component data={data} />}
+    </Get>
   )
 }
 export function SimpleGet<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
