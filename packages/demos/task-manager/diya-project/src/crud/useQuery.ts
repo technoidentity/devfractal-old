@@ -8,9 +8,9 @@ import {
   TypeC,
   TypeOf,
 } from 'io-ts'
+import { parse } from 'query-string'
 import { useLocation } from 'technoidentity-devfractal'
 import { cast } from 'technoidentity-utils'
-
 interface QueryProps {
   readonly [key: string]: Type<any, string>
 }
@@ -19,7 +19,7 @@ export function useQuery<P extends QueryProps>(
   spec: ReadonlyC<TypeC<P>> | ReadonlyC<PartialC<P>>,
 ): TypeOf<typeof spec> {
   const { search } = useLocation()
-  const query = cast(record(string, string), search)
+  const query = cast(record(string, string), parse(search))
 
   // type systems are really weird!!!
   return spec.type instanceof InterfaceType
