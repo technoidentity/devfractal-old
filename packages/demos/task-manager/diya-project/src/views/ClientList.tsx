@@ -1,8 +1,8 @@
 import React from 'react'
-import { component, Section, SimpleTable } from 'technoidentity-devfractal'
+import { component, Section } from 'technoidentity-devfractal'
 import { Client } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { Actions, links, listProps, StatePager } from '../crud'
+import { CrudTable, links, listProps, StatePager } from '../crud'
 
 export const ClientListProps = listProps(Client)
 
@@ -14,9 +14,8 @@ export const ClientList = component(ClientListProps, ({ data: clientList }) => (
 
     <CreateLink to={clientLinks.create}>Add Client</CreateLink>
 
-    <SimpleTable
+    <CrudTable
       data={clientList}
-      striped
       headers={[
         'clientName',
         'contractType',
@@ -24,7 +23,6 @@ export const ClientList = component(ClientListProps, ({ data: clientList }) => (
         'numberOfEVS',
         'rateOfEVS',
         'assignedEVSHistory',
-        'Actions',
       ]}
       headerLabels={[
         'Client Name',
@@ -33,16 +31,9 @@ export const ClientList = component(ClientListProps, ({ data: clientList }) => (
         'No. of EVS',
         'Rate of EVS',
         'Assigned EVS History',
-        'Actions',
       ]}
-    >
-      {(key, v) =>
-        key === 'Actions' ? (
-          <Actions editLink={clientLinks.edit(v.id)} />
-        ) : // tslint:disable-next-line: no-null-keyword
-        null
-      }
-    </SimpleTable>
+      editLink={v => clientLinks.edit(v.id)}
+    />
 
     <StatePager />
   </Section>
