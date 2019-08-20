@@ -1,11 +1,14 @@
 import * as t from 'io-ts'
+import { union } from 'io-ts'
 import { stringify } from 'query-string'
 import { cast, getProps, HasProps, opt, req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
 export const Page = req({ current: t.number, limit: t.number })
-export const Slice = req({ start: t.number, end: t.number, limit: t.number })
+const SliceStartEnd = req({ start: t.number, end: t.number })
+const SliceStartLimit = req({ start: t.number, limit: t.number })
+export const Slice = union([SliceStartEnd, SliceStartLimit])
 
 // const Operators = opt({
 //   gt: t.number,
@@ -46,17 +49,15 @@ export function toJSONServerQuery<C extends HasProps>(
 ): string {
   cast(apiQuerySpec(codec), query)
 
-  const { range } = query
-  const page = Page.is(range)
-    ? { _page: range.current, _limit: range.limit }
-    : {}
-
-  const slice = Slice.is(range)
+  const range = Page.is(query.range)
+    ? { _page: query.range.current, _limit: query.range.limit }
+    : SliceStartEnd.is(query.range)
     ? {
-        _start: range.start,
-        _end: range.end,
-        _limit: range.limit,
+        _start: query.range.start,
+        _end: query.range.end,
       }
+    : SliceStartLimit.is(query.range)
+    ? { _start: query.range.start, _limit: query.range.limit }
     : {}
 
   const { asc, desc } = query
@@ -68,7 +69,7 @@ export function toJSONServerQuery<C extends HasProps>(
 
   const { filter, fullText: q, embed } = query
   return stringify(
-    { ...filter, ...page, ...slice, _sort, _order, q, embed },
+    { ...filter, ...range, _sort, _order, q, embed },
     { arrayFormat: 'comma' },
   )
 }
