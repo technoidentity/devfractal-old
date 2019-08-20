@@ -2,7 +2,7 @@ import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
 import { GeoFence } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { CrudTable, links, listProps, StatePager } from '../crud'
+import { CrudTable, links, listProps, RoutedPager } from '../crud'
 
 export const GeoFenceListProps = listProps(GeoFence)
 
@@ -22,7 +22,7 @@ export const GeoFenceList = component(
         editLink={v => geoFenceLinks.edit(v.id)}
       />
 
-      <StatePager />
+      <RoutedPager />
     </Section>
   ),
 )

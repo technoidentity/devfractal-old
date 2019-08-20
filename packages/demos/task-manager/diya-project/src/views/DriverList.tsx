@@ -2,7 +2,7 @@ import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { CrudTable, links, listProps, StatePager } from '../crud'
+import { CrudTable, links, listProps, RoutedPager } from '../crud'
 
 const DriverListProps = listProps(Driver)
 
@@ -20,6 +20,6 @@ export const DriverList = component(DriverListProps, ({ data: driverList }) => (
       editLink={v => driverLinks.edit(v.id)}
     />
 
-    <StatePager />
+    <RoutedPager />
   </Section>
 ))

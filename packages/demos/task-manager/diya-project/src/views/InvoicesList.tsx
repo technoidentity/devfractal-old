@@ -2,7 +2,7 @@ import React from 'react'
 import { component, Section, SimpleTable } from 'technoidentity-devfractal'
 import { Invoice } from '../common'
 import { HeadTitle } from '../components'
-import { listProps, StatePager } from '../crud'
+import { listProps, RoutedPager } from '../crud'
 
 const InvoiceListProps = listProps(Invoice)
 
@@ -19,7 +19,7 @@ export const InvoiceList = component(
         striped
       />
 
-      <StatePager />
+      <RoutedPager />
     </Section>
   ),
 )

@@ -2,7 +2,7 @@ import React from 'react'
 import { component, Section, Title } from 'technoidentity-devfractal'
 import { Battery } from '../common'
 import { CreateLink } from '../components'
-import { CrudTable, links, listProps, StatePager } from '../crud'
+import { CrudTable, links, listProps, RoutedPager } from '../crud'
 
 const BatteryListProps = listProps(Battery)
 
@@ -23,7 +23,7 @@ export const BatteryList = component(
         editLink={v => batteryLinks.edit(v.id)}
       />
 
-      <StatePager />
+      <RoutedPager />
     </Section>
   ),
 )

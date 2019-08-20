@@ -4,7 +4,7 @@ import { component, Section } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { User } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { CrudTable, links, StatePager } from '../crud'
+import { CrudTable, links, RoutedPager } from '../crud'
 
 const UserListProps = req({ data: readonlyArray(User) })
 
@@ -19,6 +19,6 @@ export const UserList = component(UserListProps, ({ data: userList }) => (
       headers={['userName', 'role']}
       editLink={v => userLinks.edit(v.id)}
     />
-    <StatePager />
+    <RoutedPager />
   </Section>
 ))

@@ -6,8 +6,9 @@ import { cast, empty, fn, props, req } from 'technoidentity-utils'
 // tslint:disable typedef
 
 type CrudOperations = 'list' | 'edit' | 'create'
+type Paths = Record<CrudOperations, string>
 
-export function paths(resource: string): Record<CrudOperations, string> {
+export function paths(resource: string): Paths {
   return {
     list: `/${resource}`,
     edit: `/${resource}/:id/edit`,
@@ -15,7 +16,11 @@ export function paths(resource: string): Record<CrudOperations, string> {
   }
 }
 
-export function links(resource: string) {
+type Links = Omit<Paths, 'edit'> & {
+  edit(id: string | number | undefined): string
+}
+
+export function links(resource: string): Links {
   return {
     ...paths(resource),
     edit: (id: string | number | undefined) => `/${resource}/${id}/edit`,

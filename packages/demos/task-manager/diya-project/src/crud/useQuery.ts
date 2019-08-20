@@ -11,6 +11,7 @@ import {
 import { parse } from 'query-string'
 import { useLocation } from 'technoidentity-devfractal'
 import { cast } from 'technoidentity-utils'
+
 interface QueryProps {
   readonly [key: string]: Type<any, string>
 }

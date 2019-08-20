@@ -2,7 +2,7 @@ import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
 import { Employee } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { CrudTable, links, listProps, StatePager } from '../crud'
+import { CrudTable, links, listProps, RoutedPager } from '../crud'
 
 export const EmployeeListProps = listProps(Employee)
 
@@ -22,7 +22,7 @@ export const EmployeeList = component(
         editLink={v => employeeLinks.edit(v.id)}
       />
 
-      <StatePager />
+      <RoutedPager />
     </Section>
   ),
 )

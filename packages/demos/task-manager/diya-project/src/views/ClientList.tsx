@@ -2,7 +2,7 @@ import React from 'react'
 import { component, Section } from 'technoidentity-devfractal'
 import { Client } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { CrudTable, links, listProps, StatePager } from '../crud'
+import { CrudTable, links, listProps, RoutedPager } from '../crud'
 
 export const ClientListProps = listProps(Client)
 
@@ -35,6 +35,6 @@ export const ClientList = component(ClientListProps, ({ data: clientList }) => (
       editLink={v => clientLinks.edit(v.id)}
     />
 
-    <StatePager />
+    <RoutedPager />
   </Section>
 ))
