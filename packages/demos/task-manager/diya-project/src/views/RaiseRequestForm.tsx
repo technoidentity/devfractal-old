@@ -16,7 +16,7 @@ export const RaiseRequestForm = component(
       <Section>
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Simple.Select
-            name="addtionalEvRequired"
+            name="additionalEvRequired"
             label="Additional Ev required"
           >
             <option>select</option>
