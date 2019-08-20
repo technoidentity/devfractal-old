@@ -1,44 +1,42 @@
 import { API, SubmitAction } from 'devfractal-api'
 import { Route } from 'devfractal-router'
+import { Post } from 'devfractal-ui-api'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { HasProps } from 'technoidentity-utils'
-import { Post } from './Post'
 
 // tslint:disable no-unbound-method
 
-export interface SimplePostProps<
+export interface CreateProps<
   Spec extends Mixed & HasProps,
   ID extends keyof TypeOf<Spec>
 > {
   readonly path: string
   readonly redirectTo?: string
-  readonly component: React.FC<{
-    readonly onSubmit: SubmitAction<TypeOf<Spec>>
-  }>
+  readonly form: React.FC<{ readonly onSubmit: SubmitAction<TypeOf<Spec>> }>
   readonly api: API<Spec & HasProps, ID>
 }
 
-function SimplePostChildren<
+function Children<
   Spec extends Mixed & HasProps,
   ID extends keyof TypeOf<Spec>
 >({
   api,
   redirectTo,
-  component: Component,
-}: Omit<SimplePostProps<Spec, ID>, 'path'>): JSX.Element {
+  form: Component,
+}: Omit<CreateProps<Spec, ID>, 'path'>): JSX.Element {
   return (
     <Post component={Component} onPost={api.create} redirectTo={redirectTo} />
   )
 }
 
-export function SimplePost<
+export function Create<
   Spec extends Mixed & HasProps,
   ID extends keyof TypeOf<Spec>
->({ path, ...props }: SimplePostProps<Spec, ID>): JSX.Element {
+>({ path, ...props }: CreateProps<Spec, ID>): JSX.Element {
   return path ? (
-    <Route path={path} render={() => <SimplePostChildren {...props} />} />
+    <Route path={path} render={() => <Children {...props} />} />
   ) : (
-    <SimplePostChildren {...props} />
+    <Children {...props} />
   )
 }

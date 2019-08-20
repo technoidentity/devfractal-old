@@ -1,5 +1,5 @@
 import { API, APIQuery } from 'devfractal-api'
-import { Route } from 'devfractal-router'
+import { Route, useLocation } from 'devfractal-router'
 import {
   Get,
   SimpleGetComponentProps,
@@ -7,41 +7,61 @@ import {
   SimplePut,
   SimplePutComponentProps,
 } from 'devfractal-ui-api'
-import { Mixed, TypeOf } from 'io-ts'
+import { Mixed, record, string, TypeOf } from 'io-ts'
 import { IntFromString } from 'io-ts-types/lib/IntFromString'
+import { parse } from 'query-string'
 import React from 'react'
-import { HasProps, opt } from 'technoidentity-utils'
+import { cast, HasProps, opt } from 'technoidentity-utils'
 import { paths as resPaths } from './common'
-import { useQuery } from './useQuery'
 
 // tslint:disable-next-line: typedef
-export const ClientQuery = opt({ page: IntFromString, limit: IntFromString })
+export const ClientQuery = opt({
+  page: IntFromString,
+  limit: IntFromString,
+  asc: string,
+  desc: string,
+})
 
 interface RoutesProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
   readonly api: API<Spec & HasProps, ID>
-  readonly resource: string
-  readonly formComponent: React.FC<SimplePutComponentProps<TypeOf<Spec>>>
-  readonly listComponent: React.FC<SimpleGetComponentProps<TypeOf<Spec>>>
+  readonly form: React.FC<SimplePutComponentProps<TypeOf<Spec>>>
+  readonly list: React.FC<SimpleGetComponentProps<TypeOf<Spec>>>
   readonly paths?: ReturnType<typeof resPaths>
   readonly redirectTo?: string
+  queryFn?(search: string): APIQuery<TypeOf<Spec>>
 }
 
 interface GetRouteProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
   readonly api: API<Spec & HasProps, ID>
   readonly component: React.FC<SimpleGetComponentProps<TypeOf<Spec>>>
   readonly path: string
+  queryFn?(search: string): APIQuery<TypeOf<Spec>> | string
 }
 
+function defaultQueryFn<Spec extends Mixed>(
+  search: string,
+): APIQuery<TypeOf<Spec>> {
+  const { page = 1, limit = 25, asc, desc } = cast(
+    ClientQuery,
+    cast(record(string, string), parse(search)),
+  )
+
+  return {
+    range: { current: page, limit },
+    asc: [asc] as any,
+    desc: [desc] as any,
+  }
+}
 function GetRoute<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   api,
   component: Component,
   path,
+  queryFn = defaultQueryFn,
 }: GetRouteProps<Spec, ID>): JSX.Element {
-  // @TODO: what about default limit? server sets it?
-  // Receive a function to convert string to query?
-  const { page = 1, limit = 10 } = useQuery(ClientQuery)
+  const { search } = useLocation()
 
-  const query: APIQuery<TypeOf<Spec>> = { range: { current: page, limit } }
+  // tslint:disable-next-line: typedef
+  const query = queryFn(search)
 
   async function asyncFn(
     query: APIQuery<TypeOf<Spec>>,
@@ -63,10 +83,9 @@ function GetRoute<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
 
 export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   api,
-  resource,
-  listComponent,
-  formComponent,
-  paths: { edit, create, list } = resPaths(resource),
+  list: listComponent,
+  form: formComponent,
+  paths: { edit, create, list } = resPaths(api.resource),
   redirectTo = list,
 }: RoutesProps<Spec, ID>): JSX.Element {
   return (

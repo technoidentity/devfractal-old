@@ -11,7 +11,7 @@ interface PagerViewProps {
   onPageChange(n: number): void
 }
 
-export const PagerView: React.FC<PagerViewProps> = ({ page, onPageChange }) => (
+const PagerView: React.FC<PagerViewProps> = ({ page, onPageChange }) => (
   <Pagination alignment="centered">
     <PaginationPrevious
       onClick={() => {
