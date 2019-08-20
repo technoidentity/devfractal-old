@@ -12,7 +12,7 @@ import {
 } from 'technoidentity-devfractal'
 import { HasProps } from 'technoidentity-utils'
 import { ClientQuery } from '../common'
-import { paths as resPaths } from '../crud'
+import { paths as resPaths } from './common'
 import { useQuery } from './useQuery'
 
 interface RoutesProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
