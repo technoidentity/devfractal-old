@@ -54,12 +54,13 @@ export function formComponent<Spec extends Mixed>(
   spec: Spec,
   inner: React.FC<InnerFormProps<Spec>>,
 ): React.FC<FormProps<Spec>> {
-  return (props: FormProps<TypeOf<Spec>>) =>
-    React.createElement(inner, {
-      initial: empty(spec),
-      edit: props.initial !== undefined,
+  return ({ initial, ...props }) => {
+    return React.createElement(inner, {
+      initial: initial || empty(spec),
+      edit: initial !== undefined,
       ...cast(formProps(spec), props),
     })
+  }
 }
 
 interface ListProps<Spec extends Mixed> {
