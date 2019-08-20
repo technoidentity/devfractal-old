@@ -54,8 +54,8 @@ import {
 } from './Medias'
 
 export const HeroBodySection: React.FC = () => (
-  <Section textAlignment="centered">
-    <Title
+  <Section modifier="medium" textAlignment="centered" style={{background:`url(${contentLoader})`}}>
+  <Title
       textColor="white"
       textWeight="light"
       className=" is-family-sans-serif is-size-1-desktop is-size-3-tablet is-size-4-mobile"
@@ -80,16 +80,17 @@ export const HeroBodySection: React.FC = () => (
         Get Started
       </Button>
     </ButtonsGroup>
-    <img
+    {/* <img
       src={contentLoader}
       alt="contentLoader"
       style={{
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        width: '50%',
+        // display: 'block',
+        // marginLeft: 'auto',
+        // marginRight: 'auto',
+        // width: '50%',
+        background:`url(${contentLoader})`
       }}
-    />
+    /> */}
   </Section>
 )
 
@@ -199,7 +200,7 @@ export const UIComponentsOverview: React.FC = () => (
             </Text>
             <Text textSize="6" textColor="grey-dark">
               We ensure that all our components are designed and built to
-              acheive the best performance as user requires in application
+              achieve the best performance as user requires in application
             </Text>
           </Notification>
 
