@@ -37,9 +37,8 @@ function defaultQueryFn<Spec extends Mixed>(
 
   return {
     range: { current: page, limit },
-    // These will be type checked in many/list
-    asc: [asc] as any,
-    desc: [desc] as any,
+    asc: asc ? [asc] : [],
+    desc: desc ? [desc] : [],
   }
 }
 
@@ -57,11 +56,7 @@ function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   async function asyncFn(
     query: APIQuery<TypeOf<Spec>>,
   ): Promise<ReadonlyArray<Spec>> {
-    if (query) {
-      return api.list(query)
-    } else {
-      return api.many()
-    }
+    return query ? api.list(query) : api.many()
   }
 
   function handlePageChange(page: number): void {
