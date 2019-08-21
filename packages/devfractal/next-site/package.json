@@ -1,10 +1,10 @@
 {
   "name": "next-site",
-  "version": "1.2.16",
+  "version": "1.2.17",
   "private": true,
   "dependencies": {
     "bulma": "0.7.5",
-    "devfractal-examples": "^1.2.16",
+    "devfractal-examples": "^1.2.17",
     "devfractal-ui-core": "^1.2.16",
     "fp-ts": "2.0.5",
     "io-ts": "2.0.1",

@@ -1,6 +1,6 @@
 {
   "name": "devfractal-api",
-  "version": "1.2.16",
+  "version": "1.2.17",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-api.esm.js",
