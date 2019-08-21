@@ -1,5 +1,5 @@
 import { SubmitAction } from 'devfractal-api'
-import { Mixed, readonlyArray, TypeOf } from 'io-ts'
+import { Mixed, number, readonlyArray, string, TypeOf } from 'io-ts'
 import React from 'react'
 import { cast, empty, fn, props, req } from 'technoidentity-utils'
 
@@ -31,17 +31,14 @@ export function links(resource: string, basePath: string = '/'): Links {
 export function formProps<Spec extends Mixed>(spec: Spec) {
   return props(
     { initial: spec },
-    { onSubmit: fn<SubmitAction<TypeOf<Spec>>>() },
+    { createLink: string, onSubmit: fn<SubmitAction<TypeOf<Spec>>>() },
   )
-}
-
-export function listProps<Spec extends Mixed>(spec: Spec) {
-  return req({ data: readonlyArray(spec) })
 }
 
 interface InnerFormProps<Spec extends Mixed> {
   readonly initial: TypeOf<Spec>
   readonly edit: boolean
+  readonly createLink: string
   readonly onSubmit: SubmitAction<TypeOf<Spec>>
 }
 
@@ -64,15 +61,33 @@ export function formComponent<Spec extends Mixed>(
   }
 }
 
+export function listProps<Spec extends Mixed>(spec: Spec) {
+  return req({
+    data: readonlyArray(spec),
+    page: number,
+    editLink: fn<(id: string | number | undefined) => string>(),
+    onPageChange: fn<(page: number) => void>(),
+  })
+}
+
+interface InnerListProps<Spec extends Mixed> {
+  readonly data: ReadonlyArray<TypeOf<Spec>>
+  readonly page: number
+  editLink(id: string | number | undefined): string
+  onPageChange(page: number): void
+}
+
 interface ListProps<Spec extends Mixed> {
   readonly data: ReadonlyArray<TypeOf<Spec>>
+  readonly page?: number
+  onPageChange?(page: number): void
 }
 
 // tslint:disable-next-line: typedef
 export function listComponent<Spec extends Mixed>(
   spec: Spec,
   inner: React.FC<ListProps<Spec>>,
-): React.FC<ListProps<Spec>> {
+): React.FC<InnerListProps<Spec>> {
   return (props: ListProps<Spec>) =>
     React.createElement(inner, cast(listProps(spec), props))
 }
