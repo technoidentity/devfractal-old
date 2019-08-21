@@ -114,27 +114,31 @@ exports[`User Form Example 1`] = `
     className="buttons"
   >
     <div
-      className="control"
+      className="field is-grouped is-grouped-centered"
     >
-      <button
-        className="button is-info"
-        disabled={false}
-        type="submit"
+      <div
+        className="control"
       >
-        Submit
-      </button>
-    </div>
-    <div
-      className="control"
-    >
-      <button
-        className="button is-danger"
-        disabled={true}
-        onClick={[Function]}
-        type="reset"
+        <button
+          className="button is-info"
+          disabled={false}
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        className="control"
       >
-        Reset
-      </button>
+        <button
+          className="button is-danger"
+          disabled={true}
+          onClick={[Function]}
+          type="reset"
+        >
+          Reset
+        </button>
+      </div>
     </div>
   </div>
   <pre>
