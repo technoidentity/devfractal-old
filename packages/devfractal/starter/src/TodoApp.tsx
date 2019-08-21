@@ -7,7 +7,6 @@ import {
   Router,
   Section,
   SimpleRedirect,
-  SimpleTable,
   Title,
   v2,
 } from 'technoidentity-devfractal'
@@ -53,14 +52,18 @@ export const EditTodoRoute = () => (
   />
 )
 
-const TodoListView = v2.listComponent(Todo, ({ data }) => (
+const TodoListView = v2.listComponent(Todo, ({ data, editTo }) => (
   <>
     <ButtonsGroup alignment="right">
       <v2.ButtonLink to={links.create} variant="primary">
         Add
       </v2.ButtonLink>
     </ButtonsGroup>
-    <SimpleTable data={data} />
+    <v2.CrudTable
+      data={data}
+      headers={['title', 'done']}
+      editLink={v => editTo(v.id)}
+    />
   </>
 ))
 
