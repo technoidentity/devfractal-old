@@ -7,11 +7,14 @@ import { fn, props, req } from 'technoidentity-utils'
 type CrudOperations = 'list' | 'edit' | 'create'
 type Paths = Record<CrudOperations, string>
 
-export function paths(resource: string, basePath: string = '/'): Paths {
+function base(basePath?: string): string {
+  return basePath || ''
+}
+export function paths(resource: string, basePath?: string): Paths {
   return {
-    list: `${basePath}/${resource}`,
-    edit: `${basePath}/${resource}/:id/edit`,
-    create: `${basePath}/${resource}/add`,
+    list: `${base(basePath)}/${resource}`,
+    edit: `${base(basePath)}/${resource}/:id/edit`,
+    create: `${base(basePath)}/${resource}/add`,
   }
 }
 
@@ -19,26 +22,27 @@ type Links = Omit<Paths, 'edit'> & {
   edit(id: string | number | undefined): string
 }
 
-export function links(resource: string, basePath: string = '/'): Links {
+export function links(resource: string, basePath?: string): Links {
   return {
     ...paths(resource),
     edit: (id: string | number | undefined) =>
-      `${basePath}/${resource}/${id}/edit`,
+      `${base(basePath)}/${resource}/${id}/edit`,
   }
 }
 
 export function formProps<Spec extends Mixed>(spec: Spec) {
   return props(
     { initial: spec },
-    { createLink: string, onSubmit: fn<SubmitAction<TypeOf<Spec>>>() },
+    { onSubmit: fn<SubmitAction<TypeOf<Spec>>>() },
   )
 }
 
 export function listProps<Spec extends Mixed>(spec: Spec) {
   return req({
-    data: readonlyArray(spec),
     page: number,
-    editLink: fn<(id: string | number | undefined) => string>(),
     onPageChange: fn<(page: number) => void>(),
+    createTo: string,
+    editTo: fn<(id: string | number | undefined) => string>(),
+    data: readonlyArray(spec),
   })
 }

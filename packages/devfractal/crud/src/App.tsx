@@ -12,7 +12,6 @@ import {
   CrudRoutes,
   CrudTable,
   formComponent,
-  links,
   listComponent,
 } from './new'
 
@@ -39,28 +38,28 @@ const TodoForm = formComponent(Todo, ({ initial, onSubmit }) => (
   </Simple.Form>
 ))
 
-const { create, edit } = links('todos')
-
-const TodoList = listComponent(Todo, ({ data }) => (
+const TodoList = listComponent(Todo, ({ data, editTo, createTo }) => (
   <>
-    <ButtonLink to={create} variant="primary">
+    <ButtonLink to={createTo} variant="primary">
       Add
     </ButtonLink>
     <CrudTable
       data={data}
       headers={['title', 'done']}
-      editLink={({ id }) => edit(id)}
+      editLink={({ id }) => editTo(id)}
     />
   </>
 ))
 
-const App: React.FC = () => (
-  <Router>
-    <Section>
-      <SimpleRedirect from="/" to="/todos" />
-      <CrudRoutes api={api} form={TodoForm} list={TodoList} />
-    </Section>
-  </Router>
-)
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Section>
+        <SimpleRedirect from="/" to="/todos" />
+        <CrudRoutes api={api} form={TodoForm} list={TodoList} />
+      </Section>
+    </Router>
+  )
+}
 
 render(<App />, document.getElementById('root'))
