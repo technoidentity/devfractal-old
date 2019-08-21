@@ -149,21 +149,23 @@ const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   <FormikConsumer>
     {({ dirty, isSubmitting, handleReset }) => (
       <ButtonsGroup {...props}>
-        {submit !== false && (
-          <Button type="submit" variant="info" disabled={isSubmitting}>
-            {submit}
-          </Button>
-        )}
-        {reset !== false && (
-          <Button
-            disabled={!dirty || isSubmitting}
-            variant="danger"
-            type="reset"
-            onClick={handleReset}
-          >
-            {reset}
-          </Button>
-        )}
+        <Field groupModifier="grouped-centered">
+          {submit !== false && (
+            <Button type="submit" variant="info" disabled={isSubmitting}>
+              {submit}
+            </Button>
+          )}
+          {reset !== false && (
+            <Button
+              disabled={!dirty || isSubmitting}
+              variant="danger"
+              type="reset"
+              onClick={handleReset}
+            >
+              {reset}
+            </Button>
+          )}
+        </Field>
       </ButtonsGroup>
     )}
   </FormikConsumer>
