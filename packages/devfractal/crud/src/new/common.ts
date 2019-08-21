@@ -8,11 +8,11 @@ import { cast, empty, fn, props, req } from 'technoidentity-utils'
 type CrudOperations = 'list' | 'edit' | 'create'
 type Paths = Record<CrudOperations, string>
 
-export function paths(resource: string): Paths {
+export function paths(resource: string, basePath: string = '/'): Paths {
   return {
-    list: `/${resource}`,
-    edit: `/${resource}/:id/edit`,
-    create: `/${resource}/add`,
+    list: `${basePath}/${resource}`,
+    edit: `${basePath}/${resource}/:id/edit`,
+    create: `${basePath}/${resource}/add`,
   }
 }
 
@@ -20,10 +20,11 @@ type Links = Omit<Paths, 'edit'> & {
   edit(id: string | number | undefined): string
 }
 
-export function links(resource: string): Links {
+export function links(resource: string, basePath: string = '/'): Links {
   return {
     ...paths(resource),
-    edit: (id: string | number | undefined) => `/${resource}/${id}/edit`,
+    edit: (id: string | number | undefined) =>
+      `${basePath}/${resource}/${id}/edit`,
   }
 }
 
