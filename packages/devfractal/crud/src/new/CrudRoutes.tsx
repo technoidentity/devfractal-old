@@ -30,6 +30,7 @@ export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   return (
     <>
       <Edit path={paths.edit} api={api} form={form} redirectTo={redirectTo} />
+
       <All api={api} list={list} path={paths.list} />
 
       <Create
