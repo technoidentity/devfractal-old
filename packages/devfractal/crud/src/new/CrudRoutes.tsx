@@ -5,7 +5,7 @@ import { HasProps } from 'technoidentity-utils'
 import { All, AllComponentProps } from './All'
 import { links as resLinks, paths as resPaths } from './common'
 import { Create } from './Create'
-import { Edit, EditComponentProps } from './SimplePut'
+import { Edit, EditComponentProps } from './Edit'
 
 export interface CrudRoutesProps<
   Spec extends Mixed,

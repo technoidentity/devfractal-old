@@ -14,7 +14,7 @@ export function paths(resource: string, basePath?: string): Paths {
   return {
     list: `${base(basePath)}/${resource}`,
     edit: `${base(basePath)}/${resource}/:id/edit`,
-    create: `${base(basePath)}/${resource}/add`,
+    create: `${base(basePath)}/${resource}/new`,
   }
 }
 

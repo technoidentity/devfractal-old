@@ -1,87 +1,64 @@
-import { FormikActions } from 'formik'
-import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
+import { boolean, number, string } from 'io-ts'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import {
   ButtonsGroup,
-  component,
   Editor,
   rest,
   Router,
   Section,
-  SimpleGet,
-  SimplePost,
-  SimplePut,
+  SimpleRedirect,
   SimpleTable,
   Title,
+  v2,
 } from 'technoidentity-devfractal'
-import { empty, fn, props, req } from 'technoidentity-utils'
-
-const ISODate = union([date, DateFromISOString])
+import { ISODate, props } from 'technoidentity-utils'
 
 const Todo = props(
   { id: number },
-  {
-    title: string,
-    scheduled: ISODate,
-    done: boolean,
-  },
+  { title: string, scheduled: ISODate, done: boolean },
 )
-
-type Todo = TypeOf<typeof Todo>
 
 const todoApi = rest(Todo, 'id', {
   baseURL: 'http://localhost:3000',
   resource: 'todos',
 })
 
-const TodoFormProps = props(
-  { initial: Todo },
-  {
-    onSubmit: fn<
-      (values: Todo, actions: FormikActions<Todo>) => Promise<void>
-    >(),
-  },
-)
+const paths = v2.paths('todos')
+const links = v2.links('todos')
 
-const TodoForm = component(
-  TodoFormProps,
-  ({ onSubmit, initial = empty(Todo) }) => (
+const TodoForm = v2.formComponent(Todo, ({ onSubmit, initial }) => (
+  <>
+    <Title textAlignment="centered">Create Todo</Title>
     <Editor id="id" data={initial} onSubmit={onSubmit} />
-  ),
-)
+  </>
+))
 
 const CreateTodoRoute = () => (
   <>
-    <Title textAlignment="centered">Create Todo</Title>
-    <SimplePost
-      path="/todos/new"
-      component={TodoForm}
+    <v2.Create
+      path={paths.create}
+      form={TodoForm}
       api={todoApi}
-      redirectTo={'/'}
+      redirectTo={links.list}
     />
   </>
 )
 
 export const EditTodoRoute = () => (
-  <SimplePut
-    path="/todos/:id/edit"
+  <v2.Edit
+    path={paths.edit}
     api={todoApi}
-    component={TodoForm}
-    redirectTo="/"
+    form={TodoForm}
+    redirectTo={links.list}
   />
 )
 
-const TodoListViewProps = req({ data: readonlyArray(Todo) })
-
-const TodoListView = component(TodoListViewProps, ({ data }) => (
+const TodoListView = v2.listComponent(Todo, ({ data }) => (
   <>
     <ButtonsGroup alignment="right">
-      <NavLink to="/todos/new" className="button is-primary">
+      <v2.ButtonLink to={links.create} variant="primary">
         Add
-      </NavLink>
+      </v2.ButtonLink>
     </ButtonsGroup>
     <SimpleTable data={data} />
   </>
@@ -91,17 +68,24 @@ const TodoListRoute = () => {
   return (
     <>
       <Title textAlignment="centered">Todo List</Title>
-      <SimpleGet path="/" api={todoApi} component={TodoListView} />
+      <v2.All
+        path={paths.list}
+        api={todoApi}
+        list={TodoListView}
+        editTo={links.edit}
+        createTo={links.create}
+      />
     </>
   )
 }
 
 export const TodoApp = () => (
-  <Section>
-    <Router variant="browser">
+  <Router>
+    <Section>
+      <SimpleRedirect from="/" to={links.list} />
+      <EditTodoRoute />
       <TodoListRoute />
       <CreateTodoRoute />
-      <EditTodoRoute />
-    </Router>
-  </Section>
+    </Section>
+  </Router>
 )
