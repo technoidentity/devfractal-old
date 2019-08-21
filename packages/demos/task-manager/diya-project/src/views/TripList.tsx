@@ -1,18 +1,15 @@
 import React from 'react'
-import { component, Section } from 'technoidentity-devfractal'
+import { Section, v2 } from 'technoidentity-devfractal'
 import { Trip } from '../common'
 import { HeadTitle } from '../components'
-import { CrudTable, links, listProps } from '../crud'
 
-const TripListProps = listProps(Trip)
+const tripLinks = v2.links('trips')
 
-const tripLinks = links('trips')
-
-export const TripList = component(TripListProps, ({ data: tripsList }) => (
+export const TripList = v2.listComponent(Trip, ({ data: tripsList }) => (
   <Section>
     <HeadTitle>View Trips</HeadTitle>
 
-    <CrudTable
+    <v2.CrudTable
       data={tripsList}
       headers={['customerName', 'address', 'contactNumber', 'status']}
       editLink={v => tripLinks.edit(v.id)}

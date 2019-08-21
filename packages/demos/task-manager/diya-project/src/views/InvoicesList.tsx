@@ -1,13 +1,10 @@
 import React from 'react'
-import { component, Section, SimpleTable } from 'technoidentity-devfractal'
+import { Section, SimpleTable, v2 } from 'technoidentity-devfractal'
 import { Invoice } from '../common'
 import { HeadTitle } from '../components'
-import { listProps, RoutedPager } from '../crud'
 
-const InvoiceListProps = listProps(Invoice)
-
-export const InvoiceList = component(
-  InvoiceListProps,
+export const InvoiceList = v2.listComponent(
+  Invoice,
   ({ data: invoiceList }) => (
     <Section>
       <HeadTitle>Invoices</HeadTitle>
@@ -19,7 +16,7 @@ export const InvoiceList = component(
         striped
       />
 
-      <RoutedPager />
+      <v2.RoutedPager />
     </Section>
   ),
 )

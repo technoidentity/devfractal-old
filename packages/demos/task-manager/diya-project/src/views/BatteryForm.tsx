@@ -13,13 +13,13 @@ import {
   Section,
   Simple,
   Title,
+  v2,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { Battery } from '../common'
 import { HeadTitle } from '../components'
-import { formProps } from '../crud'
 
-const BatteryFormProps = formProps(Battery)
+const BatteryFormProps = v2.formProps(Battery)
 
 export const BatteryForm = component(
   BatteryFormProps,

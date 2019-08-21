@@ -13,18 +13,19 @@ import {
   Vehicle,
 } from './common/models'
 
-const faker = {
-  drivers: Driver,
-  vehicles: Vehicle,
-  batteries: Battery,
-  clients: Client,
-  users: User,
-  evs: Ev,
-  routes: PlanRoute,
-  employees: Employee,
-  invoices: Invoice,
-  geo_fences: GeoFence,
-  trips: Trip,
-}
-
-startFakeJSONServer(faker, 9999, 100)
+startFakeJSONServer(
+  [
+    { name: 'drivers', spec: Driver, count: 100 },
+    { name: 'vehicles', spec: Vehicle, count: 100 },
+    { name: 'batteries', spec: Battery, count: 100 },
+    { name: 'clients', spec: Client, count: 100 },
+    { name: 'users', spec: User, count: 100 },
+    { name: 'evs', spec: Ev, count: 100 },
+    { name: 'routes', spec: PlanRoute, count: 100 },
+    { name: 'employees', spec: Employee, count: 100 },
+    { name: 'invoices', spec: Invoice, count: 100 },
+    { name: 'geo_fences', spec: GeoFence, count: 100 },
+    { name: 'trips', spec: Trip, count: 100 },
+  ],
+  9999,
+)

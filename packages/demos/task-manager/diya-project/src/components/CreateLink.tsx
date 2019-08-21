@@ -1,9 +1,8 @@
 import React from 'react'
-import { ButtonsGroup } from 'technoidentity-devfractal'
-import { ButtonLink, ButtonLinkProps } from '../crud'
+import { ButtonsGroup, v2 } from 'technoidentity-devfractal'
 
-export const CreateLink: React.FC<ButtonLinkProps> = props => (
+export const CreateLink: React.FC<v2.ButtonLinkProps> = props => (
   <ButtonsGroup alignment="right">
-    <ButtonLink {...props} />
+    <v2.ButtonLink {...props} />
   </ButtonsGroup>
 )

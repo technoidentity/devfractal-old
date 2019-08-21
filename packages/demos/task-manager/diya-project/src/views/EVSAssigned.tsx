@@ -8,11 +8,11 @@ import {
   component,
   Icon,
   SimpleTable,
+  v2,
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Ev } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { links, listProps } from '../crud'
 
 const ActionsRoutesProps = req({ editLink: string })
 
@@ -30,9 +30,9 @@ const Actions = component(ActionsRoutesProps, ({ editLink }) => (
   </ButtonsGroup>
 ))
 
-const EVSListProps = listProps(Ev)
+const EVSListProps = v2.listProps(Ev)
 
-const evsLinks = links('evs')
+const evsLinks = v2.links('evs')
 
 export const EVSList = component(EVSListProps, ({ data: evsList }) => (
   <>

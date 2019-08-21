@@ -12,10 +12,10 @@ import {
   Section,
   Simple,
   Title,
+  v2,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { Employee } from '../common'
-import { formProps } from '../crud'
 
 // const validationSchema = yup.object().shape({
 //   name: yup.string().required(),
@@ -25,7 +25,7 @@ import { formProps } from '../crud'
 //   adharNuzmber: yup.string().required(),
 // })
 
-const EmployeeFormProps = formProps(Employee)
+const EmployeeFormProps = v2.formProps(Employee)
 
 export const EmployeeForm = component(
   EmployeeFormProps,

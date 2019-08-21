@@ -1,12 +1,11 @@
 import React from 'react'
-import { component, Section } from 'technoidentity-devfractal'
+import { component, Section, v2 } from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { CrudTable, links, listProps, RoutedPager } from '../crud'
 
-const DriverListProps = listProps(Driver)
+const DriverListProps = v2.listProps(Driver)
 
-const driverLinks = links('drivers')
+const driverLinks = v2.links('drivers')
 
 export const DriverList = component(DriverListProps, ({ data: driverList }) => (
   <Section>
@@ -14,12 +13,12 @@ export const DriverList = component(DriverListProps, ({ data: driverList }) => (
 
     <CreateLink to={driverLinks.create}>Add Driver</CreateLink>
 
-    <CrudTable
+    <v2.CrudTable
       data={driverList}
       headers={['name', 'lastActive', 'shift', 'status']}
       editLink={v => driverLinks.edit(v.id)}
     />
 
-    <RoutedPager />
+    <v2.RoutedPager />
   </Section>
 ))

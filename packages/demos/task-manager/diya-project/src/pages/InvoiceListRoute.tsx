@@ -1,10 +1,17 @@
 import React from 'react'
-import { Get } from 'technoidentity-devfractal'
+import { v2 } from 'technoidentity-devfractal'
 import { invoiceAPI } from '../common'
 import { InvoiceList } from '../views'
 
+const paths = v2.paths('invoices')
+const links = v2.links('invoices')
+
 export const InvoiceListRoute = () => (
-  <Get asyncFn={() => invoiceAPI.many()}>
-    {data => <InvoiceList data={data} />}
-  </Get>
+  <v2.All
+    api={invoiceAPI}
+    path={paths.list}
+    list={InvoiceList}
+    editTo={links.edit}
+    createTo={links.create}
+  />
 )

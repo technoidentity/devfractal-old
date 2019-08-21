@@ -1,13 +1,8 @@
 import React from 'react'
+import { v2 } from 'technoidentity-devfractal'
 import { userAPI } from '../common'
-import { CrudRoutes } from '../crud'
 import { UserForm, UserList } from '../views'
 
 export const UserRoutes = () => (
-  <CrudRoutes
-    api={userAPI}
-    resource="users"
-    formComponent={UserForm}
-    listComponent={UserList}
-  />
+  <v2.CrudRoutes api={userAPI} form={UserForm} list={UserList} />
 )

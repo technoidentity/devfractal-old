@@ -1,15 +1,10 @@
 import React from 'react'
+import { v2 } from 'technoidentity-devfractal'
 import { geoFenceAPI } from '../common'
-import { CrudRoutes, paths } from '../crud'
 import { GeoFenceForm, GeoFenceList } from '../views'
 
 export const GeoFenceRoutes = () => (
   <>
-    <CrudRoutes
-      api={geoFenceAPI}
-      resource="geo_fences"
-      formComponent={GeoFenceForm}
-      listComponent={GeoFenceList}
-    />
+    <v2.CrudRoutes api={geoFenceAPI} form={GeoFenceForm} list={GeoFenceList} />
   </>
 )

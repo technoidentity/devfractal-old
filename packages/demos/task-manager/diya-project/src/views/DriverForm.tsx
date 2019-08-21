@@ -12,11 +12,11 @@ import {
   Section,
   Simple,
   Title,
+  v2,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
-import { formProps } from '../crud'
 
 // const validationSchema = yup.object().shape({
 //   name: yup.string().required(),
@@ -26,7 +26,7 @@ import { formProps } from '../crud'
 //   adharNumber: yup.string().required(),
 // })
 
-const DriverFormProps = formProps(Driver)
+const DriverFormProps = v2.formProps(Driver)
 
 export const DriverForm = component(
   DriverFormProps,

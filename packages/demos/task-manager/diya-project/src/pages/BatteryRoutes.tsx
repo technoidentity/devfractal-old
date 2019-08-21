@@ -1,13 +1,8 @@
 import React from 'react'
+import { v2 } from 'technoidentity-devfractal'
 import { batteryAPI } from '../common'
-import { CrudRoutes } from '../crud'
 import { BatteryForm, BatteryList } from '../views'
 
 export const BatteryRoutes = () => (
-  <CrudRoutes
-    api={batteryAPI}
-    formComponent={BatteryForm}
-    listComponent={BatteryList}
-    resource="batteries"
-  />
+  <v2.CrudRoutes api={batteryAPI} form={BatteryForm} list={BatteryList} />
 )

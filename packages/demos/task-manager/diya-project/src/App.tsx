@@ -4,7 +4,6 @@ import {
   Column,
   Columns,
   Router,
-  SafeRoute as Route,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
 import { SideMenu } from './components'
@@ -39,9 +38,9 @@ export const App = () => (
         <UserRoutes />
         <EVSRoutes />
 
-        <Route path="/invoices" component={InvoiceListRoute} />
-        <Route path="/planRoute" component={PlanRouteMapRoute} />
-        <Route path="/trips" component={TripListRoute} />
+        <InvoiceListRoute />
+        <PlanRouteMapRoute />
+        <TripListRoute />
       </Column>
     </Columns>
   </Router>

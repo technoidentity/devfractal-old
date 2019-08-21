@@ -1,18 +1,15 @@
 import React from 'react'
-import { component, Section } from 'technoidentity-devfractal'
+import { Section, v2 } from 'technoidentity-devfractal'
 import { PlanRoute } from '../common'
 import { HeadTitle } from '../components'
-import { CrudTable, links, listProps } from '../crud'
 
-const PlanRouteProps = listProps(PlanRoute)
+const planLinks = v2.links('plans')
 
-const planLinks = links('plans')
-
-export const PlanRouteList = component(PlanRouteProps, ({ data }) => (
+export const PlanRouteList = v2.listComponent(PlanRoute, ({ data }) => (
   <Section>
     <HeadTitle>Plan Route</HeadTitle>
 
-    <CrudTable
+    <v2.CrudTable
       data={data}
       headers={['customerName', 'address', 'contactNumber', 'status']}
       editLink={v => planLinks.edit(v.id)}

@@ -1,11 +1,10 @@
 import React from 'react'
-import { component, Section, Simple } from 'technoidentity-devfractal'
+import { component, Section, Simple, v2 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { Ev } from '../common'
 import { HeadTitle } from '../components'
-import { formProps } from '../crud'
 
-const RaiseRequestFormProps = formProps(Ev)
+const RaiseRequestFormProps = v2.formProps(Ev)
 
 export const RaiseRequestForm = component(
   RaiseRequestFormProps,

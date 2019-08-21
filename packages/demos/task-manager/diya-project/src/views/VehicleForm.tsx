@@ -12,12 +12,12 @@ import {
   Section,
   Simple,
   Title,
+  v2,
 } from 'technoidentity-devfractal'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
-import { formComponent } from '../crud'
 
-export const VehicleForm = formComponent(
+export const VehicleForm = v2.formComponent(
   Vehicle,
   ({ onSubmit, initial, edit }) => (
     <>

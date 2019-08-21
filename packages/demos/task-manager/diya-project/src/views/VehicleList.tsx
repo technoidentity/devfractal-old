@@ -1,30 +1,32 @@
 import React from 'react'
-import { Section } from 'technoidentity-devfractal'
+import { Section, v2 } from 'technoidentity-devfractal'
 import { Vehicle } from '../common'
 import { CreateLink, HeadTitle } from '../components'
-import { CrudTable, links, listComponent, RoutedPager } from '../crud'
 
-const vehicleLinks = links('vehicles')
+const vehicleLinks = v2.links('vehicles')
 
-export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => (
-  <Section>
-    <HeadTitle>Vehicles</HeadTitle>
+export const VehicleList = v2.listComponent(
+  Vehicle,
+  ({ data: vehicleList }) => (
+    <Section>
+      <HeadTitle>Vehicles</HeadTitle>
 
-    <CreateLink to={vehicleLinks.create}>Add Vehicle</CreateLink>
+      <CreateLink to={vehicleLinks.create}>Add Vehicle</CreateLink>
 
-    <CrudTable
-      data={vehicleList}
-      headers={[
-        'name',
-        'numberPlate',
-        'group',
-        'nextService',
-        'insuranceDue',
-        'status',
-      ]}
-      editLink={v => vehicleLinks.edit(v.id)}
-    />
+      <v2.CrudTable
+        data={vehicleList}
+        headers={[
+          'name',
+          'numberPlate',
+          'group',
+          'nextService',
+          'insuranceDue',
+          'status',
+        ]}
+        editLink={v => vehicleLinks.edit(v.id)}
+      />
 
-    <RoutedPager />
-  </Section>
-))
+      <v2.RoutedPager />
+    </Section>
+  ),
+)

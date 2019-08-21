@@ -6,12 +6,12 @@ import {
   Section,
   Simple,
   Title,
+  v2,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { Client } from '../common'
-import { formProps } from '../crud'
 
-export const ClientFormProps = formProps(Client)
+export const ClientFormProps = v2.formProps(Client)
 
 export const ClientForm = component(
   ClientFormProps,

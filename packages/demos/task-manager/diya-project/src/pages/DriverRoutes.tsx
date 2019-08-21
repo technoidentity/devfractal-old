@@ -1,13 +1,8 @@
 import React from 'react'
+import { v2 } from 'technoidentity-devfractal'
 import { driverAPI } from '../common'
-import { CrudRoutes } from '../crud'
 import { DriverForm, DriverList } from '../views'
 
 export const DriverRoutes = () => (
-  <CrudRoutes
-    api={driverAPI}
-    resource="drivers"
-    formComponent={DriverForm}
-    listComponent={DriverList}
-  />
+  <v2.CrudRoutes api={driverAPI} form={DriverForm} list={DriverList} />
 )
