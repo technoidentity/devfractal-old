@@ -1,7 +1,6 @@
 import { SubmitAction } from 'devfractal-api'
 import { Mixed, number, readonlyArray, string, TypeOf } from 'io-ts'
-import React from 'react'
-import { cast, empty, fn, props, req } from 'technoidentity-utils'
+import { fn, props, req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
@@ -35,32 +34,6 @@ export function formProps<Spec extends Mixed>(spec: Spec) {
   )
 }
 
-interface InnerFormProps<Spec extends Mixed> {
-  readonly initial: TypeOf<Spec>
-  readonly edit: boolean
-  readonly createLink: string
-  readonly onSubmit: SubmitAction<TypeOf<Spec>>
-}
-
-interface FormProps<Spec extends Mixed> {
-  readonly initial?: InnerFormProps<Spec>['initial']
-  readonly onSubmit: InnerFormProps<Spec>['onSubmit']
-}
-
-// tslint:disable-next-line: typedef
-export function formComponent<Spec extends Mixed>(
-  spec: Spec,
-  inner: React.FC<InnerFormProps<Spec>>,
-): React.FC<FormProps<Spec>> {
-  return ({ initial, ...props }) => {
-    return React.createElement(inner, {
-      initial: initial || empty(spec),
-      edit: initial !== undefined,
-      ...cast(formProps(spec), props),
-    })
-  }
-}
-
 export function listProps<Spec extends Mixed>(spec: Spec) {
   return req({
     data: readonlyArray(spec),
@@ -68,26 +41,4 @@ export function listProps<Spec extends Mixed>(spec: Spec) {
     editLink: fn<(id: string | number | undefined) => string>(),
     onPageChange: fn<(page: number) => void>(),
   })
-}
-
-interface InnerListProps<Spec extends Mixed> {
-  readonly data: ReadonlyArray<TypeOf<Spec>>
-  readonly page: number
-  editLink(id: string | number | undefined): string
-  onPageChange(page: number): void
-}
-
-interface ListProps<Spec extends Mixed> {
-  readonly data: ReadonlyArray<TypeOf<Spec>>
-  readonly page?: number
-  onPageChange?(page: number): void
-}
-
-// tslint:disable-next-line: typedef
-export function listComponent<Spec extends Mixed>(
-  spec: Spec,
-  inner: React.FC<ListProps<Spec>>,
-): React.FC<InnerListProps<Spec>> {
-  return (props: ListProps<Spec>) =>
-    React.createElement(inner, cast(listProps(spec), props))
 }

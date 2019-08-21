@@ -1,5 +1,6 @@
 export * from './ButtonLink'
 export * from './common'
+export * from './Components'
 export * from './CrudRoutes'
 export * from './CrudTable'
 export * from './Pager'
