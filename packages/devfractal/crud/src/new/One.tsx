@@ -4,8 +4,6 @@ import { Get } from 'devfractal-ui-api'
 import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 
-// tslint:disable no-unbound-method
-
 export interface OneComponentProps<T> {
   readonly data: T
   // fetchAgain(): void
@@ -27,6 +25,7 @@ function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
     <Get asyncFn={() => api.get(id)}>{data => <Component data={data} />}</Get>
   )
 }
+
 export function One<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   path,
   ...props
