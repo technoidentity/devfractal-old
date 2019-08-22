@@ -118,9 +118,10 @@ export const IndexPageHeader: React.FC = () => (
                 textSize="7"
                 textWeight="bold"
                 active
-              >              
-                  <a style={{ color: 'white' }} href="/">HOME</a>
-                
+              >
+                <a style={{ color: 'white' }} href="/">
+                  HOME
+                </a>
               </NavbarItem>
               <NavbarItem textColor="white" textSize="7" textWeight="bold">
                 OVERVIEW
@@ -291,47 +292,31 @@ export const ExploreUIComponents: React.FC = () => (
             </SubTitle>
           </Column>
           <Column>
-            <Link >
-              <a href="/form">
-                <FormMedia />
-              </a>
+            <Link href="/form">
+              <FormMedia />
             </Link>
-            <Link >
-              <a href="/composites">
-                <CompositesMedia />
-              </a>
+            <Link href="/composites">
+              <CompositesMedia />
             </Link>
-            <Link >
-              <a href="/components">
-                <ComponentsMedia />
-              </a>
+            <Link href="/components">
+              <ComponentsMedia />
             </Link>
-            <Link >
-              <a href="/modifiers">
-                <ModifiersMedia />
-              </a>
+            <Link href="/modifiers">
+              <ModifiersMedia />
             </Link>
           </Column>
           <Column>
-            <Link >
-              <a href="/crud">
-                <CrudMedia />
-              </a>
+            <Link href="/crud">
+              <CrudMedia />
             </Link>
-            <Link >
-              <a href="/columns">
-                <ColumnsMedia />
-              </a>
+            <Link href="/columns">
+              <ColumnsMedia />
             </Link>
-            <Link >
-              <a href="/layout">
-                <LayoutMedia />
-              </a>
+            <Link href="/layout">
+              <LayoutMedia />
             </Link>
-            <Link >
-              <a href="/elements">
-                <ElementsMedia />
-              </a>
+            <Link href="/elements">
+              <ElementsMedia />
             </Link>
           </Column>
         </Columns>
