@@ -27,7 +27,7 @@ const TodoItem: React.FC<Todo> = ({ id, title, description, time, done }) => (
     <Td>{title}</Td>
     <Td>{description}</Td>
     <Td>
-      <Input type="date" value={format(time, 'YYYY-MM-DD')} readOnly />
+      <Input type="date" value={format(time, 'yyyy-MM-dd')} readOnly />
     </Td>
     <Td>
       <CheckBox readOnly checked={done} />

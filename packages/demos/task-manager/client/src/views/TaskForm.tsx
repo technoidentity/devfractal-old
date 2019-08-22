@@ -1,12 +1,7 @@
 import { format } from 'date-fns'
 import { DateField } from 'devfractal-forms'
 import { Simple } from 'devfractal-simple'
-import {
-  Column,
-  Columns,
-  component,
-  Section,
-} from 'devfractal-ui-core'
+import { Column, Columns, component, Section } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import { produce } from 'immer'
 import React from 'react'
@@ -14,7 +9,7 @@ import { empty, fn, props } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { Task } from '../common'
 
-const currentDate = format(new Date(), 'YYYY-MM-DD')
+const currentDate = format(new Date(), 'yyyy-MM-dd')
 
 const validationSchema = yup.object().shape({
   title: yup

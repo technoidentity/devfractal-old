@@ -22,7 +22,7 @@ import { PaginationView } from './PaginateView'
 const TaskItemProps = req({ taskItem: Task })
 
 function formatDate(date: Date | undefined): string | undefined {
-  return date && format(date, 'DD/MM/YYYY')
+  return date && format(date, 'dd/MM/yyyy')
 }
 
 const TaskItem = component(

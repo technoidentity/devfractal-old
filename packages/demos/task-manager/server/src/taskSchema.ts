@@ -27,7 +27,7 @@ export const Task = props(
 
 export type Task = TypeOf<typeof Task> & Document
 
-const currentDate: Date | string = format(new Date(), 'YYYY-MM-DD')
+const currentDate: string = format(new Date(), 'yyyy-MM-dd')
 
 const deadlineValidator = (value: Task['dateInfo']): boolean => {
   if (value.started === undefined) {
@@ -53,7 +53,10 @@ const startedValidator = (value: Task['dateInfo']): boolean => {
   if (value.started === undefined) {
     return true
   }
-  return compareAsc(startOfDay(value.started), startOfDay(currentDate)) >= 0
+  return (
+    compareAsc(startOfDay(value.started), startOfDay(new Date(currentDate))) >=
+    0
+  )
 }
 
 const scheduledValidator4 = (value: Task['dateInfo']): boolean => {

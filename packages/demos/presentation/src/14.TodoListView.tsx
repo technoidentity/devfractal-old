@@ -15,7 +15,7 @@ export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (
   <Tr>
     <Td>{id}</Td>
     <Td>{title}</Td>
-    <Td>{format(scheduled, 'YYYY/MM/DD')}</Td>
+    <Td>{format(scheduled, 'yyyy/MM/dd')}</Td>
     <Td>
       <CheckBox checked={done} readOnly />
     </Td>
