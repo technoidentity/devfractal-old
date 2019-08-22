@@ -31,6 +31,7 @@
     "@types/react-router-dom": "4.3.4",
     "@types/yup": "0.26.23",
     "cross-env": "^5.2.0",
+    "eslint": "6.2.1",
     "husky": "3.0.4",
     "jest": "24.9.0",
     "jest-cli": "24.9.0",
