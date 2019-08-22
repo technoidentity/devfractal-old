@@ -1,6 +1,6 @@
 {
-  "name": "diya-project",
-  "version": "0.1.0",
+  "name": "diya-client",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "date-fns": "2.0.0",
@@ -49,26 +49,24 @@
   },
   "proxy": "http://localhost:9999",
   "scripts": {
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
     "server": "cross-env PORT=9999 ts-node --project tsconfig.tsnode.json src/db.ts",
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
-    "test": "jest --passWithNoTests",
-    "test:watch": "jest --env=jsdom --watch",
-    "destroy": "git clean -dfx",
-    "up": "lerna exec -- ncu -u",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
+    "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
-    "types:watch": "yarn types --watch",
-    "validate": "yarn lint && yarn types && yarn test",
-    "all": "yarn validate && yarn start"
+    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
+    "validate": "yarn lint:fix && yarn types && yarn test"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn validate",
-      "pre-build": "yarn validate"
-    }
+  "resolutions": {
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
