@@ -1,11 +1,14 @@
 import {
   boolean,
+  intersection,
   keyof,
   number,
   readonly,
   readonlyArray,
   string,
+  tuple,
   type,
+  union,
 } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { empty } from 'technoidentity-utils'
@@ -23,6 +26,9 @@ console.log(
           foo: 1,
           bar: 1,
         }),
+        t: tuple([string, number]),
+        in: intersection([string, number]),
+        u: union([string, number]),
         o: readonly(
           type({
             fizz: readonlyArray(readonly(type({ buzz: boolean }))),

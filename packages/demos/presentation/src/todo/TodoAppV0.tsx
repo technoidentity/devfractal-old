@@ -5,6 +5,7 @@ import {
   Field as UIField,
   Get,
   Input,
+  Label,
   ServerError,
   SubmitAction,
   Title,
@@ -16,17 +17,21 @@ import { TodoTable } from './TodoTable'
 const TodoFormInner = () => (
   <Form>
     <UIField>
+      <Label>Title</Label>
       <Field name="title" component={Input} />
       <ErrorMessage name="title" />
     </UIField>
 
     <UIField>
-      <Field name="done" component={CheckBox} />
-      <ErrorMessage name="title" />
+      <Label>Scheduled</Label>
+      <Field component={Date} name="scheduled" />
+      <ErrorMessage name="scheduled" />
     </UIField>
 
     <UIField>
-      <Field component={Date} name="scheduled" />
+      <Label>Done</Label>
+      <Field name="done" component={CheckBox} />
+      <ErrorMessage name="title" />
     </UIField>
   </Form>
 )

@@ -1,14 +1,11 @@
 import React from 'react'
 import {
-  All,
-  Create,
+  CrudRoutes,
   CrudTable,
-  Edit,
   Editor,
   formComponent,
   links,
   listComponent,
-  paths,
   Router,
   Section,
   SimpleRedirect,
@@ -17,8 +14,7 @@ import {
 import { Todo, todoAPI } from './common'
 import { CreateLink } from './CreateLink'
 
-const ps = paths(todoAPI.resource)
-const ls = links(todoAPI.resource)
+const { create, edit, list } = links(todoAPI.resource)
 
 const TodoForm = formComponent(Todo, ({ onSubmit, initial }) => (
   <>
@@ -30,32 +26,20 @@ const TodoForm = formComponent(Todo, ({ onSubmit, initial }) => (
 const TodoList = listComponent(Todo, ({ data }) => (
   <>
     <Title textAlignment="centered">Todo List</Title>
-    <CreateLink createTo={ls.create}>Add</CreateLink>
+    <CreateLink createTo={create}>Add</CreateLink>
     <CrudTable
       data={data}
-      headers={['title', 'done']}
-      editTo={v => ls.edit(v.id)}
+      headers={['title', 'scheduled', 'done']}
+      editTo={v => edit(v.id)}
     />
   </>
 ))
 
-const CreateTodoRoute = () => (
-  <Create path={ps.create} form={TodoForm} api={todoAPI} redirectTo={ls.list} />
-)
-
-const EditTodoRoute = () => (
-  <Edit path={ps.edit} api={todoAPI} form={TodoForm} redirectTo={ls.list} />
-)
-
-const TodoListRoute = () => <All path={ps.list} api={todoAPI} list={TodoList} />
-
 export const TodoApp = () => (
   <Router>
     <Section>
-      <SimpleRedirect from="/" to={ls.list} />
-      <EditTodoRoute />
-      <TodoListRoute />
-      <CreateTodoRoute />
+      <SimpleRedirect from="/" to={list} />
+      <CrudRoutes api={todoAPI} form={TodoForm} list={TodoList} />
     </Section>
   </Router>
 )
