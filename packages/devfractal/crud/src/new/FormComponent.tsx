@@ -10,7 +10,7 @@ interface InnerFormProps<Spec extends Mixed> {
   readonly onSubmit: SubmitAction<TypeOf<Spec>>
 }
 
-interface FormProps<Spec extends Mixed>
+export interface FormProps<Spec extends Mixed>
   extends Omit<InnerFormProps<Spec>, 'initial' | 'edit'> {
   readonly initial?: InnerFormProps<Spec>['initial']
 }

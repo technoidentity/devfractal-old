@@ -1,14 +1,12 @@
 import React from 'react'
-import { component, Section, v2 } from 'technoidentity-devfractal'
+import { Section, v2 } from 'technoidentity-devfractal'
 import { GeoFence } from '../common'
 import { CreateLink, HeadTitle } from '../components'
 
-export const GeoFenceListProps = v2.listProps(GeoFence)
-
 const geoFenceLinks = v2.links('geo_fences')
 
-export const GeoFenceList = component(
-  GeoFenceListProps,
+export const GeoFenceList = v2.listComponent(
+  GeoFence,
   ({ data: geoFenceList }) => (
     <Section>
       <HeadTitle>GeoFence</HeadTitle>

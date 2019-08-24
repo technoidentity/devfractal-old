@@ -1,14 +1,12 @@
 import React from 'react'
-import { component, Section, Title, v2 } from 'technoidentity-devfractal'
+import { Section, Title, v2 } from 'technoidentity-devfractal'
 import { Battery } from '../common'
 import { CreateLink } from '../components'
 
-const BatteryListProps = v2.listProps(Battery)
-
 const batteryLinks = v2.links('batteries')
 
-export const BatteryList = component(
-  BatteryListProps,
+export const BatteryList = v2.listComponent(
+  Battery,
   ({ data: batteryList }) => (
     <Section>
       <Title size="4" textColor="info">

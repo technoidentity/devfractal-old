@@ -2,23 +2,19 @@ import React from 'react'
 import {
   Column,
   Columns,
-  component,
   Section,
   Simple,
   Title,
   v2,
 } from 'technoidentity-devfractal'
-import { empty } from 'technoidentity-utils'
 import { Client } from '../common'
 
-export const ClientFormProps = v2.formProps(Client)
-
-export const ClientForm = component(
-  ClientFormProps,
-  ({ initial = empty(Client), onSubmit }) => (
+export const ClientForm = v2.formComponent(
+  Client,
+  ({ initial, edit, onSubmit }) => (
     <>
       <Title size="4" textColor="info">
-        Add Client
+        {edit ? 'Add' : 'Update'} Client
       </Title>
       <Section>
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>

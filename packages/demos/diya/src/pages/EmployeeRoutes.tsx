@@ -16,13 +16,7 @@ const EmployeeRoute = () => (
 )
 
 const EmployeeListRoute = () => (
-  <v2.All
-    api={employeeAPI}
-    path={paths.list}
-    list={EmployeeList}
-    createTo={links.create}
-    editTo={links.edit}
-  />
+  <v2.All api={employeeAPI} path={paths.list} list={EmployeeList} />
 )
 
 export const EmployeeRoutes = () => (

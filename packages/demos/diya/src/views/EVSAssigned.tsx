@@ -30,11 +30,9 @@ const Actions = component(ActionsRoutesProps, ({ editLink }) => (
   </ButtonsGroup>
 ))
 
-const EVSListProps = v2.listProps(Ev)
-
 const evsLinks = v2.links('evs')
 
-export const EVSList = component(EVSListProps, ({ data: evsList }) => (
+export const EVSList = v2.listComponent(Ev, ({ data: evsList }) => (
   <>
     <HeadTitle>EVS assigned</HeadTitle>
 

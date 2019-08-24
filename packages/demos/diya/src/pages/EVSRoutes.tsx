@@ -16,13 +16,7 @@ const RaiseRequestRoute: React.FC = () => (
 )
 
 const EVSAssignedRoute = () => (
-  <v2.All
-    path={paths.list}
-    api={evAPI}
-    list={EVSList}
-    editTo={links.edit}
-    createTo={links.create}
-  />
+  <v2.All path={paths.list} api={evAPI} list={EVSList} />
 )
 
 export const EVSRoutes = () => (

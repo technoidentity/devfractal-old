@@ -1,13 +1,11 @@
 import React from 'react'
-import { component, Section, v2 } from 'technoidentity-devfractal'
+import { Section, v2 } from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { CreateLink, HeadTitle } from '../components'
 
-const DriverListProps = v2.listProps(Driver)
-
 const driverLinks = v2.links('drivers')
 
-export const DriverList = component(DriverListProps, ({ data: driverList }) => (
+export const DriverList = v2.listComponent(Driver, ({ data: driverList }) => (
   <Section>
     <HeadTitle>Drivers</HeadTitle>
 

@@ -1,12 +1,10 @@
 import React from 'react'
-import { component, Section, Simple, v2 } from 'technoidentity-devfractal'
+import { Section, Simple, v2 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { User } from '../common'
 import { HeadTitle } from '../components'
 
-export const UserFormProps = v2.formProps(User)
-
-export const UserForm = component(UserFormProps, ({ initial, onSubmit }) => (
+export const UserForm = v2.formComponent(User, ({ initial, onSubmit }) => (
   <>
     <HeadTitle>{initial ? 'Edit' : 'Add'} User</HeadTitle>
 

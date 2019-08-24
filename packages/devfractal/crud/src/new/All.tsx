@@ -18,16 +18,12 @@ export const ClientQuery = opt({
 export interface AllComponentProps<T> {
   readonly data: ReadonlyArray<T>
   readonly page: number
-  readonly createTo: string
-  editTo(id: string | number | undefined): string
   onPageChange(page: number): void
 }
 
 interface ChildrenProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
   readonly api: API<Spec & HasProps, ID>
   readonly list: React.FC<AllComponentProps<TypeOf<Spec>>>
-  readonly createTo: string
-  editTo(id: string | number | undefined): string
   queryFn?(search: string): APIQuery<TypeOf<Spec>>
 }
 
@@ -49,8 +45,6 @@ function defaultQueryFn<Spec extends Mixed>(
 function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   api,
   list: Component,
-  editTo,
-  createTo,
   queryFn = defaultQueryFn,
 }: ChildrenProps<Spec, ID>): JSX.Element {
   const { pathname, search } = useLocation()
@@ -75,13 +69,7 @@ function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   return (
     <Get asyncFn={asyncFn} deps={[query]}>
       {data => (
-        <Component
-          data={data}
-          page={page}
-          onPageChange={handlePageChange}
-          editTo={editTo}
-          createTo={createTo}
-        />
+        <Component data={data} page={page} onPageChange={handlePageChange} />
       )}
     </Get>
   )

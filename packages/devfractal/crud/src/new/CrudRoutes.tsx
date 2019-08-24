@@ -3,7 +3,7 @@ import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { HasProps } from 'technoidentity-utils'
 import { All, AllComponentProps } from './All'
-import { links as resLinks, paths as resPaths } from './common'
+import { paths as resPaths } from './common'
 import { Create } from './Create'
 import { Edit, EditComponentProps } from './Edit'
 
@@ -15,7 +15,6 @@ export interface CrudRoutesProps<
   readonly form: React.FC<EditComponentProps<TypeOf<Spec>>>
   readonly list: React.FC<AllComponentProps<TypeOf<Spec>>>
   readonly paths?: ReturnType<typeof resPaths>
-  readonly links?: ReturnType<typeof resLinks>
   readonly redirectTo?: string
   queryFn?(search: string): APIQuery<TypeOf<Spec>>
 }
@@ -27,20 +26,13 @@ export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   list,
   form,
   paths = resPaths(api.resource),
-  links = resLinks(api.resource),
-  redirectTo = links.list,
+  redirectTo = paths.list,
 }: CrudRoutesProps<Spec, ID>): JSX.Element {
   return (
     <>
       <Edit path={paths.edit} api={api} form={form} redirectTo={redirectTo} />
 
-      <All
-        api={api}
-        list={list}
-        path={paths.list}
-        editTo={links.edit}
-        createTo={links.create}
-      />
+      <All api={api} list={list} path={paths.list} />
 
       <Create
         path={paths.create}

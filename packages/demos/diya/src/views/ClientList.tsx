@@ -1,13 +1,11 @@
 import React from 'react'
-import { component, Section, v2 } from 'technoidentity-devfractal'
+import { Section, v2 } from 'technoidentity-devfractal'
 import { Client } from '../common'
 import { CreateLink, HeadTitle } from '../components'
 
-export const ClientListProps = v2.listProps(Client)
-
 const clientLinks = v2.links('clients')
 
-export const ClientList = component(ClientListProps, ({ data: clientList }) => (
+export const ClientList = v2.listComponent(Client, ({ data: clientList }) => (
   <Section>
     <HeadTitle>Clients</HeadTitle>
 

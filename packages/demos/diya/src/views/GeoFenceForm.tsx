@@ -1,14 +1,11 @@
 import React from 'react'
-import { component, Section, Simple, v2 } from 'technoidentity-devfractal'
-import { empty } from 'technoidentity-utils'
+import { Section, Simple, v2 } from 'technoidentity-devfractal'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 
-const GeoFenceFormProps = v2.formProps(GeoFence)
-
-export const GeoFenceForm = component(
-  GeoFenceFormProps,
-  ({ initial = empty(GeoFence), onSubmit }) => (
+export const GeoFenceForm = v2.formComponent(
+  GeoFence,
+  ({ initial, onSubmit }) => (
     <>
       <HeadTitle>Create GeoFence</HeadTitle>
 
