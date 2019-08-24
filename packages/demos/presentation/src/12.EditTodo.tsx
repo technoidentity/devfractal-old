@@ -2,8 +2,8 @@ import { string } from 'io-ts'
 import React from 'react'
 import { Put, useMatch } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
-import { todoApi } from './11.todoAPI'
-import { TodoForm } from './12.TodoForm'
+import { todoApi } from './08.todoAPI'
+import { TodoForm } from './09.TodoForm'
 
 const Params = req({ id: string })
 export const EditTodoRoute: React.FC = () => {
@@ -12,8 +12,8 @@ export const EditTodoRoute: React.FC = () => {
   return (
     <Put
       id={params.id}
-      doGet={todoApi.get as any}
-      onPut={todoApi.update as any}
+      doGet={todoApi.get}
+      onPut={todoApi.update}
       component={TodoForm}
       redirectTo="/"
     />

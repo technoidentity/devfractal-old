@@ -2,6 +2,7 @@ import { format } from 'date-fns'
 import React from 'react'
 import {
   CheckBox,
+  Get,
   Table,
   TableBody,
   TableHead,
@@ -9,7 +10,7 @@ import {
   Th,
   Tr,
 } from 'technoidentity-devfractal'
-import { Todo } from './11.todoAPI'
+import { Todo, todoApi } from './08.todoAPI'
 
 export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (
   <Tr>
@@ -50,4 +51,10 @@ export const TodoListView: React.FC<TodoListViewProps> = ({
       ))}
     </TableBody>
   </Table>
+)
+
+export const TodoListRoute: React.FC = () => (
+  <Get asyncFn={() => todoApi.many()}>
+    {data => <TodoListView todoList={data} />}
+  </Get>
 )

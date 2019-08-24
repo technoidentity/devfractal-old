@@ -3,11 +3,22 @@ import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import React from 'react'
-import { Get, Post, Put, rest, useRedirect } from 'technoidentity-devfractal'
-import { Editor } from 'technoidentity-devfractal'
-import { Route, Router, useMatch } from 'technoidentity-devfractal'
-import { RowClickEvent, SimpleTable } from 'technoidentity-devfractal'
-import { component, Section, Title } from 'technoidentity-devfractal'
+import {
+  component,
+  Editor,
+  Get,
+  Post,
+  Put,
+  rest,
+  Route,
+  Router,
+  RowClickEvent,
+  Section,
+  SimpleTable,
+  Title,
+  useMatch,
+  useRedirect,
+} from 'technoidentity-devfractal'
 import { fn, props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])

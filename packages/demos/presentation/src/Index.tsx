@@ -1,7 +1,7 @@
 import 'bulma/bulma.sass'
 import React from 'react'
 import { render } from 'react-dom'
-import { TodoApp } from './17.CompleteTodo'
+import { TodoApp } from './todo/App'
 
 // import './demo/01.checked'
 // import './demo/03.fake'
