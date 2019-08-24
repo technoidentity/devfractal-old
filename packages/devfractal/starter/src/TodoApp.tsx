@@ -1,14 +1,23 @@
 import { boolean, number, string } from 'io-ts'
 import React from 'react'
 import {
+  All,
+  ButtonLink,
   ButtonsGroup,
+  ButtonsGroupProps,
+  Create,
+  CrudTable,
+  Edit,
   Editor,
+  formComponent,
+  links,
+  listComponent,
+  paths,
   rest,
   Router,
   Section,
   SimpleRedirect,
   Title,
-  v2,
 } from 'technoidentity-devfractal'
 import { ISODate, props } from 'technoidentity-utils'
 
@@ -22,62 +31,57 @@ const todoApi = rest(Todo, 'id', {
   resource: 'todos',
 })
 
-const paths = v2.paths('todos')
-const links = v2.links('todos')
+const ps = paths(todoApi.resource)
+const ls = links(todoApi.resource)
 
-const TodoForm = v2.formComponent(Todo, ({ onSubmit, initial }) => (
+const TodoForm = formComponent(Todo, ({ onSubmit, initial, edit }) => (
   <>
-    <Title textAlignment="centered">Create Todo</Title>
+    <Title textAlignment="centered">{edit ? 'Create' : 'Edit'} Todo</Title>
     <Editor id="id" data={initial} onSubmit={onSubmit} />
   </>
 ))
 
-const CreateTodoRoute = () => (
+const TodoList = listComponent(Todo, ({ data }) => (
   <>
-    <v2.Create
-      path={paths.create}
-      form={TodoForm}
-      api={todoApi}
-      redirectTo={links.list}
-    />
-  </>
-)
-
-export const EditTodoRoute = () => (
-  <v2.Edit
-    path={paths.edit}
-    api={todoApi}
-    form={TodoForm}
-    redirectTo={links.list}
-  />
-)
-
-const TodoListView = v2.listComponent(Todo, ({ data, editTo }) => (
-  <>
-    <ButtonsGroup alignment="right">
-      <v2.ButtonLink to={links.create} variant="primary">
-        Add
-      </v2.ButtonLink>
-    </ButtonsGroup>
-    <v2.CrudTable
+    <CreateLink createTo={ls.create}>Add</CreateLink>
+    <CrudTable
       data={data}
       headers={['title', 'done']}
-      editLink={v => editTo(v.id)}
+      editTo={v => ls.edit(v.id)}
     />
   </>
 ))
+
+const CreateTodoRoute = () => (
+  <Create path={ps.create} form={TodoForm} api={todoApi} redirectTo={ls.list} />
+)
+
+export const EditTodoRoute = () => (
+  <Edit path={ps.edit} api={todoApi} form={TodoForm} redirectTo={ls.list} />
+)
+
+interface CreateLinkProps {
+  readonly alignment?: ButtonsGroupProps['alignment']
+  readonly createTo: string
+}
+
+const CreateLink: React.FC<CreateLinkProps> = ({
+  alignment = 'centered',
+  createTo,
+  children,
+}) => (
+  <ButtonsGroup alignment={alignment}>
+    <ButtonLink to={createTo} variant="primary">
+      {children}
+    </ButtonLink>
+  </ButtonsGroup>
+)
 
 const TodoListRoute = () => {
   return (
     <>
       <Title textAlignment="centered">Todo List</Title>
-      <v2.All
-        path={paths.list}
-        api={todoApi}
-        list={TodoListView}
-        editTo={links.edit}
-        createTo={links.create}
-      />
+      <All path={ps.list} api={todoApi} list={TodoList} />
     </>
   )
 }
@@ -85,7 +89,7 @@ const TodoListRoute = () => {
 export const TodoApp = () => (
   <Router>
     <Section>
-      <SimpleRedirect from="/" to={links.list} />
+      <SimpleRedirect from="/" to={ls.list} />
       <EditTodoRoute />
       <TodoListRoute />
       <CreateTodoRoute />
