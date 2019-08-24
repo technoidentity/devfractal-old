@@ -1,10 +1,12 @@
 import { useRouter } from 'devfractal-router'
 import React from 'react'
 
+// @TODO: need a spinner
 export const Loading: React.FC = () => (
   <h1 className="is-text is-size-1 is-info">Loading....</h1>
 )
 
+// @TODO: need a nice error view similar to next.js?
 export const NotFound: React.FC = () => {
   const { location } = useRouter()
 

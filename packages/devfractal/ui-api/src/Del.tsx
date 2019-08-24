@@ -17,7 +17,7 @@ export function Del({
 
   return (
     <>
-      <div className="toast">{serverError}</div>
+      {serverError && <div className="toast">{serverError}</div>}
       <button {...props} onClick={onClick}>
         {children}
       </button>
