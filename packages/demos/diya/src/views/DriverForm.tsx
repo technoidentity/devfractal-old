@@ -4,6 +4,7 @@ import {
   Button,
   Column,
   Columns,
+  formComponent,
   Image,
   Media,
   MediaContent,
@@ -11,7 +12,6 @@ import {
   Section,
   Simple,
   Title,
-  v2,
 } from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
@@ -24,7 +24,7 @@ import { HeadTitle } from '../components'
 //   adharNumber: yup.string().required(),
 // })
 
-export const DriverForm = v2.formComponent(
+export const DriverForm = formComponent(
   Driver,
   ({ initial, edit, onSubmit }) => (
     <>

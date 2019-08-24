@@ -1,11 +1,17 @@
 import React from 'react'
-import { Section, v2 } from 'technoidentity-devfractal'
+import {
+  CrudTable,
+  links,
+  listComponent,
+  RoutedPager,
+  Section,
+} from 'technoidentity-devfractal'
 import { Employee } from '../common'
 import { CreateLink, HeadTitle } from '../components'
 
-const employeeLinks = v2.links('employees')
+const employeeLinks = links('employees')
 
-export const EmployeeList = v2.listComponent(
+export const EmployeeList = listComponent(
   Employee,
   ({ data: employeeList }) => (
     <Section>
@@ -13,13 +19,13 @@ export const EmployeeList = v2.listComponent(
 
       <CreateLink to={employeeLinks.create}> Add Employee</CreateLink>
 
-      <v2.CrudTable
+      <CrudTable
         data={employeeList}
         headers={['name', 'role']}
         editLink={v => employeeLinks.edit(v.id)}
       />
 
-      <v2.RoutedPager />
+      <RoutedPager />
     </Section>
   ),
 )

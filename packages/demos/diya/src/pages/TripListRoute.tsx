@@ -1,10 +1,10 @@
 import React from 'react'
-import { v2 } from 'technoidentity-devfractal'
+import { All, paths } from 'technoidentity-devfractal'
 import { tripAPI } from '../common'
 import { TripList } from '../views'
 
-const paths = v2.paths('trips')
+const ps = paths('trips')
 
 export const TripListRoute: React.FC = () => (
-  <v2.All api={tripAPI} path={paths.list} list={TripList} />
+  <All api={tripAPI} path={ps.list} list={TripList} />
 )

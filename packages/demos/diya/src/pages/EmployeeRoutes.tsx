@@ -1,22 +1,22 @@
 import React from 'react'
-import { v2 } from 'technoidentity-devfractal'
+import { All, Create, links, paths } from 'technoidentity-devfractal'
 import { employeeAPI } from '../common'
 import { EmployeeForm, EmployeeList } from '../views'
 
-const paths = v2.paths('employees')
-const links = v2.links('employees')
+const ps = paths('employees')
+const ls = links('employees')
 
 const EmployeeRoute = () => (
-  <v2.Create
-    path={paths.create}
+  <Create
+    path={ps.create}
     api={employeeAPI}
-    redirectTo={links.list}
+    redirectTo={ls.list}
     form={EmployeeForm}
   />
 )
 
 const EmployeeListRoute = () => (
-  <v2.All api={employeeAPI} path={paths.list} list={EmployeeList} />
+  <All api={employeeAPI} path={ps.list} list={EmployeeList} />
 )
 
 export const EmployeeRoutes = () => (

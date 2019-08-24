@@ -1,23 +1,21 @@
 import React from 'react'
-import { v2 } from 'technoidentity-devfractal'
+import { All, Create, links, paths } from 'technoidentity-devfractal'
 import { evAPI } from '../common'
 import { EVSList, RaiseRequestForm } from '../views'
 
-const paths = v2.paths('employees')
-const links = v2.links('employees')
+const ps = paths('employees')
+const ls = links('employees')
 
 const RaiseRequestRoute: React.FC = () => (
-  <v2.Create
-    path={paths.create}
+  <Create
+    path={ps.create}
     api={evAPI}
     form={RaiseRequestForm}
-    redirectTo={links.list}
+    redirectTo={ls.list}
   />
 )
 
-const EVSAssignedRoute = () => (
-  <v2.All path={paths.list} api={evAPI} list={EVSList} />
-)
+const EVSAssignedRoute = () => <All path={ps.list} api={evAPI} list={EVSList} />
 
 export const EVSRoutes = () => (
   <>

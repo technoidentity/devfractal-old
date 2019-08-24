@@ -4,6 +4,7 @@ import {
   Button,
   Column,
   Columns,
+  formComponent,
   Image,
   Media,
   MediaContent,
@@ -11,7 +12,6 @@ import {
   Section,
   Simple,
   Title,
-  v2,
 } from 'technoidentity-devfractal'
 import { Employee } from '../common'
 
@@ -23,7 +23,7 @@ import { Employee } from '../common'
 //   adharNuzmber: yup.string().required(),
 // })
 
-export const EmployeeForm = v2.formComponent(
+export const EmployeeForm = formComponent(
   Employee,
   ({ initial, edit, onSubmit }) => (
     <>

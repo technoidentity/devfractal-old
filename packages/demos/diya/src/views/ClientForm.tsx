@@ -2,14 +2,14 @@ import React from 'react'
 import {
   Column,
   Columns,
+  formComponent,
   Section,
   Simple,
   Title,
-  v2,
 } from 'technoidentity-devfractal'
 import { Client } from '../common'
 
-export const ClientForm = v2.formComponent(
+export const ClientForm = formComponent(
   Client,
   ({ initial, edit, onSubmit }) => (
     <>

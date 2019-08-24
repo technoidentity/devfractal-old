@@ -5,6 +5,7 @@ import {
   Button,
   Column,
   Columns,
+  formComponent,
   Image,
   Media,
   MediaContent,
@@ -12,12 +13,11 @@ import {
   Section,
   Simple,
   Title,
-  v2,
 } from 'technoidentity-devfractal'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 
-export const VehicleForm = v2.formComponent(
+export const VehicleForm = formComponent(
   Vehicle,
   ({ onSubmit, initial, edit }) => (
     <>

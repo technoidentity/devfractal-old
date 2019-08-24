@@ -1,11 +1,17 @@
 import React from 'react'
-import { Section, v2 } from 'technoidentity-devfractal'
+import {
+  CrudTable,
+  links,
+  listComponent,
+  RoutedPager,
+  Section,
+} from 'technoidentity-devfractal'
 import { GeoFence } from '../common'
 import { CreateLink, HeadTitle } from '../components'
 
-const geoFenceLinks = v2.links('geo_fences')
+const geoFenceLinks = links('geo_fences')
 
-export const GeoFenceList = v2.listComponent(
+export const GeoFenceList = listComponent(
   GeoFence,
   ({ data: geoFenceList }) => (
     <Section>
@@ -13,13 +19,13 @@ export const GeoFenceList = v2.listComponent(
 
       <CreateLink to={geoFenceLinks.create}>Create GeoFence</CreateLink>
 
-      <v2.CrudTable
+      <CrudTable
         data={geoFenceList}
         headers={['areaName', 'assignVehicle', 'assignClient']}
         editLink={v => geoFenceLinks.edit(v.id)}
       />
 
-      <v2.RoutedPager />
+      <RoutedPager />
     </Section>
   ),
 )
