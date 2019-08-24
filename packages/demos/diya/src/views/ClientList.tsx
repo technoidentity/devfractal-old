@@ -35,7 +35,7 @@ export const ClientList = listComponent(Client, ({ data: clientList }) => (
         'Rate of EVS',
         'Assigned EVS History',
       ]}
-      editLink={v => clientLinks.edit(v.id)}
+      editTo={v => clientLinks.edit(v.id)}
     />
 
     <RoutedPager />

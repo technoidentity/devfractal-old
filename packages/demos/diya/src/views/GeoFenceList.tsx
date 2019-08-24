@@ -22,7 +22,7 @@ export const GeoFenceList = listComponent(
       <CrudTable
         data={geoFenceList}
         headers={['areaName', 'assignVehicle', 'assignClient']}
-        editLink={v => geoFenceLinks.edit(v.id)}
+        editTo={v => geoFenceLinks.edit(v.id)}
       />
 
       <RoutedPager />

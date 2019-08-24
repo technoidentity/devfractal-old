@@ -20,7 +20,7 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => (
     <CrudTable
       data={driverList}
       headers={['name', 'lastActive', 'shift', 'status']}
-      editLink={v => driverLinks.edit(v.id)}
+      editTo={v => driverLinks.edit(v.id)}
     />
 
     <RoutedPager />

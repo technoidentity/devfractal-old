@@ -27,7 +27,7 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => (
         'insuranceDue',
         'status',
       ]}
-      editLink={v => vehicleLinks.edit(v.id)}
+      editTo={v => vehicleLinks.edit(v.id)}
     />
 
     <RoutedPager />

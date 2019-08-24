@@ -17,7 +17,7 @@ export const TripList = listComponent(Trip, ({ data: tripsList }) => (
     <CrudTable
       data={tripsList}
       headers={['customerName', 'address', 'contactNumber', 'status']}
-      editLink={v => tripLinks.edit(v.id)}
+      editTo={v => tripLinks.edit(v.id)}
     />
   </Section>
 ))

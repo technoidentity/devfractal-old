@@ -22,7 +22,7 @@ export const BatteryList = listComponent(Battery, ({ data: batteryList }) => (
     <CrudTable
       data={batteryList}
       headers={['name', 'group', 'remainingCycles', 'status']}
-      editLink={v => batteryLinks.edit(v.id)}
+      editTo={v => batteryLinks.edit(v.id)}
     />
 
     <RoutedPager />

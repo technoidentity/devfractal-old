@@ -22,7 +22,7 @@ export const EmployeeList = listComponent(
       <CrudTable
         data={employeeList}
         headers={['name', 'role']}
-        editLink={v => employeeLinks.edit(v.id)}
+        editTo={v => employeeLinks.edit(v.id)}
       />
 
       <RoutedPager />
