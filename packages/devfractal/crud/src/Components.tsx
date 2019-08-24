@@ -3,46 +3,8 @@ import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { APIRepository, Repository } from './api'
+import { links as links_, paths as paths_ } from './new'
 import { CrudViewsResult, Views } from './Views'
-
-export function base(resource: string, basePath: string): string {
-  return basePath ? `${basePath}/${resource}` : `/${resource}`
-}
-
-export interface Paths {
-  readonly list: string
-  readonly create: string
-  readonly view: string
-  readonly edit: string
-}
-
-export function paths(resource: string, basePath: string): Paths {
-  const path: string = base(resource, basePath)
-  return {
-    list: path,
-    create: `${path}/create`,
-    view: `${path}/:id`,
-    edit: `${path}/:id/edit`,
-  }
-}
-
-export interface PathFns {
-  view(id: unknown): string
-  edit(id: unknown): string
-  list(): string
-  create(): string
-}
-
-export function pathFns(resource: string, basePath: string): PathFns {
-  const path: string = base(resource, basePath)
-  return {
-    list: () => path,
-    create: () => `${path}/create`,
-    view: (id: unknown) => `${path}/${id}`,
-    edit: (id: unknown) => `${path}/${id}/edit`,
-  }
-}
-
 interface ComponentsArgsBase<
   RT extends Mixed,
   ID extends keyof TypeOf<RT>,
@@ -86,24 +48,24 @@ export function components<RT extends Mixed, ID extends keyof TypeOf<RT>>(
 
   const basePath = args.basePath
 
-  const paths = pathFns(resource, basePath)
+  const links = links_(resource, basePath)
+  const paths = paths_(resource, basePath)
+
   // tslint:enable typedef
 
   return {
     List: ({ history }) => (
       <CV.List
         list={all}
-        onEdit={({ value }) =>
-          history.push(pathFns(resource, basePath).edit(value.id))
-        }
-        onCreate={() => history.push(paths.create())}
+        onEdit={({ value }) => history.push(links.edit(value.id))}
+        onCreate={() => history.push(paths.create)}
       />
     ),
     Create: ({ history }) => (
       <CV.Create
         onSubmit={async (values, actions) => {
           await formikSubmit(create)(values, actions)
-          history.push(paths.list())
+          history.push(paths.list)
           // @TODO: handle error?
         }}
       />
@@ -114,7 +76,7 @@ export function components<RT extends Mixed, ID extends keyof TypeOf<RT>>(
         data={async () => one(match.params.id)}
         onSubmit={async (values, actions) => {
           await formikSubmit(edit)(values, actions)
-          history.push(paths.list())
+          history.push(paths.list)
           // @TODO: handle error?
         }}
       />

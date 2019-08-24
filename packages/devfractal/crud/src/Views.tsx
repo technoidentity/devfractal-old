@@ -7,20 +7,20 @@ import { empty } from 'technoidentity-utils'
 import { Editor } from './Editor'
 import { Viewer } from './Viewer'
 
-export interface EditProps<T extends Record<string, any>> {
+interface EditProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
-export interface ViewProps<T extends Record<string, any>> {
+interface ViewProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)
 }
 
-export interface CreateProps<T extends Record<string, any>> {
+interface CreateProps<T extends Record<string, any>> {
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
-export interface ListProps<T extends Record<string, any>> {
+interface ListProps<T extends Record<string, any>> {
   list(): Promise<ReadonlyArray<T>>
   onCreate?(): void
   onEdit?(value: RowClickEvent<T>): void

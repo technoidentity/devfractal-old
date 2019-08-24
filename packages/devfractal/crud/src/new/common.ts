@@ -1,32 +1,35 @@
 import { SubmitAction } from 'devfractal-api'
-import { Mixed, number, readonlyArray, string, TypeOf } from 'io-ts'
+import { Mixed, number, readonlyArray, TypeOf } from 'io-ts'
 import { fn, props, req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
-type CrudOperations = 'list' | 'edit' | 'create'
+type CrudOperations = 'list' | 'edit' | 'create' | 'view'
 type Paths = Record<CrudOperations, string>
 
-function base(basePath?: string): string {
-  return basePath || ''
+export function base(resource: string, basePath?: string): string {
+  return basePath ? `${basePath}/${resource}` : `/${resource}`
 }
+
 export function paths(resource: string, basePath?: string): Paths {
   return {
-    list: `${base(basePath)}/${resource}`,
-    edit: `${base(basePath)}/${resource}/:id/edit`,
-    create: `${base(basePath)}/${resource}/new`,
+    list: `${base(resource, basePath)}`,
+    view: `${base(resource, basePath)}/:id`,
+    edit: `${base(resource, basePath)}/:id/edit`,
+    create: `${base(resource, basePath)}/new`,
   }
 }
 
-type Links = Omit<Paths, 'edit'> & {
+type Links = Omit<Paths, 'edit' | 'view'> & {
   edit(id: string | number | undefined): string
+  view(id: string | number | undefined): string
 }
 
 export function links(resource: string, basePath?: string): Links {
   return {
     ...paths(resource),
-    edit: (id: string | number | undefined) =>
-      `${base(basePath)}/${resource}/${id}/edit`,
+    view: id => `${base(resource, basePath)}/${id}`,
+    edit: id => `${base(resource, basePath)}/${id}/edit`,
   }
 }
 
@@ -41,8 +44,6 @@ export function listProps<Spec extends Mixed>(spec: Spec) {
   return req({
     page: number,
     onPageChange: fn<(page: number) => void>(),
-    createTo: string,
-    editTo: fn<(id: string | number | undefined) => string>(),
     data: readonlyArray(spec),
   })
 }
