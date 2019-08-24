@@ -5,14 +5,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export interface ActionsProps {
-  readonly editLink: string
+  readonly editTo: string
   onDelete?(): void
 }
 
-export const Actions: React.FC<ActionsProps> = ({ editLink, onDelete }) => {
+export const Actions: React.FC<ActionsProps> = ({ editTo, onDelete }) => {
   return (
     <>
-      <Link to={editLink}>
+      <Link to={editTo}>
         <Icon icon={faEdit} />
       </Link>
       {onDelete && (
@@ -33,14 +33,14 @@ export const Actions: React.FC<ActionsProps> = ({ editLink, onDelete }) => {
 export interface CrudTableProps<T>
   extends Pick<SimpleTableProps<T>, 'headers' | 'headerLabels'> {
   readonly data: ReadonlyArray<T>
-  editLink(value: T): string
+  editTo(value: T): string
   onDelete?(value: T): void
 }
 
 export function CrudTable<T>({
   data,
   headers,
-  editLink,
+  editTo,
   onDelete,
 }: CrudTableProps<T>): JSX.Element {
   return (
@@ -48,7 +48,7 @@ export function CrudTable<T>({
       {(key, value) =>
         key === 'Actions' ? (
           <Actions
-            editLink={editLink(value)}
+            editTo={editTo(value)}
             onDelete={() => {
               if (onDelete) {
                 onDelete(value)

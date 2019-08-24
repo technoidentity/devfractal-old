@@ -49,7 +49,7 @@ const TodoList = listComponent(Todo, ({ data }) => (
     <CrudTable
       data={data}
       headers={['title', 'done']}
-      editLink={({ id }) => editTo(id)}
+      editTo={({ id }) => editTo(id)}
     />
   </>
 ))

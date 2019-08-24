@@ -15,11 +15,11 @@ import { req } from 'technoidentity-utils'
 import { Ev } from '../common'
 import { CreateLink, HeadTitle } from '../components'
 
-const ActionsRoutesProps = req({ editLink: string })
+const ActionsRoutesProps = req({ editTo: string })
 
-const Actions = component(ActionsRoutesProps, ({ editLink }) => (
+const Actions = component(ActionsRoutesProps, ({ editTo }) => (
   <ButtonsGroup>
-    <Link to={editLink} className="button is-small is-rounded">
+    <Link to={editTo} className="button is-small is-rounded">
       <Icon icon={faMapMarker} />
       <div>Plan Route</div>
     </Link>
@@ -47,7 +47,7 @@ export const EVSList = listComponent(Ev, ({ data: evsList }) => (
     >
       {key =>
         // tslint:disable-next-line: no-null-keyword
-        key === 'Actions' ? <Actions editLink={`/planRoute`} /> : null
+        key === 'Actions' ? <Actions editTo={`/planRoute`} /> : null
       }
     </SimpleTable>
   </>
