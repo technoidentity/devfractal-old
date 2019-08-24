@@ -4,23 +4,23 @@ import React from 'react'
 import { cast, empty } from 'technoidentity-utils'
 import { formProps } from './common'
 
-interface InnerFormProps<Spec extends Mixed> {
-  readonly initial: TypeOf<Spec>
+interface InnerFormProps<T> {
+  readonly initial: T
   readonly edit: boolean
-  readonly onSubmit: SubmitAction<TypeOf<Spec>>
+  readonly onSubmit: SubmitAction<T>
 }
 
-export interface FormProps<Spec extends Mixed>
-  extends Omit<InnerFormProps<Spec>, 'initial' | 'edit'> {
-  readonly initial?: InnerFormProps<Spec>['initial']
+export interface FormProps<T> {
+  readonly onSubmit: InnerFormProps<T>['onSubmit']
+  readonly initial?: InnerFormProps<T>['initial']
 }
 
 // tslint:disable typedef
 
 export function formComponent<Spec extends Mixed>(
   spec: Spec,
-  inner: React.FC<InnerFormProps<Spec>>,
-): React.FC<FormProps<Spec>> {
+  inner: React.FC<InnerFormProps<TypeOf<Spec>>>,
+): React.FC<FormProps<TypeOf<Spec>>> {
   return ({ initial, ...props }) => {
     const Component = inner
     const verified = cast(formProps(spec), props)
