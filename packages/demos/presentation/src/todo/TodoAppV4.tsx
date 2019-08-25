@@ -30,7 +30,9 @@ const TodoForm = formComponent(Todo, ({ onSubmit, initial }) => (
 const TodoList = listComponent(Todo, ({ data }) => (
   <>
     <Title textAlignment="centered">Todo List</Title>
-    <CreateLink createTo={ls.create}>Add</CreateLink>
+    <CreateLink alignment="centered" createTo={ls.create}>
+      Add
+    </CreateLink>
     <CrudTable
       data={data}
       headers={['title', 'done']}

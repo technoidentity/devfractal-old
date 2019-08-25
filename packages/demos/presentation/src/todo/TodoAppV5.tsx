@@ -26,7 +26,9 @@ const TodoForm = formComponent(Todo, ({ onSubmit, initial }) => (
 const TodoList = listComponent(Todo, ({ data }) => (
   <>
     <Title textAlignment="centered">Todo List</Title>
-    <CreateLink createTo={create}>Add</CreateLink>
+    <CreateLink alignment="right" createTo={create}>
+      Add
+    </CreateLink>
     <CrudTable
       data={data}
       headers={['title', 'scheduled', 'done']}
