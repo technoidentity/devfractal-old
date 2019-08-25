@@ -1,3 +1,5 @@
+import { type } from 'io-ts'
+import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import React from 'react'
 import {
   Editor,
@@ -6,6 +8,7 @@ import {
   Put,
   SubmitAction,
   Title,
+  useMatch,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
@@ -31,20 +34,21 @@ const CreateTodo = () => (
   />
 )
 
-interface EditTodoProps {
-  readonly id: number
+const EditTodo: React.FC = () => {
+  const {
+    params: { id },
+  } = useMatch(type({ id: IntFromString }))
+
+  return (
+    <Put<Todo, 'id'>
+      id={id}
+      doGet={todoAPI.get}
+      onPut={todoAPI.update}
+      component={TodoForm}
+      redirectTo="/todos"
+    />
+  )
 }
-
-const EditTodo: React.FC<EditTodoProps> = ({ id }) => (
-  <Put<Todo, 'id'>
-    id={id}
-    doGet={todoAPI.get}
-    onPut={todoAPI.update}
-    component={TodoForm}
-    redirectTo="/todos"
-  />
-)
-
 const TodoList = () => (
   <>
     <Title textAlignment="centered">Todo List</Title>
