@@ -11,9 +11,9 @@ export const TodoApp = () => (
   <Router>
     <Section>
       <SimpleRedirect from="/" to="todos" />
-      <Route path="/todos/:id/edit" component={EditTodo} />
       <Route path="/todos" component={TodoList} />
       <Route path="/todos/new" component={CreateTodo} />
+      <Route path="/todos/:id/edit" component={EditTodo} />
     </Section>
   </Router>
 )

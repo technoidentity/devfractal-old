@@ -1,7 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { type } from 'io-ts'
+import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import React from 'react'
 import {
+  Button,
   CheckBox,
+  DateInput,
   Field as UIField,
   Get,
   Input,
@@ -9,22 +13,37 @@ import {
   ServerError,
   SubmitAction,
   Title,
+  useMatch,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 
+const FormikDate: React.FC = ({ form, field, ...props }: any) => (
+  <DateInput
+    {...props}
+    onChange={date => form.setFieldValue(field.name, date)}
+    name={field.name}
+    onBlur={field.onBlur}
+    selected={field.value}
+  />
+)
+
+const InputInner: React.FC = ({ form, field, ...props }: any) => (
+  <Input {...props} {...field} />
+)
+
 const TodoFormInner = () => (
   <Form>
     <UIField>
       <Label>Title</Label>
-      <Field name="title" component={Input} />
+      <Field name="title" component={InputInner} />
       <ErrorMessage name="title" />
     </UIField>
 
     <UIField>
       <Label>Scheduled</Label>
-      <Field component={Date} name="scheduled" />
+      <Field component={FormikDate} name="scheduled" />
       <ErrorMessage name="scheduled" />
     </UIField>
 
@@ -32,6 +51,15 @@ const TodoFormInner = () => (
       <Label>Done</Label>
       <Field name="done" component={CheckBox} />
       <ErrorMessage name="title" />
+    </UIField>
+
+    <UIField groupModifier="grouped-centered">
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+      <Button variant="danger" type="reset">
+        Reset
+      </Button>
     </UIField>
   </Form>
 )
@@ -67,7 +95,11 @@ interface EditTodoProps {
   readonly id: number
 }
 
-const EditTodo: React.FC<EditTodoProps> = ({ id }) => {
+const EditTodo: React.FC<EditTodoProps> = () => {
+  const {
+    params: { id },
+  } = useMatch(type({ id: IntFromString }))
+
   const { serverError, onSubmit } = useSubmitRedirect(
     data => todoAPI.update(id, data),
     '/todos',
