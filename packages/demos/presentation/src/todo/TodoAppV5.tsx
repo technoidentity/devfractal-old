@@ -26,9 +26,11 @@ const TodoForm = formComponent(Todo, ({ onSubmit, initial }) => (
 const TodoList = listComponent(Todo, ({ data }) => (
   <>
     <Title textAlignment="centered">Todo List</Title>
+
     <CreateLink alignment="right" createTo={create}>
       Add
     </CreateLink>
+
     <CrudTable
       data={data}
       headers={['title', 'scheduled', 'done']}
@@ -41,6 +43,7 @@ export const TodoApp = () => (
   <Router>
     <Section>
       <SimpleRedirect from="/" to={list} />
+
       <CrudRoutes api={todoAPI} form={TodoForm} list={TodoList} />
     </Section>
   </Router>
