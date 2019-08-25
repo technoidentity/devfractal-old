@@ -1,3 +1,5 @@
+import { type } from 'io-ts'
+import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import React from 'react'
 import {
   Get,
@@ -6,6 +8,7 @@ import {
   Simple,
   SubmitAction,
   Title,
+  useMatch,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
@@ -23,6 +26,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ initial, onSubmit }) => (
       <Simple.Text name="title" />
       <Simple.Checkbox name="done" />
       <Simple.Date name="scheduled" />
+      <Simple.FormButtons />
     </Simple.Form>
   </>
 )
@@ -35,20 +39,21 @@ const CreateTodo = () => (
   />
 )
 
-interface EditTodoProps {
-  readonly id: number
+const EditTodo: React.FC = () => {
+  const {
+    params: { id },
+  } = useMatch(type({ id: IntFromString }))
+
+  return (
+    <Put<Todo, 'id'>
+      id={id}
+      doGet={todoAPI.get}
+      onPut={todoAPI.update}
+      component={TodoForm}
+      redirectTo="/todos"
+    />
+  )
 }
-
-const EditTodo: React.FC<EditTodoProps> = ({ id }) => (
-  <Put<Todo, 'id'>
-    id={id}
-    doGet={todoAPI.get}
-    onPut={todoAPI.update}
-    component={TodoForm}
-    redirectTo="/todos"
-  />
-)
-
 const TodoList = () => (
   <>
     <Title textAlignment="centered">Todo List</Title>
