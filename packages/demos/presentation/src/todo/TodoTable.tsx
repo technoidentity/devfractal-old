@@ -14,9 +14,9 @@ import {
   Th,
   Tr,
 } from 'technoidentity-devfractal'
+import { CreateLink } from 'technoidentity-devfractal'
 import { capitalize } from 'technoidentity-utils'
 import { Todo } from './common'
-import { CreateLink } from './CreateLink'
 
 interface ActionsProps extends RouteComponentProps {
   readonly editTo: string
@@ -44,7 +44,7 @@ export const TodoTable: React.FC<TodoTableProps> = ({ data }) => {
 
   return (
     <>
-      <CreateLink alignment="right" createTo="/todos/new">
+      <CreateLink alignment="right" to="/todos/new">
         Add Todo
       </CreateLink>
 

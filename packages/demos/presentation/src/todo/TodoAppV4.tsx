@@ -14,8 +14,8 @@ import {
   SimpleRedirect,
   Title,
 } from 'technoidentity-devfractal'
+import { CreateLink } from 'technoidentity-devfractal'
 import { Todo, todoAPI } from './common'
-import { CreateLink } from './CreateLink'
 
 const ps = paths(todoAPI.resource)
 const ls = links(todoAPI.resource)
@@ -31,7 +31,7 @@ const TodoList = listComponent(Todo, ({ data }) => (
   <>
     <Title textAlignment="centered">Todo List</Title>
 
-    <CreateLink alignment="centered" createTo={ls.create}>
+    <CreateLink alignment="centered" to={ls.create}>
       Add
     </CreateLink>
 
