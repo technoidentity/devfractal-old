@@ -8,7 +8,7 @@ import {
   Simple,
   SubmitAction,
   Title,
-  useMatch,
+  useParams,
 } from 'technoidentity-devfractal'
 import { empty } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
@@ -40,9 +40,7 @@ const CreateTodo = () => (
 )
 
 const EditTodo: React.FC = () => {
-  const {
-    params: { id },
-  } = useMatch(type({ id: IntFromString }))
+  const { id } = useParams(type({ id: IntFromString }))
 
   return (
     <Put<Todo, 'id'>

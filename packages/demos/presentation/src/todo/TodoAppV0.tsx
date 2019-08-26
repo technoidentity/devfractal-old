@@ -1,4 +1,4 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { ErrorMessage, Field, FieldProps, Form, Formik } from 'formik'
 import { type } from 'io-ts'
 import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import React from 'react'
@@ -13,13 +13,14 @@ import {
   ServerError,
   SubmitAction,
   Title,
-  useMatch,
+  useParams,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
+import * as yup from 'yup'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 
-const FormikDate: React.FC = ({ form, field, ...props }: any) => (
+const FormikDate: React.FC<FieldProps<Todo>> = ({ form, field, ...props }) => (
   <DateInput
     {...props}
     onChange={date => form.setFieldValue(field.name, date)}
@@ -29,7 +30,7 @@ const FormikDate: React.FC = ({ form, field, ...props }: any) => (
   />
 )
 
-const InputInner: React.FC = ({ form, field, ...props }: any) => (
+const FormikInput: React.FC<FieldProps<Todo>> = ({ form, field, ...props }) => (
   <Input {...props} {...field} />
 )
 
@@ -37,7 +38,7 @@ const TodoFormInner = () => (
   <Form>
     <UIField>
       <Label>Title</Label>
-      <Field name="title" component={InputInner} />
+      <Field name="title" component={FormikInput} />
       <ErrorMessage name="title" />
     </UIField>
 
@@ -66,6 +67,19 @@ const TodoFormInner = () => (
 
 const initialValues: Todo = { title: '', done: false, scheduled: new Date() }
 
+const schema: yup.Schema<Todo> = yup.object().shape({
+  title: yup
+    .string()
+    .required()
+    .min(10)
+    .max(50),
+  done: yup.bool().required(),
+  scheduled: yup
+    .date()
+    .required()
+    .min(new Date()),
+})
+
 interface TodoFormProps {
   readonly initial?: Todo
   readonly onSubmit: SubmitAction<Todo>
@@ -75,6 +89,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, initial }) => (
   <Formik
     initialValues={initial || initialValues}
     onSubmit={onSubmit}
+    validationSchema={schema}
     component={TodoFormInner}
   />
 )
@@ -96,9 +111,7 @@ interface EditTodoProps {
 }
 
 const EditTodo: React.FC<EditTodoProps> = () => {
-  const {
-    params: { id },
-  } = useMatch(type({ id: IntFromString }))
+  const { id } = useParams(type({ id: IntFromString }))
 
   const { serverError, onSubmit } = useSubmitRedirect(
     data => todoAPI.update(id, data),
