@@ -15,7 +15,7 @@ export interface API<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>> {
   one(options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
 
   create(
-    data: Omit<t.OutputOf<Spec>, ID>,
+    data: Omit<t.TypeOf<Spec>, ID>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
 
@@ -27,13 +27,13 @@ export interface API<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>> {
 
   replace(
     id: t.TypeOf<Spec>[ID],
-    data: t.OutputOf<Spec>,
+    data: t.TypeOf<Spec>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
 
   update(
     id: t.TypeOf<Spec>[ID],
-    data: Partial<t.OutputOf<Spec>>,
+    data: Partial<t.TypeOf<Spec>>,
     options?: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>>
 
@@ -78,12 +78,12 @@ export function rest<
   }
 
   async function create(
-    data: Omit<t.OutputOf<Spec>, ID>,
+    data: Omit<t.TypeOf<Spec>, ID>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
     return http.post(
       { ...options, resource },
-      omit<t.OutputOf<Spec>, ID>(data, [id]),
+      omit<t.TypeOf<Spec>, ID>(data, [id]),
       spec,
     )
   }
@@ -111,7 +111,7 @@ export function rest<
 
   async function replace(
     id: t.TypeOf<Spec>[ID],
-    data: t.OutputOf<Spec>,
+    data: t.TypeOf<Spec>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
     return http.put(appendId({ ...options, resource }, id), data, spec)
@@ -119,7 +119,7 @@ export function rest<
 
   async function update(
     id: t.TypeOf<Spec>[ID],
-    data: Partial<t.OutputOf<Spec>>,
+    data: Partial<t.TypeOf<Spec>>,
     options: APIMethodArgs,
   ): Promise<t.TypeOf<Spec>> {
     return http.patch(appendId({ ...options, resource }, id), data, spec)

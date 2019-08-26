@@ -32,21 +32,17 @@ const TodoForm: React.FC<TodoFormProps> = ({ initial, onSubmit }) => (
 )
 
 const CreateTodo = () => (
-  <Post<Todo>
-    component={TodoForm}
-    onPost={todoAPI.create}
-    redirectTo="/todos"
-  />
+  <Post component={TodoForm} onPost={todoAPI.create} redirectTo="/todos" />
 )
 
 const EditTodo: React.FC = () => {
   const { id } = useParams(type({ id: IntFromString }))
 
   return (
-    <Put<Todo, 'id'>
+    <Put
       id={id}
       doGet={todoAPI.get}
-      onPut={todoAPI.update}
+      onPut={todoAPI.replace}
       component={TodoForm}
       redirectTo="/todos"
     />

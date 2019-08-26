@@ -30,7 +30,7 @@ export const checkApi = async () => {
 
   const postTodo = await todoApi.create({
     title: 'do programming',
-    scheduled: '2019-07-07T07:39:53.863Z',
+    scheduled: new Date('2019-07-07T07:39:53.863Z'),
     done: false,
   })
   console.log(postTodo)
@@ -39,7 +39,7 @@ export const checkApi = async () => {
     id: 1,
     title: 'bring cupcake',
     done: false,
-    scheduled: '2019-07-07T07:39:53.863Z',
+    scheduled: new Date('2019-07-07T07:39:53.863Z'),
   })
   console.log(putTodo)
 
