@@ -2,9 +2,12 @@ import { SubmitAction, useSubmitRedirect } from 'devfractal-api'
 import React from 'react'
 import { ServerError } from './ServerError'
 
+export interface PostComponentProps<T> {
+  readonly onSubmit: SubmitAction<T>
+}
 export interface PostProps<T> {
   readonly redirectTo?: string
-  readonly component: React.FC<{ readonly onSubmit: SubmitAction<T> }>
+  readonly component: React.FC<PostComponentProps<T>>
   onPost(values: T): Promise<T>
 }
 
