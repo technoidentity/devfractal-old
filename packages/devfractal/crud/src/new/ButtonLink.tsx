@@ -1,42 +1,58 @@
 import {
+  AllControlHelpers,
   ButtonProps,
   ButtonsGroup,
   ButtonsGroupProps,
-  classNames,
+  classNamesHelper,
+  removeControlHelpers,
+  removeHelpers,
+  removeIconHelpers,
 } from 'devfractal-ui-core'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export interface ButtonLinkProps {
+export interface ButtonLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    AllControlHelpers {
   readonly to: string
   readonly variant?: ButtonProps['variant']
-  readonly alignment?: ButtonsGroupProps['alignment']
   readonly size?: ButtonProps['size']
+  readonly state?: ButtonProps['state']
+  readonly fullWidth?: boolean
+  readonly rounded?: boolean
+  readonly inverted?: boolean
+  readonly outlined?: boolean
 }
 
 export const ButtonLink: React.FC<ButtonLinkProps> = ({
   variant,
-  alignment,
   size,
-  to,
+  state,
+  fullWidth,
+  rounded,
+  inverted,
+  outlined,
   children,
+
+  ...props
 }) => {
+  const classes: string = classNamesHelper(props, 'button', {
+    [`is-${variant}`]: variant,
+    [`is-${size}`]: size,
+    [`is-${state}`]: state,
+    'is-rounded': rounded,
+    'is-inverted': inverted,
+    'is-outlined': outlined,
+    'is-fullwidth': fullWidth,
+  })
+
   // tslint:disable-next-line: typedef
-  const link = (
+  return (
     <Link
-      to={to}
-      className={classNames('button', {
-        [`is-${variant}`]: variant,
-        [`is-${size}`]: size,
-      })}
+      {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
+      className={classes}
     >
       {children}
     </Link>
-  )
-
-  return alignment ? (
-    <ButtonsGroup alignment={alignment}>{link}</ButtonsGroup>
-  ) : (
-    link
   )
 }
