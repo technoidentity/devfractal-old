@@ -76,6 +76,7 @@ const EditTodo: React.FC = () => {
     />
   )
 }
+
 const TodoList = () => (
   <>
     <Title textAlignment="centered">Todo List</Title>

@@ -106,11 +106,7 @@ const CreateTodo = () => {
   )
 }
 
-interface EditTodoProps {
-  readonly id: number
-}
-
-const EditTodo: React.FC<EditTodoProps> = () => {
+const EditTodo: React.FC = () => {
   const { id } = useParams(type({ id: IntFromString }))
 
   const { serverError, onSubmit } = useSubmitRedirect(
