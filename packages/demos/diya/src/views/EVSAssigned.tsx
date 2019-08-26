@@ -6,6 +6,7 @@ import {
   Button,
   ButtonsGroup,
   component,
+  CreateLink,
   Icon,
   links,
   listComponent,
@@ -13,7 +14,7 @@ import {
 } from 'technoidentity-devfractal'
 import { req } from 'technoidentity-utils'
 import { Ev } from '../common'
-import { CreateLink, HeadTitle } from '../components'
+import { HeadTitle } from '../components'
 
 const ActionsRoutesProps = req({ editTo: string })
 

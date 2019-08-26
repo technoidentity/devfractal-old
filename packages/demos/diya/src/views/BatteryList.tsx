@@ -7,8 +7,8 @@ import {
   Section,
   Title,
 } from 'technoidentity-devfractal'
+import { CreateLink } from 'technoidentity-devfractal'
 import { Battery } from '../common'
-import { CreateLink } from '../components'
 
 const batteryLinks = links('batteries')
 

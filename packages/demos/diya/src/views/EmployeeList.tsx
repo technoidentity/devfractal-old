@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  CreateLink,
   CrudTable,
   links,
   listComponent,
@@ -7,7 +8,7 @@ import {
   Section,
 } from 'technoidentity-devfractal'
 import { Employee } from '../common'
-import { CreateLink, HeadTitle } from '../components'
+import { HeadTitle } from '../components'
 
 const employeeLinks = links('employees')
 
