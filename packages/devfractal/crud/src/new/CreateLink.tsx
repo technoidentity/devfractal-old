@@ -14,11 +14,10 @@ export interface CreateLinkProps extends ButtonLinkProps {
 export const CreateLink: React.FC<CreateLinkProps> = ({
   createTo,
   alignment,
+
   ...props
 }) => (
   <ButtonsGroup alignment={alignment}>
-    <ButtonLink to={createTo} {...props}>
-      {children}
-    </ButtonLink>
+    <ButtonLink to={createTo} {...props} />
   </ButtonsGroup>
 )
