@@ -20,3 +20,8 @@ export function useMatch<Spec extends Mixed>(
 
   return match as match<TypeOf<Spec>>
 }
+
+export function useParams<Spec extends Mixed>(paramsSpec: Spec): TypeOf<Spec> {
+  const { params } = useMatch(paramsSpec)
+  return params
+}
