@@ -7,12 +7,13 @@ import {
   CheckBox,
   DateInput,
   Field as UIField,
-  Get,
   Input,
   Label,
   ServerError,
   SubmitAction,
+  Text,
   Title,
+  useGet,
   useParams,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
@@ -109,6 +110,8 @@ const CreateTodo = () => {
 const EditTodo: React.FC = () => {
   const { id } = useParams(type({ id: IntFromString }))
 
+  const result = useGet(todoAPI.get, id)
+
   const { serverError, onSubmit } = useSubmitRedirect(
     data => todoAPI.update(id, data),
     '/todos',
@@ -116,22 +119,42 @@ const EditTodo: React.FC = () => {
 
   return (
     <>
-      <Title textAlignment="centered">Edit Todo</Title>
-      <ServerError error={serverError} />
-      <Get asyncFn={todoAPI.get} deps={[id]}>
-        {(data: Todo) => <TodoForm initial={data} onSubmit={onSubmit} />}
-      </Get>
+      {result.state === 'success' ? (
+        <>
+          <Title textAlignment="centered">Edit Todo</Title>
+          <ServerError error={serverError} />
+          <TodoForm initial={result.data} onSubmit={onSubmit} />
+        </>
+      ) : result.state === 'failure' ? (
+        <Text color="danger" textSize="3">
+          {result.error.message}
+        </Text>
+      ) : (
+        <Text title="3">Loading...</Text>
+      )}
     </>
   )
 }
 
-const TodoList = () => (
-  <>
-    <Title textAlignment="centered">Todo List</Title>
-    <Get asyncFn={() => todoAPI.many()}>
-      {data => <TodoTable data={data} />}
-    </Get>
-  </>
-)
+const TodoList = () => {
+  const result = useGet(todoAPI.many)
+
+  return (
+    <>
+      {result.state === 'success' ? (
+        <>
+          <Title textAlignment="centered">Todo List</Title>
+          <TodoTable data={result.data} />
+        </>
+      ) : result.state === 'failure' ? (
+        <Text color="danger" textSize="3">
+          {result.error.message}
+        </Text>
+      ) : (
+        <Text title="3">Loading...</Text>
+      )}
+    </>
+  )
+}
 
 export { CreateTodo, EditTodo, TodoList }
