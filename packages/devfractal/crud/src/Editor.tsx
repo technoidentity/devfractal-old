@@ -5,22 +5,28 @@ import { FormikActions } from 'formik'
 import * as t from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import React from 'react'
+import { ObjectSchema } from 'yup'
 import { isFunction } from './utils'
-
 export interface EditorViewProps<T extends {}> {
   readonly data: T
   readonly id?: keyof T
+  readonly schema?: ObjectSchema<T>
   onSubmit?(values: T, actions: FormikActions<T>): void
 }
 
 export function EditorView<T extends {}>({
   data,
   id,
+  schema,
   onSubmit,
 }: EditorViewProps<T>): JSX.Element {
   return (
     <Section>
-      <Simple.Form initialValues={data} onSubmit={onSubmit}>
+      <Simple.Form
+        validationSchema={schema}
+        initialValues={data}
+        onSubmit={onSubmit}
+      >
         {Object.keys(data).map(key => (
           <React.Fragment key={key}>
             {key !== id &&
