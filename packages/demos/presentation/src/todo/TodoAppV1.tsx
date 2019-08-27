@@ -76,9 +76,7 @@ const EditTodo: React.FC = () => {
 const TodoList = () => (
   <>
     <Title textAlignment="centered">Todo List</Title>
-    <Get asyncFn={() => todoAPI.many()}>
-      {data => <TodoTable data={data} />}
-    </Get>
+    <Get asyncFn={() => todoAPI.many()} component={TodoTable} />
   </>
 )
 
