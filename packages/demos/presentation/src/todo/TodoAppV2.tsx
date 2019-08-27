@@ -26,6 +26,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ initial, onSubmit }) => (
       <Simple.Text name="title" />
       <Simple.Checkbox name="done" />
       <Simple.Date name="scheduled" />
+
       <Simple.FormButtons />
     </Simple.Form>
   </>
@@ -48,10 +49,11 @@ const EditTodo: React.FC = () => {
     />
   )
 }
+
 const TodoList = () => (
   <>
     <Title textAlignment="centered">Todo List</Title>
-    <Get asyncFn={() => todoAPI.many()} component={TodoTable} />
+    <Get asyncFn={todoAPI.many} component={TodoTable} />
   </>
 )
 

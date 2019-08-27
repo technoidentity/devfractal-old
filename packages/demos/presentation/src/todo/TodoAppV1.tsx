@@ -6,6 +6,7 @@ import {
   Button,
   CheckboxField,
   DateField,
+  ErrorField,
   Field,
   Get,
   InputField,
@@ -27,14 +28,23 @@ interface TodoFormProps {
 
 const TodoFormInner = () => (
   <Form>
-    <Label>Title</Label>
-    <InputField type="text" name="title" />
+    <Field>
+      <Label>Title</Label>
+      <InputField type="text" name="title" />
+      <ErrorField name="title" />
+    </Field>
 
-    <Label>Scheduled</Label>
-    <DateField name="scheduled" />
+    <Field>
+      <Label>Scheduled</Label>
+      <DateField name="scheduled" />
+      <ErrorField name="title" />
+    </Field>
 
-    <Label>Done</Label>
-    <CheckboxField name="done" />
+    <Field>
+      <Label>Done</Label>
+      <CheckboxField name="done" />
+      <ErrorField name="done" />
+    </Field>
 
     <Field groupModifier="grouped-centered">
       <Button variant="primary" type="submit">
@@ -59,8 +69,10 @@ const CreateTodo = () => (
   <Post component={TodoForm} onPost={todoAPI.create} redirectTo="/todos" />
 )
 
+const Id = type({ id: IntFromString })
+
 const EditTodo: React.FC = () => {
-  const { id } = useParams(type({ id: IntFromString }))
+  const { id } = useParams(Id)
 
   return (
     <Put

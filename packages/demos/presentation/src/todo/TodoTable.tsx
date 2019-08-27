@@ -57,6 +57,7 @@ export const TodoTable: React.FC<TodoTableProps> = ({ data }) => {
             <Th>Actions</Th>
           </Tr>
         </TableHead>
+
         <TableBody>
           {data.map((obj, i) => (
             <Tr key={i}>

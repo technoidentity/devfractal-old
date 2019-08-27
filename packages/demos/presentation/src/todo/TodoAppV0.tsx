@@ -74,8 +74,10 @@ const schema: yup.Schema<Todo> = yup.object().shape({
     .required()
     .min(10)
     .max(50),
+
   done: yup.bool().required(),
   scheduled: yup
+
     .date()
     .required()
     .min(new Date()),
