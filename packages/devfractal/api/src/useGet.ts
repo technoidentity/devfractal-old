@@ -1,5 +1,4 @@
 import React from 'react'
-import { AnyTuple } from 'typelevel-ts'
 
 export type AsyncResult<T> = { refresh(): void } & (
   | { readonly state: 'none' | 'loading' }
@@ -12,10 +11,16 @@ export type AsyncResult<T> = { refresh(): void } & (
       readonly error: Error
     })
 
+export function useGet<T extends {}, P extends any[]>(
+  asyncFn: (...params: P) => Promise<T>,
+  ...deps: P
+): AsyncResult<T>
+export function useGet<T extends {}>(asyncFn: () => Promise<T>): AsyncResult<T>
+
 // tslint:disable no-object-mutation readonly-array
-export function useGet<T extends {}, P extends AnyTuple>(
+export function useGet<T extends {}, P extends any[]>(
   asyncFn: (...params: P | []) => Promise<T>,
-  ...deps: P | []
+  ...deps: Parameters<typeof asyncFn>
 ): AsyncResult<T> {
   const [data, setData] = React.useState<T | undefined>(undefined)
   const [error, setError] = React.useState<Error | undefined>(undefined)
