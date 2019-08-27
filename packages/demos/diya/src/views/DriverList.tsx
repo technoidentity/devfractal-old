@@ -16,7 +16,9 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => (
   <Section>
     <HeadTitle>Drivers</HeadTitle>
 
-    <CreateLink to={driverLinks.create}>Add Driver</CreateLink>
+    <CreateLink alignment="right" variant="primary" to={driverLinks.create}>
+      Add Driver
+    </CreateLink>
 
     <CrudTable
       data={driverList}

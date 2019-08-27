@@ -17,7 +17,9 @@ export const BatteryList = listComponent(Battery, ({ data: batteryList }) => (
     <Title size="4" textColor="info">
       Batteries
     </Title>
-    <CreateLink to={batteryLinks.create}>Add Battery</CreateLink>
+    <CreateLink alignment="right" variant="primary" to={batteryLinks.create}>
+      Add Battery
+    </CreateLink>
 
     <CrudTable
       data={batteryList}

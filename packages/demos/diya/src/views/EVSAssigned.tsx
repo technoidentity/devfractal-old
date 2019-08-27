@@ -38,7 +38,10 @@ export const EVSList = listComponent(Ev, ({ data: evsList }) => (
   <>
     <HeadTitle>EVS assigned</HeadTitle>
 
-    <CreateLink to={evsLinks.create}> Request New EV</CreateLink>
+    <CreateLink alignment="right" variant="primary" to={evsLinks.create}>
+      {' '}
+      Request New EV
+    </CreateLink>
 
     <SimpleTable
       data={evsList}

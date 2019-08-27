@@ -3,8 +3,11 @@ import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import React from 'react'
 import {
   Get,
+  max,
+  min,
   Post,
   Put,
+  required,
   Simple,
   SubmitAction,
   Title,
@@ -23,9 +26,9 @@ const TodoForm: React.FC<TodoFormProps> = ({ initial, onSubmit }) => (
   <>
     <Title textAlignment="centered">Create/Update Todo</Title>
     <Simple.Form initialValues={initial || empty(Todo)} onSubmit={onSubmit}>
-      <Simple.Text name="title" />
+      <Simple.Text name="title" validations={[required(), min(3), max(20)]} />
       <Simple.Checkbox name="done" />
-      <Simple.Date name="scheduled" />
+      <Simple.Date name="scheduled" validations={[required()]} />
 
       <Simple.FormButtons />
     </Simple.Form>

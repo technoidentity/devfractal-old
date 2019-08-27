@@ -18,7 +18,10 @@ export const EmployeeList = listComponent(
     <Section>
       <HeadTitle>Employee</HeadTitle>
 
-      <CreateLink to={employeeLinks.create}> Add Employee</CreateLink>
+      <CreateLink alignment="right" variant="primary" to={employeeLinks.create}>
+        {' '}
+        Add Employee
+      </CreateLink>
 
       <CrudTable
         data={employeeList}

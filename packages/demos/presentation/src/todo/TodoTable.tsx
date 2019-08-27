@@ -44,7 +44,7 @@ export const TodoTable: React.FC<TodoTableProps> = ({ data }) => {
 
   return (
     <>
-      <CreateLink alignment="right" to="/todos/new">
+      <CreateLink alignment="right" variant="primary" to="/todos/new">
         Add Todo
       </CreateLink>
 

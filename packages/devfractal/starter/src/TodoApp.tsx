@@ -2,10 +2,8 @@ import { boolean, number, string } from 'io-ts'
 import React from 'react'
 import {
   All,
-  ButtonLink,
-  ButtonsGroup,
-  ButtonsGroupProps,
   Create,
+  CreateLink,
   CrudTable,
   Edit,
   Editor,
@@ -43,7 +41,9 @@ const TodoForm = formComponent(Todo, ({ onSubmit, initial, edit }) => (
 
 const TodoList = listComponent(Todo, ({ data }) => (
   <>
-    <CreateLink createTo={ls.create}>Add</CreateLink>
+    <CreateLink alignment="right" variant="primary" to={ls.create}>
+      Add
+    </CreateLink>
     <CrudTable
       data={data}
       headers={['title', 'done']}
@@ -58,23 +58,6 @@ const CreateTodoRoute = () => (
 
 export const EditTodoRoute = () => (
   <Edit path={ps.edit} api={todoApi} form={TodoForm} redirectTo={ls.list} />
-)
-
-interface CreateLinkProps {
-  readonly alignment?: ButtonsGroupProps['alignment']
-  readonly createTo: string
-}
-
-const CreateLink: React.FC<CreateLinkProps> = ({
-  alignment = 'centered',
-  createTo,
-  children,
-}) => (
-  <ButtonsGroup alignment={alignment}>
-    <ButtonLink to={createTo} variant="primary">
-      {children}
-    </ButtonLink>
-  </ButtonsGroup>
 )
 
 const TodoListRoute = () => {

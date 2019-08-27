@@ -18,7 +18,9 @@ export const GeoFenceList = listComponent(
     <Section>
       <HeadTitle>GeoFence</HeadTitle>
 
-      <CreateLink to={geoFenceLinks.create}>Create GeoFence</CreateLink>
+      <CreateLink alignment="right" variant="primary" to={geoFenceLinks.create}>
+        Create GeoFence
+      </CreateLink>
 
       <CrudTable
         data={geoFenceList}

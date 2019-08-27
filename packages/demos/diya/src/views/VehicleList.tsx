@@ -16,7 +16,9 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => (
   <Section>
     <HeadTitle>Vehicles</HeadTitle>
 
-    <CreateLink to={vehicleLinks.create}>Add Vehicle</CreateLink>
+    <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
+      Add Vehicle
+    </CreateLink>
 
     <CrudTable
       data={vehicleList}

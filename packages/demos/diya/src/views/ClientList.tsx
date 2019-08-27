@@ -16,7 +16,9 @@ export const ClientList = listComponent(Client, ({ data: clientList }) => (
   <Section>
     <HeadTitle>Clients</HeadTitle>
 
-    <CreateLink to={clientLinks.create}>Add Client</CreateLink>
+    <CreateLink alignment="right" variant="primary" to={clientLinks.create}>
+      Add Client
+    </CreateLink>
 
     <CrudTable
       data={clientList}
