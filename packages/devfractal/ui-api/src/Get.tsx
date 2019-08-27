@@ -8,7 +8,7 @@ export interface GetProps<T extends {}, P extends any[]> {
   readonly component?: React.FC<{ readonly data: T; fetchAgain?(): void }>
   // You should pass a global function, not a closure. Pass all deps to 'deps' instead.
   asyncFn(...params: P): Promise<T>
-  children(data: T, fetchAgain: () => void): JSX.Element
+  children?(data: T, fetchAgain: () => void): JSX.Element
 }
 
 export function Get<T extends {}, P extends any[]>({
@@ -24,11 +24,13 @@ export function Get<T extends {}, P extends any[]>({
   }
 
   if (result.state === 'success') {
-    return Component ? (
-      <Component data={result.data} fetchAgain={result.refresh} />
-    ) : (
-      children(result.data, result.refresh)
-    )
+    if (Component) {
+      return <Component data={result.data} fetchAgain={result.refresh} />
+    }
+    if (children) {
+      return children(result.data, result.refresh)
+    }
+    throw new Error('component or children must be provided to Get')
   }
 
   return <Loading />
