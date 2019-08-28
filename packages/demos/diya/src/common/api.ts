@@ -2,6 +2,7 @@ import { Mixed } from 'io-ts'
 import { rest, toJSONServerQuery } from 'technoidentity-devfractal'
 import { HasProps } from 'technoidentity-utils'
 import {
+  AdManager,
   Battery,
   Client,
   Driver,
@@ -36,3 +37,4 @@ export const employeeAPI = api(Employee, 'employees')
 export const invoiceAPI = api(Invoice, 'invoices')
 export const geoFenceAPI = api(GeoFence, 'geo_fences')
 export const tripAPI = api(Trip, 'trips')
+export const adManagerAPI = api(AdManager, 'adManagers')

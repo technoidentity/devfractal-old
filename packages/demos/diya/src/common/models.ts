@@ -1,4 +1,4 @@
-import { Int, keyof, string, TypeOf } from 'io-ts'
+import { Int, keyof, number, string, TypeOf } from 'io-ts'
 import { ISODate, props } from 'technoidentity-utils'
 
 const Shift = keyof({ morning: true, evening: true })
@@ -205,17 +205,17 @@ export const SelectVehicles = keyof({
   vehicle3: string,
 })
 
-// export const AdManager = props(
-//   {
-//     id: number,
-//   },
-//   {
-//     uploadImage: string,
-//     client: string,
-//     vehicle: SelectVehicles,
-//     startDate: ISODate,
-//     endDate: ISODate,
-//   },
-// )
+export const AdManager = props(
+  {
+    id: number,
+  },
+  {
+    uploadImage: string,
+    client: string,
+    vehicle: SelectVehicles,
+    startDate: ISODate,
+    endDate: ISODate,
+  },
+)
 
-// export type AdManager = TypeOf<typeof AdManager>
+export type AdManager = TypeOf<typeof AdManager>
