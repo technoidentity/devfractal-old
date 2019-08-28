@@ -3,6 +3,8 @@ import { ISODate, props } from 'technoidentity-utils'
 
 const Shift = keyof({ morning: true, evening: true })
 const Status = keyof({ active: true, inactive: true })
+const Verified = keyof({ yes: true, pending: true })
+const Relation = keyof({ mother: true, father: true, spouse: true })
 
 export const Driver = props(
   {
@@ -15,6 +17,8 @@ export const Driver = props(
     phone: string,
     driverLicence: string,
     shift: Shift,
+    address1: string,
+    address2: string,
     adharNumber: string,
     accountName: string,
     accountNumber: string,
@@ -22,6 +26,10 @@ export const Driver = props(
     bankName: string,
     bankBranch: string,
     branchIFSCNumber: string,
+    verified: Verified,
+    emergencyContactPerson: string,
+    emergencyContactNumber: string,
+    relation: Relation,
   },
 )
 
@@ -91,8 +99,26 @@ export type Client = TypeOf<typeof Client>
 export const Role = keyof({ admin: true, reporter: true, dispatcher: true })
 
 export const User = props(
-  { dateOfJoining: ISODate, id: string },
-  { userName: string, role: Role },
+  { dateOfJoining: ISODate, id: string, email: string },
+  {
+    userName: string,
+    role: Role,
+    phone: string,
+    licenceNo: string,
+    adharNumber: string,
+    address1: string,
+    address2: string,
+    accountName: string,
+    accountNumber: string,
+    confirmAccountNumber: string,
+    bankName: string,
+    bankBranch: string,
+    branchIFSCNumber: string,
+    verified: Verified,
+    emergencyContactPerson: string,
+    emergencyContactNumber: string,
+    relation: Relation,
+  },
 )
 
 export type User = TypeOf<typeof User>
@@ -172,3 +198,24 @@ export const Trip = props(
 )
 
 export type Trip = TypeOf<typeof Trip>
+
+export const SelectVehicles = keyof({
+  vehicle1: true,
+  vehicle2: string,
+  vehicle3: string,
+})
+
+// export const AdManager = props(
+//   {
+//     id: number,
+//   },
+//   {
+//     uploadImage: string,
+//     client: string,
+//     vehicle: SelectVehicles,
+//     startDate: ISODate,
+//     endDate: ISODate,
+//   },
+// )
+
+// export type AdManager = TypeOf<typeof AdManager>
