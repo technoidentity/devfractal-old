@@ -1,5 +1,6 @@
 import {
   faBell,
+  faBullhorn,
   faBus,
   faCarBattery,
   faMapMarked,
@@ -58,8 +59,11 @@ export const SideMenu = () => (
           <MenuItem href="/users">
             <Icon icon={faUsers} /> Users
           </MenuItem>
-          <MenuItem href="#!">
-            <Icon icon={faBell} /> Alerts
+          <MenuItem href="/adManagers">
+            <Icon icon={faBullhorn} /> Ad Manager
+          </MenuItem>
+          <MenuItem href="/invoices">
+            <Icon icon={faBell} /> Invoices{' '}
           </MenuItem>
           <MenuItem href="#!">
             <Icon icon={faPaperPlane} /> Reports
