@@ -21,8 +21,9 @@ export const VehicleForm = formComponent(
   Vehicle,
   ({ onSubmit, initial, edit }) => (
     <>
-      <HeadTitle>{edit ? 'Edit' : 'Add'} Vehicle</HeadTitle>
-
+      <Section>
+        <HeadTitle>{edit ? 'Edit' : 'Add'} Vehicle</HeadTitle>
+      </Section>
       <Section>
         <Title textAlignment="left" size="5" textColor="info">
           Vehicle Details

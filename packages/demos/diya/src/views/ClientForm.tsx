@@ -13,9 +13,11 @@ export const ClientForm = formComponent(
   Client,
   ({ initial, edit, onSubmit }) => (
     <>
-      <Title size="4" textColor="info">
-        {edit ? 'Add' : 'Update'} Client
-      </Title>
+      <Section>
+        <Title size="4" textColor="info">
+          {edit ? 'Update' : 'Add'} Client
+        </Title>
+      </Section>
       <Section>
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>

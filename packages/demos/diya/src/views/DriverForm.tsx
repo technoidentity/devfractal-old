@@ -28,8 +28,9 @@ export const DriverForm = formComponent(
   Driver,
   ({ initial, edit, onSubmit }) => (
     <>
-      <HeadTitle>{edit ? 'Edit' : 'Create'} Driver</HeadTitle>
-
+      <Section>
+        <HeadTitle>{edit ? 'Edit' : 'Create'} Driver</HeadTitle>
+      </Section>
       <Section>
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>

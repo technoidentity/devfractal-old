@@ -21,8 +21,9 @@ export const BatteryForm = formComponent(
   Battery,
   ({ onSubmit, edit, initial }) => (
     <>
-      <HeadTitle>{edit ? 'Add' : 'Update'} Battery</HeadTitle>
-
+      <Section>
+        <HeadTitle>{edit ? 'Update' : 'Add'} Battery</HeadTitle>
+      </Section>
       <Section>
         <Title textAlignment="left" size="5" textColor="info">
           Battery Details
