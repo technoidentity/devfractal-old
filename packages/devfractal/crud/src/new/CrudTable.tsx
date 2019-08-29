@@ -40,11 +40,17 @@ export interface CrudTableProps<T>
 export function CrudTable<T>({
   data,
   headers,
+  headerLabels,
   editTo,
   onDelete,
 }: CrudTableProps<T>): JSX.Element {
   return (
-    <SimpleTable data={data} headers={[...(headers || []), 'Actions']} striped>
+    <SimpleTable
+      data={data}
+      headers={[...(headers || []), 'Actions']}
+      headerLabels={[...(headerLabels || [])]}
+      striped
+    >
       {(key, value) =>
         key === 'Actions' ? (
           <Actions
