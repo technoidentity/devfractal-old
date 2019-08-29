@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "chance": "1.0.18",
-    "date-fns": "2.0.0",
+    "date-fns": "2.0.1",
     "fp-ts": "2.0.5",
     "io-ts": "2.0.1",
     "io-ts-types": "0.5.0",
@@ -46,8 +46,8 @@
     "@types/chance": "1.0.6",
     "@types/jest": "24.0.18",
     "@types/json-server": "0.14.1",
-    "babel-eslint": "10.0.2",
-    "eslint": "6.2.1",
+    "babel-eslint": "10.0.3",
+    "eslint": "6.2.2",
     "eslint-config-prettier": "6.1.0",
     "eslint-plugin-prettier": "3.1.0",
     "jest": "24.9.0",
@@ -56,7 +56,7 @@
     "ts-jest": "24.0.2",
     "ts-node": "8.3.0",
     "ts-node-dev": "1.0.0-pre.40",
-    "tsdx": "0.8.0",
+    "tsdx": "0.9.0",
     "tslint": "5.19.0",
     "typescript": "3.5.3"
   },

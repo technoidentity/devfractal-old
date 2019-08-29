@@ -4,6 +4,8 @@ import { PathReporter } from 'io-ts/lib/PathReporter'
 import { assert, fatal } from './assertions'
 import { omit, pick } from './common'
 
+// tslint:disable readonly-array array-type readonly-keyword
+
 export function cast<A, O, I>(spec: t.Type<A, O, I>, args: I): A {
   const decoded: Either<t.Errors, A> = spec.decode(args)
   return isRight(decoded)
@@ -52,7 +54,6 @@ export function req<P extends t.Props>(
   return t.readonly(t.type(props), name)
 }
 
-// tslint:disable readonly-array
 export function props<O extends t.Props, R extends t.Props>(
   optional: O,
   required: R,
@@ -63,27 +64,17 @@ export function props<O extends t.Props, R extends t.Props>(
     name,
   )
 }
-// tslint:enable readonly-array
 
 export const lit: typeof t.literal = t.literal
 
-// tslint:disable readonly-array array-type readonly-keyword
-export interface HasPropsReadonly
-  extends t.ReadonlyType<HasProps, any, any, any> {}
+export interface HasPropsIntersection
+  extends t.IntersectionType<[HasProps, HasProps, ...Array<HasProps>]> {}
 
-export interface HasPropsIntersection  // tslint:disable-next-line: readonly-array
-  extends t.IntersectionType<
-    [HasProps, HasProps, ...Array<HasProps>],
-    any,
-    any,
-    any
-  > {}
+export interface HasPropsReadonly extends t.ReadonlyType<HasProps> {}
 
-export type HasPropsOnType = HasPropsReadonly | t.ExactType<any, any, any, any>
+export type HasPropsOnType = HasPropsReadonly | t.ExactType<any>
 
-export type HasPropsOnProps =
-  | t.InterfaceType<any, any, any, any>
-  | t.PartialType<any, any, any, any>
+export type HasPropsOnProps = t.InterfaceType<any> | t.PartialType<any>
 
 export type HasProps = HasPropsIntersection | HasPropsOnProps | HasPropsOnType
 
@@ -97,7 +88,7 @@ export function getProps<T extends t.Mixed>(codec: T & HasProps): t.Props {
       return codec.props
     case 'IntersectionType':
       return codec.types.reduce<t.Props>(
-        (props, type) => ({ ...props, ...getProps(type) }),
+        (props, type) => ({ ...props, ...getProps(type as any) }),
         {},
       )
   }
@@ -116,8 +107,7 @@ export function getProp<T extends t.Mixed>(
       return codec.props[key]
     case 'IntersectionType':
       for (const t of codec.types) {
-        // tslint:disable-next-line: typedef
-        const result = getProp(t, key)
+        const result: t.Mixed | undefined = getProp(t as any, key)
         if (result !== undefined) {
           return result
         }
