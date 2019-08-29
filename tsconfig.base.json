@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
     "allowJs": false,
     "checkJs": false,
     "composite": true,
@@ -10,7 +12,7 @@
     "lib": ["dom", "dom.iterable", "es2018"],
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": true,
+    "noEmit": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,

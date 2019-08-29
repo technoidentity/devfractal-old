@@ -1,0 +1,25 @@
+{
+  "files": [],
+  "references": [
+    { "path": "utils" },
+    { "path": "dev-utils" },
+    { "path": "meta/server" },
+    { "path": "devfractal/ui-core" },
+    { "path": "devfractal/ui" },
+    { "path": "devfractal/ui-api" },
+    { "path": "devfractal/crud" },
+    { "path": "devfractal/forms" },
+    { "path": "devfractal/router" },
+    { "path": "devfractal/simple" },
+    { "path": "devfractal/examples" },
+    { "path": "devfractal/site" },
+    { "path": "devfractal/next-site" },
+    { "path": "devfractal/starter" },
+    { "path": "meta/client" },
+    { "path": "meta/core" },
+    { "path": "demos/diya" },
+    { "path": "demos/presentation" },
+    { "path": "demos/task-manager/client" },
+    { "path": "demos/task-manager/server" }
+  ]
+}

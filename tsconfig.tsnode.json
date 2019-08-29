@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
     "module": "commonjs",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",

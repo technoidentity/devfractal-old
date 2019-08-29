@@ -8,18 +8,17 @@ import {
 } from 'react-router-dom'
 import { RouterContext, useRouter } from './RouterContext'
 
-// tslint:disable-next-line: no-class
+// tslint:disable no-class readonly-keyword no-object-mutation no-this
 class RouteMatched {
-  // tslint:disable-next-line: readonly-keyword
   private routeMatched: boolean = false
-  // tslint:disable-next-line: readonly-keyword
+
   setRouteMatched = (routeMatched: boolean) => {
-    // tslint:disable-next-line: no-object-mutation no-this
     this.routeMatched = routeMatched
   }
-  // tslint:disable-next-line: readonly-keyword no-this
+
   getRouteMatched = () => this.routeMatched
 }
+// tslint:enable no-class readonly-keyword no-object-mutation no-this
 
 export type RouterType = 'browser' | 'hash'
 

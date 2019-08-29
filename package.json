@@ -24,6 +24,8 @@
     "typescript-tslint-plugin": "0.5.4"
   },
   "scripts": {
+    "fast:types": "yarn tsc --build --clean packages",
+    "fast:types:watch": "yarn tsc -b -w packages",
     "boot:lib": "yarn && yarn build:lib && yarn validate:lib",
     "boot:meta": "yarn && yarn build:meta && yarn validate:meta",
     "boot": "yarn && yarn build && yarn validate",
