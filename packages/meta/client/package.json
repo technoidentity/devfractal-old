@@ -28,7 +28,7 @@
     "sb": "start-storybook"
   },
   "dependencies": {
-    "date-fns": "2.0.0",
+    "date-fns": "2.0.1",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -41,13 +41,13 @@
     "@types/react-router": "5.0.3",
     "@types/react-router-dom": "4.3.5",
     "@types/yup": "0.26.23",
-    "babel-eslint": "10.0.2",
+    "babel-eslint": "10.0.3",
     "chance": "1.0.18",
-    "date-fns": "2.0.0",
+    "date-fns": "2.0.1",
     "devfractal-crud": "^1.2.18",
     "devfractal-simple": "^1.2.18",
     "devfractal-ui-core": "^1.2.18",
-    "eslint": "6.2.1",
+    "eslint": "6.2.2",
     "formik": "1.5.8",
     "fp-ts": "2.0.5",
     "io-ts": "2.0.1",
@@ -63,13 +63,13 @@
     "technoidentity-meta-core": "^1.2.18",
     "technoidentity-utils": "^1.2.18",
     "ts-jest": "24.0.2",
-    "tsdx": "0.8.0",
+    "tsdx": "0.9.0",
     "yup": "0.27.0"
   },
   "peerDependencies": {
-    "devfractal-crud": "1.2.17",
-    "devfractal-simple": "1.2.17",
-    "devfractal-ui-core": "1.2.16",
+    "devfractal-crud": "1.2.18",
+    "devfractal-simple": "1.2.18",
+    "devfractal-ui-core": "1.2.18",
     "formik": "1.5.8",
     "fp-ts": "2.0.5",
     "io-ts": "2.0.1",
@@ -81,7 +81,7 @@
     "react-router-dom": "5.0.1",
     "tcomb": "3.2.29",
     "technoidentity-meta-core": "1.2.5",
-    "technoidentity-utils": "1.2.14",
+    "technoidentity-utils": "1.2.18",
     "yup": "0.27.0"
   },
   "lint-staged": {
