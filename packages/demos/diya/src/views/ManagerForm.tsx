@@ -25,7 +25,7 @@ import {
 import { AdManager, adManagerAPI } from '../common'
 import { HeadTitle } from '../components'
 
-const { create, edit, list } = links(adManagerAPI.resource)
+const { create, edit } = links(adManagerAPI.resource)
 
 const FormikInput: React.FC<FieldProps<AdManager>> = ({
   form,
@@ -110,7 +110,7 @@ const AdManagerForm: React.FC<AdManagerFormProps> = ({ onSubmit, initial }) => (
   />
 )
 
-const CreateAdManager = () => {
+export const CreateAdManager = () => {
   const { serverError, onSubmit } = useSubmitRedirect(
     adManagerAPI.create,
     '/adManagers',
@@ -124,7 +124,7 @@ const CreateAdManager = () => {
   )
 }
 
-const EditAdManager: React.FC = () => {
+export const EditAdManager: React.FC = () => {
   const { id } = useParams(type({ id: IntFromString }))
 
   const result = useGet(adManagerAPI.get, id)
