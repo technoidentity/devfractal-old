@@ -1,13 +1,33 @@
 import { Either, isRight } from 'fp-ts/lib/Either'
-import * as t from 'io-ts'
-import { PathReporter } from 'io-ts/lib/PathReporter'
+import {
+  Errors,
+  ExactType,
+  InterfaceType,
+  intersection,
+  IntersectionC,
+  IntersectionType,
+  literal,
+  Mixed,
+  partial,
+  PartialC,
+  PartialType,
+  PathReporter,
+  Props,
+  readonly,
+  ReadonlyC,
+  ReadonlyType,
+  string,
+  type,
+  Type,
+  TypeC,
+} from 'technoidentity-spec'
 import { assert, fatal } from './assertions'
 import { omit, pick } from './common'
 
 // tslint:disable readonly-array array-type readonly-keyword
 
-export function cast<A, O, I>(spec: t.Type<A, O, I>, args: I): A {
-  const decoded: Either<t.Errors, A> = spec.decode(args)
+export function cast<A, O, I>(spec: Type<A, O, I>, args: I): A {
+  const decoded: Either<Errors, A> = spec.decode(args)
   return isRight(decoded)
     ? decoded.right
     : fatal(PathReporter.report(decoded).join('\n'))
@@ -16,10 +36,10 @@ export function cast<A, O, I>(spec: t.Type<A, O, I>, args: I): A {
 export const verifyCast: typeof cast = cast
 
 export function assertCast<A, O, I>(
-  spec: t.Type<A, O, I>,
+  spec: Type<A, O, I>,
   args: I,
 ): A | undefined {
-  const decoded: Either<t.Errors, A> = spec.decode(args)
+  const decoded: Either<Errors, A> = spec.decode(args)
   assert(spec.is(args), PathReporter.report(decoded).join('\n'))
   return isRight(decoded) ? decoded.right : undefined
 }
@@ -27,58 +47,58 @@ export function assertCast<A, O, I>(
 export const debugCast: typeof assertCast = assertCast
 
 export async function rejected<T>(
-  decoded: Either<t.Errors, T> | string,
+  decoded: Either<Errors, T> | string,
 ): Promise<T> {
   return Promise.reject(
     new Error(
-      t.string.is(decoded) ? decoded : PathReporter.report(decoded).join('\n'),
+      string.is(decoded) ? decoded : PathReporter.report(decoded).join('\n'),
     ),
   )
 }
 
-export async function toPromise<T>(either: Either<t.Errors, T>): Promise<T> {
+export async function toPromise<T>(either: Either<Errors, T>): Promise<T> {
   return isRight(either) ? either.right : rejected(either)
 }
 
-export function opt<P extends t.Props>(
+export function opt<P extends Props>(
   props: P,
   name?: string,
-): t.ReadonlyC<t.PartialC<P>> {
-  return t.readonly(t.partial(props), name)
+): ReadonlyC<PartialC<P>> {
+  return readonly(partial(props), name)
 }
 
-export function req<P extends t.Props>(
+export function req<P extends Props>(
   props: P,
   name?: string,
-): t.ReadonlyC<t.TypeC<P>> {
-  return t.readonly(t.type(props), name)
+): ReadonlyC<TypeC<P>> {
+  return readonly(type(props), name)
 }
 
-export function props<O extends t.Props, R extends t.Props>(
+export function props<O extends Props, R extends Props>(
   optional: O,
   required: R,
   name?: string,
-): t.IntersectionC<[t.ReadonlyC<t.PartialC<O>>, t.ReadonlyC<t.TypeC<R>>]> {
-  return t.intersection(
-    [t.readonly(t.partial(optional)), t.readonly(t.type(required))],
+): IntersectionC<[ReadonlyC<PartialC<O>>, ReadonlyC<TypeC<R>>]> {
+  return intersection(
+    [readonly(partial(optional)), readonly(type(required))],
     name,
   )
 }
 
-export const lit: typeof t.literal = t.literal
+export const lit: typeof literal = literal
 
 export interface HasPropsIntersection
-  extends t.IntersectionType<[HasProps, HasProps, ...Array<HasProps>]> {}
+  extends IntersectionType<[HasProps, HasProps, ...Array<HasProps>]> {}
 
-export interface HasPropsReadonly extends t.ReadonlyType<HasProps> {}
+export interface HasPropsReadonly extends ReadonlyType<HasProps> {}
 
-export type HasPropsOnType = HasPropsReadonly | t.ExactType<any>
+export type HasPropsOnType = HasPropsReadonly | ExactType<any>
 
-export type HasPropsOnProps = t.InterfaceType<any> | t.PartialType<any>
+export type HasPropsOnProps = InterfaceType<any> | PartialType<any>
 
 export type HasProps = HasPropsIntersection | HasPropsOnProps | HasPropsOnType
 
-export function getProps<T extends t.Mixed>(codec: T & HasProps): t.Props {
+export function getProps<T extends Mixed>(codec: T & HasProps): Props {
   switch (codec._tag) {
     case 'ReadonlyType':
     case 'ExactType':
@@ -87,17 +107,17 @@ export function getProps<T extends t.Mixed>(codec: T & HasProps): t.Props {
     case 'PartialType':
       return codec.props
     case 'IntersectionType':
-      return codec.types.reduce<t.Props>(
+      return codec.types.reduce<Props>(
         (props, type) => ({ ...props, ...getProps(type as any) }),
         {},
       )
   }
 }
 
-export function getProp<T extends t.Mixed>(
+export function getProp<T extends Mixed>(
   codec: T & HasProps,
   key: string,
-): t.Mixed | undefined {
+): Mixed | undefined {
   switch (codec._tag) {
     case 'ReadonlyType':
     case 'ExactType':
@@ -107,7 +127,7 @@ export function getProp<T extends t.Mixed>(
       return codec.props[key]
     case 'IntersectionType':
       for (const t of codec.types) {
-        const result: t.Mixed | undefined = getProp(t as any, key)
+        const result: Mixed | undefined = getProp(t as any, key)
         if (result !== undefined) {
           return result
         }
@@ -116,14 +136,14 @@ export function getProp<T extends t.Mixed>(
   }
 }
 
-export function pickProps<T extends t.Props, K extends keyof T>(
+export function pickProps<T extends Props, K extends keyof T>(
   props: T,
   keys: ReadonlyArray<K>,
 ): Pick<T, K> {
   return pick(props, keys)
 }
 
-export function omitProps<T extends t.Props, K extends keyof T>(
+export function omitProps<T extends Props, K extends keyof T>(
   props: T,
   keys: ReadonlyArray<K>,
 ): Omit<T, K> {

@@ -1,22 +1,29 @@
-import * as t from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
+import {
+  Array,
+  boolean,
+  date,
+  number,
+  string,
+  UnknownRecord,
+} from 'technoidentity-spec'
 import { warn } from './assertions'
 import { buildObject, today } from './common'
 
 function emptyFromPrimitiveValue(v: unknown): any {
-  if (t.number.is(v)) {
+  if (number.is(v)) {
     return 0
   }
 
-  if (t.string.is(v)) {
+  if (string.is(v)) {
     return ''
   }
 
-  if (t.boolean.is(v)) {
+  if (boolean.is(v)) {
     return false
   }
 
-  if (t.undefined.is(v) || t.null.is(v)) {
+  // tslint:disable-next-line: no-null-keyword
+  if (v == null) {
     return v
   }
 
@@ -32,11 +39,11 @@ function emptyFromObjectValue<T extends {}>(value: T): T {
 }
 
 export const emptyFromValue: <T>(value: T) => T = value => {
-  if (t.Array.is(value)) {
+  if (Array.is(value)) {
     return []
   }
 
-  if (t.UnknownRecord.is(value)) {
+  if (UnknownRecord.is(value)) {
     return emptyFromObjectValue(value)
   }
 

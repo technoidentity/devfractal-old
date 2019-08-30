@@ -1,7 +1,7 @@
-import { BooleanFromString } from 'io-ts-types/lib/BooleanFromString'
-import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
-import { IntFromString } from 'io-ts-types/lib/IntFromString'
-import { NumberFromString } from 'io-ts-types/lib/NumberFromString'
+import { BooleanFromString } from 'technoidentity-spec'
+import { DateFromISOString } from 'technoidentity-spec'
+import { IntFromString } from 'technoidentity-spec'
+import { NumberFromString } from 'technoidentity-spec'
 import { cast } from './iotsUtils'
 
 export function toInt(from: string): number {

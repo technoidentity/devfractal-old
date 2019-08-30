@@ -1,19 +1,19 @@
-import * as t from 'io-ts'
+import { number, readonly, string, type } from 'technoidentity-spec'
 import { checked, checkedAsync } from './checked'
 import { range } from './common'
 
 // tslint:disable typedef
 it('checked', () => {
   const checkedAdd = checked(
-    [t.number, t.number, t.number],
-    t.number,
+    [number, number, number],
+    number,
     (x, y, z) => x + y + z,
   )
 
   expect(checkedAdd(100, 100, 100)).toEqual(300)
   expect(() => checkedAdd(100, '100' as any, 100)).toThrow()
 
-  const checkedTimes = checked([t.string, t.number], t.string, (s, n) =>
+  const checkedTimes = checked([string, number], string, (s, n) =>
     range(n).reduce((acc, _) => acc + s, ''),
   )
 
@@ -21,10 +21,10 @@ it('checked', () => {
   expect(() => checkedTimes(5 as any, 5)).toThrow()
   expect(() => checkedTimes('hello', '5' as any)).toThrow()
 
-  const Point = t.readonly(t.type({ x: t.number, y: t.number }))
+  const Point = readonly(type({ x: number, y: number }))
 
   const checkedMoveBy = checked(
-    [Point, t.number, t.number],
+    [Point, number, number],
     Point,
     (pt, dx, dy) => {
       return { x: pt.x + dx, y: pt.y + dy }
@@ -51,28 +51,26 @@ it('checked', () => {
 
 it('checkedAsync', async () => {
   const checkedAdd = checkedAsync(
-    [t.number, t.number, t.number],
-    t.number,
+    [number, number, number],
+    number,
     async (x, y, z) => x + y + z,
   )
 
   await expect(checkedAdd(100, 100, 100)).resolves.toEqual(300)
   await expect(checkedAdd(100, '100' as any, 100)).rejects.toThrow()
 
-  const checkedTimes = checkedAsync(
-    [t.string, t.number],
-    t.string,
-    async (s, n) => range(n).reduce((acc, _) => acc + s, ''),
+  const checkedTimes = checkedAsync([string, number], string, async (s, n) =>
+    range(n).reduce((acc, _) => acc + s, ''),
   )
 
   await expect(checkedTimes('hello', 3)).resolves.toEqual('hellohellohello')
   await expect(checkedTimes(5 as any, 5)).rejects.toThrow()
   await expect(checkedTimes('hello', '5' as any)).rejects.toThrow()
 
-  const Point = t.readonly(t.type({ x: t.number, y: t.number }))
+  const Point = readonly(type({ x: number, y: number }))
 
   const checkedMoveBy = checkedAsync(
-    [Point, t.number, t.number],
+    [Point, number, number],
     Point,
     async (pt, dx, dy) => ({ x: pt.x + dx, y: pt.y + dy }),
   )
