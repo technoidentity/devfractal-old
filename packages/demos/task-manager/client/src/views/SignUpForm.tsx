@@ -1,9 +1,9 @@
 import { Simple } from 'devfractal-simple'
 import { Column, Columns, component, Section, Text } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
-import { string, TypeOf } from 'io-ts'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { string, TypeOf } from 'technoidentity-spec'
 import { empty, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 

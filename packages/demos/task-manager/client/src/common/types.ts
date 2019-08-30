@@ -1,6 +1,6 @@
-import { keyof, string, TypeOf, union } from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
+import { keyof, string, TypeOf, union } from 'technoidentity-spec'
+import { date } from 'technoidentity-spec'
+import { DateFromISOString } from 'technoidentity-spec'
 import { props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])

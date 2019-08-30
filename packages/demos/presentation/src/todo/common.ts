@@ -1,5 +1,5 @@
 import { rest } from 'devfractal-api'
-import { boolean, number, string, TypeOf } from 'io-ts'
+import { boolean, number, string, TypeOf } from 'technoidentity-spec'
 import { ISODate, props } from 'technoidentity-utils'
 
 export const Todo = props(

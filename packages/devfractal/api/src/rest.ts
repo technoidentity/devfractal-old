@@ -1,5 +1,5 @@
 import { produce } from 'immer'
-import * as t from 'io-ts'
+import * as t from 'technoidentity-spec'
 import { HasProps, omit } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 import { APIQuery, toAPIQuery as toQueryFn } from './query'

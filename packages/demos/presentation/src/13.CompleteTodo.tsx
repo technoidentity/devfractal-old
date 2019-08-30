@@ -1,7 +1,4 @@
 import { FormikActions } from 'formik'
-import { boolean, number, readonlyArray, string, TypeOf, union } from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import React from 'react'
 import {
   component,
@@ -19,6 +16,16 @@ import {
   useMatch,
   useRedirect,
 } from 'technoidentity-devfractal'
+import {
+  boolean,
+  number,
+  readonlyArray,
+  string,
+  TypeOf,
+  union,
+} from 'technoidentity-spec'
+import { date } from 'technoidentity-spec'
+import { DateFromISOString } from 'technoidentity-spec'
 import { fn, props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])

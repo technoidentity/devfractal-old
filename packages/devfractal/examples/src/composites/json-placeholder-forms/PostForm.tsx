@@ -1,5 +1,5 @@
 export const PostForm: number = 100
-// import * as t from 'io-ts'
+// import * as t from 'technoidentity-spec'
 // import React from 'react'
 // import {
 //   consoleSubmit,

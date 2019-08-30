@@ -1,4 +1,3 @@
-import { boolean, number, string } from 'io-ts'
 import React from 'react'
 import {
   All,
@@ -17,6 +16,7 @@ import {
   SimpleRedirect,
   Title,
 } from 'technoidentity-devfractal'
+import { boolean, number, string } from 'technoidentity-spec'
 import { ISODate, props } from 'technoidentity-utils'
 
 const Todo = props(

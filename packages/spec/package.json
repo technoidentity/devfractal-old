@@ -3,7 +3,7 @@
   "version": "1.2.18",
   "description": "io-ts for devfractal",
   "main": "dist/index.js",
-  "module": "dist/technoidentity-utils.esm.js",
+  "module": "dist/technoidentity-spec.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
@@ -15,7 +15,7 @@
     "start": "parcel index.html --open",
     "lib": "tsdx watch",
     "build": "tsdx build",
-    "test": "cross-env NODE_ENV='test' jest",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "test:watch": "yarn test --watch",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",
     "elint:fix": "yarn elint --quiet --fix",
@@ -32,11 +32,10 @@
   "dependencies": {
     "date-fns": "2.0.1",
     "jest-cli": "24.9.0",
-    "fp-ts": "2.0.5",
     "io-ts": "2.0.1",
     "io-ts-types": "0.5.0",
+    "fp-ts": "2.0.5",
     "monocle-ts": "2.0.0",
-    "technoidentity-utils": "1.2.18",
     "tslib": "1.10.0"
   },
   "devDependencies": {

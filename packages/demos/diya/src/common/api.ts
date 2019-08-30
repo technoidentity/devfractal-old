@@ -1,5 +1,5 @@
-import { Mixed } from 'io-ts'
 import { rest, toJSONServerQuery } from 'technoidentity-devfractal'
+import { Mixed } from 'technoidentity-spec'
 import { HasProps } from 'technoidentity-utils'
 import {
   AdManager,

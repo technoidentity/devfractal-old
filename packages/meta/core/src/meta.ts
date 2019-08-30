@@ -1,5 +1,5 @@
-import * as t from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
+import * as t from 'technoidentity-spec'
+import { date } from 'technoidentity-spec'
 import { keys, lit, opt, props, req } from 'technoidentity-utils'
 
 // tslint:disable typedef

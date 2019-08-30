@@ -1,8 +1,8 @@
 import { History, Location } from 'history'
-import { Mixed, TypeOf } from 'io-ts'
 import { parse } from 'query-string'
 import React from 'react'
 import { RouteChildrenProps } from 'react-router'
+import { Mixed, TypeOf } from 'technoidentity-spec'
 import { cast, verify } from 'technoidentity-utils'
 // tslint:disable typedef
 

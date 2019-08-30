@@ -9,8 +9,8 @@ import {
   tuple,
   type,
   union,
-} from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
+} from 'technoidentity-spec'
+import { date } from 'technoidentity-spec'
 import { empty } from 'technoidentity-utils'
 
 console.log(

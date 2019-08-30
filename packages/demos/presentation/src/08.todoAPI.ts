@@ -1,7 +1,7 @@
-import { boolean, number, string, TypeOf, union } from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { rest } from 'technoidentity-devfractal'
+import { boolean, number, string, TypeOf, union } from 'technoidentity-spec'
+import { date } from 'technoidentity-spec'
+import { DateFromISOString } from 'technoidentity-spec'
 import { props } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])

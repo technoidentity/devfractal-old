@@ -1,8 +1,15 @@
 import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { array, InputOf, Mixed, partial, string, TypeOf } from 'io-ts'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import { String } from 'tcomb'
+import {
+  array,
+  InputOf,
+  Mixed,
+  partial,
+  string,
+  TypeOf,
+} from 'technoidentity-spec'
 import { chop, debug, getProps, keys, verify } from 'technoidentity-utils'
 
 export interface MethodArgs {

@@ -1,4 +1,4 @@
-import { Int, string, TypeOf, union } from 'io-ts'
+import { Int, string, TypeOf, union } from 'technoidentity-spec'
 import { cast, chop, verify } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef

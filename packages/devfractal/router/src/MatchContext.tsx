@@ -1,6 +1,6 @@
-import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { match } from 'react-router'
+import { Mixed, TypeOf } from 'technoidentity-spec'
 import { cast, fatal } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef

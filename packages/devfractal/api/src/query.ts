@@ -1,6 +1,6 @@
-import * as t from 'io-ts'
-import { union } from 'io-ts'
 import { stringify } from 'query-string'
+import * as t from 'technoidentity-spec'
+import { union } from 'technoidentity-spec'
 import { cast, getProps, HasProps, opt, req } from 'technoidentity-utils'
 
 // tslint:disable typedef

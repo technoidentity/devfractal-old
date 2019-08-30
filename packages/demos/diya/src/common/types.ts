@@ -1,5 +1,5 @@
-import { keyof, string } from 'io-ts'
-import { IntFromString } from 'io-ts-types/lib/IntFromString'
+import { keyof, string } from 'technoidentity-spec'
+import { IntFromString } from 'technoidentity-spec'
 import { opt, req } from 'technoidentity-utils'
 
 export const Resources = keyof({

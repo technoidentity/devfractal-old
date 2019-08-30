@@ -1,8 +1,8 @@
 import { FormikActions } from 'formik'
-import { TypeOf } from 'io-ts'
 import React from 'react'
 import { Simple } from 'technoidentity-devfractal'
 import { component, Section } from 'technoidentity-devfractal'
+import { TypeOf } from 'technoidentity-spec'
 import { fn, props } from 'technoidentity-utils'
 import { Todo } from './08.todoAPI'
 

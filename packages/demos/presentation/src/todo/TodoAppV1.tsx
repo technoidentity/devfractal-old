@@ -1,6 +1,4 @@
 import { Form, Formik } from 'formik'
-import { type } from 'io-ts'
-import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import React from 'react'
 import {
   Button,
@@ -17,6 +15,8 @@ import {
   Title,
   useParams,
 } from 'technoidentity-devfractal'
+import { type } from 'technoidentity-spec'
+import { IntFromString } from 'technoidentity-spec'
 import { empty } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
