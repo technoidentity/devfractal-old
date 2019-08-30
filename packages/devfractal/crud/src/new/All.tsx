@@ -1,10 +1,10 @@
 import { API, APIQuery, Page } from 'devfractal-api'
 import { Route, useHistory, useLocation } from 'devfractal-router'
 import { Get } from 'devfractal-ui-api'
-import { Mixed, record, string, TypeOf } from 'io-ts'
-import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import { parse, stringify } from 'query-string'
 import React from 'react'
+import { Mixed, record, string, TypeOf } from 'technoidentity-spec'
+import { IntFromString } from 'technoidentity-spec'
 import { cast, HasProps, opt } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef

@@ -1,5 +1,5 @@
-import * as t from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
+import * as t from 'technoidentity-spec'
+import { date } from 'technoidentity-spec'
 import { schemaFromRT } from './iotsToMongoose'
 
 test('io-ts type to mongoose schema', () => {

@@ -1,5 +1,5 @@
-import * as t from 'io-ts'
 import React from 'react'
+import * as t from 'technoidentity-spec'
 import { assertCast } from 'technoidentity-utils'
 
 export function component<Spec extends t.Mixed>(

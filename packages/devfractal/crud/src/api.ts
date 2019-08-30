@@ -1,5 +1,11 @@
 import axios, { AxiosPromise } from 'axios'
-import { Mixed, readonlyArray, ReadonlyArrayC, Type, TypeOf } from 'io-ts'
+import {
+  Mixed,
+  readonlyArray,
+  ReadonlyArrayC,
+  Type,
+  TypeOf,
+} from 'technoidentity-spec'
 import { cast, toPromise } from 'technoidentity-utils'
 import { apiURLs, URLs } from './urls'
 

@@ -1,4 +1,4 @@
-import * as t from 'io-ts'
+import * as t from 'technoidentity-spec'
 import { keys } from 'technoidentity-utils'
 
 export type ClassNameArg =

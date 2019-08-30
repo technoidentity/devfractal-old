@@ -1,7 +1,7 @@
 import { useHistory, useLocation } from 'devfractal-router'
-import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import { stringify } from 'query-string'
 import React from 'react'
+import { IntFromString } from 'technoidentity-spec'
 import { opt } from 'technoidentity-utils'
 import { Pager } from './Pager'
 import { useQuery } from './useQuery'

@@ -1,6 +1,4 @@
 import { ErrorMessage, Field, FieldProps, Form, Formik } from 'formik'
-import { type } from 'io-ts'
-import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import React from 'react'
 import {
   Button,
@@ -17,6 +15,8 @@ import {
   useParams,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
+import { type } from 'technoidentity-spec'
+import { IntFromString } from 'technoidentity-spec'
 import * as yup from 'yup'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'

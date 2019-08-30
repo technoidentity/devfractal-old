@@ -3,9 +3,9 @@ import { rest } from 'devfractal-api'
 import { Router, SimpleRedirect } from 'devfractal-router'
 import { Simple } from 'devfractal-simple'
 import { Section } from 'devfractal-ui-core'
-import { boolean, number, string } from 'io-ts'
 import React from 'react'
 import { render } from 'react-dom'
+import { boolean, number, string } from 'technoidentity-spec'
 import { props } from 'technoidentity-utils'
 import {
   ButtonLink,

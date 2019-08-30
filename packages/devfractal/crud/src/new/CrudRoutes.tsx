@@ -1,6 +1,6 @@
 import { API, APIQuery } from 'devfractal-api'
-import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
+import { Mixed, TypeOf } from 'technoidentity-spec'
 import { HasProps } from 'technoidentity-utils'
 import { All, AllComponentProps } from './All'
 import { paths as resPaths } from './common'

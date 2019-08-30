@@ -1,5 +1,5 @@
-import * as t from 'io-ts'
 import { Document, model, Model, Schema } from 'mongoose'
+import * as t from 'technoidentity-spec'
 import { buildObject, keys } from 'technoidentity-utils'
 
 const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {

@@ -1,5 +1,5 @@
 import { SubmitAction } from 'devfractal-api'
-import { Mixed, number, readonlyArray, TypeOf } from 'io-ts'
+import { Mixed, number, readonlyArray, TypeOf } from 'technoidentity-spec'
 import { fn, props, req } from 'technoidentity-utils'
 
 // tslint:disable typedef

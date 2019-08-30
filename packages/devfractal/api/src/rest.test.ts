@@ -1,4 +1,4 @@
-import { boolean, number, string } from 'io-ts'
+import { boolean, number, string } from 'technoidentity-spec'
 import { req } from 'technoidentity-utils'
 import { toJSONServerQuery } from './query'
 import { rest } from './rest'

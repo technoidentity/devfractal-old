@@ -1,3 +1,4 @@
+import { fake } from 'technoidentity-dev-utils'
 import {
   array,
   boolean,
@@ -10,9 +11,8 @@ import {
   tuple,
   type,
   union,
-} from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { fake } from 'technoidentity-dev-utils'
+} from 'technoidentity-spec'
+import { date } from 'technoidentity-spec'
 
 console.log(
   fake(

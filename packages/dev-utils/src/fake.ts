@@ -28,7 +28,7 @@ import {
   UnionType,
   unknown,
   VoidType,
-} from 'io-ts'
+} from 'technoidentity-spec'
 import { buildObject, repeatedly } from 'technoidentity-utils'
 
 const chance: Chance.Chance = new Chance()

@@ -1,4 +1,4 @@
-import { boolean, readonly, string, type, TypeOf } from 'io-ts'
+import { boolean, readonly, string, type, TypeOf } from 'technoidentity-spec'
 import { buildUrl, http as httpAPI } from './http'
 
 // tslint:disable-next-line:typedef

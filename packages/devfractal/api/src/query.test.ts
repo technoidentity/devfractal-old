@@ -1,4 +1,4 @@
-import * as t from 'io-ts'
+import * as t from 'technoidentity-spec'
 import { opt, props } from 'technoidentity-utils'
 import { APIQuery, toAPIQuery, toJSONServerQuery } from './query'
 

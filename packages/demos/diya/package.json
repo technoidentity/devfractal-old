@@ -5,11 +5,8 @@
   "dependencies": {
     "date-fns": "2.0.1",
     "formik": "1.5.8",
-    "fp-ts": "2.0.5",
-    "io-ts": "2.0.1",
-    "io-ts-types": "0.5.0",
+    "technoidentity-spec": "*",
     "lodash-es": "4.17.15",
-    "monocle-ts": "2.0.0",
     "react": "16.9.0",
     "react-datepicker": "2.8.0",
     "react-dom": "16.9.0",

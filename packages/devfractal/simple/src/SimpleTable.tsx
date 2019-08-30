@@ -10,9 +10,9 @@ import {
   Th,
   Tr,
 } from 'devfractal-ui-core'
-import * as t from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
 import React from 'react'
+import * as t from 'technoidentity-spec'
+import { date } from 'technoidentity-spec'
 import { camelCaseToPhrase, keys } from 'technoidentity-utils'
 import { formatDate } from './utils'
 

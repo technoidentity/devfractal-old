@@ -1,7 +1,7 @@
 import { formikSubmit } from 'devfractal-forms'
-import { Mixed, TypeOf } from 'io-ts'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
+import { Mixed, TypeOf } from 'technoidentity-spec'
 import { APIRepository, Repository } from './api'
 import { links as links_, paths as paths_ } from './new'
 import { CrudViewsResult, Views } from './Views'

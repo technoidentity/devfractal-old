@@ -42,6 +42,7 @@
     "lint:lib": "lerna run lint --scope='devfractal-*' --scope='technoidentity-*'",
     "lint:meta": "lerna run lint --scope='technoidentity-meta-*'",
     "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
     "types:watch:lib": "lerna run --scope='devfractal-*' --scope='technoidentity-*' --parallel types:watch:verbose",
     "types:watch:meta": "lerna run --scope='devfractal-*' --scope='technoidentity-*' --parallel types:watch:verbose",
     "types:watch": "lerna run --parallel types:watch",

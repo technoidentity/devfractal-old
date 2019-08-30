@@ -1,4 +1,4 @@
-import { Int, keyof, number, string, TypeOf } from 'io-ts'
+import { Int, keyof, number, string, TypeOf } from 'technoidentity-spec'
 import { ISODate, props } from 'technoidentity-utils'
 
 const Shift = keyof({ morning: true, evening: true })

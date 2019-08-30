@@ -1,4 +1,3 @@
-import { keyof, string, TypeOf } from 'io-ts'
 import React from 'react'
 import {
   Column,
@@ -10,6 +9,7 @@ import {
   SubmitAction,
   Title,
 } from 'technoidentity-devfractal'
+import { keyof, string, TypeOf } from 'technoidentity-spec'
 import { empty, fn, req } from 'technoidentity-utils'
 
 const VehicleNumbers = keyof({ first: true, second: true })
