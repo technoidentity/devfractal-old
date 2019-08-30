@@ -45,8 +45,6 @@
     "@types/node": "12.7.2",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
-    "@types/react-router": "5.0.3",
-    "@types/react-router-dom": "4.3.5",
     "@types/react-test-renderer": "16.9.0",
     "@types/yup": "0.26.23",
     "babel-eslint": "10.0.3",
@@ -64,8 +62,6 @@
     "prettier": "1.18.2",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-router": "5.0.1",
-    "react-router-dom": "5.0.1",
     "react-test-render": "1.1.2",
     "react-test-renderer": "16.9.0",
     "rimraf": "3.0.0",
@@ -86,8 +82,6 @@
     "monocle-ts": "2.0.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-router": "5.0.1",
-    "react-router-dom": "5.0.1",
     "yup": "0.27.0"
   },
   "lint-staged": {

@@ -13,8 +13,6 @@
     "react": "16.9.0",
     "react-datepicker": "2.8.0",
     "react-dom": "16.9.0",
-    "react-router": "5.0.1",
-    "react-router-dom": "5.0.1",
     "tcomb": "3.2.29",
     "technoidentity-devfractal": "^1.2.18",
     "yup": "0.27.0"
@@ -26,8 +24,6 @@
     "@types/lodash-es": "4.17.3",
     "@types/node": "12.7.2",
     "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
-    "@types/react-router-dom": "4.3.5",
     "@types/yup": "0.26.23",
     "cross-env": "^5.2.0",
     "eslint": "6.2.2",

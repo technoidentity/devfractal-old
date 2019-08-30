@@ -1,7 +1,6 @@
-import { Route, Router } from 'devfractal-router'
+import { Route, Router, Switch } from 'devfractal-router'
 import { NotFound } from 'devfractal-ui-api'
 import React from 'react'
-import { Switch } from 'react-router'
 import {
   CreateTaskRoute,
   EditTaskRoute,

@@ -1,3 +1,4 @@
+export { Link, NavLink, Switch } from 'react-router-dom'
 export * from './MatchContext'
 export * from './Router'
 export * from './RouterContext'
