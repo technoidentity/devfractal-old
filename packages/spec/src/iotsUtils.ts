@@ -67,16 +67,16 @@ export function props<O extends t.Props, R extends t.Props>(
 
 export const lit: typeof t.literal = t.literal
 
-export interface HasPropsIntersection
+interface HasPropsIntersection
   extends t.IntersectionType<[HasProps, HasProps, ...Array<HasProps>]> {}
 
-export interface HasPropsReadonly extends t.ReadonlyType<HasProps> {}
+interface HasPropsReadonly extends t.ReadonlyType<HasProps> {}
 
-export type HasPropsOnType = HasPropsReadonly | t.ExactType<any>
+type HasPropsOnType = HasPropsReadonly | t.ExactType<any>
 
-export type HasPropsOnProps = t.InterfaceType<any> | t.PartialType<any>
+type HasPropsOnProps = t.InterfaceType<any> | t.PartialType<any>
 
-export type HasProps = HasPropsIntersection | HasPropsOnProps | HasPropsOnType
+type HasProps = HasPropsIntersection | HasPropsOnProps | HasPropsOnType
 
 export function getProps<T extends t.Mixed>(codec: T & HasProps): t.Props {
   switch (codec._tag) {
