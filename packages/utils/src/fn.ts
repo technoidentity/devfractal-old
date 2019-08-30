@@ -1,5 +1,5 @@
-import { failure, identity, success, Type } from 'io-ts'
 import { Function } from 'tcomb'
+import { failure, identity, success, Type } from 'technoidentity-spec'
 
 // tslint:disable no-class no-this
 

@@ -1,6 +1,8 @@
 import {
   array,
   boolean,
+  date,
+  DateFromISOString,
   exact,
   Int,
   intersection,
@@ -17,9 +19,7 @@ import {
   type,
   union,
   unknown,
-} from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
+} from 'technoidentity-spec'
 import { empty } from './empty'
 
 // tslint:disable no-null-keyword typedef

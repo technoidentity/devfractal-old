@@ -1,10 +1,34 @@
-import * as iots from 'io-ts'
 import tcomb from 'tcomb'
+import {
+  AnyArrayType,
+  ArrayType,
+  BooleanType,
+  ExactType,
+  InterfaceType,
+  IntersectionType,
+  KeyofType,
+  LiteralType,
+  Mixed,
+  NullType,
+  NumberType,
+  PartialType,
+  Props,
+  ReadonlyArrayType,
+  ReadonlyType,
+  RefinementType,
+  StringType,
+  TupleType,
+  TypeC,
+  UndefinedType,
+  UnionType,
+  UnknownType,
+  VoidType,
+} from 'technoidentity-spec'
 import { buildObject } from './common'
 import { Literal } from './tcombRefinements'
 
-function rtFromObjectSpec<T extends iots.Props>(
-  spec: iots.TypeC<T>,
+function rtFromObjectSpec<T extends Props>(
+  spec: TypeC<T>,
   options: { readonly strict: boolean } = { strict: false },
 ): tcomb.Struct<T> {
   return tcomb.struct(buildObject(spec.props, rtFromSpec), {
@@ -14,7 +38,7 @@ function rtFromObjectSpec<T extends iots.Props>(
 }
 
 export function rtFromSpec(
-  spec: iots.Mixed,
+  spec: Mixed,
 ):
   | tcomb.Irreducible<any>
   | tcomb.Enums
@@ -25,19 +49,19 @@ export function rtFromSpec(
     return tcomb.Integer
   }
 
-  if (spec instanceof iots.NumberType) {
+  if (spec instanceof NumberType) {
     return tcomb.Number
   }
 
-  if (spec instanceof iots.StringType) {
+  if (spec instanceof StringType) {
     return tcomb.String
   }
 
-  if (spec instanceof iots.LiteralType) {
+  if (spec instanceof LiteralType) {
     return Literal(spec.value)
   }
 
-  if (spec instanceof iots.BooleanType) {
+  if (spec instanceof BooleanType) {
     return tcomb.Boolean
   }
 
@@ -49,67 +73,64 @@ export function rtFromSpec(
     return tcomb.Date
   }
 
-  if (spec instanceof iots.KeyofType) {
+  if (spec instanceof KeyofType) {
     return tcomb.enums(spec.keys)
   }
 
   // TODO: literal type?
 
   if (
-    spec instanceof iots.NullType ||
-    spec instanceof iots.UndefinedType ||
-    spec instanceof iots.VoidType
+    spec instanceof NullType ||
+    spec instanceof UndefinedType ||
+    spec instanceof VoidType
   ) {
     return tcomb.Nil
   }
 
-  if (spec instanceof iots.UnknownType) {
+  if (spec instanceof UnknownType) {
     return tcomb.Any // this looks wrong, but is it?
   }
 
-  if (spec instanceof iots.InterfaceType) {
+  if (spec instanceof InterfaceType) {
     return rtFromObjectSpec(spec)
   }
 
-  if (spec instanceof iots.PartialType) {
+  if (spec instanceof PartialType) {
     return tcomb.struct(
       buildObject(spec.props, p => tcomb.maybe(rtFromSpec(p))),
       { name: spec.name },
     )
   }
 
-  if (spec instanceof iots.ReadonlyType) {
+  if (spec instanceof ReadonlyType) {
     return rtFromSpec(spec.type)
   }
 
-  if (spec instanceof iots.ExactType) {
+  if (spec instanceof ExactType) {
     return rtFromObjectSpec(spec.type, { strict: true })
   }
 
-  if (spec instanceof iots.RefinementType) {
+  if (spec instanceof RefinementType) {
     return tcomb.refinement(rtFromSpec(spec.type), spec.predicate)
   }
 
-  if (
-    spec instanceof iots.ArrayType ||
-    spec instanceof iots.ReadonlyArrayType
-  ) {
+  if (spec instanceof ArrayType || spec instanceof ReadonlyArrayType) {
     return tcomb.list(rtFromSpec(spec.type))
   }
 
-  if (spec instanceof iots.AnyArrayType) {
+  if (spec instanceof AnyArrayType) {
     return tcomb.list(tcomb.Any)
   }
 
-  if (spec instanceof iots.IntersectionType) {
+  if (spec instanceof IntersectionType) {
     return tcomb.intersection(spec.types.map(rtFromSpec))
   }
 
-  if (spec instanceof iots.UnionType) {
+  if (spec instanceof UnionType) {
     return tcomb.union(spec.types.map(rtFromSpec))
   }
 
-  if (spec instanceof iots.TupleType) {
+  if (spec instanceof TupleType) {
     return tcomb.tuple(spec.types.map(rtFromSpec))
   }
 

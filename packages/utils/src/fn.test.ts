@@ -1,4 +1,4 @@
-import { number, TypeOf } from 'io-ts'
+import { number, TypeOf } from 'technoidentity-spec'
 import { fn } from './fn'
 import { cast, props } from './iotsUtils'
 

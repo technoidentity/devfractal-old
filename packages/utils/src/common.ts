@@ -1,8 +1,6 @@
 import { startOfDay } from 'date-fns'
-import { union } from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
-import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { assert } from 'tcomb'
+import { date, DateFromISOString, union } from 'technoidentity-spec'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
 

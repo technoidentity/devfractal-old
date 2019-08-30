@@ -21,7 +21,7 @@ import {
   UnionType,
   UnknownType,
   VoidType,
-} from 'io-ts'
+} from 'technoidentity-spec'
 import { buildObject, keys, today } from './common'
 
 export function empty<T extends Mixed>(spec: T): TypeOf<T> {
