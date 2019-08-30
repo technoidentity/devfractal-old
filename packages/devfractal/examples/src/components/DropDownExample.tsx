@@ -1,4 +1,4 @@
-import { Route } from 'devfractal-router'
+import { Route, SimpleRedirect } from 'devfractal-router'
 import {
   DropDown,
   DropDownDivider,
@@ -8,7 +8,6 @@ import {
 } from 'devfractal-ui'
 import { Field, Level, LevelItem, Section, Title } from 'devfractal-ui-core'
 import React from 'react'
-import { Redirect } from 'react-router'
 
 const DropdownExampleTab: React.FC = () => (
   <>
@@ -139,11 +138,11 @@ export const DropdownExample: React.FC = () => <DropdownExamplesTab />
 
 export const DropdownExampleRoutes: React.FC = () => (
   <>
-    <Route
-      exact
-      path="/components/dropdown"
-      render={() => <Redirect to="/components/dropdown/dropdown" />}
+    <SimpleRedirect
+      from="/components/dropdown"
+      to="/components/dropdown/dropdown"
     />
+    } />
     <Route path="/components/dropdown" component={DropdownExamplesTab} />
     <Route
       path="/components/dropdown/dropdown"
