@@ -30,8 +30,6 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.0.1",
-    "jest-cli": "24.9.0",
     "io-ts": "2.0.1",
     "io-ts-types": "0.5.0",
     "fp-ts": "2.0.5",
@@ -42,12 +40,10 @@
     "@types/jest": "24.0.18",
     "@typescript-eslint/parser": "2.0.0",
     "babel-eslint": "10.0.3",
-    "eslint": "6.2.2",
-    "eslint-config-prettier": "6.1.0",
-    "eslint-plugin-prettier": "3.1.0",
+    "eslint": "6.3.0",
     "jest": "24.9.0",
+    "jest-cli": "24.9.0",
     "parcel-bundler": "1.12.3",
-    "ts-jest": "24.0.2",
     "tsdx": "0.9.0"
   },
   "lint-staged": {
