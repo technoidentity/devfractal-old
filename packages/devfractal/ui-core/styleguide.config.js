@@ -2,8 +2,7 @@
 const { createConfig, babel, typescript, css } = require('webpack-blocks')
 const path = require('path')
 
-const fsErrorFix = () => (context, { merge }) =>
-  merge({ node: { fs: 'empty' } })
+const fsErrorFix = () => (_, { merge }) => merge({ node: { fs: 'empty' } })
 
 const bulmaPath =
   process.env.NODE_ENV === 'production'
@@ -30,7 +29,7 @@ module.exports = {
     './tsconfig.json',
     {
       propFilter: props =>
-        props.parent && props.parent.fileName.startsWith('devfractal'),
+        !(props.parent && props.parent.fileName.includes('node_modules')),
     },
   ).parse,
 
