@@ -4,6 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router'
 import {
   Button,
   CheckBox,
+  CreateLink,
   Field,
   Table,
   TableBody,
@@ -12,9 +13,7 @@ import {
   Th,
   Tr,
 } from 'technoidentity-devfractal'
-import { CreateLink } from 'technoidentity-devfractal'
-import { boolean } from 'technoidentity-spec'
-import { date } from 'technoidentity-spec'
+import { boolean, date } from 'technoidentity-spec'
 import { capitalize } from 'technoidentity-utils'
 import { Todo } from './common'
 
