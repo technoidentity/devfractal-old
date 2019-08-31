@@ -8,7 +8,8 @@ const fsErrorFix = () => (context, { merge }) =>
 const bulmaPath =
   process.env.NODE_ENV === 'production'
     ? 'node_modules/bulma/css/bulma.css'
-    : '../../node_modules/bulma/css/bulma.css'
+    : '../../../node_modules/bulma/css/bulma.css'
+
 module.exports = {
   styles: {
     StyleGuide: {
@@ -24,7 +25,7 @@ module.exports = {
       },
     },
   },
-  require: [path.join(__dirname)],
+  require: [path.join(__dirname, bulmaPath)],
   propsParser: require('react-docgen-typescript').withCustomConfig(
     './tsconfig.json',
     {
