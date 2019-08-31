@@ -29,7 +29,7 @@ module.exports = {
     './tsconfig.json',
     {
       propFilter: props =>
-        props.parent && props.parent.fileName.startsWith('devfractal'),
+        !(props.parent && props.parent.fileName.includes('node_modules')),
     },
   ).parse,
 
