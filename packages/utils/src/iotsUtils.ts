@@ -109,7 +109,7 @@ export function getProps<T extends Mixed>(codec: T & HasProps): Props {
       return codec.props
     case 'IntersectionType':
       return codec.types.reduce<Props>(
-        (props, type) => ({ ...props, ...getProps(type) }),
+        (props, type) => ({ ...props, ...getProps(type as any) }),
         {},
       )
   }
@@ -128,7 +128,7 @@ export function getProp<T extends Mixed>(
       return codec.props[key]
     case 'IntersectionType':
       for (const t of codec.types) {
-        const result: Mixed | undefined = getProp(t, key)
+        const result: Mixed | undefined = getProp(t as any, key)
         if (result !== undefined) {
           return result
         }

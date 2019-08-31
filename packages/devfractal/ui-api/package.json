@@ -23,30 +23,36 @@
     "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
     "validate:noFix": "yarn lint && yarn types && yarn test",
-    "validate": "yarn lint:fix && yarn types && yarn test"
+    "validate": "yarn lint:fix && yarn types && yarn test",
+    "sg": "styleguidist server",
+    "sg:build": "styleguidist build"
   },
   "dependencies": {
     "cleave.js": "1.5.3",
     "date-fns": "2.0.1",
     "immer": "3.2.0",
-    "react-datepicker": "2.8.0",
-    "technoidentity-utils": "^1.2.18",
+    "react-datepicker": "2.9.3",
+    "technoidentity-utils": "1.2.18",
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "devfractal-api": "^1.2.18",
-    "devfractal-router": "^1.2.18",
-    "devfractal-ui": "^1.2.18",
-    "devfractal-ui-core": "^1.2.18",
-    "eslint": "6.2.2",
+    "cross-env": "5.2.0",
+    "devfractal-api": "1.2.18",
+    "devfractal-router": "1.2.18",
+    "devfractal-ui-core": "1.2.18",
+    "devfractal-ui": "1.2.18",
+    "eslint": "6.3.0",
     "husky": "3.0.4",
-    "technoidentity-spec": "*",
     "jest": "24.9.0",
     "lint-staged": "9.2.5",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
+    "react-styleguidist": "9.1.16",
     "rimraf": "3.0.0",
-    "tsdx": "0.9.0"
+    "technoidentity-spec": "*",
+    "tsdx": "0.9.0",
+    "tslint": "5.19.0",
+    "typescript": "3.5.3"
   },
   "peerDependencies": {
     "formik": "1.5.8",
