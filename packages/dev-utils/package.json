@@ -40,17 +40,10 @@
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "@types/chance": "1.0.6",
-    "@types/jest": "24.0.18",
-    "@types/json-server": "0.14.1",
-    "babel-eslint": "10.0.3",
-    "eslint": "6.2.2",
-    "eslint-config-prettier": "6.1.0",
-    "eslint-plugin-prettier": "3.1.0",
+    "confusing-browser-globals": "1.0.8",
     "jest": "24.9.0",
     "jest-cli": "24.9.0",
     "parcel-bundler": "1.12.3",
-    "ts-jest": "24.0.2",
     "ts-node": "8.3.0",
     "ts-node-dev": "1.0.0-pre.40",
     "tsdx": "0.9.0",
