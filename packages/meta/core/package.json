@@ -34,7 +34,6 @@
     "eslint": "6.2.2",
     "technoidentity-spec": "*",
     "jest": "24.9.0",
-    "jest-cli": "24.9.0",
     "json-schema": "0.2.3",
     "tcomb": "3.2.29",
     "tcomb-validation": "3.4.1",

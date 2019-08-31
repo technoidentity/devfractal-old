@@ -42,7 +42,6 @@
     "babel-eslint": "10.0.3",
     "eslint": "6.3.0",
     "jest": "24.9.0",
-    "jest-cli": "24.9.0",
     "parcel-bundler": "1.12.3",
     "tsdx": "0.9.0"
   },
