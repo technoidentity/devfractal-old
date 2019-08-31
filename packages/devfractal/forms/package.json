@@ -6,33 +6,32 @@
   "module": "dist/devfractal-forms.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "build": "tsdx build",
+    "elint:fix": "yarn elint --quiet --fix",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "lib": "tsdx watch",
+    "lint:fix": "yarn elint:fix && yarn tlint:fix",
+    "lint": "yarn elint && yarn tlint",
     "precommit": "yarn lint-staged",
     "prepush": "yarn validate:noFix",
+    "sg:build": "styleguidist build",
+    "sg": "styleguidist server",
     "start": "parcel index.html --open",
-    "lib": "tsdx watch",
-    "build": "tsdx build",
-    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "test:watch": "yarn test --watch",
-    "elint": "eslint './src/**/*.{js,ts,tsx}'",
-    "elint:fix": "yarn elint --quiet --fix",
-    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "tlint:fix": "yarn lint --fix",
-    "lint": "yarn elint && yarn tlint",
-    "lint:fix": "yarn elint:fix && yarn tlint:fix",
-    "types": "tsc --noEmit -p .",
+    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "types": "tsc --noEmit -p .",
     "validate:noFix": "yarn lint && yarn types && yarn test",
-    "validate": "yarn lint:fix && yarn types && yarn test",
-    "sg": "styleguidist server",
-    "sg:build": "styleguidist build"
+    "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
     "cleave.js": "1.5.3",
     "date-fns": "2.0.1",
     "immer": "3.2.0",
     "react-datepicker": "2.9.3",
-    "technoidentity-utils": "1.2.18",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -48,16 +47,17 @@
     "react-styleguidist": "9.1.16",
     "rimraf": "3.0.0",
     "technoidentity-spec": "*",
+    "technoidentity-utils": "1.2.18",
     "tsdx": "0.9.0",
     "tslint": "5.19.0",
     "typescript": "3.5.3"
   },
   "peerDependencies": {
     "formik": "1.5.8",
-    "technoidentity-spec": "*",
-    "io-ts-promise": "2.0.0",
+    "react-dom": "16.9.0",
     "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "technoidentity-spec": "*",
+    "technoidentity-utils": "1.2.18"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
