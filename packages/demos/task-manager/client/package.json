@@ -33,8 +33,7 @@
     "prettier": "1.18.2",
     "rimraf": "3.0.0",
     "tslint": "5.19.0",
-    "typescript": "3.5.3",
-    "typescript-tslint-plugin": "0.5.4"
+    "typescript": "3.5.3"
   },
   "scripts": {
     "precommit": "yarn lint-staged",
