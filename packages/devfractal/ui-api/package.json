@@ -40,7 +40,6 @@
     "devfractal-api": "1.2.18",
     "devfractal-router": "1.2.18",
     "devfractal-ui-core": "1.2.18",
-    "devfractal-ui": "1.2.18",
     "eslint": "6.3.0",
     "husky": "3.0.4",
     "jest": "24.9.0",
@@ -55,11 +54,9 @@
     "typescript": "3.5.3"
   },
   "peerDependencies": {
-    "formik": "1.5.8",
-    "io-ts-promise": "2.0.0",
-    "react-dom": "16.9.0",
-    "react": "16.9.0",
-    "technoidentity-spec": "*"
+    "devfractal-api": "1.2.18",
+    "devfractal-router": "1.2.18",
+    "devfractal-ui-core": "1.2.18"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

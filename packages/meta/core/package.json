@@ -35,7 +35,6 @@
     "jest": "24.9.0",
     "json-schema": "0.2.3",
     "tcomb-validation": "3.4.1",
-    "tcomb": "3.2.29",
     "technoidentity-spec": "*",
     "technoidentity-utils": "1.2.18",
     "cross-env": "5.2.0",
@@ -46,8 +45,6 @@
     "tsdx": "0.9.0"
   },
   "peerDependencies": {
-    "technoidentity-spec": "*",
-    "tcomb": "3.2.29",
     "technoidentity-utils": "1.2.18"
   },
   "lint-staged": {
