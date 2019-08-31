@@ -49,8 +49,7 @@
     "react-test-renderer": "16.9.0",
     "rimraf": "3.0.0",
     "tslint": "5.19.0",
-    "typescript": "3.5.3",
-    "typescript-tslint-plugin": "0.5.4"
+    "typescript": "3.5.3"
   },
   "peerDependencies": {
     "firebase": "6.4.2",
