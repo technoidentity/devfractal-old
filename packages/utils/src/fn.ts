@@ -1,4 +1,3 @@
-import { Function } from 'tcomb'
 import { failure, identity, success, Type } from 'technoidentity-spec'
 
 // tslint:disable no-class no-this
@@ -9,7 +8,7 @@ export class FnType<F extends Function> extends Type<F> {
   constructor() {
     super(
       'FnType',
-      (u): u is F => Function.is(u),
+      (u): u is F => typeof u === 'function',
 
       (u, c) => (this.is(u) ? success(u) : failure(u, c)),
       identity,
