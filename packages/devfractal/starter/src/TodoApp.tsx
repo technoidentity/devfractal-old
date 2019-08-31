@@ -32,9 +32,13 @@ const todoApi = rest(Todo, 'id', {
 const ps = paths(todoApi.resource)
 const ls = links(todoApi.resource)
 
+const CenteredTitle: React.FC = ({ children }) => (
+  <Title textAlignment="centered">{children}</Title>
+)
+
 const TodoForm = formComponent(Todo, ({ onSubmit, initial, edit }) => (
   <>
-    <Title textAlignment="centered">{edit ? 'Create' : 'Edit'} Todo</Title>
+    <CenteredTitle>{edit ? 'Edit Todo' : 'Create Todo'}</CenteredTitle>
     <Editor id="id" data={initial} onSubmit={onSubmit} />
   </>
 ))
@@ -44,9 +48,10 @@ const TodoList = listComponent(Todo, ({ data }) => (
     <CreateLink alignment="right" variant="primary" to={ls.create}>
       Add
     </CreateLink>
+
     <CrudTable
       data={data}
-      headers={['title', 'done']}
+      headers={['title', 'scheduled', 'done']}
       editTo={v => ls.edit(v.id)}
     />
   </>
@@ -63,7 +68,7 @@ export const EditTodoRoute = () => (
 const TodoListRoute = () => {
   return (
     <>
-      <Title textAlignment="centered">Todo List</Title>
+      <CenteredTitle>Todo List</CenteredTitle>
       <All path={ps.list} api={todoApi} list={TodoList} />
     </>
   )
