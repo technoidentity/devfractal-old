@@ -54,7 +54,6 @@
     "typescript": "3.5.3"
   },
   "peerDependencies": {
-    "devfractal-api": "1.2.18",
     "devfractal-simple": "1.2.18",
     "devfractal-ui-api": "1.2.18"
   },
