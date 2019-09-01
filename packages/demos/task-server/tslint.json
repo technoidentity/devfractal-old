@@ -1,0 +1,6 @@
+{
+  "extends": "../../../tslint.server.json",
+  "rules": {
+    "typedef": false
+  }
+}
