@@ -5,7 +5,8 @@
     "packages/common/*",
     "packages/demos/*",
     "packages/devfractal/*",
-    "packages/meta/*"
+    "packages/meta/*",
+    "packages/sites/*"
   ],
   "devDependencies": {
     "@babel/core": "7.5.5",
