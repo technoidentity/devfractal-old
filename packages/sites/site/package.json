@@ -1,5 +1,5 @@
 {
-  "name": "devfractal-site",
+  "name": "site-devfractal",
   "version": "1.2.18",
   "private": true,
   "main": "build/index.js",
