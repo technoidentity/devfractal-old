@@ -1,19 +1,7 @@
 ### Card
 
 ```jsx
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardFooterItem,
-  CardHeader,
-  CardHeaderIcon,
-  CardHeaderTitle,
-  CardImage,
-} from './Card'
-import { Section, Media, MediaLeft, MediaContent } from '../layout'
-import { Title, SubTitle, Image, Content } from '../visual'
-;<Section>
+<Section>
   <Card>
     <CardHeader>
       <CardHeaderTitle alignment="centered">Card</CardHeaderTitle>

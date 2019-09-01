@@ -26,6 +26,3 @@ export const Content: React.FC<ContentProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Content

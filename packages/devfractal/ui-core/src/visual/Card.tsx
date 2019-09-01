@@ -130,6 +130,3 @@ export const CardImage: React.FC<CardImageProps> = ({ children, ...props }) => {
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default CardHeader

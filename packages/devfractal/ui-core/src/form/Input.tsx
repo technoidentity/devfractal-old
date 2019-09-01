@@ -79,6 +79,3 @@ export const Input: React.FC<InputProps> = ({
     </ControlWrapper>
   )
 }
-
-// tslint:disable no-default-export
-export default Input

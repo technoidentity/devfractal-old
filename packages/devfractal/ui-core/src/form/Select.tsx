@@ -61,6 +61,3 @@ export const Select: React.FC<SelectProps> = ({
     </ControlWrapper>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Select

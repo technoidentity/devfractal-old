@@ -1,9 +1,7 @@
 ### Default Field
 
 ```jsx
-import { Field } from './Field'
-import { Label, Input } from '../form'
-;<Field>
+<Field>
   <Label>Name</Label>
   <Input type="text" placeholder="Text input" />
 </Field>
@@ -12,9 +10,7 @@ import { Label, Input } from '../form'
 ### Field with properties
 
 ```jsx
-import { Field, FieldLabel, FieldHelp } from './Field'
-import { Label, Input, Button } from '../form'
-;<div>
+<div>
   <Field grouped={true} groupModifier="grouped-right">
     <Button>Submit</Button>
     <Button>Reset</Button>

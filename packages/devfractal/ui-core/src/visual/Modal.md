@@ -1,19 +1,7 @@
 ### ModalCard
 
 ```jsx
-import {
-  Modal,
-  ModalBackground,
-  ModalContent,
-  ModalCardHead,
-  ModalCardTitle,
-  ModalCardBody,
-  ModalCardFoot,
-} from './Modal'
-import Image from './Image'
-import Delete from './Delete'
-import { Button } from '../form'
-;<div>
+<div>
   <Button onClick={() => setState({ isOpen: true })}>Launch Card Modal</Button>
   <Modal active={state.isOpen} noClose>
     <ModalBackground />
@@ -41,10 +29,7 @@ import { Button } from '../form'
 ### ModalImage
 
 ```jsx
-import { Modal, ModalBackground, ModalContent } from './Modal'
-import { Button } from '../form'
-import Image from './Image'
-;<div>
+<div>
   <Button onClick={() => setState({ isOpen: true })}>Launch Image Modal</Button>
   <Modal
     active={state.isOpen}

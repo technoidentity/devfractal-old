@@ -19,6 +19,3 @@ export const CheckBox: React.FC<CheckBoxProps> = ({ children, ...props }) => (
     </label>
   </ControlWrapper>
 )
-
-// tslint:disable no-default-export
-export default CheckBox

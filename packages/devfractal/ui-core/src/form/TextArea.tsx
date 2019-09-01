@@ -73,6 +73,3 @@ export const TextArea: React.FC<TextAreaProps> = ({
     </ControlWrapper>
   )
 }
-
-// tslint:disable no-default-export
-export default TextArea

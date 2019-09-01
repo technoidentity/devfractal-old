@@ -1,8 +1,7 @@
 ### Default Message
 
 ```jsx
-import { Message, MessageBody } from './Message'
-;<Message>
+<Message>
   <MessageHeader>Hello World</MessageHeader>
   <MessageBody>message blocks, to emphasize part of your page</MessageBody>
 </Message>
@@ -11,8 +10,7 @@ import { Message, MessageBody } from './Message'
 ### Message with all properties
 
 ```jsx
-import { Message, MessageBody } from './Message'
-;<Message variant="primary">
+<Message variant="primary">
   <MessageBody>
     Colored message blocks, to emphasize part of your page
   </MessageBody>

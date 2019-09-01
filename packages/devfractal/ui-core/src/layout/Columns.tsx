@@ -56,6 +56,3 @@ export const Columns: React.FC<ColumnsProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Columns

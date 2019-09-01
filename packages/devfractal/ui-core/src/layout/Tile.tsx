@@ -62,6 +62,3 @@ export const Tile: React.FC<TileProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Tile

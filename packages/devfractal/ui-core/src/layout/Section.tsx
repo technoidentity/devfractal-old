@@ -24,6 +24,3 @@ export const Section: React.FC<SectionProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Section

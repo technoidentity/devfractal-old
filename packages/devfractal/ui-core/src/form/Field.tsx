@@ -158,6 +158,3 @@ export const FormField: React.FC<FormFieldProps> = ({
     <FieldHelp variant={helpType}>{helpText}</FieldHelp>
   </Field>
 )
-
-// tslint:disable-next-line: no-default-export
-export default FieldBody

@@ -1,9 +1,7 @@
 ### Default Columns
 
 ```jsx
-import { Column } from './Column'
-import { Notification } from '../visual'
-;<div>
+<div>
   <Columns>
     <Column>
       <Notification variant="primary">First Column</Notification>
@@ -26,9 +24,7 @@ import { Notification } from '../visual'
 ### Columns with all properties
 
 ```jsx
-import { Column } from './Column'
-import { Notification } from '../visual'
-;<Columns
+<Columns
   gapLess={false}
   multiline={true}
   verticallyCentered={false}

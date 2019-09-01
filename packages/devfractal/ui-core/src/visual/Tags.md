@@ -1,8 +1,7 @@
 ### Default Tags
 
 ```jsx
-import Tag from './Tag'
-;<Tags>
+<Tags>
   <Tag>one</Tag>
   <Tag>two</Tag>
   <Tag>three</Tag>
@@ -12,8 +11,7 @@ import Tag from './Tag'
 ### Tags with all properties
 
 ```jsx
-import Tag from './Tag'
-;<Tags alignment="centered" addons={false}>
+<Tags alignment="centered" addons={false}>
   <Tag>one</Tag>
   <Tag>two</Tag>
   <Tag>three</Tag>

@@ -125,6 +125,3 @@ export const Radio: React.FC<RadioProps> = args => {
     </label>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default RadioGroup

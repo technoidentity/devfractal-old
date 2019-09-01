@@ -1,18 +1,7 @@
 ### Default Navbar
 
 ```jsx
-import {
-  Navbar,
-  NavbarItem,
-  NavbarBurger,
-  NavbarMenu,
-  NavbarStart,
-  NavbarEnd,
-  NavbarLink,
-  NavbarDropDown,
-  NavbarDivider,
-} from './Navbar'
-;<Navbar>
+<Navbar>
   <NavbarBrand>
     <NavbarItem>
       <img
@@ -55,18 +44,7 @@ import {
 ### Navbar with all properties
 
 ```jsx
-import {
-  Navbar,
-  NavbarItem,
-  NavbarBurger,
-  NavbarMenu,
-  NavbarStart,
-  NavbarEnd,
-  NavbarLink,
-  NavbarDropDown,
-  NavbarDivider,
-} from './Navbar'
-;<Navbar modifier="transparent" variant="info">
+<Navbar modifier="transparent" variant="info">
   <NavbarBrand>
     <NavbarItem>
       <img

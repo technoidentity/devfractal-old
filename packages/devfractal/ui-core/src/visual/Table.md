@@ -1,8 +1,7 @@
 ### Default Table
 
 ```jsx
-import { Table, TableBody, Tr, Td, Th } from './Table'
-;<Table>
+<Table>
   <TableHead>
     <Tr>
       <Th>id</Th>
@@ -29,8 +28,7 @@ import { Table, TableBody, Tr, Td, Th } from './Table'
 ### Table with all properties
 
 ```jsx
-import { Table, TableBody, Tr, Th, Td } from './Table'
-;<Table
+<Table
   bordered={true}
   striped={false}
   narrow={false}
@@ -63,8 +61,7 @@ import { Table, TableBody, Tr, Th, Td } from './Table'
 ### Table with properties applicable to Td,Th,Tr
 
 ```jsx
-import { Table, TableBody, Tr, Th, Td } from './Table'
-;<Table>
+<Table>
   <TableHead>
     <Tr selected={false}>
       <Th variant="primary" selected={false} narrow={false}>

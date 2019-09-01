@@ -1,8 +1,7 @@
 ### Default level
 
 ```jsx
-import { Level } from './Level'
-;<Level>
+<Level>
   <LevelItem>
     <LevelItem>
       <strong>All</strong>
@@ -23,8 +22,7 @@ import { Level } from './Level'
 ### Level with all properties
 
 ```jsx
-import { Level } from './Level'
-;<Level modifier="mobile">
+<Level modifier="mobile">
   <LevelItem>
     <LevelItem>
       <strong>All</strong>
@@ -45,8 +43,7 @@ import { Level } from './Level'
 ### LevelItem with all properties
 
 ```jsx
-import { Level } from './Level'
-;<Level>
+<Level>
   <LevelItem direction="right">
     <LevelItem>
       <strong>All</strong>

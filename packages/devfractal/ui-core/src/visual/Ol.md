@@ -1,18 +1,19 @@
 ### Default Ol
 
 ```jsx
-<Ol>
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</Ol>
+<Content>
+  <Ol>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </Ol>
+</Content>
 ```
 
 ### Ol with all properties
 
 ```jsx
-import { Content } from '../visual'
-;<Content>
+<Content>
   <Ol modifier="upper-alpha">
     <li>Coffee</li>
     <li>Tea</li>

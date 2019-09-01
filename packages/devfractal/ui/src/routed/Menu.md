@@ -1,8 +1,7 @@
 ### Menu
 
 ```jsx
-import { Menu, MenuList, MenuItem } from './Menu'
-;<Menu>
+<Menu>
   <MenuLabel>General</MenuLabel>
   <MenuList>
     <MenuItem>

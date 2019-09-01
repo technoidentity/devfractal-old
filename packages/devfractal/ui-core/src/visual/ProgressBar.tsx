@@ -53,6 +53,3 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default ProgressBar

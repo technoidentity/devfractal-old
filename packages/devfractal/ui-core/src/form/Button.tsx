@@ -90,6 +90,3 @@ export const Button: React.FC<ButtonProps> = ({
     </ControlWrapper>
   )
 }
-
-// tslint:disable no-default-export
-export default Button

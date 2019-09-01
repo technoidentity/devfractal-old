@@ -1,8 +1,7 @@
 ### Default ButtonsGroup
 
 ```jsx
-import Button from './Button'
-;<ButtonsGroup>
+<ButtonsGroup>
   <Button>Submit</Button>
   <Button>Reset</Button>
 </ButtonsGroup>
@@ -11,8 +10,7 @@ import Button from './Button'
 ### ButtonsGroup with all properties
 
 ```jsx
-import Button from './Button'
-;<ButtonsGroup addons alignment="centered">
+<ButtonsGroup addons alignment="centered">
   <Button>Submit</Button>
   <Button>Reset</Button>
 </ButtonsGroup>

@@ -82,6 +82,3 @@ export const File: React.FC<FileProps> = ({
     </div>
   )
 }
-
-// tslint:disable no-default-export
-export default File

@@ -1,12 +1,7 @@
 ### Panel
 
 ```jsx
-import {
-  faBook,
-  faCodeBranch,
-  faSearch,
-} from '@fortawesome/free-solid-svg-icons'
-import { Panel, PanelBlock, PanelTabs, PanelTabsItem, PanelIcon } from './Panel'
+import { faBook, faCodeBranch } from '@fortawesome/free-solid-svg-icons'
 ;<Panel>
   <PanelHeading>repositories</PanelHeading>
   <PanelBlock>

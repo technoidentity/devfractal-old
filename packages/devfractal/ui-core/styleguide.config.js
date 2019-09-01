@@ -24,7 +24,10 @@ module.exports = {
       },
     },
   },
-  require: [path.join(__dirname, bulmaPath)],
+  require: [
+    path.join(__dirname, bulmaPath),
+    path.resolve(__dirname, 'styleguideSetup.js'),
+  ],
   propsParser: require('react-docgen-typescript').withCustomConfig(
     './tsconfig.json',
     {

@@ -76,6 +76,3 @@ export const MessageBody: React.FC<MessageBodyProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default MessageHeader

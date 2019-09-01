@@ -10,6 +10,3 @@ export const Box: React.FC<BoxProps> = ({ children, ...props }) => (
     {children}
   </El>
 )
-
-// tslint:disable-next-line: no-default-export
-export default Box
