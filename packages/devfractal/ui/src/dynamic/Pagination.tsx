@@ -1,8 +1,4 @@
-import {
-  classNamesHelper,
-  El,
-  Helpers,
-} from 'devfractal-ui-core'
+import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
 
 export interface PaginationProps
@@ -156,6 +152,3 @@ export const PaginationNext: React.FC<PaginationNextProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default PaginationLink

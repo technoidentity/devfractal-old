@@ -34,6 +34,3 @@ export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default ButtonsGroup

@@ -25,7 +25,10 @@ module.exports = {
       },
     },
   },
-  require: [path.join(__dirname, bulmaPath)],
+  require: [
+    path.join(__dirname, bulmaPath),
+    path.resolve(__dirname, 'styleguideSetup.js'),
+  ],
   propsParser: require('react-docgen-typescript').withCustomConfig(
     './tsconfig.json',
     {
@@ -38,10 +41,7 @@ module.exports = {
   components: './src/**/[A-Z]*.tsx',
   ignore: [
     './src/App.tsx',
-    './src/crud/Views.tsx',
-    './src/base/TableContentLoader.tsx',
-    './src/dynamic/DynamicRouter.tsx',
-    './src/simple/SimpleForm.tsx',
+    './src/routed/DynamicRouter.tsx',
     './src/**/*.test.tsx',
     './src/**/*.test.ts',
   ],
