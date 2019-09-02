@@ -19,8 +19,6 @@ export interface CrudRoutesProps<
   queryFn?(search: string): APIQuery<TypeOf<Spec>>
 }
 
-// tslint:disable no-unbound-method
-
 export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   api,
   list,
@@ -28,18 +26,13 @@ export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   paths = resPaths(api.resource),
   redirectTo = paths.list,
 }: CrudRoutesProps<Spec, ID>): JSX.Element {
+  const { create, edit, list: listPath } = paths
+
   return (
     <>
-      <Edit path={paths.edit} api={api} form={form} redirectTo={redirectTo} />
-
-      <All api={api} list={list} path={paths.list} />
-
-      <Create
-        path={paths.create}
-        redirectTo={redirectTo}
-        api={api}
-        form={form}
-      />
+      <Edit path={edit} api={api} form={form} redirectTo={redirectTo} />
+      <All api={api} list={list} path={listPath} />
+      <Create path={create} redirectTo={redirectTo} api={api} form={form} />
     </>
   )
 }
