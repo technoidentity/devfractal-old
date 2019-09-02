@@ -1,11 +1,4 @@
-import {
-  MArray,
-  MBool,
-  MDate,
-  MMT,
-  MNumber,
-  MString,
-} from 'technoidentity-meta-core'
+import { MArray, MBool, MDate, MMT, MNumber, MString } from 'meta-core'
 import { metaToModel } from './metaToMongoose'
 
 // tslint:disable typedef no-object-mutation

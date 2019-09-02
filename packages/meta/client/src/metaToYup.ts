@@ -10,7 +10,7 @@ import {
   NumberRefinements,
   StringMT,
   StringRefinements,
-} from 'technoidentity-meta-core'
+} from 'meta-core'
 import { buildObject } from 'technoidentity-utils'
 import {
   array,

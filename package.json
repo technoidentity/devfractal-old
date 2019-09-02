@@ -97,7 +97,7 @@
     "lint:meta": "lerna run lint --scope='meta-*'",
     "lint": "lerna run lint",
     "publish:lib": "lerna publish --scope='devfractal-*' --scope='technoidentity-*'",
-    "publish:meta": "lerna publish --scope='technoidentity-meta-*'",
+    "publish:meta": "lerna publish --scope='meta-*'",
     "publish:all": "lerna publish",
     "refresh": "yarn clean:all && yarn && yarn build && yarn validate",
     "test:common": "lerna run test --scope='technoidentity-*'",

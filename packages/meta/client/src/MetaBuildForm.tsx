@@ -13,8 +13,8 @@ import {
   Text,
 } from 'devfractal-ui-core'
 import { Form, Formik, FormikActions } from 'formik'
+import { PrimitiveMT } from 'meta-core'
 import React from 'react'
-import { PrimitiveMT } from 'technoidentity-meta-core'
 
 export interface MetaBuildFormProps {
   onSubmit(values: any, formikActions: FormikActions<any>): void

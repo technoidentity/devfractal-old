@@ -1,7 +1,7 @@
 import { Viewer } from 'devfractal-crud'
 import { Box, Label } from 'devfractal-ui-core'
+import { MT } from 'meta-core'
 import React from 'react'
-import { MT } from 'technoidentity-meta-core'
 
 export interface MetaViewProps {
   readonly meta: MT
