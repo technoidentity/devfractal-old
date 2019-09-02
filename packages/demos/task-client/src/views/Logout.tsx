@@ -1,4 +1,4 @@
-import { useRedirect } from 'devfractal-api'
+import { useRedirect } from 'devfractal-ui-api'
 import { Button, component } from 'devfractal-ui-core'
 import React from 'react'
 import { string } from 'technoidentity-spec'

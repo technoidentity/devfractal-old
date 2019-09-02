@@ -1,5 +1,5 @@
-import { useDel } from 'devfractal-api'
 import React from 'react'
+import { useDel } from './useDel'
 
 export interface DelProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

@@ -1,7 +1,8 @@
-import { SubmitAction, useSubmitReset } from 'devfractal-api'
 import React from 'react'
+import { SubmitAction } from './common'
 import { Get } from './Get'
 import { ServerError } from './ServerError'
+import { useSubmitReset } from './useSubmit'
 
 export interface PatchResetComponentProps<T> {
   readonly initial?: T
