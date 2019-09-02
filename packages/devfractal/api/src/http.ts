@@ -63,59 +63,65 @@ export function buildUrl(options: MethodArgs): string {
   )}${buildQueryString(options.query)}`
 }
 
+function url(options: MethodArgs | string): string {
+  return string.is(options) ? options : buildUrl(options)
+}
+
 // tslint:disable-next-line: typedef
-export function http(config: RequestConfig) {
+export function http({ baseURL, ...config }: RequestConfig) {
   const axios: AxiosInstance = ax.create({
     ...config,
-    baseURL: chop(config.baseURL),
+    baseURL: chop(baseURL),
   })
 
   async function get<Spec extends Mixed>(
-    options: MethodArgs,
+    options: MethodArgs | string,
     type: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
-      .get<InputOf<Spec>>(buildUrl(options))
+      .get<InputOf<Spec>>(url(options))
       .then(res => res.data)
       .then(decode(type))
   }
 
   async function post<Spec extends Mixed>(
-    options: Omit<MethodArgs, 'query'>,
+    options: Omit<MethodArgs, 'query'> | string,
     data: InputOf<Spec>,
     type: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
-      .post<InputOf<Spec>>(buildUrl(options), data)
+      .post<InputOf<Spec>>(url(options), data)
       .then(res => res.data)
       .then(decode(type))
   }
 
   async function patch<Spec extends Mixed>(
-    options: Omit<MethodArgs, 'query'>,
+    options: Omit<MethodArgs, 'query'> | string,
     data: Partial<InputOf<Spec>>,
     type: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
-      .patch<InputOf<Spec>>(buildUrl(options), data)
+      .patch<InputOf<Spec>>(url(options), data)
       .then(res => res.data)
       .then(decode(partial(getProps(type as any))))
   }
 
   async function put<Spec extends Mixed>(
-    options: Omit<MethodArgs, 'query'>,
+    options: Omit<MethodArgs, 'query'> | string,
     data: InputOf<Spec>,
     type: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
-      .put<InputOf<Spec>>(buildUrl(options), data)
+      .put<InputOf<Spec>>(url(options), data)
       .then(res => res.data)
       .then(decode(type))
   }
 
-  async function del(options: Omit<MethodArgs, 'query'>): Promise<void> {
-    return axios.delete(buildUrl(options))
+  async function del(
+    options: Omit<MethodArgs, 'query'> | string,
+  ): Promise<void> {
+    return axios.delete(url(options))
   }
 
-  return { get, del, put, post, patch }
+  return { get, del, put, post, patch, axios }
 }
