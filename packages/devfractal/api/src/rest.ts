@@ -6,6 +6,7 @@ import { APIQuery, toAPIQuery as toQueryFn } from './query'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
 export interface API<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>> {
+  readonly http: ReturnType<typeof httpAPI>
   readonly spec: Spec
   readonly idKey: ID
   readonly resource: string
@@ -137,5 +138,6 @@ export function rest<
     idKey: id,
     spec,
     resource,
+    http,
   }
 }
