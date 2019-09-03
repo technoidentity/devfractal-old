@@ -1,13 +1,13 @@
 import React from 'react'
 import { Mixed, TypeOf } from 'technoidentity-spec'
 import { assert } from 'technoidentity-utils'
-import { api } from './api'
+import { simpleAPI } from './api'
 import { Crud } from './Crud'
 
-export interface SimpleCrudProps<RT extends Mixed> {
+export interface SimpleCrudProps<Spec extends Mixed> {
   readonly baseURL: string
-  readonly value: RT
-  readonly id: keyof TypeOf<RT>
+  readonly spec: Spec
+  readonly id: keyof TypeOf<Spec>
   readonly resource?: string
   readonly basePath?: string
 }
@@ -15,13 +15,13 @@ export interface SimpleCrudProps<RT extends Mixed> {
 export const SimpleCrud: <T extends Mixed>(
   args: SimpleCrudProps<T>,
 ) => JSX.Element = ({ basePath = '', id, resource, ...props }) => {
-  assert(id !== undefined || 'id' in props.value, 'no id defined')
+  assert(id !== undefined || 'id' in props.spec, 'no id defined')
 
   return (
     <Crud
-      api={api({
+      api={simpleAPI({
         id,
-        resource: resource || props.value.name,
+        resource: resource || props.spec.name,
         ...props,
       })}
       basePath={basePath}

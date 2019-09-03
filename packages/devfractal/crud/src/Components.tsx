@@ -2,27 +2,15 @@ import { formikSubmit } from 'devfractal-forms'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Mixed, TypeOf } from 'technoidentity-spec'
-import { APIRepository, Repository } from './api'
+import { APIRepository } from './api'
 import { links as links_, paths as paths_ } from './new'
 import { CrudViewsResult, Views } from './Views'
-interface ComponentsArgsBase<
-  RT extends Mixed,
-  ID extends keyof TypeOf<RT>,
-  R extends Repository<TypeOf<RT>, ID> = Repository<TypeOf<RT>, ID>
-> {
-  readonly api: R
-  readonly basePath: string
-  readonly Views?: CrudViewsResult<RT, ID>
-}
-interface ComponentsArgs<RT extends Mixed, ID extends keyof TypeOf<RT>>
-  extends ComponentsArgsBase<RT, ID> {
-  readonly value: RT
-  readonly id: ID
-  readonly resource: string
-}
 
-interface APIComponentsArgs<RT extends Mixed, ID extends keyof TypeOf<RT>>
-  extends ComponentsArgsBase<RT, ID, APIRepository<RT, ID>> {}
+interface ComponentsArgs<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
+  readonly api: APIRepository<Spec, ID>
+  readonly basePath: string
+  readonly Views?: CrudViewsResult<Spec, ID>
+}
 
 export interface ComponentsResult {
   readonly List: React.FC<RouteComponentProps>
@@ -32,22 +20,12 @@ export interface ComponentsResult {
 }
 
 export function components<RT extends Mixed, ID extends keyof TypeOf<RT>>(
-  args: ComponentsArgs<RT, ID> | APIComponentsArgs<RT, ID>,
+  args: ComponentsArgs<RT, ID>,
 ): ComponentsResult {
   // tslint:disable typedef
-  const { all, one, create, edit } = args.api
-
-  const value = 'value' in args ? args.value : args.api.value
-
-  const resource = 'value' in args ? args.resource : args.api.resource
-
-  const id = 'value' in args ? args.id : args.api.id
-
-  const CV = args.Views || Views(value, id)
-  // @TODO: only if 'name' is alphanumeric
-
+  const { all, one, create, edit, spec, resource, id } = args.api
+  const CV = args.Views || Views(spec, id)
   const basePath = args.basePath
-
   const links = links_(resource, basePath)
   const paths = paths_(resource, basePath)
 
@@ -73,7 +51,7 @@ export function components<RT extends Mixed, ID extends keyof TypeOf<RT>>(
 
     Edit: ({ history, match }) => (
       <CV.Edit
-        data={async () => one(match.params.id)}
+        data={async () => one(match.params.id as any)}
         onSubmit={async (values, actions) => {
           await formikSubmit(edit)(values, actions)
           history.push(paths.list)
@@ -82,6 +60,8 @@ export function components<RT extends Mixed, ID extends keyof TypeOf<RT>>(
       />
     ),
 
-    View: ({ match }) => <CV.View data={async () => one(match.params.id)} />,
+    View: ({ match }) => (
+      <CV.View data={async () => one(match.params.id as any)} />
+    ),
   }
 }

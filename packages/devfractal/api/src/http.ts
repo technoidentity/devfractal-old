@@ -68,10 +68,11 @@ function url(options: MethodArgs | string): string {
 }
 
 // tslint:disable-next-line: typedef
-export function http({ baseURL, ...config }: RequestConfig) {
+export function http(config: RequestConfig) {
+  const baseURL: string = chop(config.baseURL)
   const axios: AxiosInstance = ax.create({
     ...config,
-    baseURL: chop(baseURL),
+    baseURL,
   })
 
   async function get<Spec extends Mixed>(
@@ -123,5 +124,5 @@ export function http({ baseURL, ...config }: RequestConfig) {
     return axios.delete(url(options))
   }
 
-  return { get, del, put, post, patch, axios }
+  return { get, del, put, post, patch, axios, baseURL }
 }
