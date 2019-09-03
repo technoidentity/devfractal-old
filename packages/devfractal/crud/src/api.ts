@@ -30,72 +30,62 @@ const request: <A>(
 ) => Promise<A> = async (value, promise) =>
   toPromise(value.decode((await promise).data))
 
-export function simpleAPI<RT extends Mixed, ID extends keyof TypeOf<RT>>({
+export function simpleAPI<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   baseURL,
   spec,
   id,
   resource,
-  paths: urls = apiURLs({ baseURL, resource }),
-}: APIArgs<RT, ID>): APIRepository<RT, ID> {
-  const listValue = readonlyArray(spec)
+  paths = apiURLs({ baseURL, resource }),
+}: APIArgs<Spec, ID>): APIRepository<Spec, ID> {
+  const listSpec = readonlyArray(spec)
 
   async function all() {
-    const result: TypeOf<typeof listValue> = await request(
-      listValue,
-      axios.get<TypeOf<typeof listValue>>(urls.all()),
+    const result: TypeOf<typeof listSpec> = await request(
+      listSpec,
+      axios.get<TypeOf<typeof listSpec>>(paths.all()),
     )
-    cast(listValue, result)
-
-    return result
+    return cast(listSpec, result)
   }
 
   async function one(pid: any) {
     const result: TypeOf<typeof spec> = await request(
       spec,
-      axios.get<TypeOf<typeof spec>>(urls.one(pid)),
+      axios.get<TypeOf<typeof spec>>(paths.one(pid)),
     )
-    cast(spec, result)
-
-    return result
+    return cast(spec, result)
   }
 
   async function create(v: any) {
     // @TODO: cast(value without id, v)
     const result: TypeOf<typeof spec> = await request(
       spec,
-      axios.post<TypeOf<typeof spec>>(urls.create(), v),
+      axios.post<TypeOf<typeof spec>>(paths.create(), v),
     )
-    cast(spec, result)
-
-    return result
+    return cast(spec, result)
   }
 
   async function edit(v: any) {
     cast(spec, v)
     const result: TypeOf<typeof spec> = await request(
       spec,
-      axios.put<TypeOf<typeof spec>>(urls.edit(v.id), v),
+      axios.put<TypeOf<typeof spec>>(paths.edit(v.id), v),
     )
-    cast(spec, result)
-
-    return result
+    return cast(spec, result)
   }
 
   async function remove(pid: any) {
     const result: TypeOf<typeof spec> = await request(
       spec,
-      axios.delete(urls.remove(pid)),
+      axios.delete(paths.remove(pid)),
     )
-    cast(spec, result)
-
-    return result
+    return cast(spec, result)
   }
 
   return {
     baseURL,
     resource,
     spec,
-    paths: urls,
+    paths,
     id,
     all,
     remove,
