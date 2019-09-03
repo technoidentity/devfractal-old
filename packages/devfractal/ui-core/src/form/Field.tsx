@@ -8,9 +8,7 @@ type FieldAddonModifier = 'addons-centered' | 'addons-right'
 
 type FieldSize = 'narrow' | 'expanded'
 
-export interface FieldProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    Helpers {
+export interface FieldPropsBase {
   /**
    * To group controls together
    */
@@ -36,6 +34,11 @@ export interface FieldProps
    */
   readonly addonsModifier?: FieldAddonModifier
 }
+
+export interface FieldProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Helpers,
+    FieldPropsBase {}
 
 export const Field: React.FC<FieldProps> = ({
   grouped,
