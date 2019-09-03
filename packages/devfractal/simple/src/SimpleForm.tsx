@@ -48,7 +48,7 @@ interface SimpleInputProps<Values extends {}, S extends Schema<any>>
   readonly schema: S
   readonly label?: string
   readonly validations?: ReadonlyArray<(schema: S) => S>
-  readonly field?: FieldProps
+  readonly fieldProps?: FieldProps
 }
 
 interface GenericInputProps<Values extends {}, S extends Schema<any>>
@@ -80,9 +80,9 @@ function validator<S extends Schema<any>>(
 function SimpleInput<Values extends {}, S extends Schema<any>>(
   args: SimpleInputProps<Values, S>,
 ): JSX.Element {
-  const { schema, label, validations, field, ...props } = args
+  const { schema, label, validations, fieldProps, ...props } = args
   return (
-    <Field {...field}>
+    <Field {...fieldProps}>
       <Label>{label || camelCaseToPhrase(props.name)}</Label>
       <InputField {...props} validate={validator(schema, validations)} />
       <ErrorField name={props.name} />
@@ -95,15 +95,16 @@ interface SimpleDateProps<Values extends {}>
     Named<Values> {
   readonly validations?: ReadonlyArray<(schema: DateSchema) => DateSchema>
   readonly label?: string
+  readonly fieldProps?: FieldProps
   // readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
 function SimpleDate<Values extends {}>(
   args: SimpleDateProps<Values>,
 ): JSX.Element {
-  const { label, validations, ...props } = args
+  const { label, validations, fieldProps, ...props } = args
   return (
-    <Field>
+    <Field {...fieldProps}>
       <Label>{label || camelCaseToPhrase(props.name)}</Label>
       <DateField {...props} validate={validator(date(), validations)} />
       <ErrorField name={props.name} />
@@ -115,18 +116,21 @@ export interface SimpleCheckboxProps<Values extends {}>
   extends Omit<CheckboxFieldProps, 'name'>,
     Named<Values> {
   readonly noLabel?: boolean
+  readonly fieldProps?: FieldProps
 }
 
 export interface SimpleRadioGroupProps<Values extends {}>
   extends Omit<RadioFieldProps, 'name'>,
     Named<Values> {
   readonly label?: string
+  readonly fieldProps?: FieldProps
 }
 
 export interface SimpleSelectProps<Values extends {}>
   extends Omit<SelectFieldProps, 'name'>,
     Named<Values> {
   readonly label?: string
+  readonly fieldProps?: FieldProps
 }
 
 export interface SimpleTextAreaProps<Values extends {}>
@@ -134,22 +138,25 @@ export interface SimpleTextAreaProps<Values extends {}>
     Named<Values> {
   readonly name: keyof Values & string
   readonly label?: string
+  readonly fieldProps?: FieldProps
 }
 
 export interface SimpleFormButtonsProps extends ButtonsGroupProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
+  readonly fieldProps?: FieldProps
 }
 
 const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
+  fieldProps,
   ...props
 }) => (
   <FormikConsumer>
     {({ dirty, isSubmitting, handleReset }) => (
       <ButtonsGroup {...props}>
-        <Field groupModifier="grouped-centered">
+        <Field groupModifier="grouped-centered" {...fieldProps}>
           {submit !== false && (
             <Button type="submit" variant="info" disabled={isSubmitting}>
               {submit}
@@ -209,8 +216,8 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 
     Url: props => <SimpleInput schema={string()} {...props} type="url" />,
 
-    Checkbox: ({ children, noLabel, ...props }) => (
-      <Field>
+    Checkbox: ({ children, noLabel, fieldProps, ...props }) => (
+      <Field {...fieldProps}>
         <Label>
           {children || (!noLabel && ` ${camelCaseToPhrase(props.name)}`)}
         </Label>
@@ -219,24 +226,24 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
       </Field>
     ),
 
-    RadioGroup: ({ children, label, ...props }) => (
-      <Field>
+    RadioGroup: ({ children, label, fieldProps, ...props }) => (
+      <Field {...fieldProps}>
         <Label>{label || camelCaseToPhrase(props.name)}</Label>
         <RadioGroupField {...props}>{children}</RadioGroupField>
         <ErrorField name={props.name} />
       </Field>
     ),
 
-    Select: ({ children, label, ...props }) => (
-      <Field>
+    Select: ({ children, label, fieldProps, ...props }) => (
+      <Field {...fieldProps}>
         <Label>{label || camelCaseToPhrase(props.name)}</Label>
         <SelectField {...props}>{children}</SelectField>
         <ErrorField name={props.name} />
       </Field>
     ),
 
-    TextArea: ({ label, ...props }) => (
-      <Field>
+    TextArea: ({ label, fieldProps, ...props }) => (
+      <Field {...fieldProps}>
         <Label>{label || camelCaseToPhrase(props.name)}</Label>
         <TextAreaField {...props} />
         <ErrorField name={props.name} />
