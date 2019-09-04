@@ -1,33 +1,59 @@
 import {
-  ArraySchema,
+  DateSchema,
   MixedSchema,
   NumberSchema,
   StringSchema,
   TestOptionsMessage,
 } from 'yup'
 
-type CommonSchema =
-  | StringSchema
-  | NumberSchema
-  | ArraySchema<string>
-  | ArraySchema<number>
-
 export const required: (
   message?: TestOptionsMessage,
 ) => <T extends MixedSchema>(schema: T) => T = message => schema =>
   schema.required(message) as typeof schema
 
-export const min: (
+export function min(
+  minValue: string,
+  message?: TestOptionsMessage,
+): (schema: StringSchema) => StringSchema
+
+export function min(
   minValue: number,
   message?: TestOptionsMessage,
-) => <T extends CommonSchema>(schema: T) => T = (minValue, message) => schema =>
-  schema.min(minValue, message) as typeof schema
+): (schema: NumberSchema) => NumberSchema
 
-export const max: (
+export function min(
+  minValue: Date,
+  message?: TestOptionsMessage,
+): (schema: DateSchema) => DateSchema
+
+export function min<T extends string | number | Date>(
+  minValue: T,
+  message?: TestOptionsMessage,
+): any {
+  return (schema: any) => schema.min(minValue, message)
+}
+
+export function max(
+  maxValue: string,
+  message?: TestOptionsMessage,
+): (schema: StringSchema) => StringSchema
+
+export function max(
   maxValue: number,
   message?: TestOptionsMessage,
-) => <T extends CommonSchema>(schema: T) => T = (maxValue, message) => schema =>
-  schema.max(maxValue, message) as typeof schema
+): (schema: NumberSchema) => NumberSchema
+
+export function max(
+  maxValue: Date,
+  message?: TestOptionsMessage,
+): (schema: DateSchema) => DateSchema
+
+export function max<T extends string | number | Date>(
+  maxValue: T,
+  message?: TestOptionsMessage,
+): any {
+  return (schema: any) => schema.max(maxValue, message)
+}
 
 export const length: (
   limit: number,

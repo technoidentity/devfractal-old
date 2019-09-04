@@ -121,8 +121,6 @@ interface SimpleDateProps<Values extends {}>
     FieldPropsBase {
   readonly validations?: ReadonlyArray<(schema: DateSchema) => DateSchema>
   readonly label?: string
-
-  // readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
 function SimpleDate<Values extends {}>(
