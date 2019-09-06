@@ -1,8 +1,8 @@
 import React from 'react'
 import {
   Get,
-  max,
-  min,
+  maxLength,
+  minLength,
   Post,
   Put,
   required,
@@ -11,8 +11,7 @@ import {
   Title,
   useParams,
 } from 'technoidentity-devfractal'
-import { type } from 'technoidentity-spec'
-import { IntFromString } from 'technoidentity-spec'
+import { IntFromString, type } from 'technoidentity-spec'
 import { empty } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
@@ -26,7 +25,10 @@ const TodoForm: React.FC<TodoFormProps> = ({ initial, onSubmit }) => (
   <>
     <Title textAlignment="centered">Create/Update Todo</Title>
     <Simple.Form initialValues={initial || empty(Todo)} onSubmit={onSubmit}>
-      <Simple.Text name="title" validations={[required(), min(3), max(20)]} />
+      <Simple.Text
+        name="title"
+        validations={[required(), minLength(3), maxLength(20)]}
+      />
       <Simple.Checkbox name="done" />
       <Simple.Date name="scheduled" validations={[required()]} />
 
