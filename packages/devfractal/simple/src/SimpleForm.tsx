@@ -171,9 +171,7 @@ export interface SimpleTextAreaProps<Values extends {}>
   readonly label?: string
 }
 
-export interface SimpleFormButtonsProps
-  extends Omit<ButtonsGroupProps, 'size'>,
-    FieldProps {
+export interface SimpleFormButtonsProps extends ButtonsGroupProps, FieldProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
 }
