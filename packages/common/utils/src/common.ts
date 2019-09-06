@@ -1,5 +1,5 @@
 import { startOfDay } from 'date-fns'
-import { date, DateFromISOString, union } from 'technoidentity-spec'
+import { date, DateFromISOString, TypeOf, union } from 'technoidentity-spec'
 import { assert } from './assertions'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
@@ -86,6 +86,8 @@ export async function interval<T>(
 
 // tslint:disable-next-line: typedef
 export const ISODate = union([date, DateFromISOString])
+
+export type ISODate = TypeOf<typeof ISODate>
 
 export function pick<T extends {}, K extends keyof T>(
   obj: T,
