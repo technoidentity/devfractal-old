@@ -24,6 +24,7 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => (
       data={driverList}
       headers={['name', 'lastActive', 'shift', 'status']}
       editTo={v => driverLinks.edit(v.id)}
+      headerLabels={['name', 'lastActive', 'shift', 'status']}
     />
 
     <RoutedPager />

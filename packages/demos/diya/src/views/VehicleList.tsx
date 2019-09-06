@@ -30,6 +30,14 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => (
         'insuranceDue',
         'status',
       ]}
+      headerLabels={[
+        'name',
+        'numberPlate',
+        'group',
+        'nextService',
+        'insuranceDue',
+        'status',
+      ]}
       editTo={v => vehicleLinks.edit(v.id)}
     />
 
