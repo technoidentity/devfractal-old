@@ -25,24 +25,6 @@
     "**/**/yarn-debug.log*": true,
     "**/**/yarn-error.log*": true,
     "**/**/dist/": true,
-    "**/**/.cache/": true,
-    ".pnp": true,
-    "**/.pnp.js": true,
-    "coverage": true,
-    "**/build/": true,
-    "**/.rts2*": true,
-    "**/.DS_Store": true,
-    "**/.env.local": true,
-    "**/.env.development.local": true,
-    "**/.env.test.local": true,
-    "**/.env.production.local": true,
-    "**/npm-debug.log*": true,
-    "**/yarn-debug.log*": true,
-    "**/yarn-error.log*": true,
-    "**/.history": true,
-    "**/.cache/": true,
-    "**/dist/": true,
-    "**/lerna-debug.log": true,
-    "**/.next/": true
+    "**/**/.cache/": true
   }
 }

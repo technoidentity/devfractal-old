@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "lib",
-    "rootDir": "src",
     "allowJs": false,
     "checkJs": false,
     "composite": true,
