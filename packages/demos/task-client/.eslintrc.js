@@ -1,1 +1,1 @@
-module.exports = require('../../../../eslintrc.client')
+module.exports = require('../../../eslintrc.client')
