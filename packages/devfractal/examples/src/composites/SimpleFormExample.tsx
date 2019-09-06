@@ -27,7 +27,7 @@ interface SimpleValues {
   readonly password: string
   readonly email: string
   readonly tel: number
-  readonly date: ISODate
+  readonly date: ISODate | undefined
   readonly remember: boolean
   readonly gender: Gender
   readonly select: Position
@@ -39,7 +39,7 @@ const initialValues: SimpleValues = {
   username: '',
   password: '',
   email: '',
-  date: new Date(),
+  date: undefined,
   tel: 0,
   remember: false,
   gender: 'male',

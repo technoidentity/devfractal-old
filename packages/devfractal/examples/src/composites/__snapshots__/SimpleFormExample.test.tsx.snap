@@ -302,7 +302,6 @@ exports[`Simple Form Example 1`] = `
   "username": "",
   "password": "",
   "email": "",
-  "date": "2019-09-06T13:07:57.245Z",
   "tel": 0,
   "remember": false,
   "gender": "male",
