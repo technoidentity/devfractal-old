@@ -33,6 +33,3 @@ export const Title: React.FC<TitleProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Title

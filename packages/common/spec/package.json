@@ -1,0 +1,60 @@
+{
+  "name": "technoidentity-spec",
+  "version": "1.2.18",
+  "description": "io-ts for devfractal",
+  "main": "dist/index.js",
+  "module": "dist/technoidentity-spec.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Pervez Iqbal",
+  "scripts": {
+    "build": "tsdx build",
+    "elint:fix": "yarn elint --quiet --fix",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "lib": "tsdx watch",
+    "lint:fix": "yarn elint:fix && yarn tlint:fix",
+    "lint": "yarn elint && yarn tlint",
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
+    "start": "parcel index.html --open",
+    "test:watch": "yarn test --watch",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
+    "tlint:fix": "yarn lint --fix",
+    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
+    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "types": "tsc --noEmit -p .",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
+    "validate": "yarn lint:fix && yarn types && yarn test"
+  },
+  "dependencies": {
+    "fp-ts": "2.0.5",
+    "io-ts-types": "0.5.0",
+    "io-ts": "2.0.1",
+    "monocle-ts": "2.0.0",
+    "tslib": "1.10.0"
+  },
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "eslint": "6.3.0",
+    "jest": "24.9.0",
+    "lint-staged": "9.2.5",
+    "parcel-bundler": "1.12.3",
+    "prettier": "1.18.2",
+    "tsdx": "0.9.0",
+    "tslint": "5.19.0",
+    "typescript": "3.5.3"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint:fix",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,js,jsx,json,css}": [
+      "yarn prettier --write",
+      "git add"
+    ]
+  }
+}

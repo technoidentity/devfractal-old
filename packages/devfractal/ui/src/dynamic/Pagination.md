@@ -1,14 +1,7 @@
 ### Default Pagination
 
 ```jsx
-import {
-  Pagination,
-  PaginationEllipsis,
-  PaginationPrevious,
-  PaginationNext,
-  PaginationList,
-} from './Pagination'
-;<Pagination>
+<Pagination>
   <PaginationPrevious>Previous</PaginationPrevious>
   <PaginationNext>Next</PaginationNext>
   <PaginationList>
@@ -25,14 +18,7 @@ import {
 ### Pagination with all properties
 
 ```jsx
-import {
-  Pagination,
-  PaginationEllipsis,
-  PaginationPrevious,
-  PaginationNext,
-  PaginationList,
-} from './Pagination'
-;<Pagination rounded={false} size="medium" alignment="centered">
+<Pagination rounded={false} size="medium" alignment="centered">
   <PaginationPrevious>Previous</PaginationPrevious>
   <PaginationNext>Next</PaginationNext>
   <PaginationList>

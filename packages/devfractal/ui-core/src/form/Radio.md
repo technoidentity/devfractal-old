@@ -1,8 +1,7 @@
 ### Default RadioButton
 
 ```jsx
-import { Radio } from './Radio'
-;<RadioGroup>
+<RadioGroup>
   <Radio>Male</Radio>
   <Radio>Female</Radio>
 </RadioGroup>
@@ -11,8 +10,7 @@ import { Radio } from './Radio'
 ### RadioGroup with properties
 
 ```jsx
-import { Radio } from './Radio'
-;<div>
+<div>
   <RadioGroup name="gender" defaultValue="female">
     <Radio value="male">Male</Radio>
     <Radio value="female">Female</Radio>

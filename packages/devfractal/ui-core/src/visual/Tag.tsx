@@ -55,6 +55,3 @@ export const Tag: React.FC<TagProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Tag

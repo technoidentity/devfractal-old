@@ -1,9 +1,7 @@
 ### Basic Column
 
 ```jsx
-import { Columns } from './Columns'
-import { Notification } from '../visual'
-;<Columns>
+<Columns>
   <Column>
     <Notification variant="primary">First Column</Notification>
   </Column>
@@ -22,9 +20,7 @@ import { Notification } from '../visual'
 ### Column with all properties
 
 ```jsx
-import { Columns } from './Columns'
-import { Notification } from '../visual'
-;<Columns>
+<Columns>
   <Column
     size="one-fifth"
     gridSize="8"

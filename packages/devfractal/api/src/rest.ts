@@ -6,6 +6,7 @@ import { APIQuery, toAPIQuery as toQueryFn } from './query'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
 export interface API<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>> {
+  readonly http: ReturnType<typeof httpAPI>
   readonly spec: Spec
   readonly idKey: ID
   readonly resource: string
@@ -20,6 +21,7 @@ export interface API<Spec extends t.Mixed, ID extends keyof t.TypeOf<Spec>> {
   ): Promise<t.TypeOf<Spec>>
 
   get(id: t.TypeOf<Spec>[ID], options?: APIMethodArgs): Promise<t.TypeOf<Spec>>
+
   list(
     query: APIQuery<t.TypeOf<Spec>>,
     options?: Omit<APIMethodArgs, 'query'>,
@@ -61,7 +63,7 @@ export function rest<
   ID extends keyof t.TypeOf<Spec>
 >(
   spec: Spec,
-  id: ID /* = 'id' as any */,
+  idKey: ID /* = 'id' as any */,
   { resource, ...options }: RestArgs,
   toQuery: (spec: Spec, query: APIQuery<t.TypeOf<Spec>>) => string = toQueryFn,
 ): API<Spec, ID> {
@@ -83,12 +85,12 @@ export function rest<
   ): Promise<t.TypeOf<Spec>> {
     return http.post(
       { ...options, resource },
-      omit<t.TypeOf<Spec>, ID>(data, [id]),
+      omit<t.TypeOf<Spec>, ID>(data, [idKey]),
       spec,
     )
   }
 
-  async function remove(
+  async function del(
     id: t.TypeOf<Spec>[ID],
     options?: APIMethodArgs,
   ): Promise<void> {
@@ -131,11 +133,12 @@ export function rest<
     replace,
     update,
     create,
-    del: remove,
+    del,
     get,
     list,
-    idKey: id,
+    idKey,
     spec,
     resource,
+    http,
   }
 }

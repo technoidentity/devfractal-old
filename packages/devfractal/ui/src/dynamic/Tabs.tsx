@@ -125,6 +125,3 @@ export interface TabsProps extends TabsViewProps {
 export const Tabs: React.FC<TabsProps> = props => (
   <Uncontrolled {...props} component={TabsView} />
 )
-
-// tslint:disable-next-line: no-default-export
-export default TabsItem

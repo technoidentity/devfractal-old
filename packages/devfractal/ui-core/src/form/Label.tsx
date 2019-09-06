@@ -26,6 +26,3 @@ export const Label: React.FC<LabelProps> = args => {
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Label

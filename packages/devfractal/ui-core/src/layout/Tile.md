@@ -1,7 +1,7 @@
 ### Tile with all properties
 
 ```jsx
-;<Tile tileType="ancestor">
+<Tile tileType="ancestor">
   <Tile vertical size="8">
     <Tile>
       <Tile tileType="parent" vertical>

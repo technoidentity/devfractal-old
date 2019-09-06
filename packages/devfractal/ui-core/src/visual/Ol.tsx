@@ -22,6 +22,3 @@ export const Ol: React.FC<OlProps> = ({ modifier, children, ...props }) => {
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Ol

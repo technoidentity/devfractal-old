@@ -18,6 +18,3 @@ export const Delete: React.FC<DeleteProps> = ({ size, ...props }) => {
   })
   return <El as="a" {...props} className={classes} />
 }
-
-// tslint:disable-next-line: no-default-export
-export default Delete

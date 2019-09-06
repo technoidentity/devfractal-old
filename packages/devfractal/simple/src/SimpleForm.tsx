@@ -20,7 +20,7 @@ import {
   ButtonsGroup,
   ButtonsGroupProps,
   Field,
-  FieldProps,
+  FieldPropsBase,
   Label,
 } from 'devfractal-ui-core'
 import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
@@ -37,18 +37,23 @@ import {
   StringSchema,
 } from 'yup'
 
+type Replace<T, K extends string & keyof T, R extends string> = Omit<T, K> &
+  { readonly [P in R]?: T[K] }
+
+type FieldProps = Replace<FieldPropsBase, 'size', 'fieldSize'>
+
 interface Named<Values extends {}> {
   readonly name: keyof Values & string
 }
 
 // @TODO: value must by typed!
 interface SimpleInputProps<Values extends {}, S extends Schema<any>>
-  extends Omit<InputFieldProps, 'name'>,
-    Named<Values> {
+  extends Omit<InputFieldProps, 'name' | 'size'>,
+    Named<Values>,
+    FieldProps {
   readonly schema: S
   readonly label?: string
   readonly validations?: ReadonlyArray<(schema: S) => S>
-  readonly field?: FieldProps
 }
 
 interface GenericInputProps<Values extends {}, S extends Schema<any>>
@@ -77,12 +82,37 @@ function validator<S extends Schema<any>>(
   }
 }
 
+function splitFieldProps<T extends FieldProps>({
+  grouped,
+  addons,
+  horizontal,
+  groupedMultiline,
+  groupModifier,
+  addonsModifier,
+  fieldSize,
+  ...rest
+}: // tslint:disable-next-line: readonly-array
+T): [FieldProps, Omit<T, keyof FieldProps>] {
+  return [
+    {
+      grouped,
+      addons,
+      horizontal,
+      groupedMultiline,
+      groupModifier,
+      addonsModifier,
+      fieldSize,
+    },
+    rest,
+  ]
+}
 function SimpleInput<Values extends {}, S extends Schema<any>>(
   args: SimpleInputProps<Values, S>,
 ): JSX.Element {
-  const { schema, label, validations, field, ...props } = args
+  const [fieldProps, rest] = splitFieldProps(args)
+  const { schema, label, validations, ...props } = rest
   return (
-    <Field {...field}>
+    <Field {...fieldProps}>
       <Label>{label || camelCaseToPhrase(props.name)}</Label>
       <InputField {...props} validate={validator(schema, validations)} />
       <ErrorField name={props.name} />
@@ -91,19 +121,20 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
 }
 
 interface SimpleDateProps<Values extends {}>
-  extends Omit<DateFieldProps, 'name'>,
-    Named<Values> {
+  extends Omit<DateFieldProps, 'name' | 'size'>,
+    Named<Values>,
+    FieldProps {
   readonly validations?: ReadonlyArray<(schema: DateSchema) => DateSchema>
   readonly label?: string
-  // readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
 function SimpleDate<Values extends {}>(
   args: SimpleDateProps<Values>,
 ): JSX.Element {
-  const { label, validations, ...props } = args
+  const [fieldProps, rest] = splitFieldProps(args)
+  const { label, validations, ...props } = rest
   return (
-    <Field>
+    <Field {...fieldProps}>
       <Label>{label || camelCaseToPhrase(props.name)}</Label>
       <DateField {...props} validate={validator(date(), validations)} />
       <ErrorField name={props.name} />
@@ -112,31 +143,35 @@ function SimpleDate<Values extends {}>(
 }
 
 export interface SimpleCheckboxProps<Values extends {}>
-  extends Omit<CheckboxFieldProps, 'name'>,
-    Named<Values> {
+  extends Omit<CheckboxFieldProps, 'name' | 'size'>,
+    Named<Values>,
+    FieldProps {
   readonly noLabel?: boolean
 }
 
 export interface SimpleRadioGroupProps<Values extends {}>
-  extends Omit<RadioFieldProps, 'name'>,
-    Named<Values> {
+  extends Omit<RadioFieldProps, 'name' | 'size'>,
+    Named<Values>,
+    FieldProps {
   readonly label?: string
 }
 
 export interface SimpleSelectProps<Values extends {}>
-  extends Omit<SelectFieldProps, 'name'>,
-    Named<Values> {
+  extends Omit<SelectFieldProps, 'name' | 'size'>,
+    Named<Values>,
+    FieldProps {
   readonly label?: string
 }
 
 export interface SimpleTextAreaProps<Values extends {}>
-  extends Omit<TextAreaFieldProps, 'name'>,
-    Named<Values> {
+  extends Omit<TextAreaFieldProps, 'name' | 'size'>,
+    Named<Values>,
+    FieldProps {
   readonly name: keyof Values & string
   readonly label?: string
 }
 
-export interface SimpleFormButtonsProps extends ButtonsGroupProps {
+export interface SimpleFormButtonsProps extends ButtonsGroupProps, FieldProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
 }
@@ -144,32 +179,36 @@ export interface SimpleFormButtonsProps extends ButtonsGroupProps {
 const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
-  ...props
-}) => (
-  <FormikConsumer>
-    {({ dirty, isSubmitting, handleReset }) => (
-      <ButtonsGroup {...props}>
-        <Field groupModifier="grouped-centered">
-          {submit !== false && (
-            <Button type="submit" variant="info" disabled={isSubmitting}>
-              {submit}
-            </Button>
-          )}
-          {reset !== false && (
-            <Button
-              disabled={!dirty || isSubmitting}
-              variant="danger"
-              type="reset"
-              onClick={handleReset}
-            >
-              {reset}
-            </Button>
-          )}
-        </Field>
-      </ButtonsGroup>
-    )}
-  </FormikConsumer>
-)
+  ...args
+}) => {
+  const [fieldProps, props] = splitFieldProps(args)
+
+  return (
+    <FormikConsumer>
+      {({ dirty, isSubmitting, handleReset }) => (
+        <ButtonsGroup {...props}>
+          <Field groupModifier="grouped-centered" {...fieldProps}>
+            {submit !== false && (
+              <Button type="submit" variant="info" disabled={isSubmitting}>
+                {submit}
+              </Button>
+            )}
+            {reset !== false && (
+              <Button
+                disabled={!dirty || isSubmitting}
+                variant="danger"
+                type="reset"
+                onClick={handleReset}
+              >
+                {reset}
+              </Button>
+            )}
+          </Field>
+        </ButtonsGroup>
+      )}
+    </FormikConsumer>
+  )
+}
 
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values
@@ -209,39 +248,51 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 
     Url: props => <SimpleInput schema={string()} {...props} type="url" />,
 
-    Checkbox: ({ children, noLabel, ...props }) => (
-      <Field>
-        <Label>
-          {children || (!noLabel && ` ${camelCaseToPhrase(props.name)}`)}
-        </Label>
-        <CheckboxField {...props} />
-        <ErrorField name={props.name} />
-      </Field>
-    ),
+    Checkbox: ({ children, noLabel, ...args }) => {
+      const [fieldProps, props] = splitFieldProps(args)
+      return (
+        <Field {...fieldProps}>
+          <Label>
+            {children || (!noLabel && ` ${camelCaseToPhrase(props.name)}`)}
+          </Label>
+          <CheckboxField {...props} />
+          <ErrorField name={props.name} />
+        </Field>
+      )
+    },
 
-    RadioGroup: ({ children, label, ...props }) => (
-      <Field>
-        <Label>{label || camelCaseToPhrase(props.name)}</Label>
-        <RadioGroupField {...props}>{children}</RadioGroupField>
-        <ErrorField name={props.name} />
-      </Field>
-    ),
+    RadioGroup: ({ children, label, ...args }) => {
+      const [fieldProps, props] = splitFieldProps(args)
+      return (
+        <Field {...fieldProps}>
+          <Label>{label || camelCaseToPhrase(props.name)}</Label>
+          <RadioGroupField {...props}>{children}</RadioGroupField>
+          <ErrorField name={props.name} />
+        </Field>
+      )
+    },
 
-    Select: ({ children, label, ...props }) => (
-      <Field>
-        <Label>{label || camelCaseToPhrase(props.name)}</Label>
-        <SelectField {...props}>{children}</SelectField>
-        <ErrorField name={props.name} />
-      </Field>
-    ),
+    Select: ({ children, label, ...args }) => {
+      const [fieldProps, props] = splitFieldProps(args)
+      return (
+        <Field {...fieldProps}>
+          <Label>{label || camelCaseToPhrase(props.name)}</Label>
+          <SelectField {...props}>{children}</SelectField>
+          <ErrorField name={props.name} />
+        </Field>
+      )
+    },
 
-    TextArea: ({ label, ...props }) => (
-      <Field>
-        <Label>{label || camelCaseToPhrase(props.name)}</Label>
-        <TextAreaField {...props} />
-        <ErrorField name={props.name} />
-      </Field>
-    ),
+    TextArea: ({ label, ...args }) => {
+      const [fieldProps, props] = splitFieldProps(args)
+      return (
+        <Field {...fieldProps}>
+          <Label>{label || camelCaseToPhrase(props.name)}</Label>
+          <TextAreaField {...props} />
+          <ErrorField name={props.name} />
+        </Field>
+      )
+    },
     Form: ({
       initialValues,
       validationSchema,

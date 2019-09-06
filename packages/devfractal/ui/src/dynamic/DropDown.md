@@ -1,14 +1,7 @@
 ### Default Dropdown
 
 ```jsx
-import {
-  DropDown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  DropDownDivider,
-} from './DropDown'
-;<DropDown label="Content">
+<DropDown label="Content">
   <DropDownItem>
     <p>
       You can insert <strong>any type of content</strong> within the dropdown
@@ -29,14 +22,7 @@ import {
 ### Dropdown with all properties
 
 ```jsx
-import {
-  DropDown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  DropDownDivider,
-} from './DropDown'
-;<DropDown
+<DropDown
   label="Content"
   modifier="hoverable"
   rightAligned={false}

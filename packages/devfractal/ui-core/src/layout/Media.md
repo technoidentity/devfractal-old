@@ -1,9 +1,7 @@
 ### Media Object
 
 ```jsx
-import { Media, MediaRight, MediaContent } from './Media'
-import { Content, Image, Delete } from '../visual'
-;<Media>
+<Media>
   <MediaLeft>
     <Image src="http://placehold.it/128x128" />
   </MediaLeft>

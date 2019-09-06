@@ -200,6 +200,3 @@ export const Td: React.FC<TdProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default TableHead

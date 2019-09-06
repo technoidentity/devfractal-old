@@ -12,6 +12,3 @@ export const Footer: React.FC<FooterProps> = ({ children, ...props }) => (
     {children}
   </El>
 )
-
-// tslint:disable-next-line: no-default-export
-export default Footer

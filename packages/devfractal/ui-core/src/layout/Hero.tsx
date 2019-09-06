@@ -81,6 +81,3 @@ export const HeroFoot: React.FC<HeroFootProps> = ({ children, ...props }) => (
     {children}
   </El>
 )
-
-// tslint:disable-next-line: no-default-export
-export default HeroHead

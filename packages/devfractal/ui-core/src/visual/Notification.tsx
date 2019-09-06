@@ -34,6 +34,3 @@ export const Notification: React.FC<NotificationProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Notification

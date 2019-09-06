@@ -1,6 +1,6 @@
-import { AsyncResult, useGet } from 'devfractal-api'
 import React from 'react'
 import { ErrorView, Loading } from './Components'
+import { AsyncResult, useGet } from './useGet'
 
 // tslint:disable readonly-array no-unbound-method
 export interface GetProps<T extends {}, P extends any[]> {

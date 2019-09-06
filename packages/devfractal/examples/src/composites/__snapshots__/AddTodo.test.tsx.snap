@@ -79,7 +79,7 @@ exports[`AddTodo 1`] = `
       className="buttons"
     >
       <div
-        className="field is-grouped is-grouped-centered"
+        className="field"
       >
         <div
           className="control"

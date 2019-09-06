@@ -1,10 +1,4 @@
-import {
-  ArrayMT,
-  EnumMT,
-  Mixed,
-  MT,
-  PrimitiveMT,
-} from 'technoidentity-meta-core'
+import { ArrayMT, EnumMT, Mixed, MT, PrimitiveMT } from 'meta-core'
 import { metaToInitialValues } from './metaToInitialValues'
 
 const noEx: PrimitiveMT = { kind: 'number' }

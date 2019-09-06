@@ -1,0 +1,81 @@
+{
+  "name": "site-next-devfractal",
+  "version": "1.2.18",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "clean": "rimraf dist .cache",
+    "dev": "next start",
+    "elint:fix": "yarn elint --quiet --fix",
+    "elint": "eslint './pages/**/*.{js,ts,tsx}'",
+    "lint:fix": "yarn elint:fix && yarn tlint:fix",
+    "lint": "yarn elint && yarn tlint",
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
+    "start": "next",
+    "test:watch": "yarn test --watch",
+    "test": "cross-env NODE_EN='test' jest --passWithNoTests",
+    "tlint:fix": "yarn lint --fix",
+    "tlint": "yarn tslint -p . 'src/**/*.tsx' 'src/**/*.ts'",
+    "types:watch": "yarn types --watch",
+    "types": "tsc --noEmit -p .",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
+    "validate": "yarn lint:fix && yarn types && yarn test"
+  },
+  "dependencies": {
+    "bulma": "0.7.5",
+    "devfractal-api": "1.2.18",
+    "devfractal-crud": "1.2.18",
+    "devfractal-examples": "1.2.18",
+    "devfractal-forms": "1.2.18",
+    "devfractal-router": "1.2.18",
+    "devfractal-simple": "1.2.18",
+    "devfractal-ui-api": "1.2.18",
+    "devfractal-ui-core": "1.2.18",
+    "devfractal-ui": "1.2.18",
+    "next": "9.0.5",
+    "technoidentity-spec": "*",
+    "technoidentity-utils": "1.2.18"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "4.1.0",
+    "@types/jest": "24.0.18",
+    "@types/next": "8.0.6",
+    "@types/node": "12.7.3",
+    "@types/yup": "0.26.23",
+    "@zeit/next-css": "1.0.1",
+    "@zeit/next-sass": "1.0.1",
+    "babel-eslint": "10.0.3",
+    "cross-env": "5.2.0",
+    "eslint": "6.3.0",
+    "husky": "3.0.4",
+    "jest": "24.9.0",
+    "lint-staged": "9.2.5",
+    "node-sass": "4.12.0",
+    "prettier": "1.18.2",
+    "react-testing-library": "8.0.1",
+    "rimraf": "3.0.0",
+    "ts-jest": "24.0.2",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-immutable": "6.0.1",
+    "tslint-react": "4.0.0",
+    "tslint": "5.19.0",
+    "typescript": "3.5.3"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint:fix",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,js,jsx,json,css}": [
+      "yarn prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

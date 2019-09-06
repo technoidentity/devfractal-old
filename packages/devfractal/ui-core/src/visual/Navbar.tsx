@@ -243,6 +243,3 @@ export const NavbarDivider: React.FC<NavbarDividerProps> = ({
     {children}
   </El>
 )
-
-// tslint:disable-next-line: no-default-export
-export default NavbarBrand

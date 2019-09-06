@@ -1,8 +1,7 @@
 ### Default Hero
 
 ```jsx
-import { Hero, HeroBody } from './Hero'
-;<Hero>
+<Hero>
   <HeroBody>always vertically centered</HeroBody>
 </Hero>
 ```
@@ -10,8 +9,7 @@ import { Hero, HeroBody } from './Hero'
 ### Hero with all properties
 
 ```jsx
-import { Hero, HeroBody, HeroFoot } from './Hero'
-;<Hero variant="primary" size="medium" bold={false}>
+<Hero variant="primary" size="medium" bold={false}>
   <HeroHead>
     always at the top(it can have any of the components like navbar,tabs etc...)
   </HeroHead>

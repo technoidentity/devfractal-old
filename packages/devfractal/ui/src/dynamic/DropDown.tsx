@@ -1,11 +1,5 @@
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
-import {
-  Button,
-  classNamesHelper,
-  El,
-  Helpers,
-  Icon,
-} from 'devfractal-ui-core'
+import { Button, classNamesHelper, El, Helpers, Icon } from 'devfractal-ui-core'
 import React from 'react'
 
 type DropDownModifier = 'hoverable' | 'active'
@@ -100,6 +94,3 @@ export const DropDownDivider: React.FC<DropDownDividerProps> = ({
   const classes: string = classNamesHelper(props, 'dropdown-divider')
   return <El as="hr" {...props} className={classes} />
 }
-
-// tslint:disable-next-line: no-default-export
-export default DropDownItem

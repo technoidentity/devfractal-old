@@ -27,6 +27,3 @@ export const SubTitle: React.FC<SubTitleProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default SubTitle

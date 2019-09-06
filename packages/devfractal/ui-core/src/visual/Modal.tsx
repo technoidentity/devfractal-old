@@ -142,6 +142,3 @@ export const ModalContent: React.FC<ModalContentProps> = ({
     </El>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default ModalCard

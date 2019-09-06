@@ -1,5 +1,5 @@
 {
-  "name": "technoidentity-meta-core",
+  "name": "meta-core",
   "version": "1.2.18",
   "description": "meta data, similar to json schema",
   "main": "dist/index.js",

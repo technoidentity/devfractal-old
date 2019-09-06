@@ -1,7 +1,0 @@
-{
-  "extends": "../../tslint.base.json",
-  "rules": {
-    "no-default-export": false,
-    "typedef": false
-  }
-}

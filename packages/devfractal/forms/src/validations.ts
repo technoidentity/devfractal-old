@@ -1,33 +1,70 @@
 import {
   ArraySchema,
+  DateSchema,
   MixedSchema,
   NumberSchema,
+  Schema,
   StringSchema,
   TestOptionsMessage,
 } from 'yup'
 
-type CommonSchema =
-  | StringSchema
-  | NumberSchema
-  | ArraySchema<string>
-  | ArraySchema<number>
+// @TODO: Types are all wrong in yup. Need some way to fix that mess.
 
 export const required: (
   message?: TestOptionsMessage,
-) => <T extends MixedSchema>(schema: T) => T = message => schema =>
+) => <S extends MixedSchema>(schema: S) => S = message => schema =>
   schema.required(message) as typeof schema
 
-export const min: (
-  minValue: number,
-  message?: TestOptionsMessage,
-) => <T extends CommonSchema>(schema: T) => T = (minValue, message) => schema =>
-  schema.min(minValue, message) as typeof schema
+export const nullable: (
+  isNullable?: true,
+) => <S extends MixedSchema>(schema: S) => S = isNullable => schema =>
+  schema.nullable(isNullable) as typeof schema
 
-export const max: (
-  maxValue: number,
+export const notRequired: () => <S extends MixedSchema>(
+  schema: S,
+) => S = () => schema => schema.notRequired() as typeof schema
+
+export function minLength(
+  min: number,
   message?: TestOptionsMessage,
-) => <T extends CommonSchema>(schema: T) => T = (maxValue, message) => schema =>
-  schema.max(maxValue, message) as typeof schema
+): (schema: StringSchema) => StringSchema {
+  return schema => schema.min(min, message)
+}
+
+export function min(
+  min: number,
+  message?: TestOptionsMessage,
+): (schema: NumberSchema) => NumberSchema {
+  return schema => schema.min(min, message)
+}
+
+export function after(
+  min: Date,
+  message?: TestOptionsMessage,
+): (schema: DateSchema) => DateSchema {
+  return schema => schema.min(min, message)
+}
+
+export function maxLength(
+  max: number,
+  message?: TestOptionsMessage,
+): (schema: StringSchema) => StringSchema {
+  return schema => schema.max(max, message)
+}
+
+export function max(
+  max: number,
+  message?: TestOptionsMessage,
+): (schema: NumberSchema) => NumberSchema {
+  return schema => schema.max(max, message)
+}
+
+export function before(
+  max: Date,
+  message?: TestOptionsMessage,
+): (schema: DateSchema) => DateSchema {
+  return schema => schema.max(max, message)
+}
 
 export const length: (
   limit: number,
@@ -96,3 +133,9 @@ export const integer: (
 export const truncate: () => (
   schema: NumberSchema,
 ) => NumberSchema = () => schema => schema.truncate()
+
+export function of<U>(
+  type: Schema<U>,
+): <T>(schema: ArraySchema<T>) => ArraySchema<U> {
+  return schema => schema.of(type)
+}

@@ -67,6 +67,3 @@ export const Image: React.FC<ImageProps> = ({
     </figure>
   )
 }
-
-// tslint:disable-next-line: no-default-export
-export default Image

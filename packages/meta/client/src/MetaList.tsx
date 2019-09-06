@@ -1,7 +1,7 @@
 import { SimpleTable } from 'devfractal-simple'
 import { Container, Title } from 'devfractal-ui-core'
+import { MT } from 'meta-core'
 import React from 'react'
-import { MT } from 'technoidentity-meta-core'
 
 export interface MetaListProps {
   readonly meta: MT
