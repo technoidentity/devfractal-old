@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   CreateLink,
-  CrudTable,
   links,
   listComponent,
   RoutedPager,
