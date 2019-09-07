@@ -28,3 +28,4 @@ yarn-error.log*
 dist/
 lerna-debug.log
 .next/
+tsconfig.tsbuildinfo
