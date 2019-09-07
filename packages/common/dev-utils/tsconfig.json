@@ -4,6 +4,5 @@
     "outDir": "dist",
     "rootDir": "src"
   },
-  "references": [{ "path": "../spec" }],
-  "include": ["src"]
+  "references": [{ "path": "../spec" }]
 }
