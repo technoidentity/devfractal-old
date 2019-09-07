@@ -4,6 +4,7 @@ module.exports = {
   testMatch: ['<rootDir>/src/**/*.(spec|test).{ts,tsx}'],
   globals: {
     __DEV__: true,
+    tsConfig: 'tsconfig.test.json',
     'ts-jest': {
       diagnostics: {
         warnOnly: true,
