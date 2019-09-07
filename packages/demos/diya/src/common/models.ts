@@ -1,5 +1,5 @@
 import { Int, keyof, number, string, TypeOf } from 'technoidentity-spec'
-import { ISODate, props } from 'technoidentity-utils'
+import { ISODate, props, req } from 'technoidentity-utils'
 
 const Shift = keyof({ morning: true, evening: true })
 const Status = keyof({ active: true, inactive: true })
@@ -219,3 +219,14 @@ export const AdManager = props(
 )
 
 export type AdManager = TypeOf<typeof AdManager>
+
+const VehicleNumbers = keyof({ first: true, second: true })
+
+export const AssignDriver = req({
+  id: string,
+  vehicleNumber: VehicleNumbers,
+  batteryID: string,
+  client: string,
+})
+
+export type AssignDriver = TypeOf<typeof AssignDriver>
