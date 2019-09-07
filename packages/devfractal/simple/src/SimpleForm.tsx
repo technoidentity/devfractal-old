@@ -186,8 +186,8 @@ const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   return (
     <FormikConsumer>
       {({ dirty, isSubmitting, handleReset }) => (
-        <ButtonsGroup {...props}>
-          <Field groupModifier="grouped-centered" {...fieldProps}>
+        <Field groupModifier="grouped-centered" {...fieldProps}>
+          <ButtonsGroup {...props}>
             {submit !== false && (
               <Button type="submit" variant="info" disabled={isSubmitting}>
                 {submit}
@@ -203,8 +203,8 @@ const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
                 {reset}
               </Button>
             )}
-          </Field>
-        </ButtonsGroup>
+          </ButtonsGroup>
+        </Field>
       )}
     </FormikConsumer>
   )
