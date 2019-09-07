@@ -4,7 +4,6 @@ import {
   Columns,
   component,
   Create,
-  Label,
   Section,
   Simple,
   SubmitAction,
