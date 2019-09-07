@@ -6,7 +6,7 @@
     "packages/demos/*",
     "packages/devfractal/*",
     "packages/meta/*",
-    "packages/sites/*"
+    "packages/sites/site"
   ],
   "scripts": {
     "fast:types": "yarn tsc --build packages",

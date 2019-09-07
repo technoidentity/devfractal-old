@@ -22,7 +22,7 @@
     { "path": "meta/client" },
     { "path": "meta/core" },
     { "path": "meta/server" },
-    // { "path": "sites/next-site" },
+    // // { "path": "sites/next-site" },
     { "path": "sites/site" }
   ]
 }

@@ -1,4 +1,16 @@
 {
   "extends": "../../../tsconfig.client.json",
-  "compilerOptions": { "outDir": "dist", "rootDir": "src", "jsx": "react" }
+  "compilerOptions": { "outDir": "dist", "rootDir": "src", "jsx": "react" },
+  "references": [
+    { "path": "../../common/spec" },
+    { "path": "../../common/utils" },
+    { "path": "../ui-core" },
+    { "path": "../api" },
+    { "path": "../forms" },
+    { "path": "../router" },
+    { "path": "../ui-api" },
+    { "path": "../ui" },
+    { "path": "../simple" },
+    { "path": "../crud" }
+  ]
 }
