@@ -15,7 +15,7 @@
     "prepush": "yarn validate:noFix",
     "watch": "tsdx watch --tsconfig tsconfig.build.json",
     "build": "tsdx build --tsconfig tsconfig.build.json",
-    "test": "cross-env NODE_ENV='test' jest",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",

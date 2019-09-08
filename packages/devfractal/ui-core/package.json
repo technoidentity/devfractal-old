@@ -18,7 +18,7 @@
     "sg": "styleguidist server",
     "start": "parcel index.html --open",
     "test:watch": "yarn test --watch",
-    "test": "cross-env NODE_ENV='test' jest",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "tlint:fix": "yarn lint --fix",
     "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
