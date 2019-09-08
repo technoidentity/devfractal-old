@@ -10,8 +10,8 @@
   "scripts": {
     "precommit": "yarn lint-staged",
     "prepush": "yarn validate:noFix",
-    "lib": "tsdx watch",
-    "build": "tsdx build",
+    "watch": "tsdx watch --tsconfig tsconfig.build.json",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
     "test": "cross-env NODE_ENV='test' jest",
     "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",

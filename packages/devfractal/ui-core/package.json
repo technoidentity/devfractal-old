@@ -6,10 +6,10 @@
   "module": "dist/devfractal-ui-core.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsdx build",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
     "elint:fix": "yarn elint --quiet --fix",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",
-    "lib": "tsdx watch",
+    "watch": "tsdx watch --tsconfig tsconfig.build.json",
     "lint:fix": "yarn elint:fix && yarn tlint:fix",
     "lint": "yarn elint && yarn tlint",
     "precommit": "yarn lint-staged",
