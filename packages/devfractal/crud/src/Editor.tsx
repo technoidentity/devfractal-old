@@ -41,7 +41,7 @@ export function EditorView<T extends {}>({
               ))}
           </React.Fragment>
         ))}
-        <Simple.FormButtons alignment="centered" />
+        <Simple.FormButtons />
       </Simple.Form>
     </Section>
   )

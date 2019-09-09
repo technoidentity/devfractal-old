@@ -15,14 +15,7 @@ import {
   TextAreaField,
   TextAreaFieldProps,
 } from 'devfractal-forms'
-import {
-  Button,
-  ButtonsGroup,
-  ButtonsGroupProps,
-  Field,
-  FieldPropsBase,
-  Label,
-} from 'devfractal-ui-core'
+import { Button, Field, FieldPropsBase, Label } from 'devfractal-ui-core'
 import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
 import React from 'react'
 import { camelCaseToPhrase } from 'technoidentity-utils'
@@ -171,7 +164,7 @@ export interface SimpleTextAreaProps<Values extends {}>
   readonly label?: string
 }
 
-export interface SimpleFormButtonsProps extends ButtonsGroupProps, FieldProps {
+export interface SimpleFormButtonsProps extends FieldProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
 }
@@ -179,36 +172,30 @@ export interface SimpleFormButtonsProps extends ButtonsGroupProps, FieldProps {
 const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
-  ...args
-}) => {
-  const [fieldProps, props] = splitFieldProps(args)
-
-  return (
-    <FormikConsumer>
-      {({ dirty, isSubmitting, handleReset }) => (
-        <Field groupModifier="grouped-centered" {...fieldProps}>
-          <ButtonsGroup {...props}>
-            {submit !== false && (
-              <Button type="submit" variant="info" disabled={isSubmitting}>
-                {submit}
-              </Button>
-            )}
-            {reset !== false && (
-              <Button
-                disabled={!dirty || isSubmitting}
-                variant="danger"
-                type="reset"
-                onClick={handleReset}
-              >
-                {reset}
-              </Button>
-            )}
-          </ButtonsGroup>
-        </Field>
-      )}
-    </FormikConsumer>
-  )
-}
+  ...props
+}) => (
+  <FormikConsumer>
+    {({ dirty, isSubmitting, handleReset }) => (
+      <Field grouped {...props}>
+        {submit !== false && (
+          <Button type="submit" variant="info" disabled={isSubmitting}>
+            {submit}
+          </Button>
+        )}
+        {reset !== false && (
+          <Button
+            disabled={!dirty || isSubmitting}
+            variant="danger"
+            type="reset"
+            onClick={handleReset}
+          >
+            {reset}
+          </Button>
+        )}
+      </Field>
+    )}
+  </FormikConsumer>
+)
 
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values
