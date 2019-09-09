@@ -1,0 +1,72 @@
+{
+  "name": "devfractal-mui-forms",
+  "version": "1.2.18",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/devfractal-forms.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "elint:fix": "yarn elint --quiet --fix",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "watch": "tsdx watch --tsconfig tsconfig.build.json",
+    "lint:fix": "yarn elint:fix && yarn tlint:fix",
+    "lint": "yarn elint && yarn tlint",
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn validate:noFix",
+    "sg:build": "styleguidist build",
+    "sg": "styleguidist server",
+    "start": "parcel index.html --open",
+    "test:watch": "yarn test --watch",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
+    "tlint:fix": "yarn lint --fix",
+    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
+    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "types": "tsc --noEmit -p .",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
+    "validate": "yarn lint:fix && yarn types && yarn test"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.4.1",
+    "@material-ui/icons": "^4.4.1",
+    "cleave.js": "1.5.3",
+    "date-fns": "2.0.1",
+    "react-datepicker": "2.9.3",
+    "rifm": "^0.9.1",
+    "tslib": "1.10.0",
+    "typeface-roboto": "^0.0.75"
+  },
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "devfractal-ui-core": "1.2.18",
+    "eslint": "6.3.0",
+    "husky": "3.0.4",
+    "jest": "24.9.0",
+    "lint-staged": "9.2.5",
+    "parcel-bundler": "1.12.3",
+    "prettier": "1.18.2",
+    "react-styleguidist": "9.1.16",
+    "rimraf": "3.0.0",
+    "technoidentity-spec": "*",
+    "technoidentity-utils": "1.2.18",
+    "tsdx": "0.9.0",
+    "tslint": "5.19.0",
+    "typescript": "3.5.3"
+  },
+  "peerDependencies": {
+    "devfractal-ui-core": "1.2.18",
+    "formik": "1.5.8",
+    "yup": "0.27.0"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint:fix",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,js,jsx,json,css}": [
+      "yarn prettier --write",
+      "git add"
+    ]
+  }
+}
