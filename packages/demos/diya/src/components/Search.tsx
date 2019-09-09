@@ -6,7 +6,7 @@ import Autosuggest from 'react-autosuggest'
 export interface SearchProps<T> {
   readonly searchBy: string
   onSearch(value: string): void
-  suggestions(value: string, searchBy: string): Promise<readonly T[]>
+  fetchSuggestions(value: string, searchBy: string): Promise<readonly T[]>
 }
 
 interface SearchState<T> {
@@ -17,27 +17,21 @@ interface SearchState<T> {
 export function Search<T>({
   searchBy,
   onSearch,
-  suggestions,
+  fetchSuggestions,
 }: SearchProps<T>): JSX.Element {
   const [state, setState] = React.useState<SearchState<T>>({
     value: '',
     suggestions: [],
   })
 
-  async function fetchSuggestions(value: string): Promise<readonly T[]> {
-    if (value.length === 0) {
-      return []
-    }
-
-    return suggestions(value, searchBy)
-  }
-
   return (
     <>
       <Autosuggest
         suggestions={state.suggestions}
         onSuggestionsFetchRequested={async ({ value }) => {
-          const suggestions = await fetchSuggestions(value)
+          const suggestions =
+            value.length === 0 ? [] : await fetchSuggestions(value, searchBy)
+
           setState({ value, suggestions })
         }}
         alwaysRenderSuggestions={true}
