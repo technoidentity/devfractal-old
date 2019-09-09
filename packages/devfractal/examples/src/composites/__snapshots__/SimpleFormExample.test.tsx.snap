@@ -267,34 +267,30 @@ exports[`Simple Form Example 1`] = `
       </div>
     </div>
     <div
-      className="field"
+      className="field is-grouped"
     >
       <div
-        className="buttons"
+        className="control"
       >
-        <div
-          className="control"
+        <button
+          className="button is-info"
+          disabled={false}
+          type="submit"
         >
-          <button
-            className="button is-info"
-            disabled={false}
-            type="submit"
-          >
-            Submit
-          </button>
-        </div>
-        <div
-          className="control"
+          Submit
+        </button>
+      </div>
+      <div
+        className="control"
+      >
+        <button
+          className="button is-danger"
+          disabled={true}
+          onClick={[Function]}
+          type="reset"
         >
-          <button
-            className="button is-danger"
-            disabled={true}
-            onClick={[Function]}
-            type="reset"
-          >
-            Reset
-          </button>
-        </div>
+          Reset
+        </button>
       </div>
     </div>
     <pre>
