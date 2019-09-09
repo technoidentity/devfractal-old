@@ -30,7 +30,6 @@ Array [
         </div>
         <a
           className="navbar-burger burger"
-          onClick={[Function]}
           role="button"
         >
           <span
@@ -175,7 +174,6 @@ Array [
         </div>
         <a
           className="navbar-burger burger"
-          onClick={[Function]}
           role="button"
         >
           <span
@@ -322,7 +320,6 @@ Array [
         </div>
         <a
           className="navbar-burger burger"
-          onClick={[Function]}
           role="button"
         >
           <span
@@ -366,7 +363,6 @@ Array [
         </div>
         <a
           className="navbar-burger burger"
-          onClick={[Function]}
           role="button"
         >
           <span
@@ -557,7 +553,6 @@ Array [
     </h1>
     <a
       className="navbar-burger burger"
-      onClick={[Function]}
       role="button"
     >
       <span
@@ -1325,7 +1320,6 @@ Array [
         </div>
         <a
           className="navbar-burger burger"
-          onClick={[Function]}
           role="button"
         >
           <span
@@ -1528,7 +1522,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span
@@ -1732,7 +1725,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span
@@ -1936,7 +1928,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span
@@ -2139,7 +2130,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span
@@ -2343,7 +2333,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span
@@ -2547,7 +2536,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span
@@ -2751,7 +2739,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span
@@ -2955,7 +2942,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span
@@ -3159,7 +3145,6 @@ Array [
           </div>
           <a
             className="navbar-burger burger"
-            onClick={[Function]}
             role="button"
           >
             <span

@@ -1,13 +1,19 @@
 {
   "extends": "../../../tsconfig.client.json",
   "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
     "jsx": "preserve",
     "composite": false,
-    "noEmit": false,
     "declaration": false,
     "declarationMap": false,
     "isolatedModules": true
   },
   "include": ["pages", "components/Medias.tsx", "react-app.d.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "references": [
+    { "path": "../../common/spec" },
+    { "path": "../../common/utils" },
+    { "path": "../devfractal" }
+  ]
 }

@@ -1,5 +1,14 @@
 {
   "extends": "../../../tsconfig.client.json",
-  "compilerOptions": { "jsx": "react" },
-  "include": ["src"]
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "jsx": "react"
+  },
+  "references": [
+    { "path": "../../common/spec" },
+    { "path": "../../common/utils" },
+    { "path": "../api" },
+    { "path": "../router" }
+  ]
 }

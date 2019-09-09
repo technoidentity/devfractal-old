@@ -495,7 +495,6 @@ Array [
                 <a
                   className="navbar-burger burger"
                   data-target="navbarMenuHeroA"
-                  onClick={[Function]}
                 >
                   <span />
                   <span />
@@ -683,7 +682,6 @@ Array [
                 <a
                   className="navbar-burger burger"
                   data-target="navbarMenuHeroA"
-                  onClick={[Function]}
                 >
                   <span />
                   <span />

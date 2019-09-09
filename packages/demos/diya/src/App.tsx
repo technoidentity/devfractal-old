@@ -20,6 +20,7 @@ import {
   UserRoutes,
   VehicleRoutes,
 } from './pages'
+import { AssignDriverRoute } from './views'
 
 export const App = () => {
   const [visibility, setVisibility] = React.useState<Visibility>('full')
@@ -36,6 +37,7 @@ export const App = () => {
           <SimpleRedirect from="/" to="/drivers" />
 
           <DriverRoutes />
+          <AssignDriverRoute />
           <BatteryRoutes />
           <ClientRoutes />
           <VehicleRoutes />
