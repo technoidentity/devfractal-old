@@ -62,7 +62,7 @@ export const BatteryForm = formComponent(
             </Column>
           </Columns>
 
-          <Simple.FormButtons alignment="centered" />
+          <Simple.FormButtons />
         </Simple.Form>
       </Section>
     </>

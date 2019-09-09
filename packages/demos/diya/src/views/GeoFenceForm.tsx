@@ -17,7 +17,7 @@ export const GeoFenceForm = formComponent(
           <Simple.Text name="assignClient" />
           <Simple.TextArea name="comments" />
 
-          <Simple.FormButtons alignment="centered" size="medium" />
+          <Simple.FormButtons />
         </Simple.Form>
       </Section>
     </>
