@@ -110,7 +110,7 @@ exports[`Simple Form Example 1`] = `
             className="react-datepicker__input-container"
           >
             <input
-              className="undefined input"
+              className="input"
               disabled={false}
               name="dateOfBirth"
               onBlur={[Function]}
