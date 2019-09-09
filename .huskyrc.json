@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "yarn lint-staged && yarn dev:types && yarn dev:test",
+    "pre-push": "yarn validate:noFix"
+  }
+}
