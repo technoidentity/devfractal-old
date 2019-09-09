@@ -23,7 +23,7 @@
     "clean:dist": "lerna clean && yarn run rimraf node_modules",
     "clean": "lerna exec -- yarn run rimraf dist .cache build .rts2_cache_* && yarn dev:clean",
     "destroy": "git clean -dfx",
-    "deb:types": "yarn tsc --build packages",
+    "dev:types": "yarn tsc --build packages",
     "dev:clean": "yarn tsc --build --clean packages",
     "dev:test": "yarn jest",
     "dev:test:watch": "yarn jest --watch",
@@ -136,9 +136,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run --concurrency 1 --stream precommit",
+      "pre-commit": "yarn lint-staged && yarn dev:types && yarn dev:test",
       "pre-push": "yarn validate:noFix"
     }
   },
-  "version": "0.0.0"
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx,json,css}": [
+      "yarn prettier --write",
+      "git add"
+    ]
+  }
 }
