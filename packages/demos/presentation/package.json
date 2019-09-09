@@ -3,8 +3,6 @@
   "version": "1.2.18",
   "private": true,
   "scripts": {
-    "precommit": "lint-staged",
-    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
     "server": "json-server data/todos.json",
