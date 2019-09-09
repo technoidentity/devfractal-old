@@ -80,12 +80,17 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   const { location } = useRouter()
 
   const classes: string = classNamesHelper(props, {
-    'is-active': active || (href && chop(href)) === chop(location.pathname),
+    'is-active':
+      active || (href && chop(location.pathname).startsWith(chop(href))),
   })
 
   return (
-    <El as="li" {...props} className={classes}>
-      {<NavLink to={href || '#'}>{children}</NavLink>}
+    <El as="li" {...props}>
+      {
+        <NavLink to={href || '#'} className={classes}>
+          {children}
+        </NavLink>
+      }
     </El>
   )
 }
