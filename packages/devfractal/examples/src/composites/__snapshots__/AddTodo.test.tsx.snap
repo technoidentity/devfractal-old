@@ -76,10 +76,10 @@ exports[`AddTodo 1`] = `
       </div>
     </div>
     <div
-      className="buttons"
+      className="field"
     >
       <div
-        className="field"
+        className="buttons"
       >
         <div
           className="control"
