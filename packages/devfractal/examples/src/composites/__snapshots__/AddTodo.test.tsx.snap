@@ -76,10 +76,10 @@ exports[`AddTodo 1`] = `
       </div>
     </div>
     <div
-      className="buttons"
+      className="field"
     >
       <div
-        className="field is-grouped is-grouped-centered"
+        className="buttons"
       >
         <div
           className="control"

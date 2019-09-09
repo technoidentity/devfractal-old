@@ -245,3 +245,14 @@ export const LoginResponse = req({
 })
 
 export type LoginResponse = TypeOf<typeof LoginResponse>
+
+const VehicleNumbers = keyof({ first: true, second: true })
+
+export const AssignDriver = req({
+  id: string,
+  vehicleNumber: VehicleNumbers,
+  batteryID: string,
+  client: string,
+})
+
+export type AssignDriver = TypeOf<typeof AssignDriver>

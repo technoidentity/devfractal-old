@@ -37,6 +37,11 @@ import {
   StringSchema,
 } from 'yup'
 
+type Replace<T, K extends string & keyof T, R extends string> = Omit<T, K> &
+  { readonly [P in R]?: T[K] }
+
+type FieldProps = Replace<FieldPropsBase, 'size', 'fieldSize'>
+
 interface Named<Values extends {}> {
   readonly name: keyof Values & string
 }
@@ -45,7 +50,7 @@ interface Named<Values extends {}> {
 interface SimpleInputProps<Values extends {}, S extends Schema<any>>
   extends Omit<InputFieldProps, 'name' | 'size'>,
     Named<Values>,
-    FieldPropsBase {
+    FieldProps {
   readonly schema: S
   readonly label?: string
   readonly validations?: ReadonlyArray<(schema: S) => S>
@@ -77,17 +82,17 @@ function validator<S extends Schema<any>>(
   }
 }
 
-function splitFieldProps<T extends FieldPropsBase>({
+function splitFieldProps<T extends FieldProps>({
   grouped,
   addons,
   horizontal,
   groupedMultiline,
   groupModifier,
   addonsModifier,
-  size,
+  fieldSize,
   ...rest
 }: // tslint:disable-next-line: readonly-array
-T): [FieldPropsBase, Omit<T, keyof FieldPropsBase>] {
+T): [FieldProps, Omit<T, keyof FieldProps>] {
   return [
     {
       grouped,
@@ -96,7 +101,7 @@ T): [FieldPropsBase, Omit<T, keyof FieldPropsBase>] {
       groupedMultiline,
       groupModifier,
       addonsModifier,
-      size,
+      fieldSize,
     },
     rest,
   ]
@@ -118,11 +123,9 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
 interface SimpleDateProps<Values extends {}>
   extends Omit<DateFieldProps, 'name' | 'size'>,
     Named<Values>,
-    FieldPropsBase {
+    FieldProps {
   readonly validations?: ReadonlyArray<(schema: DateSchema) => DateSchema>
   readonly label?: string
-
-  // readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
 function SimpleDate<Values extends {}>(
@@ -142,35 +145,33 @@ function SimpleDate<Values extends {}>(
 export interface SimpleCheckboxProps<Values extends {}>
   extends Omit<CheckboxFieldProps, 'name' | 'size'>,
     Named<Values>,
-    FieldPropsBase {
+    FieldProps {
   readonly noLabel?: boolean
 }
 
 export interface SimpleRadioGroupProps<Values extends {}>
   extends Omit<RadioFieldProps, 'name' | 'size'>,
     Named<Values>,
-    FieldPropsBase {
+    FieldProps {
   readonly label?: string
 }
 
 export interface SimpleSelectProps<Values extends {}>
   extends Omit<SelectFieldProps, 'name' | 'size'>,
     Named<Values>,
-    FieldPropsBase {
+    FieldProps {
   readonly label?: string
 }
 
 export interface SimpleTextAreaProps<Values extends {}>
   extends Omit<TextAreaFieldProps, 'name' | 'size'>,
     Named<Values>,
-    FieldPropsBase {
+    FieldProps {
   readonly name: keyof Values & string
   readonly label?: string
 }
 
-export interface SimpleFormButtonsProps
-  extends Omit<ButtonsGroupProps, 'size'>,
-    FieldPropsBase {
+export interface SimpleFormButtonsProps extends ButtonsGroupProps, FieldProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
 }
@@ -185,8 +186,8 @@ const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   return (
     <FormikConsumer>
       {({ dirty, isSubmitting, handleReset }) => (
-        <ButtonsGroup {...props}>
-          <Field groupModifier="grouped-centered" {...fieldProps}>
+        <Field groupModifier="grouped-centered" {...fieldProps}>
+          <ButtonsGroup {...props}>
             {submit !== false && (
               <Button type="submit" variant="info" disabled={isSubmitting}>
                 {submit}
@@ -202,8 +203,8 @@ const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
                 {reset}
               </Button>
             )}
-          </Field>
-        </ButtonsGroup>
+          </ButtonsGroup>
+        </Field>
       )}
     </FormikConsumer>
   )

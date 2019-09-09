@@ -3,27 +3,17 @@ import {
   Column,
   Columns,
   component,
-  Label,
+  Create,
   Section,
   Simple,
   SubmitAction,
   Title,
 } from 'technoidentity-devfractal'
-import { keyof, string, TypeOf } from 'technoidentity-spec'
 import { empty, fn, req } from 'technoidentity-utils'
-
-const VehicleNumbers = keyof({ first: true, second: true })
-
-const AssignDriverDetails = req({
-  vehicleNumber: VehicleNumbers,
-  batteryId: string,
-  client: string,
-})
-
-type AssignDriverDetails = TypeOf<typeof AssignDriverDetails>
+import { AssignDriver, assignDriverAPI } from '../common'
 
 const AssignDriverFormProps = req({
-  onSubmit: fn<SubmitAction<AssignDriverDetails>>(),
+  onSubmit: fn<SubmitAction<AssignDriver>>(),
 })
 
 export const AssignDriverForm = component(
@@ -34,12 +24,7 @@ export const AssignDriverForm = component(
         <Column size="half">
           <Title size="5">Assign</Title>
 
-          <Simple.Form
-            initialValues={empty(AssignDriverDetails)}
-            onSubmit={onSubmit}
-          >
-            <Label>Vehicle Number</Label>
-
+          <Simple.Form initialValues={empty(AssignDriver)} onSubmit={onSubmit}>
             <Simple.Select name="vehicleNumber">
               <option value="number1">TSO1A0428</option>
               <option value="number2">TSO1A0429</option>
@@ -54,4 +39,13 @@ export const AssignDriverForm = component(
       </Columns>
     </Section>
   ),
+)
+
+export const AssignDriverRoute = () => (
+  <Create
+    api={assignDriverAPI}
+    form={AssignDriverForm}
+    path="/assignDriver/:id"
+    redirectTo="/drivers"
+  />
 )

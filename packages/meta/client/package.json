@@ -9,10 +9,10 @@
   "scripts": {
     "precommit": "yarn lint-staged",
     "prepush": "yarn validate:noFix",
-    "lib": "tsdx watch",
-    "test": "cross-env NODE_ENV='test' jest",
+    "watch": "tsdx watch --tsconfig tsconfig.build.json",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
     "test:watch": "yarn test --watch",
-    "build": "tsdx build",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
     "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "tlint:fix": "yarn lint --fix",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",

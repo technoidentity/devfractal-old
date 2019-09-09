@@ -73,10 +73,10 @@ export const NavbarBurger: React.FC<NavbarBurgerProps> = ({
   children,
   ...props
 }) => {
-  const { visible, setVisible } = React.useContext(NavbarContext)
+  // const { visible, setVisible } = React.useContext(NavbarContext)
 
   const classes: string = classNamesHelper(props, 'navbar-burger', 'burger', {
-    'is-active': active || visible,
+    'is-active': active,
   })
 
   return (
@@ -84,7 +84,7 @@ export const NavbarBurger: React.FC<NavbarBurgerProps> = ({
       as="a"
       {...props}
       className={classes}
-      onClick={() => setVisible && setVisible(!visible)}
+      // onClick={() => setVisible && setVisible(!visible)}
     >
       {children}
     </El>

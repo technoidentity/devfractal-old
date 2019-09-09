@@ -25,6 +25,7 @@ export const BatteryList = listComponent(Battery, ({ data: batteryList }) => (
       data={batteryList}
       headers={['name', 'group', 'remainingCycles', 'status']}
       editTo={v => batteryLinks.edit(v.id)}
+      headerLabels={['name', 'group', 'remainingCycles', 'status']}
     />
 
     <RoutedPager />
