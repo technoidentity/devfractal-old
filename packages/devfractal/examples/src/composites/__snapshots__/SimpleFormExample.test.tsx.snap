@@ -98,6 +98,40 @@ exports[`Simple Form Example 1`] = `
       <label
         className="label"
       >
+        Date of birth
+      </label>
+      <div
+        className="control"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <input
+              className="undefined input"
+              disabled={false}
+              name="dateOfBirth"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        className="label"
+      >
          Remember Me
       </label>
       <div
@@ -163,7 +197,7 @@ exports[`Simple Form Example 1`] = `
       <label
         className="label"
       >
-        Select
+        Position
       </label>
       <div
         className="control"
@@ -173,10 +207,9 @@ exports[`Simple Form Example 1`] = `
         >
           <select
             className=""
-            name="select"
+            name="position"
             onBlur={[Function]}
             onChange={[Function]}
-            value=""
           >
             <option
               value="associate"
@@ -237,7 +270,7 @@ exports[`Simple Form Example 1`] = `
       className="buttons"
     >
       <div
-        className="field is-grouped is-grouped-centered"
+        className="field"
       >
         <div
           className="control"
@@ -272,7 +305,7 @@ exports[`Simple Form Example 1`] = `
   "tel": 0,
   "remember": false,
   "gender": "male",
-  "select": "",
+  "select": "assistant",
   "message": "",
   "age": 0
 }

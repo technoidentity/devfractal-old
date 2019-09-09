@@ -34,10 +34,10 @@ const RadioGroupView: React.FC<RadioGroupViewProps> = ({
   return (
     <ControlWrapper {...props}>
       {React.Children.map(children, (child: any, i) => {
-        debug(
-          child.type.displayName === 'Radio',
-          "Every child to 'RadioGroup' must be 'Radio'",
-        )
+        // debug(
+        //   child.type.displayName === 'Radio',
+        //   "Every child to 'RadioGroup' must be 'Radio'",
+        // )
         const _selected: string =
           selected ||
           ((children && children[0] && children[0].props.value) || '0')

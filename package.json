@@ -6,9 +6,11 @@
     "packages/demos/*",
     "packages/devfractal/*",
     "packages/meta/*",
-    "packages/sites/*"
+    "packages/sites/site"
   ],
   "scripts": {
+    "fast:types": "yarn tsc --build packages",
+    "fast:types:watch": "yarn tsc -b -w packages",
     "boot:common": "yarn && yarn build:common && yarn validate:common",
     "boot:demos": "yarn && yarn build:demos && yarn validate:demos",
     "boot:lib": "yarn && yarn build:lib && yarn validate:lib",

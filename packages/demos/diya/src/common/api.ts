@@ -3,6 +3,7 @@ import { Mixed } from 'technoidentity-spec'
 import { HasProps } from 'technoidentity-utils'
 import {
   AdManager,
+  AssignDriver,
   Battery,
   Client,
   Driver,
@@ -38,3 +39,4 @@ export const invoiceAPI = api(Invoice, 'invoices')
 export const geoFenceAPI = api(GeoFence, 'geo_fences')
 export const tripAPI = api(Trip, 'trips')
 export const adManagerAPI = api(AdManager, 'adManagers')
+export const assignDriverAPI = api(AssignDriver, 'assignDriver')

@@ -6,7 +6,7 @@ import {
   Router,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
-import { SideMenu } from './components'
+import { SideMenuView, Visibility } from './components'
 import {
   BatteryRoutes,
   ClientRoutes,
@@ -20,28 +20,37 @@ import {
   UserRoutes,
   VehicleRoutes,
 } from './pages'
+import { AssignDriverRoute } from './views'
 
-export const App = () => (
-  <Router variant="browser">
-    <Columns>
-      <SideMenu />
+export const App = () => {
+  const [visibility, setVisibility] = React.useState<Visibility>('full')
+  const handleClick = () => {
+    setVisibility(visibility === 'full' ? 'minimal' : 'full')
+  }
 
-      <Column>
-        <SimpleRedirect from="/" to="/drivers" />
+  return (
+    <Router variant="browser">
+      <Columns>
+        <SideMenuView visibility={visibility} onClick={handleClick} />
 
-        <DriverRoutes />
-        <BatteryRoutes />
-        <ClientRoutes />
-        <VehicleRoutes />
-        <EmployeeRoutes />
-        <GeoFenceRoutes />
-        <UserRoutes />
-        <EVSRoutes />
+        <Column>
+          <SimpleRedirect from="/" to="/drivers" />
 
-        <InvoiceListRoute />
-        <PlanRouteMapRoute />
-        <TripListRoute />
-      </Column>
-    </Columns>
-  </Router>
-)
+          <DriverRoutes />
+          <AssignDriverRoute />
+          <BatteryRoutes />
+          <ClientRoutes />
+          <VehicleRoutes />
+          <EmployeeRoutes />
+          <GeoFenceRoutes />
+          <UserRoutes />
+          <EVSRoutes />
+
+          <InvoiceListRoute />
+          <PlanRouteMapRoute />
+          <TripListRoute />
+        </Column>
+      </Columns>
+    </Router>
+  )
+}

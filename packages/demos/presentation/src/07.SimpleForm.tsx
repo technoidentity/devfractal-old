@@ -1,7 +1,11 @@
 import React from 'react'
-import { max, min, required } from 'technoidentity-devfractal'
-import { Simple } from 'technoidentity-devfractal'
-import { Section } from 'technoidentity-devfractal'
+import {
+  maxLength,
+  minLength,
+  required,
+  Section,
+  Simple,
+} from 'technoidentity-devfractal'
 import { initialLoginValues } from './06.ModerateForm'
 
 export const SimpleLoginForm: React.FC = () => (
@@ -9,10 +13,13 @@ export const SimpleLoginForm: React.FC = () => (
     <Simple.Form initialValues={initialLoginValues}>
       <Simple.Text
         name="username"
-        validations={[required(), max(20), min(10)]}
+        validations={[required(), maxLength(20), minLength(10)]}
       />
 
-      <Simple.Password name="password" validations={[required(), min(8)]} />
+      <Simple.Password
+        name="password"
+        validations={[required(), minLength(8)]}
+      />
 
       <Simple.FormButtons />
 

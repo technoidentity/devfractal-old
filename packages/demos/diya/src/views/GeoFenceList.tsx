@@ -26,6 +26,7 @@ export const GeoFenceList = listComponent(
         data={geoFenceList}
         headers={['areaName', 'assignVehicle', 'assignClient']}
         editTo={v => geoFenceLinks.edit(v.id)}
+        headerLabels={['areaName', 'assignVehicle', 'assignClient']}
       />
 
       <RoutedPager />
