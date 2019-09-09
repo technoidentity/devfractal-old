@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   CreateLink,
-  CrudTable,
   links,
   listComponent,
   RoutedPager,
@@ -9,38 +8,42 @@ import {
 } from 'technoidentity-devfractal'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
+import { DiyaTable } from '../components/DiyaTable'
 
-const vehicleLinks = links('vehicles')
+const vehicleLinks = links('vehicle')
 
-export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => (
-  <Section>
-    <HeadTitle>Vehicles</HeadTitle>
+export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
+  return (
+    <Section>
+      <HeadTitle>Vehicles</HeadTitle>
 
-    <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
-      Add Vehicle
-    </CreateLink>
+      <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
+        Add Vehicle
+      </CreateLink>
 
-    <CrudTable
-      data={vehicleList}
-      headers={[
-        'name',
-        'numberPlate',
-        'group',
-        'nextService',
-        'insuranceDue',
-        'status',
-      ]}
-      headerLabels={[
-        'name',
-        'numberPlate',
-        'group',
-        'nextService',
-        'insuranceDue',
-        'status',
-      ]}
-      editTo={v => vehicleLinks.edit(v.id)}
-    />
-
-    <RoutedPager />
-  </Section>
-))
+      <DiyaTable
+        data={vehicleList}
+        headers={[
+          'name',
+          'numberPlate',
+          'group',
+          'nextService',
+          'insuranceDue',
+          'status',
+        ]}
+        headerLabels={[
+          'name',
+          'numberPlate',
+          'group',
+          'nextService',
+          'insuranceDue',
+          'status',
+          'Actions',
+        ]}
+        editTo={v => vehicleLinks.edit(v.id)}
+        assignTo={v => `/assignVehicle/${v.id}`}
+      />
+      <RoutedPager />
+    </Section>
+  )
+})
