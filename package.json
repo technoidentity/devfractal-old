@@ -135,12 +135,6 @@
     "webpack": "4.39.3",
     "webpack-blocks": "2.0.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged && yarn dev:types && yarn dev:test",
-      "pre-push": "yarn validate:noFix"
-    }
-  },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx,json,css}": [
       "yarn prettier --write",

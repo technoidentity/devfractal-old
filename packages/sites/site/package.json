@@ -11,8 +11,6 @@
     "lint:fix": "yarn elint:fix && yarn tlint:fix",
     "lint": "yarn elint && yarn tlint",
     "prebuild": "yarn validate",
-    "precommit": "yarn lint-staged",
-    "prepush": "yarn validate:noFix",
     "sg:build": "styleguidist build",
     "sg": "styleguidist server",
     "start": "parcel index.html --open",
@@ -62,7 +60,6 @@
     "cross-env": "5.2.1",
     "eslint": "6.3.0",
     "jest": "24.9.0",
-    "lint-staged": "9.2.5",
     "prettier": "1.18.2",
     "react-test-renderer": "16.9.0",
     "rimraf": "3.0.0",
@@ -76,16 +73,6 @@
   "resolutions": {
     "react": "16.9.0",
     "react-dom": "16.9.0"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "yarn lint:fix",
-      "git add"
-    ],
-    "src/**/*.{ts,tsx,js,jsx,json,css}": [
-      "yarn prettier --write",
-      "git add"
-    ]
   },
   "browserslist": [
     ">0.2%",
