@@ -3,8 +3,6 @@
   "version": "1.2.18",
   "private": true,
   "scripts": {
-    "precommit": "yarn lint-staged",
-    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "server": "cross-env PORT=9999 ts-node --project tsconfig.tsnode.json src/db.ts",
     "build": "parcel build index.html",
@@ -45,9 +43,7 @@
     "@types/yup": "0.26.23",
     "cross-env": "5.2.1",
     "eslint": "6.3.0",
-    "husky": "3.0.5",
     "jest": "24.9.0",
-    "lint-staged": "9.2.5",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
     "react-datepicker": "2.9.6",
@@ -65,16 +61,6 @@
   "resolutions": {
     "react": "16.9.0",
     "react-dom": "16.9.0"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "yarn lint:fix",
-      "git add"
-    ],
-    "src/**/*.{ts,tsx,js,jsx,json,css}": [
-      "yarn prettier --write",
-      "git add"
-    ]
   },
   "browserslist": [
     ">0.2%",

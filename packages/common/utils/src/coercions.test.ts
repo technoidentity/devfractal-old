@@ -30,7 +30,7 @@ describe('coercions from string', () => {
   })
 
   it('to Date from ISO string', () => {
-    expect(toDate('1973, 11 ,30')).toEqual(new Date(1973, 10, 30))
+    expect(toDate('1973, 11, 30')).toEqual(new Date(1973, 10, 30))
     expect(toDate('1960,6,2')).toEqual(new Date(1960, 5, 2))
     expect(toDate('1913,1,24')).toEqual(new Date(1913, 0, 24))
     expect(() => toDate('hello')).toThrow()
