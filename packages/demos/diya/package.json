@@ -41,6 +41,7 @@
     "@types/react": "16.9.2",
     "@types/react-autosuggest": "^9.3.11",
     "@types/yup": "0.26.23",
+    "bulmaswatch": "^0.7.5",
     "cross-env": "5.2.1",
     "eslint": "6.3.0",
     "jest": "24.9.0",
