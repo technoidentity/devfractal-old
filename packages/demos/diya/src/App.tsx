@@ -6,7 +6,6 @@ import {
   Router,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
-import './stylesheets/datepicker/datepicker-bulma.scss'
 import { SideMenuView, Visibility } from './components'
 import {
   BatteryRoutes,
@@ -21,6 +20,7 @@ import {
   UserRoutes,
   VehicleRoutes,
 } from './pages'
+import './stylesheets/styles.scss'
 import { AssignDriverRoute } from './views'
 import { AssignBatteryRoute } from './views/AssignBattery'
 import { AssignVehicleRoute } from './views/AssignVehicle'
