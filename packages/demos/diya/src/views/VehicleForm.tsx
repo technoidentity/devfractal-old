@@ -15,7 +15,6 @@ import {
 } from 'technoidentity-devfractal'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
-import '../stylesheets/datepicker/datepicker-bulma.scss'
 
 export const VehicleForm = formComponent(
   Vehicle,

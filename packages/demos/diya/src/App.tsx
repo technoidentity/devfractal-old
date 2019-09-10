@@ -6,6 +6,7 @@ import {
   Router,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
+import './stylesheets/datepicker/datepicker-bulma.scss'
 import { SideMenuView, Visibility } from './components'
 import {
   BatteryRoutes,
