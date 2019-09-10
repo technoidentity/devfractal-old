@@ -22,11 +22,11 @@ export const UserList = listComponent(User, ({ data: userList }) => (
       data={userList}
       headers={['userName', 'role', 'address1', 'phone', 'email']}
       headerLabels={[
-        'userName',
-        'role',
-        'address1',
-        'phone',
-        'email',
+        'Username',
+        'Role',
+        'Address',
+        'Phone',
+        'Email',
         'Actions',
       ]}
       editTo={v => userLinks.edit(v.id)}

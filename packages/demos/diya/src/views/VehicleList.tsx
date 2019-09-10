@@ -10,7 +10,7 @@ import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'
 
-const vehicleLinks = links('vehicle')
+const vehicleLinks = links('vehicles')
 
 export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
   return (
