@@ -19,11 +19,10 @@ exports[`Menu Example 1`] = `
         <ul
           className="menu-list"
         >
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -34,11 +33,10 @@ exports[`Menu Example 1`] = `
               </a>
             </a>
           </li>
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -58,11 +56,10 @@ exports[`Menu Example 1`] = `
         <ul
           className="menu-list"
         >
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -73,11 +70,10 @@ exports[`Menu Example 1`] = `
               </a>
             </a>
           </li>
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -91,11 +87,10 @@ exports[`Menu Example 1`] = `
               <ul
                 className="menu-list"
               >
-                <li
-                  className=""
-                >
+                <li>
                   <a
                     aria-current={null}
+                    className=""
                     href="#/"
                     onClick={[Function]}
                   >
@@ -106,11 +101,10 @@ exports[`Menu Example 1`] = `
                     </a>
                   </a>
                 </li>
-                <li
-                  className=""
-                >
+                <li>
                   <a
                     aria-current={null}
+                    className=""
                     href="#/"
                     onClick={[Function]}
                   >
@@ -121,11 +115,10 @@ exports[`Menu Example 1`] = `
                     </a>
                   </a>
                 </li>
-                <li
-                  className=""
-                >
+                <li>
                   <a
                     aria-current={null}
+                    className=""
                     href="#/"
                     onClick={[Function]}
                   >
@@ -139,11 +132,10 @@ exports[`Menu Example 1`] = `
               </ul>
             </a>
           </li>
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -154,11 +146,10 @@ exports[`Menu Example 1`] = `
               </a>
             </a>
           </li>
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -169,11 +160,10 @@ exports[`Menu Example 1`] = `
               </a>
             </a>
           </li>
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -193,11 +183,10 @@ exports[`Menu Example 1`] = `
         <ul
           className="menu-list"
         >
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -208,11 +197,10 @@ exports[`Menu Example 1`] = `
               </a>
             </a>
           </li>
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >
@@ -223,11 +211,10 @@ exports[`Menu Example 1`] = `
               </a>
             </a>
           </li>
-          <li
-            className=""
-          >
+          <li>
             <a
               aria-current={null}
+              className=""
               href="#/"
               onClick={[Function]}
             >

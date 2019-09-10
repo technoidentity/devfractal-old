@@ -171,7 +171,7 @@ export interface SimpleTextAreaProps<Values extends {}>
   readonly label?: string
 }
 
-export interface SimpleFormButtonsProps extends ButtonsGroupProps, FieldProps {
+export interface SimpleFormButtonsProps extends ButtonsGroupProps {
   readonly submit?: boolean | string
   readonly reset?: boolean | string
 }
@@ -179,36 +179,36 @@ export interface SimpleFormButtonsProps extends ButtonsGroupProps, FieldProps {
 const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
-  ...args
-}) => {
-  const [fieldProps, props] = splitFieldProps(args)
-
-  return (
-    <FormikConsumer>
-      {({ dirty, isSubmitting, handleReset }) => (
-        <Field groupModifier="grouped-centered" {...fieldProps}>
-          <ButtonsGroup {...props}>
-            {submit !== false && (
-              <Button type="submit" variant="info" disabled={isSubmitting}>
-                {submit}
-              </Button>
-            )}
-            {reset !== false && (
-              <Button
-                disabled={!dirty || isSubmitting}
-                variant="danger"
-                type="reset"
-                onClick={handleReset}
-              >
-                {reset}
-              </Button>
-            )}
-          </ButtonsGroup>
-        </Field>
-      )}
-    </FormikConsumer>
-  )
-}
+  ...props
+}) => (
+  <FormikConsumer>
+    {({ dirty, isSubmitting, handleReset }) => (
+      <ButtonsGroup {...props}>
+        {submit !== false && (
+          <Button
+            type="submit"
+            variant="info"
+            disabled={isSubmitting}
+            noControl
+          >
+            {submit}
+          </Button>
+        )}
+        {reset !== false && (
+          <Button
+            disabled={!dirty || isSubmitting}
+            variant="danger"
+            type="reset"
+            onClick={handleReset}
+            noControl
+          >
+            {reset}
+          </Button>
+        )}
+      </ButtonsGroup>
+    )}
+  </FormikConsumer>
+)
 
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values

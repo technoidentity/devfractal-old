@@ -31,7 +31,10 @@ export const Actions: React.FC<ActionsProps> = ({ editTo, onDelete }) => {
 }
 
 export interface CrudTableProps<T>
-  extends Pick<SimpleTableProps<T>, 'headers' | 'headerLabels'> {
+  extends Pick<
+    SimpleTableProps<T>,
+    'headers' | 'headerLabels' | 'onRowClicked'
+  > {
   readonly data: ReadonlyArray<T>
   editTo(value: T): string
   onDelete?(value: T): void
@@ -43,6 +46,7 @@ export function CrudTable<T>({
   headerLabels,
   editTo,
   onDelete,
+  onRowClicked,
 }: CrudTableProps<T>): JSX.Element {
   return (
     <SimpleTable
@@ -50,6 +54,7 @@ export function CrudTable<T>({
       headers={[...(headers || []), 'Actions']}
       headerLabels={[...(headerLabels || [])]}
       striped
+      onRowClicked={onRowClicked}
     >
       {(key, value) =>
         key === 'Actions' ? (

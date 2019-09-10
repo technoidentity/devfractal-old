@@ -3,8 +3,6 @@
   "version": "1.2.18",
   "private": true,
   "scripts": {
-    "precommit": "yarn lint-staged",
-    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
     "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
@@ -22,22 +20,20 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.0.1",
+    "date-fns": "2.1.0",
     "immer": "3.2.0",
     "react-dom": "16.9.0",
-    "react-use": "11.3.2",
+    "react-use": "12.2.0",
     "react": "16.9.0",
     "technoidentity-devfractal": "1.2.18",
     "technoidentity-spec": "*",
     "technoidentity-utils": "1.2.18"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "cross-env": "5.2.0",
+    "@babel/core": "^7.6.0",
+    "cross-env": "5.2.1",
     "eslint": "6.3.0",
-    "husky": "3.0.4",
     "jest": "24.9.0",
-    "lint-staged": "9.2.5",
     "prettier": "1.18.2",
     "rimraf": "3.0.0",
     "tslint": "5.19.0",
@@ -46,16 +42,6 @@
   "resolutions": {
     "react-dom": "16.9.0",
     "react": "16.9.0"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "yarn lint:fix",
-      "git add"
-    ],
-    "src/**/*.{ts,tsx,js,jsx,json,css}": [
-      "yarn prettier --write",
-      "git add"
-    ]
   },
   "browserslist": [
     ">0.2%",

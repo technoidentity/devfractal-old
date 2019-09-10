@@ -6,7 +6,7 @@
     "formik": "1.5.8",
     "technoidentity-spec": "*",
     "react": "16.9.0",
-    "react-datepicker": "2.9.3",
+    "react-datepicker": "2.9.6",
     "react-dom": "16.9.0",
     "technoidentity-devfractal": "1.2.18",
     "technoidentity-utils": "1.2.18",
@@ -16,19 +16,17 @@
     "@testing-library/jest-dom": "4.1.0",
     "@types/chance": "1.0.6",
     "@types/jest": "24.0.18",
-    "@types/node": "12.7.3",
+    "@types/node": "12.7.4",
     "@types/react-dom": "16.9.0",
     "@types/react": "16.9.2",
     "@types/yup": "0.26.23",
     "babel-eslint": "10.0.3",
-    "chance": "1.0.18",
+    "chance": "1.1.0",
     "confusing-browser-globals": "1.0.8",
-    "cross-env": "5.2.0",
+    "cross-env": "5.2.1",
     "eslint": "6.3.0",
-    "husky": "3.0.4",
     "jest": "24.9.0",
-    "json-server": "0.15.0",
-    "lint-staged": "9.2.5",
+    "json-server": "0.15.1",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
     "react-styleguidist": "9.1.16",
@@ -42,8 +40,6 @@
     "typescript": "3.5.3"
   },
   "scripts": {
-    "precommit": "yarn lint-staged",
-    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "server": "json-server data/todos.json",
     "build": "parcel build index.html",
@@ -62,16 +58,6 @@
     "validate:noFix": "yarn lint && yarn types && yarn test",
     "sg": "styleguidist server",
     "sg:build": "styleguidist build"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "yarn lint:fix",
-      "git add"
-    ],
-    "src/**/*.{ts,tsx,js,jsx,json,css}": [
-      "yarn prettier --write",
-      "git add"
-    ]
   },
   "browserslist": [
     ">0.2%",

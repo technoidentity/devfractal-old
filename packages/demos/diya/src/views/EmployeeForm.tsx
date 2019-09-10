@@ -94,7 +94,7 @@ export const EmployeeForm = formComponent(
             </Column>
           </Columns>
 
-          <Simple.FormButtons alignment="centered" size="medium" />
+          <Simple.FormButtons />
         </Simple.Form>
       </Section>
     </>

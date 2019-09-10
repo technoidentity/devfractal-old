@@ -91,7 +91,7 @@ export const VehicleForm = formComponent(
             </Column>
           </Columns>
 
-          <Simple.FormButtons alignment="centered" size="medium" />
+          <Simple.FormButtons />
         </Simple.Form>
       </Section>
     </>

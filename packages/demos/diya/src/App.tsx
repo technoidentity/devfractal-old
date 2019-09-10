@@ -21,6 +21,8 @@ import {
   VehicleRoutes,
 } from './pages'
 import { AssignDriverRoute } from './views'
+import { AssignBatteryRoute } from './views/AssignBattery'
+import { AssignVehicleRoute } from './views/AssignVehicle'
 
 export const App = () => {
   const [visibility, setVisibility] = React.useState<Visibility>('full')
@@ -39,8 +41,10 @@ export const App = () => {
           <DriverRoutes />
           <AssignDriverRoute />
           <BatteryRoutes />
+          <AssignBatteryRoute />
           <ClientRoutes />
           <VehicleRoutes />
+          <AssignVehicleRoute />
           <EmployeeRoutes />
           <GeoFenceRoutes />
           <UserRoutes />

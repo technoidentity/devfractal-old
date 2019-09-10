@@ -51,35 +51,23 @@ exports[`Simple Login Form 1`] = `
       </div>
     </div>
     <div
-      className="field"
+      className="buttons"
     >
-      <div
-        className="buttons"
+      <button
+        className="button is-info"
+        disabled={false}
+        type="submit"
       >
-        <div
-          className="control"
-        >
-          <button
-            className="button is-info"
-            disabled={false}
-            type="submit"
-          >
-            Submit
-          </button>
-        </div>
-        <div
-          className="control"
-        >
-          <button
-            className="button is-danger"
-            disabled={true}
-            onClick={[Function]}
-            type="reset"
-          >
-            Reset
-          </button>
-        </div>
-      </div>
+        Submit
+      </button>
+      <button
+        className="button is-danger"
+        disabled={true}
+        onClick={[Function]}
+        type="reset"
+      >
+        Reset
+      </button>
     </div>
     <pre>
       {

@@ -256,3 +256,34 @@ export const AssignDriver = req({
 })
 
 export type AssignDriver = TypeOf<typeof AssignDriver>
+
+export const AssignVehicle = req({
+  id: string,
+  client: string,
+  batteryID: string,
+  driver: string,
+  startDate: ISODate,
+  endDate: ISODate,
+  contractType: ContractType,
+})
+
+export type AssignVehicle = TypeOf<typeof AssignVehicle>
+
+export const AssignBattery = req({
+  id: string,
+  client: string,
+  vehicleID: string,
+  driver: string,
+})
+
+export type AssignBattery = TypeOf<typeof AssignBattery>
+
+// export const VehicleInfo = req({
+//   id: string,
+//   customerName: string,
+//   address: string,
+//   contactNumber: Int,
+//   status: RouteStatus,
+// })
+
+// export type VehicleInfo = TypeOf<typeof VehicleInfo>

@@ -21,7 +21,14 @@ export const UserList = listComponent(User, ({ data: userList }) => (
     <CrudTable
       data={userList}
       headers={['userName', 'role', 'address1', 'phone', 'email']}
-      headerLabels={['userName', 'role', 'address1', 'phone', 'email']}
+      headerLabels={[
+        'userName',
+        'role',
+        'address1',
+        'phone',
+        'email',
+        'Actions',
+      ]}
       editTo={v => userLinks.edit(v.id)}
     />
     <RoutedPager />
