@@ -92,7 +92,7 @@ function splitFieldProps<T extends FieldProps>({
   fieldSize,
   ...rest
 }: // tslint:disable-next-line: readonly-array
-T): [FieldProps, Omit<T, keyof FieldProps>] {
+T): [FieldPropsBase, Omit<T, keyof FieldProps>] {
   return [
     {
       grouped,
@@ -101,7 +101,7 @@ T): [FieldProps, Omit<T, keyof FieldProps>] {
       groupedMultiline,
       groupModifier,
       addonsModifier,
-      fieldSize,
+      size: fieldSize,
     },
     rest,
   ]
