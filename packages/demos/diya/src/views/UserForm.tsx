@@ -79,8 +79,8 @@ export const UserForm = formComponent(User, ({ initial, edit, onSubmit }) => (
               validations={[required()]}
             />
             <Simple.RadioGroup name="verified" defaultValue="pending">
-              <Radio value="yes">yes</Radio>
-              <Radio value="pending">In process</Radio>
+              <Radio value="yes"> yes</Radio>
+              <Radio value="pending"> In process</Radio>
             </Simple.RadioGroup>
           </Column>
 
