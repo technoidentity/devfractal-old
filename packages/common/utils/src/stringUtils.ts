@@ -35,7 +35,7 @@ export const camelCaseToPhrase: (arg: string) => string = arg =>
 export function chop(arg: string, delimiter: string = '/'): string {
   return arg.length === 0
     ? ''
-    : arg[arg.length - 1] === delimiter
+    : arg.endsWith(delimiter)
     ? arg.slice(0, arg.length - 1)
     : arg
 }
