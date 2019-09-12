@@ -1,10 +1,10 @@
 // import { maxLength, min, required } from 'devfractal-forms'
+import { before, email, minLength, required } from 'devfractal-forms'
 import { Simple } from 'devfractal-simple'
 import { Radio, Section } from 'devfractal-ui-core'
 import { keyof, TypeOf } from 'io-ts'
 import React from 'react'
 import { ISODate } from 'technoidentity-utils'
-import { number, object, ObjectSchema, string } from 'yup'
 
 // tslint:disable-next-line: typedef
 const Position = keyof({
@@ -48,29 +48,48 @@ const initialValues: SimpleValues = {
   age: 0,
 }
 
-const simpleSchema: ObjectSchema<Partial<SimpleValues>> = object({
-  username: string()
-    .required()
-    .min(6),
-  password: string()
-    .required()
-    .min(6),
-  email: string()
-    .email()
-    .required(),
-  tel: number().required(),
-  message: string().required(),
-  age: number().required(),
-})
+// const simpleSchema: ObjectSchema<Partial<SimpleValues>> = object({
+//   username: string()
+//     .required()
+//     .min(6),
+//   password: string()
+//     .required()
+//     .min(6),
+//   email: string()
+//     .email()
+//     .required(),
+//   tel: number().required(),
+//   message: string().required(),
+//   age: number().required(),
+// })
 
 export const SimpleFormExample: React.FC = () => (
   <Section>
-    <Simple.Form initialValues={initialValues} validationSchema={simpleSchema}>
-      <Simple.Text label="Username" name="username" />
-      <Simple.Password label="Password" name="password" />
-      <Simple.Email label="Email" name="email" />
-      <Simple.Telephone label="Telephone" name="tel" />
-      <Simple.Date name="dateOfBirth" />
+    <Simple.Form initialValues={initialValues}>
+      <Simple.Text
+        label="Username"
+        name="username"
+        validations={[required(), minLength(6)]}
+      />
+      <Simple.Password
+        label="Password"
+        name="password"
+        validations={[required(), minLength(6)]}
+      />
+      <Simple.Email
+        label="Email"
+        name="email"
+        validations={[required(), email()]}
+      />
+      <Simple.Telephone
+        label="Telephone"
+        name="tel"
+        validations={[required()]}
+      />
+      <Simple.Date
+        name="dateOfBirth"
+        validations={[required(), before(new Date())]}
+      />
       <Simple.Checkbox name="remember"> Remember Me</Simple.Checkbox>
       <Simple.RadioGroup name="gender" defaultValue="female">
         <Radio value="female"> Female</Radio>
@@ -80,7 +99,7 @@ export const SimpleFormExample: React.FC = () => (
         <option value="associate">associate</option>
         <option value="assistant">assistant</option>
       </Simple.Select>
-      <Simple.Number label="Age" name="age" />
+      <Simple.Number label="Age" name="age" validations={[required()]} />
       <Simple.TextArea label="TextArea" name="message" />
       <Simple.FormButtons />
       <Simple.Debug />

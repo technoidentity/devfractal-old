@@ -17,7 +17,7 @@ export const DiyaActions: React.FC<DiyaActionsProps> = ({
   assignTo,
 }) => {
   return (
-    <>
+    <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
       <Link to={editTo}>
         <Icon icon={faEdit} />
       </Link>
@@ -36,7 +36,7 @@ export const DiyaActions: React.FC<DiyaActionsProps> = ({
       <ButtonLink to={assignTo} size="small" variant="info">
         Assign
       </ButtonLink>
-    </>
+    </div>
   )
 }
 
@@ -77,8 +77,9 @@ export function DiyaTable<T>({
               }
             }}
           />
-        ) : // tslint:disable-next-line: no-null-keyword
-        null
+        ) : (
+          undefined
+        )
       }
     </SimpleTable>
   )
