@@ -36,40 +36,36 @@ export interface SearchProps<T> {
   fetchSuggestions(value: string, searchBy: string): Promise<readonly T[]>
 }
 
-interface SearchState<T> {
-  readonly value: string
-  readonly suggestions: readonly T[]
-}
-
 export function Search<T>({
   searchBy,
   onSearch,
   fetchSuggestions,
 }: SearchProps<T>): JSX.Element {
-  const [state, setState] = React.useState<SearchState<T>>({
-    value: '',
-    suggestions: [],
-  })
+  const [value, setValue] = React.useState<string>('')
+  const [suggestions, setSuggestions] = React.useState<ReadonlyArray<T>>([])
 
   return (
     <>
       <Autosuggest
-        suggestions={state.suggestions}
+        suggestions={suggestions}
         onSuggestionsFetchRequested={async ({ value }) => {
           const suggestions =
             value.length === 0 ? [] : await fetchSuggestions(value, searchBy)
-
-          setState({ value, suggestions })
+          setValue(value)
+          setSuggestions(suggestions)
         }}
-        alwaysRenderSuggestions={true}
+        onSuggestionsClearRequested={() => {
+          setSuggestions([])
+        }}
         getSuggestionValue={suggestion => suggestion[searchBy]}
         renderSuggestion={suggestion => <div>{`${suggestion[searchBy]}`}</div>}
         inputProps={{
           placeholder: `Type a ${searchBy}`,
-          value: state.value,
+          value,
           type: 'search',
-          onChange: (_, { newValue }) =>
-            setState({ ...state, value: newValue }),
+          onChange: (_, { newValue }) => {
+            setValue(newValue)
+          },
         }}
       />
       <Button
@@ -77,7 +73,7 @@ export function Search<T>({
         size="small"
         state="hovered"
         type="button"
-        onClick={() => onSearch(state.value)}
+        onClick={() => onSearch(value)}
       >
         <Icon icon={faSearch} />
       </Button>
