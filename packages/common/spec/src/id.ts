@@ -1,6 +1,6 @@
 import { brand, Branded, Mixed, TypeOf } from 'io-ts'
 
-// @eslint-disable interface-name-prefix
+// @eslint-disable @typescript-eslint/interface-name-prefix
 export interface IDBrand {
   readonly ID: unique symbol
 }
