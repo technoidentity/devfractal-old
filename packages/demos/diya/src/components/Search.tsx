@@ -1,5 +1,5 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { Button, Icon } from 'devfractal-ui-core'
+import { Input } from 'devfractal-ui-core'
 import { Mixed, readonlyArray } from 'io-ts'
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
@@ -65,18 +65,27 @@ export function Search<T>({
           type: 'search',
           onChange: (_, { newValue }) => {
             setValue(newValue)
+            onSearch(newValue)
           },
         }}
+        renderInputComponent={inputProps => (
+          <>
+            <Input
+              {...inputProps}
+              type="search"
+              value={inputProps.value}
+              placeholder={inputProps.placeholder}
+              onChange={event =>
+                inputProps.onChange(event, {
+                  newValue: event.target.value,
+                  method: 'type',
+                })
+              }
+              leftIcon={faSearch}
+            />
+          </>
+        )}
       />
-      <Button
-        variant="danger"
-        size="small"
-        state="hovered"
-        type="button"
-        onClick={() => onSearch(value)}
-      >
-        <Icon icon={faSearch} />
-      </Button>
     </>
   )
 }
