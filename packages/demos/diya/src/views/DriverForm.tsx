@@ -49,7 +49,7 @@ export const DriverForm = formComponent(
               <Simple.Text name="driverLicence" validations={[required()]} />
               <Simple.Text name="adharNumber" validations={[required()]} />
 
-              <Simple.Select name="shift">
+              <Simple.Select name="shift" fullWidth>
                 <option value="morning">Morning</option>
                 <option value="evening">Evening</option>
               </Simple.Select>
@@ -101,7 +101,7 @@ export const DriverForm = formComponent(
               <div style={{ padding: '15px' }}>
                 <Simple.Text name="emergencyContactPerson" />
                 <Simple.Text name="emergencyContactNumber" />
-                <Simple.Select name="relation">
+                <Simple.Select name="relation" fullWidth>
                   <option value="father">Father</option>
                   <option value="mother">Mother</option>
                   <option value="spouse">Spouse</option>
