@@ -33,12 +33,14 @@ interface SimpleValues {
   readonly select: Position
   readonly message: string
   readonly age: number
+  readonly time: string
 }
 
 const initialValues: SimpleValues = {
   username: '',
   password: '',
   email: '',
+  time: '',
   date: undefined,
   tel: 0,
   remember: false,
@@ -99,8 +101,13 @@ export const SimpleFormExample: React.FC = () => (
         <option value="associate">associate</option>
         <option value="assistant">assistant</option>
       </Simple.Select>
+      <Simple.Cleave
+        options={{ time: true, timePattern: ['h', 'm'] }}
+        name="time"
+      />
       <Simple.Number label="Age" name="age" validations={[required()]} />
       <Simple.TextArea label="TextArea" name="message" />
+
       <Simple.FormButtons />
       <Simple.Debug />
     </Simple.Form>
