@@ -14,6 +14,8 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
+  CleaveInputFieldProps,
+  CleaveInputField,
 } from 'devfractal-forms'
 import {
   Button,
@@ -176,6 +178,13 @@ export interface SimpleFormButtonsProps extends ButtonsGroupProps {
   readonly reset?: boolean | string
 }
 
+export interface SimpleCleaveProps<Values extends {}>
+  extends CleaveInputFieldProps,
+    Named<Values> {
+  readonly name: keyof Values & string
+  readonly label?: string
+}
+
 const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
   submit = 'Submit',
   reset = 'Reset',
@@ -229,6 +238,7 @@ export interface TypedForm<Values extends {}> {
   readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
   readonly Select: React.FC<SimpleSelectProps<Values>>
   readonly Form: React.FC<SimpleFormProps<Values>>
+  readonly Cleave: React.FC<SimpleCleaveProps<Values>>
 }
 
 export function typedForm<Values extends {}>(): TypedForm<Values> {
@@ -248,6 +258,14 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 
     Url: props => <SimpleInput schema={string()} {...props} type="url" />,
 
+    Cleave: ({ label, ...props }) => {
+      return (
+        <>
+          <Label>{label || camelCaseToPhrase(props.name)}</Label>
+          <CleaveInputField {...props} />
+        </>
+      )
+    },
     Checkbox: ({ children, noLabel, ...args }) => {
       const [fieldProps, props] = splitFieldProps(args)
       return (
