@@ -4,6 +4,7 @@ import { Mixed, readonlyArray } from 'io-ts'
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
 import { http as httpAPI } from 'technoidentity-devfractal'
+import '../stylesheets/auto-suggestion.scss'
 
 const http: ReturnType<typeof httpAPI> = httpAPI({
   baseURL: 'http://localhost:9999',
