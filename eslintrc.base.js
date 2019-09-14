@@ -63,7 +63,7 @@ module.exports = {
         '@typescript-eslint/no-misused-promises': 'error',
         '@typescript-eslint/no-namespace': 'error',
         '@typescript-eslint/no-non-null-assertion': 'error',
-        '@typescript-eslint/no-parameter-properties': 'error',
+        '@typescript-eslint/no-parameter-properties': 'off',
         '@typescript-eslint/no-require-imports': 'error',
         '@typescript-eslint/no-unnecessary-type-arguments': 'error',
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
