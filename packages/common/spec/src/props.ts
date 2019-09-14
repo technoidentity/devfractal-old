@@ -181,6 +181,32 @@ export function toProps<R extends Props, P extends Props>(
   return props(req.props, opt.props)
 }
 
+export function reqCombine<R extends Props, R2 extends Props>(
+  r: ReqTypeC<R>,
+  r2: ReqTypeC<R2>,
+): ReqTypeC<R & R2> {
+  return req({ ...r.props, ...r2.props })
+}
+
+export function OptCombine<P extends Props, P2 extends Props>(
+  o: OptTypeC<P>,
+  o2: OptTypeC<P2>,
+): OptTypeC<P & P2> {
+  return opt({ ...o.props, ...o2.props })
+}
+
+export function propsCombine<
+  R extends Props,
+  R2 extends Props,
+  P extends Props,
+  P2 extends Props
+>(p: PropsTypeC<R, P>, p2: PropsTypeC<R2, P2>): PropsTypeC<R & R2, P & P2> {
+  return props(
+    { ...p.required, ...p2.required },
+    { ...p.optional, ...p2.optional },
+  )
+}
+
 // const r = req({ x: number, y: string })
 // type R = TypeOf<typeof r>
 
@@ -219,3 +245,8 @@ export function toProps<R extends Props, P extends Props>(
 
 // const oip = propsOmit(p, [], ['y'])
 // type OIP = TypeOf<typeof oip>
+
+// const p = props({ x: number }, { y: string })
+// const p2 = props({ a: number }, { b: string })
+// const p3 = propsCombine(p, p2)
+// type P3 = TypeOf<typeof p3>
