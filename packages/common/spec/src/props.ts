@@ -180,3 +180,42 @@ export function toProps<R extends Props, P extends Props>(
 ): PropsTypeC<R, P> {
   return props(req.props, opt.props)
 }
+
+// const r = req({ x: number, y: string })
+// type R = TypeOf<typeof r>
+
+// const o = opt({ x: number, y: string })
+// type O = TypeOf<typeof o>
+
+// const p = props({ x: number }, { y: string })
+// type P = TypeOf<typeof p>
+
+// const oo = reqToOpt(r)
+// type OO = TypeOf<typeof oo>
+
+// const rr = optToReq(o)
+// type RR = TypeOf<typeof rr>
+
+// const pp = propsToReq(p)
+// type PP = TypeOf<typeof pp>
+
+// const pp2 = propsToOpt(p)
+// type PP2 = TypeOf<typeof pp2>
+
+// const pir = reqPick(r, ['x'])
+// type PIR = TypeOf<typeof pir>
+
+// const pio = optPick(o, ['y'])
+// type PIO = TypeOf<typeof pio>
+
+// const pip = propsPick(p, ['x'], ['y'])
+// type PIP = TypeOf<typeof pip>
+
+// const oir = reqOmit(r, ['x'])
+// type OIR = TypeOf<typeof oir>
+
+// const oio = optOmit(o, ['y'])
+// type OIO = TypeOf<typeof oio>
+
+// const oip = propsOmit(p, [], ['y'])
+// type OIP = TypeOf<typeof oip>
