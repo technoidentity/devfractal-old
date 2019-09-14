@@ -1,4 +1,3 @@
-import 'bulma/bulma.sass'
 import React from 'react'
 import {
   AllControlHelpers,
@@ -40,7 +39,7 @@ type BurgerType =
   | 'vortex-r'
 
 export interface BurgerProps
-  extends React.MenuHTMLAttributes<HTMLMenuElement>,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     AllControlHelpers {
   readonly burgerType: BurgerType
   readonly active?: boolean
