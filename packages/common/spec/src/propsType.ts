@@ -40,17 +40,17 @@ export class PropsType<
 // type RP<P extends Props> = ReadonlyC<PartialC<P>>
 // type RPT<P extends Props, T extends Props> = IntersectionC<[RT<T>, RP<P>]>
 
-export function props<P extends Props>(args: {
+export function propsType<P extends Props>(args: {
   readonly optional: P
   readonly name?: string
 }): PropsType<{}, P, TypeOf<ReadonlyC<PartialC<P>>>>
 
-export function props<R extends Props>(args: {
+export function propsType<R extends Props>(args: {
   readonly required: R
   readonly name?: string
 }): PropsType<R, {}, TypeOf<ReadonlyC<TypeC<R>>>>
 
-export function props<R extends Props, P extends Props>(args: {
+export function propsType<R extends Props, P extends Props>(args: {
   readonly name?: string
   readonly optional: P
   readonly required: R
@@ -60,7 +60,7 @@ export function props<R extends Props, P extends Props>(args: {
   TypeOf<IntersectionC<[ReadonlyC<PartialC<P>>, ReadonlyC<TypeC<R>>]>>
 >
 
-export function props<R extends Props, P extends Props>(args: {
+export function propsType<R extends Props, P extends Props>(args: {
   readonly optional?: P | undefined
   readonly required?: R | undefined
   readonly name?: string
