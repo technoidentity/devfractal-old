@@ -10,7 +10,7 @@ import {
   type,
   TypeC,
 } from 'io-ts'
-import { omit as _omit, pick as _pick } from 'lodash-es'
+import { omit as _omit, pick as _pick } from 'lodash'
 
 // tslint:disable no-class no-parameter-properties
 
@@ -101,8 +101,8 @@ export function pick<
   spec: ObjC<Req, Opt>,
   keys: readonly K[],
 ): ObjC<
-  Pick<Req, Exclude<keyof ObjC<Req, Opt>['required'], K>>,
-  Pick<Opt, Exclude<keyof ObjC<Req, Opt>['optional'], K>>
+  Pick<Req, Extract<keyof ReqOf<typeof spec>, K>>,
+  Pick<Opt, Extract<keyof OptOf<typeof spec>, K>>
 > {
   return props(
     _pick(spec.required, keys) as any,
@@ -118,8 +118,8 @@ export function omit<
   spec: ObjC<Req, Opt>,
   keys: readonly K[],
 ): ObjC<
-  Omit<Req, Exclude<keyof ObjC<Req, Opt>['required'], K>>,
-  Omit<Opt, Exclude<keyof ObjC<Req, Opt>['optional'], K>>
+  Omit<Req, Extract<keyof ObjC<Req, Opt>['required'], K>>,
+  Omit<Opt, Extract<keyof ObjC<Req, Opt>['optional'], K>>
 > {
   return props(
     _omit(spec.required, keys) as any,
