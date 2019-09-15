@@ -1,4 +1,6 @@
 import {
+  exact,
+  ExactC,
   intersection,
   IntersectionC,
   partial,
@@ -65,6 +67,38 @@ function obj<Req extends Props, Opt extends Props>(
   )
 }
 
+type ExactObjSpec<Req extends Props, Opt extends Props> = ExactC<
+  IntersectionC<
+    // tslint:disable-next-line: readonly-array
+    [ReqC<Req>, OptC<Opt>]
+  >
+>
+
+export interface ExactObjC<Req extends Props, Opt extends Props>
+  extends ObjType<
+    Req,
+    Opt,
+    ExactObjSpec<Req, Opt>['_A'],
+    ExactObjSpec<Req, Opt>['_O'],
+    ExactObjSpec<Req, Opt>['_I']
+  > {}
+
+function exactObj<Req extends Props, Opt extends Props>(
+  required: Req,
+  optional: Opt,
+  name: string,
+): ExactObjC<Req, Opt> {
+  return new ObjType(
+    required,
+    optional,
+    { ...required, ...optional },
+    exact(
+      intersection([readonly(type(required)), readonly(partial(optional))]),
+    ),
+    name,
+  )
+}
+
 export type AnyObj = ObjC<any, any>
 
 export type ReqOf<O extends AnyObj> = O['required']
@@ -77,6 +111,14 @@ export function props<Req extends Props, Opt extends Props>(
   name?: string,
 ): ObjC<Req, Opt> {
   return obj(required, optional, name || 'ObjType')
+}
+
+export function exactProps<Req extends Props, Opt extends Props>(
+  required: Req,
+  optional: Opt,
+  name?: string,
+): ObjC<Req, Opt> {
+  return exactObj(required, optional, name || 'ObjType')
 }
 
 export function req<Req extends Props>(
@@ -127,10 +169,6 @@ export function omit<
   )
 }
 
-// const p = props({ x: number, y: number }, { a: string, b: string })
-// const wp = wowPick(p, ['x', 'a'])
-// type WP = TypeOf<typeof wp>
-
 export function propsPick<
   Req extends Props,
   Opt extends Props,
@@ -180,61 +218,3 @@ export function toReq<Req extends Props, Opt extends Props>(
 ): ObjC<Req & Opt, {}> {
   return req(spec.props)
 }
-
-// const r: BaseC<{ readonly x: NumberC; readonly y: StringC }, {}> = req({
-//   x: number,
-//   y: string,
-// })
-// type R = TypeOf<typeof r>
-
-// const o: BaseC<{}, { readonly x: NumberC; readonly y: StringC }> = opt({
-//   x: number,
-//   y: string,
-// })
-// type O = TypeOf<typeof o>
-
-// const p: BaseC<{ readonly x: NumberC }, { readonly y: StringC }> = both(
-//   { x: number },
-//   { y: string },
-// )
-// type P = TypeOf<typeof p>
-
-// const oo = toOpt(r)
-// type OO = TypeOf<typeof oo>
-
-// const rr = toReq(o)
-// type RR = TypeOf<typeof rr>
-
-// const pp = toReq(p)
-// type PP = TypeOf<typeof pp>
-
-// const pp2 = toOpt(p)
-// type PP2 = TypeOf<typeof pp2>
-
-// const pir = reqPick(r, ['x'])
-// type PIR = TypeOf<typeof pir>
-
-// const pio = optPick(o, ['y'])
-// type PIO = TypeOf<typeof pio>
-
-// const pip = bothPick(p, ['x'], ['y'])
-// type PIP = TypeOf<typeof pip>
-
-// const oir = reqOmit(r, ['x'])
-// type OIR = TypeOf<typeof oir>
-
-// const oio = optOmit(o, ['y'])
-// type OIO = TypeOf<typeof oio>
-
-// const oip = bothOmit(p, [], ['y'])
-// type OIP = TypeOf<typeof oip>
-
-// const p1 = both({ x: number }, { y: string })
-// const p2 = both({ a: number }, { b: string })
-// const p3 = bothCombine(p, p2)
-// type P3 = TypeOf<typeof p3>
-
-// type X = { a: number; b: number; c: number; d: number }
-// type Y = { a: number; z: string }
-
-// type PPX = Pick<X, Exclude<keyof X, keyof Y>>
