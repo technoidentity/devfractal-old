@@ -12,7 +12,7 @@ import {
   req,
   toOpt,
   toReq,
-} from './props2'
+} from './props'
 
 // tslint:disable typedef
 
