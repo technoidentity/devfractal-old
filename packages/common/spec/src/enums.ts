@@ -3,10 +3,9 @@ import { failure, identity, string, success, Type } from 'io-ts'
 // tslint:disable no-class readonly-array
 
 export class EnumType<D extends string[], A> extends Type<A> {
-  readonly _tag: 'KeyofType' = 'KeyofType'
+  readonly _tag: 'EnumType' = 'EnumType'
 
   constructor(
-    // tslint:disable-next-line: no-parameter-properties
     readonly keys: D,
     name: string,
     is: EnumType<D, A>['is'],

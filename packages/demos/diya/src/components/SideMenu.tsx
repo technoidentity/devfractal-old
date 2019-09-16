@@ -24,6 +24,7 @@ import {
 } from 'technoidentity-devfractal'
 import { fn, req } from 'technoidentity-utils'
 import diyaLogo from '../images/diyaLogo.png'
+import { MenuBurger } from './MenuBurger'
 
 export const Visibility = keyof({
   full: true,
@@ -82,7 +83,8 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
           alignItems: 'center',
         }}
       >
-        <Burger onClick={onClick} />
+        {/* <Burger onClick={onClick} /> */}
+        <MenuBurger isMinimal={visibility === 'minimal'} onClick={onClick} />
 
         {visibility !== 'minimal' && (
           <Image src={diyaLogo} alt="diyaImage" size="96x96" />
