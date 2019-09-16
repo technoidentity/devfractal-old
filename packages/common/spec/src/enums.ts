@@ -18,14 +18,17 @@ export class EnumType<D extends string[], A> extends Type<A> {
 
 export interface EnumC<D extends string[]> extends EnumType<D, D[number]> {}
 
-export function enums<T extends string[]>(name: string, ...keys: T): EnumC<T> {
+export function enums<T extends string[]>(
+  name: string | undefined,
+  ...keys: T
+): EnumC<T> {
   function is(u: unknown): u is T[number] {
     return string.is(u) && keys.includes(u)
   }
 
   return new EnumType(
     keys,
-    name,
+    name || `Enum<${keys.join(' | ')}>`,
     is,
     (u, c) => (is(u) ? success(u) : failure(u, c)),
     identity,
@@ -33,5 +36,5 @@ export function enums<T extends string[]>(name: string, ...keys: T): EnumC<T> {
 }
 
 export function enumerate<T extends string[]>(...keys: T): EnumC<T> {
-  return enums('Enumeration', ...keys)
+  return enums(undefined, ...keys)
 }
