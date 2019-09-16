@@ -1,10 +1,10 @@
-import { Int, keyof, number, string, TypeOf } from 'technoidentity-spec'
+import { enums, Int, number, string, TypeOf } from 'technoidentity-spec'
 import { ISODate, props, req } from 'technoidentity-utils'
 
-const Shift = keyof({ morning: true, evening: true })
-const Status = keyof({ active: true, inactive: true })
-const Verified = keyof({ yes: true, pending: true })
-const Relation = keyof({ mother: true, father: true, spouse: true })
+const Shift = enums('Shift', 'Shift', 'morning', 'evening')
+const Status = enums('Status', 'Status', 'active', 'inactive')
+const Verified = enums('Verified', 'Verified', 'yes', 'pending')
+const Relation = enums('Relation', 'Relation', 'father', 'spouse')
 
 export const Driver = props(
   {
@@ -35,7 +35,7 @@ export const Driver = props(
 
 export type Driver = TypeOf<typeof Driver>
 
-const Group = keyof({ retail: true, cargo: true })
+const Group = enums('Group', 'retail', 'cargo')
 
 export const Battery = props(
   {
@@ -80,7 +80,7 @@ export const Vehicle = props(
 
 export type Vehicle = TypeOf<typeof Vehicle>
 
-const ContractType = keyof({ weekly: true, monthly: true })
+const ContractType = enums('ContractType', 'weekly', 'monthly')
 
 export const Client = props(
   { id: string },
@@ -96,7 +96,7 @@ export const Client = props(
 
 export type Client = TypeOf<typeof Client>
 
-export const Role = keyof({ admin: true, reporter: true, dispatcher: true })
+export const Role = enums('Role', 'admin', 'reporter', 'dispatcher')
 
 export const User = props(
   { dateOfJoining: ISODate, id: string, email: string },
@@ -123,12 +123,7 @@ export const User = props(
 
 export type User = TypeOf<typeof User>
 
-const Frequency = keyof({
-  once: true,
-  weekly: true,
-  monthly: true,
-  yearly: true,
-})
+const Frequency = enums('Frequency', 'once', 'weekly', 'monthly', 'yearly')
 
 export const Ev = props(
   { id: string },
@@ -137,7 +132,7 @@ export const Ev = props(
 
 export type Ev = TypeOf<typeof Ev>
 
-const RouteStatus = keyof({ enroute: true, complete: true })
+const RouteStatus = enums('RouteStatus', 'enroute', 'complete')
 
 export const PlanRoute = props(
   { id: string },
@@ -149,7 +144,7 @@ export const PlanRoute = props(
   },
 )
 
-const EmployeeRole = keyof({ clientDispatcher: true, reporter: true })
+const EmployeeRole = enums('EmployeeRole', 'clientDispatcher', 'reporter')
 
 export const Employee = props(
   { id: string },
@@ -199,11 +194,12 @@ export const Trip = props(
 
 export type Trip = TypeOf<typeof Trip>
 
-export const SelectVehicles = keyof({
-  vehicle1: true,
-  vehicle2: string,
-  vehicle3: string,
-})
+export const SelectVehicles = enums(
+  'SelectVehicles',
+  'vehicle1',
+  'vehicle2',
+  'vehicle3',
+)
 
 export const AdManager = props(
   {
@@ -220,16 +216,17 @@ export const AdManager = props(
 
 export type AdManager = TypeOf<typeof AdManager>
 
-const role = keyof({
-  driver: true,
-  customer: true,
-  client_admin: true,
-  super_admin: true,
-  dispatcher: true,
-  reporter: true,
-  client_dispatcher: true,
-  client_reporter: true,
-})
+const role = enums(
+  'role',
+  'driver',
+  'customer',
+  'client_admin',
+  'super_admin',
+  'dispatcher',
+  'reporter',
+  'client_dispatcher',
+  'client_reporter',
+)
 
 export const LoginResponse = req({
   data: req({
@@ -246,7 +243,7 @@ export const LoginResponse = req({
 
 export type LoginResponse = TypeOf<typeof LoginResponse>
 
-const VehicleNumbers = keyof({ first: true, second: true })
+const VehicleNumbers = enums('VehicleNumbers', 'first', 'second')
 
 export const AssignDriver = req({
   id: string,
