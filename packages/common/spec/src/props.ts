@@ -103,7 +103,6 @@ export type AnyObj = ObjC<any, any>
 
 export type ReqOf<O extends AnyObj> = O['required']
 export type OptOf<O extends AnyObj> = O['optional']
-export type PropsOf<O extends AnyObj> = O['props']
 
 export function props<Req extends Props, Opt extends Props>(
   required: Req,
