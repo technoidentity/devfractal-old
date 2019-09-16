@@ -1,0 +1,14 @@
+@import '~bulma/bulma.sass';
+
+.react-autosuggest__suggestions-container--open {
+  max-height: 100px;
+  font-size: $size-normal;
+  background: $white;
+  font-family: $body-family;
+  overflow-y: auto;
+  z-index: 2;
+  border: $control-border-width solid;
+  padding-left: $control-padding-horizontal;
+  padding-right: $control-padding-horizontal;
+  padding-top: $control-padding-vertical;
+}
