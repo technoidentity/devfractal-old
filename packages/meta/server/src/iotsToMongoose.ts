@@ -1,6 +1,6 @@
 import { Document, model, Model, Schema } from 'mongoose'
 import * as t from 'technoidentity-spec'
-import { EnumType } from 'technoidentity-spec'
+import { EnumType, ObjType } from 'technoidentity-spec'
 import { buildObject, keys } from 'technoidentity-utils'
 
 function schemaFromPrimitiveRT(spec: t.Mixed): any {
@@ -35,29 +35,27 @@ const schemaFromObjectRT: <T extends t.Props>(rt: t.TypeC<T>) => any = rt => {
   return buildObject(rt.props, (_, p) => schemaFromRT(rt.props[p]))
 }
 
-export const schemaFromRT: (value: t.Mixed) => any = value => {
-  if (value instanceof t.ReadonlyType) {
-    return schemaFromRT(value.type)
+export function schemaFromRT(spec: t.Mixed): any {
+  if (spec instanceof t.ReadonlyType) {
+    return schemaFromRT(spec.type)
   }
 
-  // @TODO: ObjType
-
-  if (value instanceof t.InterfaceType) {
-    return schemaFromObjectRT(value)
+  if (spec instanceof t.InterfaceType || spec instanceof ObjType) {
+    return buildObject(spec.props, (_, p) => schemaFromRT(spec.props[p]))
   }
 
-  if (value instanceof t.ArrayType || value instanceof t.ReadonlyArrayType) {
-    return [schemaFromRT(value.type)]
+  if (spec instanceof t.ArrayType || spec instanceof t.ReadonlyArrayType) {
+    return [schemaFromRT(spec.type)]
   }
 
-  if (value instanceof t.PartialType) {
-    return buildObject(value.props, p => ({
-      ...schemaFromRT(value.props[p]),
+  if (spec instanceof t.PartialType) {
+    return buildObject(spec.props, p => ({
+      ...schemaFromRT(spec.props[p]),
       required: false,
     }))
   }
 
-  return schemaFromPrimitiveRT(value)
+  return schemaFromPrimitiveRT(spec)
 }
 
 export function rtToModel<T extends t.Props>(

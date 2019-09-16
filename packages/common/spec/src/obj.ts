@@ -12,7 +12,7 @@ import {
   type,
   TypeC,
 } from 'io-ts'
-import { omit as _omit, pick as _pick } from 'lodash-es'
+import { omit as _omit, pick as _pick } from 'lodash'
 
 // tslint:disable no-class no-parameter-properties
 
@@ -88,6 +88,7 @@ export interface ExactObjC<Req extends Props, Opt extends Props>
     ExactObjSpec<Req, Opt>['_I']
   > {}
 
+// @TODO: need ability to distinguish ObjType from Exact ObjType
 function exactObj<Req extends Props, Opt extends Props>(
   required: Req,
   optional: Opt,
