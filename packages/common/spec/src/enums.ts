@@ -31,3 +31,7 @@ export function enums<T extends string[]>(name: string, ...keys: T): EnumC<T> {
     identity,
   )
 }
+
+export function enumerate<T extends string[]>(...keys: T): EnumC<T> {
+  return enums('Enumeration', ...keys)
+}
