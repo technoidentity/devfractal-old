@@ -225,25 +225,6 @@ exports[`Simple Form Example 1`] = `
         </div>
       </div>
     </div>
-    <label
-      className="label"
-    >
-      Time
-    </label>
-    <div
-      className="control"
-    >
-      <input
-        className="input"
-        name="time"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        type="text"
-        value=""
-      />
-    </div>
     <div
       className="field"
     >
@@ -309,7 +290,6 @@ exports[`Simple Form Example 1`] = `
   "username": "",
   "password": "",
   "email": "",
-  "time": "",
   "tel": 0,
   "remember": false,
   "gender": "male",
