@@ -31,7 +31,7 @@ export const ClientList = listComponent(Client, ({ data: clientList }) => {
           'rateOfEVS',
           'assignedEVSHistory',
         ]}
-        headerLabels={[
+        labels={[
           'Client Name',
           'Contract Type',
           'Email',

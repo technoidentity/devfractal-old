@@ -31,7 +31,7 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
           'insuranceDue',
           'status',
         ]}
-        headerLabels={[
+        labels={[
           'name',
           'numberPlate',
           'group',

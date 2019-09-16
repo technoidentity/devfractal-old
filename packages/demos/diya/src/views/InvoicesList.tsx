@@ -15,7 +15,7 @@ export const InvoiceList = listComponent(Invoice, ({ data: invoiceList }) => (
     <SimpleTable
       data={invoiceList}
       headers={['invoicesNo', 'valid', 'dueDate', 'amount']}
-      headerLabels={['InVoices No.', 'Valid', 'Due Date', 'Amount']}
+      labels={['InVoices No.', 'Valid', 'Due Date', 'Amount']}
       striped
     />
 
