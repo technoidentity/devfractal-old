@@ -148,6 +148,7 @@ export function pick<
 >(
   spec: ObjC<Opt, Req>,
   keys: readonly K[],
+  name?: string,
 ): ObjC<
   Pick<Opt, Extract<keyof OptOf<typeof spec>, K>>,
   Pick<Req, Extract<keyof ReqOf<typeof spec>, K>>
@@ -155,6 +156,7 @@ export function pick<
   return props(
     _pick(spec.optional, keys) as any,
     _pick(spec.required, keys) as any,
+    name,
   )
 }
 
@@ -165,6 +167,7 @@ export function omit<
 >(
   spec: ObjC<Opt, Req>,
   keys: readonly K[],
+  name?: string,
 ): ObjC<
   Omit<Opt, Extract<keyof ObjC<Opt, Req>['optional'], K>>,
   Omit<Req, Extract<keyof ObjC<Opt, Req>['required'], K>>
@@ -172,6 +175,7 @@ export function omit<
   return props(
     _omit(spec.optional, keys) as any,
     _omit(spec.required, keys) as any,
+    name,
   )
 }
 
@@ -184,8 +188,9 @@ export function propsPick<
   { optional, required }: ObjC<Opt, Req>,
   optKeys: readonly KP[] = [],
   reqKeys: readonly KR[] = [],
+  name?: string,
 ): ObjC<Pick<Opt, KP>, Pick<Req, KR>> {
-  return props(_pick(optional, optKeys), _pick(required, reqKeys))
+  return props(_pick(optional, optKeys), _pick(required, reqKeys), name)
 }
 
 export function propsOmit<
@@ -197,8 +202,9 @@ export function propsOmit<
   { optional, required }: ObjC<Opt, Req>,
   optKeys: readonly KP[] = [],
   reqKeys: readonly KR[] = [],
+  name?: string,
 ): ObjC<Omit<Opt, KP>, Omit<Req, KR>> {
-  return props(_omit(optional, optKeys), _omit(required, reqKeys))
+  return props(_omit(optional, optKeys), _omit(required, reqKeys), name)
 }
 
 export function combine<
@@ -206,21 +212,28 @@ export function combine<
   Req extends Props,
   Opt2 extends Props,
   Req2 extends Props
->(p: ObjC<Opt, Req>, p2: ObjC<Opt2, Req2>): ObjC<Opt & Opt2, Req & Req2> {
+>(
+  p: ObjC<Opt, Req>,
+  p2: ObjC<Opt2, Req2>,
+  name?: string,
+): ObjC<Opt & Opt2, Req & Req2> {
   return props(
     { ...p.optional, ...p2.optional },
     { ...p.required, ...p2.required },
+    name,
   )
 }
 
 export function toOpt<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
+  name?: string,
 ): ObjC<Req & Opt, {}> {
-  return opt(spec.props)
+  return opt(spec.props, name)
 }
 
 export function toReq<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
+  name?: string,
 ): ObjC<{}, Req & Opt> {
-  return req(spec.props)
+  return req(spec.props, name)
 }
