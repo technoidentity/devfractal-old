@@ -39,7 +39,7 @@ describe('ObjType', () => {
   })
 
   it('props', () => {
-    const Point = props({ x: number }, { y: number })
+    const Point = props({ y: number }, { x: number })
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
     expect(Point.decode(point)._tag).toEqual('Right')
@@ -50,7 +50,7 @@ describe('ObjType', () => {
   })
 
   it('exactProps', () => {
-    const Point = exactProps({ x: number }, { y: number })
+    const Point = exactProps({ y: number }, { x: number })
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
     expect(Point.decode(point)._tag).toEqual('Right')
@@ -67,7 +67,7 @@ describe('ObjType', () => {
   })
 
   it('pick', () => {
-    const Point3D = props({ x: number }, { y: number, z: number })
+    const Point3D = props({ y: number, z: number }, { x: number })
     const Point = pick(Point3D, ['x', 'y'])
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
@@ -80,7 +80,7 @@ describe('ObjType', () => {
   })
 
   it('omit', () => {
-    const Point3D = props({ x: number }, { y: number, z: number })
+    const Point3D = props({ y: number, z: number }, { x: number })
     const Point = omit(Point3D, ['z'])
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
@@ -93,7 +93,7 @@ describe('ObjType', () => {
   })
 
   it('combine', () => {
-    const Point3D = props({ x: number }, { y: number, z: number })
+    const Point3D = props({ y: number, z: number }, { x: number })
     const Point = omit(Point3D, ['z'])
 
     const Size = props({ width: Int }, { height: number })
@@ -114,10 +114,10 @@ describe('ObjType', () => {
   })
 
   it('combine - prismatic values', () => {
-    const Point3D = props({ x: IntFromString }, { y: Int, z: number })
+    const Point3D = props({ y: Int, z: number }, { x: IntFromString })
     const Point = omit(Point3D, ['z'])
 
-    const Size = props({ width: number }, { height: NumberFromString })
+    const Size = props({ height: NumberFromString }, { width: number })
 
     const Rect = combine(Point, Size)
 
@@ -132,9 +132,9 @@ describe('ObjType', () => {
   })
 
   it('toReq', () => {
-    const Point3D = props({ x: number }, { y: number, z: number })
+    const Point3D = props({ y: number, z: number }, { x: number })
     const Point = omit(Point3D, ['z'])
-    const Size = props({ width: number }, { height: number })
+    const Size = props({ height: number }, { width: number })
     const Rect = toReq(combine(Point, Size))
 
     type Rect = TypeOf<typeof Rect>
@@ -144,9 +144,9 @@ describe('ObjType', () => {
   })
 
   it('toOpt', () => {
-    const Point3D = props({ x: number }, { y: number, z: number })
+    const Point3D = props({ y: number, z: number }, { x: number })
     const Point = omit(Point3D, ['z'])
-    const Size = props({ width: number }, { height: number })
+    const Size = props({ height: number }, { width: number })
     const Rect = toOpt(combine(Point, Size))
 
     type Rect = TypeOf<typeof Rect>
