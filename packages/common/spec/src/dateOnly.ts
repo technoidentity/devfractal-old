@@ -1,12 +1,11 @@
-import { brand, Branded } from 'io-ts'
-import { date } from 'io-ts-types/lib/date'
+import { brand, BrandC, Branded } from 'io-ts'
+import { date, DateC } from 'io-ts-types/lib/date'
 
 export interface DateOnlyBrand {
   readonly DateOnly: unique symbol
 }
 
-// tslint:disable-next-line: typedef
-export const DateOnly = brand(
+export const DateOnly: BrandC<DateC, DateOnlyBrand> = brand(
   date,
   (n): n is Branded<Date, DateOnlyBrand> => date.is(n),
   'DateOnly',

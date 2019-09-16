@@ -6,7 +6,6 @@ export class EnumType<D extends string[], A> extends Type<A> {
   readonly _tag: 'EnumType' = 'EnumType'
 
   constructor(
-    // tslint:disable-next-line: no-parameter-properties
     readonly keys: D,
     name: string,
     is: EnumType<D, A>['is'],
