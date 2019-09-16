@@ -12,6 +12,7 @@ import {
   Mixed,
   NullType,
   NumberType,
+  ObjType,
   PartialType,
   Props,
   ReadonlyArrayType,
@@ -24,7 +25,6 @@ import {
   UnionType,
   UnknownType,
   VoidType,
-  ObjType,
 } from 'technoidentity-spec'
 import { buildObject } from './common'
 import { Literal } from './tcombRefinements'
