@@ -3,6 +3,7 @@ import {
   AnyArrayType,
   ArrayType,
   BooleanType,
+  EnumType,
   ExactType,
   InterfaceType,
   IntersectionType,
@@ -73,7 +74,7 @@ export function rtFromSpec(
     return tcomb.Date
   }
 
-  if (spec instanceof KeyofType) {
+  if (spec instanceof KeyofType || spec instanceof EnumType) {
     return tcomb.enums(spec.keys)
   }
 
@@ -90,6 +91,8 @@ export function rtFromSpec(
   if (spec instanceof UnknownType) {
     return tcomb.Any // this looks wrong, but is it?
   }
+
+  // @TODO: ObjType
 
   if (spec instanceof InterfaceType) {
     return rtFromObjectSpec(spec)
