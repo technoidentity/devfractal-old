@@ -55,7 +55,7 @@
     "no-null-keyword": true,
     "no-object-literal-type-assertion": true,
     "no-object-mutation": [true, { "ignore-prefix": "draft" }],
-    "no-parameter-properties": true,
+    "no-parameter-properties": false,
     "no-parameter-reassignment": true,
     "no-return-await": true,
     "no-shadowed-variable": false,
