@@ -24,8 +24,12 @@ function schemaFromPrimitiveRT(spec: t.Mixed): any {
     return { type: Date }
   }
 
-  if (spec instanceof t.KeyofType || spec instanceof EnumType) {
+  if (spec instanceof t.KeyofType) {
     return { type: String, enum: keys(spec.keys) }
+  }
+
+  if (spec instanceof EnumType) {
+    return { type: String, enum: spec.keys }
   }
 
   throw new Error(`Unsupported ${spec.name}`)

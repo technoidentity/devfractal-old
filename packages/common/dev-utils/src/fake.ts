@@ -90,8 +90,11 @@ export function fake<T extends Mixed>(
     return chance.date()
   }
 
-  if (spec instanceof KeyofType || spec instanceof EnumType) {
+  if (spec instanceof KeyofType) {
     return chance.pickone(Object.keys(spec.keys))
+  }
+  if (spec instanceof EnumType) {
+    return chance.pickone(spec.keys)
   }
 
   if (spec instanceof LiteralType) {

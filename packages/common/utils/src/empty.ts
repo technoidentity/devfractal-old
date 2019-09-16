@@ -47,8 +47,12 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     return today()
   }
 
-  if (spec instanceof KeyofType || spec instanceof EnumType) {
+  if (spec instanceof KeyofType) {
     return keys(spec.keys)[0]
+  }
+
+  if (spec instanceof EnumType) {
+    return spec.keys[0]
   }
 
   if (spec instanceof LiteralType) {

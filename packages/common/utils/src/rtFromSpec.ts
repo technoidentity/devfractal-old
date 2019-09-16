@@ -75,8 +75,12 @@ export function rtFromSpec(
     return tcomb.Date
   }
 
-  if (spec instanceof KeyofType || spec instanceof EnumType) {
+  if (spec instanceof KeyofType) {
     return tcomb.enums(spec.keys)
+  }
+
+  if (spec instanceof EnumType) {
+    return tcomb.enums.of(spec.keys)
   }
 
   // TODO: literal type?
