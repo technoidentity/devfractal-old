@@ -4,6 +4,7 @@ import {
   ArrayC,
   ArrayType,
   BooleanType,
+  EnumType,
   ExactType,
   InterfaceType,
   IntersectionType,
@@ -98,7 +99,7 @@ export function fake<T extends Mixed>(
     return chance.date()
   }
 
-  if (spec instanceof KeyofType) {
+  if (spec instanceof KeyofType || spec instanceof EnumType) {
     return chance.pickone(Object.keys(spec.keys))
   }
 
@@ -134,7 +135,11 @@ export function fake<T extends Mixed>(
     return fakeArray(spec, options)
   }
 
-  if (spec instanceof InterfaceType || spec instanceof PartialType) {
+  if (
+    spec instanceof InterfaceType ||
+    spec instanceof PartialType
+    // ||  @TODO: spec instanceof ObjType
+  ) {
     return fakeObject(spec, options)
   }
 

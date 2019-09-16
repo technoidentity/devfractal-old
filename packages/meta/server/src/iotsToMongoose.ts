@@ -1,33 +1,34 @@
 import { Document, model, Model, Schema } from 'mongoose'
 import * as t from 'technoidentity-spec'
+import { EnumType } from 'technoidentity-spec'
 import { buildObject, keys } from 'technoidentity-utils'
 
-const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
-  if (value.name === 'Int') {
+function schemaFromPrimitiveRT(spec: t.Mixed): any {
+  if (spec.name === 'Int') {
     return { type: Number } // TODO: Int supported by mongoose?
   }
 
-  if (value instanceof t.NumberType) {
+  if (spec instanceof t.NumberType) {
     return { type: Number }
   }
 
-  if (value instanceof t.StringType) {
+  if (spec instanceof t.StringType) {
     return { type: String }
   }
 
-  if (value instanceof t.BooleanType) {
+  if (spec instanceof t.BooleanType) {
     return { type: Boolean }
   }
 
-  if (value.name === 'Date') {
+  if (spec.name === 'Date') {
     return { type: Date }
   }
 
-  if (value instanceof t.KeyofType) {
-    return { type: String, enum: keys(value.keys) }
+  if (spec instanceof t.KeyofType || spec instanceof EnumType) {
+    return { type: String, enum: keys(spec.keys) }
   }
 
-  throw new Error(`Unsupported ${value.name}`)
+  throw new Error(`Unsupported ${spec.name}`)
 }
 
 const schemaFromObjectRT: <T extends t.Props>(rt: t.TypeC<T>) => any = rt => {
@@ -38,6 +39,8 @@ export const schemaFromRT: (value: t.Mixed) => any = value => {
   if (value instanceof t.ReadonlyType) {
     return schemaFromRT(value.type)
   }
+
+  // @TODO: ObjType
 
   if (value instanceof t.InterfaceType) {
     return schemaFromObjectRT(value)

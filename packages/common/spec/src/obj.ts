@@ -24,7 +24,7 @@ type ObjSpec<Req extends Props, Opt extends Props> = IntersectionC<
   [ReqC<Req>, OptC<Opt>]
 >
 
-class ObjType<
+export class ObjType<
   Req extends Props,
   Opt extends Props,
   A,

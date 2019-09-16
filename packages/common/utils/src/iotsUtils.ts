@@ -9,6 +9,7 @@ import {
   isRight,
   literal,
   Mixed,
+  ObjType,
   partial,
   PartialC,
   PartialType,
@@ -95,7 +96,10 @@ export interface HasPropsReadonly extends ReadonlyType<HasProps> {}
 
 export type HasPropsOnType = HasPropsReadonly | ExactType<any>
 
-export type HasPropsOnProps = InterfaceType<any> | PartialType<any>
+export type HasPropsOnProps =
+  | InterfaceType<any>
+  | PartialType<any>
+  | ObjType<any, any, any, any>
 
 export type HasProps = HasPropsIntersection | HasPropsOnProps | HasPropsOnType
 
@@ -105,6 +109,7 @@ export function getProps<T extends Mixed>(codec: T & HasProps): Props {
     case 'ExactType':
       return getProps(codec.type)
     case 'InterfaceType':
+    case 'ObjType':
     case 'PartialType':
       return codec.props
     case 'IntersectionType':
@@ -124,6 +129,7 @@ export function getProp<T extends Mixed>(
     case 'ExactType':
       return getProp(codec.type, key)
     case 'InterfaceType':
+    case 'ObjType':
     case 'PartialType':
       return codec.props[key]
     case 'IntersectionType':
