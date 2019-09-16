@@ -1,5 +1,13 @@
-import { enums, Int, number, string, TypeOf } from 'technoidentity-spec'
-import { ISODate, props, req } from 'technoidentity-utils'
+import {
+  enums,
+  Int,
+  number,
+  props,
+  req,
+  string,
+  TypeOf,
+} from 'technoidentity-spec'
+import { ISODate } from 'technoidentity-utils'
 
 const Shift = enums('Shift', 'Shift', 'morning', 'evening')
 const Status = enums('Status', 'Status', 'active', 'inactive')
