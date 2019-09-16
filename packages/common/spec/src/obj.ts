@@ -56,14 +56,19 @@ export interface ObjC<Req extends Props, Opt extends Props>
 function obj<Req extends Props, Opt extends Props>(
   required: Req,
   optional: Opt,
-  name: string,
+  name?: string,
 ): ObjC<Req, Opt> {
+  const spec: ObjSpec<Req, Opt> = intersection([
+    readonly(type(required)),
+    readonly(partial(optional)),
+  ])
+
   return new ObjType(
     required,
     optional,
     { ...required, ...optional },
-    intersection([readonly(type(required)), readonly(partial(optional))]),
-    name,
+    spec,
+    name || spec.name,
   )
 }
 
@@ -86,16 +91,17 @@ export interface ExactObjC<Req extends Props, Opt extends Props>
 function exactObj<Req extends Props, Opt extends Props>(
   required: Req,
   optional: Opt,
-  name: string,
+  name?: string,
 ): ExactObjC<Req, Opt> {
+  const spec: ExactObjSpec<Req, Opt> = exact(
+    intersection([readonly(type(required)), readonly(partial(optional))]),
+  )
   return new ObjType(
     required,
     optional,
     { ...required, ...optional },
-    exact(
-      intersection([readonly(type(required)), readonly(partial(optional))]),
-    ),
-    name,
+    spec,
+    name || spec.name,
   )
 }
 
@@ -109,7 +115,7 @@ export function props<Req extends Props, Opt extends Props>(
   optional: Opt,
   name?: string,
 ): ObjC<Req, Opt> {
-  return obj(required, optional, name || 'ObjType')
+  return obj(required, optional, name)
 }
 
 export function exactProps<Req extends Props, Opt extends Props>(
@@ -117,7 +123,7 @@ export function exactProps<Req extends Props, Opt extends Props>(
   optional: Opt,
   name?: string,
 ): ObjC<Req, Opt> {
-  return exactObj(required, optional, name || 'ObjType')
+  return exactObj(required, optional, name)
 }
 
 export function req<Req extends Props>(
