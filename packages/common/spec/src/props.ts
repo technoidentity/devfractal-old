@@ -12,7 +12,7 @@ import {
   type,
   TypeC,
 } from 'io-ts'
-import { omit as _omit, pick as _pick } from 'lodash'
+import { omit as _omit, pick as _pick } from 'lodash-es'
 
 // tslint:disable no-class no-parameter-properties
 
