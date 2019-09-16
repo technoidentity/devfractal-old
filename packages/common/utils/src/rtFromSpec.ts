@@ -24,6 +24,7 @@ import {
   UnionType,
   UnknownType,
   VoidType,
+  ObjType,
 } from 'technoidentity-spec'
 import { buildObject } from './common'
 import { Literal } from './tcombRefinements'
@@ -92,7 +93,10 @@ export function rtFromSpec(
     return tcomb.Any // this looks wrong, but is it?
   }
 
-  // @TODO: ObjType
+  if (spec instanceof ObjType) {
+    // @TODO: strict: true if Exact ObjType
+    tcomb.struct(buildObject(spec.props, rtFromSpec), { name: spec.name })
+  }
 
   if (spec instanceof InterfaceType) {
     return rtFromObjectSpec(spec)

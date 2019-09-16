@@ -88,6 +88,7 @@ export interface ExactObjC<Req extends Props, Opt extends Props>
     ExactObjSpec<Req, Opt>['_I']
   > {}
 
+// @TODO: need ability to distinguish ObjType from Exact ObjType
 function exactObj<Req extends Props, Opt extends Props>(
   required: Req,
   optional: Opt,
