@@ -31,7 +31,7 @@
     "@fortawesome/free-regular-svg-icons": "5.10.2",
     "@fortawesome/free-solid-svg-icons": "5.10.2",
     "@fortawesome/react-fontawesome": "0.1.4",
-    "date-fns": "2.1.0",
+    "date-fns": "2.2.1",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "devfractal-ui-api": "1.2.18",
     "devfractal-ui-core": "1.2.18",
     "devfractal-ui": "1.2.18",
-    "eslint": "6.3.0",
+    "eslint": "6.4.0",
     "jest": "24.9.0",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",

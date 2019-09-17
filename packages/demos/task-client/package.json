@@ -20,8 +20,8 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.1.0",
-    "immer": "3.2.0",
+    "date-fns": "2.2.1",
+    "immer": "4.0.0",
     "react-dom": "16.9.0",
     "react-use": "12.2.0",
     "react": "16.9.0",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "cross-env": "5.2.1",
-    "eslint": "6.3.0",
+    "eslint": "6.4.0",
     "jest": "24.9.0",
     "prettier": "1.18.2",
     "rimraf": "3.0.0",

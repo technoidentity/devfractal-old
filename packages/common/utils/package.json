@@ -28,16 +28,16 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.1.0",
+    "date-fns": "2.2.1",
     "tslib": "1.10.0",
     "fp-ts": "2.0.5",
-    "io-ts-types": "0.5.0",
+    "io-ts-types": "0.5.1",
     "io-ts": "2.0.1",
     "monocle-ts": "2.0.0"
   },
   "devDependencies": {
     "cross-env": "5.2.1",
-    "eslint": "6.3.0",
+    "eslint": "6.4.0",
     "jest": "24.9.0",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",

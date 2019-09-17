@@ -32,7 +32,7 @@
     "cross-env": "5.2.1",
     "devfractal-api": "1.2.18",
     "devfractal-router": "1.2.18",
-    "eslint": "6.3.0",
+    "eslint": "6.4.0",
     "formik": "1.5.8",
     "jest": "24.9.0",
     "parcel-bundler": "1.12.3",

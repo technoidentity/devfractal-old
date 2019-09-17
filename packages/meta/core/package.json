@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/json-schema": "7.0.3",
     "ajv": "6.10.2",
-    "eslint": "6.3.0",
+    "eslint": "6.4.0",
     "jest": "24.9.0",
     "json-schema": "0.2.5",
     "tcomb-validation": "3.4.1",
