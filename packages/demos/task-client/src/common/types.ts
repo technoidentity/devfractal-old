@@ -1,9 +1,11 @@
-import { keyof, string, TypeOf, union } from 'technoidentity-utils'
-import { date } from 'technoidentity-utils'
-import { DateFromISOString } from 'technoidentity-utils'
-import { props, req } from 'technoidentity-utils'
-
-const ISODate = union([date, DateFromISOString])
+import {
+  ISODate,
+  keyof,
+  props,
+  req,
+  string,
+  TypeOf,
+} from 'technoidentity-utils'
 
 const dateInfo = props(
   { started: ISODate, completed: ISODate },
