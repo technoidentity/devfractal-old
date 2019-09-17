@@ -1,6 +1,6 @@
 import { Document, model, Schema } from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
-import { string, TypeOf } from 'technoidentity-spec'
+import { string, TypeOf } from 'technoidentity-utils'
 import { req } from 'technoidentity-utils'
 
 export const User = req({ name: string, email: string, password: string })

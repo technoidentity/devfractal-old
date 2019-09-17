@@ -6,7 +6,7 @@ import {
   req,
   string,
   TypeOf,
-} from 'technoidentity-spec'
+} from 'technoidentity-utils'
 import { ISODate } from 'technoidentity-utils'
 
 const Shift = enumerate('morning', 'evening')

@@ -1,6 +1,6 @@
 import { produce } from 'immer'
-import * as t from 'technoidentity-spec'
-import { HasProps, omit } from 'technoidentity-utils'
+import * as t from 'technoidentity-utils'
+import { GotProps, omit } from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 import { APIQuery, toAPIQuery as toQueryFn } from './query'
 
@@ -59,7 +59,7 @@ interface RestArgs extends RequestConfig {
 }
 
 export function rest<
-  Spec extends t.Mixed & HasProps,
+  Spec extends t.Mixed & GotProps,
   ID extends keyof t.TypeOf<Spec>
 >(
   spec: Spec,

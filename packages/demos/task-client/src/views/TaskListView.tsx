@@ -14,7 +14,7 @@ import {
 } from 'devfractal-ui-core'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { readonlyArray } from 'technoidentity-spec'
+import { readonlyArray } from 'technoidentity-utils'
 import { req } from 'technoidentity-utils'
 import { Task } from '../common'
 import { PaginationView } from './PaginateView'

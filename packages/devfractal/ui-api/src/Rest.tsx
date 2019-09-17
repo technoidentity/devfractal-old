@@ -1,7 +1,7 @@
 import { API } from 'devfractal-api'
 import { Route, useMatch } from 'devfractal-router'
 import React from 'react'
-import { Mixed, type } from 'technoidentity-spec'
+import { Mixed, type } from 'technoidentity-utils'
 import { getProp } from 'technoidentity-utils'
 import { SubmitAction } from './common'
 import { Get } from './Get'

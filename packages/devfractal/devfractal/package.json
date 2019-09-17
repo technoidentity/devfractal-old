@@ -51,7 +51,6 @@
   "peerDependencies": {
     "bulma": "0.7.5",
     "formik": "1.5.8",
-    "technoidentity-spec": "*",
     "technoidentity-utils": "1.2.18",
     "yup": "0.27.0"
   }

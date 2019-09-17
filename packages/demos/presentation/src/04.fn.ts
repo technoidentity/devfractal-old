@@ -1,4 +1,4 @@
-import { number, TypeOf } from 'technoidentity-spec'
+import { number, TypeOf } from 'technoidentity-utils'
 import { cast, fn, props } from 'technoidentity-utils'
 
 // tslint:disable no-empty

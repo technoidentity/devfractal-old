@@ -23,12 +23,10 @@
   "dependencies": {
     "date-fns": "2.1.0",
     "formik": "1.5.8",
-    "lodash-es": "4.17.15",
     "react": "16.9.0",
     "react-autosuggest": "^9.4.3",
     "react-dom": "16.9.0",
     "technoidentity-devfractal": "1.2.18",
-    "technoidentity-spec": "*",
     "technoidentity-utils": "1.2.18",
     "yup": "0.27.0"
   },
@@ -36,7 +34,6 @@
     "@testing-library/jest-dom": "4.1.0",
     "@testing-library/react": "9.1.4",
     "@types/jest": "24.0.18",
-    "@types/lodash-es": "4.17.3",
     "@types/node": "12.7.4",
     "@types/react": "16.9.2",
     "@types/react-autosuggest": "^9.3.11",

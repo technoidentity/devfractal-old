@@ -8,8 +8,8 @@ import {
   Title,
 } from 'devfractal-ui-core'
 import React from 'react'
-import * as t from 'technoidentity-spec'
-import { date } from 'technoidentity-spec'
+import * as t from 'technoidentity-utils'
+import { date } from 'technoidentity-utils'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import { formatDate, isFunction } from './utils'
 

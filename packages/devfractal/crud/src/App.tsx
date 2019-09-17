@@ -5,7 +5,7 @@ import { Simple } from 'devfractal-simple'
 import { Section } from 'devfractal-ui-core'
 import React from 'react'
 import { render } from 'react-dom'
-import { boolean, number, string } from 'technoidentity-spec'
+import { boolean, number, string } from 'technoidentity-utils'
 import { props } from 'technoidentity-utils'
 import {
   ButtonLink,

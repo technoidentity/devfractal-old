@@ -1,5 +1,5 @@
 import React from 'react'
-import * as t from 'technoidentity-spec'
+import * as t from 'technoidentity-utils'
 import { cast, keys } from 'technoidentity-utils'
 
 // tslint:disable typedef

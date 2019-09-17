@@ -1,5 +1,5 @@
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-spec'
+import { Mixed, TypeOf } from 'technoidentity-utils'
 import { cast } from 'technoidentity-utils'
 import { listProps } from './common'
 

@@ -16,7 +16,7 @@ import {
   type,
   undefined,
   union,
-} from 'technoidentity-spec'
+} from './iots'
 import { rtFromSpec } from './rtFromSpec'
 
 it('rtFromSpec', () => {

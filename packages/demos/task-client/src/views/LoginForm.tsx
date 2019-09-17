@@ -2,7 +2,7 @@ import { Simple } from 'devfractal-simple'
 import { Column, Columns, component, Section } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
-import { string, TypeOf } from 'technoidentity-spec'
+import { string, TypeOf } from 'technoidentity-utils'
 import { empty, fn, req } from 'technoidentity-utils'
 import * as yup from 'yup'
 

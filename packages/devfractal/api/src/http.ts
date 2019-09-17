@@ -4,13 +4,17 @@ import { stringify } from 'query-string'
 import { String } from 'tcomb'
 import {
   array,
+  chop,
+  debug,
+  getProps,
   InputOf,
+  keys,
   Mixed,
   partial,
   string,
   TypeOf,
-} from 'technoidentity-spec'
-import { chop, debug, getProps, keys, verify } from 'technoidentity-utils'
+  verify,
+} from 'technoidentity-utils'
 
 export interface MethodArgs {
   readonly resource?: string

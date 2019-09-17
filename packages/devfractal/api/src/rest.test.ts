@@ -1,4 +1,4 @@
-import { boolean, number, string } from 'technoidentity-spec'
+import { boolean, number, string } from 'technoidentity-utils'
 import { req } from 'technoidentity-utils'
 import { toJSONServerQuery } from './query'
 import { rest } from './rest'
@@ -77,8 +77,8 @@ describe('rest', () => {
       await todoAPI.get(1, { query: 'foo=123' })
     } catch (e) {
       expect(e.message).toMatchInlineSnapshot(`
-        "Invalid value undefined supplied to : Readonly<{ id: number, title: string, done: boolean }>/title: string
-        Invalid value \\"false\\" supplied to : Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
+        "Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/title: string
+        Invalid value \\"false\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
       `)
     }
   })
@@ -100,9 +100,9 @@ describe('rest', () => {
       await todoAPI.create({ title: 'todo', done: false })
     } catch (e) {
       expect(e.message).toMatchInlineSnapshot(`
-                "Invalid value undefined supplied to : Readonly<{ id: number, title: string, done: boolean }>/title: string
-                Invalid value \\"false\\" supplied to : Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
-            `)
+        "Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/title: string
+        Invalid value \\"false\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
+      `)
     }
   })
 
@@ -125,10 +125,10 @@ describe('rest', () => {
       await todoAPI.replace(1, { id: 1, title: 'todo', done: true })
     } catch (e) {
       expect(e.message).toMatchInlineSnapshot(`
-                "Invalid value \\"1\\" supplied to : Readonly<{ id: number, title: string, done: boolean }>/id: number
-                Invalid value undefined supplied to : Readonly<{ id: number, title: string, done: boolean }>/title: string
-                Invalid value \\"true\\" supplied to : Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
-            `)
+        "Invalid value \\"1\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/id: number
+        Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/title: string
+        Invalid value \\"true\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
+      `)
     }
   })
 

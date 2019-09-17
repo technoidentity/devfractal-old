@@ -1,6 +1,6 @@
 import { startOfDay } from 'date-fns'
-import { date, DateFromISOString, TypeOf, union } from 'technoidentity-spec'
 import { assert } from './assertions'
+import { date, DateFromISOString, TypeOf, union } from './iots'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
 

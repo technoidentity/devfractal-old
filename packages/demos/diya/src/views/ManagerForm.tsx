@@ -20,8 +20,8 @@ import {
   useParams,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
-import { type } from 'technoidentity-spec'
-import { IntFromString } from 'technoidentity-spec'
+import { type } from 'technoidentity-utils'
+import { IntFromString } from 'technoidentity-utils'
 import { AdManager, adManagerAPI } from '../common'
 import { HeadTitle } from '../components'
 

@@ -12,7 +12,7 @@ import {
   type,
   TypeC,
 } from 'io-ts'
-import { omit as _omit, pick as _pick } from 'lodash'
+import { omit, pick } from './common'
 
 // tslint:disable no-class no-parameter-properties
 
@@ -141,7 +141,7 @@ export function opt<Opt extends Props>(
   return props(optional, {}, name)
 }
 
-export function pick<
+export function objPick<
   Opt extends Props,
   Req extends Props,
   K extends keyof ObjC<Opt, Req>['props']
@@ -154,13 +154,13 @@ export function pick<
   Pick<Req, Extract<keyof ReqOf<typeof spec>, K>>
 > {
   return props(
-    _pick(spec.optional, keys) as any,
-    _pick(spec.required, keys) as any,
+    pick(spec.optional, keys as any[]),
+    pick(spec.required, keys as any[]),
     name,
   )
 }
 
-export function omit<
+export function objOmit<
   Opt extends Props,
   Req extends Props,
   K extends keyof ObjC<Opt, Req>['props']
@@ -173,8 +173,8 @@ export function omit<
   Omit<Req, Extract<keyof ObjC<Opt, Req>['required'], K>>
 > {
   return props(
-    _omit(spec.optional, keys) as any,
-    _omit(spec.required, keys) as any,
+    omit(spec.optional, keys as any) as any,
+    omit(spec.required, keys as any) as any,
     name,
   )
 }
@@ -190,7 +190,7 @@ export function propsPick<
   reqKeys: readonly KR[] = [],
   name?: string,
 ): ObjC<Pick<Opt, KP>, Pick<Req, KR>> {
-  return props(_pick(optional, optKeys), _pick(required, reqKeys), name)
+  return props(pick(optional, optKeys), pick(required, reqKeys), name)
 }
 
 export function propsOmit<
@@ -204,7 +204,7 @@ export function propsOmit<
   reqKeys: readonly KR[] = [],
   name?: string,
 ): ObjC<Omit<Opt, KP>, Omit<Req, KR>> {
-  return props(_omit(optional, optKeys), _omit(required, reqKeys), name)
+  return props(omit(optional, optKeys), omit(required, reqKeys), name)
 }
 
 export function combine<

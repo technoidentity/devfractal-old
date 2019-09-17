@@ -1,7 +1,7 @@
-import { number, TypeOf } from 'technoidentity-spec'
 import { fn } from './fn'
-import { cast, props } from './iotsUtils'
-
+import { number, TypeOf } from './iots'
+import { cast } from './iotsUtils'
+import { props } from './obj'
 // tslint:disable typedef no-empty
 
 test('fn', () => {

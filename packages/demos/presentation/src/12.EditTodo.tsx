@@ -1,6 +1,6 @@
 import React from 'react'
 import { Put, useMatch } from 'technoidentity-devfractal'
-import { string } from 'technoidentity-spec'
+import { string } from 'technoidentity-utils'
 import { req } from 'technoidentity-utils'
 import { todoApi } from './08.todoAPI'
 import { TodoForm } from './09.TodoForm'

@@ -1,9 +1,9 @@
 import * as server from 'json-server'
-import { HasProps, range } from 'technoidentity-utils'
+import { GotProps, range } from 'technoidentity-utils'
 import { fake } from './fake'
 
 interface ResourceConfig {
-  readonly spec: HasProps
+  readonly spec: GotProps
   readonly name: string
   readonly count: number
 }

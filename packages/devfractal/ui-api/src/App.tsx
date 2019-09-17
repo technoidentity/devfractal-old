@@ -1,6 +1,6 @@
 // import { rest, SubmitAction } from 'devfractal-api'
 // import { Title } from 'devfractal-ui-core'
-// import { number, string, TypeOf } from 'technoidentity-spec'
+// import { number, string, TypeOf } from 'technoidentity-utils'
 import React from 'react'
 // import { ISODate, props } from 'technoidentity-utils'
 // import { Post } from './Post'

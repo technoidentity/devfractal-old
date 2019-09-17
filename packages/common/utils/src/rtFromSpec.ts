@@ -1,9 +1,10 @@
 import tcomb from 'tcomb'
+import { buildObject } from './common'
+import { EnumType } from './enums'
 import {
   AnyArrayType,
   ArrayType,
   BooleanType,
-  EnumType,
   ExactType,
   InterfaceType,
   IntersectionType,
@@ -12,7 +13,6 @@ import {
   Mixed,
   NullType,
   NumberType,
-  ObjType,
   PartialType,
   Props,
   ReadonlyArrayType,
@@ -25,8 +25,8 @@ import {
   UnionType,
   UnknownType,
   VoidType,
-} from 'technoidentity-spec'
-import { buildObject } from './common'
+} from './iots'
+import { ObjType } from './obj'
 import { Literal } from './tcombRefinements'
 
 function rtFromObjectSpec<T extends Props>(

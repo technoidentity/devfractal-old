@@ -5,9 +5,9 @@ import { NumberFromString } from 'io-ts-types/lib/NumberFromString'
 import {
   combine,
   exactProps,
-  omit,
+  objOmit,
+  objPick,
   opt,
-  pick,
   props,
   req,
   toOpt,
@@ -68,7 +68,7 @@ describe('ObjType', () => {
 
   it('pick', () => {
     const Point3D = props({ y: number, z: number }, { x: number })
-    const Point = pick(Point3D, ['x', 'y'])
+    const Point = objPick(Point3D, ['x', 'y'])
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
     expect(Point.decode(point)._tag).toEqual('Right')
@@ -81,7 +81,7 @@ describe('ObjType', () => {
 
   it('omit', () => {
     const Point3D = props({ y: number, z: number }, { x: number })
-    const Point = omit(Point3D, ['z'])
+    const Point = objOmit(Point3D, ['z'])
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
     expect(Point.decode(point)._tag).toEqual('Right')
@@ -94,7 +94,7 @@ describe('ObjType', () => {
 
   it('combine', () => {
     const Point3D = props({ y: number, z: number }, { x: number })
-    const Point = omit(Point3D, ['z'])
+    const Point = objOmit(Point3D, ['z'])
 
     const Size = props({ width: Int }, { height: number })
 
@@ -115,7 +115,7 @@ describe('ObjType', () => {
 
   it('combine - prismatic values', () => {
     const Point3D = props({ y: Int, z: number }, { x: IntFromString })
-    const Point = omit(Point3D, ['z'])
+    const Point = objOmit(Point3D, ['z'])
 
     const Size = props({ height: NumberFromString }, { width: number })
 
@@ -133,7 +133,7 @@ describe('ObjType', () => {
 
   it('toReq', () => {
     const Point3D = props({ y: number, z: number }, { x: number })
-    const Point = omit(Point3D, ['z'])
+    const Point = objOmit(Point3D, ['z'])
     const Size = props({ height: number }, { width: number })
     const Rect = toReq(combine(Point, Size))
 
@@ -145,7 +145,7 @@ describe('ObjType', () => {
 
   it('toOpt', () => {
     const Point3D = props({ y: number, z: number }, { x: number })
-    const Point = omit(Point3D, ['z'])
+    const Point = objOmit(Point3D, ['z'])
     const Size = props({ height: number }, { width: number })
     const Rect = toOpt(combine(Point, Size))
 

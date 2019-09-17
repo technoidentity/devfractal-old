@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "formik": "1.5.8",
-    "technoidentity-spec": "*",
     "react": "16.9.0",
     "react-datepicker": "2.9.6",
     "react-dom": "16.9.0",

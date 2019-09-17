@@ -27,7 +27,7 @@ import {
   UnionType,
   unknown,
   VoidType,
-} from 'technoidentity-spec'
+} from 'technoidentity-utils'
 import { buildObject, repeatedly } from 'technoidentity-utils'
 
 // tslint:disable typedef no-use-before-declare

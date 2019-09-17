@@ -1,5 +1,5 @@
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-spec'
+import { Mixed, TypeOf } from 'technoidentity-utils'
 import { assert } from 'technoidentity-utils'
 import { api } from './api'
 import { Crud } from './Crud'

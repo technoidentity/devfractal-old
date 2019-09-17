@@ -4,8 +4,5 @@
     "outDir": "dist",
     "rootDir": "src"
   },
-  "references": [
-    { "path": "../../common/spec" },
-    { "path": "../../common/utils" }
-  ]
+  "references": [{ "path": "../../common/utils" }]
 }

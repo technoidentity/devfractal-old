@@ -5,7 +5,7 @@ import {
   ReadonlyArrayC,
   Type,
   TypeOf,
-} from 'technoidentity-spec'
+} from 'technoidentity-utils'
 import { cast, toPromise } from 'technoidentity-utils'
 import { apiURLs, URLs } from './urls'
 

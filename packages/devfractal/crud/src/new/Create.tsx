@@ -2,7 +2,7 @@ import { API } from 'devfractal-api'
 import { Route } from 'devfractal-router'
 import { Post, SubmitAction } from 'devfractal-ui-api'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-spec'
+import { Mixed, TypeOf } from 'technoidentity-utils'
 
 // tslint:disable no-unbound-method
 

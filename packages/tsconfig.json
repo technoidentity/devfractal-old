@@ -2,7 +2,6 @@
   "files": [],
   "references": [
     { "path": "common/dev-utils" },
-    { "path": "common/spec" },
     { "path": "common/utils" },
     { "path": "demos/diya" },
     { "path": "demos/presentation" },

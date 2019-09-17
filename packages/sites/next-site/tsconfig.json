@@ -11,9 +11,5 @@
   },
   "include": ["pages", "components/Medias.tsx", "react-app.d.ts"],
   "exclude": ["node_modules"],
-  "references": [
-    { "path": "../../common/spec" },
-    { "path": "../../common/utils" },
-    { "path": "../devfractal" }
-  ]
+  "references": [{ "path": "../../common/utils" }, { "path": "../devfractal" }]
 }

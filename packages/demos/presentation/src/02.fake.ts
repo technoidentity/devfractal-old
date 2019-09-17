@@ -11,8 +11,8 @@ import {
   tuple,
   type,
   union,
-} from 'technoidentity-spec'
-import { date } from 'technoidentity-spec'
+} from 'technoidentity-utils'
+import { date } from 'technoidentity-utils'
 
 console.log(
   fake(
