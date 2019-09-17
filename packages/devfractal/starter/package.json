@@ -25,10 +25,8 @@
     "confusing-browser-globals": "1.0.8",
     "cross-env": "5.2.1",
     "eslint": "6.3.0",
-    "husky": "3.0.5",
     "jest": "24.9.0",
     "json-server": "0.15.1",
-    "lint-staged": "9.2.5",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
     "react-styleguidist": "9.1.16",
@@ -42,8 +40,6 @@
     "typescript": "3.5.3"
   },
   "scripts": {
-    "precommit": "yarn lint-staged",
-    "prepush": "yarn validate:noFix",
     "start": "parcel index.html --open",
     "server": "json-server data/todos.json",
     "build": "parcel build index.html",
@@ -62,16 +58,6 @@
     "validate:noFix": "yarn lint && yarn types && yarn test",
     "sg": "styleguidist server",
     "sg:build": "styleguidist build"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "yarn lint:fix",
-      "git add"
-    ],
-    "src/**/*.{ts,tsx,js,jsx,json,css}": [
-      "yarn prettier --write",
-      "git add"
-    ]
   },
   "browserslist": [
     ">0.2%",
