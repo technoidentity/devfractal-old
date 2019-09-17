@@ -23,9 +23,9 @@ import {
   string,
   TypeOf,
   union,
-} from 'technoidentity-spec'
-import { date } from 'technoidentity-spec'
-import { DateFromISOString } from 'technoidentity-spec'
+} from 'technoidentity-utils'
+import { date } from 'technoidentity-utils'
+import { DateFromISOString } from 'technoidentity-utils'
 import { fn, props, req } from 'technoidentity-utils'
 
 const ISODate = union([date, DateFromISOString])

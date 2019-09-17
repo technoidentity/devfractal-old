@@ -9,9 +9,9 @@ import {
   readonlyArray,
   string,
   type,
-} from 'technoidentity-spec'
-import { date } from 'technoidentity-spec'
-import { DateFromISOString } from 'technoidentity-spec'
+} from 'technoidentity-utils'
+import { date } from 'technoidentity-utils'
+import { DateFromISOString } from 'technoidentity-utils'
 import { defaultOptions, fake } from './fake'
 
 describe('fake from spec', () => {

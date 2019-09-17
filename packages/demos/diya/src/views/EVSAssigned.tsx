@@ -11,7 +11,7 @@ import {
   listComponent,
   SimpleTable,
 } from 'technoidentity-devfractal'
-import { string } from 'technoidentity-spec'
+import { string } from 'technoidentity-utils'
 import { req } from 'technoidentity-utils'
 import { Ev } from '../common'
 import { HeadTitle } from '../components'

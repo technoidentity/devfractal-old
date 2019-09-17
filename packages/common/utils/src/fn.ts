@@ -1,4 +1,4 @@
-import { failure, identity, success, Type } from 'technoidentity-spec'
+import { failure, identity, success, Type } from './iots'
 
 // tslint:disable no-class no-this
 

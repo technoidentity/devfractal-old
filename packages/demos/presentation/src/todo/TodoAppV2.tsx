@@ -11,7 +11,7 @@ import {
   Title,
   useParams,
 } from 'technoidentity-devfractal'
-import { IntFromString, type } from 'technoidentity-spec'
+import { IntFromString, type } from 'technoidentity-utils'
 import { empty } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'

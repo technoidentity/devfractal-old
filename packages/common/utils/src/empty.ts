@@ -1,8 +1,9 @@
+import { buildObject, keys, today } from './common'
+import { EnumType } from './enums'
 import {
   AnyArrayType,
   ArrayType,
   BooleanType,
-  EnumType,
   ExactType,
   InterfaceType,
   IntersectionType,
@@ -11,7 +12,6 @@ import {
   Mixed,
   NullType,
   NumberType,
-  ObjType,
   PartialType,
   ReadonlyArrayType,
   ReadonlyType,
@@ -23,9 +23,8 @@ import {
   UnionType,
   UnknownType,
   VoidType,
-} from 'technoidentity-spec'
-import { buildObject, keys, today } from './common'
-
+} from './iots'
+import { ObjType } from './obj'
 export function empty<T extends Mixed>(spec: T): TypeOf<T> {
   if (spec.name === 'Int' || spec instanceof NumberType) {
     return 0

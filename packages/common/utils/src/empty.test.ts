@@ -1,3 +1,4 @@
+import { empty } from './empty'
 import {
   array,
   boolean,
@@ -19,8 +20,7 @@ import {
   type,
   union,
   unknown,
-} from 'technoidentity-spec'
-import { empty } from './empty'
+} from './iots'
 
 // tslint:disable no-null-keyword typedef
 

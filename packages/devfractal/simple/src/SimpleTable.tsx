@@ -11,8 +11,8 @@ import {
   Tr,
 } from 'devfractal-ui-core'
 import React from 'react'
-import * as t from 'technoidentity-spec'
-import { array, date, string } from 'technoidentity-spec'
+import * as t from 'technoidentity-utils'
+import { array, date, string } from 'technoidentity-utils'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import { formatDate } from './utils'
 

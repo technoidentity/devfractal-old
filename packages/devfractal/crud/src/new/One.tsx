@@ -2,7 +2,7 @@ import { API } from 'devfractal-api'
 import { Route } from 'devfractal-router'
 import { Get } from 'devfractal-ui-api'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-spec'
+import { Mixed, TypeOf } from 'technoidentity-utils'
 
 export interface OneComponentProps<T> {
   readonly data: T

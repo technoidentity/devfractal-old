@@ -1,31 +1,22 @@
+import { assert, fatal } from './assertions'
+import { omit, pick } from './common'
 import {
   Either,
   Errors,
   ExactType,
   InterfaceType,
-  intersection,
-  IntersectionC,
   IntersectionType,
   isRight,
   literal,
   Mixed,
-  ObjType,
-  partial,
-  PartialC,
   PartialType,
   PathReporter,
   Props,
-  readonly,
-  ReadonlyC,
   ReadonlyType,
   string,
-  type,
   Type,
-  TypeC,
-} from 'technoidentity-spec'
-import { assert, fatal } from './assertions'
-import { omit, pick } from './common'
-
+} from './iots'
+import { ObjType } from './obj'
 // tslint:disable readonly-array array-type readonly-keyword
 
 export function cast<A, O, I>(spec: Type<A, O, I>, args: I): A {
@@ -62,48 +53,48 @@ export async function toPromise<T>(either: Either<Errors, T>): Promise<T> {
   return isRight(either) ? either.right : rejected(either)
 }
 
-export function opt<P extends Props>(
-  props: P,
-  name?: string,
-): ReadonlyC<PartialC<P>> {
-  return readonly(partial(props), name)
-}
+// export function opt<P extends Props>(
+//   props: P,
+//   name?: string,
+// ): ReadonlyC<PartialC<P>> {
+//   return readonly(partial(props), name)
+// }
 
-export function req<P extends Props>(
-  props: P,
-  name?: string,
-): ReadonlyC<TypeC<P>> {
-  return readonly(type(props), name)
-}
+// export function req<P extends Props>(
+//   props: P,
+//   name?: string,
+// ): ReadonlyC<TypeC<P>> {
+//   return readonly(type(props), name)
+// }
 
-export function props<O extends Props, R extends Props>(
-  optional: O,
-  required: R,
-  name?: string,
-): IntersectionC<[ReadonlyC<PartialC<O>>, ReadonlyC<TypeC<R>>]> {
-  return intersection(
-    [readonly(partial(optional)), readonly(type(required))],
-    name,
-  )
-}
+// export function props<O extends Props, R extends Props>(
+//   optional: O,
+//   required: R,
+//   name?: string,
+// ): IntersectionC<[ReadonlyC<PartialC<O>>, ReadonlyC<TypeC<R>>]> {
+//   return intersection(
+//     [readonly(partial(optional)), readonly(type(required))],
+//     name,
+//   )
+// }
 
 export const lit: typeof literal = literal
 
-export interface HasPropsIntersection
-  extends IntersectionType<[HasProps, HasProps, ...Array<HasProps>]> {}
+export interface GotPropsIntersection
+  extends IntersectionType<[GotProps, GotProps, ...Array<GotProps>]> {}
 
-export interface HasPropsReadonly extends ReadonlyType<HasProps> {}
+export interface GotPropsReadonly extends ReadonlyType<GotProps> {}
 
-export type HasPropsOnType = HasPropsReadonly | ExactType<any>
+export type GotPropsOnType = GotPropsReadonly | ExactType<any>
 
-export type HasPropsOnProps =
+export type GotPropsOnProps =
   | InterfaceType<any>
   | PartialType<any>
   | ObjType<any, any, any, any>
 
-export type HasProps = HasPropsIntersection | HasPropsOnProps | HasPropsOnType
+export type GotProps = GotPropsIntersection | GotPropsOnProps | GotPropsOnType
 
-export function getProps<T extends Mixed>(codec: T & HasProps): Props {
+export function getProps<T extends Mixed>(codec: T & GotProps): Props {
   switch (codec._tag) {
     case 'ReadonlyType':
     case 'ExactType':
@@ -121,7 +112,7 @@ export function getProps<T extends Mixed>(codec: T & HasProps): Props {
 }
 
 export function getProp<T extends Mixed>(
-  codec: T & HasProps,
+  codec: T & GotProps,
   key: string,
 ): Mixed | undefined {
   switch (codec._tag) {

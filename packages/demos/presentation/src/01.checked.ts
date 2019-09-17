@@ -1,4 +1,4 @@
-import { number, readonly, string, type } from 'technoidentity-spec'
+import { number, readonly, string, type } from 'technoidentity-utils'
 import { checked, checkedAsync, range } from 'technoidentity-utils'
 
 export const checkedAdd = checked(

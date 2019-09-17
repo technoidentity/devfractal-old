@@ -1,6 +1,6 @@
-import { number, readonly, string, type } from 'technoidentity-spec'
 import { checked, checkedAsync } from './checked'
 import { range } from './common'
+import { number, readonly, string, type } from './iots'
 
 // tslint:disable typedef
 it('checked', () => {

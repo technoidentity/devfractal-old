@@ -1,7 +1,7 @@
 import { stringify } from 'query-string'
-import * as t from 'technoidentity-spec'
-import { union } from 'technoidentity-spec'
-import { cast, getProps, HasProps, opt, req } from 'technoidentity-utils'
+import * as t from 'technoidentity-utils'
+import { union } from 'technoidentity-utils'
+import { cast, getProps, GotProps, opt, req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
@@ -29,7 +29,7 @@ export interface APIQuery<C> {
   readonly embed?: keyof C
 }
 
-function apiQuerySpec(codec: HasProps) {
+function apiQuerySpec(codec: GotProps) {
   const props = getProps(codec)
 
   return opt({
@@ -43,7 +43,7 @@ function apiQuerySpec(codec: HasProps) {
   })
 }
 
-export function toJSONServerQuery<C extends HasProps>(
+export function toJSONServerQuery<C extends GotProps>(
   codec: C,
   query: APIQuery<t.TypeOf<typeof codec>>,
 ): string {
@@ -74,7 +74,7 @@ export function toJSONServerQuery<C extends HasProps>(
   )
 }
 
-export function toAPIQuery<C extends HasProps>(
+export function toAPIQuery<C extends GotProps>(
   spec: C,
   query: APIQuery<t.TypeOf<typeof spec>>,
 ): string {

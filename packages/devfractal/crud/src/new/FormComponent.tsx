@@ -1,6 +1,6 @@
 import { SubmitAction } from 'devfractal-ui-api'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-spec'
+import { Mixed, TypeOf } from 'technoidentity-utils'
 import { cast, empty } from 'technoidentity-utils'
 import { formProps } from './common'
 

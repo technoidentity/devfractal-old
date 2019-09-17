@@ -37,7 +37,6 @@
     "devfractal-ui-core": "1.2.18",
     "eslint": "6.3.0",
     "formik": "1.5.8",
-    "technoidentity-spec": "*",
     "jest": "24.9.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",

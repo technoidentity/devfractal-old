@@ -1,5 +1,5 @@
-import { keyof, string } from 'technoidentity-spec'
-import { IntFromString } from 'technoidentity-spec'
+import { keyof, string } from 'technoidentity-utils'
+import { IntFromString } from 'technoidentity-utils'
 import { opt, req } from 'technoidentity-utils'
 
 export const Resources = keyof({

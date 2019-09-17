@@ -1,4 +1,4 @@
-import { Mixed, tuple, TupleC, TypeOf } from 'technoidentity-spec'
+import { Mixed, tuple, TupleC, TypeOf } from './iots'
 import { cast } from './iotsUtils'
 
 // tslint:disable readonly-array

@@ -2,8 +2,8 @@ import { API } from 'devfractal-api'
 import { Route, useMatch } from 'devfractal-router'
 import { Put, SubmitAction } from 'devfractal-ui-api'
 import React from 'react'
-import { Mixed, string, type, TypeOf } from 'technoidentity-spec'
-import { getProp, HasProps } from 'technoidentity-utils'
+import { Mixed, string, type, TypeOf } from 'technoidentity-utils'
+import { getProp, GotProps } from 'technoidentity-utils'
 
 // tslint:disable no-unbound-method
 
@@ -13,7 +13,7 @@ export interface EditComponentProps<T> {
 }
 
 export interface EditProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
-  readonly api: API<Spec & HasProps, ID>
+  readonly api: API<Spec & GotProps, ID>
   readonly path: string
   readonly redirectTo?: string
   readonly form: React.FC<EditComponentProps<TypeOf<Spec>>>

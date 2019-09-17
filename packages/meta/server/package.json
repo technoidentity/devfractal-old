@@ -27,7 +27,6 @@
   "devDependencies": {
     "eslint": "6.3.0",
     "express": "4.17.1",
-    "technoidentity-spec": "*",
     "jest": "24.9.0",
     "mongodb": "3.3.2",
     "meta-core": "1.2.18",

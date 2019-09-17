@@ -16,7 +16,7 @@ import {
   SimpleRedirect,
   Title,
 } from 'technoidentity-devfractal'
-import { boolean, number, string } from 'technoidentity-spec'
+import { boolean, number, string } from 'technoidentity-utils'
 import { ISODate, props } from 'technoidentity-utils'
 
 const Todo = props(

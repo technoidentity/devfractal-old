@@ -1,5 +1,5 @@
-import * as t from 'technoidentity-spec'
-import { date } from 'technoidentity-spec'
+import * as t from 'technoidentity-utils'
+import { date } from 'technoidentity-utils'
 import { req } from 'technoidentity-utils'
 import { startFakeJSONServer } from './fakeServer'
 

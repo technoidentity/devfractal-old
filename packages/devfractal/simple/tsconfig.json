@@ -6,7 +6,6 @@
     "jsx": "react"
   },
   "references": [
-    { "path": "../../common/spec" },
     { "path": "../../common/utils" },
     { "path": "../router" },
     { "path": "../ui-core" },

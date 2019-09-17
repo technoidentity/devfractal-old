@@ -1,7 +1,7 @@
 import { useRedirect } from 'devfractal-ui-api'
 import { Button, component } from 'devfractal-ui-core'
 import React from 'react'
-import { string } from 'technoidentity-spec'
+import { string } from 'technoidentity-utils'
 import { req } from 'technoidentity-utils'
 import { sessionAPI } from '../common'
 import { useAuth } from '../utils'

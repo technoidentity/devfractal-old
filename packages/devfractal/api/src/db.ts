@@ -1,4 +1,4 @@
-import * as t from 'technoidentity-spec'
+import * as t from 'technoidentity-utils'
 import { props } from 'technoidentity-utils'
 // tslint:disable typedef
 

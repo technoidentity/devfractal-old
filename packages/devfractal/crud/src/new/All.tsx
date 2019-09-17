@@ -3,9 +3,9 @@ import { Route, useHistory, useLocation } from 'devfractal-router'
 import { Get } from 'devfractal-ui-api'
 import { parse, stringify } from 'query-string'
 import React from 'react'
-import { Mixed, record, string, TypeOf } from 'technoidentity-spec'
-import { IntFromString } from 'technoidentity-spec'
-import { cast, HasProps, opt } from 'technoidentity-utils'
+import { Mixed, record, string, TypeOf } from 'technoidentity-utils'
+import { IntFromString } from 'technoidentity-utils'
+import { cast, GotProps, opt } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 export const ClientQuery = opt({
@@ -22,7 +22,7 @@ export interface AllComponentProps<T> {
 }
 
 interface ChildrenProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
-  readonly api: API<Spec & HasProps, ID>
+  readonly api: API<Spec & GotProps, ID>
   readonly list: React.FC<AllComponentProps<TypeOf<Spec>>>
   queryFn?(search: string): APIQuery<TypeOf<Spec>>
 }

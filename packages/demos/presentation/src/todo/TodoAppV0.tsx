@@ -15,8 +15,8 @@ import {
   useParams,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
-import { type } from 'technoidentity-spec'
-import { IntFromString } from 'technoidentity-spec'
+import { type } from 'technoidentity-utils'
+import { IntFromString } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'

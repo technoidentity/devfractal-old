@@ -13,7 +13,7 @@ import {
   Th,
   Tr,
 } from 'technoidentity-devfractal'
-import { boolean, date } from 'technoidentity-spec'
+import { boolean, date } from 'technoidentity-utils'
 import { capitalize } from 'technoidentity-utils'
 import { Todo } from './common'
 
