@@ -61,7 +61,7 @@ export function Search<T>({
         getSuggestionValue={suggestion => suggestion[searchBy]}
         renderSuggestion={suggestion => <div>{`${suggestion[searchBy]}`}</div>}
         inputProps={{
-          placeholder: `Type a ${searchBy}`,
+          placeholder: `Search By ${searchBy}`,
           value,
           type: 'search',
           onChange: (_, { newValue }) => {
