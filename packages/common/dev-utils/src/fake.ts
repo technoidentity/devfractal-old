@@ -4,6 +4,7 @@ import {
   ArrayC,
   ArrayType,
   BooleanType,
+  EnumType,
   ExactType,
   InterfaceType,
   IntersectionType,
@@ -12,9 +13,8 @@ import {
   Mixed,
   NullType,
   NumberType,
-  PartialC,
+  ObjType,
   PartialType,
-  Props,
   ReadonlyArrayC,
   ReadonlyArrayType,
   ReadonlyType,
@@ -22,7 +22,6 @@ import {
   StringType,
   TupleType,
   Type,
-  TypeC,
   TypeOf,
   UndefinedType,
   UnionType,
@@ -31,9 +30,9 @@ import {
 } from 'technoidentity-spec'
 import { buildObject, repeatedly } from 'technoidentity-utils'
 
-const chance: Chance.Chance = new Chance()
-
 // tslint:disable typedef no-use-before-declare
+
+const chance = new Chance()
 
 export const defaultOptions = {
   integer: { min: 100, max: 1000 },
@@ -61,13 +60,6 @@ function fakeArray<T extends Mixed>(
   options: FakeOptions,
 ): TypeOf<typeof spec> {
   return fakeArrayFromType(spec.type, options)
-}
-
-function fakeObject<T extends Props>(
-  spec: TypeC<T> | PartialC<T>,
-  options: FakeOptions,
-): TypeOf<typeof spec> {
-  return buildObject(spec.props, v => fake(v, options))
 }
 
 export function fake<T extends Mixed>(
@@ -100,6 +92,9 @@ export function fake<T extends Mixed>(
 
   if (spec instanceof KeyofType) {
     return chance.pickone(Object.keys(spec.keys))
+  }
+  if (spec instanceof EnumType) {
+    return chance.pickone(spec.keys)
   }
 
   if (spec instanceof LiteralType) {
@@ -134,8 +129,12 @@ export function fake<T extends Mixed>(
     return fakeArray(spec, options)
   }
 
-  if (spec instanceof InterfaceType || spec instanceof PartialType) {
-    return fakeObject(spec, options)
+  if (
+    spec instanceof InterfaceType ||
+    spec instanceof PartialType ||
+    spec instanceof ObjType
+  ) {
+    return buildObject(spec.props, v => fake(v, options))
   }
 
   if (spec instanceof IntersectionType) {

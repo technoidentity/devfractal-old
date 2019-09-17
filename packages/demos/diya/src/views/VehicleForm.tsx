@@ -1,5 +1,4 @@
 import React from 'react'
-import 'react-datepicker/dist/react-datepicker.css'
 import {
   Box,
   Button,
@@ -91,7 +90,7 @@ export const VehicleForm = formComponent(
             </Column>
           </Columns>
 
-          <Simple.FormButtons alignment="centered" size="medium" />
+          <Simple.FormButtons />
         </Simple.Form>
       </Section>
     </>

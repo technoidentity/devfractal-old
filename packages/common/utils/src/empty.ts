@@ -2,6 +2,7 @@ import {
   AnyArrayType,
   ArrayType,
   BooleanType,
+  EnumType,
   ExactType,
   InterfaceType,
   IntersectionType,
@@ -10,6 +11,7 @@ import {
   Mixed,
   NullType,
   NumberType,
+  ObjType,
   PartialType,
   ReadonlyArrayType,
   ReadonlyType,
@@ -49,6 +51,10 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     return keys(spec.keys)[0]
   }
 
+  if (spec instanceof EnumType) {
+    return spec.keys[0]
+  }
+
   if (spec instanceof LiteralType) {
     return spec.value
   }
@@ -66,7 +72,11 @@ export function empty<T extends Mixed>(spec: T): TypeOf<T> {
     return ''
   }
 
-  if (spec instanceof InterfaceType || spec instanceof PartialType) {
+  if (
+    spec instanceof InterfaceType ||
+    spec instanceof PartialType ||
+    spec instanceof ObjType
+  ) {
     return buildObject(spec.props, empty)
   }
 

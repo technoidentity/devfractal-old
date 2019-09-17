@@ -45,11 +45,11 @@ export const EVSList = listComponent(Ev, ({ data: evsList }) => (
 
     <SimpleTable
       data={evsList}
-      headers={['driverName', 'Actions']}
-      headerLabels={['Driver', 'Actions']}
+      headers={['driverName', 'Actions'] as any}
+      labels={['Driver', 'Actions']}
       striped
     >
-      {key =>
+      {(key: string) =>
         // tslint:disable-next-line: no-null-keyword
         key === 'Actions' ? <Actions editTo={`/planRoute`} /> : null
       }

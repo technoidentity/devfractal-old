@@ -1,0 +1,7 @@
+@import '~bulma/bulma.sass';
+
+.menu-burger{
+  @extend .navbar-burger;
+  display: block;
+  &.minimal {margin: 0;}
+}

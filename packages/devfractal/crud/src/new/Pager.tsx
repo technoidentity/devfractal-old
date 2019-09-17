@@ -2,27 +2,37 @@ import { Pagination, PaginationNext, PaginationPrevious } from 'devfractal-ui'
 import React from 'react'
 
 export interface PagerProps {
+  // first page is 1
   readonly page: number
+  readonly maxPages?: number
   onPageChange(n: number): void
 }
 
-export const Pager: React.FC<PagerProps> = ({ page, onPageChange }) => (
+export const Pager: React.FC<PagerProps> = ({
+  page,
+  maxPages,
+  onPageChange,
+}) => (
   <Pagination alignment="centered">
-    <PaginationPrevious
-      onClick={() => {
-        onPageChange(page + 1)
-      }}
-    >
-      Previous
-    </PaginationPrevious>
+    {page > 1 && (
+      <PaginationPrevious
+        onClick={() => {
+          onPageChange(page - 1)
+        }}
+      >
+        Previous
+      </PaginationPrevious>
+    )}
 
-    <PaginationNext
-      onClick={() => {
-        onPageChange(page + 1)
-      }}
-    >
-      Next
-    </PaginationNext>
+    {(maxPages === undefined || page < maxPages) && (
+      <PaginationNext
+        onClick={() => {
+          onPageChange(page + 1)
+        }}
+      >
+        Next
+      </PaginationNext>
+    )}
 
     {/* <PaginationList>
       <PaginationLink current aria-label="Goto page 1">

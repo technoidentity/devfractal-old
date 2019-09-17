@@ -17,7 +17,7 @@ export const DiyaActions: React.FC<DiyaActionsProps> = ({
   assignTo,
 }) => {
   return (
-    <>
+    <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
       <Link to={editTo}>
         <Icon icon={faEdit} />
       </Link>
@@ -33,13 +33,15 @@ export const DiyaActions: React.FC<DiyaActionsProps> = ({
         </a>
       )}
 
-      <ButtonLink to={assignTo}>Assign</ButtonLink>
-    </>
+      <ButtonLink to={assignTo} size="small" variant="info">
+        Assign
+      </ButtonLink>
+    </div>
   )
 }
 
-export interface DiyaTableProps<T>
-  extends Pick<SimpleTableProps<T>, 'headers' | 'headerLabels'> {
+export interface DiyaTableProps<T extends Record<string, any>>
+  extends Pick<SimpleTableProps<T>, 'headers' | 'labels' | 'onRowClicked'> {
   readonly data: ReadonlyArray<T>
   editTo(value: T): string
   onDelete?(value: T): void
@@ -52,9 +54,15 @@ export function DiyaTable<T>({
   editTo,
   onDelete,
   assignTo,
+  onRowClicked,
 }: DiyaTableProps<T>): JSX.Element {
   return (
-    <SimpleTable data={data} headers={[...(headers || []), 'Actions']} striped>
+    <SimpleTable
+      data={data}
+      headers={[...(headers || []), 'Actions'] as any}
+      striped
+      onRowClicked={onRowClicked}
+    >
       {(key, value) =>
         key === 'Actions' ? (
           <DiyaActions
@@ -66,8 +74,9 @@ export function DiyaTable<T>({
               }
             }}
           />
-        ) : // tslint:disable-next-line: no-null-keyword
-        null
+        ) : (
+          undefined
+        )
       }
     </SimpleTable>
   )

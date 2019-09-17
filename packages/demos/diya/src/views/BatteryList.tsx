@@ -1,14 +1,14 @@
 import React from 'react'
 import {
-  CrudTable,
+  CreateLink,
   links,
   listComponent,
   RoutedPager,
   Section,
   Title,
 } from 'technoidentity-devfractal'
-import { CreateLink } from 'technoidentity-devfractal'
 import { Battery } from '../common'
+import { DiyaTable } from '../components/DiyaTable'
 
 const batteryLinks = links('batteries')
 
@@ -21,11 +21,12 @@ export const BatteryList = listComponent(Battery, ({ data: batteryList }) => (
       Add Battery
     </CreateLink>
 
-    <CrudTable
+    <DiyaTable
       data={batteryList}
       headers={['name', 'group', 'remainingCycles', 'status']}
       editTo={v => batteryLinks.edit(v.id)}
-      headerLabels={['name', 'group', 'remainingCycles', 'status']}
+      assignTo={v => `assignBattery/${v.id}`}
+      labels={['name', 'group', 'remainingCycles', 'status', 'Actions']}
     />
 
     <RoutedPager />

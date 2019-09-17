@@ -12,30 +12,33 @@ import {
 } from 'devfractal-ui-core'
 import React from 'react'
 import * as t from 'technoidentity-spec'
-import { date } from 'technoidentity-spec'
-import { camelCaseToPhrase, keys } from 'technoidentity-utils'
+import { array, date, string } from 'technoidentity-spec'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import { formatDate } from './utils'
 
-export interface RowClickEvent<T> {
+export interface RowClickEvent<T extends Record<string, any>> {
   readonly value: T
 }
 
-export interface SimpleTableProps<T> extends TableProps {
-  readonly headers?: readonly string[]
-  readonly headerLabels?: readonly string[]
+export interface SimpleTableProps<T extends Record<string, any>>
+  extends TableProps {
+  readonly headers?: ReadonlyArray<keyof T>
+  readonly labels?: readonly string[] | Record<keyof T, string>
   readonly data: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
   onRowClicked?(value: RowClickEvent<T>): void
-  children?(key: string, value: T): React.ReactNode
+  children?(key: keyof T, value: T): React.ReactNode
 }
 
-export interface RowsProps<T> {
-  readonly headers: readonly string[]
+export interface RowsProps<T extends Record<string, any>, K extends keyof T> {
+  readonly headers: readonly K[]
   readonly data: ReadonlyArray<T>
   onRowClicked?(value: RowClickEvent<T>): void
-  render?(key: string, value: T): React.ReactNode
+  render?(key: K, value: T): React.ReactNode
 }
 
-function Rows<T>(props: RowsProps<T>): JSX.Element {
+function Rows<T extends Record<string, any>, K extends keyof T>(
+  props: RowsProps<T, K>,
+): JSX.Element {
   const { data, headers, render, onRowClicked } = props
   return (
     <>
@@ -45,7 +48,7 @@ function Rows<T>(props: RowsProps<T>): JSX.Element {
           onClick={() => onRowClicked && onRowClicked({ value: data[i] })}
         >
           {headers.map(key => (
-            <Td key={key}>
+            <Td key={key as string}>
               {date.is(value[key]) ? (
                 <Text>{formatDate(value[key])}</Text>
               ) : t.boolean.is(value[key]) ? (
@@ -63,38 +66,55 @@ function Rows<T>(props: RowsProps<T>): JSX.Element {
   )
 }
 
-export interface TableViewProps<T> extends TableProps {
-  readonly headers?: readonly string[]
-  readonly headerLabels?: readonly string[]
+export interface TableViewProps<T extends Record<string, any>>
+  extends TableProps {
+  readonly headers?: ReadonlyArray<keyof T>
+  readonly labels?: readonly string[] | Record<keyof T, string>
   readonly data: ReadonlyArray<T>
   onRowClicked?(value: RowClickEvent<T>): void
-  children?(key: string, value: T): React.ReactNode
+  children?(key: keyof T, value: T): React.ReactNode
 }
 
 interface HeaderProps {
-  readonly headerLabels: readonly string[]
+  readonly labels: readonly string[]
 }
 
-const Header: React.FC<HeaderProps> = ({ headerLabels }) => (
+const Header: React.FC<HeaderProps> = ({ labels }) => (
   <TableHead>
     <Tr>
-      {headerLabels.map(h => (
+      {labels.map(h => (
         <Th key={h}>{h}</Th>
       ))}
     </Tr>
   </TableHead>
 )
 
-function TableView<T>(args: TableViewProps<T>): JSX.Element {
-  const { headers, headerLabels, data, onRowClicked, children, ...props } = args
-  const allHeaders: readonly string[] = headers || keys(data[0] || {})
-  const labels: readonly string[] = headerLabels
-    ? headerLabels
-    : allHeaders.map(camelCaseToPhrase)
+function getLabels<T extends Record<string, any>>(
+  headers: ReadonlyArray<keyof T>,
+  labels: Record<keyof T, string>,
+): readonly string[] {
+  return headers.map(h =>
+    labels[h] ? labels[h] : camelCaseToPhrase(h as string),
+  )
+}
+
+function TableView<T extends Record<string, any>>(
+  args: TableViewProps<T>,
+): JSX.Element {
+  const { headers, labels, data, onRowClicked, children, ...props } = args
+
+  const allHeaders: ReadonlyArray<keyof T> =
+    headers || Object.keys(data[0] || {})
+
+  const headerLabels: readonly string[] = labels
+    ? array(string).is(labels)
+      ? labels
+      : getLabels(allHeaders, labels as Record<keyof T, string>)
+    : allHeaders.map(h => camelCaseToPhrase(h as string))
 
   return (
     <Table {...props} fullWidth>
-      <Header headerLabels={labels} />
+      <Header labels={headerLabels} />
 
       <TableBody>
         <Rows
@@ -108,7 +128,9 @@ function TableView<T>(args: TableViewProps<T>): JSX.Element {
   )
 }
 
-export function SimpleTable<T>(args: SimpleTableProps<T>): JSX.Element {
+export function SimpleTable<T extends Record<string, any>>(
+  args: SimpleTableProps<T>,
+): JSX.Element {
   const { data, ...props } = args
 
   return typeof data === 'function' ? (

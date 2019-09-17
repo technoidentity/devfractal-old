@@ -11,6 +11,7 @@
 // opt-in, read http://bit.ly/CRA-PWA
 
 // tslint:disable
+/* eslint-disable */
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||

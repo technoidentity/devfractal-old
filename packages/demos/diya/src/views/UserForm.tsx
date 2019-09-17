@@ -51,7 +51,7 @@ export const UserForm = formComponent(User, ({ initial, edit, onSubmit }) => (
             />
             <Simple.Text name="adharNumber" validations={[required()]} />
 
-            <Simple.Select name="role">
+            <Simple.Select name="role" fullWidth>
               <option value="Admin">Admin</option>
               <option value="Reporter">Reporter</option>
               <option value="Dispatcher">Dispatcher</option>
@@ -79,8 +79,8 @@ export const UserForm = formComponent(User, ({ initial, edit, onSubmit }) => (
               validations={[required()]}
             />
             <Simple.RadioGroup name="verified" defaultValue="pending">
-              <Radio value="yes">yes</Radio>
-              <Radio value="pending">In process</Radio>
+              <Radio value="yes"> yes</Radio>
+              <Radio value="pending"> In process</Radio>
             </Simple.RadioGroup>
           </Column>
 
@@ -104,8 +104,7 @@ export const UserForm = formComponent(User, ({ initial, edit, onSubmit }) => (
             <div style={{ paddingTop: '10px' }}>
               <Simple.Text name="emergencyContactPerson" />
               <Simple.Text name="emergencyContactNumber" />
-              <Simple.Select name="relation">
-                <option value="">select</option>
+              <Simple.Select name="relation" fullWidth>
                 <option value="father">Father</option>
                 <option value="mother">Mother</option>
                 <option value="spouse">Spouse</option>
@@ -114,7 +113,7 @@ export const UserForm = formComponent(User, ({ initial, edit, onSubmit }) => (
           </Column>
         </Columns>
 
-        <Simple.FormButtons alignment="centered" size="medium" />
+        <Simple.FormButtons />
       </Simple.Form>
     </Section>
   </>

@@ -49,8 +49,7 @@ export const DriverForm = formComponent(
               <Simple.Text name="driverLicence" validations={[required()]} />
               <Simple.Text name="adharNumber" validations={[required()]} />
 
-              <Simple.Select name="shift">
-                <option>Select</option>
+              <Simple.Select name="shift" fullWidth>
                 <option value="morning">Morning</option>
                 <option value="evening">Evening</option>
               </Simple.Select>
@@ -77,8 +76,8 @@ export const DriverForm = formComponent(
                 validations={[required()]}
               />
               <Simple.RadioGroup name="verified" defaultValue="pending">
-                <Radio value="yes">yes</Radio>
-                <Radio value="pending">In process</Radio>
+                <Radio value="yes"> yes</Radio>
+                <Radio value="pending"> In process</Radio>
               </Simple.RadioGroup>
             </Column>
 
@@ -102,8 +101,7 @@ export const DriverForm = formComponent(
               <div style={{ padding: '15px' }}>
                 <Simple.Text name="emergencyContactPerson" />
                 <Simple.Text name="emergencyContactNumber" />
-                <Simple.Select name="relation">
-                  <option value="">select</option>
+                <Simple.Select name="relation" fullWidth>
                   <option value="father">Father</option>
                   <option value="mother">Mother</option>
                   <option value="spouse">Spouse</option>
@@ -112,7 +110,7 @@ export const DriverForm = formComponent(
             </Column>
           </Columns>
 
-          <Simple.FormButtons alignment="centered" size="medium" />
+          <Simple.FormButtons />
         </Simple.Form>
       </Section>
     </>

@@ -1,10 +1,18 @@
-import { Int, keyof, number, string, TypeOf } from 'technoidentity-spec'
-import { ISODate, props, req } from 'technoidentity-utils'
+import {
+  enumerate,
+  Int,
+  number,
+  props,
+  req,
+  string,
+  TypeOf,
+} from 'technoidentity-spec'
+import { ISODate } from 'technoidentity-utils'
 
-const Shift = keyof({ morning: true, evening: true })
-const Status = keyof({ active: true, inactive: true })
-const Verified = keyof({ yes: true, pending: true })
-const Relation = keyof({ mother: true, father: true, spouse: true })
+const Shift = enumerate('morning', 'evening')
+const Status = enumerate('active', 'inactive')
+const Verified = enumerate('yes', 'pending')
+const Relation = enumerate('father', 'spouse')
 
 export const Driver = props(
   {
@@ -35,7 +43,7 @@ export const Driver = props(
 
 export type Driver = TypeOf<typeof Driver>
 
-const Group = keyof({ retail: true, cargo: true })
+const Group = enumerate('retail', 'cargo')
 
 export const Battery = props(
   {
@@ -80,7 +88,7 @@ export const Vehicle = props(
 
 export type Vehicle = TypeOf<typeof Vehicle>
 
-const ContractType = keyof({ weekly: true, monthly: true })
+const ContractType = enumerate('weekly', 'monthly')
 
 export const Client = props(
   { id: string },
@@ -96,7 +104,7 @@ export const Client = props(
 
 export type Client = TypeOf<typeof Client>
 
-export const Role = keyof({ admin: true, reporter: true, dispatcher: true })
+export const Role = enumerate('admin', 'reporter', 'dispatcher')
 
 export const User = props(
   { dateOfJoining: ISODate, id: string, email: string },
@@ -123,12 +131,7 @@ export const User = props(
 
 export type User = TypeOf<typeof User>
 
-const Frequency = keyof({
-  once: true,
-  weekly: true,
-  monthly: true,
-  yearly: true,
-})
+const Frequency = enumerate('once', 'weekly', 'monthly', 'yearly')
 
 export const Ev = props(
   { id: string },
@@ -137,7 +140,7 @@ export const Ev = props(
 
 export type Ev = TypeOf<typeof Ev>
 
-const RouteStatus = keyof({ enroute: true, complete: true })
+const RouteStatus = enumerate('enroute', 'complete')
 
 export const PlanRoute = props(
   { id: string },
@@ -149,7 +152,7 @@ export const PlanRoute = props(
   },
 )
 
-const EmployeeRole = keyof({ clientDispatcher: true, reporter: true })
+const EmployeeRole = enumerate('clientDispatcher', 'reporter')
 
 export const Employee = props(
   { id: string },
@@ -199,11 +202,7 @@ export const Trip = props(
 
 export type Trip = TypeOf<typeof Trip>
 
-export const SelectVehicles = keyof({
-  vehicle1: true,
-  vehicle2: string,
-  vehicle3: string,
-})
+export const SelectVehicles = enumerate('vehicle1', 'vehicle2', 'vehicle3')
 
 export const AdManager = props(
   {
@@ -220,16 +219,16 @@ export const AdManager = props(
 
 export type AdManager = TypeOf<typeof AdManager>
 
-const role = keyof({
-  driver: true,
-  customer: true,
-  client_admin: true,
-  super_admin: true,
-  dispatcher: true,
-  reporter: true,
-  client_dispatcher: true,
-  client_reporter: true,
-})
+const role = enumerate(
+  'driver',
+  'customer',
+  'client_admin',
+  'super_admin',
+  'dispatcher',
+  'reporter',
+  'client_dispatcher',
+  'client_reporter',
+)
 
 export const LoginResponse = req({
   data: req({
@@ -246,7 +245,7 @@ export const LoginResponse = req({
 
 export type LoginResponse = TypeOf<typeof LoginResponse>
 
-const VehicleNumbers = keyof({ first: true, second: true })
+const VehicleNumbers = enumerate('first', 'second')
 
 export const AssignDriver = req({
   id: string,
@@ -256,3 +255,34 @@ export const AssignDriver = req({
 })
 
 export type AssignDriver = TypeOf<typeof AssignDriver>
+
+export const AssignVehicle = req({
+  id: string,
+  client: string,
+  batteryID: string,
+  driver: string,
+  startDate: ISODate,
+  endDate: ISODate,
+  contractType: ContractType,
+})
+
+export type AssignVehicle = TypeOf<typeof AssignVehicle>
+
+export const AssignBattery = req({
+  id: string,
+  client: string,
+  vehicleID: string,
+  driver: string,
+})
+
+export type AssignBattery = TypeOf<typeof AssignBattery>
+
+// export const VehicleInfo = req({
+//   id: string,
+//   customerName: string,
+//   address: string,
+//   contactNumber: Int,
+//   status: RouteStatus,
+// })
+
+// export type VehicleInfo = TypeOf<typeof VehicleInfo>

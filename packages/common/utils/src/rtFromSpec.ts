@@ -3,6 +3,7 @@ import {
   AnyArrayType,
   ArrayType,
   BooleanType,
+  EnumType,
   ExactType,
   InterfaceType,
   IntersectionType,
@@ -11,6 +12,7 @@ import {
   Mixed,
   NullType,
   NumberType,
+  ObjType,
   PartialType,
   Props,
   ReadonlyArrayType,
@@ -77,6 +79,10 @@ export function rtFromSpec(
     return tcomb.enums(spec.keys)
   }
 
+  if (spec instanceof EnumType) {
+    return tcomb.enums.of(spec.keys)
+  }
+
   // TODO: literal type?
 
   if (
@@ -89,6 +95,11 @@ export function rtFromSpec(
 
   if (spec instanceof UnknownType) {
     return tcomb.Any // this looks wrong, but is it?
+  }
+
+  if (spec instanceof ObjType) {
+    // @TODO: strict: true if Exact ObjType
+    tcomb.struct(buildObject(spec.props, rtFromSpec), { name: spec.name })
   }
 
   if (spec instanceof InterfaceType) {

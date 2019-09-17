@@ -1,60 +1,65 @@
 import { Document, model, Model, Schema } from 'mongoose'
 import * as t from 'technoidentity-spec'
+import { EnumType, ObjType } from 'technoidentity-spec'
 import { buildObject, keys } from 'technoidentity-utils'
 
-const schemaFromPrimitiveRT: (value: t.Mixed) => any = value => {
-  if (value.name === 'Int') {
+function schemaFromPrimitiveRT(spec: t.Mixed): any {
+  if (spec.name === 'Int') {
     return { type: Number } // TODO: Int supported by mongoose?
   }
 
-  if (value instanceof t.NumberType) {
+  if (spec instanceof t.NumberType) {
     return { type: Number }
   }
 
-  if (value instanceof t.StringType) {
+  if (spec instanceof t.StringType) {
     return { type: String }
   }
 
-  if (value instanceof t.BooleanType) {
+  if (spec instanceof t.BooleanType) {
     return { type: Boolean }
   }
 
-  if (value.name === 'Date') {
+  if (spec.name === 'Date') {
     return { type: Date }
   }
 
-  if (value instanceof t.KeyofType) {
-    return { type: String, enum: keys(value.keys) }
+  if (spec instanceof t.KeyofType) {
+    return { type: String, enum: keys(spec.keys) }
   }
 
-  throw new Error(`Unsupported ${value.name}`)
+  if (spec instanceof EnumType) {
+    return { type: String, enum: spec.keys }
+  }
+
+  throw new Error(`Unsupported ${spec.name}`)
 }
 
 const schemaFromObjectRT: <T extends t.Props>(rt: t.TypeC<T>) => any = rt => {
   return buildObject(rt.props, (_, p) => schemaFromRT(rt.props[p]))
 }
 
-export const schemaFromRT: (value: t.Mixed) => any = value => {
-  if (value instanceof t.ReadonlyType) {
-    return schemaFromRT(value.type)
+export function schemaFromRT(spec: t.Mixed): any {
+  if (spec instanceof t.ReadonlyType) {
+    return schemaFromRT(spec.type)
   }
 
-  if (value instanceof t.InterfaceType) {
-    return schemaFromObjectRT(value)
+  if (spec instanceof t.InterfaceType || spec instanceof ObjType) {
+    return buildObject(spec.props, (_, p) => schemaFromRT(spec.props[p]))
   }
 
-  if (value instanceof t.ArrayType || value instanceof t.ReadonlyArrayType) {
-    return [schemaFromRT(value.type)]
+  if (spec instanceof t.ArrayType || spec instanceof t.ReadonlyArrayType) {
+    return [schemaFromRT(spec.type)]
   }
 
-  if (value instanceof t.PartialType) {
-    return buildObject(value.props, p => ({
-      ...schemaFromRT(value.props[p]),
+  if (spec instanceof t.PartialType) {
+    return buildObject(spec.props, p => ({
+      ...schemaFromRT(spec.props[p]),
       required: false,
     }))
   }
 
-  return schemaFromPrimitiveRT(value)
+  return schemaFromPrimitiveRT(spec)
 }
 
 export function rtToModel<T extends t.Props>(

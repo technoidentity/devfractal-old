@@ -19,10 +19,12 @@ import {
   MenuItem,
   MenuList,
   NavbarBurger,
+  NavbarBurgerProps,
   Section,
 } from 'technoidentity-devfractal'
 import { fn, req } from 'technoidentity-utils'
 import diyaLogo from '../images/diyaLogo.png'
+import { MenuBurger } from './MenuBurger'
 
 export const Visibility = keyof({
   full: true,
@@ -59,109 +61,93 @@ export const SideMenuItem: React.FC<SideMenuItemProps> = ({
   </>
 )
 
+export const Burger: React.FC<NavbarBurgerProps> = props => (
+  <NavbarBurger {...props}>
+    <span />
+    <span />
+    <span />
+  </NavbarBurger>
+)
+
 export const SideMenuView: React.FC<SideMenuViewProps> = ({
   visibility,
   onClick,
 }) => (
   <>
-    {visibility !== 'hidden' ? (
-      <div
+    {visibility !== 'hidden' && (
+      <Column
+        narrow
         style={{
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
-        <div>
-          <NavbarBurger
-            style={{
-              display: 'flex',
-            }}
-            onClick={onClick}
-          >
-            <span />
-            <span />
-            <span />
-          </NavbarBurger>
-        </div>
+        {/* <Burger onClick={onClick} /> */}
+        <MenuBurger isMinimal={visibility === 'minimal'} onClick={onClick} />
 
-        <Column
-          narrow
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          {visibility !== 'minimal' ? (
-            <Column>
-              <Image src={diyaLogo} alt="diyaImage" size="96x96" />
-            </Column>
-          ) : null}
-          <Section>
-            <Menu>
-              <MenuList
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                <SideMenuItem
-                  href="/drivers"
-                  icon={faUsers}
-                  label="Drivers"
-                  visibility={visibility}
-                />
-                <SideMenuItem
-                  href="/vehicles"
-                  icon={faBus}
-                  label="Vehicles"
-                  visibility={visibility}
-                />
-                <SideMenuItem
-                  href="/batteries"
-                  icon={faCarBattery}
-                  label="Battery"
-                  visibility={visibility}
-                />
-                <SideMenuItem
-                  href="/clients"
-                  icon={faUserFriends}
-                  label="Clients"
-                  visibility={visibility}
-                />
-                <SideMenuItem
-                  href="/geo_fences"
-                  icon={faMapMarked}
-                  label="GeoFences"
-                  visibility={visibility}
-                />
+        {visibility !== 'minimal' && (
+          <Image src={diyaLogo} alt="diyaImage" size="96x96" />
+        )}
 
-                <SideMenuItem
-                  href="/users"
-                  icon={faUsers}
-                  label="Users"
-                  visibility={visibility}
-                />
+        <Section style={{ marginTop: '30px' }}>
+          <Menu>
+            <MenuList>
+              <SideMenuItem
+                href="/drivers"
+                icon={faUsers}
+                label="Drivers"
+                visibility={visibility}
+              />
+              <SideMenuItem
+                href="/vehicles"
+                icon={faBus}
+                label="Vehicles"
+                visibility={visibility}
+              />
+              <SideMenuItem
+                href="/batteries"
+                icon={faCarBattery}
+                label="Battery"
+                visibility={visibility}
+              />
+              <SideMenuItem
+                href="/clients"
+                icon={faUserFriends}
+                label="Clients"
+                visibility={visibility}
+              />
+              <SideMenuItem
+                href="/geo_fences"
+                icon={faMapMarked}
+                label="Geofences"
+                visibility={visibility}
+              />
 
-                <SideMenuItem
-                  href="/invoices"
-                  icon={faBell}
-                  label="Invoices"
-                  visibility={visibility}
-                />
+              <SideMenuItem
+                href="/users"
+                icon={faUsers}
+                label="Users"
+                visibility={visibility}
+              />
 
-                <SideMenuItem
-                  href="#!"
-                  icon={faPaperPlane}
-                  label="Reports"
-                  visibility={visibility}
-                />
-              </MenuList>
-            </Menu>
-          </Section>
-        </Column>
-      </div>
-    ) : // tslint:disable-next-line: no-null-keyword
-    null}
+              <SideMenuItem
+                href="/invoices"
+                icon={faBell}
+                label="Invoices"
+                visibility={visibility}
+              />
+
+              <SideMenuItem
+                href="#!"
+                icon={faPaperPlane}
+                label="Reports"
+                visibility={visibility}
+              />
+            </MenuList>
+          </Menu>
+        </Section>
+      </Column>
+    )}
   </>
 )
