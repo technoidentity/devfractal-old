@@ -1,10 +1,12 @@
 import { rest } from 'technoidentity-devfractal'
-import { boolean, number, string, TypeOf, union } from 'technoidentity-utils'
-import { date } from 'technoidentity-utils'
-import { DateFromISOString } from 'technoidentity-utils'
-import { props } from 'technoidentity-utils'
-
-const ISODate = union([date, DateFromISOString])
+import {
+  boolean,
+  ISODate,
+  number,
+  props,
+  string,
+  TypeOf,
+} from 'technoidentity-utils'
 
 export const Todo = props(
   {
