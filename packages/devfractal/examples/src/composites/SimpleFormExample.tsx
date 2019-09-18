@@ -2,9 +2,8 @@
 import { before, email, minLength, required } from 'devfractal-forms'
 import { Simple } from 'devfractal-simple'
 import { Radio, Section } from 'devfractal-ui-core'
-import { keyof, TypeOf } from 'io-ts'
 import React from 'react'
-import { ISODate } from 'technoidentity-utils'
+import { ISODate, keyof, TypeOf } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 const Position = keyof({

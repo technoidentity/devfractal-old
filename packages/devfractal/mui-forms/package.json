@@ -38,7 +38,7 @@
     "typeface-roboto": "^0.0.75"
   },
   "devDependencies": {
-    "cross-env": "5.2.1",
+    "cross-env": "6.0.0",
     "devfractal-ui-core": "1.2.18",
     "eslint": "6.4.0",
     "husky": "3.0.5",

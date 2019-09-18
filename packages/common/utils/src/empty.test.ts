@@ -1,9 +1,6 @@
-import { empty } from './empty'
 import {
   array,
   boolean,
-  date,
-  DateFromISOString,
   exact,
   Int,
   intersection,
@@ -20,7 +17,10 @@ import {
   type,
   union,
   unknown,
-} from './iots'
+} from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
+import { empty } from './empty'
 
 // tslint:disable no-null-keyword typedef
 

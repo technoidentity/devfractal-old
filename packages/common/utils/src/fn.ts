@@ -1,4 +1,4 @@
-import { failure, identity, success, Type } from './iots'
+import { failure, identity, success, Type } from 'io-ts'
 
 // tslint:disable no-class no-this
 

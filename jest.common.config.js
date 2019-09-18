@@ -10,5 +10,5 @@ module.exports = {
       },
     },
   },
-  bail: true,
+  bail: false,
 }

@@ -9,7 +9,6 @@ import {
   faUserFriends,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
-import { keyof, TypeOf } from 'io-ts'
 import React from 'react'
 import {
   Column,
@@ -22,7 +21,7 @@ import {
   NavbarBurgerProps,
   Section,
 } from 'technoidentity-devfractal'
-import { fn, req } from 'technoidentity-utils'
+import { fn, keyof, req, TypeOf } from 'technoidentity-utils'
 import diyaLogo from '../images/diyaLogo.png'
 import { MenuBurger } from './MenuBurger'
 

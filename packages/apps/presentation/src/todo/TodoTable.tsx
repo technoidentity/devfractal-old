@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import React from 'react'
-import { RouteComponentProps, withRouter } from 'react-router'
+import { withRouter } from 'react-router'
 import {
   Button,
   CheckBox,
@@ -13,26 +13,19 @@ import {
   Th,
   Tr,
 } from 'technoidentity-devfractal'
-import { boolean, date } from 'technoidentity-utils'
-import { capitalize } from 'technoidentity-utils'
+import { boolean, capitalize, date } from 'technoidentity-utils'
 import { Todo } from './common'
 
-interface ActionsProps extends RouteComponentProps {
-  readonly editTo: string
-}
-
-const Actions = withRouter<ActionsProps, React.FC<ActionsProps>>(
-  ({ history, editTo }) => {
-    return (
-      <Field groupModifier="grouped-centered">
-        <Button variant="warning" onClick={() => history.push(editTo)}>
-          Edit
-        </Button>
-        <Button variant="danger">Del</Button>
-      </Field>
-    )
-  },
-)
+const Actions = withRouter(({ history, editTo }: any) => {
+  return (
+    <Field groupModifier="grouped-centered">
+      <Button variant="warning" onClick={() => history.push(editTo)}>
+        Edit
+      </Button>
+      <Button variant="danger">Del</Button>
+    </Field>
+  )
+})
 
 export interface TodoTableProps {
   readonly data: readonly Todo[]

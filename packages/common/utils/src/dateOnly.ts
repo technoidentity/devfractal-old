@@ -1,6 +1,5 @@
 import { brand, BrandC, Branded } from 'io-ts'
 import { date, DateC } from 'io-ts-types/lib/date'
-
 export interface DateOnlyBrand {
   readonly DateOnly: unique symbol
 }

@@ -1,4 +1,4 @@
-import { Mixed, tuple, TupleC, TypeOf } from './iots'
+import { Mixed, tuple, TupleC, TypeOf } from 'io-ts'
 import { cast } from './iotsUtils'
 
 // tslint:disable readonly-array

@@ -29,7 +29,7 @@
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "cross-env": "5.2.1",
+    "cross-env": "6.0.0",
     "devfractal-router": "1.2.18",
     "devfractal-ui-core": "1.2.18",
     "eslint": "6.4.0",

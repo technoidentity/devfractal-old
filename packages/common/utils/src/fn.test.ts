@@ -1,5 +1,5 @@
+import { number, TypeOf } from 'io-ts'
 import { fn } from './fn'
-import { number, TypeOf } from './iots'
 import { cast } from './iotsUtils'
 import { props } from './obj'
 // tslint:disable typedef no-empty

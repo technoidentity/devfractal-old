@@ -1,8 +1,9 @@
 import React from 'react'
 import { withRouter } from 'react-router'
 
-export const ScrollToTop: React.ComponentClass = withRouter(
-  ({ children, location }): JSX.Element => {
+// tslint:disable-next-line: typedef
+export const ScrollToTop = withRouter(
+  ({ children, location }: any): JSX.Element => {
     React.useEffect(() => window.scrollTo(0, 0), [location.pathname])
 
     return <>{children}</>

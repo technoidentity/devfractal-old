@@ -1,6 +1,8 @@
 import { startOfDay } from 'date-fns'
+import { TypeOf, union } from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { assert } from './assertions'
-import { date, DateFromISOString, TypeOf, union } from './iots'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
 

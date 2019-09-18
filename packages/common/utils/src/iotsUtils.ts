@@ -1,21 +1,20 @@
-import { assert, fatal } from './assertions'
-import { omit, pick } from './common'
+import { Either, isRight } from 'fp-ts/lib/Either'
 import {
-  Either,
   Errors,
   ExactType,
   InterfaceType,
   IntersectionType,
-  isRight,
   literal,
   Mixed,
   PartialType,
-  PathReporter,
   Props,
   ReadonlyType,
   string,
   Type,
-} from './iots'
+} from 'io-ts'
+import { PathReporter } from 'io-ts/lib/PathReporter'
+import { assert, fatal } from './assertions'
+import { omit, pick } from './common'
 import { ObjType } from './obj'
 // tslint:disable readonly-array array-type readonly-keyword
 

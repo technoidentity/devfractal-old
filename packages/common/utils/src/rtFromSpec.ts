@@ -1,6 +1,3 @@
-import tcomb from 'tcomb'
-import { buildObject } from './common'
-import { EnumType } from './enums'
 import {
   AnyArrayType,
   ArrayType,
@@ -25,7 +22,10 @@ import {
   UnionType,
   UnknownType,
   VoidType,
-} from './iots'
+} from 'io-ts'
+import tcomb from 'tcomb'
+import { buildObject } from './common'
+import { EnumType } from './enums'
 import { ObjType } from './obj'
 import { Literal } from './tcombRefinements'
 

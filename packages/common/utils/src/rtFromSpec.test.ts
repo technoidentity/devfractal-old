@@ -1,8 +1,6 @@
 import {
   array,
   boolean,
-  date,
-  DateFromISOString,
   exact,
   Int,
   intersection,
@@ -16,7 +14,9 @@ import {
   type,
   undefined,
   union,
-} from './iots'
+} from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
+import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { rtFromSpec } from './rtFromSpec'
 
 it('rtFromSpec', () => {

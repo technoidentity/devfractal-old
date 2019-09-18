@@ -1,5 +1,3 @@
-import { buildObject, keys, today } from './common'
-import { EnumType } from './enums'
 import {
   AnyArrayType,
   ArrayType,
@@ -23,7 +21,9 @@ import {
   UnionType,
   UnknownType,
   VoidType,
-} from './iots'
+} from 'io-ts'
+import { buildObject, keys, today } from './common'
+import { EnumType } from './enums'
 import { ObjType } from './obj'
 export function empty<T extends Mixed>(spec: T): TypeOf<T> {
   if (spec.name === 'Int' || spec instanceof NumberType) {

@@ -1,6 +1,7 @@
+import { Array, boolean, number, string, UnknownRecord } from 'io-ts'
+import { date } from 'io-ts-types/lib/date'
 import { warn } from './assertions'
 import { buildObject, today } from './common'
-import { Array, boolean, date, number, string, UnknownRecord } from './iots'
 
 function emptyFromPrimitiveValue(v: unknown): any {
   if (number.is(v)) {
