@@ -1,6 +1,6 @@
 {
   "name": "devfractal-api",
-  "version": "1.2.18",
+  "version": "1.2.19",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/devfractal-api.esm.js",
@@ -31,7 +31,7 @@
     "immer": "4.0.0",
     "io-ts-promise": "2.0.0",
     "query-string": "6.8.3",
-    "technoidentity-dev-utils": "^1.2.18",
+    "technoidentity-dev-utils": "^1.2.19",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
     "rimraf": "3.0.0",
-    "technoidentity-utils": "1.2.18",
+    "technoidentity-utils": "^1.2.19",
     "ts-node-dev": "1.0.0-pre.42",
     "tsdx": "0.9.2",
     "tslint": "5.20.0",
