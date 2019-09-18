@@ -3,9 +3,15 @@ import { Route, useHistory, useLocation } from 'devfractal-router'
 import { Get } from 'devfractal-ui-api'
 import { parse, stringify } from 'query-string'
 import React from 'react'
-import { Mixed, record, string, TypeOf } from 'technoidentity-utils'
-import { IntFromString } from 'technoidentity-utils'
-import { cast, GotProps, opt } from 'technoidentity-utils'
+import {
+  AnyObj,
+  cast,
+  IntFromString,
+  opt,
+  record,
+  string,
+  TypeOf,
+} from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 export const ClientQuery = opt({
@@ -21,13 +27,13 @@ export interface AllComponentProps<T> {
   onPageChange(page: number): void
 }
 
-interface ChildrenProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
-  readonly api: API<Spec & GotProps, ID>
+interface ChildrenProps<Spec extends AnyObj, ID extends keyof TypeOf<Spec>> {
+  readonly api: API<Spec, ID>
   readonly list: React.FC<AllComponentProps<TypeOf<Spec>>>
   queryFn?(search: string): APIQuery<TypeOf<Spec>>
 }
 
-function defaultQueryFn<Spec extends Mixed>(
+function defaultQueryFn<Spec extends AnyObj>(
   search: string,
 ): APIQuery<TypeOf<Spec>> {
   const { page = 1, limit = 25, asc, desc } = cast(
@@ -42,7 +48,7 @@ function defaultQueryFn<Spec extends Mixed>(
   }
 }
 
-function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
+function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   api,
   list: Component,
   queryFn = defaultQueryFn,
@@ -80,12 +86,12 @@ export interface AllComponentProps<T> {
   // fetchAgain(): void
 }
 
-export interface AllProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>>
+export interface AllProps<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>
   extends ChildrenProps<Spec, ID> {
   readonly path: string
 }
 
-export function All<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
+export function All<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   path,
   ...props
 }: AllProps<Spec, ID>): JSX.Element {

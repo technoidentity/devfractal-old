@@ -3,6 +3,7 @@ import {
   ExactC,
   intersection,
   IntersectionC,
+  Mixed,
   partial,
   PartialC,
   Props,
@@ -11,6 +12,7 @@ import {
   Type,
   type,
   TypeC,
+  TypeOf,
 } from 'io-ts'
 import { omit, pick } from './common'
 
@@ -23,6 +25,12 @@ type ObjSpec<Opt extends Props, Req extends Props> = IntersectionC<
   // tslint:disable-next-line: readonly-array
   [OptC<Opt>, ReqC<Req>]
 >
+
+// type NoEmptyIntersect<Opt extends Props, Req extends Props> = {} extends Opt
+//   ? {} extends Req
+//     ? Opt
+//     : Req
+//   : Opt & Req
 
 export class ObjType<
   Opt extends Props,
@@ -43,6 +51,10 @@ export class ObjType<
     super(name, spec.is, spec.validate, spec.encode)
   }
 }
+
+// type TOS<Opt extends Props, Req extends Props> = ObjSpec<Opt, Req>['_A']
+// type OOS<Opt extends Props, Req extends Props> = ObjSpec<Opt, Req>['_O']
+// type IOS<Opt extends Props, Req extends Props> = ObjSpec<Opt, Req>['_I']
 
 export interface ObjC<Opt extends Props, Req extends Props>
   extends ObjType<
@@ -106,7 +118,7 @@ function exactObj<Opt extends Props, Req extends Props>(
   )
 }
 
-export type AnyObj = ObjC<any, any>
+export type AnyObj = Mixed & ObjC<any, any>
 
 export type ReqOf<O extends AnyObj> = O['required']
 export type OptOf<O extends AnyObj> = O['optional']
@@ -236,4 +248,15 @@ export function toReq<Opt extends Props, Req extends Props>(
   name?: string,
 ): ObjC<{}, Req & Opt> {
   return req(spec.props, name)
+}
+
+export function getProps<Spec extends AnyObj>(spec: AnyObj): Spec['props'] {
+  return spec.props
+}
+
+export function getProp<Spec extends AnyObj, K extends keyof TypeOf<Spec>>(
+  spec: AnyObj,
+  prop: K,
+): Spec['props'][K] {
+  return spec.props[prop]
 }

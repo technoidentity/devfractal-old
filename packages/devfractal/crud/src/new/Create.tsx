@@ -2,12 +2,12 @@ import { API } from 'devfractal-api'
 import { Route } from 'devfractal-router'
 import { Post, SubmitAction } from 'devfractal-ui-api'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-utils'
+import { AnyObj, TypeOf } from 'technoidentity-utils'
 
 // tslint:disable no-unbound-method
 
 export interface CreateProps<
-  Spec extends Mixed,
+  Spec extends AnyObj,
   ID extends keyof TypeOf<Spec>
 > {
   readonly path: string
@@ -16,7 +16,7 @@ export interface CreateProps<
   readonly api: API<Spec, ID>
 }
 
-function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
+function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   api,
   redirectTo,
   form: Component,
@@ -26,7 +26,7 @@ function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   )
 }
 
-export function Create<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
+export function Create<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   path,
   ...props
 }: CreateProps<Spec, ID>): JSX.Element {

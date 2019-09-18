@@ -1,7 +1,8 @@
-import { boolean, readonly, string, type, TypeOf } from 'technoidentity-utils'
+import { boolean, readonly, req, string, type } from 'technoidentity-utils'
 import { buildUrl, http as httpAPI } from './http'
 
-// tslint:disable-next-line:typedef
+// tslint:disable typedef
+
 const axiosMock = {
   get: jest.fn(),
   post: jest.fn(),
@@ -51,10 +52,10 @@ test('get', async () => {
   axiosMock.get.mockResolvedValue({
     data: { id: '1', title: 'todo', done: false },
   })
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
-  // tslint:disable-next-line:typedef
-  const taskType = readonly(type({ id: string, title: string, done: boolean }))
-  const actual: TypeOf<typeof taskType> = await http.get(
+  const http = httpAPI({ baseURL: 'https://test' })
+
+  const taskType = req({ id: string, title: string, done: boolean })
+  const actual = await http.get(
     { resource: 'tasks', path: '1', query: 'foo=123' },
     taskType,
   )
@@ -65,7 +66,7 @@ test('get with incorrect value', async () => {
   axiosMock.get.mockResolvedValue({
     data: { id: '1', description: 'todo', done: 'false' },
   })
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
+  const http = httpAPI({ baseURL: 'https://test' })
   try {
     await http.get(
       { resource: 'tasks', path: '1', query: 'foo=123' },
@@ -83,10 +84,10 @@ test('post', async () => {
   axiosMock.post.mockResolvedValue({
     data: { id: '1', title: 'todo', done: false },
   })
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
-  // tslint:disable-next-line:typedef
-  const taskType = readonly(type({ id: string, title: string, done: boolean }))
-  const actual: TypeOf<typeof taskType> = await http.post(
+  const http = httpAPI({ baseURL: 'https://test' })
+
+  const taskType = req({ id: string, title: string, done: boolean })
+  const actual = await http.post(
     { resource: 'tasks' },
     { title: 'todo', done: false },
     taskType,
@@ -98,7 +99,7 @@ test('post with incorrect value', async () => {
   axiosMock.post.mockResolvedValue({
     data: { id: '1', description: 'todo', done: 'false' },
   })
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
+  const http = httpAPI({ baseURL: 'https://test' })
   try {
     await http.post(
       { resource: 'tasks' },
@@ -117,10 +118,10 @@ test('put', async () => {
   axiosMock.put.mockResolvedValue({
     data: { id: '1', title: 'todo', done: true },
   })
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
-  // tslint:disable-next-line:typedef
-  const taskType = readonly(type({ id: string, title: string, done: boolean }))
-  const actual: TypeOf<typeof taskType> = await http.put(
+  const http = httpAPI({ baseURL: 'https://test' })
+
+  const taskType = req({ id: string, title: string, done: boolean })
+  const actual = await http.put(
     { resource: 'tasks', path: '1' },
     { title: 'todo', done: true },
     taskType,
@@ -132,7 +133,7 @@ test('put with incorrect value', async () => {
   axiosMock.put.mockResolvedValue({
     data: { id: '1', description: 'todo', done: 'true' },
   })
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
+  const http = httpAPI({ baseURL: 'https://test' })
   try {
     await http.put(
       { resource: 'tasks', path: '1' },
@@ -151,10 +152,10 @@ test('patch', async () => {
   axiosMock.patch.mockResolvedValue({
     data: { id: '1', title: 'todo', done: true },
   })
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
-  // tslint:disable-next-line:typedef
-  const taskType = readonly(type({ id: string, title: string, done: boolean }))
-  const actual: TypeOf<typeof taskType> = await http.patch(
+  const http = httpAPI({ baseURL: 'https://test' })
+
+  const taskType = req({ id: string, title: string, done: boolean })
+  const actual = await http.patch(
     { resource: 'tasks', path: '1' },
     { title: 'todo' },
     taskType,
@@ -166,12 +167,12 @@ test('patch with incorrect value', async () => {
   axiosMock.patch.mockResolvedValue({
     data: { id: '1', description: 'todo', done: 'true' },
   })
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
+  const http = httpAPI({ baseURL: 'https://test' })
   try {
     await http.patch(
       { resource: 'tasks', path: '1' },
       { done: 'true' },
-      readonly(type({ id: string, title: string, done: boolean })),
+      req({ id: string, title: string, done: boolean }),
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(
@@ -182,7 +183,7 @@ test('patch with incorrect value', async () => {
 
 test('delete', async () => {
   axiosMock.delete.mockResolvedValue(undefined)
-  const http: ReturnType<typeof httpAPI> = httpAPI({ baseURL: 'https://test' })
+  const http = httpAPI({ baseURL: 'https://test' })
   // tslint:disable-next-line:no-void-expression
   const actual: void = await http.del({ resource: 'tasks', path: '1' })
   expect(actual).toBeUndefined()

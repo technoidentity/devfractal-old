@@ -2,21 +2,21 @@ import { API } from 'devfractal-api'
 import { Route } from 'devfractal-router'
 import { Get } from 'devfractal-ui-api'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-utils'
+import { AnyObj, TypeOf } from 'technoidentity-utils'
 
 export interface OneComponentProps<T> {
   readonly data: T
   // fetchAgain(): void
 }
 
-export interface OneProps<Spec extends Mixed, ID extends keyof TypeOf<Spec>> {
+export interface OneProps<Spec extends AnyObj, ID extends keyof TypeOf<Spec>> {
   readonly api: API<Spec, ID>
   readonly path: string
   readonly id: ID
   readonly view: React.FC<OneComponentProps<TypeOf<Spec>>>
 }
 
-function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
+function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   api,
   id,
   view: Component,
@@ -26,7 +26,7 @@ function Children<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
   )
 }
 
-export function One<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
+export function One<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   path,
   ...props
 }: OneProps<Spec, ID>): JSX.Element {

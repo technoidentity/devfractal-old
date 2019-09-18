@@ -1,17 +1,16 @@
 import { API, APIQuery } from 'devfractal-api'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-utils'
-import { GotProps } from 'technoidentity-utils'
+import { AnyObj, TypeOf } from 'technoidentity-utils'
 import { All, AllComponentProps } from './All'
 import { paths as resPaths } from './common'
 import { Create } from './Create'
 import { Edit, EditComponentProps } from './Edit'
 
 export interface CrudRoutesProps<
-  Spec extends Mixed,
+  Spec extends AnyObj,
   ID extends keyof TypeOf<Spec>
 > {
-  readonly api: API<Spec & GotProps, ID>
+  readonly api: API<Spec, ID>
   readonly form: React.FC<EditComponentProps<TypeOf<Spec>>>
   readonly list: React.FC<AllComponentProps<TypeOf<Spec>>>
   readonly paths?: ReturnType<typeof resPaths>
@@ -19,7 +18,7 @@ export interface CrudRoutesProps<
   queryFn?(search: string): APIQuery<TypeOf<Spec>>
 }
 
-export function CrudRoutes<Spec extends Mixed, ID extends keyof TypeOf<Spec>>({
+export function CrudRoutes<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   api,
   list,
   form,

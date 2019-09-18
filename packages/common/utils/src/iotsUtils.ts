@@ -5,7 +5,6 @@ import {
   InterfaceType,
   IntersectionType,
   literal,
-  Mixed,
   PartialType,
   Props,
   ReadonlyType,
@@ -93,45 +92,45 @@ export type GotPropsOnProps =
 
 export type GotProps = GotPropsIntersection | GotPropsOnProps | GotPropsOnType
 
-export function getProps<T extends Mixed>(codec: T & GotProps): Props {
-  switch (codec._tag) {
-    case 'ReadonlyType':
-    case 'ExactType':
-      return getProps(codec.type)
-    case 'InterfaceType':
-    case 'ObjType':
-    case 'PartialType':
-      return codec.props
-    case 'IntersectionType':
-      return codec.types.reduce<Props>(
-        (props, type) => ({ ...props, ...getProps(type as any) }),
-        {},
-      )
-  }
-}
+// export function getProps<T extends Mixed>(codec: T & GotProps): Props {
+//   switch (codec._tag) {
+//     case 'ReadonlyType':
+//     case 'ExactType':
+//       return getProps(codec.type)
+//     case 'InterfaceType':
+//     case 'ObjType':
+//     case 'PartialType':
+//       return codec.props
+//     case 'IntersectionType':
+//       return codec.types.reduce<Props>(
+//         (props, type) => ({ ...props, ...getProps(type as any) }),
+//         {},
+//       )
+//   }
+// }
 
-export function getProp<T extends Mixed>(
-  codec: T & GotProps,
-  key: string,
-): Mixed | undefined {
-  switch (codec._tag) {
-    case 'ReadonlyType':
-    case 'ExactType':
-      return getProp(codec.type, key)
-    case 'InterfaceType':
-    case 'ObjType':
-    case 'PartialType':
-      return codec.props[key]
-    case 'IntersectionType':
-      for (const t of codec.types) {
-        const result: Mixed | undefined = getProp(t as any, key)
-        if (result !== undefined) {
-          return result
-        }
-      }
-      return undefined
-  }
-}
+// export function getProp<T extends Mixed>(
+//   codec: T & GotProps,
+//   key: string,
+// ): Mixed | undefined {
+//   switch (codec._tag) {
+//     case 'ReadonlyType':
+//     case 'ExactType':
+//       return getProp(codec.type, key)
+//     case 'InterfaceType':
+//     case 'ObjType':
+//     case 'PartialType':
+//       return codec.props[key]
+//     case 'IntersectionType':
+//       for (const t of codec.types) {
+//         const result: Mixed | undefined = getProp(t as any, key)
+//         if (result !== undefined) {
+//           return result
+//         }
+//       }
+//       return undefined
+//   }
+// }
 
 export function pickProps<T extends Props, K extends keyof T>(
   props: T,
