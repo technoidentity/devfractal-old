@@ -1,5 +1,5 @@
 {
-  "name": "demo-task-manager-client",
+  "name": "app-task-manager-client",
   "version": "1.2.18",
   "private": true,
   "scripts": {

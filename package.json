@@ -3,7 +3,7 @@
   "private": true,
   "workspaces": [
     "packages/common/*",
-    "packages/demos/*",
+    "packages/apps/*",
     "packages/devfractal/*",
     "packages/meta/*",
     "packages/sites/site"
@@ -38,7 +38,7 @@
     "publish:lib": "lerna publish --scope='devfractal-*'",
     "publish:meta": "lerna publish --scope='meta-*'",
     "test:common": "lerna run test --scope='technoidentity-*'",
-    "test:demos": "lerna run test --scope='demo-*'",
+    "test:apps": "lerna run test --scope='app-*'",
     "test:lib": "lerna run test --scope='devfractal-*'",
     "test:meta": "lerna run test --scope='meta-*'",
     "test": "lerna run test",
