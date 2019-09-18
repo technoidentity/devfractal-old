@@ -3,15 +3,15 @@ import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import { String } from 'tcomb'
 import {
+  AnyObj,
   array,
   chop,
   debug,
-  getProps,
   InputOf,
   keys,
   Mixed,
-  partial,
   string,
+  toOpt,
   TypeOf,
   verify,
 } from 'technoidentity-utils'
@@ -99,7 +99,7 @@ export function http({ baseURL, ...config }: RequestConfig) {
       .then(decode(type))
   }
 
-  async function patch<Spec extends Mixed>(
+  async function patch<Spec extends AnyObj>(
     options: Omit<MethodArgs, 'query'> | string,
     data: Partial<InputOf<Spec>>,
     type: Spec,
@@ -107,7 +107,7 @@ export function http({ baseURL, ...config }: RequestConfig) {
     return axios
       .patch<InputOf<Spec>>(url(options), data)
       .then(res => res.data)
-      .then(decode(partial(getProps(type as any))))
+      .then(decode(toOpt(type)))
   }
 
   async function put<Spec extends Mixed>(

@@ -146,8 +146,8 @@ describe('rest', () => {
       await todoAPI.update(1, { done: 'true' } as any)
     } catch (e) {
       expect(e.message).toMatchInlineSnapshot(`
-        "Invalid value \\"1\\" supplied to : Partial<{ id: number, title: string, done: boolean }>/id: number
-        Invalid value \\"true\\" supplied to : Partial<{ id: number, title: string, done: boolean }>/done: boolean"
+        "Invalid value \\"1\\" supplied to : (Readonly<Partial<{ id: number, title: string, done: boolean }>> & Readonly<{  }>)/0: Readonly<Partial<{ id: number, title: string, done: boolean }>>/id: number
+        Invalid value \\"true\\" supplied to : (Readonly<Partial<{ id: number, title: string, done: boolean }>> & Readonly<{  }>)/0: Readonly<Partial<{ id: number, title: string, done: boolean }>>/done: boolean"
       `)
     }
   })

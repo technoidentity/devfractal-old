@@ -176,7 +176,7 @@ test('patch with incorrect value', async () => {
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(
-      `"Invalid value \\"true\\" supplied to : Partial<{ id: string, title: string, done: boolean }>/done: boolean"`,
+      `"Invalid value \\"true\\" supplied to : (Readonly<Partial<{ id: string, title: string, done: boolean }>> & Readonly<{  }>)/0: Readonly<Partial<{ id: string, title: string, done: boolean }>>/done: boolean"`,
     )
   }
 })
