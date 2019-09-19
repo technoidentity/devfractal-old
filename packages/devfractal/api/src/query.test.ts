@@ -23,6 +23,7 @@ describe('query', () => {
     asc: ['name'],
     desc: ['age'],
     fullText: 'p',
+    like: { name: 'pervez' },
     range: { current: 0, limit: 10 },
     embed: 'address',
   }
@@ -34,7 +35,7 @@ describe('query', () => {
 
   it('toJSONServerQuery', () => {
     expect(toJSONServerQuery(User, query)).toMatchInlineSnapshot(
-      `"_limit=10&_order=asc,desc&_page=0&_sort=name,age&age=20&embed=address&name=foo&q=p"`,
+      `"_limit=10&_order=asc,desc&_page=0&_sort=name,age&age=20&embed=address&like_name=pervez&name=foo&q=p"`,
     )
 
     expect(toJSONServerQuery(User, query2)).toMatchInlineSnapshot(

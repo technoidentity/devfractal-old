@@ -37,6 +37,7 @@ export interface APIQuery<C> {
   readonly desc?: ReadonlyArray<keyof C>
   readonly fullText?: string
   // readonly operators?: TypeOf<typeof Operators>
+  readonly like?: Partial<C>
   readonly embed?: keyof C
 }
 
@@ -49,6 +50,7 @@ function apiQuerySpec(codec: AnyObj) {
     asc: readonlyArray(keyof(props)),
     desc: readonlyArray(keyof(props)),
     fullText: string,
+    like: partial(props),
     // operators: record(keys(codec), Operators),
     embed: keyof(props),
   })
@@ -78,9 +80,17 @@ export function toJSONServerQuery<C extends AnyObj>(
     .map(_ => 'asc')
     .concat((desc || []).map(_ => 'desc'))
 
+  const { like = {} } = query
+
+  const likes = Object.keys(like || {}).reduce<any>((acc, k) => {
+    // tslint:disable-next-line: no-object-mutation
+    acc[`like_${k}`] = like[k]
+    return acc
+  }, {})
+
   const { filter, fullText: q, embed } = query
   return stringify(
-    { ...filter, ...range, _sort, _order, q, embed },
+    { ...likes, ...filter, ...range, _sort, _order, q, embed },
     { arrayFormat: 'comma' },
   )
 }
