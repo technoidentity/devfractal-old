@@ -43,7 +43,7 @@
     "react-datepicker": "2.9.6",
     "rimraf": "3.0.0",
     "tslint": "5.20.0",
-    "typescript": "3.5.3"
+    "typescript": "3.6.3"
   },
   "resolutions": {
     "react": "16.9.0",

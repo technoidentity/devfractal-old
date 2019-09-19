@@ -45,7 +45,7 @@
     "tcomb": "^3.2.29",
     "tsdx": "0.9.2",
     "tslint": "5.20.0",
-    "typescript": "3.5.3"
+    "typescript": "3.6.3"
   },
   "peerDependencies": {
     "tcomb": "3.2.29"

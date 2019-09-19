@@ -24,10 +24,10 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.22",
-    "@fortawesome/free-brands-svg-icons": "5.10.2",
-    "@fortawesome/free-regular-svg-icons": "5.10.2",
-    "@fortawesome/free-solid-svg-icons": "5.10.2",
+    "@fortawesome/fontawesome-svg-core": "1.2.24",
+    "@fortawesome/free-brands-svg-icons": "5.11.1",
+    "@fortawesome/free-regular-svg-icons": "5.11.1",
+    "@fortawesome/free-solid-svg-icons": "5.11.1",
     "@fortawesome/react-fontawesome": "0.1.4",
     "devfractal-api": "^1.2.19",
     "devfractal-crud": "^1.2.19",
@@ -52,7 +52,7 @@
     "@types/node": "12.7.5",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
-    "@types/react-router": "5.0.4",
+    "@types/react-router": "5.0.5",
     "@types/react-router-dom": "4.3.5",
     "@types/react-test-renderer": "16.9.0",
     "babel-eslint": "10.0.3",
@@ -67,7 +67,7 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",
     "tslint-react": "4.1.0",
-    "typescript": "3.5.3"
+    "typescript": "3.6.3"
   },
   "resolutions": {
     "react": "16.9.0",
