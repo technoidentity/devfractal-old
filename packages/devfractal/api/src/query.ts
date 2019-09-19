@@ -31,20 +31,22 @@ export const Slice = union([SliceStartEnd, SliceStartLimit])
 // })
 
 export interface APIQuery<C> {
+  readonly select?: ReadonlyArray<keyof C>
   readonly filter?: Partial<C>
   readonly range?: TypeOf<typeof Page> | TypeOf<typeof Slice>
   readonly asc?: ReadonlyArray<keyof C>
   readonly desc?: ReadonlyArray<keyof C>
   readonly fullText?: string
-  // readonly operators?: TypeOf<typeof Operators>
   readonly like?: Partial<C>
   readonly embed?: keyof C
+  // readonly operators?: TypeOf<typeof Operators>
 }
 
 function apiQuerySpec(codec: AnyObj) {
   const props = getProps(codec)
 
   return opt({
+    select: readonlyArray(keyof(props)),
     filter: partial(props),
     range: union([Page, Slice]),
     asc: readonlyArray(keyof(props)),
@@ -54,6 +56,15 @@ function apiQuerySpec(codec: AnyObj) {
     // operators: record(keys(codec), Operators),
     embed: keyof(props),
   })
+}
+
+function likeQuery(like?: object): object {
+  const obj = like || {}
+  return Object.keys(obj).reduce<any>((acc, k) => {
+    // tslint:disable-next-line: no-object-mutation
+    acc[`like_${k}`] = obj[k]
+    return acc
+  }, {})
 }
 
 export function toJSONServerQuery<C extends AnyObj>(
@@ -80,17 +91,17 @@ export function toJSONServerQuery<C extends AnyObj>(
     .map(_ => 'asc')
     .concat((desc || []).map(_ => 'desc'))
 
-  const { like = {} } = query
-
-  const likes = Object.keys(like || {}).reduce<any>((acc, k) => {
-    // tslint:disable-next-line: no-object-mutation
-    acc[`like_${k}`] = like[k]
-    return acc
-  }, {})
-
   const { filter, fullText: q, embed } = query
   return stringify(
-    { ...likes, ...filter, ...range, _sort, _order, q, embed },
+    {
+      ...likeQuery(query.like),
+      ...filter,
+      ...range,
+      _sort,
+      _order,
+      q,
+      embed,
+    },
     { arrayFormat: 'comma' },
   )
 }
@@ -103,9 +114,19 @@ export function toAPIQuery<C extends AnyObj>(
 
   const { asc, desc } = query
 
-  const { filter, fullText: q, embed } = query
+  const { filter, fullText: q, embed, select } = query
+
   return stringify(
-    { ...filter, ...(query.range || {}), asc, desc, q, embed },
+    {
+      ...filter,
+      ...(query.range || {}),
+      select,
+      asc,
+      desc,
+      q,
+      embed,
+      ...likeQuery(query.like),
+    },
     { arrayFormat: 'comma' },
   )
 }
