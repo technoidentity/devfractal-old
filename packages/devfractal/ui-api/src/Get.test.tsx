@@ -7,9 +7,7 @@ import { Get } from './Get'
 test('get success', async () => {
   const asyncFn = jest.fn().mockResolvedValue('tasks')
   const { getByText, container } = render(
-    <Get asyncFn={asyncFn}>
-      {data => <div>{data}</div>}
-    </Get>,
+    <Get asyncFn={asyncFn}>{data => <div>{data}</div>}</Get>,
   )
 
   expect(container.firstChild).toMatchInlineSnapshot(`
@@ -30,9 +28,7 @@ test('get success', async () => {
 test('get failure', async () => {
   const asyncFn = jest.fn().mockRejectedValue(new Error('error tasks'))
   const { getByText, container } = render(
-    <Get asyncFn={asyncFn}>
-      {data => <div>{data}</div>}
-    </Get>,
+    <Get asyncFn={asyncFn}>{data => <div>{data}</div>}</Get>,
   )
 
   expect(container.firstChild).toMatchInlineSnapshot(`
@@ -119,7 +115,7 @@ test('get with deps', async () => {
     .mockResolvedValueOnce('tasks')
     .mockResolvedValueOnce('tasks deps')
   const { getByText, container, rerender } = render(
-    <Get asyncFn={asyncFn}>
+    <Get asyncFn={asyncFn} deps={[0]}>
       {data => <div>{data}</div>}
     </Get>,
   )
@@ -159,14 +155,12 @@ test('get with deps', async () => {
 })
 test('get with unmount', async () => {
   const mockFn = jest.fn()
-  const spy = jest.spyOn(React, 'useState').mockImplementation(() => [undefined, mockFn])
-  const asyncFn = jest
-    .fn()
-    .mockResolvedValueOnce('tasks')
+  const spy = jest
+    .spyOn(React, 'useState')
+    .mockImplementation(() => [undefined, mockFn])
+  const asyncFn = jest.fn().mockResolvedValueOnce('tasks')
   const { container, unmount } = render(
-    <Get asyncFn={asyncFn}>
-      {data => <div>{data}</div>}
-    </Get>,
+    <Get asyncFn={asyncFn}>{data => <div>{data}</div>}</Get>,
   )
 
   expect(container.firstChild).toMatchInlineSnapshot(`
