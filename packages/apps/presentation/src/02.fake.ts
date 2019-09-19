@@ -2,7 +2,7 @@ import { fake } from 'technoidentity-dev-utils'
 import {
   array,
   boolean,
-  intersection,
+  date,
   keyof,
   number,
   readonly,
@@ -12,7 +12,6 @@ import {
   type,
   union,
 } from 'technoidentity-utils'
-import { date } from 'technoidentity-utils'
 
 console.log(
   fake(
@@ -23,7 +22,7 @@ console.log(
         a: readonlyArray(string),
         o: type({ x: number, y: number }),
         t: tuple([string, number]),
-        i: intersection([string, number]),
+        // i: intersection([string, number]),
         u: union([string, number]),
         o2: readonly(
           type({

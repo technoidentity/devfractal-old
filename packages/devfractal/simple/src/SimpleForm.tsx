@@ -43,7 +43,7 @@ type Replace<T, K extends string & keyof T, R extends string> = Omit<T, K> &
 type FieldProps = Replace<FieldPropsBase, 'size', 'fieldSize'>
 
 interface Named<Values extends {}> {
-  readonly name: keyof Values & string
+  readonly name: Extract<keyof Values, string>
 }
 
 // @TODO: value must by typed!
@@ -167,7 +167,6 @@ export interface SimpleTextAreaProps<Values extends {}>
   extends Omit<TextAreaFieldProps, 'name' | 'size'>,
     Named<Values>,
     FieldProps {
-  readonly name: keyof Values & string
   readonly label?: string
 }
 

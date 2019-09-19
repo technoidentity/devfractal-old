@@ -1,6 +1,7 @@
 import {
   boolean,
-  intersection,
+  date,
+  empty,
   keyof,
   number,
   readonly,
@@ -10,8 +11,6 @@ import {
   type,
   union,
 } from 'technoidentity-utils'
-import { date } from 'technoidentity-utils'
-import { empty } from 'technoidentity-utils'
 
 console.log(
   empty(
@@ -27,7 +26,7 @@ console.log(
           bar: 1,
         }),
         t: tuple([string, number]),
-        in: intersection([string, number]),
+        // in: intersection([string, number]),
         u: union([string, number]),
         o: readonly(
           type({
