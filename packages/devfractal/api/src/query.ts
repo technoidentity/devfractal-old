@@ -1,30 +1,42 @@
 import { stringify } from 'query-string'
-import * as t from 'technoidentity-utils'
-import { AnyObj, cast, getProps, opt, req, union } from 'technoidentity-utils'
+import {
+  AnyObj,
+  cast,
+  getProps,
+  keyof,
+  number,
+  opt,
+  partial,
+  readonlyArray,
+  req,
+  string,
+  TypeOf,
+  union,
+} from 'technoidentity-utils'
 
 // tslint:disable typedef
 
-export const Page = req({ current: t.number, limit: t.number })
-const SliceStartEnd = req({ start: t.number, end: t.number })
-const SliceStartLimit = req({ start: t.number, limit: t.number })
+export const Page = req({ current: number, limit: number })
+const SliceStartEnd = req({ start: number, end: number })
+const SliceStartLimit = req({ start: number, limit: number })
 export const Slice = union([SliceStartEnd, SliceStartLimit])
 
 // const Operators = opt({
-//   gt: t.number,
-//   lt: t.number,
-//   gte: t.number,
-//   lte: t.number,
-//   ne: NumOrStr,
-//   like: t.string,
+//   gt: Int,
+//   lt: Int,
+//   gte: Int,
+//   lte: Int,
+//   ne: union([Int, string]),
+//   like: string,
 // })
 
 export interface APIQuery<C> {
   readonly filter?: Partial<C>
-  readonly range?: t.TypeOf<typeof Page> | t.TypeOf<typeof Slice>
+  readonly range?: TypeOf<typeof Page> | TypeOf<typeof Slice>
   readonly asc?: ReadonlyArray<keyof C>
   readonly desc?: ReadonlyArray<keyof C>
   readonly fullText?: string
-  //  readonly operators?: t.RecordC<t.KeyofC<C>, typeof Operators>
+  // readonly operators?: TypeOf<typeof Operators>
   readonly embed?: keyof C
 }
 
@@ -32,19 +44,19 @@ function apiQuerySpec(codec: AnyObj) {
   const props = getProps(codec)
 
   return opt({
-    filter: t.partial(props),
-    range: t.union([Page, Slice]),
-    asc: t.readonlyArray(t.keyof(props)),
-    desc: t.readonlyArray(t.keyof(props)),
-    fullText: t.string,
-    // operators: t.record(keys(codec), Operators),
-    embed: t.keyof(props),
+    filter: partial(props),
+    range: union([Page, Slice]),
+    asc: readonlyArray(keyof(props)),
+    desc: readonlyArray(keyof(props)),
+    fullText: string,
+    // operators: record(keys(codec), Operators),
+    embed: keyof(props),
   })
 }
 
 export function toJSONServerQuery<C extends AnyObj>(
   codec: C,
-  query: APIQuery<t.TypeOf<typeof codec>>,
+  query: APIQuery<TypeOf<typeof codec>>,
 ): string {
   cast(apiQuerySpec(codec), query)
 
@@ -75,7 +87,7 @@ export function toJSONServerQuery<C extends AnyObj>(
 
 export function toAPIQuery<C extends AnyObj>(
   spec: C,
-  query: APIQuery<t.TypeOf<typeof spec>>,
+  query: APIQuery<TypeOf<typeof spec>>,
 ): string {
   cast(apiQuerySpec(spec), query)
 
