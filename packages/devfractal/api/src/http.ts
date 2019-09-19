@@ -1,7 +1,6 @@
 import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
-import { String } from 'tcomb'
 import {
   AnyObj,
   array,
@@ -11,7 +10,6 @@ import {
   keys,
   Mixed,
   string,
-  toOpt,
   TypeOf,
   verify,
 } from 'technoidentity-utils'
@@ -23,7 +21,7 @@ export interface MethodArgs {
 }
 
 function slashWarn(s: string): void {
-  verify(String.is(s))
+  verify(string.is(s))
 
   debug(!s.includes('/'), `${s} should not contain "/"`)
 }
@@ -58,7 +56,7 @@ function buildPath(path?: string | readonly string[]): string {
 function buildQueryString(query?: string | Record<string, any>): string {
   return query === undefined || keys(query).length === 0
     ? ''
-    : `?${String.is(query) ? query : stringify(query)}`
+    : `?${string.is(query) ? query : stringify(query)}`
 }
 
 export function buildUrl(options: MethodArgs): string {
@@ -80,45 +78,45 @@ export function http({ baseURL, ...config }: RequestConfig) {
 
   async function get<Spec extends Mixed>(
     options: MethodArgs | string,
-    type: Spec,
+    responseSpec: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
       .get<InputOf<Spec>>(url(options))
       .then(res => res.data)
-      .then(decode(type))
+      .then(decode(responseSpec))
   }
 
   async function post<Spec extends Mixed>(
     options: Omit<MethodArgs, 'query'> | string,
     data: InputOf<Spec>,
-    type: Spec,
+    responseSpec: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
       .post<InputOf<Spec>>(url(options), data)
       .then(res => res.data)
-      .then(decode(type))
+      .then(decode(responseSpec))
   }
 
   async function patch<Spec extends AnyObj>(
     options: Omit<MethodArgs, 'query'> | string,
     data: Partial<InputOf<Spec>>,
-    type: Spec,
+    responseSpec: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
       .patch<InputOf<Spec>>(url(options), data)
       .then(res => res.data)
-      .then(decode(toOpt(type)))
+      .then(decode(responseSpec))
   }
 
   async function put<Spec extends Mixed>(
     options: Omit<MethodArgs, 'query'> | string,
     data: InputOf<Spec>,
-    type: Spec,
+    responseSpec: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
       .put<InputOf<Spec>>(url(options), data)
       .then(res => res.data)
-      .then(decode(type))
+      .then(decode(responseSpec))
   }
 
   async function del(
