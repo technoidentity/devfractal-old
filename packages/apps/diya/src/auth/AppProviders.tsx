@@ -5,7 +5,7 @@ import { LoginValues } from '../views'
 import { AuthProvider, UserProvider } from './context'
 
 const http: ReturnType<typeof httpAPI> = httpAPI({
-  baseURL: 'http://localhost:3000/v1',
+  baseURL: 'http://cargos-aws.devti.in/v1',
 })
 
 const login = async (values: LoginValues) => {

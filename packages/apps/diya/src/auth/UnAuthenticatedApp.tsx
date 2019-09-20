@@ -2,7 +2,7 @@ import React from 'react'
 import { LoginForm, LoginValues } from '../views'
 import { useAuth } from './context'
 
-export const UnauthenticatedApp: React.FC = () => {
+export const UnAuthenticatedApp: React.FC = () => {
   const { login, setData } = useAuth()
   return (
     <LoginForm

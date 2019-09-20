@@ -11,8 +11,5 @@ export const UserProvider: React.FC = ({ children }) => {
 
 export const useUser = () => {
   const context = React.useContext(UserContex)
-  if (context === undefined) {
-    throw new Error('useUser must be within a AuthProvider')
-  }
   return context
 }

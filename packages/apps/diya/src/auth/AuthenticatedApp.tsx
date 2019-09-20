@@ -1,3 +1,4 @@
 import React from 'react'
+import { SuperAdmin } from '../SuperAdmin'
 
-export const AuthenticatedApp = () => <div>This is AuthenticatedApp</div>
+export const AuthenticatedApp = () => <SuperAdmin />
