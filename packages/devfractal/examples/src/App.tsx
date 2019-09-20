@@ -1,4 +1,6 @@
+import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
+import { FSAddForm } from './composites/firestore-todo/views'
 
-render(<h1>Hello, World!</h1>, document.getElementById('root'))
+render(<FSAddForm />, document.getElementById('root'))

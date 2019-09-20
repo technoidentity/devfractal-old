@@ -1,4 +1,4 @@
-import { db } from './firestore'
+import { db } from './firestoreNew'
 
 // tslint:disable typedef
 
@@ -12,7 +12,6 @@ export const all: () => Promise<ReadonlyArray<FSTodo>> = async () => {
   const snapshot = await db.collection('todos').get()
   return snapshot.docs.map(doc => ({
     id: doc.id,
-
     title: doc.data().title,
     done: doc.data().done,
   }))
@@ -38,8 +37,9 @@ export const one: (id: string) => Promise<FSTodo> = async id => {
 
 export const create: (
   todo: Omit<FSTodo, 'id'>,
-) => Promise<firebase.firestore.DocumentReference> = async todo =>
-  db.collection('todos').add(todo)
+) => Promise<firebase.firestore.DocumentReference> = async todo => {
+  return db.collection('todos').add(todo)
+}
 
 export const update: (todo: FSTodo) => Promise<void> = async ({
   id,
