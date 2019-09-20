@@ -3,9 +3,9 @@ import { Route, useMatch } from 'devfractal-router'
 import { Put, SubmitAction } from 'devfractal-ui-api'
 import React from 'react'
 import {
-  AnyObj,
   getProp,
-  Mixed,
+  ObjC,
+  Props,
   string,
   type,
   TypeOf,
@@ -18,19 +18,27 @@ export interface EditComponentProps<T> {
   readonly onSubmit: SubmitAction<T>
 }
 
-export interface EditProps<Spec extends AnyObj, ID extends keyof TypeOf<Spec>> {
-  readonly api: API<Spec, ID>
+export interface EditProps<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+> {
+  readonly api: API<Opt, Req, ID>
   readonly path: string
   readonly redirectTo?: string
-  readonly form: React.FC<EditComponentProps<TypeOf<Spec>>>
+  readonly form: React.FC<EditComponentProps<TypeOf<ObjC<Opt, Req>>>>
 }
 
-function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
+function Children<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+>({
   api,
   redirectTo,
   form: Component,
-}: Omit<EditProps<Spec, ID>, 'path'>): JSX.Element {
-  const idPropSpec: Mixed | undefined = getProp(api.spec, api.idKey as string)
+}: Omit<EditProps<Opt, Req, ID>, 'path'>): JSX.Element {
+  const idPropSpec: TypeOf<ObjC<Opt, Req>>[ID] = getProp(api.spec, api.idKey)
   if (idPropSpec === undefined) {
     throw new Error(`${api.idKey} not defined`)
   }
@@ -39,7 +47,8 @@ function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
 
   return (
     <Put
-      id={params[api.idKey as string]}
+      // @TODO: possible to fix this casting nonsense?
+      id={params[api.idKey as string] as any}
       doGet={api.get}
       onPut={api.replace}
       component={Component}
@@ -48,10 +57,11 @@ function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   )
 }
 
-export function Edit<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
-  path,
-  ...props
-}: EditProps<Spec, ID>): JSX.Element {
+export function Edit<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+>({ path, ...props }: EditProps<Opt, Req, ID>): JSX.Element {
   return path ? (
     <Route path={path} render={() => <Children {...props} />} />
   ) : (

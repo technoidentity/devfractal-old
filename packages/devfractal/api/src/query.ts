@@ -5,8 +5,10 @@ import {
   getProps,
   keyof,
   number,
+  ObjC,
   opt,
   partial,
+  Props,
   readonlyArray,
   req,
   string,
@@ -67,8 +69,8 @@ function likeQuery(like?: object): object {
   }, {})
 }
 
-export function toJSONServerQuery<C extends AnyObj>(
-  codec: C,
+export function toJSONServerQuery<Opt extends Props, Req extends Props>(
+  codec: ObjC<Opt, Req>,
   query: APIQuery<TypeOf<typeof codec>>,
 ): string {
   cast(apiQuerySpec(codec), query)
@@ -106,8 +108,8 @@ export function toJSONServerQuery<C extends AnyObj>(
   )
 }
 
-export function toAPIQuery<C extends AnyObj>(
-  spec: C,
+export function toAPIQuery<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
   query: APIQuery<TypeOf<typeof spec>>,
 ): string {
   cast(apiQuerySpec(spec), query)

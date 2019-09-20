@@ -1,5 +1,5 @@
 import { rest, toJSONServerQuery } from 'technoidentity-devfractal'
-import { AnyObj } from 'technoidentity-utils'
+import { ObjC, Props } from 'technoidentity-utils'
 import {
   AdManager,
   AssignBattery,
@@ -21,7 +21,10 @@ import {
 const hostname = process.env.HOST_NAME ? process.env.HOST_NAME : 'localhost'
 
 // tslint:disable-next-line: typedef
-function api<Spec extends AnyObj>(spec: Spec, resource: string) {
+function api<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+  resource: string,
+) {
   return rest(
     spec,
     'id',

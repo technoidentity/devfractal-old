@@ -12,7 +12,7 @@ import { Put } from './Put'
 
 export interface RestContext {
   readonly redirectTo: string
-  readonly api: API<any, any>
+  readonly api: API<any, any, any>
 }
 
 const RestContext: React.Context<RestContext | undefined> = React.createContext<

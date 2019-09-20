@@ -1,7 +1,8 @@
 import { produce } from 'immer'
 import {
-  AnyObj,
+  ObjC,
   omit,
+  Props,
   readonlyArray,
   TypeOf,
   UnknownArray,
@@ -10,47 +11,54 @@ import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 import { APIQuery, toAPIQuery as toQueryFn } from './query'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
-export interface API<Spec extends AnyObj, ID extends keyof TypeOf<Spec>> {
+export interface API<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+> {
   readonly http: ReturnType<typeof httpAPI>
-  readonly spec: Spec
+  readonly spec: ObjC<Opt, Req>
   readonly idKey: ID
   readonly resource: string
 
-  many(options?: APIMethodArgs): Promise<ReadonlyArray<TypeOf<Spec>>>
+  many(options?: APIMethodArgs): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>>
 
-  one(options?: APIMethodArgs): Promise<TypeOf<Spec>>
+  one(options?: APIMethodArgs): Promise<TypeOf<ObjC<Opt, Req>>>
 
   create(
-    data: Omit<TypeOf<Spec>, ID>,
+    data: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
     options?: APIMethodArgs,
-  ): Promise<TypeOf<Spec>>
+  ): Promise<TypeOf<ObjC<Opt, Req>>>
 
-  get(id: TypeOf<Spec>[ID], options?: APIMethodArgs): Promise<TypeOf<Spec>>
+  get(
+    id: TypeOf<ObjC<Opt, Req>>[ID],
+    options?: APIMethodArgs,
+  ): Promise<TypeOf<ObjC<Opt, Req>>>
 
   list(
-    query: APIQuery<TypeOf<Spec>>,
+    query: APIQuery<TypeOf<ObjC<Opt, Req>>>,
     options?: Omit<APIMethodArgs, 'query'>,
-  ): Promise<ReadonlyArray<TypeOf<Spec>>>
+  ): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>>
 
-  select<K extends keyof TypeOf<Spec>>(
-    query: Omit<APIQuery<TypeOf<Spec>>, 'select'>,
+  select<K extends keyof TypeOf<ObjC<Opt, Req>>>(
+    query: Omit<APIQuery<TypeOf<ObjC<Opt, Req>>>, 'select'>,
     select?: readonly K[],
     options?: Omit<APIMethodArgs, 'query'>,
-  ): Promise<ReadonlyArray<Pick<TypeOf<Spec>, K>>>
+  ): Promise<ReadonlyArray<Pick<TypeOf<ObjC<Opt, Req>>, K>>>
 
   replace(
-    id: TypeOf<Spec>[ID],
-    data: TypeOf<Spec>,
+    id: TypeOf<ObjC<Opt, Req>>[ID],
+    data: TypeOf<ObjC<Opt, Req>>,
     options?: APIMethodArgs,
-  ): Promise<TypeOf<Spec>>
+  ): Promise<TypeOf<ObjC<Opt, Req>>>
 
   update(
-    id: TypeOf<Spec>[ID],
-    data: Partial<TypeOf<Spec>>,
+    id: TypeOf<ObjC<Opt, Req>>[ID],
+    data: Partial<TypeOf<ObjC<Opt, Req>>>,
     options?: APIMethodArgs,
-  ): Promise<TypeOf<Spec>>
+  ): Promise<TypeOf<ObjC<Opt, Req>>>
 
-  del(id: TypeOf<Spec>[ID], options?: APIMethodArgs): Promise<void>
+  del(id: TypeOf<ObjC<Opt, Req>>[ID], options?: APIMethodArgs): Promise<void>
 }
 
 function appendId(options: MethodArgs, id: string): MethodArgs {
@@ -69,77 +77,81 @@ interface RestArgs extends RequestConfig {
   readonly resource: string
 }
 
-export function rest<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>(
-  spec: Spec,
-  idKey: ID /* = 'id' as any */,
+export function rest<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+>(
+  spec: ObjC<Opt, Req>,
+  idKey: ID,
   { resource, ...options }: RestArgs,
-  toQuery: (spec: Spec, query: APIQuery<TypeOf<Spec>>) => string = toQueryFn,
-): API<Spec, ID> {
+  toQuery: (
+    spec: ObjC<Opt, Req>,
+    query: APIQuery<TypeOf<ObjC<Opt, Req>>>,
+  ) => string = toQueryFn,
+): API<Opt, Req, ID> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   async function many(
     options: APIMethodArgs,
-  ): Promise<ReadonlyArray<TypeOf<Spec>>> {
+  ): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>> {
     return http.get({ ...options, resource }, readonlyArray(spec))
   }
 
-  async function one(options: APIMethodArgs): Promise<TypeOf<Spec>> {
+  async function one(options: APIMethodArgs): Promise<TypeOf<ObjC<Opt, Req>>> {
     return http.get({ ...options, resource }, spec)
   }
 
   async function create(
-    data: Omit<TypeOf<Spec>, ID>,
+    data: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
     options: APIMethodArgs,
-  ): Promise<TypeOf<Spec>> {
-    return http.post(
-      { ...options, resource },
-      omit<TypeOf<Spec>, ID>(data, [idKey]),
-      spec,
-    )
+  ): Promise<TypeOf<ObjC<Opt, Req>>> {
+    // @TODO: Hopefully in future, either we won't omit, or use spec to omit.
+    return http.post({ ...options, resource }, omit(data, [idKey as any]), spec)
   }
 
   async function del(
-    id: TypeOf<Spec>[ID],
+    id: TypeOf<ObjC<Opt, Req>>[ID],
     options?: APIMethodArgs,
   ): Promise<void> {
     return http.del(appendId({ ...options, resource }, id))
   }
 
   async function get(
-    id: TypeOf<Spec>[ID],
+    id: TypeOf<ObjC<Opt, Req>>[ID],
     options: APIMethodArgs,
-  ): Promise<TypeOf<Spec>> {
+  ): Promise<TypeOf<ObjC<Opt, Req>>> {
     return one(appendId({ ...options, resource }, id))
   }
 
   async function list(
-    query: APIQuery<TypeOf<Spec>>,
+    query: APIQuery<TypeOf<ObjC<Opt, Req>>>,
     options?: Omit<APIMethodArgs, 'query'>,
-  ): Promise<ReadonlyArray<TypeOf<Spec>>> {
+  ): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>> {
     return many({ query: toQuery(spec, query), ...options })
   }
 
-  async function pluck<K extends keyof TypeOf<Spec>>(
-    query: Omit<APIQuery<TypeOf<Spec>>, 'select'>,
+  async function pluck<K extends keyof TypeOf<ObjC<Opt, Req>>>(
+    query: Omit<APIQuery<TypeOf<ObjC<Opt, Req>>>, 'select'>,
     select?: readonly K[],
     options?: Omit<APIMethodArgs, 'query'>,
-  ): Promise<ReadonlyArray<Pick<TypeOf<Spec>, K>>> {
+  ): Promise<ReadonlyArray<Pick<TypeOf<ObjC<Opt, Req>>, K>>> {
     return many({ query: toQuery(spec, { ...query, select }), ...options })
   }
 
   async function replace(
-    id: TypeOf<Spec>[ID],
-    data: TypeOf<Spec>,
+    id: TypeOf<ObjC<Opt, Req>>[ID],
+    data: TypeOf<ObjC<Opt, Req>>,
     options: APIMethodArgs,
-  ): Promise<TypeOf<Spec>> {
+  ): Promise<TypeOf<ObjC<Opt, Req>>> {
     return http.put(appendId({ ...options, resource }, id), data, spec)
   }
 
   async function update(
-    id: TypeOf<Spec>[ID],
-    data: Partial<TypeOf<Spec>>,
+    id: TypeOf<ObjC<Opt, Req>>[ID],
+    data: Partial<TypeOf<ObjC<Opt, Req>>>,
     options: APIMethodArgs,
-  ): Promise<TypeOf<Spec>> {
+  ): Promise<TypeOf<ObjC<Opt, Req>>> {
     return http.patch(appendId({ ...options, resource }, id), data, spec)
   }
 
