@@ -1,6 +1,7 @@
 import { produce } from 'immer'
 import {
   ObjC,
+  objPick,
   omit,
   Props,
   readonlyArray,
@@ -42,9 +43,15 @@ export interface API<
 
   select<K extends keyof TypeOf<ObjC<Opt, Req>>>(
     query: Omit<APIQuery<TypeOf<ObjC<Opt, Req>>>, 'select'>,
-    select?: readonly K[],
+    select: readonly K[],
     options?: Omit<APIMethodArgs, 'query'>,
-  ): Promise<ReadonlyArray<Pick<TypeOf<ObjC<Opt, Req>>, K>>>
+  ): Promise<
+    ReadonlyArray<
+      TypeOf<
+        ObjC<Pick<Opt, Extract<keyof Opt, K>>, Pick<Req, Extract<keyof Req, K>>>
+      >
+    >
+  >
 
   replace(
     id: TypeOf<ObjC<Opt, Req>>[ID],
@@ -131,12 +138,22 @@ export function rest<
     return many({ query: toQuery(spec, query), ...options })
   }
 
-  async function pluck<K extends keyof TypeOf<ObjC<Opt, Req>>>(
+  async function select<K extends keyof TypeOf<ObjC<Opt, Req>>>(
     query: Omit<APIQuery<TypeOf<ObjC<Opt, Req>>>, 'select'>,
-    select?: readonly K[],
+    select: readonly K[],
     options?: Omit<APIMethodArgs, 'query'>,
-  ): Promise<ReadonlyArray<Pick<TypeOf<ObjC<Opt, Req>>, K>>> {
-    return many({ query: toQuery(spec, { ...query, select }), ...options })
+    // @TODO: LOL at type
+  ): Promise<
+    ReadonlyArray<
+      TypeOf<
+        ObjC<Pick<Opt, Extract<keyof Opt, K>>, Pick<Req, Extract<keyof Req, K>>>
+      >
+    >
+  > {
+    return http.get(
+      { query: toQuery(spec, { ...query, select }), ...options, resource },
+      readonlyArray(objPick(spec, select)),
+    )
   }
 
   async function replace(
@@ -168,6 +185,6 @@ export function rest<
     spec,
     resource,
     http,
-    select: pluck,
+    select,
   }
 }
