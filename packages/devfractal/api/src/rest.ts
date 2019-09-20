@@ -32,6 +32,12 @@ export interface API<Spec extends AnyObj, ID extends keyof TypeOf<Spec>> {
     options?: Omit<APIMethodArgs, 'query'>,
   ): Promise<ReadonlyArray<TypeOf<Spec>>>
 
+  select<K extends keyof TypeOf<Spec>>(
+    query: Omit<APIQuery<TypeOf<Spec>>, 'select'>,
+    select?: readonly K[],
+    options?: Omit<APIMethodArgs, 'query'>,
+  ): Promise<ReadonlyArray<Pick<TypeOf<Spec>, K>>>
+
   replace(
     id: TypeOf<Spec>[ID],
     data: TypeOf<Spec>,
@@ -113,6 +119,14 @@ export function rest<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>(
     return many({ query: toQuery(spec, query), ...options })
   }
 
+  async function pluck<K extends keyof TypeOf<Spec>>(
+    query: Omit<APIQuery<TypeOf<Spec>>, 'select'>,
+    select?: readonly K[],
+    options?: Omit<APIMethodArgs, 'query'>,
+  ): Promise<ReadonlyArray<Pick<TypeOf<Spec>, K>>> {
+    return many({ query: toQuery(spec, { ...query, select }), ...options })
+  }
+
   async function replace(
     id: TypeOf<Spec>[ID],
     data: TypeOf<Spec>,
@@ -142,5 +156,6 @@ export function rest<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>(
     spec,
     resource,
     http,
+    select: pluck,
   }
 }
