@@ -64,7 +64,7 @@ function likeQuery(like?: object): object {
   const obj = like || {}
   return Object.keys(obj).reduce<any>((acc, k) => {
     // tslint:disable-next-line: no-object-mutation
-    acc[`like_${k}`] = obj[k]
+    acc[`${k}_like`] = obj[k]
     return acc
   }, {})
 }

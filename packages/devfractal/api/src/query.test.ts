@@ -36,7 +36,7 @@ describe('query', () => {
 
   it('toJSONServerQuery', () => {
     expect(toJSONServerQuery(User, query)).toMatchInlineSnapshot(
-      `"_limit=10&_order=asc,desc&_page=0&_sort=name,age&age=20&embed=address&like_name=foo&name=foo&q=p"`,
+      `"_limit=10&_order=asc,desc&_page=0&_sort=name,age&age=20&embed=address&name=foo&name_like=foo&q=p"`,
     )
 
     expect(toJSONServerQuery(User, query2)).toMatchInlineSnapshot(
@@ -46,7 +46,7 @@ describe('query', () => {
 
   it('toQuery', () => {
     expect(toAPIQuery(User, query)).toMatchInlineSnapshot(
-      `"age=20&asc=name&current=0&desc=age&embed=address&like_name=foo&limit=10&name=foo&q=p&select=name,age"`,
+      `"age=20&asc=name&current=0&desc=age&embed=address&limit=10&name=foo&name_like=foo&q=p&select=name,age"`,
     )
 
     expect(toAPIQuery(User, query2)).toMatchInlineSnapshot(
