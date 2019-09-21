@@ -1,29 +1,42 @@
 import {
+  boolean,
+  BooleanC,
+  BrandC,
   exact,
   ExactC,
+  Int,
+  IntBrand,
   intersection,
   IntersectionC,
   Mixed,
+  number,
+  NumberC,
   partial,
   PartialC,
   Props,
   readonly,
   ReadonlyC,
+  string,
+  StringC,
   Type,
   type,
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { omit, pick } from './common'
+import { PickByValue } from 'utility-types'
+import { buildObject, omit, pick } from './common'
 
-// tslint:disable no-class no-parameter-properties
+// tslint:disable no-class no-parameter-properties readonly-array
 
-export type ReqC<Req extends Props> = ReadonlyC<TypeC<Req>>
-export type OptC<Opt extends Props> = ReadonlyC<PartialC<Opt>>
+export type ReqSpec<Req extends Props> = ReadonlyC<TypeC<Req>>
+export type OptSpec<Opt extends Props> = ReadonlyC<PartialC<Opt>>
 
 type ObjSpec<Opt extends Props, Req extends Props> = IntersectionC<
-  // tslint:disable-next-line: readonly-array
-  [OptC<Opt>, ReqC<Req>]
+  [OptSpec<Opt>, ReqSpec<Req>]
+>
+
+type ExactObjSpec<Opt extends Props, Req extends Props> = ExactC<
+  IntersectionC<[OptSpec<Opt>, ReqSpec<Req>]>
 >
 
 // type NoEmptyIntersect<Opt extends Props, Req extends Props> = {} extends Opt
@@ -52,10 +65,6 @@ export class ObjType<
   }
 }
 
-// type TOS<Opt extends Props, Req extends Props> = ObjSpec<Opt, Req>['_A']
-// type OOS<Opt extends Props, Req extends Props> = ObjSpec<Opt, Req>['_O']
-// type IOS<Opt extends Props, Req extends Props> = ObjSpec<Opt, Req>['_I']
-
 export interface ObjC<Opt extends Props, Req extends Props>
   extends ObjType<
     Opt,
@@ -65,7 +74,7 @@ export interface ObjC<Opt extends Props, Req extends Props>
     ObjSpec<Opt, Req>['_I']
   > {}
 
-function obj<Opt extends Props, Req extends Props>(
+function newObj<Opt extends Props, Req extends Props>(
   optional: Opt,
   required: Req,
   name?: string,
@@ -84,12 +93,26 @@ function obj<Opt extends Props, Req extends Props>(
   )
 }
 
-type ExactObjSpec<Opt extends Props, Req extends Props> = ExactC<
-  IntersectionC<
-    // tslint:disable-next-line: readonly-array
-    [OptC<Opt>, ReqC<Req>]
-  >
->
+export type TypeOfReq<O extends AnyObj> = O['required']
+export type TypeofOpt<O extends AnyObj> = O['optional']
+
+export type ObjPropsOf<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['props']
+
+export type ObjTypeOf<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['_A']
+export type ObjOutPutOf<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['_O']
+export type ObjInputOf<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['_I']
 
 export interface ExactObjC<Opt extends Props, Req extends Props>
   extends ObjType<
@@ -101,7 +124,7 @@ export interface ExactObjC<Opt extends Props, Req extends Props>
   > {}
 
 // @TODO: need ability to distinguish ObjType from Exact ObjType
-function exactObj<Opt extends Props, Req extends Props>(
+function newExactObj<Opt extends Props, Req extends Props>(
   optional: Opt,
   required: Req,
   name?: string,
@@ -120,37 +143,34 @@ function exactObj<Opt extends Props, Req extends Props>(
 
 export type AnyObj = Mixed & ObjC<any, any>
 
-export type ReqOf<O extends AnyObj> = O['required']
-export type OptOf<O extends AnyObj> = O['optional']
-
-export function props<Opt extends Props, Req extends Props>(
+export function obj<Opt extends Props, Req extends Props>(
   optional: Opt,
   required: Req,
   name?: string,
 ): ObjC<Opt, Req> {
-  return obj(optional, required, name)
+  return newObj(optional, required, name)
 }
 
-export function exactProps<Opt extends Props, Req extends Props>(
+export function exactObj<Opt extends Props, Req extends Props>(
   optional: Opt,
   required: Req,
   name?: string,
 ): ObjC<Opt, Req> {
-  return exactObj(optional, required, name)
+  return newExactObj(optional, required, name)
 }
 
 export function req<Req extends Props>(
   required: Req,
   name?: string,
 ): ObjC<{}, Req> {
-  return props({}, required, name)
+  return obj({}, required, name)
 }
 
 export function opt<Opt extends Props>(
   optional: Opt,
   name?: string,
 ): ObjC<Opt, {}> {
-  return props(optional, {}, name)
+  return obj(optional, {}, name)
 }
 
 export function objPick<
@@ -162,10 +182,10 @@ export function objPick<
   keys: readonly K[],
   name?: string,
 ): ObjC<
-  Pick<Opt, Extract<keyof OptOf<typeof spec>, K>>,
-  Pick<Req, Extract<keyof ReqOf<typeof spec>, K>>
+  Pick<Opt, Extract<keyof TypeofOpt<typeof spec>, K>>,
+  Pick<Req, Extract<keyof TypeOfReq<typeof spec>, K>>
 > {
-  return props(
+  return obj(
     pick(spec.optional, keys as any[]),
     pick(spec.required, keys as any[]),
     name,
@@ -184,7 +204,7 @@ export function objOmit<
   Omit<Opt, Extract<keyof ObjC<Opt, Req>['optional'], K>>,
   Omit<Req, Extract<keyof ObjC<Opt, Req>['required'], K>>
 > {
-  return props(
+  return obj(
     omit(spec.optional, keys as any) as any,
     omit(spec.required, keys as any) as any,
     name,
@@ -202,7 +222,7 @@ export function propsPick<
   reqKeys: readonly KR[] = [],
   name?: string,
 ): ObjC<Pick<Opt, KP>, Pick<Req, KR>> {
-  return props(pick(optional, optKeys), pick(required, reqKeys), name)
+  return obj(pick(optional, optKeys), pick(required, reqKeys), name)
 }
 
 export function propsOmit<
@@ -216,7 +236,7 @@ export function propsOmit<
   reqKeys: readonly KR[] = [],
   name?: string,
 ): ObjC<Omit<Opt, KP>, Omit<Req, KR>> {
-  return props(omit(optional, optKeys), omit(required, reqKeys), name)
+  return obj(omit(optional, optKeys), omit(required, reqKeys), name)
 }
 
 export function combine<
@@ -229,7 +249,7 @@ export function combine<
   p2: ObjC<Opt2, Req2>,
   name?: string,
 ): ObjC<Opt & Opt2, Req & Req2> {
-  return props(
+  return obj(
     { ...p.optional, ...p2.optional },
     { ...p.required, ...p2.required },
     name,
@@ -250,13 +270,89 @@ export function toReq<Opt extends Props, Req extends Props>(
   return req(spec.props, name)
 }
 
+export function toExact<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+  name?: string,
+): ExactObjC<Opt, Req> {
+  return newExactObj(spec.optional, spec.required, name)
+}
+
 export function getProps<Spec extends AnyObj>(spec: AnyObj): Spec['props'] {
   return spec.props
 }
 
 export function getProp<Spec extends AnyObj, K extends keyof TypeOf<Spec>>(
-  spec: AnyObj,
+  spec: Spec,
   prop: K,
 ): Spec['props'][K] {
   return spec.props[prop]
+}
+
+// export function pickByValue
+
+type ObjCPick<Spec extends AnyObj, V> = ObjC<
+  PickByValue<Spec['required'], V>,
+  PickByValue<Spec['optional'], V>
+>
+
+function pickBy<Opt extends Props, Req extends Props, Picks extends Mixed[]>(
+  spec: ObjC<Opt, Req>,
+  ...picks: Picks
+): ObjCPick<ObjC<Opt, Req>, typeof picks[number]> {
+  function isSpec(
+    names: readonly string[],
+  ): (spec: Mixed) => Mixed | undefined {
+    return spec => (names.includes(spec.name) ? spec : undefined)
+  }
+
+  return obj(
+    buildObject(spec.required, isSpec(picks.map(s => s.name))),
+    buildObject(spec.optional, isSpec(picks.map(s => s.name))),
+  ) as any
+}
+
+// const pt = obj({ x: number, y: string }, { a: string, b: number, c: Int })
+// const numbers = pickBy(pt, number)
+// const strings = pickBy(pt, string)
+// const ints = pickBy(pt, Int)
+// const numerics = pickBy(pt, number, Int)
+// const stringly = pickBy(pt, number, string, Int, boolean)
+
+// const ns: TypeOf<typeof numbers> = { x: 1 }
+// const ss: TypeOf<typeof strings> = { y: '' }
+// const is: TypeOf<typeof ints> = { c: 10 as Int }
+// const nss: TypeOf<typeof numerics> = { x: 100 }
+// const sls: TypeOf<typeof stringly> = { x: 10, y: '' }
+
+export function pickStrings<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): ObjCPick<ObjC<Opt, Req>, StringC> {
+  return pickBy(spec, string)
+}
+
+export function pickNumbers<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): ObjCPick<ObjC<Opt, Req>, NumberC> {
+  return pickBy(spec, number)
+}
+
+export function pickInts<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): ObjCPick<ObjC<Opt, Req>, BrandC<NumberC, IntBrand>> {
+  return pickBy(spec, Int)
+}
+
+export function pickNumeric<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): ObjCPick<ObjC<Opt, Req>, NumberC | BrandC<NumberC, IntBrand>> {
+  return pickBy(spec, number, Int)
+}
+
+export function pickStringly<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): ObjCPick<
+  ObjC<Opt, Req>,
+  NumberC | BrandC<NumberC, IntBrand> | StringC | BooleanC
+> {
+  return pickBy(spec, Int, number, string, boolean)
 }

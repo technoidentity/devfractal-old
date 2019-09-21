@@ -1,14 +1,11 @@
 import { number, TypeOf } from 'io-ts'
 import { fn } from './fn'
 import { cast } from './iotsUtils'
-import { props } from './obj'
+import { obj } from './obj'
 // tslint:disable typedef no-empty
 
 test('fn', () => {
-  const Point = props(
-    { distance: fn<() => number>() },
-    { x: number, y: number },
-  )
+  const Point = obj({ distance: fn<() => number>() }, { x: number, y: number })
 
   type Point = TypeOf<typeof Point>
 

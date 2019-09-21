@@ -1,8 +1,8 @@
 import { rest } from 'devfractal-api'
 import { boolean, number, string, TypeOf } from 'technoidentity-utils'
-import { ISODate, props } from 'technoidentity-utils'
+import { ISODate, obj } from 'technoidentity-utils'
 
-export const Todo = props(
+export const Todo = obj(
   { id: number },
   { title: string, scheduled: ISODate, done: boolean },
 )

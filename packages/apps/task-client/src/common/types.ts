@@ -1,18 +1,11 @@
-import {
-  ISODate,
-  keyof,
-  props,
-  req,
-  string,
-  TypeOf,
-} from 'technoidentity-utils'
+import { ISODate, keyof, obj, req, string, TypeOf } from 'technoidentity-utils'
 
-const dateInfo = props(
+const dateInfo = obj(
   { started: ISODate, completed: ISODate },
   { deadline: ISODate, scheduled: ISODate },
 )
 
-export const Task = props(
+export const Task = obj(
   { _id: string }, // _id is optional, for create
   { title: string, description: string, dateInfo },
 )

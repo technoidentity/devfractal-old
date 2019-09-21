@@ -1,6 +1,6 @@
 import { SubmitAction } from 'devfractal-ui-api'
 import { Mixed, number, readonlyArray, TypeOf } from 'technoidentity-utils'
-import { fn, props, req } from 'technoidentity-utils'
+import { fn, obj, req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
@@ -34,10 +34,7 @@ export function links(resource: string, basePath?: string): Links {
 }
 
 export function formProps<Spec extends Mixed>(spec: Spec) {
-  return props(
-    { initial: spec },
-    { onSubmit: fn<SubmitAction<TypeOf<Spec>>>() },
-  )
+  return obj({ initial: spec }, { onSubmit: fn<SubmitAction<TypeOf<Spec>>>() })
 }
 
 export function listProps<Spec extends Mixed>(spec: Spec) {

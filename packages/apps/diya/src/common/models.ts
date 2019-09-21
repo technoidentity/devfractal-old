@@ -2,7 +2,7 @@ import {
   enumerate,
   Int,
   number,
-  props,
+  obj,
   req,
   string,
   TypeOf,
@@ -14,7 +14,7 @@ const Status = enumerate('active', 'inactive')
 const Verified = enumerate('yes', 'pending')
 const Relation = enumerate('father', 'spouse')
 
-export const Driver = props(
+export const Driver = obj(
   {
     id: string,
     lastActive: ISODate,
@@ -45,7 +45,7 @@ export type Driver = TypeOf<typeof Driver>
 
 const Group = enumerate('retail', 'cargo')
 
-export const Battery = props(
+export const Battery = obj(
   {
     id: string,
     name: string,
@@ -64,7 +64,7 @@ export const Battery = props(
 
 export type Battery = TypeOf<typeof Battery>
 
-export const Vehicle = props(
+export const Vehicle = obj(
   {
     id: string,
     name: string,
@@ -90,7 +90,7 @@ export type Vehicle = TypeOf<typeof Vehicle>
 
 const ContractType = enumerate('weekly', 'monthly')
 
-export const Client = props(
+export const Client = obj(
   { id: string },
   {
     clientName: string,
@@ -106,7 +106,7 @@ export type Client = TypeOf<typeof Client>
 
 export const Role = enumerate('admin', 'reporter', 'dispatcher')
 
-export const User = props(
+export const User = obj(
   { dateOfJoining: ISODate, id: string, email: string },
   {
     userName: string,
@@ -133,7 +133,7 @@ export type User = TypeOf<typeof User>
 
 const Frequency = enumerate('once', 'weekly', 'monthly', 'yearly')
 
-export const Ev = props(
+export const Ev = obj(
   { id: string },
   { driverName: string, additionalEVsRequired: Int, frequency: Frequency },
 )
@@ -142,7 +142,7 @@ export type Ev = TypeOf<typeof Ev>
 
 const RouteStatus = enumerate('enroute', 'complete')
 
-export const PlanRoute = props(
+export const PlanRoute = obj(
   { id: string },
   {
     customerName: string,
@@ -154,7 +154,7 @@ export const PlanRoute = props(
 
 const EmployeeRole = enumerate('clientDispatcher', 'reporter')
 
-export const Employee = props(
+export const Employee = obj(
   { id: string },
   {
     name: string,
@@ -171,14 +171,14 @@ export const Employee = props(
 
 export type Employee = TypeOf<typeof Employee>
 
-export const Invoice = props(
+export const Invoice = obj(
   { id: string },
   { invoicesNo: Int, valid: ISODate, dueDate: ISODate, amount: Int },
 )
 
 export type Invoice = TypeOf<typeof Invoice>
 
-export const GeoFence = props(
+export const GeoFence = obj(
   { id: string },
   {
     areaName: string,
@@ -190,7 +190,7 @@ export const GeoFence = props(
 
 export type GeoFence = TypeOf<typeof GeoFence>
 
-export const Trip = props(
+export const Trip = obj(
   { id: string },
   {
     customerName: string,
@@ -204,7 +204,7 @@ export type Trip = TypeOf<typeof Trip>
 
 export const SelectVehicles = enumerate('vehicle1', 'vehicle2', 'vehicle3')
 
-export const AdManager = props(
+export const AdManager = obj(
   {
     id: number,
   },

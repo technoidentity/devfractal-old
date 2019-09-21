@@ -6,7 +6,7 @@ import { Section } from 'devfractal-ui-core'
 import React from 'react'
 import { render } from 'react-dom'
 import { boolean, number, string } from 'technoidentity-utils'
-import { props } from 'technoidentity-utils'
+import { obj } from 'technoidentity-utils'
 import {
   ButtonLink,
   CrudRoutes,
@@ -18,7 +18,7 @@ import {
 
 // tslint:disable typedef
 
-const Todo = props({ id: number }, { title: string, done: boolean })
+const Todo = obj({ id: number }, { title: string, done: boolean })
 
 const api = rest(Todo, 'id', {
   resource: 'todos',

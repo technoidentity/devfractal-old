@@ -1,5 +1,5 @@
 import { startFakeJSONServer } from 'technoidentity-dev-utils'
-import { Int, keyof, props, string } from 'technoidentity-utils'
+import { Int, keyof, obj, string } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
@@ -9,7 +9,7 @@ const Status = keyof({ active: true, inActive: true })
 
 const Group = keyof({ Retail: true, Cargo: true })
 
-export const Battery = props(
+export const Battery = obj(
   {
     name: string,
     id: string,

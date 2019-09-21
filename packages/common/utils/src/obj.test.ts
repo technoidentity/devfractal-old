@@ -4,11 +4,11 @@ import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import { NumberFromString } from 'io-ts-types/lib/NumberFromString'
 import {
   combine,
-  exactProps,
+  exactObj,
+  obj,
   objOmit,
   objPick,
   opt,
-  props,
   req,
   toOpt,
   toReq,
@@ -39,7 +39,7 @@ describe('ObjType', () => {
   })
 
   it('props', () => {
-    const Point = props({ y: number }, { x: number })
+    const Point = obj({ y: number }, { x: number })
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
     expect(Point.decode(point)._tag).toEqual('Right')
@@ -50,7 +50,7 @@ describe('ObjType', () => {
   })
 
   it('exactProps', () => {
-    const Point = exactProps({ y: number }, { x: number })
+    const Point = exactObj({ y: number }, { x: number })
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
     expect(Point.decode(point)._tag).toEqual('Right')
@@ -67,7 +67,7 @@ describe('ObjType', () => {
   })
 
   it('pick', () => {
-    const Point3D = props({ y: number, z: number }, { x: number })
+    const Point3D = obj({ y: number, z: number }, { x: number })
     const Point = objPick(Point3D, ['x', 'y'])
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
@@ -80,7 +80,7 @@ describe('ObjType', () => {
   })
 
   it('omit', () => {
-    const Point3D = props({ y: number, z: number }, { x: number })
+    const Point3D = obj({ y: number, z: number }, { x: number })
     const Point = objOmit(Point3D, ['z'])
     type Point = TypeOf<typeof Point>
     const point: Point = { x: 1, y: 2 }
@@ -93,10 +93,10 @@ describe('ObjType', () => {
   })
 
   it('combine', () => {
-    const Point3D = props({ y: number, z: number }, { x: number })
+    const Point3D = obj({ y: number, z: number }, { x: number })
     const Point = objOmit(Point3D, ['z'])
 
-    const Size = props({ width: Int }, { height: number })
+    const Size = obj({ width: Int }, { height: number })
 
     const Rect = combine(Point, Size)
 
@@ -114,10 +114,10 @@ describe('ObjType', () => {
   })
 
   it('combine - prismatic values', () => {
-    const Point3D = props({ y: Int, z: number }, { x: IntFromString })
+    const Point3D = obj({ y: Int, z: number }, { x: IntFromString })
     const Point = objOmit(Point3D, ['z'])
 
-    const Size = props({ height: NumberFromString }, { width: number })
+    const Size = obj({ height: NumberFromString }, { width: number })
 
     const Rect = combine(Point, Size)
 
@@ -132,9 +132,9 @@ describe('ObjType', () => {
   })
 
   it('toReq', () => {
-    const Point3D = props({ y: number, z: number }, { x: number })
+    const Point3D = obj({ y: number, z: number }, { x: number })
     const Point = objOmit(Point3D, ['z'])
-    const Size = props({ height: number }, { width: number })
+    const Size = obj({ height: number }, { width: number })
     const Rect = toReq(combine(Point, Size))
 
     type Rect = TypeOf<typeof Rect>
@@ -144,9 +144,9 @@ describe('ObjType', () => {
   })
 
   it('toOpt', () => {
-    const Point3D = props({ y: number, z: number }, { x: number })
+    const Point3D = obj({ y: number, z: number }, { x: number })
     const Point = objOmit(Point3D, ['z'])
-    const Size = props({ height: number }, { width: number })
+    const Size = obj({ height: number }, { width: number })
     const Rect = toOpt(combine(Point, Size))
 
     type Rect = TypeOf<typeof Rect>

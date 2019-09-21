@@ -1,10 +1,10 @@
 import * as t from 'technoidentity-utils'
-import { opt, props } from 'technoidentity-utils'
+import { obj, opt } from 'technoidentity-utils'
 import { APIQuery, toAPIQuery, toJSONServerQuery } from './query'
 
 // tslint:disable typedef
 
-const User = props(
+const User = obj(
   {
     id: t.number,
     name: t.string,
