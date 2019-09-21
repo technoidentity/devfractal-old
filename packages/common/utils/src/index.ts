@@ -18,6 +18,7 @@ export * from './rtFromValue'
 export * from './stringUtils'
 export * from './tcombRefinements'
 export * from './timeOnly'
+export * from './objUtils'
 
 export * from 'io-ts'
 export * from 'io-ts-types/lib/BooleanFromString'

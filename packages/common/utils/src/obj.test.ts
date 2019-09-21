@@ -1,18 +1,9 @@
 import { isRight } from 'fp-ts/lib/Either'
-import { Branded, Int, IntBrand, number, TypeOf } from 'io-ts'
+import { boolean, Branded, Int, IntBrand, number, string, TypeOf } from 'io-ts'
 import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import { NumberFromString } from 'io-ts-types/lib/NumberFromString'
-import {
-  combine,
-  exactObj,
-  obj,
-  objOmit,
-  objPick,
-  opt,
-  req,
-  toOpt,
-  toReq,
-} from './obj'
+import { exactObj, obj, opt, req } from './obj'
+import { objCombine, objOmit, objPick, pickBy, toOpt, toReq } from './objUtils'
 
 // tslint:disable typedef
 
@@ -98,7 +89,7 @@ describe('ObjType', () => {
 
     const Size = obj({ width: Int }, { height: number })
 
-    const Rect = combine(Point, Size)
+    const Rect = objCombine(Point, Size)
 
     type Rect = TypeOf<typeof Rect>
     const rect: Rect = {
@@ -119,7 +110,7 @@ describe('ObjType', () => {
 
     const Size = obj({ height: NumberFromString }, { width: number })
 
-    const Rect = combine(Point, Size)
+    const Rect = objCombine(Point, Size)
 
     type Rect = TypeOf<typeof Rect>
 
@@ -135,7 +126,7 @@ describe('ObjType', () => {
     const Point3D = obj({ y: number, z: number }, { x: number })
     const Point = objOmit(Point3D, ['z'])
     const Size = obj({ height: number }, { width: number })
-    const Rect = toReq(combine(Point, Size))
+    const Rect = toReq(objCombine(Point, Size))
 
     type Rect = TypeOf<typeof Rect>
     const rect: Rect = { x: 1, y: 2, width: 100, height: 200 }
@@ -147,12 +138,49 @@ describe('ObjType', () => {
     const Point3D = obj({ y: number, z: number }, { x: number })
     const Point = objOmit(Point3D, ['z'])
     const Size = obj({ height: number }, { width: number })
-    const Rect = toOpt(combine(Point, Size))
+    const Rect = toOpt(objCombine(Point, Size))
 
     type Rect = TypeOf<typeof Rect>
     const rect: Rect = { x: 1, y: 2, width: 100, height: 200 }
     expect(Rect.decode(rect)._tag).toEqual('Right')
     expect(Rect.decode({ x: 1, width: 100 })._tag).toEqual('Right')
     expect(Rect.decode({})._tag).toEqual('Right')
+  })
+
+  it('pickBy', () => {
+    const pt = obj({ x: number, y: string }, { a: string, b: number, c: Int })
+    const numbers = pickBy(pt, number)
+    const strings = pickBy(pt, string)
+    const ints = pickBy(pt, Int)
+    const numerics = pickBy(pt, number, Int)
+    const stringly = pickBy(pt, number, string, Int, boolean)
+
+    expect(numbers.name).toMatchInlineSnapshot(
+      `"(Readonly<Partial<{ b: number }>> & Readonly<{ x: number }>)"`,
+    )
+    expect(strings.name).toMatchInlineSnapshot(
+      `"(Readonly<Partial<{ a: string }>> & Readonly<{ y: string }>)"`,
+    )
+    expect(ints.name).toMatchInlineSnapshot(
+      `"(Readonly<Partial<{ c: Int }>> & Readonly<{  }>)"`,
+    )
+    expect(numerics.name).toMatchInlineSnapshot(
+      `"(Readonly<Partial<{ b: number, c: Int }>> & Readonly<{ x: number }>)"`,
+    )
+    expect(stringly.name).toMatchInlineSnapshot(
+      `"(Readonly<Partial<{ a: string, b: number, c: Int }>> & Readonly<{ x: number, y: string }>)"`,
+    )
+
+    const ns: TypeOf<typeof numbers> = { x: 1 }
+    const ss: TypeOf<typeof strings> = { y: '' }
+    const is: TypeOf<typeof ints> = { c: 10 as Int }
+    const nss: TypeOf<typeof numerics> = { x: 100 }
+    const sls: TypeOf<typeof stringly> = { x: 10, y: '' }
+
+    expect(numbers.decode(ns)._tag).toEqual('Right')
+    expect(strings.decode(ss)._tag).toEqual('Right')
+    expect(ints.decode(is)._tag).toEqual('Right')
+    expect(numerics.decode(nss)._tag).toEqual('Right')
+    expect(stringly.decode(sls)._tag).toEqual('Right')
   })
 })
