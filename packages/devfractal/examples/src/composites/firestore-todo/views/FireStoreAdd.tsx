@@ -1,5 +1,5 @@
 import { Simple } from 'devfractal-simple'
-import { useSubmitReset } from 'devfractal-ui-api'
+import { useSubmitRedirect } from 'devfractal-ui-api'
 import { Section } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
@@ -37,6 +37,6 @@ export const FSAddFormView: React.FC<FSAddFormViewProps> = ({ onCreate }) => (
 )
 
 export const FSAddForm: React.FC = () => {
-  const { onSubmit } = useSubmitReset(create as any)
+  const { onSubmit } = useSubmitRedirect(create as any, '/list')
   return <FSAddFormView onCreate={onSubmit} />
 }
