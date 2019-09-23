@@ -1,13 +1,17 @@
+import { boolean, cast, req, string, TypeOf } from 'technoidentity-utils'
 import { db } from './firestoreNew'
 
 // tslint:disable typedef
 
 const todos = db.collection('todos')
-export interface FSTodo {
-  readonly id: string
-  readonly title: string
-  readonly done: boolean
-}
+
+export const FSTodo = req({
+  id: string,
+  title: string,
+  done: boolean,
+})
+
+export type FSTodo = TypeOf<typeof FSTodo>
 
 const createTodo = (
   doc:
@@ -18,7 +22,7 @@ const createTodo = (
   if (data === undefined) {
     throw new Error('todo not found')
   }
-  return { id: doc.id, title: data.title, done: data.done }
+  return cast(FSTodo, { id: doc.id, title: data.title, done: data.done })
 }
 
 export const all: () => Promise<ReadonlyArray<FSTodo>> = async () => {
