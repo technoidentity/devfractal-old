@@ -41,15 +41,16 @@ export const create: (
   return db.collection('todos').add(todo)
 }
 
-export const update: (todo: FSTodo) => Promise<void> = async ({
+export const update: (todo: FSTodo) => Promise<FSTodo> = async ({
   id,
   title,
   done,
-}) =>
-  db
-    .collection('todos')
-    .doc(id)
-    .set({ title, done })
+}) => {
+  const ref = db.collection('todos').doc(id)
+
+  await ref.set({ title, done })
+  return (await ref.get()).data() as FSTodo
+}
 
 export const remove: (id: string) => Promise<void> = async id =>
   db
