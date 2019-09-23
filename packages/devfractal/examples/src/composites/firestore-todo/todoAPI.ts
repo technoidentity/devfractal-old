@@ -2,19 +2,28 @@ import { db } from './firestoreNew'
 
 // tslint:disable typedef
 
+const todos = db.collection('todos')
 export interface FSTodo {
   readonly id: string
   readonly title: string
   readonly done: boolean
 }
 
+const createTodo = (
+  doc:
+    | firebase.firestore.DocumentSnapshot
+    | firebase.firestore.QueryDocumentSnapshot,
+) => {
+  const data = doc.data()
+  if (data === undefined) {
+    throw new Error('todo not found')
+  }
+  return { id: doc.id, title: data.title, done: data.done }
+}
+
 export const all: () => Promise<ReadonlyArray<FSTodo>> = async () => {
-  const snapshot = await db.collection('todos').get()
-  return snapshot.docs.map(doc => ({
-    id: doc.id,
-    title: doc.data().title,
-    done: doc.data().done,
-  }))
+  const snapshot = await todos.get()
+  return snapshot.docs.map(createTodo)
 }
 
 export const one: (id: string) => Promise<FSTodo> = async id => {
@@ -23,22 +32,15 @@ export const one: (id: string) => Promise<FSTodo> = async id => {
     .doc(id)
     .get()
 
-  const data = doc.data()
-  if (data === undefined) {
-    throw new Error(`no document ${id}`)
-  }
-
-  return {
-    id: doc.id,
-    title: data.title,
-    done: data.done,
-  }
+  return createTodo(doc)
 }
 
 export const create: (
   todo: Omit<FSTodo, 'id'>,
-) => Promise<firebase.firestore.DocumentReference> = async todo => {
-  return db.collection('todos').add(todo)
+) => Promise<FSTodo> = async todo => {
+  const ref = await todos.add(todo)
+  const doc = await ref.get()
+  return createTodo(doc)
 }
 
 export const update: (todo: FSTodo) => Promise<FSTodo> = async ({
@@ -46,10 +48,11 @@ export const update: (todo: FSTodo) => Promise<FSTodo> = async ({
   title,
   done,
 }) => {
-  const ref = db.collection('todos').doc(id)
+  const ref = todos.doc(id)
 
   await ref.set({ title, done })
-  return (await ref.get()).data() as FSTodo
+  const doc = await ref.get()
+  return createTodo(doc)
 }
 
 export const remove: (id: string) => Promise<void> = async id =>
