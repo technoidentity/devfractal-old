@@ -1,14 +1,19 @@
-import { faEdit } from '@fortawesome/free-solid-svg-icons'
-import { Button, CheckBox, Icon, Td, Tr } from 'devfractal-ui-core'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { Button, CheckBox, Field, Icon, Td, Tr } from 'devfractal-ui-core'
 import React from 'react'
 import { FSTodo } from '../todoAPI'
 
 interface FSTodoItemProps {
   readonly todo: FSTodo
   onEdit(id: String): void
+  onDelete(id: String): void
 }
 
-export const FsTodoOne: React.FC<FSTodoItemProps> = ({ todo, onEdit }) => {
+export const FsTodoOne: React.FC<FSTodoItemProps> = ({
+  todo,
+  onEdit,
+  onDelete,
+}) => {
   return (
     <Tr>
       <Td>{todo.id}</Td>
@@ -17,9 +22,14 @@ export const FsTodoOne: React.FC<FSTodoItemProps> = ({ todo, onEdit }) => {
         <CheckBox checked={todo.done} readOnly />
       </Td>
       <Td>
-        <Button variant="info" onClick={() => onEdit(todo.id)}>
-          <Icon icon={faEdit} />
-        </Button>
+        <Field grouped>
+          <Button variant="info" onClick={() => onEdit(todo.id)}>
+            <Icon icon={faEdit} />
+          </Button>
+          <Button variant="info" onClick={() => onDelete(todo.id)}>
+            <Icon icon={faTrash} />
+          </Button>
+        </Field>
       </Td>
     </Tr>
   )
