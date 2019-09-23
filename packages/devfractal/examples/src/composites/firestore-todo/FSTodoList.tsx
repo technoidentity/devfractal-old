@@ -2,7 +2,7 @@ import { Get } from 'devfractal-ui-api'
 import { Table, TableBody, TableHead, Th, Tr } from 'devfractal-ui-core'
 import React from 'react'
 import { FSTodoItem } from './FSTodoItem'
-import { all, FSTodo, remove } from './todoAPI'
+import { del, FSTodo, many } from './todoAPI'
 
 // tslint:disable typedef
 
@@ -44,7 +44,7 @@ const useUpdate = () => {
 export const FSTodoList: React.FC = () => {
   const update = useUpdate()
   const handleDelete = async (id: string) => {
-    await remove(id)
+    await del(id)
     console.log('handleDelete')
     update()
   }
@@ -52,7 +52,7 @@ export const FSTodoList: React.FC = () => {
   console.log('render')
   return (
     // tslint:disable-next-line: no-unnecessary-callback-wrapper
-    <Get asyncFn={all}>
+    <Get asyncFn={many}>
       {data => <FSTodoListView todoList={data} onDeleteTodo={handleDelete} />}
     </Get>
   )

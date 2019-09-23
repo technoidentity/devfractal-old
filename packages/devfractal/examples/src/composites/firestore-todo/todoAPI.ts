@@ -5,6 +5,14 @@ import { db } from './firestoreNew'
 
 const todos = db.collection('todos')
 
+export interface TodoRest {
+  many(): Promise<ReadonlyArray<FSTodo>>
+  one(id: string): Promise<FSTodo>
+  create(todo: Omit<FSTodo, 'id'>): Promise<FSTodo>
+  replace(todo: FSTodo): Promise<FSTodo>
+  del(id: string): Promise<void>
+}
+
 export const FSTodo = req({
   id: string,
   title: string,
@@ -13,11 +21,7 @@ export const FSTodo = req({
 
 export type FSTodo = TypeOf<typeof FSTodo>
 
-const createTodo = (
-  doc:
-    | firebase.firestore.DocumentSnapshot
-    | firebase.firestore.QueryDocumentSnapshot,
-) => {
+const createTodo = (doc: firebase.firestore.DocumentSnapshot): FSTodo => {
   const data = doc.data()
   if (data === undefined) {
     throw new Error('todo not found')
@@ -25,7 +29,7 @@ const createTodo = (
   return cast(FSTodo, { id: doc.id, title: data.title, done: data.done })
 }
 
-export const all: () => Promise<ReadonlyArray<FSTodo>> = async () => {
+export const many: () => Promise<ReadonlyArray<FSTodo>> = async () => {
   const snapshot = await todos.get()
   return snapshot.docs.map(createTodo)
 }
@@ -47,7 +51,7 @@ export const create: (
   return createTodo(doc)
 }
 
-export const update: (todo: FSTodo) => Promise<FSTodo> = async ({
+export const replace: (todo: FSTodo) => Promise<FSTodo> = async ({
   id,
   title,
   done,
@@ -59,7 +63,7 @@ export const update: (todo: FSTodo) => Promise<FSTodo> = async ({
   return createTodo(doc)
 }
 
-export const remove: (id: string) => Promise<void> = async id =>
+export const del: (id: string) => Promise<void> = async id =>
   db
     .collection('todos')
     .doc(id)

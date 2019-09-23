@@ -3,7 +3,7 @@ import { Get } from 'devfractal-ui-api'
 import { Section } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
-import { FSTodo, one, update } from './todoAPI'
+import { FSTodo, one, replace } from './todoAPI'
 
 export interface EditTodoViewProps {
   readonly todo: FSTodo
@@ -33,7 +33,7 @@ const handleEditTodo = async (
   actions: FormikActions<typeof todo>,
 ) => {
   console.log('handleEditTodo:', todo)
-  await update(todo)
+  await replace(todo)
   actions.setSubmitting(false)
 }
 
