@@ -11,7 +11,7 @@ import {
 } from 'devfractal-ui-core'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { del, FSTodo, many } from '../todoAPI'
+import { FSTodo, fsTodoAPI } from '../todoAPI'
 import { FsTodoOne } from './FsTodoOne'
 
 export interface FSListViewProps {
@@ -61,13 +61,13 @@ export const FsList: React.FC<RouteComponentProps> = ({ history }) => {
 
   return (
     <Section>
-      <Get asyncFn={many}>
+      <Get asyncFn={fsTodoAPI.many}>
         {(data, fetchAgain) => (
           <FsListView
             fsList={data}
             onEdit={handleEdit}
             onDelete={async id => {
-              await del(id)
+              await fsTodoAPI.del(id)
               fetchAgain()
             }}
           />

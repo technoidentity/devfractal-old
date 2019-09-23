@@ -2,7 +2,7 @@ import { FormikActions } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Get, Simple, useSubmitRedirect } from 'technoidentity-devfractal'
-import { FSTodo, one, replace } from '../todoAPI'
+import { FSTodo, fsTodoAPI } from '../todoAPI'
 
 export interface FSEditViewProps {
   readonly todo: FSTodo
@@ -23,11 +23,11 @@ interface FSEditProps {
 }
 
 export const FSEdit: React.FC<FSEditProps> = ({ id }) => {
-  const handleEdit: (todo: FSTodo) => Promise<FSTodo> = replace
+  const handleEdit: (todo: FSTodo) => Promise<FSTodo> = fsTodoAPI.replace
   const { onSubmit } = useSubmitRedirect(handleEdit, '/list')
 
   return (
-    <Get asyncFn={one} deps={[id]}>
+    <Get asyncFn={fsTodoAPI.one} deps={[id]}>
       {data => <FSEditView todo={data} onEdit={onSubmit} />}
     </Get>
   )

@@ -2,7 +2,7 @@ import { Simple } from 'devfractal-simple'
 import { Section, Title } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
-import { create, FSTodo } from './todoAPI'
+import { FSTodo, fsTodoAPI } from './todoAPI'
 
 export interface AddTodoProps {
   onAddTodo(
@@ -33,7 +33,7 @@ export const FSAddTodo: React.FC = () => {
     todo: Omit<FSTodo, 'id'>,
     actions: FormikActions<typeof todo>,
   ) => {
-    await create(todo)
+    await fsTodoAPI.create(todo)
     actions.setSubmitting(false)
   }
   return <FSAddTodoView onAddTodo={handleAddTodo} />
