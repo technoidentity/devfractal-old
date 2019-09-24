@@ -11,6 +11,7 @@ import {
   Trip,
   User,
   Vehicle,
+  VehicleLocation
 } from './common/models'
 
 startFakeJSONServer(
@@ -26,6 +27,7 @@ startFakeJSONServer(
     { name: 'invoices', spec: Invoice, count: 100 },
     { name: 'geo_fences', spec: GeoFence, count: 100 },
     { name: 'trips', spec: Trip, count: 100 },
+    {name: 'vehicles_location', spec: VehicleLocation, count: 50}
   ],
   9999,
 )
