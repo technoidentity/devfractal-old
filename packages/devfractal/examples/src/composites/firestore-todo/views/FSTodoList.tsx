@@ -15,17 +15,17 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { fn, readonlyArray, req } from 'technoidentity-utils'
 import { FSTodo, fsTodoAPI } from '../todoAPI'
-import { FsTodoOne } from './FsTodoOne'
+import { FSTodoItem } from './FSTodoItem'
 
-export const FSListViewProps = req({
-  fsList: readonlyArray(FSTodo),
+export const FSTodoListViewProps = req({
+  todoList: readonlyArray(FSTodo),
   onEdit: fn<(id: string) => void>(),
   onDelete: fn<(id: string) => void>(),
 })
 
-export const FsListView = component(
-  FSListViewProps,
-  ({ fsList, onEdit, onDelete }) => (
+export const FSTodoListView = component(
+  FSTodoListViewProps,
+  ({ todoList, onEdit, onDelete }) => (
     <>
       <ButtonsGroup alignment="right">
         <ButtonLink to="/list/add" variant="primary">
@@ -42,8 +42,8 @@ export const FsListView = component(
           </Tr>
         </TableHead>
         <TableBody>
-          {fsList.map(todo => (
-            <FsTodoOne
+          {todoList.map(todo => (
+            <FSTodoItem
               todo={todo}
               key={todo.id}
               onEdit={onEdit}
@@ -56,7 +56,7 @@ export const FsListView = component(
   ),
 )
 
-export const FsList: React.FC<RouteComponentProps> = ({ history }) => {
+export const FSTodoList: React.FC<RouteComponentProps> = ({ history }) => {
   const handleEdit: (id: string) => void = (id: string) => {
     history.push(`/list/${id}/edit`)
   }
@@ -65,8 +65,8 @@ export const FsList: React.FC<RouteComponentProps> = ({ history }) => {
     <Section>
       <Get asyncFn={fsTodoAPI.many}>
         {(data, fetchAgain) => (
-          <FsListView
-            fsList={data}
+          <FSTodoListView
+            todoList={data}
             onEdit={handleEdit}
             onDelete={async id => {
               await fsTodoAPI.del(id)

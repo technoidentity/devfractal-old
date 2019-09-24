@@ -6,7 +6,7 @@ import { Section } from 'devfractal-ui-core'
 import React from 'react'
 import { FSTodo, fsTodoAPI } from '../todoAPI'
 
-export const FSAddFormView = formComponent(FSTodo, ({ initial, onSubmit }) => (
+export const FSTodoForm = formComponent(FSTodo, ({ initial, onSubmit }) => (
   <Section>
     <Simple.Form onSubmit={onSubmit} initialValues={initial}>
       <Simple.Text name="title" />
@@ -18,7 +18,7 @@ export const FSAddFormView = formComponent(FSTodo, ({ initial, onSubmit }) => (
 ))
 
 export const FSAddForm: React.FC = () => {
-  // tslint:disable-next-line: no-unbound-method
   const { onSubmit } = useSubmitRedirect(fsTodoAPI.create, '/list')
-  return <FSAddFormView onSubmit={onSubmit} />
+
+  return <FSTodoForm onSubmit={onSubmit} />
 }

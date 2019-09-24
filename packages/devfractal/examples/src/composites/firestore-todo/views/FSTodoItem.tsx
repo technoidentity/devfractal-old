@@ -9,7 +9,7 @@ interface FSTodoItemProps {
   onDelete(id: String): void
 }
 
-export const FsTodoOne: React.FC<FSTodoItemProps> = ({
+export const FSTodoItem: React.FC<FSTodoItemProps> = ({
   todo,
   onEdit,
   onDelete,
