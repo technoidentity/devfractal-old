@@ -1,5 +1,6 @@
 // tslint:disable typedef
 import { ButtonLink } from 'devfractal-crud'
+import { useHistory } from 'devfractal-router'
 import { Get } from 'devfractal-ui-api'
 import {
   ButtonsGroup,
@@ -12,9 +13,8 @@ import {
   Tr,
 } from 'devfractal-ui-core'
 import React from 'react'
-import { RouteComponentProps } from 'react-router'
 import { fn, readonlyArray, req } from 'technoidentity-utils'
-import { FSTodo, fsTodoAPI } from '../todoAPI'
+import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoItem } from './FSTodoItem'
 
 export const FSTodoListViewProps = req({
@@ -28,7 +28,7 @@ export const FSTodoListView = component(
   ({ todoList, onEdit, onDelete }) => (
     <>
       <ButtonsGroup alignment="right">
-        <ButtonLink to="/list/add" variant="primary">
+        <ButtonLink to="/todos/new" variant="primary">
           Add
         </ButtonLink>
       </ButtonsGroup>
@@ -56,9 +56,10 @@ export const FSTodoListView = component(
   ),
 )
 
-export const FSTodoList: React.FC<RouteComponentProps> = ({ history }) => {
+export const FSTodoList: React.FC = () => {
+  const { push } = useHistory()
   const handleEdit: (id: string) => void = (id: string) => {
-    history.push(`/list/${id}/edit`)
+    push(`/todos/${id}/edit`)
   }
 
   return (

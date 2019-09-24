@@ -1,8 +1,7 @@
-import { Get } from 'devfractal-ui-api'
 import { Table, TableBody, TableHead, Th, Tr } from 'devfractal-ui-core'
 import React from 'react'
+import { FSTodo, fsTodoAPI } from '../common/todoAPI'
 import { FSTodoItem } from './FSTodoItem'
-import { FSTodo, fsTodoAPI } from './todoAPI'
 
 // tslint:disable typedef
 
@@ -33,27 +32,18 @@ export const FSTodoListView: React.FC<FSTodoListProps> = ({
   )
 }
 
-const useUpdate = () => {
-  const [toggle, set] = React.useState(false)
-  const update = () => {
-    set(!toggle)
-  }
-  return update
-}
-
 export const FSTodoList: React.FC = () => {
-  const update = useUpdate()
+  const [todos, setTodos] = React.useState<ReadonlyArray<FSTodo>>([])
+  const [fetchAgain, setFetchAgain] = React.useState(0)
+
   const handleDelete = async (id: string) => {
     await fsTodoAPI.del(id)
-    console.log('handleDelete')
-    update()
+    setFetchAgain(fetchAgain + 1)
   }
+  React.useEffect(() => {
+    // tslint:disable-next-line: no-floating-promises
+    fsTodoAPI.many().then(setTodos)
+  }, [fetchAgain])
 
-  console.log('render')
-  return (
-    // tslint:disable-next-line: no-unnecessary-callback-wrapper
-    <Get asyncFn={fsTodoAPI.many}>
-      {data => <FSTodoListView todoList={data} onDeleteTodo={handleDelete} />}
-    </Get>
-  )
+  return <FSTodoListView todoList={todos} onDeleteTodo={handleDelete} />
 }

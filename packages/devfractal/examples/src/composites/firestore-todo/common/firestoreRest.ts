@@ -1,5 +1,5 @@
 import { AnyObj, cast, TypeOf } from 'technoidentity-utils'
-import { db } from './firestoreNew'
+import { db } from './firestore'
 
 // tslint:disable typedef
 

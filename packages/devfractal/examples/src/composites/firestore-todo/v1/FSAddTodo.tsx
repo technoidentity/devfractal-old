@@ -1,8 +1,8 @@
 import { Simple } from 'devfractal-simple'
-import { Section, Title } from 'devfractal-ui-core'
+import { Section, Text, Title } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
-import { FSTodo, fsTodoAPI } from './todoAPI'
+import { FSTodo, fsTodoAPI } from '../common/todoAPI'
 
 export interface AddTodoProps {
   onAddTodo(
@@ -28,13 +28,24 @@ export const FSAddTodoView: React.FC<AddTodoProps> = ({ onAddTodo }) => {
 }
 
 export const FSAddTodo: React.FC = () => {
+  const [err, setErr] = React.useState('')
   // tslint:disable-next-line: typedef
   const handleAddTodo = async (
     todo: Omit<FSTodo, 'id'>,
     actions: FormikActions<typeof todo>,
   ) => {
-    await fsTodoAPI.create(todo)
-    actions.setSubmitting(false)
+    try {
+      await fsTodoAPI.create(todo)
+    } catch (err) {
+      setErr(err.message)
+    } finally {
+      actions.setSubmitting(false)
+    }
   }
-  return <FSAddTodoView onAddTodo={handleAddTodo} />
+  return (
+    <>
+      <Text textColor="danger">{err}</Text>
+      <FSAddTodoView onAddTodo={handleAddTodo} />
+    </>
+  )
 }

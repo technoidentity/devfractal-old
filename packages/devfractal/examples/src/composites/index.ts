@@ -2,7 +2,6 @@
 export * from './cart'
 export * from './Counter'
 export * from './FieldsGeneralForm'
-export * from './firestore-todo'
 export * from './github-card'
 export * from './login-form-variants'
 export * from './LoginFormVariantsTab'

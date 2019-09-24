@@ -1,9 +1,10 @@
+// tslint:disable typedef
 import { Simple } from 'devfractal-simple'
 import { Get } from 'devfractal-ui-api'
-import { Section } from 'devfractal-ui-core'
+import { Section, Text } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
-import { FSTodo, fsTodoAPI } from './todoAPI'
+import { FSTodo, fsTodoAPI } from '../common/todoAPI'
 
 export interface EditTodoViewProps {
   readonly todo: FSTodo
@@ -27,20 +28,27 @@ export interface FSEditTodoProps {
   readonly id: string
 }
 
-// tslint:disable-next-line: typedef
-const handleEditTodo = async (
-  todo: FSTodo,
-  actions: FormikActions<typeof todo>,
-) => {
-  console.log('handleEditTodo:', todo)
-  await fsTodoAPI.replace(todo)
-  actions.setSubmitting(false)
-}
-
 export const FSEditTodo: React.FC<FSEditTodoProps> = ({ id }) => {
+  const [err, setErr] = React.useState('')
+  const handleEditTodo = async (
+    todo: FSTodo,
+    actions: FormikActions<typeof todo>,
+  ) => {
+    try {
+      await fsTodoAPI.replace(todo)
+    } catch (err) {
+      setErr(err.message)
+    } finally {
+      actions.setSubmitting(false)
+    }
+  }
+
   return (
-    <Get asyncFn={fsTodoAPI.one} deps={[id]}>
-      {data => <FSEditTodoView onEditTodo={handleEditTodo} todo={data} />}
-    </Get>
+    <>
+      <Text textColor="danger">{err}</Text>
+      <Get asyncFn={fsTodoAPI.one} deps={[id]}>
+        {data => <FSEditTodoView onEditTodo={handleEditTodo} todo={data} />}
+      </Get>
+    </>
   )
 }

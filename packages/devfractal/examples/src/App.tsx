@@ -3,16 +3,16 @@ import { Route, Router } from 'devfractal-router'
 import React from 'react'
 import { render } from 'react-dom'
 import {
-  FSAddForm,
-  FSEditForm,
+  FSAddTodo,
+  FSEditTodo,
   FSTodoList,
-} from './composites/firestore-todo/views'
+} from './composites/firestore-todo/v1'
 
 export const App: React.FC = () => (
   <Router variant="browser">
-    <Route exact path="/list" component={FSTodoList} />
-    <Route exact path="/list/add" component={FSAddForm} />
-    <Route exact path="/list/:id/edit" component={FSEditForm} />
+    <Route exact path="/todos" component={FSTodoList} />
+    <Route exact path="/todos/new" component={FSAddTodo} />
+    <Route exact path="/todos/:id/edit" component={FSEditTodo} />
   </Router>
 )
 

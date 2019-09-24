@@ -1,7 +1,7 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Button, CheckBox, Field, Icon, Td, Tr } from 'devfractal-ui-core'
 import React from 'react'
-import { FSTodo } from '../todoAPI'
+import { FSTodo } from '../common'
 
 interface FSTodoItemProps {
   readonly todo: FSTodo
