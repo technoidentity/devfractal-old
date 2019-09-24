@@ -1,32 +1,27 @@
 import React from 'react'
 import { http as httpAPI } from 'technoidentity-devfractal'
-import { LoginResponse } from '../common'
+import { AuthUserInfo } from '../common'
+import { baseURL } from '../config'
 import { LoginValues } from '../views'
-import { AuthProvider, UserProvider } from './context'
+import { AuthProvider } from './AuthContext'
 
-const http: ReturnType<typeof httpAPI> = httpAPI({
-  baseURL: 'http://cargos-aws.devti.in/v1',
-})
+const http = httpAPI({ baseURL })
 
-const login = async (values: LoginValues) => {
-  return http.post(
-    {
-      resource: 'session',
-    },
-    values,
-    LoginResponse,
-  )
+async function login(values: LoginValues): Promise<AuthUserInfo> {
+  return http.post({ resource: 'session' }, values, AuthUserInfo)
 }
 
-const logOut = async () => {
+async function logOut(): Promise<void> {
+  // TODO: Shouldn't this be 'session' instead of 'logout'?
   await http.del({ resource: 'logout' })
 }
 
 export const AppProviders: React.FC = ({ children }) => {
-  const [data, setData] = React.useState()
+  const [user, setUser] = React.useState()
+
   return (
-    <AuthProvider data={data} setData={setData} login={login} logout={logOut}>
-      <UserProvider>{children}</UserProvider>
+    <AuthProvider user={user} setUser={setUser} login={login} logout={logOut}>
+      {children}
     </AuthProvider>
   )
 }

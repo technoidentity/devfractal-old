@@ -230,7 +230,7 @@ const role = enumerate(
   'client_reporter',
 )
 
-export const LoginResponse = req({
+export const AuthUserInfo = req({
   data: req({
     token: string,
     user: req({
@@ -243,7 +243,7 @@ export const LoginResponse = req({
   }),
 })
 
-export type LoginResponse = TypeOf<typeof LoginResponse>
+export type AuthUserInfo = TypeOf<typeof AuthUserInfo>
 
 const VehicleNumbers = enumerate('first', 'second')
 
