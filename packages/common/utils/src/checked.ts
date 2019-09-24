@@ -3,15 +3,13 @@ import { cast } from './iotsUtils'
 
 // tslint:disable readonly-array
 
+// TODO: revisit replacing tuple once ts 3.7 releases with circular references support
+
 export function tupleChecked<
   T extends [Mixed, ...Mixed[]],
   A extends TypeOf<TupleC<T>> & any[],
   R extends Mixed
->(
-  argSpecs: TupleC<T>,
-  resultSpec: R,
-  f: (...args: A) => TypeOf<typeof resultSpec>,
-): typeof f {
+>(argSpecs: TupleC<T>, resultSpec: R, f: (...args: A) => TypeOf<R>): typeof f {
   return (...args) => {
     cast(argSpecs, args)
 
