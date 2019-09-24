@@ -2,6 +2,7 @@ import { Simple } from 'devfractal-simple'
 import { Section, Text, Title } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
+import { RouteComponentProps } from 'react-router'
 import { FSTodo, fsTodoAPI } from '../common/todoAPI'
 
 export interface AddTodoProps {
@@ -27,7 +28,7 @@ export const FSAddTodoView: React.FC<AddTodoProps> = ({ onAddTodo }) => {
   )
 }
 
-export const FSAddTodo: React.FC = () => {
+export const FSAddTodo: React.FC<RouteComponentProps> = ({ history }) => {
   const [err, setErr] = React.useState('')
   // tslint:disable-next-line: typedef
   const handleAddTodo = async (
@@ -36,6 +37,7 @@ export const FSAddTodo: React.FC = () => {
   ) => {
     try {
       await fsTodoAPI.create(todo)
+      history.push('/todos')
     } catch (err) {
       setErr(err.message)
     } finally {
