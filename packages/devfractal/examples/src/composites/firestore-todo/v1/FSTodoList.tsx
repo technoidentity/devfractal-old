@@ -1,4 +1,4 @@
-import { Table, TableBody, TableHead, Th, Tr } from 'devfractal-ui-core'
+import { Table, TableBody, TableHead, Text, Th, Tr } from 'devfractal-ui-core'
 import React from 'react'
 import { FSTodo, fsTodoAPI } from '../common/todoAPI'
 import { FSTodoItem } from './FSTodoItem'
@@ -34,16 +34,26 @@ export const FSTodoListView: React.FC<FSTodoListProps> = ({
 
 export const FSTodoList: React.FC = () => {
   const [todos, setTodos] = React.useState<ReadonlyArray<FSTodo>>([])
-  const [fetchAgain, setFetchAgain] = React.useState(0)
+  const [fetchAgain, setFetchAgain] = React.useState(false)
+  const [err, setErr] = React.useState('')
 
   const handleDelete = async (id: string) => {
-    await fsTodoAPI.del(id)
-    setFetchAgain(fetchAgain + 1)
+    try {
+      await fsTodoAPI.del(id)
+      setFetchAgain(!fetchAgain)
+    } catch (err) {
+      setErr(err.message)
+    }
   }
   React.useEffect(() => {
     // tslint:disable-next-line: no-floating-promises
     fsTodoAPI.many().then(setTodos)
   }, [fetchAgain])
 
-  return <FSTodoListView todoList={todos} onDeleteTodo={handleDelete} />
+  return (
+    <>
+      <Text textColor="danger">{err}</Text>
+      <FSTodoListView todoList={todos} onDeleteTodo={handleDelete} />
+    </>
+  )
 }
