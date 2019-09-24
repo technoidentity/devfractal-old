@@ -1,3 +1,4 @@
+// tslint:disable typedef
 import { formComponent } from 'devfractal-crud'
 import { Simple } from 'devfractal-simple'
 import { useSubmitRedirect } from 'devfractal-ui-api'
