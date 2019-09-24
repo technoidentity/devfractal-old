@@ -1,5 +1,5 @@
 import * as t from 'technoidentity-utils'
-import { date, lit, opt, props, req } from 'technoidentity-utils'
+import { date, lit, obj, opt, req } from 'technoidentity-utils'
 
 // tslint:disable typedef
 
@@ -43,21 +43,21 @@ export const Refinements = t.intersection([
 
 export type Refinements = t.TypeOf<typeof Refinements>
 
-export const NumberMT = props(
+export const NumberMT = obj(
   { refinements: NumberRefinements },
   { kind: lit('number') },
 )
 
 export type NumberMT = t.TypeOf<typeof NumberMT>
 
-export const StringMT = props(
+export const StringMT = obj(
   { refinements: StringRefinements },
   { kind: lit('string') },
 )
 
 export type StringMT = t.TypeOf<typeof StringMT>
 
-export const DateMT = props(
+export const DateMT = obj(
   { refinements: DateRefinements },
   { kind: lit('date') },
 )
@@ -72,7 +72,7 @@ export const PrimitiveMT = t.union([BooleanMT, NumberMT, StringMT, DateMT])
 
 export type PrimitiveMT = t.TypeOf<typeof PrimitiveMT>
 
-export const EnumMT = props(
+export const EnumMT = obj(
   { name: t.string },
   { kind: lit('enum'), values: t.readonlyArray(t.string) },
 )
@@ -86,7 +86,7 @@ export interface ArrayMT {
 }
 
 export const ArrayMT: t.Type<ArrayMT> = t.recursion('ArrayMT', () =>
-  props({ refinements: ArrayRefinements }, { kind: lit('array'), of: Mixed }),
+  obj({ refinements: ArrayRefinements }, { kind: lit('array'), of: Mixed }),
 )
 
 export type PropertyMT = Mixed & { readonly optional?: true }
@@ -100,7 +100,7 @@ export interface MT {
 }
 
 export const MT: t.Type<MT> = t.recursion('MT', () =>
-  props(
+  obj(
     { name: t.string },
     {
       kind: lit('object'),

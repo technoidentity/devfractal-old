@@ -1,7 +1,7 @@
 import { compareAsc, format, startOfDay } from 'date-fns'
 import { Document, model, Schema } from 'mongoose'
 import mongoosePaginate from 'mongoose-paginate'
-import { ISODate, props, string, TypeOf } from 'technoidentity-utils'
+import { ISODate, obj, string, TypeOf } from 'technoidentity-utils'
 
 const dateSchema = new Schema({
   started: { type: Date },
@@ -10,12 +10,12 @@ const dateSchema = new Schema({
   scheduled: { type: Date, required: true },
 })
 
-const dateInfo = props(
+const dateInfo = obj(
   { started: ISODate, completed: ISODate },
   { scheduled: ISODate, deadline: ISODate },
 )
 
-export const Task = props(
+export const Task = obj(
   { _id: string },
   { title: string, description: string, dateInfo },
 )

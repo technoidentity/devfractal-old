@@ -34,7 +34,8 @@
     "io-ts-types": "0.5.1",
     "monocle-ts": "2.0.0",
     "tcomb": "^3.2.29",
-    "tslib": "1.10.0"
+    "tslib": "1.10.0",
+    "utility-types": "^3.7.0"
   },
   "devDependencies": {
     "cross-env": "6.0.0",

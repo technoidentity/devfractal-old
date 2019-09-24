@@ -2,13 +2,14 @@ import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import {
-  AnyObj,
   array,
   chop,
   debug,
   InputOf,
   keys,
   Mixed,
+  ObjC,
+  Props,
   string,
   TypeOf,
   verify,
@@ -86,9 +87,9 @@ export function http({ baseURL, ...config }: RequestConfig) {
       .then(decode(responseSpec))
   }
 
-  async function post<Spec extends Mixed>(
+  async function post<Spec extends Mixed, ID extends keyof Spec>(
     options: Omit<MethodArgs, 'query'> | string,
-    data: InputOf<Spec>,
+    data: Omit<InputOf<Spec>, ID>,
     responseSpec: Spec,
   ): Promise<TypeOf<Spec>> {
     return axios
@@ -97,13 +98,13 @@ export function http({ baseURL, ...config }: RequestConfig) {
       .then(decode(responseSpec))
   }
 
-  async function patch<Spec extends AnyObj>(
+  async function patch<Opt extends Props, Req extends Props>(
     options: Omit<MethodArgs, 'query'> | string,
-    data: Partial<InputOf<Spec>>,
-    responseSpec: Spec,
-  ): Promise<TypeOf<Spec>> {
+    data: Partial<InputOf<ObjC<Opt, Req>>>,
+    responseSpec: ObjC<Opt, Req>,
+  ): Promise<TypeOf<ObjC<Opt, Req>>> {
     return axios
-      .patch<InputOf<Spec>>(url(options), data)
+      .patch<InputOf<ObjC<Opt, Req>>>(url(options), data)
       .then(res => res.data)
       .then(decode(responseSpec))
   }

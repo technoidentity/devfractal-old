@@ -2,34 +2,43 @@ import { API } from 'devfractal-api'
 import { Route } from 'devfractal-router'
 import { Get } from 'devfractal-ui-api'
 import React from 'react'
-import { AnyObj, TypeOf } from 'technoidentity-utils'
+import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 
 export interface OneComponentProps<T> {
   readonly data: T
   // fetchAgain(): void
 }
 
-export interface OneProps<Spec extends AnyObj, ID extends keyof TypeOf<Spec>> {
-  readonly api: API<Spec, ID>
+export interface OneProps<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+> {
+  readonly api: API<Opt, Req, ID>
   readonly path: string
-  readonly id: ID
-  readonly view: React.FC<OneComponentProps<TypeOf<Spec>>>
+  readonly id: TypeOf<ObjC<Opt, Req>>[ID]
+  readonly view: React.FC<OneComponentProps<TypeOf<ObjC<Opt, Req>>>>
 }
 
-function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
+function Children<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+>({
   api,
   id,
   view: Component,
-}: Omit<OneProps<Spec, ID>, 'path'>): JSX.Element {
+}: Omit<OneProps<Opt, Req, ID>, 'path'>): JSX.Element {
   return (
     <Get asyncFn={() => api.get(id)}>{data => <Component data={data} />}</Get>
   )
 }
 
-export function One<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
-  path,
-  ...props
-}: OneProps<Spec, ID>): JSX.Element {
+export function One<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+>({ path, ...props }: OneProps<Opt, Req, ID>): JSX.Element {
   return path ? (
     <Route path={path} render={() => <Children {...props} />} />
   ) : (

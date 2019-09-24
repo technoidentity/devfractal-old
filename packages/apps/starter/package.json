@@ -21,7 +21,7 @@
     "@types/yup": "0.26.24",
     "babel-eslint": "10.0.3",
     "chance": "1.1.0",
-    "confusing-browser-globals": "1.0.8",
+    "confusing-browser-globals": "1.0.9",
     "cross-env": "6.0.0",
     "eslint": "6.4.0",
     "jest": "24.9.0",

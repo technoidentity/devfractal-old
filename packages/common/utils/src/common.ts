@@ -2,6 +2,7 @@ import { startOfDay } from 'date-fns'
 import { TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
+import { NonUndefined } from 'utility-types'
 import { assert } from './assertions'
 
 // tslint:disable no-loop-statement no-array-mutation no-object-mutation no-null-keyword
@@ -60,7 +61,7 @@ export function keys<T extends Object>(obj: T): ReadonlyArray<keyof T> {
 export function buildObject<T extends {}, R>(
   obj: T,
   f: (value: T[typeof key], key: keyof T) => R,
-): Record<keyof T, R> {
+): Record<keyof T, NonUndefined<R>> {
   const result: any = {}
   for (const k of keys(obj)) {
     const v: any = f(obj[k], k)

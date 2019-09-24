@@ -1,15 +1,13 @@
 import React from 'react'
 import { LoginForm, LoginValues } from '../views'
-import { useAuth } from './context'
+import { useAuth } from './AuthContext'
 
-export const UnauthenticatedApp: React.FC = () => {
-  const { login, setData } = useAuth()
+export const UnAuthenticatedApp: React.FC = () => {
+  const { login, setUser } = useAuth()
+
   return (
     <LoginForm
-      onLogin={async (values: LoginValues) => {
-        const data = await login(values)
-        setData(data)
-      }}
+      onLogin={async (values: LoginValues) => setUser(await login(values))}
     />
   )
 }

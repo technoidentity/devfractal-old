@@ -29,7 +29,7 @@ function emptyFromPrimitiveValue(v: unknown): any {
 }
 
 function emptyFromObjectValue<T extends {}>(value: T): T {
-  return buildObject(value, emptyFromValue) as T
+  return buildObject(value, emptyFromValue) as any
 }
 
 export const emptyFromValue: <T>(value: T) => T = value => {

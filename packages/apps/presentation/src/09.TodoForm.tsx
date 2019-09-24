@@ -3,7 +3,7 @@ import React from 'react'
 import { Simple } from 'technoidentity-devfractal'
 import { component, Section } from 'technoidentity-devfractal'
 import { TypeOf } from 'technoidentity-utils'
-import { fn, props } from 'technoidentity-utils'
+import { fn, obj } from 'technoidentity-utils'
 import { Todo } from './08.todoAPI'
 
 export const initialValues: Todo = {
@@ -12,7 +12,7 @@ export const initialValues: Todo = {
   done: false,
 }
 
-export const TodoFormProps = props(
+export const TodoFormProps = obj(
   { initial: Todo },
   {
     onSubmit: fn<

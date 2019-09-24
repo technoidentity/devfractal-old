@@ -3,12 +3,12 @@ import {
   boolean,
   ISODate,
   number,
-  props,
+  obj,
   string,
   TypeOf,
 } from 'technoidentity-utils'
 
-export const Todo = props(
+export const Todo = obj(
   {
     id: number,
   },

@@ -4,10 +4,11 @@ import { Get } from 'devfractal-ui-api'
 import { parse, stringify } from 'query-string'
 import React from 'react'
 import {
-  AnyObj,
   cast,
   IntFromString,
+  ObjC,
   opt,
+  Props,
   record,
   string,
   TypeOf,
@@ -27,15 +28,19 @@ export interface AllComponentProps<T> {
   onPageChange(page: number): void
 }
 
-interface ChildrenProps<Spec extends AnyObj, ID extends keyof TypeOf<Spec>> {
-  readonly api: API<Spec, ID>
-  readonly list: React.FC<AllComponentProps<TypeOf<Spec>>>
-  queryFn?(search: string): APIQuery<TypeOf<Spec>>
+interface ChildrenProps<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+> {
+  readonly api: API<Opt, Req, ID>
+  readonly list: React.FC<AllComponentProps<TypeOf<ObjC<Opt, Req>>>>
+  queryFn?(search: string): APIQuery<TypeOf<ObjC<Opt, Req>>>
 }
 
-function defaultQueryFn<Spec extends AnyObj>(
+function defaultQueryFn<Opt extends Props, Req extends Props>(
   search: string,
-): APIQuery<TypeOf<Spec>> {
+): APIQuery<TypeOf<ObjC<Opt, Req>>> {
   const { page = 1, limit = 25, asc, desc } = cast(
     ClientQuery,
     cast(record(string, string), parse(search)),
@@ -48,11 +53,15 @@ function defaultQueryFn<Spec extends AnyObj>(
   }
 }
 
-function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
+function Children<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+>({
   api,
   list: Component,
   queryFn = defaultQueryFn,
-}: ChildrenProps<Spec, ID>): JSX.Element {
+}: ChildrenProps<Opt, Req, ID>): JSX.Element {
   const { pathname, search } = useLocation()
   const { push } = useHistory()
 
@@ -60,8 +69,8 @@ function Children<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
   const query = queryFn(search)
 
   async function asyncFn(
-    query: APIQuery<TypeOf<Spec>>,
-  ): Promise<ReadonlyArray<Spec>> {
+    query: APIQuery<TypeOf<ObjC<Opt, Req>>>,
+  ): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>> {
     return query ? api.list(query) : api.many()
   }
 
@@ -86,15 +95,19 @@ export interface AllComponentProps<T> {
   // fetchAgain(): void
 }
 
-export interface AllProps<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>
-  extends ChildrenProps<Spec, ID> {
+export interface AllProps<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+> extends ChildrenProps<Opt, Req, ID> {
   readonly path: string
 }
 
-export function All<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>({
-  path,
-  ...props
-}: AllProps<Spec, ID>): JSX.Element {
+export function All<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+>({ path, ...props }: AllProps<Opt, Req, ID>): JSX.Element {
   return path ? (
     <Route path={path} render={() => <Children {...props} />} />
   ) : (

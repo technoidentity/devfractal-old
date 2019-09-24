@@ -21,14 +21,14 @@ import {
   fn,
   ISODate,
   number,
-  props,
+  obj,
   readonlyArray,
   req,
   string,
   TypeOf,
 } from 'technoidentity-utils'
 
-const Todo = props(
+const Todo = obj(
   {
     id: number,
   },
@@ -48,7 +48,7 @@ const todoApi = rest(Todo, 'id', {
 
 const initialValues: Todo = { title: '', scheduled: new Date(), done: false }
 
-export const TodoFormProps = props(
+export const TodoFormProps = obj(
   { initial: Todo },
   {
     onSubmit: fn<

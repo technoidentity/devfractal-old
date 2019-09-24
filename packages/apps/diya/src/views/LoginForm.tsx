@@ -4,52 +4,57 @@ import React from 'react'
 import {
   Button,
   ButtonsGroup,
+  ErrorField,
   Field,
-  Input,
+  InputField,
   Section,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
 
 export interface LoginValues {
-  readonly name: string
+  readonly username: string
   readonly password: string
 }
 
 const schema = yup.object().shape({
-  name: yup.string().required(),
+  username: yup.string().required(),
   password: yup.string().required(),
 })
 
-export const initialValues: LoginValues = { name: '', password: '' }
+const initialValues: LoginValues = { username: '', password: '' }
 
 const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
   <Section
     style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
   >
     <Form>
-      <Field>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Username"
-          leftIcon={faUser}
-        />
-      </Field>
-
-      <Field>
-        <Input
-          type="password"
-          name="password"
-          placeholder="Password"
-          leftIcon={faLock}
-        />
-      </Field>
-
-      <Field>
-        <ButtonsGroup alignment="centered">
-          <Button type="submit">Login</Button>
-        </ButtonsGroup>
-      </Field>
+      <Section>
+        <Field>
+          <InputField
+            type="text"
+            name="username"
+            placeholder="Username"
+            leftIcon={faUser}
+          />
+          <ErrorField name="username" />
+        </Field>
+        <Field>
+          <InputField
+            type="password"
+            name="password"
+            placeholder="Password"
+            leftIcon={faLock}
+          />
+          <ErrorField name="password" />
+        </Field>
+        <Field>
+          <ButtonsGroup alignment="centered">
+            <Button type="submit" variant="primary">
+              Login
+            </Button>
+          </ButtonsGroup>
+        </Field>
+      </Section>
     </Form>
   </Section>
 )
@@ -62,7 +67,10 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => (
   <Formik
     initialValues={initialValues}
     validationSchema={schema}
-    onSubmit={onLogin}
+    onSubmit={async (values, actions) => {
+      await onLogin(values)
+      actions.setSubmitting(false)
+    }}
     component={InnerLoginForm}
   />
 )

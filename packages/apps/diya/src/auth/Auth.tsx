@@ -1,9 +1,10 @@
 import React from 'react'
+import { useAuth } from './AuthContext'
 import { AuthenticatedApp } from './AuthenticatedApp'
-import { useUser } from './context'
-import { UnauthenticatedApp } from './UnAuthenticatedApp'
+import { UnAuthenticatedApp } from './UnAuthenticatedApp'
 
-export const Auth = () => {
-  const user = useUser()
-  return user ? <AuthenticatedApp /> : <UnauthenticatedApp />
+export const Auth: React.FC = () => {
+  const { user } = useAuth()
+
+  return user ? <AuthenticatedApp /> : <UnAuthenticatedApp />
 }
