@@ -5,7 +5,6 @@ import { Get } from 'devfractal-ui-api'
 import {
   ButtonsGroup,
   component,
-  Section,
   Table,
   TableBody,
   TableHead,
@@ -32,6 +31,7 @@ export const FSTodoListView = component(
           Add
         </ButtonLink>
       </ButtonsGroup>
+
       <Table fullWidth>
         <TableHead>
           <Tr>
@@ -58,24 +58,23 @@ export const FSTodoListView = component(
 
 export const FSTodoList: React.FC = () => {
   const { push } = useHistory()
+
   const handleEdit: (id: string) => void = (id: string) => {
     push(`/todos/${id}/edit`)
   }
 
   return (
-    <Section>
-      <Get asyncFn={fsTodoAPI.many}>
-        {(data, fetchAgain) => (
-          <FSTodoListView
-            todoList={data}
-            onEdit={handleEdit}
-            onDelete={async id => {
-              await fsTodoAPI.del(id)
-              fetchAgain()
-            }}
-          />
-        )}
-      </Get>
-    </Section>
+    <Get asyncFn={fsTodoAPI.many}>
+      {(data, fetchAgain) => (
+        <FSTodoListView
+          todoList={data}
+          onEdit={handleEdit}
+          onDelete={async id => {
+            await fsTodoAPI.del(id)
+            fetchAgain()
+          }}
+        />
+      )}
+    </Get>
   )
 }

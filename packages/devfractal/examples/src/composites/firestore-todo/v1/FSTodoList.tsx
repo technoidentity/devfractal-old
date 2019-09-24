@@ -1,6 +1,6 @@
 import { Table, TableBody, TableHead, Text, Th, Tr } from 'devfractal-ui-core'
 import React from 'react'
-import { FSTodo, fsTodoAPI } from '../common/todoAPI'
+import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoItem } from './FSTodoItem'
 
 // tslint:disable typedef
@@ -13,24 +13,22 @@ export interface FSTodoListProps {
 export const FSTodoListView: React.FC<FSTodoListProps> = ({
   todoList,
   onDeleteTodo,
-}) => {
-  return (
-    <Table>
-      <TableHead>
-        <Tr>
-          <Th>ID</Th>
-          <Th>Title</Th>
-          <Th>Done</Th>
-        </Tr>
-      </TableHead>
-      <TableBody>
-        {todoList.map(todo => (
-          <FSTodoItem key={todo.id} todo={todo} onDeleteTodo={onDeleteTodo} />
-        ))}
-      </TableBody>
-    </Table>
-  )
-}
+}) => (
+  <Table>
+    <TableHead>
+      <Tr>
+        <Th>ID</Th>
+        <Th>Title</Th>
+        <Th>Done</Th>
+      </Tr>
+    </TableHead>
+    <TableBody>
+      {todoList.map(todo => (
+        <FSTodoItem key={todo.id} todo={todo} onDeleteTodo={onDeleteTodo} />
+      ))}
+    </TableBody>
+  </Table>
+)
 
 export const FSTodoList: React.FC = () => {
   const [todos, setTodos] = React.useState<ReadonlyArray<FSTodo>>([])

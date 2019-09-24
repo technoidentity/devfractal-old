@@ -5,8 +5,10 @@ import { fsTodoAPI } from '../common'
 import { FSTodoForm } from './FSTodoForm'
 
 export const FSEditForm: React.FC = () => {
-  const { id } = useParams(req({ id: string }))
   const { onSubmit } = useSubmitRedirect(fsTodoAPI.replace, '/todos')
+
+  const { id } = useParams(req({ id: string }))
+
   return (
     <Get asyncFn={fsTodoAPI.one} deps={[id]}>
       {data => <FSTodoForm initial={data} onSubmit={onSubmit} />}
