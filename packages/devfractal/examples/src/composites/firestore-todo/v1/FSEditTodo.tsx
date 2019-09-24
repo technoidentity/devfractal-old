@@ -1,10 +1,10 @@
 // tslint:disable typedef
 import { Simple } from 'devfractal-simple'
 import { Get } from 'devfractal-ui-api'
-import { Section, Text } from 'devfractal-ui-core'
+import { Text } from 'devfractal-ui-core'
 import { FormikActions } from 'formik'
 import React from 'react'
-import { FSTodo, fsTodoAPI } from '../common/todoAPI'
+import { FSTodo, fsTodoAPI } from '../common'
 
 export interface EditTodoViewProps {
   readonly todo: FSTodo
@@ -15,13 +15,13 @@ export const FSEditTodoView: React.FC<EditTodoViewProps> = ({
   todo,
   onEditTodo,
 }) => (
-  <Section>
+  <>
     <Simple.Form initialValues={{ ...todo }} onSubmit={onEditTodo}>
       <Simple.Text name="title" />
       <Simple.Checkbox name="done"> Done</Simple.Checkbox>
       <Simple.FormButtons />
     </Simple.Form>
-  </Section>
+  </>
 )
 
 export interface FSEditTodoProps {
