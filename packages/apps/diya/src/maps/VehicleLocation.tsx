@@ -24,10 +24,10 @@ const Map: React.FC = props => {
   )
 }
 
-interface EvPositionState{
-    readonly lat : number
-    readonly lng: number
-    readonly description: string
+interface EvPositionState {
+  readonly lat: number
+  readonly lng: number
+  readonly description: string
 }
 
 const WrappedMap = withScriptjs(
@@ -52,15 +52,18 @@ const WrappedMap = withScriptjs(
               key={ev.id}
               position={{ lat: Number(ev.lat), lng: Number(ev.lng) }}
               icon={evIcon}
-              onClick={()=>{setState({
-                              lat: Number(ev.lat),
-                              lng: Number(ev.lng),
-                            description: ev.description})}}
+              onClick={() => {
+                setState({
+                  lat: Number(ev.lat),
+                  lng: Number(ev.lng),
+                  description: ev.description,
+                })
+              }}
             />
           ))}
         {state && (
           <InfoWindow
-            position={{lat : state.lat, lng: state.lng }}
+            position={{ lat: state.lat, lng: state.lng }}
             onCloseClick={() => setState(undefined)}
           >
             <div>{state.description}</div>
