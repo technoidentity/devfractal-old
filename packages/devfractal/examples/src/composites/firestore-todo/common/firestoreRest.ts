@@ -10,12 +10,14 @@ export interface FirstoreAPI<
 > {
   readonly idKey: ID
   readonly spec: ObjC<Opt, Req>
+  readonly resource: string
   many(): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>>
   one(id: TypeOf<ObjC<Opt, Req>>[ID]): Promise<TypeOf<ObjC<Opt, Req>>>
-  create(
-    todo: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
+  create(obj: Omit<TypeOf<ObjC<Opt, Req>>, ID>): Promise<TypeOf<ObjC<Opt, Req>>>
+  replace(
+    id: TypeOf<ObjC<Opt, Req>>[ID],
+    obj: TypeOf<ObjC<Opt, Req>>,
   ): Promise<TypeOf<ObjC<Opt, Req>>>
-  replace(todo: TypeOf<ObjC<Opt, Req>>): Promise<TypeOf<ObjC<Opt, Req>>>
   del(id: TypeOf<ObjC<Opt, Req>>[ID]): Promise<void>
 }
 
@@ -53,7 +55,7 @@ export function fsRest<
     id: TypeOf<ObjC<Opt, Req>>[ID],
   ) => Promise<TypeOf<ObjC<Opt, Req>>> = async id => {
     const doc = await db
-      .collection('todos')
+      .collection(resource)
       .doc(id)
       .get()
 
@@ -61,28 +63,29 @@ export function fsRest<
   }
 
   const create: (
-    todo: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
-  ) => Promise<TypeOf<ObjC<Opt, Req>>> = async todo => {
-    const ref = await res.add(todo)
+    obj: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
+  ) => Promise<TypeOf<ObjC<Opt, Req>>> = async obj => {
+    const ref = await res.add(obj)
     const doc = await ref.get()
     return createModel(doc)
   }
 
   const replace: (
-    todo: TypeOf<ObjC<Opt, Req>>,
-  ) => Promise<TypeOf<ObjC<Opt, Req>>> = async ({ id, title, done }) => {
+    id: TypeOf<ObjC<Opt, Req>>[ID],
+    obj: TypeOf<ObjC<Opt, Req>>,
+  ) => Promise<TypeOf<ObjC<Opt, Req>>> = async (id, obj) => {
+    console.log(obj)
     const ref = res.doc(id)
-
-    await ref.set({ title, done })
+    await ref.set(obj)
     const doc = await ref.get()
     return createModel(doc)
   }
 
   const del: (id: TypeOf<ObjC<Opt, Req>>[ID]) => Promise<void> = async id =>
     db
-      .collection('todos')
+      .collection(resource)
       .doc(id)
       .delete()
 
-  return { many, one, create, replace, del, spec, idKey }
+  return { many, one, create, replace, del, spec, idKey, resource }
 }
