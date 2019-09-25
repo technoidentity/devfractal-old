@@ -1,32 +1,39 @@
-import { AnyObj, cast, TypeOf } from 'technoidentity-utils'
+import { cast, ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { db } from './firestore'
 
 // tslint:disable typedef
 
 export interface FirstoreAPI<
-  Spec extends AnyObj,
-  ID extends keyof TypeOf<Spec>
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
 > {
-  many(): Promise<ReadonlyArray<TypeOf<Spec>>>
-  one(id: TypeOf<Spec>[ID]): Promise<TypeOf<Spec>>
-  create(todo: Omit<TypeOf<Spec>, ID>): Promise<TypeOf<Spec>>
-  replace(todo: TypeOf<Spec>): Promise<TypeOf<Spec>>
-  del(id: TypeOf<Spec>[ID]): Promise<void>
   readonly idKey: ID
-  readonly spec: Spec
+  readonly spec: ObjC<Opt, Req>
+  many(): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>>
+  one(id: TypeOf<ObjC<Opt, Req>>[ID]): Promise<TypeOf<ObjC<Opt, Req>>>
+  create(
+    todo: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
+  ): Promise<TypeOf<ObjC<Opt, Req>>>
+  replace(todo: TypeOf<ObjC<Opt, Req>>): Promise<TypeOf<ObjC<Opt, Req>>>
+  del(id: TypeOf<ObjC<Opt, Req>>[ID]): Promise<void>
 }
 
-export function fsRest<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>(
-  spec: Spec,
+export function fsRest<
+  Opt extends Props,
+  Req extends Props,
+  ID extends keyof TypeOf<ObjC<Opt, Req>>
+>(
+  spec: ObjC<Opt, Req>,
   idKey: ID,
   resource: string,
   // toQuery: (spec: Spec, query: APIQuery<TypeOf<Spec>>) => string = toQueryFn,
-): FirstoreAPI<Spec, ID> {
+): FirstoreAPI<Opt, Req, ID> {
   const res = db.collection(resource)
 
   const createModel = (
     doc: firebase.firestore.DocumentSnapshot,
-  ): TypeOf<Spec> => {
+  ): TypeOf<ObjC<Opt, Req>> => {
     const data = doc.data()
     if (data === undefined) {
       throw new Error(`${resource} not found`)
@@ -35,12 +42,16 @@ export function fsRest<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>(
     return cast(spec, { ...doc.data(), [idKey]: doc.id })
   }
 
-  const many: () => Promise<ReadonlyArray<TypeOf<Spec>>> = async () => {
+  const many: () => Promise<
+    ReadonlyArray<TypeOf<ObjC<Opt, Req>>>
+  > = async () => {
     const snapshot = await res.get()
     return snapshot.docs.map(createModel)
   }
 
-  const one: (id: TypeOf<Spec>[ID]) => Promise<TypeOf<Spec>> = async id => {
+  const one: (
+    id: TypeOf<ObjC<Opt, Req>>[ID],
+  ) => Promise<TypeOf<ObjC<Opt, Req>>> = async id => {
     const doc = await db
       .collection('todos')
       .doc(id)
@@ -50,18 +61,16 @@ export function fsRest<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>(
   }
 
   const create: (
-    todo: Omit<TypeOf<Spec>, ID>,
-  ) => Promise<TypeOf<Spec>> = async todo => {
+    todo: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
+  ) => Promise<TypeOf<ObjC<Opt, Req>>> = async todo => {
     const ref = await res.add(todo)
     const doc = await ref.get()
     return createModel(doc)
   }
 
-  const replace: (todo: TypeOf<Spec>) => Promise<TypeOf<Spec>> = async ({
-    id,
-    title,
-    done,
-  }) => {
+  const replace: (
+    todo: TypeOf<ObjC<Opt, Req>>,
+  ) => Promise<TypeOf<ObjC<Opt, Req>>> = async ({ id, title, done }) => {
     const ref = res.doc(id)
 
     await ref.set({ title, done })
@@ -69,7 +78,7 @@ export function fsRest<Spec extends AnyObj, ID extends keyof TypeOf<Spec>>(
     return createModel(doc)
   }
 
-  const del: (id: TypeOf<Spec>[ID]) => Promise<void> = async id =>
+  const del: (id: TypeOf<ObjC<Opt, Req>>[ID]) => Promise<void> = async id =>
     db
       .collection('todos')
       .doc(id)
