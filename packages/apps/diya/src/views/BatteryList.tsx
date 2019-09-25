@@ -23,10 +23,9 @@ export const BatteryList = listComponent(Battery, ({ data: batteryList }) => (
 
     <DiyaTable
       data={batteryList}
-      headers={['name', 'group', 'remainingCycles', 'status']}
+      select={['name', 'group', 'remainingCycles', 'status']}
       editTo={v => batteryLinks.edit(v.id)}
       assignTo={v => `assignBattery/${v.id}`}
-      labels={['name', 'group', 'remainingCycles', 'status', 'Actions']}
     />
 
     <RoutedPager />

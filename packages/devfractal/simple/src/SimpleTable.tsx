@@ -12,34 +12,45 @@ import {
 } from 'devfractal-ui-core'
 import React from 'react'
 import * as t from 'technoidentity-utils'
-import { array, date, string } from 'technoidentity-utils'
-import { camelCaseToPhrase } from 'technoidentity-utils'
+import { camelCaseToPhrase, date } from 'technoidentity-utils'
 import { formatDate } from './utils'
+
+export interface SimpleTableHeaderProps {
+  readonly headers: readonly string[]
+}
+
+export const SimpleTableHeader: React.FC<SimpleTableHeaderProps> = ({
+  headers,
+}) => (
+  <TableHead>
+    <Tr>
+      {headers.map(h => (
+        <Th key={h}>{h}</Th>
+      ))}
+    </Tr>
+  </TableHead>
+)
 
 export interface RowClickEvent<T extends Record<string, any>> {
   readonly value: T
 }
 
-export interface SimpleTableProps<T extends Record<string, any>>
-  extends TableProps {
-  readonly headers?: ReadonlyArray<keyof T>
-  readonly labels?: readonly string[] | Record<keyof T, string>
-  readonly data: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
-  onRowClicked?(value: RowClickEvent<T>): void
-  children?(key: keyof T, value: T): React.ReactNode
+export interface RowsProps<
+  T extends Record<string, any>,
+  EK extends string,
+  Select extends keyof T
+> extends Omit<TableViewProps<T, EK, Select>, 'override'> {
+  readonly select: ReadonlyArray<Select>
+  render?(keyOrHeader: string, value: T): React.ReactNode
 }
 
-export interface RowsProps<T extends Record<string, any>, K extends keyof T> {
-  readonly headers: readonly K[]
-  readonly data: ReadonlyArray<T>
-  onRowClicked?(value: RowClickEvent<T>): void
-  render?(key: K, value: T): React.ReactNode
-}
+function Rows<
+  T extends Record<string, any>,
+  EK extends string,
+  Select extends keyof T
+>(props: RowsProps<T, EK, Select>): JSX.Element {
+  const { data, select, extra, render, onRowClicked } = props
 
-function Rows<T extends Record<string, any>, K extends keyof T>(
-  props: RowsProps<T, K>,
-): JSX.Element {
-  const { data, headers, render, onRowClicked } = props
   return (
     <>
       {data.map((value, i) => (
@@ -47,79 +58,75 @@ function Rows<T extends Record<string, any>, K extends keyof T>(
           key={i}
           onClick={() => onRowClicked && onRowClicked({ value: data[i] })}
         >
-          {headers.map(key => (
-            <Td key={key as string}>
-              {date.is(value[key]) ? (
-                <Text>{formatDate(value[key])}</Text>
-              ) : t.boolean.is(value[key]) ? (
-                <CheckBox readOnly checked={value[key]} />
-              ) : value[key] !== undefined ? (
-                value[key]
+          {select.map(h => (
+            <Td key={h as string}>
+              {date.is(value[h]) ? (
+                <Text>{formatDate(value[h])}</Text>
+              ) : t.boolean.is(value[h]) ? (
+                <CheckBox readOnly checked={value[h]} />
+              ) : value[h] !== undefined ? (
+                value[h]
               ) : (
-                render && render(key, value)
+                render && render(h as string, value)
               )}
             </Td>
           ))}
+          {extra && extra.map(e => render && render(e, value))}
         </Tr>
       ))}
     </>
   )
 }
 
-export interface TableViewProps<T extends Record<string, any>>
-  extends TableProps {
-  readonly headers?: ReadonlyArray<keyof T>
-  readonly labels?: readonly string[] | Record<keyof T, string>
+export interface TableViewProps<
+  T extends Record<string, any>,
+  EK extends string,
+  Select extends keyof T = keyof T
+> extends SimpleTableProps<T, EK, Select> {
   readonly data: ReadonlyArray<T>
-  onRowClicked?(value: RowClickEvent<T>): void
-  children?(key: keyof T, value: T): React.ReactNode
 }
 
-interface HeaderProps {
-  readonly labels: readonly string[]
-}
+function TableView<
+  T extends Record<string, any>,
+  Select extends keyof T,
+  EK extends string
+>(args: TableViewProps<T, EK, Select>): JSX.Element {
+  const {
+    select,
+    override,
+    extra,
+    data,
+    onRowClicked,
+    children,
+    ...props
+  } = args
 
-const Header: React.FC<HeaderProps> = ({ labels }) => (
-  <TableHead>
-    <Tr>
-      {labels.map(h => (
-        <Th key={h}>{h}</Th>
-      ))}
-    </Tr>
-  </TableHead>
-)
+  if (data.length === 0) {
+    return <Text textSize="3">No Values</Text>
+  }
 
-function getLabels<T extends Record<string, any>>(
-  headers: ReadonlyArray<keyof T>,
-  labels: Record<keyof T, string>,
-): readonly string[] {
-  return headers.map(h =>
-    labels[h] ? labels[h] : camelCaseToPhrase(h as string),
-  )
-}
+  const keys: ReadonlyArray<keyof T> =
+    select === undefined ? Object.keys(data[0]) : select
 
-function TableView<T extends Record<string, any>>(
-  args: TableViewProps<T>,
-): JSX.Element {
-  const { headers, labels, data, onRowClicked, children, ...props } = args
-
-  const allHeaders: ReadonlyArray<keyof T> =
-    headers || Object.keys(data[0] || {})
-
-  const headerLabels: readonly string[] = labels
-    ? array(string).is(labels)
-      ? labels
-      : getLabels(allHeaders, labels as Record<keyof T, string>)
-    : allHeaders.map(h => camelCaseToPhrase(h as string))
+  const labels: readonly string[] = [
+    ...keys.map(
+      s =>
+        override && s in override
+          ? override[s as string]
+          : camelCaseToPhrase(s as string),
+      ...(extra || []),
+    ),
+  ]
 
   return (
     <Table {...props} fullWidth>
-      <Header labels={headerLabels} />
+      <SimpleTableHeader headers={labels} />
 
       <TableBody>
         <Rows
           data={data}
-          headers={allHeaders}
+          select={keys}
+          extra={extra}
           onRowClicked={onRowClicked}
           render={children}
         />
@@ -128,9 +135,24 @@ function TableView<T extends Record<string, any>>(
   )
 }
 
-export function SimpleTable<T extends Record<string, any>>(
-  args: SimpleTableProps<T>,
-): JSX.Element {
+export interface SimpleTableProps<
+  T extends Record<string, any>,
+  EK extends string,
+  Select extends keyof T = keyof T
+> extends TableProps {
+  readonly select?: ReadonlyArray<Select>
+  readonly override?: Partial<Record<Select, string>>
+  readonly extra?: readonly EK[]
+  readonly data: ReadonlyArray<T> | (() => Promise<ReadonlyArray<T>>)
+  onRowClicked?(value: RowClickEvent<T>): void
+  children?(key: keyof T | EK, value: T): React.ReactNode
+}
+
+export function SimpleTable<
+  T extends Record<string, any>,
+  EK extends string,
+  Select extends keyof T = keyof T
+>(args: SimpleTableProps<T, EK, Select>): JSX.Element {
   const { data, ...props } = args
 
   return typeof data === 'function' ? (
