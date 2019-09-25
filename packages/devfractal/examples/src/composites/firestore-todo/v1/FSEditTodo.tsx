@@ -35,7 +35,7 @@ export const FSEditTodo: React.FC<FSEditTodoProps> = ({ id }) => {
     actions: FormikActions<typeof todo>,
   ) => {
     try {
-      await fsTodoAPI.replace(todo)
+      await fsTodoAPI.replace(todo.id, todo)
     } catch (err) {
       setErr(err.message)
     } finally {
