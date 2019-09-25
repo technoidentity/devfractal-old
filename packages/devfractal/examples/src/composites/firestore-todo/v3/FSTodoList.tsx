@@ -14,7 +14,7 @@ const FSTodoListProps = req({
 export const FSTodoList = component(FSTodoListProps, ({ data: fsTodoList }) => (
   <CrudTable
     data={fsTodoList}
-    headers={['title', 'done']}
+    select={['title', 'done']}
     editTo={v => todoLinks.edit(v.id)}
   />
 ))
