@@ -49,10 +49,9 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
 
         <DiyaTable
           data={driverList}
-          headers={['name', 'lastActive', 'shift', 'status']}
+          select={['name', 'lastActive', 'shift', 'status']}
           editTo={v => driverLinks.edit(v.id)}
           assignTo={v => `/assignDriver/${v.id}`}
-          labels={['name', 'lastActive', 'shift', 'status']}
         />
 
         <RoutedPager />

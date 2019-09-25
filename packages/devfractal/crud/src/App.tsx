@@ -48,7 +48,7 @@ const TodoList = listComponent(Todo, ({ data }) => (
     </ButtonLink>
     <CrudTable
       data={data}
-      headers={['title', 'done']}
+      select={['title', 'done']}
       editTo={({ id }) => editTo(id)}
     />
   </>

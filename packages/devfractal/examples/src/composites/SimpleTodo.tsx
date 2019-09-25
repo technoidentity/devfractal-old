@@ -31,6 +31,6 @@ export const SimpleTodo: React.FC = () => (
   <>
     <SimpleAddTodo />
     <Viewer data={todoList[0]} />
-    <SimpleTable headers={['id', 'title', 'done']} data={todoList} />
+    <SimpleTable select={['id', 'title', 'done']} data={todoList} />
   </>
 )
