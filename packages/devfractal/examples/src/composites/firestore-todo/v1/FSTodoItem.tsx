@@ -15,6 +15,7 @@ export const FSTodoItem: React.FC<FSTodoItemProps> = ({
     <Tr>
       <Td>{todo.id}</Td>
       <Td>{todo.title}</Td>
+      <Td>{todo.completed}</Td>
       <Td>
         <CheckBox checked={todo.done} readOnly />
       </Td>
