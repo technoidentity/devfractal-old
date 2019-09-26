@@ -1,6 +1,5 @@
-import { Simple } from 'devfractal-simple'
 import { Text, Title } from 'devfractal-ui-core'
-import { FormikActions } from 'formik'
+import { Field, Form, Formik, FormikActions } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { FSTodo, fsTodoAPI } from '../common'
@@ -16,14 +15,20 @@ export const FSAddTodoView: React.FC<AddTodoProps> = ({ onAddTodo }) => {
   return (
     <>
       <Title>Add Todo Form</Title>
-      <Simple.Form
-        initialValues={{ title: '', done: false }}
+      <Formik
+        initialValues={{ title: '', done: false, completed: new Date() }}
         onSubmit={onAddTodo}
       >
-        <Simple.Text name="title" placeholder="title" />
-        <Simple.Checkbox name="done"> Done</Simple.Checkbox>
-        <Simple.FormButtons />
-      </Simple.Form>
+        {() => {
+          return (
+            <Form>
+              <Field name="title" type="text" />
+              <Field name="done" component="checkbox" />
+              <button type="submit">Submit</button>
+            </Form>
+          )
+        }}
+      </Formik>
     </>
   )
 }
