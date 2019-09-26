@@ -34,6 +34,7 @@ export const ClientList = listComponent(Client, ({ data: clientList }) => {
         override={{
           numberOfEVS: 'No. of EVS',
           rateOfEVS: 'Rate of EVS',
+          assignedEVSHistory: 'Assigned EVS history',
         }}
         editTo={v => clientLinks.edit(v.id)}
       />
