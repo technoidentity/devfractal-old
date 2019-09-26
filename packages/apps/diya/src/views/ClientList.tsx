@@ -23,7 +23,7 @@ export const ClientList = listComponent(Client, ({ data: clientList }) => {
 
       <CrudTable
         data={clientList}
-        headers={[
+        select={[
           'clientName',
           'contractType',
           'email',
@@ -31,15 +31,10 @@ export const ClientList = listComponent(Client, ({ data: clientList }) => {
           'rateOfEVS',
           'assignedEVSHistory',
         ]}
-        labels={[
-          'Client Name',
-          'Contract Type',
-          'Email',
-          'No. of EVS',
-          'Rate of EVS',
-          'Assigned EVS History',
-          'Actions',
-        ]}
+        override={{
+          numberOfEVS: 'No. of EVS',
+          rateOfEVS: 'Rate of EVS',
+        }}
         editTo={v => clientLinks.edit(v.id)}
       />
 

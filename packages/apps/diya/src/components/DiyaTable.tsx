@@ -40,26 +40,41 @@ export const DiyaActions: React.FC<DiyaActionsProps> = ({
   )
 }
 
-export interface DiyaTableProps<T extends Record<string, any>>
-  extends Pick<SimpleTableProps<T>, 'headers' | 'labels' | 'onRowClicked'> {
+export interface DiyaTableProps<
+  T extends Record<string, any>,
+  EK extends string,
+  Select extends keyof T
+>
+  extends Pick<
+    SimpleTableProps<T, EK, Select>,
+    'select' | 'override' | 'extra' | 'onRowClicked'
+  > {
   readonly data: ReadonlyArray<T>
   editTo(value: T): string
   onDelete?(value: T): void
   assignTo(value: T): string
 }
 
-export function DiyaTable<T>({
+export function DiyaTable<
+  T extends Record<string, any>,
+  EK extends string,
+  Select extends keyof T
+>({
   data,
-  headers,
+  select,
+  extra,
+  override,
   editTo,
   onDelete,
   assignTo,
   onRowClicked,
-}: DiyaTableProps<T>): JSX.Element {
+}: DiyaTableProps<T, EK, Select>): JSX.Element {
   return (
     <SimpleTable
       data={data}
-      headers={[...(headers || []), 'Actions'] as any}
+      select={select}
+      override={override}
+      extra={[...(extra || []), 'Actions']}
       striped
       onRowClicked={onRowClicked}
     >

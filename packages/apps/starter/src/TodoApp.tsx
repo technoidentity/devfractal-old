@@ -16,8 +16,7 @@ import {
   SimpleRedirect,
   Title,
 } from 'technoidentity-devfractal'
-import { boolean, number, string } from 'technoidentity-utils'
-import { ISODate, obj } from 'technoidentity-utils'
+import { boolean, ISODate, number, obj, string } from 'technoidentity-utils'
 
 const Todo = obj(
   { id: number },
@@ -51,7 +50,7 @@ const TodoList = listComponent(Todo, ({ data }) => (
 
     <CrudTable
       data={data}
-      headers={['title', 'scheduled', 'done']}
+      select={['title', 'scheduled', 'done']}
       editTo={v => ls.edit(v.id)}
     />
   </>

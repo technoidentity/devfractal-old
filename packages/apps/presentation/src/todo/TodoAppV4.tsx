@@ -37,7 +37,7 @@ const TodoList = listComponent(Todo, ({ data }) => (
 
     <CrudTable
       data={data}
-      headers={['title', 'scheduled', 'done']}
+      select={['title', 'scheduled', 'done']}
       editTo={v => ls.edit(v.id)}
     />
   </>

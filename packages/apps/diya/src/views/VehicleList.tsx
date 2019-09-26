@@ -23,22 +23,13 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
 
       <DiyaTable
         data={vehicleList}
-        headers={[
+        select={[
           'name',
           'numberPlate',
           'group',
           'nextService',
           'insuranceDue',
           'status',
-        ]}
-        labels={[
-          'name',
-          'numberPlate',
-          'group',
-          'nextService',
-          'insuranceDue',
-          'status',
-          'Actions',
         ]}
         editTo={v => vehicleLinks.edit(v.id)}
         assignTo={v => `/assignVehicle/${v.id}`}

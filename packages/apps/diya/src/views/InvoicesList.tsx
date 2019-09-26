@@ -14,8 +14,8 @@ export const InvoiceList = listComponent(Invoice, ({ data: invoiceList }) => (
 
     <SimpleTable
       data={invoiceList}
-      headers={['invoicesNo', 'valid', 'dueDate', 'amount']}
-      labels={['InVoices No.', 'Valid', 'Due Date', 'Amount']}
+      select={['invoicesNo', 'valid', 'dueDate', 'amount']}
+      override={{ invoicesNo: 'InVoices No.' }}
       striped
     />
 

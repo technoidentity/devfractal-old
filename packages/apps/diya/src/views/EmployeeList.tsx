@@ -25,7 +25,7 @@ export const EmployeeList = listComponent(
 
       <CrudTable
         data={employeeList}
-        headers={['name', 'role']}
+        select={['name', 'role']}
         editTo={v => employeeLinks.edit(v.id)}
       />
 

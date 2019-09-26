@@ -39,14 +39,14 @@ export const EVSList = listComponent(Ev, ({ data: evsList }) => (
     <HeadTitle>EVS assigned</HeadTitle>
 
     <CreateLink alignment="right" variant="primary" to={evsLinks.create}>
-      {' '}
       Request New EV
     </CreateLink>
 
     <SimpleTable
       data={evsList}
-      headers={['driverName', 'Actions'] as any}
-      labels={['Driver', 'Actions']}
+      select={['driverName']}
+      override={{ driverName: 'Driver' }}
+      extra={['Actions']}
       striped
     >
       {(key: string) =>
