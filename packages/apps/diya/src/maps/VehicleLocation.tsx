@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  GoogleMap,
   InfoWindow,
   Marker,
   withGoogleMap,
@@ -11,19 +10,9 @@ import { readonlyArray } from 'technoidentity-utils'
 import { VehicleLocation } from '../common'
 import { fakeBaseURL, googleMapApi } from '../config'
 import evIcon from '../images/ev.png'
+import { Map } from './Map'
 
 const http = httpAPI({ baseURL: fakeBaseURL })
-
-const Map: React.FC = props => {
-  return (
-    <GoogleMap
-      defaultZoom={15}
-      defaultCenter={{ lat: 17.385044, lng: 78.486671 }}
-    >
-      {props.children}
-    </GoogleMap>
-  )
-}
 
 interface EvPositionState {
   readonly lat: number
@@ -79,15 +68,16 @@ const EvLocations: React.FC<EvLocationsProps> = ({ resource }) => {
     </Map>
   )
 }
-
 const WrappedMap = withScriptjs(withGoogleMap(EvLocations))
 
-export const MapView = () => (
-  <WrappedMap
-    resource="vehicles_location"
-    googleMapURL={googleMapApi}
-    loadingElement={<div style={{ height: `100%` }} />}
-    containerElement={<section style={{ height: `600px` }} />}
-    mapElement={<div style={{ height: `100%` }} />}
-  />
-)
+export const MapView = () => {
+  return (
+    <WrappedMap
+      resource="vehicles_location"
+      googleMapURL={googleMapApi}
+      loadingElement={<div style={{ height: `100%` }} />}
+      containerElement={<section style={{ height: `600px` }} />}
+      mapElement={<div style={{ height: `100%` }} />}
+    />
+  )
+}
