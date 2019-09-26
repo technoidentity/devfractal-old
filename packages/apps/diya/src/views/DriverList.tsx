@@ -25,7 +25,7 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
       <Section>
         <HeadTitle>Drivers</HeadTitle>
         <Columns>
-          <Column>
+          <Column narrow>
             <Search
               searchBy="name"
               onSearch={value => {
