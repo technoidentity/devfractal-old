@@ -99,7 +99,11 @@ export const SimpleFormExample: React.FC = () => (
         <option value="assistant">assistant</option>
       </Simple.Select>
       <Simple.Number label="Age" name="age" validations={[required()]} />
-      <Simple.TextArea label="TextArea" name="message" />
+      <Simple.TextArea
+        label="TextArea"
+        name="message"
+        validations={[required()]}
+      />
       <Simple.FormButtons />
       <Simple.Debug />
     </Simple.Form>

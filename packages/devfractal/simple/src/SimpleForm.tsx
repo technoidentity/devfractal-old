@@ -168,6 +168,7 @@ export interface SimpleTextAreaProps<Values extends {}>
     Named<Values>,
     FieldProps {
   readonly label?: string
+  readonly validations?: ReadonlyArray<(schema: StringSchema) => StringSchema>
 }
 
 export interface SimpleFormButtonsProps extends ButtonsGroupProps {
@@ -282,12 +283,15 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
       )
     },
 
-    TextArea: ({ label, ...args }) => {
+    TextArea: ({ label, validations, ...args }) => {
       const [fieldProps, props] = splitFieldProps(args)
       return (
         <Field {...fieldProps}>
           <Label>{label || camelCaseToPhrase(props.name)}</Label>
-          <TextAreaField {...props} />
+          <TextAreaField
+            {...props}
+            validate={validator(string(), validations)}
+          />
           <ErrorField name={props.name} />
         </Field>
       )
