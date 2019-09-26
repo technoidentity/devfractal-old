@@ -2,8 +2,8 @@
 import { formComponent } from 'devfractal-crud'
 import { Simple } from 'devfractal-simple'
 import React from 'react'
-import { FSTodo } from '../common'
 import 'react-datepicker/dist/react-datepicker.css'
+import { FSTodo } from '../common'
 
 export const FSTodoForm = formComponent(FSTodo, ({ initial, onSubmit }) => (
   <Simple.Form onSubmit={onSubmit} initialValues={initial}>
