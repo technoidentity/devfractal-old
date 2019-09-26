@@ -14,25 +14,23 @@ export const Pager: React.FC<PagerProps> = ({
   onPageChange,
 }) => (
   <Pagination alignment="centered">
-    {page > 1 && (
-      <PaginationPrevious
-        onClick={() => {
-          onPageChange(page - 1)
-        }}
-      >
-        Previous
-      </PaginationPrevious>
-    )}
+    <PaginationPrevious
+      invisible={page <= 1}
+      onClick={() => {
+        onPageChange(page - 1)
+      }}
+    >
+      Previous
+    </PaginationPrevious>
 
-    {(maxPages === undefined || page < maxPages) && (
-      <PaginationNext
-        onClick={() => {
-          onPageChange(page + 1)
-        }}
-      >
-        Next
-      </PaginationNext>
-    )}
+    <PaginationNext
+      invisible={maxPages !== undefined && page >= maxPages}
+      onClick={() => {
+        onPageChange(page + 1)
+      }}
+    >
+      Next
+    </PaginationNext>
 
     {/* <PaginationList>
       <PaginationLink current aria-label="Goto page 1">

@@ -61,7 +61,7 @@ function Rows<
           {select.map(h => (
             <Td key={h as string}>
               {date.is(value[h]) ? (
-                <Text>{formatDate(value[h])}</Text>
+                <>{formatDate(value[h])}</>
               ) : t.boolean.is(value[h]) ? (
                 <CheckBox readOnly checked={value[h]} />
               ) : value[h] !== undefined ? (
@@ -71,7 +71,8 @@ function Rows<
               )}
             </Td>
           ))}
-          {extra && extra.map(e => render && render(e, value))}
+          {extra &&
+            extra.map(e => render && <Td key={e}>{render(e, value)}</Td>)}
         </Tr>
       ))}
     </>
@@ -109,13 +110,12 @@ function TableView<
     select === undefined ? Object.keys(data[0]) : select
 
   const labels: readonly string[] = [
-    ...keys.map(
-      s =>
-        override && s in override
-          ? override[s as string]
-          : camelCaseToPhrase(s as string),
-      ...(extra || []),
+    ...keys.map(s =>
+      override && s in override
+        ? override[s as string]
+        : camelCaseToPhrase(s as string),
     ),
+    ...(extra || []),
   ]
 
   return (
