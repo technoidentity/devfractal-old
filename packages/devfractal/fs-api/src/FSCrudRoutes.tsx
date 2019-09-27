@@ -1,4 +1,3 @@
-import { paths as resPaths } from 'devfractal-crud'
 import { TypeOf } from 'io-ts'
 import React from 'react'
 import { ObjC, Props } from 'technoidentity-utils'
@@ -6,6 +5,20 @@ import { FirstoreAPI } from './firestoreRest'
 import { FSAll, FSAllComponentProps } from './FSAll'
 import { FSCreate } from './FSCreate'
 import { FSEdit, FSEditComponentProps } from './FSEdit'
+
+function base(resource: string, basePath?: string): string {
+  return basePath ? `${basePath}/${resource}` : `/${resource}`
+}
+
+// tslint:disable-next-line: typedef
+export function resPaths(resource: string, basePath?: string) {
+  return {
+    list: `${base(resource, basePath)}`,
+    view: `${base(resource, basePath)}/:id`,
+    edit: `${base(resource, basePath)}/:id/edit`,
+    create: `${base(resource, basePath)}/new`,
+  }
+}
 
 export interface FSCrudRouteProps<
   Opt extends Props,

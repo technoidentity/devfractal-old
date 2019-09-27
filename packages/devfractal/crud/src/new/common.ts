@@ -7,7 +7,7 @@ import { fn, obj, req } from 'technoidentity-utils'
 type CrudOperations = 'list' | 'edit' | 'create' | 'view'
 export type Paths = Record<CrudOperations, string>
 
-export function base(resource: string, basePath?: string): string {
+function base(resource: string, basePath?: string): string {
   return basePath ? `${basePath}/${resource}` : `/${resource}`
 }
 
