@@ -1,4 +1,4 @@
-import { fsRest, FSDate } from 'technoidentity-devfractal'
+import { FSDate, fsRest } from 'technoidentity-devfractal'
 import { boolean, req, string, TypeOf } from 'technoidentity-utils'
 import { db } from './firestore'
 // tslint:disable typedef

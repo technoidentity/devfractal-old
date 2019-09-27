@@ -3,6 +3,7 @@
   "version": "1.2.19",
   "private": true,
   "dependencies": {
+    "firebase": "^7.0.0",
     "formik": "1.5.8",
     "react": "16.9.0",
     "react-datepicker": "2.9.6",

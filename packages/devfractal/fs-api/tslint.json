@@ -1,1 +1,6 @@
-{ "extends": ["../../../tslint.client.json"] }
+{
+  "extends": ["../../../tslint.client.json"],
+  "rules": {
+    "no-unbound-method": false
+  }
+}
