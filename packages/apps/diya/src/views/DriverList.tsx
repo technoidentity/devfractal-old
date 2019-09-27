@@ -20,6 +20,7 @@ const driverLinks = links('drivers')
 export const DriverList = listComponent(Driver, ({ data: driverList }) => {
   const { push } = useHistory()
   const { pathname } = useLocation()
+  console.log((driverList as any).totalCount)
   return (
     <>
       <Section>
@@ -54,7 +55,7 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
           assignTo={v => `/assignDriver/${v.id}`}
         />
 
-        <RoutedPager />
+        <RoutedPager count={Math.ceil((driverList as any).totalCount / 25)} />
       </Section>
     </>
   )

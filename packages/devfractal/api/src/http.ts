@@ -11,6 +11,7 @@ import {
   ObjC,
   Props,
   string,
+  toInt,
   TypeOf,
   verify,
 } from 'technoidentity-utils'
@@ -83,7 +84,11 @@ export function http({ baseURL, ...config }: RequestConfig) {
   ): Promise<TypeOf<Spec>> {
     return axios
       .get<InputOf<Spec>>(url(options))
-      .then(res => res.data)
+      .then(res => {
+        ;(res.data as any).totalCount = toInt(res.headers['x-total-count'])
+        console.log(res.data)
+        return res.data
+      })
       .then(decode(responseSpec))
   }
 
