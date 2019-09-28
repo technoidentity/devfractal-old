@@ -21,19 +21,19 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.2.1",
+    "date-fns": "2.4.0",
     "formik": "1.5.8",
     "immer": "4.0.0",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-router": "5.0.1",
-    "react-router-dom": "5.0.1",
+    "react": "16.10.0",
+    "react-dom": "16.10.0",
+    "react-router": "5.1.1",
+    "react-router-dom": "5.1.1",
     "technoidentity-devfractal": "^1.2.19",
     "technoidentity-utils": "^1.2.19",
     "yup": "0.27.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.6.2",
     "bulma": "0.7.5",
     "cross-env": "6.0.0",
     "eslint": "6.4.0",
@@ -46,8 +46,8 @@
     "typescript": "3.6.3"
   },
   "resolutions": {
-    "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react": "16.10.0",
+    "react-dom": "16.10.0"
   },
   "browserslist": [
     ">0.2%",
