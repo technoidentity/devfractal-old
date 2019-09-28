@@ -1,9 +1,4 @@
-import {
-  Menu,
-  MenuItem,
-  MenuLabel,
-  MenuList,
-} from 'devfractal-ui'
+import { Menu, MenuItem, MenuLabel, MenuList } from 'devfractal-ui'
 import { Box, Section } from 'devfractal-ui-core'
 import React from 'react'
 
@@ -13,56 +8,28 @@ export const MenuExample: React.FC = () => (
       <Menu>
         <MenuLabel>General</MenuLabel>
         <MenuList>
-          <MenuItem>
-            <a href="#!">Dashboard</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#!">Customers</a>
-          </MenuItem>
+          <MenuItem>Dashboard</MenuItem>
+          <MenuItem>Customers</MenuItem>
         </MenuList>
         <MenuLabel>Administration</MenuLabel>
         <MenuList>
-          <MenuItem>
-            <a href="#!">TeamSettings</a>
-          </MenuItem>
-          <MenuItem>
-            <a className="is-active" href="#!">
-              {' '}
-              Manage your team
-            </a>
-            <MenuList>
-              <MenuItem>
-                <a href="#!">Members</a>
-              </MenuItem>
-              <MenuItem>
-                <a href="#!">Plugins</a>
-              </MenuItem>
-              <MenuItem>
-                <a href="#!">Add a member</a>
-              </MenuItem>
-            </MenuList>
-          </MenuItem>
-          <MenuItem>
-            <a href="#!">invitations</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#!">cloudstorage</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#!">invitations</a>
-          </MenuItem>
+          <MenuItem>TeamSettings</MenuItem>
+          <MenuItem active>Manage your team</MenuItem>
+          <MenuList>
+            <MenuItem>Members</MenuItem>
+            <MenuItem>Plugins</MenuItem>
+            <MenuItem>Add a member</MenuItem>
+          </MenuList>
+
+          <MenuItem>invitations</MenuItem>
+          <MenuItem>cloudstorage</MenuItem>
+          <MenuItem>invitations</MenuItem>
           <MenuLabel>Transactions</MenuLabel>
         </MenuList>
         <MenuList>
-          <MenuItem>
-            <a href="#!">payments</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#!">transfers</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#!">balance</a>
-          </MenuItem>
+          <MenuItem>payments</MenuItem>
+          <MenuItem>transfers</MenuItem>
+          <MenuItem>balance</MenuItem>
         </MenuList>
       </Menu>
     </Box>

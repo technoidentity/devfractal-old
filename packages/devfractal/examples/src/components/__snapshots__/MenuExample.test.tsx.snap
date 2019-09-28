@@ -21,30 +21,20 @@ exports[`Menu Example 1`] = `
         >
           <li>
             <a
-              aria-current={null}
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                href="#!"
-              >
-                Dashboard
-              </a>
+              Dashboard
             </a>
           </li>
           <li>
             <a
-              aria-current={null}
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                href="#!"
-              >
-                Customers
-              </a>
+              Customers
             </a>
           </li>
         </ul>
@@ -58,120 +48,78 @@ exports[`Menu Example 1`] = `
         >
           <li>
             <a
-              aria-current={null}
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                href="#!"
-              >
-                TeamSettings
-              </a>
+              TeamSettings
             </a>
           </li>
           <li>
             <a
-              aria-current={null}
+              className="is-active"
+              href="#/"
+              onClick={[Function]}
+            >
+              Manage your team
+            </a>
+          </li>
+          <ul
+            className="menu-list"
+          >
+            <li>
+              <a
+                className=""
+                href="#/"
+                onClick={[Function]}
+              >
+                Members
+              </a>
+            </li>
+            <li>
+              <a
+                className=""
+                href="#/"
+                onClick={[Function]}
+              >
+                Plugins
+              </a>
+            </li>
+            <li>
+              <a
+                className=""
+                href="#/"
+                onClick={[Function]}
+              >
+                Add a member
+              </a>
+            </li>
+          </ul>
+          <li>
+            <a
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                className="is-active"
-                href="#!"
-              >
-                 
-                Manage your team
-              </a>
-              <ul
-                className="menu-list"
-              >
-                <li>
-                  <a
-                    aria-current={null}
-                    className=""
-                    href="#/"
-                    onClick={[Function]}
-                  >
-                    <a
-                      href="#!"
-                    >
-                      Members
-                    </a>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    aria-current={null}
-                    className=""
-                    href="#/"
-                    onClick={[Function]}
-                  >
-                    <a
-                      href="#!"
-                    >
-                      Plugins
-                    </a>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    aria-current={null}
-                    className=""
-                    href="#/"
-                    onClick={[Function]}
-                  >
-                    <a
-                      href="#!"
-                    >
-                      Add a member
-                    </a>
-                  </a>
-                </li>
-              </ul>
+              invitations
             </a>
           </li>
           <li>
             <a
-              aria-current={null}
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                href="#!"
-              >
-                invitations
-              </a>
+              cloudstorage
             </a>
           </li>
           <li>
             <a
-              aria-current={null}
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                href="#!"
-              >
-                cloudstorage
-              </a>
-            </a>
-          </li>
-          <li>
-            <a
-              aria-current={null}
-              className=""
-              href="#/"
-              onClick={[Function]}
-            >
-              <a
-                href="#!"
-              >
-                invitations
-              </a>
+              invitations
             </a>
           </li>
           <p
@@ -185,44 +133,29 @@ exports[`Menu Example 1`] = `
         >
           <li>
             <a
-              aria-current={null}
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                href="#!"
-              >
-                payments
-              </a>
+              payments
             </a>
           </li>
           <li>
             <a
-              aria-current={null}
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                href="#!"
-              >
-                transfers
-              </a>
+              transfers
             </a>
           </li>
           <li>
             <a
-              aria-current={null}
               className=""
               href="#/"
               onClick={[Function]}
             >
-              <a
-                href="#!"
-              >
-                balance
-              </a>
+              balance
             </a>
           </li>
         </ul>
