@@ -10,7 +10,7 @@ import {
   faCircle,
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import { Route } from 'devfractal-router'
+import { Link, Route } from 'devfractal-router'
 import { DynamicBreadcrumb } from 'devfractal-ui'
 import {
   Button,
@@ -36,7 +36,6 @@ import {
   Title,
 } from 'devfractal-ui-core'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { default as developer } from '../src/images/asset/developer.png'
 import logo from '../src/images/asset/logo.png'
 import { default as contentLoader } from '../src/images/contentLoader.png'
@@ -54,8 +53,12 @@ import {
 } from './Medias'
 
 export const HeroBodySection: React.FC = () => (
-  <Section modifier="medium" textAlignment="centered" style={{background:`url(${contentLoader})`}}>
-  <Title
+  <Section
+    modifier="medium"
+    textAlignment="centered"
+    style={{ background: `url(${contentLoader})` }}
+  >
+    <Title
       textColor="white"
       textWeight="light"
       className=" is-family-sans-serif is-size-1-desktop is-size-3-tablet is-size-4-mobile"

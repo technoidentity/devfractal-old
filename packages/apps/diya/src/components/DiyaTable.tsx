@@ -3,7 +3,7 @@ import { ButtonLink } from 'devfractal-crud'
 import { SimpleTable, SimpleTableProps } from 'devfractal-simple'
 import { Icon } from 'devfractal-ui-core'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'technoidentity-devfractal'
 
 export interface DiyaActionsProps {
   readonly editTo: string

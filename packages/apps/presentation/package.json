@@ -26,8 +26,6 @@
     "immer": "4.0.0",
     "react": "16.10.0",
     "react-dom": "16.10.0",
-    "react-router": "5.1.1",
-    "react-router-dom": "5.1.1",
     "technoidentity-devfractal": "^1.2.19",
     "technoidentity-utils": "^1.2.19",
     "yup": "0.27.0"

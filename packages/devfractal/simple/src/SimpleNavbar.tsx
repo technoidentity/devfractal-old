@@ -1,3 +1,4 @@
+import { NavLink } from 'devfractal-router'
 import {
   Navbar,
   NavbarBrand,
@@ -10,7 +11,6 @@ import {
   NavbarMenu,
 } from 'devfractal-ui-core'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
 const NavBurger: React.FC<NavbarBurgerProps> = props => (
   <NavbarBurger role="button" {...props}>

@@ -1,7 +1,6 @@
-import { useRouter } from 'devfractal-router'
+import { Link, useRouter } from 'devfractal-router'
 import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { chop } from 'technoidentity-utils'
 
 type MenuSize = 'small' | 'medium' | 'large'
