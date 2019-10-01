@@ -20,12 +20,10 @@ export const GeoFenceDrawer: React.FC = () => {
           geodesic: true,
         },
       }}
-      onPolygonComplete={p => {
-        const path = p.getPath()
+      onPolygonComplete={(poly: google.maps.Polygon) => {
+        const path = poly.getPath()
         if (path) {
-          const latlngs: ReadonlyArray<
-            google.maps.LatLngLiteral
-          > = path.getArray().map(e => e.toJSON())
+          path.getArray().map(e => e.toJSON())
         }
         setDraw(!draw)
       }}
