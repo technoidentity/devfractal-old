@@ -2,20 +2,34 @@ import React from 'react'
 import { withGoogleMap, withScriptjs } from 'react-google-maps'
 import DrawingManager from 'react-google-maps/lib/components/drawing/DrawingManager'
 import { googleMapApi } from '../config'
-import { Map } from './Utils'
+import { Map } from './Map'
 
-const GeoFenceDrawer = () => {
+export const GeoFenceDrawer: React.FC = () => {
+  const [draw, setDraw] = React.useState<boolean>(true)
   return (
     <DrawingManager
-      defaultOptions={{
-        drawingControl: true,
+      options={{
+        drawingControl: draw,
         drawingControlOptions: {
           position: google.maps.ControlPosition.TOP_CENTER,
-          drawingModes: [google.maps.drawing.OverlayType.POLYLINE],
+          drawingModes: [google.maps.drawing.OverlayType.POLYGON],
         },
-
-        polylineOptions: {},
+        polygonOptions: {
+          fillColor: '#1F4788',
+          fillOpacity: 0.5,
+          geodesic: true,
+        },
       }}
+      onPolygonComplete={p => {
+        const path = p.getPath()
+        if (path) {
+          const latlngs: ReadonlyArray<
+            google.maps.LatLngLiteral
+          > = path.getArray().map(e => e.toJSON())
+        }
+        setDraw(!draw)
+      }}
+      drawingMode={draw ? google.maps.drawing.OverlayType.POLYGON : undefined}
     />
   )
 }
@@ -28,7 +42,7 @@ const GeoFenceInner = withScriptjs(
   )),
 )
 
-export const GeoFence = () => (
+export const GeoFenceDraw = () => (
   <GeoFenceInner
     googleMapURL={googleMapApi}
     loadingElement={<div style={{ height: `100%` }} />}
