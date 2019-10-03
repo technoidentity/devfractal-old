@@ -1,8 +1,6 @@
+import { DrawingManager } from '@react-google-maps/api'
 import React from 'react'
-import { withGoogleMap, withScriptjs } from 'react-google-maps'
-import DrawingManager from 'react-google-maps/lib/components/drawing/DrawingManager'
-import { googleMapApi } from '../config'
-import { Map } from './Map'
+import { MapSearch } from './MapSearch'
 
 export const GeoFenceDrawer: React.FC = () => {
   const [draw, setDraw] = React.useState<boolean>(true)
@@ -11,7 +9,7 @@ export const GeoFenceDrawer: React.FC = () => {
       options={{
         drawingControl: draw,
         drawingControlOptions: {
-          position: google.maps.ControlPosition.TOP_CENTER,
+          position: google.maps.ControlPosition.LEFT_TOP,
           drawingModes: [google.maps.drawing.OverlayType.POLYGON],
         },
         polygonOptions: {
@@ -32,19 +30,8 @@ export const GeoFenceDrawer: React.FC = () => {
   )
 }
 
-const GeoFenceInner = withScriptjs(
-  withGoogleMap(() => (
-    <Map>
-      <GeoFenceDrawer />
-    </Map>
-  )),
-)
-
-export const GeoFenceDraw = () => (
-  <GeoFenceInner
-    googleMapURL={googleMapApi}
-    loadingElement={<div style={{ height: `100%` }} />}
-    containerElement={<div style={{ height: `600px` }} />}
-    mapElement={<div style={{ height: `100%` }} />}
-  />
+export const GeoFence = () => (
+  <MapSearch>
+    <GeoFenceDrawer />
+  </MapSearch>
 )

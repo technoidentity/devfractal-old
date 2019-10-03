@@ -1,14 +1,6 @@
+import { GoogleMap, GoogleMapProps } from '@react-google-maps/api'
 import React from 'react'
-import { GoogleMap, GoogleMapProps } from 'react-google-maps'
 
 export const Map: React.FC<GoogleMapProps> = props => {
-  return (
-    <GoogleMap
-      {...props}
-      defaultZoom={15}
-      defaultCenter={{ lat: 17.385044, lng: 78.486671 }}
-    >
-      {props.children}
-    </GoogleMap>
-  )
+  return <GoogleMap {...props}>{props.children}</GoogleMap>
 }

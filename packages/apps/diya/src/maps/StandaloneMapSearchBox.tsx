@@ -1,5 +1,5 @@
+import { StandaloneSearchBox } from '@react-google-maps/api'
 import React from 'react'
-import StandaloneSearchBox from 'react-google-maps/lib/components/places/StandaloneSearchBox'
 import { Input } from 'technoidentity-devfractal'
 
 export const StandaloneGoogleMapSearchBox = ({

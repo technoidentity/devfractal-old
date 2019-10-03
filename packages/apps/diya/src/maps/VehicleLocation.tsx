@@ -1,15 +1,12 @@
+import { InfoWindow, Marker } from '@react-google-maps/api'
 import React from 'react'
-import {
-  InfoWindow,
-  Marker,
-  withGoogleMap,
-  withScriptjs,
-} from 'react-google-maps'
 import { http as httpAPI } from 'technoidentity-devfractal'
 import { readonlyArray } from 'technoidentity-utils'
 import { VehicleLocation } from '../common'
-import { fakeBaseURL, googleMapApi } from '../config'
+import { fakeBaseURL, googleMapApiKey } from '../config'
 import evIcon from '../images/ev.png'
+import { defaultMapSettings } from './defaultSettings'
+import { LoadMapApiKey } from './LoadMapApiKey'
 import { Map } from './Map'
 
 const http = httpAPI({ baseURL: fakeBaseURL })
@@ -35,7 +32,7 @@ const EvLocations: React.FC<EvLocationsProps> = ({ resource }) => {
     fetchData()
   }, [])
   return (
-    <Map>
+    <>
       {evs &&
         evs.map((ev: VehicleLocation) => (
           <Marker
@@ -65,19 +62,21 @@ const EvLocations: React.FC<EvLocationsProps> = ({ resource }) => {
           <div>{state.description}</div>
         </InfoWindow>
       )}
-    </Map>
+    </>
   )
 }
-const WrappedMap = withScriptjs(withGoogleMap(EvLocations))
 
-export const MapView = () => {
-  return (
-    <WrappedMap
-      resource="vehicles_location"
-      googleMapURL={googleMapApi}
-      loadingElement={<div style={{ height: `100%` }} />}
-      containerElement={<section style={{ height: `600px` }} />}
-      mapElement={<div style={{ height: `100%` }} />}
-    />
-  )
-}
+const LoadComponent = () => <div>...Loading Map</div>
+const ErrorComponent = () => <div>Map cannot be loaded right now, sorry.</div>
+
+export const MapView: React.FC = () => (
+  <LoadMapApiKey
+    googleMapsApiKey={googleMapApiKey}
+    loadComponent={LoadComponent}
+    errorComponent={ErrorComponent}
+  >
+    <Map {...defaultMapSettings}>
+      <EvLocations resource="vehicles_location" />
+    </Map>
+  </LoadMapApiKey>
+)
