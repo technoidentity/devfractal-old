@@ -1,7 +1,7 @@
 import { useRouter } from 'devfractal-router'
 import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { chop } from 'technoidentity-utils'
 
 type MenuSize = 'small' | 'medium' | 'large'
@@ -87,9 +87,9 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   return (
     <El as="li" {...props}>
       {
-        <NavLink to={href || '#'} className={classes}>
+        <Link to={href || '#'} className={classes}>
           {children}
-        </NavLink>
+        </Link>
       }
     </El>
   )

@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "cleave.js": "1.5.3",
-    "date-fns": "2.2.1",
+    "date-fns": "2.4.0",
     "react-datepicker": "2.9.6",
     "rifm": "^0.9.1",
     "tslib": "1.10.0"
