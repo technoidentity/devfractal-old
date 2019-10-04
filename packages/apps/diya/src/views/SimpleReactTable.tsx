@@ -11,7 +11,43 @@ import {
 
 import { SimpleReactTablePagination } from '../views/SimpleReactTablePagination'
 
-function Table<D>(props: TableOptions<D>) {
+// export interface UsePaginationState {
+//   readonly pageIndex: number
+//   readonly pageSize: number
+//   readonly pageCount: number
+//   readonly rowCount: number
+// }
+// type StringKey<D> = Extract<keyof D, string>
+// type IdType<D> = StringKey<D> | string
+
+// interface SortingRule<D> {
+//   readonly id: IdType<D>
+//   readonly desc: boolean
+// }
+
+// export type SortingRules<D> = ReadonlyArray<SortingRule<D>>
+
+// export interface UseFiltersState<D> {
+//   readonly filters?: Filters<D>
+// }
+// export type Filters<D> = Record<IdType<D>, string>
+// export interface UseSortbyState<D> {
+//   readonly sortBy?: SortingRules<D>
+// }
+// export interface TableState<D = {}>
+//   extends UsePaginationState,
+//   TableOptions<D>,
+//     UseSortbyState<D>,
+//     UseFiltersState<D> {}
+
+// export type SetState<D> = (
+//   updater: (old: TableState<D>) => TableState<D>,
+//   actions: any,
+// ) => void
+
+// export type State<D> = readonly [TableState<D>, SetState<D>]
+
+export function Table<D>(props: TableOptions<D>) {
   const { columns, data } = props
   const tableState = useTableState({ pageIndex: 0 })
   const {
@@ -122,4 +158,3 @@ function Table<D>(props: TableOptions<D>) {
     </>
   )
 }
-export = Table
