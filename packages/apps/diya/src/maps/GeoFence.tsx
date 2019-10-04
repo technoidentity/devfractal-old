@@ -1,3 +1,4 @@
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { DrawingManager } from '@react-google-maps/api'
 import React from 'react'
 import { googleMapApiKey } from '../config'
@@ -19,7 +20,7 @@ export const GeoFenceDrawer: React.FC<GeoFenceDrawerProps> = ({
       options={{
         drawingControl: drawable,
         drawingControlOptions: {
-          position: google.maps.ControlPosition.LEFT_TOP,
+          position: google.maps.ControlPosition.BOTTOM_CENTER,
           drawingModes: [google.maps.drawing.OverlayType.POLYGON],
         },
         polygonOptions: options,
@@ -59,11 +60,17 @@ export const GeoFence = () => {
             setLocation(geometry.location.toJSON())
           }
         }}
-        onDragEnd={event => {
-          setLocation(event.latLng.toJSON())
+        inputOptions={{
+          type: 'search',
+          ctrlSize: 'small',
+          rightIcon: faSearch,
         }}
-        type="search"
-        ctrlSize="medium"
+        markerOptions={{
+          draggable: true,
+          onDragEnd: event => {
+            setLocation(event.latLng.toJSON())
+          },
+        }}
       >
         <GeoFenceDrawer
           onPolygonComplete={poly => {
