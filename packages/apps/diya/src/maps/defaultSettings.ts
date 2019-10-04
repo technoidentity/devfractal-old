@@ -11,4 +11,9 @@ export const defaultMapSettings: GoogleMapProps = {
     lat: 17.385044,
     lng: 78.486671,
   },
+  options: {
+    mapTypeControl: false,
+    fullscreenControl: false,
+    streetViewControl: false,
+  },
 }
