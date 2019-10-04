@@ -1,37 +1,83 @@
 import { DrawingManager } from '@react-google-maps/api'
 import React from 'react'
+import { googleMapApiKey } from '../config'
+import { defaultMapSettings } from './defaultSettings'
 import { MapSearch } from './MapSearch'
 
-export const GeoFenceDrawer: React.FC = () => {
-  const [draw, setDraw] = React.useState<boolean>(true)
+interface GeoFenceDrawerProps {
+  onPolygonComplete(polygon: google.maps.Polygon): void
+  readonly options: google.maps.PolygonOptions
+}
+
+export const GeoFenceDrawer: React.FC<GeoFenceDrawerProps> = ({
+  onPolygonComplete,
+  options,
+}) => {
+  const [drawable, setDrawable] = React.useState<boolean>(true)
   return (
     <DrawingManager
       options={{
-        drawingControl: draw,
+        drawingControl: drawable,
         drawingControlOptions: {
           position: google.maps.ControlPosition.LEFT_TOP,
           drawingModes: [google.maps.drawing.OverlayType.POLYGON],
         },
-        polygonOptions: {
-          fillColor: '#1F4788',
-          fillOpacity: 0.5,
-          geodesic: true,
-        },
+        polygonOptions: options,
       }}
       onPolygonComplete={(poly: google.maps.Polygon) => {
-        const path = poly.getPath()
-        if (path) {
-          path.getArray().map(e => e.toJSON())
-        }
-        setDraw(!draw)
+        setDrawable(!drawable)
+        onPolygonComplete(poly)
       }}
-      drawingMode={draw ? google.maps.drawing.OverlayType.POLYGON : undefined}
+      drawingMode={
+        drawable ? google.maps.drawing.OverlayType.POLYGON : undefined
+      }
     />
   )
 }
 
-export const GeoFence = () => (
-  <MapSearch>
-    <GeoFenceDrawer />
-  </MapSearch>
-)
+export const GeoFence = () => {
+  const [location, setLocation] = React.useState<google.maps.LatLngLiteral>({
+    lat: 17.385044,
+    lng: 78.486671,
+  })
+
+  const [places, setPlaces] = React.useState<google.maps.places.Autocomplete>()
+
+  return (
+    <>
+      <MapSearch
+        defaultMapSettings={defaultMapSettings}
+        googleMapApiKey={googleMapApiKey}
+        location={location}
+        onLoad={autocomplete => {
+          setPlaces(autocomplete)
+        }}
+        onPlaceChanged={() => {
+          const geometry =
+            places && places.getPlace() && places.getPlace().geometry
+          if (geometry) {
+            setLocation(geometry.location.toJSON())
+          }
+        }}
+        onDragEnd={event => {
+          setLocation(event.latLng.toJSON())
+        }}
+        type="search"
+        ctrlSize="medium"
+      >
+        <GeoFenceDrawer
+          onPolygonComplete={poly => {
+            poly
+              .getPath()
+              .getArray()
+              .map(e => e.toJSON())
+          }}
+          options={{
+            fillColor: '#1F4788',
+            fillOpacity: 0.5,
+          }}
+        />
+      </MapSearch>
+    </>
+  )
+}
