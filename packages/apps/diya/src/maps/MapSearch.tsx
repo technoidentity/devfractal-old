@@ -10,9 +10,9 @@ import { LoadMapApiKey } from './LoadMapApiKey'
 import { Map } from './Map'
 
 interface MapSearchProps {
-  readonly defaultMapSettings: GoogleMapProps
   readonly location: google.maps.LatLngLiteral
   readonly googleMapApiKey: string
+  readonly mapOptions?: Omit<GoogleMapProps, 'center'>
   readonly inputOptions?: InputProps
   readonly markerOptions?: Omit<MarkerProps, 'position'>
   onLoad?(autocomplete: google.maps.places.Autocomplete): void
@@ -22,7 +22,6 @@ interface MapSearchProps {
 export const MapSearch: React.FC<MapSearchProps> = props => {
   const {
     googleMapApiKey,
-    defaultMapSettings,
     location,
     onLoad,
     onPlaceChanged,
@@ -32,7 +31,7 @@ export const MapSearch: React.FC<MapSearchProps> = props => {
 
   return (
     <LoadMapApiKey googleMapsApiKey={googleMapApiKey}>
-      <Map {...defaultMapSettings} center={location || undefined}>
+      <Map {...rest.mapOptions} center={location || undefined}>
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
           <Input {...rest.inputOptions} />
         </Autocomplete>

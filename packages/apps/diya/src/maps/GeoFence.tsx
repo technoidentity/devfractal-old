@@ -47,7 +47,7 @@ export const GeoFence = () => {
   return (
     <>
       <MapSearch
-        defaultMapSettings={defaultMapSettings}
+        mapOptions={defaultMapSettings}
         googleMapApiKey={googleMapApiKey}
         location={location}
         onLoad={autocomplete => {
