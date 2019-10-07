@@ -30,7 +30,7 @@ const EvLocations: React.FC<EvLocationsProps> = ({ resource }) => {
       setEVs([...data])
     }
     fetchData()
-  }, [])
+  }, [resource])
   return (
     <>
       {evs &&
