@@ -31,7 +31,7 @@ exports[`Pagination Example 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-step-backward fa-w-14 "
+              className="svg-inline--fa fa-step-backward fa-w-14 fa-null fa-rotate-null fa-pull-null "
               data-icon="step-backward"
               data-prefix="fas"
               focusable="false"
@@ -63,7 +63,7 @@ exports[`Pagination Example 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-angle-double-left fa-w-14 "
+              className="svg-inline--fa fa-angle-double-left fa-w-14 fa-null fa-rotate-null fa-pull-null "
               data-icon="angle-double-left"
               data-prefix="fas"
               focusable="false"
@@ -95,7 +95,7 @@ exports[`Pagination Example 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-angle-double-right fa-w-14 "
+              className="svg-inline--fa fa-angle-double-right fa-w-14 fa-null fa-rotate-null fa-pull-null "
               data-icon="angle-double-right"
               data-prefix="fas"
               focusable="false"
@@ -127,7 +127,7 @@ exports[`Pagination Example 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-step-forward fa-w-14 "
+              className="svg-inline--fa fa-step-forward fa-w-14 fa-null fa-rotate-null fa-pull-null "
               data-icon="step-forward"
               data-prefix="fas"
               focusable="false"

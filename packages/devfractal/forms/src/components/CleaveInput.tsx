@@ -11,7 +11,7 @@ import {
 import React from 'react'
 
 export interface CleaveInputProps
-  extends Omit<InputProps, 'value' | 'onChange' | 'type'>,
+  extends Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue'>,
     CleaveProps {}
 
 export const CleaveInput: React.FC<CleaveInputProps> = ({

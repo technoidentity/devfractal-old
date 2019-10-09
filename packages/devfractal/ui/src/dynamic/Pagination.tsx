@@ -99,9 +99,9 @@ export const PaginationEllipsis: React.FC<PaginationEllipsisProps> = ({
   const classes: string = classNamesHelper(props, 'pagination-ellipsis')
   return (
     <li>
-      <span {...props} className={classes}>
+      <El as="span" {...props} className={classes}>
         &hellip;
-      </span>
+      </El>
     </li>
   )
 }

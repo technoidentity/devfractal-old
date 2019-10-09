@@ -20,7 +20,7 @@ exports[`Counter 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-plus fa-w-14 "
+            className="svg-inline--fa fa-plus fa-w-14 fa-null fa-rotate-null fa-pull-null "
             data-icon="plus"
             data-prefix="fas"
             focusable="false"
@@ -52,7 +52,7 @@ exports[`Counter 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-minus fa-w-14 "
+            className="svg-inline--fa fa-minus fa-w-14 fa-null fa-rotate-null fa-pull-null "
             data-icon="minus"
             data-prefix="fas"
             focusable="false"
