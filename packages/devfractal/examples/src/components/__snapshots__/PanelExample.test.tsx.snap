@@ -28,7 +28,7 @@ exports[`Panel Example 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-search fa-w-16 "
+            className="svg-inline--fa fa-search fa-w-16 fa-null fa-rotate-null fa-pull-null "
             data-icon="search"
             data-prefix="fas"
             focusable="false"
@@ -83,7 +83,7 @@ exports[`Panel Example 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-book fa-w-14 "
+          className="svg-inline--fa fa-book fa-w-14 fa-null fa-rotate-null fa-pull-null "
           data-icon="book"
           data-prefix="fas"
           focusable="false"
@@ -109,7 +109,7 @@ exports[`Panel Example 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-book fa-w-14 "
+          className="svg-inline--fa fa-book fa-w-14 fa-null fa-rotate-null fa-pull-null "
           data-icon="book"
           data-prefix="fas"
           focusable="false"
@@ -136,7 +136,7 @@ exports[`Panel Example 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-book fa-w-14 "
+          className="svg-inline--fa fa-book fa-w-14 fa-null fa-rotate-null fa-pull-null "
           data-icon="book"
           data-prefix="fas"
           focusable="false"
@@ -163,7 +163,7 @@ exports[`Panel Example 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-book fa-w-14 "
+          className="svg-inline--fa fa-book fa-w-14 fa-null fa-rotate-null fa-pull-null "
           data-icon="book"
           data-prefix="fas"
           focusable="false"
@@ -190,7 +190,7 @@ exports[`Panel Example 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-code-branch fa-w-12 "
+          className="svg-inline--fa fa-code-branch fa-w-12 fa-null fa-rotate-null fa-pull-null "
           data-icon="code-branch"
           data-prefix="fas"
           focusable="false"
@@ -217,7 +217,7 @@ exports[`Panel Example 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-code-branch fa-w-12 "
+          className="svg-inline--fa fa-code-branch fa-w-12 fa-null fa-rotate-null fa-pull-null "
           data-icon="code-branch"
           data-prefix="fas"
           focusable="false"

@@ -10,7 +10,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export interface ButtonLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'defaultValue'>,
     AllControlHelpers {
   readonly to: string
   readonly variant?: ButtonProps['variant']
