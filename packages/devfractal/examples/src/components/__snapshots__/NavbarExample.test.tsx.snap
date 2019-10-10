@@ -481,7 +481,7 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      className="svg-inline--fa fa-twitter fa-w-16 "
+                      className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                       data-icon="twitter"
                       data-prefix="fab"
                       focusable="false"
@@ -515,7 +515,7 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      className="svg-inline--fa fa-download fa-w-16 "
+                      className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                       data-icon="download"
                       data-prefix="fas"
                       focusable="false"
@@ -1438,7 +1438,7 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      className="svg-inline--fa fa-twitter fa-w-16 "
+                      className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                       data-icon="twitter"
                       data-prefix="fab"
                       focusable="false"
@@ -1472,7 +1472,7 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      className="svg-inline--fa fa-download fa-w-16 "
+                      className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                       data-icon="download"
                       data-prefix="fas"
                       focusable="false"
@@ -1640,7 +1640,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -1674,7 +1674,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"
@@ -1843,7 +1843,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -1877,7 +1877,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"
@@ -2046,7 +2046,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -2079,7 +2079,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"
@@ -2248,7 +2248,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -2282,7 +2282,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"
@@ -2451,7 +2451,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -2485,7 +2485,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"
@@ -2654,7 +2654,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -2688,7 +2688,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"
@@ -2857,7 +2857,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -2891,7 +2891,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"
@@ -3060,7 +3060,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -3094,7 +3094,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"
@@ -3263,7 +3263,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-twitter fa-w-16 "
+                        className="svg-inline--fa fa-twitter fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="twitter"
                         data-prefix="fab"
                         focusable="false"
@@ -3297,7 +3297,7 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-download fa-w-16 "
+                        className="svg-inline--fa fa-download fa-w-16 fa-null fa-rotate-null fa-pull-null "
                         data-icon="download"
                         data-prefix="fas"
                         focusable="false"

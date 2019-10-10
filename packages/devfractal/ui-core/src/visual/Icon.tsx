@@ -1,6 +1,6 @@
 import {
   FontAwesomeIcon,
-  Props as FontAwesomeIconProps,
+  FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { classNamesHelper, El, Helpers, removeHelpers } from '../base'

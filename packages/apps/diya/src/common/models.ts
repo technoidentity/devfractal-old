@@ -286,3 +286,36 @@ export type AssignBattery = TypeOf<typeof AssignBattery>
 // })
 
 // export type VehicleInfo = TypeOf<typeof VehicleInfo>
+const Lat = enumerate(
+  '17.398037',
+  '17.395334',
+  '17.389764',
+  '17.422595',
+  '17.450436',
+  '17.432585',
+  '17.470615',
+  '17.496258',
+)
+const Lng = enumerate(
+  '78.493558',
+  '78.480775',
+  '78.476056',
+  '78.447684',
+  '78.465251',
+  '78.410859',
+  '78.428688',
+  '78.396739',
+)
+
+export const VehicleLocation = obj(
+  {
+    id: string,
+  },
+  {
+    lat: Lat,
+    lng: Lng,
+    description: string,
+  },
+)
+
+export type VehicleLocation = TypeOf<typeof VehicleLocation>
