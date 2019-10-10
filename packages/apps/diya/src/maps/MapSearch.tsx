@@ -1,5 +1,6 @@
 import {
   Autocomplete,
+  GoogleMap,
   GoogleMapProps,
   Marker,
   MarkerProps,
@@ -7,7 +8,6 @@ import {
 import React from 'react'
 import { Input, InputProps } from 'technoidentity-devfractal'
 import { LoadMapApiKey } from './LoadMapApiKey'
-import { Map } from './Map'
 
 interface MapSearchProps {
   readonly location: google.maps.LatLngLiteral
@@ -31,13 +31,13 @@ export const MapSearch: React.FC<MapSearchProps> = props => {
 
   return (
     <LoadMapApiKey googleMapsApiKey={googleMapApiKey}>
-      <Map {...rest.mapOptions} center={location || undefined}>
+      <GoogleMap {...rest.mapOptions} center={location || undefined}>
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
           <Input {...rest.inputOptions} />
         </Autocomplete>
         <Marker {...rest.markerOptions} position={location} />
         {children}
-      </Map>
+      </GoogleMap>
     </LoadMapApiKey>
   )
 }

@@ -1,13 +1,12 @@
-import { InfoWindow, Marker } from '@react-google-maps/api'
+import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api'
 import React from 'react'
 import { http as httpAPI } from 'technoidentity-devfractal'
 import { readonlyArray } from 'technoidentity-utils'
 import { VehicleLocation } from '../common'
 import { fakeBaseURL, googleMapApiKey } from '../config'
 import evIcon from '../images/ev.png'
-import { defaultMapSettings } from './defaultSettings'
+import { defaultGoogleMapProps } from './defaultSettings'
 import { LoadMapApiKey } from './LoadMapApiKey'
-import { Map } from './Map'
 
 const http = httpAPI({ baseURL: fakeBaseURL })
 
@@ -29,8 +28,11 @@ const EvLocations: React.FC<EvLocationsProps> = ({ resource }) => {
       const data = await http.get({ resource }, readonlyArray(VehicleLocation))
       setEVs([...data])
     }
+
+    // tslint:disable-next-line: no-floating-promises
     fetchData()
   }, [resource])
+
   return (
     <>
       {evs &&
@@ -75,8 +77,8 @@ export const MapView: React.FC = () => (
     loadComponent={LoadComponent}
     errorComponent={ErrorComponent}
   >
-    <Map {...defaultMapSettings}>
+    <GoogleMap {...defaultGoogleMapProps}>
       <EvLocations resource="vehicles_location" />
-    </Map>
+    </GoogleMap>
   </LoadMapApiKey>
 )

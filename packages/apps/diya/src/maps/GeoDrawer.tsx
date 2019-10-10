@@ -1,33 +1,40 @@
-import { GoogleMapProps, Polygon, PolygonProps } from '@react-google-maps/api'
+import {
+  GoogleMap,
+  GoogleMapProps,
+  Polygon,
+  PolygonProps,
+} from '@react-google-maps/api'
 import React from 'react'
 import { googleMapApiKey } from '../config'
-import { defaultMapSettings } from './defaultSettings'
+import { defaultGoogleMapProps } from './defaultSettings'
 import { LoadMapApiKey } from './LoadMapApiKey'
-import { Map } from './Map'
 
 interface PolygonDrawerProps {
-  readonly googleMapApiKey: string
+  readonly apiKey: string
   readonly mapOptions: Omit<GoogleMapProps, 'center'>
-  readonly polyOptions: PolygonProps
+  readonly polygonOptions: PolygonProps
 }
 
 export const PolygonDrawer: React.FC<PolygonDrawerProps> = ({
-  googleMapApiKey,
+  apiKey,
   mapOptions,
-  polyOptions,
+  polygonOptions,
 }) => (
-  <LoadMapApiKey googleMapsApiKey={googleMapApiKey}>
-    <Map {...mapOptions} center={polyOptions.paths && polyOptions.paths[0]}>
-      <Polygon {...polyOptions} />
-    </Map>
+  <LoadMapApiKey googleMapsApiKey={apiKey}>
+    <GoogleMap
+      {...mapOptions}
+      center={polygonOptions.paths && polygonOptions.paths[0]}
+    >
+      <Polygon {...polygonOptions} />
+    </GoogleMap>
   </LoadMapApiKey>
 )
 
 export const DiyaPolygon = () => (
   <PolygonDrawer
-    googleMapApiKey={googleMapApiKey}
-    mapOptions={{ ...defaultMapSettings, zoom: 5 }}
-    polyOptions={{
+    apiKey={googleMapApiKey}
+    mapOptions={{ ...defaultGoogleMapProps, zoom: 5 }}
+    polygonOptions={{
       paths: [
         { lat: 25.774, lng: -80.19 },
         { lat: 18.466, lng: -66.118 },

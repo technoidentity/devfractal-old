@@ -8,6 +8,7 @@ export const StandaloneGoogleMapSearchBox = ({
   onPlacesChanged(ref: MutableRefObject<StandaloneSearchBox>): void
 }) => {
   const searchBox: MutableRefObject<StandaloneSearchBox> = React.useRef<any>()
+
   return (
     <StandaloneSearchBox
       ref={searchBox}
