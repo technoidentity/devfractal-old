@@ -13157,6 +13157,11 @@ react-styleguidist@9.1.16:
     webpack-dev-server "^3.2.1"
     webpack-merge "^4.2.1"
 
+react-table@^7.0.0-beta.8:
+  version "7.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.0-beta.8.tgz#3b0cf748d0a2ca58dc48064cd2e180483addb570"
+  integrity sha512-ajeYb96bFcOydd8JR/h3+P5K/H9xdzpg3xDtTkacaqa5hxq9ztk+m6luA5akR3bz19Q8cRlVsEA9P0HIOV5/Tg==
+
 react-test-renderer@16.10.0:
   version "16.10.0"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.10.0.tgz#33dddd71e4f43d58a4e1dfa332d4b8e683084baf"
