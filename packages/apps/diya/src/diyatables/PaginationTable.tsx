@@ -7,7 +7,7 @@ import {
   useTable,
   useTableState,
 } from 'react-table'
-import { Pagination } from '../diyatables/Pagination'
+import { Pagination } from '../reacttable/Pagination'
 
 function isTablePagination(
   table: TableInstance | TableInstance & UsePaginationValues,
