@@ -30,7 +30,7 @@
     "@fortawesome/free-brands-svg-icons": "5.11.2",
     "@fortawesome/free-regular-svg-icons": "5.11.2",
     "@fortawesome/free-solid-svg-icons": "5.11.2",
-    "@fortawesome/react-fontawesome": "0.1.5",
+    "@fortawesome/react-fontawesome": "0.1.6",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "technoidentity-utils": "^1.2.19",
     "tsdx": "0.9.3",
     "tslint": "5.20.0",
-    "typescript": "3.6.3",
+    "typescript": "3.6.4",
     "yup": "0.27.0"
   },
   "peerDependencies": {

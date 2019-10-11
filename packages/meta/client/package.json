@@ -30,7 +30,7 @@
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "chance": "1.1.0",
+    "chance": "1.1.3",
     "cross-env": "6.0.3",
     "date-fns": "2.4.1",
     "devfractal-crud": "^1.2.19",
@@ -47,7 +47,7 @@
     "technoidentity-utils": "^1.2.19",
     "tsdx": "0.9.3",
     "tslint": "5.20.0",
-    "typescript": "3.6.3",
+    "typescript": "3.6.4",
     "yup": "0.27.0"
   },
   "peerDependencies": {

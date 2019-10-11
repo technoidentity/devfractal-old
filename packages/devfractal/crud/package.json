@@ -46,7 +46,7 @@
     "technoidentity-utils": "^1.2.19",
     "tsdx": "0.9.3",
     "tslint": "5.20.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "peerDependencies": {
     "devfractal-simple": "1.2.19",

@@ -21,7 +21,7 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "@react-google-maps/api": "^1.7.6",
+    "@react-google-maps/api": "^1.7.7",
     "@types/googlemaps": "^3.37.7",
     "date-fns": "2.4.1",
     "formik": "1.5.8",
@@ -33,7 +33,7 @@
     "yup": "0.27.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "4.1.1",
+    "@testing-library/jest-dom": "4.1.2",
     "@testing-library/react": "9.3.0",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.12",
@@ -55,7 +55,7 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-immutable": "6.0.1",
     "tslint-react": "4.1.0",
-    "typescript": "3.6.3",
+    "typescript": "3.6.4",
     "typescript-tslint-plugin": "0.5.4"
   },
   "proxy": "http://localhost:9999",

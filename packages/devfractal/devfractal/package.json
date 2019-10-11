@@ -46,7 +46,7 @@
     "rimraf": "3.0.0",
     "tsdx": "0.9.3",
     "tslint": "5.20.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "peerDependencies": {
     "bulma": "0.7.5",
