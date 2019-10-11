@@ -28,21 +28,20 @@ export const Table: React.FC<ReactTableProps> = ({
 }) => {
   const columns = generateReactTableData({ data, headerNames, filterOption })
 
+  const tableState = useTableState({ pageIndex: 0, pageSize: 10 })
+
+  const reactTableData = useTable(
+    {
+      columns,
+      data,
+      loading: true,
+      state: tableState,
+    },
+    useFilters,
+    useSortBy,
+    usePagination,
+  )
   if (data.length > 0) {
-    const tableState = useTableState({ pageIndex: 0, pageSize: 10 })
-
-    const reactTableData = useTable(
-      {
-        columns,
-        data,
-        loading: true,
-        state: tableState,
-      },
-      useFilters,
-      useSortBy,
-      usePagination,
-    )
-
     if (isPaginated(reactTableData)) {
       return (
         <>
