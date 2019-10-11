@@ -33,7 +33,7 @@
     "yup": "0.27.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.3",
+    "@babel/core": "^7.6.4",
     "bulma": "0.7.5",
     "cross-env": "6.0.3",
     "eslint": "6.5.1",
@@ -43,7 +43,7 @@
     "react-datepicker": "2.9.6",
     "rimraf": "3.0.0",
     "tslint": "5.20.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "resolutions": {
     "react": "16.10.2",

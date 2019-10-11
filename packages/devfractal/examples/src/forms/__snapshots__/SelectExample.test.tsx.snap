@@ -480,7 +480,7 @@ Array [
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-globe fa-w-16 fa-null fa-rotate-null fa-pull-null "
+            className="svg-inline--fa fa-globe fa-w-16 "
             data-icon="globe"
             data-prefix="fas"
             focusable="false"
@@ -526,7 +526,7 @@ Array [
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-globe fa-w-16 fa-null fa-rotate-null fa-pull-null "
+            className="svg-inline--fa fa-globe fa-w-16 "
             data-icon="globe"
             data-prefix="fas"
             focusable="false"
@@ -572,7 +572,7 @@ Array [
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-globe fa-w-16 fa-null fa-rotate-null fa-pull-null "
+            className="svg-inline--fa fa-globe fa-w-16 "
             data-icon="globe"
             data-prefix="fas"
             focusable="false"

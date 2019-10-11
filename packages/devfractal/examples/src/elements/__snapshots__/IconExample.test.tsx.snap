@@ -15,7 +15,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-home fa-w-18 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-home fa-w-18 "
         data-icon="home"
         data-prefix="fas"
         focusable="false"
@@ -45,7 +45,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-check fa-w-16 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-check fa-w-16 "
         data-icon="check"
         data-prefix="fas"
         focusable="false"
@@ -66,7 +66,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-exclamation-triangle fa-w-18 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-exclamation-triangle fa-w-18 "
         data-icon="exclamation-triangle"
         data-prefix="fas"
         focusable="false"
@@ -87,7 +87,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-ban fa-w-16 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-ban fa-w-16 "
         data-icon="ban"
         data-prefix="fas"
         focusable="false"
@@ -108,7 +108,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-info-circle fa-w-16 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-info-circle fa-w-16 "
         data-icon="info-circle"
         data-prefix="fas"
         focusable="false"
@@ -138,7 +138,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-user fa-w-14 fa-sm fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-user fa-w-14 fa-sm "
         data-icon="user"
         data-prefix="fas"
         focusable="false"
@@ -159,7 +159,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-user fa-w-14 fa-lg fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-user fa-w-14 fa-lg "
         data-icon="user"
         data-prefix="fas"
         focusable="false"
@@ -180,7 +180,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-user fa-w-14 fa-xs fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-user fa-w-14 fa-xs "
         data-icon="user"
         data-prefix="fas"
         focusable="false"
@@ -201,7 +201,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-user fa-w-14 fa-1x fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-user fa-w-14 fa-1x "
         data-icon="user"
         data-prefix="fas"
         focusable="false"
@@ -222,7 +222,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-user fa-w-14 fa-2x fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-user fa-w-14 fa-2x "
         data-icon="user"
         data-prefix="fas"
         focusable="false"
@@ -246,7 +246,7 @@ Array [
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-user fa-w-14 fa-3x fa-rotate-null fa-pull-null "
+          className="svg-inline--fa fa-user fa-w-14 fa-3x "
           data-icon="user"
           data-prefix="fas"
           focusable="false"
@@ -271,7 +271,7 @@ Array [
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-user fa-w-14 fa-4x fa-rotate-null fa-pull-null "
+          className="svg-inline--fa fa-user fa-w-14 fa-4x "
           data-icon="user"
           data-prefix="fas"
           focusable="false"
@@ -296,7 +296,7 @@ Array [
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-user fa-w-14 fa-5x fa-rotate-null fa-pull-null "
+          className="svg-inline--fa fa-user fa-w-14 fa-5x "
           data-icon="user"
           data-prefix="fas"
           focusable="false"
@@ -321,7 +321,7 @@ Array [
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-user fa-w-14 fa-6x fa-rotate-null fa-pull-null "
+          className="svg-inline--fa fa-user fa-w-14 fa-6x "
           data-icon="user"
           data-prefix="fas"
           focusable="false"
@@ -346,7 +346,7 @@ Array [
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-user fa-w-14 fa-7x fa-rotate-null fa-pull-null "
+          className="svg-inline--fa fa-user fa-w-14 fa-7x "
           data-icon="user"
           data-prefix="fas"
           focusable="false"
@@ -371,7 +371,7 @@ Array [
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-user fa-w-14 fa-8x fa-rotate-null fa-pull-null "
+          className="svg-inline--fa fa-user fa-w-14 fa-8x "
           data-icon="user"
           data-prefix="fas"
           focusable="false"
@@ -396,7 +396,7 @@ Array [
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-user fa-w-14 fa-9x fa-rotate-null fa-pull-null "
+          className="svg-inline--fa fa-user fa-w-14 fa-9x "
           data-icon="user"
           data-prefix="fas"
           focusable="false"
@@ -427,7 +427,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-home fa-w-18 fa-fw fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-home fa-w-18 fa-fw "
         data-icon="home"
         data-prefix="fas"
         focusable="false"
@@ -457,7 +457,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-user fa-w-14 fa-border fa-lg fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-user fa-w-14 fa-border fa-lg "
         data-icon="user"
         data-prefix="fas"
         focusable="false"
@@ -487,7 +487,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-home fa-w-18 fa-spin fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-home fa-w-18 fa-spin "
         data-icon="home"
         data-prefix="fas"
         focusable="false"
@@ -517,7 +517,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-home fa-w-18 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-home fa-w-18 "
         data-icon="home"
         data-prefix="fas"
         focusable="false"
@@ -553,7 +553,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-home fa-w-18 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-home fa-w-18 "
         data-icon="home"
         data-prefix="fas"
         focusable="false"
@@ -589,7 +589,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-home fa-w-18 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-home fa-w-18 "
         data-icon="home"
         data-prefix="fas"
         focusable="false"
@@ -625,7 +625,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-home fa-w-18 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-home fa-w-18 "
         data-icon="home"
         data-prefix="fas"
         focusable="false"
@@ -661,7 +661,7 @@ Array [
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-home fa-w-18 fa-null fa-rotate-null fa-pull-null "
+        className="svg-inline--fa fa-home fa-w-18 "
         data-icon="home"
         data-prefix="fas"
         focusable="false"
