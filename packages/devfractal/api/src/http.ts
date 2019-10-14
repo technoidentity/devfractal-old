@@ -70,12 +70,19 @@ function url(options: MethodArgs | string): string {
   return string.is(options) ? options : buildUrl(options)
 }
 
+function isRequestConfig(
+  config: RequestConfig | AxiosInstance,
+): config is RequestConfig {
+  return 'baseURL' in config
+}
 // tslint:disable-next-line: typedef
-export function http({ baseURL, ...config }: RequestConfig) {
-  const axios: AxiosInstance = ax.create({
-    ...config,
-    baseURL: chop(baseURL),
-  })
+export function http(axiosConfig: RequestConfig | AxiosInstance) {
+  const axios: AxiosInstance = isRequestConfig(axiosConfig)
+    ? ax.create({
+        ...axiosConfig,
+        baseURL: chop(axiosConfig.baseURL),
+      })
+    : axiosConfig
 
   async function get<Spec extends Mixed>(
     options: MethodArgs | string,

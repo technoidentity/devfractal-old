@@ -28,10 +28,8 @@ describe('rest', () => {
   const todoAPI = rest(
     Todo,
     'id',
-    {
-      resource: 'todos',
-      baseURL: 'https://test2',
-    },
+    'todos',
+    { baseURL: 'https://test2' },
     toJSONServerQuery,
   )
 
