@@ -1,3 +1,4 @@
+import { AxiosInstance } from 'axios'
 import { produce } from 'immer'
 import {
   ObjC,
@@ -80,10 +81,6 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
   })
 }
 
-interface RestArgs extends RequestConfig {
-  readonly resource: string
-}
-
 export function rest<
   Opt extends Props,
   Req extends Props,
@@ -91,7 +88,8 @@ export function rest<
 >(
   spec: ObjC<Opt, Req>,
   idKey: ID,
-  { resource, ...options }: RestArgs,
+  resource: string,
+  options: RequestConfig | AxiosInstance,
   toQuery: (
     spec: ObjC<Opt, Req>,
     query: APIQuery<TypeOf<ObjC<Opt, Req>>>,

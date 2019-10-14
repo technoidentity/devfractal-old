@@ -41,10 +41,7 @@ const Todo = obj(
 
 type Todo = TypeOf<typeof Todo>
 
-const todoApi = rest(Todo, 'id', {
-  baseURL: 'http://localhost:3000',
-  resource: 'todos',
-})
+const todoApi = rest(Todo, 'id', 'todos', { baseURL: 'http://localhost:3000' })
 
 const initialValues: Todo = { title: '', scheduled: new Date(), done: false }
 

@@ -21,9 +21,8 @@ export const Todo = obj(
 
 export type Todo = TypeOf<typeof Todo>
 
-export const todoApi = rest(Todo, 'id', {
+export const todoApi = rest(Todo, 'id', 'todos', {
   baseURL: 'http://localhost:3000',
-  resource: 'todos',
 })
 
 export const checkApi = async () => {
