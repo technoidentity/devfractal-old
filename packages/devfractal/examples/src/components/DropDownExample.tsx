@@ -142,7 +142,7 @@ export const DropdownExampleRoutes: React.FC = () => (
       from="/components/dropdown"
       to="/components/dropdown/dropdown"
     />
-    } />
+
     <Route path="/components/dropdown" component={DropdownExamplesTab} />
     <Route
       path="/components/dropdown/dropdown"
