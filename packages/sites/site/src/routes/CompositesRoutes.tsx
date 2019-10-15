@@ -13,22 +13,17 @@ import React from 'react'
 
 export const CompositesRoutes: React.FC = () => (
   <>
-    <SimpleRedirect exact from="/composites" to="/composites/simple-form" />
-    <Route path="/composites/simple-form" exact component={SimpleFormExample} />
-    <Route
-      path="/composites/general-form"
-      exact
-      component={FieldsGeneralForm}
-    />
-    <Route path="/composites/counter" exact component={Counter} />
-    <Route path="/composites/todo" exact component={Todo} />
-    {/* <Route path="/composites/treeview" exact component={TreeViewStructure} /> */}
-    <Route path="/composites/simple-todo" exact component={SimpleTodo} />
-    <Route path="/composites/github-card" exact component={CardApp} />
-    <Route path="/composites/cart-app" exact component={Cart} />
+    <SimpleRedirect from="/composites" to="/composites/simple-form" />
+    <Route path="/composites/simple-form" component={SimpleFormExample} />
+    <Route path="/composites/general-form" component={FieldsGeneralForm} />
+    <Route path="/composites/counter" component={Counter} />
+    <Route path="/composites/todo" component={Todo} />
+    {/* <Route path="/composites/treeview"  component={TreeViewStructure} /> */}
+    <Route path="/composites/simple-todo" component={SimpleTodo} />
+    <Route path="/composites/github-card" component={CardApp} />
+    <Route path="/composites/cart-app" component={Cart} />
     <Route
       path="/composites/login-form-variants"
-      exact
       component={LoginFormVariants}
     />
   </>

@@ -23,9 +23,8 @@ export function dynamicRouter<T extends {}>(
   const Routes: React.FC = () => (
     <>
       {urls.length > 0 && (
-        <SimpleRedirect exact from={baseUrl} to={`${baseUrl}/${urls[0]}`} />
+        <SimpleRedirect from={baseUrl} to={`${baseUrl}/${urls[0]}`} />
       )}
-
       {urls.map((url, i) => {
         const path = `${baseUrl}/${url}`
         return <Route exact key={url} path={path} component={cs[keys[i]]} />
@@ -35,7 +34,7 @@ export function dynamicRouter<T extends {}>(
 
   const Links: React.FC = () => {
     return (
-      <RoutedTabs to={`${baseUrl}`} size="medium">
+      <RoutedTabs to={baseUrl} size="medium">
         {urls.map((url, i) => (
           <RoutedTabsItem key={url} value={url}>
             {labels[i]}

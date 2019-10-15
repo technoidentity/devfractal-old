@@ -15,17 +15,16 @@ import React from 'react'
 
 export const ComponentsRoutes: React.FC = () => (
   <>
-    <SimpleRedirect exact from="/components" to="/components/card" />
-    <Route path="/components/card" exact component={CardExample} />
-    <Route path="/components/dropdown" exact component={DropdownExample} />
-    <Route path="/components/message" exact component={MessageExample} />
-    <Route path="/components/tabs" exact component={TabsExample} />
-    <Route path="/components/panel" exact component={PanelExample} />
-    <Route path="/components/modal" exact component={ModalExample} />
-    <Route path="/components/navbar" exact component={NavbarExample} />
-    <Route path="/components/menu" exact component={MenuExample} />
-    <Route path="/components/pagination" exact component={PaginationExample} />
+    <SimpleRedirect from="/components" to="/components/card" />
+    <Route path="/components/card" component={CardExample} />
+    <Route path="/components/dropdown" component={DropdownExample} />
+    <Route path="/components/message" component={MessageExample} />
+    <Route path="/components/tabs" component={TabsExample} />
+    <Route path="/components/panel" component={PanelExample} />
+    <Route path="/components/modal" component={ModalExample} />
+    <Route path="/components/navbar" component={NavbarExample} />
+    <Route path="/components/menu" component={MenuExample} />
+    <Route path="/components/pagination" component={PaginationExample} />
     <Route path="/components/breadcrumb" component={BreadcrumbExample} />
-    {/* <Route path="/components/step" component={StepComponent} /> */}
   </>
 )

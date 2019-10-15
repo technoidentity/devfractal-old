@@ -11,11 +11,11 @@ import {
 
 export const IndexRoutes: React.FC = () => (
   <>
-    <Route path="/" component={IndexPageHeader} />
-    <Route exact path="/" component={UIComponentsOverview} />
-    <Route exact path="/" component={ExploreUIComponents} />
-    <Route exact path="/" component={BottomSection} />
-    <Route exact path="/" component={ResourceSection} />
-    <Route exact path="/" component={FooterSection} />
+    <IndexPageHeader />
+    <Route path="/" component={UIComponentsOverview} />
+    <Route path="/" component={ExploreUIComponents} />
+    <Route path="/" component={BottomSection} />
+    <Route path="/" component={ResourceSection} />
+    <FooterSection />
   </>
 )
