@@ -97,7 +97,7 @@ export const HeroBodySection: React.FC = () => (
   </Section>
 )
 
-export const IndexPageHeader: React.FC = () => (
+export const SiteHeader: React.FC = () => (
   <>
     <Hero style={{ backgroundColor: '#5A77D6' }}>
       <HeroHead>
@@ -484,7 +484,7 @@ export const ResourceSection: React.FC = () => (
   </Section>
 )
 
-export const FooterSection: React.FC = () => (
+export const SiteFooter: React.FC = () => (
   <Section
     style={{
       backgroundColor: '#F5F5F5',
@@ -505,11 +505,11 @@ export const FooterSection: React.FC = () => (
 
 export const IndexPage: React.FC = () => (
   <Container>
-    <IndexPageHeader />
+    <SiteHeader />
     <UIComponentsOverview />
     <ExploreUIComponents />
     <BottomSection />
     <ResourceSection />
-    <FooterSection />
+    <SiteFooter />
   </Container>
 )
