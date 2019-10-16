@@ -16,15 +16,31 @@ import React from 'react'
 export const ComponentsRoutes: React.FC = () => (
   <>
     <SimpleRedirect from="/components" to="/components/card" />
-    <Route path="/components/card" component={CardExample} />
-    <Route path="/components/dropdown" component={DropdownExample} />
-    <Route path="/components/message" component={MessageExample} />
-    <Route path="/components/tabs" component={TabsExample} />
-    <Route path="/components/panel" component={PanelExample} />
-    <Route path="/components/modal" component={ModalExample} />
-    <Route path="/components/navbar" component={NavbarExample} />
-    <Route path="/components/menu" component={MenuExample} />
-    <Route path="/components/pagination" component={PaginationExample} />
-    <Route path="/components/breadcrumb" component={BreadcrumbExample} />
+    <Route exact={false} path="/components/card" component={CardExample} />
+    <Route
+      exact={false}
+      path="/components/dropdown"
+      component={DropdownExample}
+    />
+    <Route
+      exact={false}
+      path="/components/message"
+      component={MessageExample}
+    />
+    <Route exact={false} path="/components/tabs" component={TabsExample} />
+    <Route exact={false} path="/components/panel" component={PanelExample} />
+    <Route exact={false} path="/components/modal" component={ModalExample} />
+    <Route exact={false} path="/components/navbar" component={NavbarExample} />
+    <Route exact={false} path="/components/menu" component={MenuExample} />
+    <Route
+      exact={false}
+      path="/components/pagination"
+      component={PaginationExample}
+    />
+    <Route
+      exact={false}
+      path="/components/breadcrumb"
+      component={BreadcrumbExample}
+    />
   </>
 )
