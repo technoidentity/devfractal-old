@@ -18,7 +18,6 @@ export const RoutedPager: React.FC<RoutedPagerProps> = ({ count }) => {
 
   const page: number = query.page ? query.page : 1
 
-  console.log(count)
   return (
     <Pager
       page={page}

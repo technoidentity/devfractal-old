@@ -153,6 +153,5 @@ export function fake<T extends Mixed>(
     return spec.types.map((p: Type<any>) => fake(p, options))
   }
 
-  console.log('hello')
   throw new Error(`Unsupported type: ${spec.name}`)
 }

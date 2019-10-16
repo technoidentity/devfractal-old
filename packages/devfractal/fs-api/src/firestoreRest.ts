@@ -75,7 +75,6 @@ export function fsRest<
     id: TypeOf<ObjC<Opt, Req>>[ID],
     obj: TypeOf<ObjC<Opt, Req>>,
   ) => Promise<TypeOf<ObjC<Opt, Req>>> = async (id, obj) => {
-    console.log(obj)
     const ref = res.doc(id)
     await ref.set(obj)
     const doc = await ref.get()

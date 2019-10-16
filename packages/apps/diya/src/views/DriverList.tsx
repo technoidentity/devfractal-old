@@ -20,7 +20,7 @@ const driverLinks = links('drivers')
 export const DriverList = listComponent(Driver, ({ data: driverList }) => {
   const { push } = useHistory()
   const { pathname } = useLocation()
-  console.log((driverList as any).totalCount)
+
   return (
     <>
       <Section>
