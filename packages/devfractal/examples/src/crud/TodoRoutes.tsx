@@ -1,6 +1,5 @@
 import { components, paths } from 'devfractal-crud'
 import { Route, SimpleRedirect, Switch } from 'devfractal-router'
-import { Section } from 'devfractal-ui-core'
 import React from 'react'
 import { inMemoryAPI } from './inMemoryAPI'
 import { TodoRT } from './types'
@@ -20,7 +19,7 @@ export const TodoRoutes: React.FC = () => {
   // @TODO: It should be /crud
   const { create, list, edit, view } = paths(resource, basePath)
   return (
-    <Section>
+    <>
       <SimpleRedirect exact from="/crud" to="/crud/todos" />
       <Switch>
         <Route exact path={create} component={Create} />
@@ -28,7 +27,7 @@ export const TodoRoutes: React.FC = () => {
         <Route exact path={view} component={View} />
         <Route exact path={list} component={List} />
       </Switch>
-    </Section>
+    </>
   )
 }
 
