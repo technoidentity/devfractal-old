@@ -49,7 +49,7 @@ function Children<
     <Put
       // @TODO: possible to fix this casting nonsense?
       id={params[api.idKey as string] as any}
-      doGet={api.one}
+      doGet={api.get}
       onPut={api.replace}
       component={Component}
       redirectTo={redirectTo}
