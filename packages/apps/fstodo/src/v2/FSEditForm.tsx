@@ -12,7 +12,7 @@ export const FSEditForm: React.FC = () => {
   )
 
   return (
-    <Get asyncFn={fsTodoAPI.one} deps={[id]}>
+    <Get asyncFn={fsTodoAPI.get} deps={[id]}>
       {data => <FSTodoForm initial={data} onSubmit={onSubmit} />}
     </Get>
   )

@@ -44,7 +44,7 @@ export const FSEditTodo: React.FC<FSEditTodoProps> = ({ id }) => {
   return (
     <>
       <Text textColor="danger">{err}</Text>
-      <Get asyncFn={fsTodoAPI.one} deps={[id]}>
+      <Get asyncFn={fsTodoAPI.get} deps={[id]}>
         {data => <FSEditTodoView onEditTodo={handleEditTodo} todo={data} />}
       </Get>
     </>
