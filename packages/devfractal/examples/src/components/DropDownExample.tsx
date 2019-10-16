@@ -143,36 +143,26 @@ export const DropdownExampleRoutes: React.FC = () => (
       to="/components/dropdown/dropdown"
     />
 
-    <Route path="/components/dropdown" component={DropdownExamplesTab} />
     <Route
       path="/components/dropdown/dropdown"
-      exact
       component={DropdownExampleTab}
     />
     <Route
       path="/components/dropdown/content"
-      exact
       component={DropdownContentExampleTab}
     />
     <Route
       path="/components/dropdown/hoverable"
-      exact
       component={HoverableDropdownExampleTab}
     />
     <Route
       path="/components/dropdown/right"
-      exact
       component={RightAlignableDropdownExampleTab}
     />
     <Route
       path="/components/dropdown/left"
-      exact
       component={LeftAlignableDropdownExampleTab}
     />
-    <Route
-      path="/components/dropdown/dropup"
-      exact
-      component={DropUpExampleTab}
-    />
+    <Route path="/components/dropdown/dropup" component={DropUpExampleTab} />
   </>
 )
