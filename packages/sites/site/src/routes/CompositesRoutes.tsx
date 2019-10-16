@@ -3,7 +3,7 @@ import {
   Cart,
   Counter,
   FieldsGeneralForm,
-  LoginFormVariants,
+  LoginFormVariantsRoutes,
   SimpleFormExample,
   SimpleTodo,
   Todo,
@@ -18,13 +18,12 @@ export const CompositesRoutes: React.FC = () => (
     <Route path="/composites/general-form" component={FieldsGeneralForm} />
     <Route path="/composites/counter" component={Counter} />
     <Route path="/composites/todo" component={Todo} />
-    {/* <Route path="/composites/treeview"  component={TreeViewStructure} /> */}
     <Route path="/composites/simple-todo" component={SimpleTodo} />
     <Route path="/composites/github-card" component={CardApp} />
     <Route path="/composites/cart-app" component={Cart} />
     <Route
       path="/composites/login-form-variants"
-      component={LoginFormVariants}
+      component={LoginFormVariantsRoutes}
     />
   </>
 )
