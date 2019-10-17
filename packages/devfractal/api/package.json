@@ -43,7 +43,7 @@
     "rimraf": "3.0.0",
     "technoidentity-utils": "^1.2.19",
     "ts-node-dev": "1.0.0-pre.42",
-    "tsdx": "0.9.3",
+    "tsdx": "0.10.5",
     "tslint": "5.20.0",
     "typescript": "3.6.4"
   },

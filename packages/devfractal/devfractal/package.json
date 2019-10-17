@@ -45,7 +45,7 @@
     "react-dom": "16.10.2",
     "react-test-renderer": "16.10.2",
     "rimraf": "3.0.0",
-    "tsdx": "0.9.3",
+    "tsdx": "0.10.5",
     "tslint": "5.20.0",
     "typescript": "3.6.4"
   },

@@ -11,7 +11,10 @@ import {
 import React from 'react'
 
 export interface CleaveInputProps
-  extends Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue'>,
+  extends Omit<
+      InputProps,
+      'value' | 'onChange' | 'type' | 'defaultValue' | 'inputMode'
+    >,
     CleaveProps {}
 
 export const CleaveInput: React.FC<CleaveInputProps> = ({
@@ -21,6 +24,7 @@ export const CleaveInput: React.FC<CleaveInputProps> = ({
   rounded,
   state,
   options,
+  inputMode,
   ...props
 }) => {
   const classes: string = classNamesHelper(props, 'input', {
@@ -35,6 +39,7 @@ export const CleaveInput: React.FC<CleaveInputProps> = ({
   return (
     <ControlWrapper {...props}>
       <Cleave
+        inputMode={inputMode}
         {...removeIconHelpers(removeControlHelpers(removeHelpers(props)))}
         options={options}
         className={classes}

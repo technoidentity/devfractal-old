@@ -69,9 +69,10 @@ export function Search<T>({
             onSearch(newValue)
           },
         }}
-        renderInputComponent={inputProps => (
+        renderInputComponent={({ inputMode, ...inputProps }) => (
           <>
             <Input
+              inputMode={inputMode as any}
               {...inputProps}
               type="search"
               value={inputProps.value}

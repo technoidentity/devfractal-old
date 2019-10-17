@@ -30,17 +30,17 @@
     "express": "4.17.1",
     "jest": "24.9.0",
     "meta-core": "^1.2.19",
-    "mongodb": "3.3.2",
+    "mongodb": "3.3.3",
     "prettier": "1.18.2",
     "technoidentity-utils": "^1.2.19",
-    "tsdx": "0.9.3",
+    "tsdx": "0.10.5",
     "tslint": "5.20.0",
     "typescript": "3.6.4"
   },
   "peerDependencies": {
     "express": "4.17.1",
     "meta-core": "1.2.5",
-    "mongodb": "3.3.2",
-    "mongoose": "5.7.4"
+    "mongodb": "3.3.3",
+    "mongoose": "5.7.5"
   }
 }
