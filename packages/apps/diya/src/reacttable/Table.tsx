@@ -19,21 +19,27 @@ function isPaginated(
   return (table as TableInstance & UsePaginationValues).page !== undefined
 }
 
-export const Table: React.FC<ReactTableProps> = ({
-  data,
+export function Table<D>({
+  tableData,
   filterOption,
   headerNames,
   sorting,
   pagination,
-}) => {
-  const columns = generateReactTableData({ data, headerNames, filterOption })
-
+  headerLabels,
+}: ReactTableProps<D>) {
   const tableState = useTableState({ pageIndex: 0, pageSize: 10 })
+
+  const columns = generateReactTableData({
+    tableData,
+    headerNames,
+    headerLabels,
+    filterOption,
+  })
 
   const reactTableData = useTable(
     {
       columns,
-      data,
+      data: tableData,
       loading: true,
       state: tableState,
     },
@@ -41,7 +47,7 @@ export const Table: React.FC<ReactTableProps> = ({
     useSortBy,
     usePagination,
   )
-  if (data.length > 0) {
+  if (tableData.length > 0) {
     if (isPaginated(reactTableData)) {
       return (
         <>
