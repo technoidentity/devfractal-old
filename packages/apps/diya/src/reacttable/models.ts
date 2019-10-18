@@ -2,7 +2,6 @@ import {
   HeaderGroup,
   Row,
   TableInstance,
-  TableOptions,
   UsePaginationValues,
 } from 'react-table'
 
@@ -11,10 +10,13 @@ export interface FilterOptions {
   readonly filterType: 'select' | 'search'
 }
 
-export interface ReactTableValues {
-  readonly headerNames?: ReadonlyArray<string>
+export interface ReactTableProps<D> {
+  // tslint:disable-next-line:readonly-array
+  readonly tableData: D[]
+  readonly headerNames?: ReadonlyArray<keyof D>
   readonly sorting: boolean
   readonly filterOption?: ReadonlyArray<FilterOptions>
+  readonly headerLabels?: ReadonlyArray<string>
   readonly pagination: boolean
 }
 export interface TableFilterHeadProps {
@@ -40,9 +42,10 @@ export interface PaginationProps {
   nextPage(): number
   setPageSize(size: number): number
 }
-export interface ReactTableColumnValues {
+export interface ReactTableColumnValues<D> {
   readonly Header: string
-  readonly columns: readonly Columns[]
+  // tslint:disable-next-line:readonly-array
+  readonly columns: Array<Columns<D>>
 }
 export interface ColumnFilterProps {
   readonly column: SelectColumnFilterProps
@@ -53,8 +56,8 @@ interface SelectColumnFilterProps {
   readonly preFilteredRows: readonly []
   setFilter(val: string): any
 }
-interface Columns {
-  readonly Header: string
+interface Columns<D> {
+  readonly Header: string | keyof D
   readonly accessor: string
   readonly Filter: any | undefined
 }
@@ -62,4 +65,3 @@ interface SortingValues {
   readonly sorting: boolean
 }
 export type TableProps = TableInstance & UsePaginationValues & SortingValues
-export type ReactTableProps = Pick<TableOptions, 'data'> & ReactTableValues
