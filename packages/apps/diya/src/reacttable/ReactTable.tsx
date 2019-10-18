@@ -1,4 +1,5 @@
 import React from 'react'
+import { Table } from 'technoidentity-devfractal'
 import { TableProps } from './models'
 import { ReactTableBody } from './ReactTableBody'
 import { ReactTableHead } from './ReactTableHead'
@@ -11,9 +12,9 @@ export const ReactTable: React.FC<TableProps> = ({
   sorting,
 }) => {
   return (
-    <table {...getTableProps()}>
+    <Table fullWidth striped narrow {...getTableProps()}>
       <ReactTableHead headerGroups={headerGroups} sorting={sorting} />
       <ReactTableBody page={page} prepareRow={prepareRow} />
-    </table>
+    </Table>
   )
 }

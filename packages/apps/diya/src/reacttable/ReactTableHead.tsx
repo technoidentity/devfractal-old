@@ -1,5 +1,6 @@
 import React from 'react'
 import { HeaderGroup } from 'react-table'
+import { TableHead, Tr } from 'technoidentity-devfractal'
 import { TableHeadProps } from './models'
 import { ReactColumn } from './ReactColumn'
 import { ReactSortingColumn } from './ReactSortingColumn'
@@ -9,9 +10,9 @@ export const ReactTableHead: React.FC<TableHeadProps> = ({
   sorting,
 }) => {
   return (
-    <thead>
+    <TableHead>
       {headerGroups.map((headerGroup: HeaderGroup, index: number) => (
-        <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+        <Tr key={index} {...headerGroup.getHeaderGroupProps()}>
           {headerGroup.headers.map((column, i) =>
             sorting ? (
               <ReactSortingColumn {...column} key={i} />
@@ -19,8 +20,8 @@ export const ReactTableHead: React.FC<TableHeadProps> = ({
               <ReactColumn {...column} key={i} />
             ),
           )}
-        </tr>
+        </Tr>
       ))}
-    </thead>
+    </TableHead>
   )
 }
