@@ -1,5 +1,7 @@
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import { FilterOptions, ReactTableColumnValues } from './models'
 import { DefaultColumnFilter, SelectColumnFilter } from './ReactTableFilters'
+// import {formatDate} from '../common'
 interface FilterProps {
   readonly headers: ReadonlyArray<string>
   readonly index: number
@@ -7,9 +9,10 @@ interface FilterProps {
 }
 
 interface TableDataProps<D> {
-  readonly data: readonly D[]
-  readonly headerNames?: ReadonlyArray<string>
+  readonly tableData: readonly D[]
+  readonly headerNames?: ReadonlyArray<keyof D>
   readonly filterOption?: ReadonlyArray<FilterOptions>
+  readonly headerLabels?: ReadonlyArray<string>
 }
 
 const getFilter = ({ headers, index, filterOption }: FilterProps) => {
@@ -28,26 +31,42 @@ const getFilter = ({ headers, index, filterOption }: FilterProps) => {
 }
 
 export function generateReactTableData<D>({
-  data,
+  tableData,
   headerNames,
   filterOption,
 }: TableDataProps<D>) {
+  const data =
+    tableData && tableData.length > 0
+      ? headerNames
+        ? tableData.map(val =>
+            // tslint:disable-next-line: no-inferred-empty-object-type
+            headerNames.reduce((acc, h) => ({ ...acc, [h]: val[h] }), {}),
+          )
+        : tableData
+      : []
   const [first] = data
-  const headers: ReadonlyArray<string> = first ? Object.keys(first) : []
-
+  const headers = first ? Object.keys(first) : []
   const headerData = headerNames
-    ? headerNames.map((headerName: string, index: number) => ({
-        Header: headerName,
+    ? headerNames.map((headerName, index: number) => ({
+        Header: camelCaseToPhrase(headerName as string),
         accessor: headers[index],
-        Filter: getFilter({ headers, index, filterOption }),
+        Filter: getFilter({
+          headers,
+          index,
+          filterOption,
+        }),
       }))
-    : headers.map((headerName: string, index) => ({
-        Header: headerName,
+    : headers.map((headerName, index) => ({
+        Header: camelCaseToPhrase(headerName),
         accessor: headerName,
-        Filter: getFilter({ headers, index, filterOption }),
+        Filter: getFilter({
+          headers,
+          index,
+          filterOption,
+        }),
       }))
 
-  const columns: ReactTableColumnValues[] = [
+  const columns: Array<ReactTableColumnValues<D>> = [
     {
       Header: 'Table Information',
       columns: (headerData && [...headerData]) || [],
