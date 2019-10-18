@@ -29,6 +29,11 @@ export const DriversTable = () => {
         sorting={true}
         pagination={true}
         headerNames={['name', 'lastActive', 'shift', 'status']}
+        filterOption={[
+          { columnName: 'name', filterType: 'search' },
+          { columnName: 'shift', filterType: 'select' },
+          { columnName: 'status', filterType: 'select' },
+        ]}
       />
     </>
   )
