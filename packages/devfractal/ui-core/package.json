@@ -30,7 +30,7 @@
     "@fortawesome/free-brands-svg-icons": "5.11.2",
     "@fortawesome/free-regular-svg-icons": "5.11.2",
     "@fortawesome/free-solid-svg-icons": "5.11.2",
-    "@fortawesome/react-fontawesome": "0.1.6",
+    "@fortawesome/react-fontawesome": "0.1.7",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -48,7 +48,7 @@
     "yup": "0.27.0"
   },
   "peerDependencies": {
-    "bulma": "0.7.5",
+    "bulma": "0.8.0",
     "react": "16.10.2",
     "react-dom": "16.10.2",
     "tcomb": "3.2.29",

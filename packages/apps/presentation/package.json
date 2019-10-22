@@ -21,7 +21,7 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.5.0",
+    "date-fns": "2.5.1",
     "formik": "1.5.8",
     "immer": "4.0.1",
     "react": "16.10.2",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
-    "bulma": "0.7.5",
+    "bulma": "0.8.0",
     "cross-env": "6.0.3",
     "eslint": "6.5.1",
     "jest": "24.9.0",
