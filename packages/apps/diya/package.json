@@ -23,6 +23,7 @@
   "dependencies": {
     "@react-google-maps/api": "^1.7.7",
     "@types/googlemaps": "^3.37.7",
+    "@types/victory": "^33.0.0",
     "date-fns": "2.4.1",
     "formik": "1.5.8",
     "react": "16.10.2",
@@ -30,6 +31,7 @@
     "react-dom": "16.10.2",
     "technoidentity-devfractal": "^1.2.19",
     "technoidentity-utils": "^1.2.19",
+    "victory": "^33.1.1",
     "yup": "0.27.0"
   },
   "devDependencies": {
