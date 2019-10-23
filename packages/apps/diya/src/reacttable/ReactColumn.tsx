@@ -1,5 +1,21 @@
 import React from 'react'
-import { EnhancedColumn } from 'react-table'
-export function ReactColumn<D>({ getHeaderProps, render }: EnhancedColumn<D>) {
-  return <th {...getHeaderProps()}>{render('Header')}</th>
+import { ReactColumnProps } from './models'
+export function ReactColumn<D>({
+  getHeaderProps,
+  render,
+  actions,
+}: ReactColumnProps<D>) {
+  return (
+    <th {...getHeaderProps()}>
+      {render('Header') === 'Actions' ? (
+        actions ? (
+          render('Header')
+        ) : (
+          <></>
+        )
+      ) : (
+        render('Header')
+      )}
+    </th>
+  )
 }
