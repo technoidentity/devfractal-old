@@ -1,22 +1,11 @@
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Cell, Row } from 'react-table'
-import {
-  ButtonLink,
-  Icon,
-  Link,
-  links,
-  TableBody,
-  Td,
-  Tr,
-} from 'technoidentity-devfractal'
+import { TableBody, Td, Tr } from 'technoidentity-devfractal'
+import { date } from 'technoidentity-utils'
 import { TableBodyProps } from './models'
-const driverLinks = links('drivers')
-
-export const ReactTableBody: React.FC<TableBodyProps> = ({
-  page,
-  prepareRow,
-}) => {
+import { ReactTableActions } from './ReactTableActions'
+import { formatDate } from './utils'
+export function ReactTableBody({ page, prepareRow, actions }: TableBodyProps) {
   return (
     <TableBody>
       {page.map((row: Row, i: number) => {
@@ -28,25 +17,19 @@ export const ReactTableBody: React.FC<TableBodyProps> = ({
                   <Td key={i} {...cell.getCellProps()}>
                     {cell.render('Cell').props.cell.value === 'actions' ? (
                       <>
-                        <Link to={driverLinks.edit(row.original.id)}>
-                          <Icon icon={faEdit} />
-                        </Link>
-                        <a
-                          href="#!"
-                          onClick={evt => {
-                            evt.preventDefault()
-                          }}
-                        >
-                          <Icon icon={faTrash} />
-                        </a>
-                        <ButtonLink
-                          to={`/assignDriver/${row.original.id}`}
-                          size="small"
-                          variant="info"
-                        >
-                          Assign
-                        </ButtonLink>
+                        {actions ? (
+                          <ReactTableActions
+                            onDelete={actions.onDelete}
+                            id={row.original.id}
+                            assignTo={actions.assignTo}
+                            editTo={actions.editTo}
+                          />
+                        ) : (
+                          <></>
+                        )}
                       </>
+                    ) : date.is(cell.render('Cell').props.cell.value) ? (
+                      formatDate(cell.render('Cell').props.cell.value)
                     ) : (
                       cell.render('Cell')
                     )}
