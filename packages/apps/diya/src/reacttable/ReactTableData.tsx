@@ -9,7 +9,7 @@ interface FilterProps<D> {
 
 interface TableDataProps<D> {
   readonly tableData: ReadonlyArray<D>
-  readonly headerNames?: ReadonlyArray<keyof D>
+  readonly headerNames?: ReadonlyArray<keyof D | string>
   readonly filterOption?: ReadonlyArray<FilterOptions>
   readonly headerLabels?: ReadonlyArray<string>
 }
