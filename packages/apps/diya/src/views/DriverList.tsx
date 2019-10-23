@@ -5,39 +5,27 @@ import {
   CreateLink,
   links,
   listComponent,
-  // RoutedPager,
   Section,
-  // useHistory,
-  // useLocation,
 } from 'technoidentity-devfractal'
+import { http as httpAPI } from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
-// import { DiyaTable } from '../components/DiyaTable'
-// import { fetchSuggestions, Search } from '../components/Search'
+import { baseURL } from '../config'
 import { Table } from '../reacttable/Table'
-
 const driverLinks = links('drivers')
-
+const http = httpAPI({ baseURL })
+async function onDelete(): Promise<void> {
+  // TODO: Shouldn't this be 'session' instead of 'logout'?
+  await http.del({ resource: 'logout' })
+}
 export const DriverList = listComponent(Driver, ({ data: driverList }) => {
- const tableData = driverList.map(data => ({ ...data, actions: 'actions' }))
-  // const { push } = useHistory()
-  // const { pathname } = useLocation()
+  const tableData = driverList.map(data => ({ ...data, actions: 'actions' }))
+
   return (
     <>
       <Section>
         <HeadTitle>Drivers</HeadTitle>
         <Columns>
-          <Column>
-            {/* <Search
-              searchBy="name"
-              onSearch={value => {
-                push(`${pathname}?name_like=^${value}`)
-              }}
-              fetchSuggestions={(value, searchBy) =>
-                fetchSuggestions(value, searchBy, 'drivers', Driver)
-              }
-            /> */}
-          </Column>
           <Column>
             <CreateLink
               alignment="right"
@@ -49,13 +37,6 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
           </Column>
         </Columns>
 
-        {/* <DiyaTable
-          data={driverList}
-          select={['name', 'lastActive', 'shift', 'status']}
-          editTo={v => driverLinks.edit(v.id)}
-          assignTo={v => `/assignDriver/${v.id}`}
-        /> */}
-        
         <Table
           tableData={[...tableData]}
           sorting={true}
@@ -66,8 +47,12 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
             { columnName: 'shift', filterType: 'select' },
             { columnName: 'status', filterType: 'select' },
           ]}
+          actions={{
+            editTo: id => driverLinks.edit(id),
+            assignTo: id => `/assignDriver/${id}`,
+            onDelete,
+          }}
         />
-        {/* <RoutedPager /> */}
       </Section>
     </>
   )
