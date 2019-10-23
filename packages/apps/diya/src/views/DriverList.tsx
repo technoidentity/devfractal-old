@@ -5,28 +5,30 @@ import {
   CreateLink,
   links,
   listComponent,
-  RoutedPager,
+  // RoutedPager,
   Section,
-  useHistory,
-  useLocation,
+  // useHistory,
+  // useLocation,
 } from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
-import { DiyaTable } from '../components/DiyaTable'
-import { fetchSuggestions, Search } from '../components/Search'
+// import { DiyaTable } from '../components/DiyaTable'
+// import { fetchSuggestions, Search } from '../components/Search'
+import { Table } from '../reacttable/Table'
 
 const driverLinks = links('drivers')
 
 export const DriverList = listComponent(Driver, ({ data: driverList }) => {
-  const { push } = useHistory()
-  const { pathname } = useLocation()
+ const tableData = driverList.map(data => ({ ...data, actions: 'actions' }))
+  // const { push } = useHistory()
+  // const { pathname } = useLocation()
   return (
     <>
       <Section>
         <HeadTitle>Drivers</HeadTitle>
         <Columns>
           <Column>
-            <Search
+            {/* <Search
               searchBy="name"
               onSearch={value => {
                 push(`${pathname}?name_like=^${value}`)
@@ -34,7 +36,7 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
               fetchSuggestions={(value, searchBy) =>
                 fetchSuggestions(value, searchBy, 'drivers', Driver)
               }
-            />
+            /> */}
           </Column>
           <Column>
             <CreateLink
@@ -47,14 +49,25 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
           </Column>
         </Columns>
 
-        <DiyaTable
+        {/* <DiyaTable
           data={driverList}
           select={['name', 'lastActive', 'shift', 'status']}
           editTo={v => driverLinks.edit(v.id)}
           assignTo={v => `/assignDriver/${v.id}`}
+        /> */}
+        
+        <Table
+          tableData={[...tableData]}
+          sorting={true}
+          pagination={true}
+          headerNames={['name', 'lastActive', 'shift', 'status']}
+          filterOption={[
+            { columnName: 'name', filterType: 'search' },
+            { columnName: 'shift', filterType: 'select' },
+            { columnName: 'status', filterType: 'select' },
+          ]}
         />
-
-        <RoutedPager />
+        {/* <RoutedPager /> */}
       </Section>
     </>
   )
