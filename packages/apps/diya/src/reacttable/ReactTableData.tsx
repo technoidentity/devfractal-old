@@ -1,21 +1,20 @@
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import { FilterOptions, ReactTableColumnValues } from './models'
 import { DefaultColumnFilter, SelectColumnFilter } from './ReactTableFilters'
-// import {formatDate} from '../common'
-interface FilterProps {
-  readonly headers: ReadonlyArray<string>
+interface FilterProps<D> {
+  readonly headers: ReadonlyArray<string | keyof D>
   readonly index: number
   readonly filterOption?: ReadonlyArray<FilterOptions>
 }
 
 interface TableDataProps<D> {
-  readonly tableData: readonly D[]
+  readonly tableData: ReadonlyArray<D>
   readonly headerNames?: ReadonlyArray<keyof D>
   readonly filterOption?: ReadonlyArray<FilterOptions>
   readonly headerLabels?: ReadonlyArray<string>
 }
 
-const getFilter = ({ headers, index, filterOption }: FilterProps) => {
+function getFilter<D>({ headers, index, filterOption }: FilterProps<D>) {
   const filter =
     filterOption &&
     filterOption.map((filterOption: FilterOptions) =>
@@ -35,42 +34,36 @@ export function generateReactTableData<D>({
   headerNames,
   filterOption,
 }: TableDataProps<D>) {
-  const data =
-    tableData && tableData.length > 0
-      ? headerNames
-        ? tableData.map(val =>
-            // tslint:disable-next-line: no-inferred-empty-object-type
-            headerNames.reduce((acc, h) => ({ ...acc, [h]: val[h] }), {}),
-          )
-        : tableData
-      : []
-  const [first] = data
+  const [first] = tableData
   const headers = first ? Object.keys(first) : []
-  const headerData = headerNames
-    ? headerNames.map((headerName, index: number) => ({
-        Header: camelCaseToPhrase(headerName as string),
-        accessor: headers[index],
-        Filter: getFilter({
-          headers,
-          index,
-          filterOption,
-        }),
-      }))
-    : headers.map((headerName, index) => ({
-        Header: camelCaseToPhrase(headerName),
-        accessor: headerName,
-        Filter: getFilter({
-          headers,
-          index,
-          filterOption,
-        }),
-      }))
+  const headerNamesWithAction = headerNames ? [...headerNames, 'actions'] : []
+  const headerData =
+    headerNamesWithAction.length > 0
+      ? headerNamesWithAction.map((headerName, index: number) => ({
+          Header: camelCaseToPhrase(headerName as string),
+          accessor: headerName,
+          Filter: getFilter<D>({
+            headers: headerNamesWithAction,
+            index,
+            filterOption,
+          }),
+        }))
+      : headers.map((headerName, index) => ({
+          Header: camelCaseToPhrase(headerName),
+          accessor: headerName,
+          Filter: getFilter({
+            headers,
+            index,
+            filterOption,
+          }),
+        }))
 
   const columns: Array<ReactTableColumnValues<D>> = [
     {
       Header: 'Table Information',
-      columns: (headerData && [...headerData]) || [],
+      columns: ([headerData] && [...headerData]) || [],
     },
   ]
-  return columns as []
+
+  return { columns: columns as [] }
 }
