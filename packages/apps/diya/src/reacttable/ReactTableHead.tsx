@@ -8,6 +8,7 @@ import { ReactSortingColumn } from './ReactSortingColumn'
 export const ReactTableHead: React.FC<TableHeadProps> = ({
   headerGroups,
   sorting,
+  actions
 }) => {
   return (
     <TableHead>
@@ -15,9 +16,9 @@ export const ReactTableHead: React.FC<TableHeadProps> = ({
         <Tr key={index} {...headerGroup.getHeaderGroupProps()}>
           {headerGroup.headers.map((column, i) =>
             sorting ? (
-              <ReactSortingColumn {...column} key={i} />
+              <ReactSortingColumn {...column} key={i} actions={actions}/>
             ) : (
-              <ReactColumn {...column} key={i} />
+              <ReactColumn {...column} key={i} actions={actions}/>
             ),
           )}
         </Tr>
