@@ -1,14 +1,16 @@
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
 import { Icon, Th } from 'devfractal-ui-core'
 import React from 'react'
-import { EnhancedColumn } from 'react-table'
+import { ReactColumnProps } from './models'
+
 export function ReactSortingColumn<D>({
   getHeaderProps,
   getSortByToggleProps,
   render,
   isSorted,
   isSortedDesc,
-}: EnhancedColumn<D>) {
+  actions,
+}: ReactColumnProps<D>) {
   return (
     <>
       <Th {...getHeaderProps()} {...getHeaderProps(getSortByToggleProps())}>
@@ -17,7 +19,11 @@ export function ReactSortingColumn<D>({
         ) : (
           <>
             {render('Header') === 'Actions' ? (
-              render('Header')
+              actions ? (
+                render('Header')
+              ) : (
+                <></>
+              )
             ) : (
               <>
                 {render('Header')}
