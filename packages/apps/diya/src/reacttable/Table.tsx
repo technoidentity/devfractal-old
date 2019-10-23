@@ -27,19 +27,19 @@ export function Table<D>({
   pagination,
   headerLabels,
 }: ReactTableProps<D>) {
-  const tableState = useTableState({ pageIndex: 0, pageSize: 10 })
-
-  const columns = generateReactTableData({
+  const { columns } = generateReactTableData<D>({
     tableData,
     headerNames,
     headerLabels,
     filterOption,
   })
 
+  const tableState = useTableState({ pageIndex: 0, pageSize: 10 })
+
   const reactTableData = useTable(
     {
       columns,
-      data: tableData,
+      data:tableData,
       loading: true,
       state: tableState,
     },
