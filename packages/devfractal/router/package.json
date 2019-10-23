@@ -43,8 +43,8 @@
     "typescript": "3.6.4"
   },
   "peerDependencies": {
-    "react": "16.10.2",
-    "react-dom": "16.10.2",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
     "technoidentity-utils": "1.2.19"
   }
 }

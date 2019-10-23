@@ -21,11 +21,11 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.5.1",
+    "date-fns": "2.6.0",
     "formik": "1.5.8",
-    "immer": "4.0.1",
-    "react": "16.10.2",
-    "react-dom": "16.10.2",
+    "immer": "4.0.2",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
     "technoidentity-devfractal": "^1.2.19",
@@ -46,8 +46,8 @@
     "typescript": "3.6.4"
   },
   "resolutions": {
-    "react": "16.10.2",
-    "react-dom": "16.10.2"
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
   },
   "browserslist": [
     ">0.2%",

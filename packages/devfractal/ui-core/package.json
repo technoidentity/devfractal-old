@@ -49,8 +49,8 @@
   },
   "peerDependencies": {
     "bulma": "0.8.0",
-    "react": "16.10.2",
-    "react-dom": "16.10.2",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
     "tcomb": "3.2.29",
     "technoidentity-utils": "1.2.19"
   }
