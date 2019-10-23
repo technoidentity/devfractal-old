@@ -26,6 +26,7 @@ export function Table<D>({
   sorting,
   pagination,
   headerLabels,
+  actions,
 }: ReactTableProps<D>) {
   const { columns } = generateReactTableData<D>({
     tableData,
@@ -39,7 +40,7 @@ export function Table<D>({
   const reactTableData = useTable(
     {
       columns,
-      data:tableData,
+      data: tableData,
       loading: true,
       state: tableState,
     },
@@ -52,7 +53,7 @@ export function Table<D>({
       return (
         <>
           <Filters {...reactTableData} />
-          <ReactTable {...reactTableData} sorting={sorting} />
+          <ReactTable {...reactTableData} sorting={sorting} actions={actions} />
           {pagination ? (
             <Pagination
               canPreviousPage={reactTableData.canPreviousPage}
