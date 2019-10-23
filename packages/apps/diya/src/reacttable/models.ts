@@ -1,4 +1,5 @@
 import {
+  EnhancedColumn,
   HeaderGroup,
   Row,
   TableInstance,
@@ -9,15 +10,28 @@ export interface FilterOptions {
   readonly columnName: string
   readonly filterType: 'select' | 'search'
 }
+export interface ReactTableActionsProps {
+  editTo?(id: string): string
+  assignTo?(id: string): string
+  onDelete?(id: string): Promise<void>
+}
+export interface ReactTableActionsValues extends ReactTableActionsProps{
+  readonly id: string
+}
 
+interface ReactSortingColumnValues {
+  readonly actions?: ReactTableActionsProps
+}
+export type ReactColumnProps<D> = ReactSortingColumnValues & EnhancedColumn<D>
 export interface ReactTableProps<D> {
   // tslint:disable-next-line:readonly-array
   readonly tableData: D[]
-  readonly headerNames?: ReadonlyArray<keyof D>
+  readonly headerNames?: ReadonlyArray<keyof D | string>
   readonly sorting: boolean
   readonly filterOption?: ReadonlyArray<FilterOptions>
   readonly headerLabels?: ReadonlyArray<string>
   readonly pagination: boolean
+  readonly actions?: ReactTableActionsProps
 }
 export interface TableFilterHeadProps {
   readonly headerGroups: readonly HeaderGroup[]
@@ -25,10 +39,12 @@ export interface TableFilterHeadProps {
 export interface TableHeadProps {
   readonly sorting: boolean
   readonly headerGroups: readonly HeaderGroup[]
+  readonly actions?:ReactTableActionsProps
 }
 export interface TableBodyProps {
   readonly page: readonly Row[]
   prepareRow(row: Row): any
+  readonly actions?: ReactTableActionsProps
 }
 export interface PaginationProps {
   readonly canPreviousPage: boolean
@@ -53,7 +69,8 @@ export interface ColumnFilterProps {
 interface SelectColumnFilterProps {
   readonly filterValue: string
   readonly id: string
-  readonly preFilteredRows: readonly []
+  readonly Header: string
+  readonly preFilteredRows?: readonly []
   setFilter(val: string): any
 }
 interface Columns<D> {
@@ -63,5 +80,9 @@ interface Columns<D> {
 }
 interface SortingValues {
   readonly sorting: boolean
+  readonly actions?: ReactTableActionsProps
 }
-export type TableProps = TableInstance & UsePaginationValues & SortingValues
+export type TableProps = TableInstance &
+  UsePaginationValues &
+  SortingValues 
+  
