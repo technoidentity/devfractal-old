@@ -15,8 +15,8 @@ import { Table } from '../reacttable/Table'
 const driverLinks = links('drivers')
 const http = httpAPI({ baseURL })
 async function onDelete(): Promise<void> {
-  // TODO: Shouldn't this be 'session' instead of 'logout'?
-  await http.del({ resource: 'logout' })
+  
+  await http.del({ resource: 'drivers' })
 }
 export const DriverList = listComponent(Driver, ({ data: driverList }) => {
   const tableData = driverList.map(data => ({ ...data, actions: 'actions' }))
