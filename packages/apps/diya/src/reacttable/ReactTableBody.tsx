@@ -20,6 +20,7 @@ export function ReactTableBody({ page, prepareRow, actions }: TableBodyProps) {
                         {actions ? (
                           <ReactTableActions
                             onDelete={actions.onDelete}
+                            // TODO: Property 'id' does not exist on type '{}'
                             id={row.original.id}
                             assignTo={actions.assignTo}
                             editTo={actions.editTo}
