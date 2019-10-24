@@ -4,18 +4,22 @@ import { TableProps } from './models'
 import { ReactTableBody } from './ReactTableBody'
 import { ReactTableHead } from './ReactTableHead'
 
-export function ReactTable ({
+export function ReactTable<D extends { readonly id: string }>({
   getTableProps,
   headerGroups,
   page,
   prepareRow,
   sorting,
-  actions
-}:TableProps){
+  actions,
+}: TableProps<D>) {
   return (
     <Table fullWidth striped narrow {...getTableProps()}>
-      <ReactTableHead headerGroups={headerGroups} sorting={sorting} actions={actions}/>
-      <ReactTableBody page={page} prepareRow={prepareRow} actions={actions}/>
+      <ReactTableHead
+        headerGroups={headerGroups}
+        sorting={sorting}
+        actions={actions}
+      />
+      <ReactTableBody page={page} prepareRow={prepareRow} actions={actions} />
     </Table>
   )
 }

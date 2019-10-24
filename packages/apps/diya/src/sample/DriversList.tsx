@@ -25,7 +25,8 @@ export const DriversTable = () => {
   return (
     <>
       <Table
-        tableData={state}
+        // @TODO: Fix 'id' required/partial later
+        tableData={state as Array<Omit<Driver, 'id'> & { readonly id: string }>}
         sorting={true}
         pagination={true}
         headerNames={['name', 'lastActive', 'shift', 'status']}

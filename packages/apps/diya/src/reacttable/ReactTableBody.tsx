@@ -5,14 +5,18 @@ import { date } from 'technoidentity-utils'
 import { TableBodyProps } from './models'
 import { ReactTableActions } from './ReactTableActions'
 import { formatDate } from './utils'
-export function ReactTableBody({ page, prepareRow, actions }: TableBodyProps) {
+export function ReactTableBody<D extends { readonly id: string }>({
+  page,
+  prepareRow,
+  actions,
+}: TableBodyProps<D>) {
   return (
     <TableBody>
-      {page.map((row: Row, i: number) => {
+      {page.map((row: Row<D>, i: number) => {
         return (
           prepareRow(row) || (
             <Tr key={i} {...row.getRowProps()}>
-              {row.cells.map((cell: Cell, i: number) => {
+              {row.cells.map((cell: Cell<D>, i: number) => {
                 return (
                   <Td key={i} {...cell.getCellProps()}>
                     {cell.render('Cell').props.cell.value === 'actions' ? (

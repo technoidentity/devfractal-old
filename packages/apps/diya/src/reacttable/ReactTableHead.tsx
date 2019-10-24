@@ -5,20 +5,20 @@ import { TableHeadProps } from './models'
 import { ReactColumn } from './ReactColumn'
 import { ReactSortingColumn } from './ReactSortingColumn'
 
-export const ReactTableHead: React.FC<TableHeadProps> = ({
+export function ReactTableHead<D>({
   headerGroups,
   sorting,
-  actions
-}) => {
+  actions,
+}: TableHeadProps<D>) {
   return (
     <TableHead>
-      {headerGroups.map((headerGroup: HeaderGroup, index: number) => (
+      {headerGroups.map((headerGroup: HeaderGroup<D>, index: number) => (
         <Tr key={index} {...headerGroup.getHeaderGroupProps()}>
           {headerGroup.headers.map((column, i) =>
             sorting ? (
-              <ReactSortingColumn {...column} key={i} actions={actions}/>
+              <ReactSortingColumn {...column} key={i} actions={actions} />
             ) : (
-              <ReactColumn {...column} key={i} actions={actions}/>
+              <ReactColumn {...column} key={i} actions={actions} />
             ),
           )}
         </Tr>

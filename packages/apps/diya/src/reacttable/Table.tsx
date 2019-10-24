@@ -13,13 +13,14 @@ import { ReactTableProps } from './models'
 import { Pagination } from './Pagination'
 import { ReactTable } from './ReactTable'
 import { generateReactTableData } from './ReactTableData'
-function isPaginated(
-  table: TableInstance | TableInstance & UsePaginationValues,
-): table is TableInstance & UsePaginationValues {
-  return (table as TableInstance & UsePaginationValues).page !== undefined
+
+function isPaginated<D>(
+  table: TableInstance<D> | TableInstance<D> & UsePaginationValues<D>,
+): table is TableInstance<D> & UsePaginationValues<D> {
+  return (table as TableInstance<D> & UsePaginationValues<D>).page !== undefined
 }
 
-export function Table<D>({
+export function Table<D extends { readonly id: string }>({
   tableData,
   filterOption,
   headerNames,
@@ -37,7 +38,7 @@ export function Table<D>({
 
   const tableState = useTableState({ pageIndex: 0, pageSize: 10 })
 
-  const reactTableData = useTable(
+  const reactTableData = useTable<D>(
     {
       columns,
       data: tableData,

@@ -15,7 +15,7 @@ export interface ReactTableActionsProps {
   assignTo?(id: string): string
   onDelete?(id: string): Promise<void>
 }
-export interface ReactTableActionsValues extends ReactTableActionsProps{
+export interface ReactTableActionsValues extends ReactTableActionsProps {
   readonly id: string
 }
 
@@ -24,6 +24,7 @@ interface ReactSortingColumnValues {
 }
 export type ReactColumnProps<D> = ReactSortingColumnValues & EnhancedColumn<D>
 export interface ReactTableProps<D> {
+  // disabled as react-table expects mutable array
   // tslint:disable-next-line:readonly-array
   readonly tableData: D[]
   readonly headerNames?: ReadonlyArray<keyof D | string>
@@ -33,17 +34,17 @@ export interface ReactTableProps<D> {
   readonly pagination: boolean
   readonly actions?: ReactTableActionsProps
 }
-export interface TableFilterHeadProps {
-  readonly headerGroups: readonly HeaderGroup[]
+export interface TableFilterHeadProps<D> {
+  readonly headerGroups: ReadonlyArray<HeaderGroup<D>>
 }
-export interface TableHeadProps {
+export interface TableHeadProps<D> {
   readonly sorting: boolean
-  readonly headerGroups: readonly HeaderGroup[]
-  readonly actions?:ReactTableActionsProps
+  readonly headerGroups: ReadonlyArray<HeaderGroup<D>>
+  readonly actions?: ReactTableActionsProps
 }
-export interface TableBodyProps {
-  readonly page: readonly Row[]
-  prepareRow(row: Row): any
+export interface TableBodyProps<D> {
+  readonly page: ReadonlyArray<Row<D>>
+  prepareRow(row: Row<D>): any
   readonly actions?: ReactTableActionsProps
 }
 export interface PaginationProps {
@@ -82,7 +83,6 @@ interface SortingValues {
   readonly sorting: boolean
   readonly actions?: ReactTableActionsProps
 }
-export type TableProps = TableInstance &
-  UsePaginationValues &
-  SortingValues 
-  
+export type TableProps<D extends { readonly id: string }> = TableInstance<D> &
+  UsePaginationValues<D> &
+  SortingValues

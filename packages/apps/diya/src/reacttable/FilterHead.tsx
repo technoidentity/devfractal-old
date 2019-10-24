@@ -2,9 +2,9 @@ import React from 'react'
 import { FilterColumn } from './FilterColumn'
 import { TableFilterHeadProps } from './models'
 
-export const FilterHead: React.FC<TableFilterHeadProps> = ({
+export function FilterHead<D>({
   headerGroups,
-}) => {
+}: TableFilterHeadProps<D>): JSX.Element {
   return (
     <thead>
       {headerGroups.map((headerGroup, i) => (

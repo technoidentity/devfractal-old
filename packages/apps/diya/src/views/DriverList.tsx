@@ -15,11 +15,13 @@ import { Table } from '../reacttable/Table'
 const driverLinks = links('drivers')
 const http = httpAPI({ baseURL })
 async function onDelete(): Promise<void> {
-  
   await http.del({ resource: 'drivers' })
 }
 export const DriverList = listComponent(Driver, ({ data: driverList }) => {
-  const tableData = driverList.map(data => ({ ...data, actions: 'actions' }))
+  const tableData = driverList.map(data => ({
+    ...data,
+    actions: 'actions',
+  }))
 
   return (
     <>
@@ -38,7 +40,12 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
         </Columns>
 
         <Table
-          tableData={[...tableData]}
+          tableData={[
+            // @TODO: Fix 'id' required/partial later
+            ...(tableData as ReadonlyArray<
+              Omit<Driver, 'id'> & { readonly id: string }
+            >),
+          ]}
           sorting={true}
           pagination={true}
           headerNames={['name', 'lastActive', 'shift', 'status']}

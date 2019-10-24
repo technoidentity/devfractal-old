@@ -1,7 +1,8 @@
 import React from 'react'
 import { TableInstance } from 'react-table'
 import { FilterHead } from './FilterHead'
-export const Filters = ({ headerGroups }: TableInstance) => {
+
+export function Filters<D>({ headerGroups }: TableInstance<D>): JSX.Element {
   return (
     <table>
       <FilterHead headerGroups={headerGroups} />
