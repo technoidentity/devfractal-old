@@ -9,7 +9,7 @@ export const DefaultColumnFilter = ({
   return (
     <Column>
       <Input
-        value={filterValue || ''}
+        value={filterValue}
         onChange={e => {
           setFilter(e.target.value)
         }}
