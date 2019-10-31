@@ -2,17 +2,44 @@ import React from 'react'
 import {
   CreateLink,
   links,
-  listComponent,
+  // listComponent,
   RoutedPager,
   Section,
 } from 'technoidentity-devfractal'
-import { Vehicle } from '../common'
+// import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'
 
 const vehicleLinks = links('vehicles')
 
-export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
+// export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
+//   return (
+//     <Section>
+//       <HeadTitle>Vehicles</HeadTitle>
+
+//       <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
+//         Add Vehicle
+//       </CreateLink>
+
+//       <DiyaTable
+//         data={vehicleList}
+//         // select={[
+//         //   'vehicleName',
+//         //   'numberPlate',
+//         //   'group',
+//         //   'nextService',
+//         //   'insuranceDue',
+//         //   'status',
+//         // ]}
+//         editTo={v => vehicleLinks.edit(v.id)}
+//         assignTo={v => `/assignVehicle/${v.id}`}
+//       />
+//       <RoutedPager />
+//     </Section>
+//   )
+// })
+
+export const VehicleList1 = ({ data }: { readonly data: any }) => {
   return (
     <Section>
       <HeadTitle>Vehicles</HeadTitle>
@@ -22,13 +49,12 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
       </CreateLink>
 
       <DiyaTable
-        data={vehicleList}
+        data={data}
         select={[
-          'name',
-          'numberPlate',
-          'group',
-          'nextService',
-          'insuranceDue',
+          'vehicleName',
+          'registrationNumber',
+          'insuranceExpiry',
+          'lastService',
           'status',
         ]}
         editTo={v => vehicleLinks.edit(v.id)}
@@ -37,4 +63,4 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
       <RoutedPager />
     </Section>
   )
-})
+}
