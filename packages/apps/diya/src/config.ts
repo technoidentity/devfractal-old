@@ -4,4 +4,4 @@ export const hostname: string = process.env.HOST_NAME
 
 export const fakeBaseURL: string = `http://${hostname}:9999`
 
-export const baseURL: string = 'http://cargos-aws.devti.in/v1'
+export const baseURL: string = 'http://localhost:3000/v1'
