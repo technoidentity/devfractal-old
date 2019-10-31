@@ -8,11 +8,18 @@ import { AuthProvider } from './AuthContext'
 const http = httpAPI({ baseURL })
 
 async function login(values: LoginValues): Promise<AuthUserInfo> {
-  return http.post({ resource: 'session' }, values, AuthUserInfo)
+  const loginData = await http.post(
+    { resource: 'session' },
+    values,
+    AuthUserInfo,
+  )
+  localStorage.setItem('loginData', JSON.stringify(loginData))
+  return loginData
 }
 
 async function logOut(): Promise<void> {
   // TODO: Shouldn't this be 'session' instead of 'logout'?
+  localStorage.clear()
   await http.del({ resource: 'logout' })
 }
 
