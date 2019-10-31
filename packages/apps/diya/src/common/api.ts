@@ -1,6 +1,7 @@
 import { rest, toJSONServerQuery } from 'technoidentity-devfractal'
 import { ObjC, Props } from 'technoidentity-utils'
-import { fakeBaseURL } from '../config'
+import { AuthUserInfo } from '../common'
+import { baseURL, fakeBaseURL } from '../config'
 import {
   AdManager,
   AssignBattery,
@@ -16,7 +17,8 @@ import {
   PlanRoute,
   Trip,
   User,
-  Vehicle,
+  // Vehicle,
+  VehicleResponse,
 } from './models'
 
 // tslint:disable-next-line: typedef
@@ -27,8 +29,33 @@ function api<Opt extends Props, Req extends Props>(
   return rest(spec, 'id', { resource, baseURL: fakeBaseURL }, toJSONServerQuery)
 }
 
+function apiServer<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+  resource: string,
+) {
+  const data = localStorage.getItem('loginData')
+
+  if (data) {
+    const {
+      data: { token },
+    }: AuthUserInfo = JSON.parse(data)
+    return rest(
+      spec,
+      'id',
+      {
+        resource,
+        baseURL,
+        headers: { Authorization: `bearer ${token}` },
+      },
+      toJSONServerQuery,
+    )
+  } else {
+    throw new Error('token is require')
+  }
+}
+
 export const driverAPI = api(Driver, 'drivers')
-export const vehicleAPI = api(Vehicle, 'vehicles')
+export const vehicleAPI = apiServer(VehicleResponse, 'vehicles')
 export const batteryAPI = api(Battery, 'batteries')
 export const clientAPI = api(Client, 'clients')
 export const userAPI = api(User, 'users')
