@@ -1,4 +1,5 @@
 import {
+  array,
   enumerate,
   Int,
   number,
@@ -87,6 +88,37 @@ export const Vehicle = obj(
 )
 
 export type Vehicle = TypeOf<typeof Vehicle>
+
+export const VehicleRow = obj(
+  {
+    id: string,
+    warrantyExpiry: ISODate,
+    lastService: ISODate,
+    photo: string,
+    createdAt: ISODate,
+    vehicleName: string,
+    updatedAt: ISODate,
+    status: string,
+  },
+  {
+    vehicleSerialNum: string,
+    registrationNumber: string,
+    makersClass: string,
+    vehicleClass: string,
+    manufactureYear: ISODate,
+    color: string,
+    insuranceExpiry: ISODate,
+  },
+)
+
+export const VehicleResponse = req({
+  data: req({
+    rows: array(VehicleRow),
+    count: number,
+  }),
+})
+
+export type VehicleResponse = TypeOf<typeof VehicleResponse>
 
 const ContractType = enumerate('weekly', 'monthly')
 
@@ -234,8 +266,7 @@ export const AuthUserInfo = req({
   data: req({
     token: string,
     user: req({
-      firstName: string,
-      lastName: string,
+      name: string,
       email: string,
       phone: string,
       role,
