@@ -12,7 +12,12 @@ export const TripList = listComponent(Trip, ({ data: tripsList }) => {
     <Section>
       <HeadTitle>View Trips</HeadTitle>
       <Table
-        tableData={[...tableData]}
+        tableData={[
+          // @TODO: Fix 'id' required/partial later
+          ...((tableData as unknown) as ReadonlyArray<
+            Omit<Trip, 'id'> & { readonly id: string }
+          >),
+        ]}
         sorting={true}
         pagination={true}
         headerNames={['customerName', 'address', 'contactNumber', 'status']}

@@ -1,10 +1,8 @@
 import React from 'react'
 import {
   CreateLink,
-  CrudTable,
   links,
   listComponent,
-  RoutedPager,
   Section,
 } from 'technoidentity-devfractal'
 import { Client } from '../common'
@@ -23,7 +21,12 @@ export const ClientList = listComponent(Client, ({ data: clientList }) => {
         Add Client
       </CreateLink>
       <Table
-        tableData={[...tableData]}
+        tableData={[
+          // @TODO: Fix 'id' required/partial later
+          ...((tableData as unknown) as ReadonlyArray<
+            Omit<Client, 'id'> & { readonly id: string }
+          >),
+        ]}
         sorting={true}
         pagination={true}
         headerNames={[

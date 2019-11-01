@@ -30,7 +30,12 @@ export const GeoFenceList = listComponent(
           Create GeoFence
         </CreateLink>
         <Table
-          tableData={[...tableData]}
+          tableData={[
+            // @TODO: Fix 'id' required/partial later
+            ...((tableData as unknown) as ReadonlyArray<
+              Omit<GeoFence, 'id'> & { readonly id: string }
+            >),
+          ]}
           sorting={true}
           pagination={true}
           headerNames={['areaName', 'assignVehicle', 'assignClient']}

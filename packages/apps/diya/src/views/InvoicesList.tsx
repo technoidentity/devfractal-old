@@ -10,7 +10,12 @@ export const InvoiceList = listComponent(Invoice, ({ data: invoiceList }) => {
     <Section>
       <HeadTitle>Invoices</HeadTitle>
       <Table
-        tableData={[...tableData]}
+        tableData={[
+          // @TODO: Fix 'id' required/partial later
+          ...((tableData as unknown) as ReadonlyArray<
+            Omit<Invoice, 'id'> & { readonly id: string }
+          >),
+        ]}
         sorting={true}
         pagination={true}
         headerNames={['invoicesNo', 'valid', 'dueDate', 'amount']}
