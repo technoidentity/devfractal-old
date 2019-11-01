@@ -1,10 +1,9 @@
 import React from 'react'
 import { Cell, Row } from 'react-table'
 import { TableBody, Td, Tr } from 'technoidentity-devfractal'
-import { date } from 'technoidentity-utils'
+// import { date } from 'technoidentity-utils'
 import { TableBodyProps } from './models'
 import { ReactTableActions } from './ReactTableActions'
-import { formatDate } from './utils'
 export function ReactTableBody<D extends { readonly id: string }>({
   page,
   prepareRow,
@@ -33,8 +32,6 @@ export function ReactTableBody<D extends { readonly id: string }>({
                           <></>
                         )}
                       </>
-                    ) : date.is(cell.render('Cell').props.cell.value) ? (
-                      formatDate(cell.render('Cell').props.cell.value)
                     ) : (
                       cell.render('Cell')
                     )}

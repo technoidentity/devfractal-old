@@ -8,7 +8,7 @@ import {
 
 export interface FilterOptions {
   readonly columnName: string
-  readonly filterType: 'select' | 'search'
+  readonly filterType: 'select' | 'search' | 'date'
 }
 export interface ReactTableActionsProps {
   editTo?(id: string): string
@@ -30,7 +30,7 @@ export interface ReactTableProps<D> {
   readonly headerNames?: ReadonlyArray<keyof D | string>
   readonly sorting: boolean
   readonly filterOption?: ReadonlyArray<FilterOptions>
-  readonly headerLabels?: ReadonlyArray<string>
+  readonly headerLabels?: any
   readonly pagination: boolean
   readonly actions?: ReactTableActionsProps
 }

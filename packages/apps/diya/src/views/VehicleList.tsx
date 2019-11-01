@@ -3,16 +3,16 @@ import {
   CreateLink,
   links,
   listComponent,
-  RoutedPager,
   Section,
 } from 'technoidentity-devfractal'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
-import { DiyaTable } from '../components/DiyaTable'
+import { Table } from '../reacttable/Table'
 
 const vehicleLinks = links('vehicles')
 
 export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
+  const tableData = vehicleList.map(data => ({ ...data, actions: 'actions' }))
   return (
     <Section>
       <HeadTitle>Vehicles</HeadTitle>
@@ -20,10 +20,11 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
       <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
         Add Vehicle
       </CreateLink>
-
-      <DiyaTable
-        data={vehicleList}
-        select={[
+      <Table
+        tableData={[...tableData]}
+        sorting={true}
+        pagination={true}
+        headerNames={[
           'name',
           'numberPlate',
           'group',
@@ -31,10 +32,12 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
           'insuranceDue',
           'status',
         ]}
-        editTo={v => vehicleLinks.edit(v.id)}
-        assignTo={v => `/assignVehicle/${v.id}`}
+        filterOption={[{ columnName: 'name', filterType: 'search' }]}
+        actions={{
+          editTo: id => vehicleLinks.edit(id),
+          assignTo: id => `/assignVehicle/${id}`,
+        }}
       />
-      <RoutedPager />
     </Section>
   )
 })

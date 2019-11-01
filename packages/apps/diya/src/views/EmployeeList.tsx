@@ -1,35 +1,46 @@
 import React from 'react'
 import {
   CreateLink,
-  CrudTable,
   links,
   listComponent,
-  RoutedPager,
   Section,
 } from 'technoidentity-devfractal'
 import { Employee } from '../common'
 import { HeadTitle } from '../components'
+import { Table } from '../reacttable/Table'
 
 const employeeLinks = links('employees')
 
 export const EmployeeList = listComponent(
   Employee,
-  ({ data: employeeList }) => (
-    <Section>
-      <HeadTitle>Employee</HeadTitle>
+  ({ data: employeeList }) => {
+    const tableData = employeeList.map(data => ({
+      ...data,
+      actions: 'actions',
+    }))
+    return (
+      <Section>
+        <HeadTitle>Employee</HeadTitle>
 
-      <CreateLink alignment="right" variant="primary" to={employeeLinks.create}>
-        {' '}
-        Add Employee
-      </CreateLink>
-
-      <CrudTable
-        data={employeeList}
-        select={['name', 'role']}
-        editTo={v => employeeLinks.edit(v.id)}
-      />
-
-      <RoutedPager />
-    </Section>
-  ),
+        <CreateLink
+          alignment="right"
+          variant="primary"
+          to={employeeLinks.create}
+        >
+          {' '}
+          Add Employee
+        </CreateLink>
+        <Table
+          tableData={[...tableData]}
+          sorting={true}
+          pagination={true}
+          headerNames={['name', 'role']}
+          filterOption={[{ columnName: 'name', filterType: 'search' }]}
+          actions={{
+            editTo: id => employeeLinks.edit(id),
+          }}
+        />
+      </Section>
+    )
+  },
 )
