@@ -2,7 +2,6 @@ import { Column, Input, Select } from 'devfractal-ui-core'
 import React from 'react'
 import { Row } from 'react-table'
 import { ColumnFilterProps } from './models'
-import { formatDate } from './utils'
 
 export const DefaultColumnFilter = ({
   column: { filterValue, setFilter, Header },
