@@ -60,7 +60,7 @@ export const SelectDateFilter = ({
         type="date"
         placeholder={`Filter by ${Header}`}
         onChange={e => {
-          const date = e.target.value.replace(/\-/g, '/')
+          const date = e.target.value.replace(/-/g, '/')
           setFilter((date as unknown) as string)
         }}
       />
