@@ -1,3 +1,4 @@
+import { date } from 'io-ts-types/lib/date'
 import React from 'react'
 import {
   CreateLink,
@@ -8,11 +9,24 @@ import {
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { Table } from '../reacttable/Table'
+import { formatDate } from '../reacttable/utils'
 
 const vehicleLinks = links('vehicles')
 
 export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
-  const tableData = vehicleList.map(data => ({ ...data, actions: 'actions' }))
+  const keys = Object.keys(vehicleList[0])
+  const tableData = vehicleList.map(vehicleList =>
+    keys.reduce(
+      (acc, k) => ({
+        ...acc,
+        [k]: date.is(vehicleList[k])
+          ? formatDate(vehicleList[k])
+          : vehicleList[k],
+        actions: 'actions',
+      }),
+      {},
+    ),
+  )
   return (
     <Section>
       <HeadTitle>Vehicles</HeadTitle>

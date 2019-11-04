@@ -1,11 +1,25 @@
+import { date } from 'io-ts-types/lib/date'
 import React from 'react'
 import { listComponent, Section } from 'technoidentity-devfractal'
 import { Invoice } from '../common'
 import { HeadTitle } from '../components'
 import { Table } from '../reacttable/Table'
+import { formatDate } from '../reacttable/utils'
 
 export const InvoiceList = listComponent(Invoice, ({ data: invoiceList }) => {
-  const tableData = invoiceList.map(data => ({ ...data, actions: 'actions' }))
+  const keys = Object.keys(invoiceList[0])
+  const tableData = invoiceList.map(invoiceList =>
+    keys.reduce(
+      (acc, k) => ({
+        ...acc,
+        [k]: date.is(invoiceList[k])
+          ? formatDate(invoiceList[k])
+          : invoiceList[k],
+        actions: 'actions',
+      }),
+      {},
+    ),
+  )
   return (
     <Section>
       <HeadTitle>Invoices</HeadTitle>
