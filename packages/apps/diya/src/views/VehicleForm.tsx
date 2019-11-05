@@ -13,11 +13,11 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { VehicleData } from '../common'
+import { VehicleAdd } from '../common'
 import { HeadTitle } from '../components'
 
 export const VehicleForm = formComponent(
-  VehicleData,
+  VehicleAdd,
   ({ onSubmit, initial, edit }) => (
     <>
       <Section>
