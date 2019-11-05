@@ -18,9 +18,8 @@ async function login(values: LoginValues): Promise<AuthUserInfo> {
 }
 
 async function logOut(): Promise<void> {
-  // TODO: Shouldn't this be 'session' instead of 'logout'?
   localStorage.clear()
-  await http.del({ resource: 'logout' })
+  await http.del({ resource: 'session' })
 }
 
 export const AppProviders: React.FC = ({ children }) => {

@@ -90,7 +90,7 @@ export const Vehicle = obj(
 
 export type Vehicle = TypeOf<typeof Vehicle>
 
-export const DriverRow = obj(
+export const DriverData = obj(
   { id: string },
   {
     name: string,
@@ -100,14 +100,19 @@ export const DriverRow = obj(
 )
 export const DriverResponse = req({
   data: req({
-    rows: array(DriverRow),
+    rows: array(DriverData),
     count: number,
   }),
 })
+export type DriverData = TypeOf<typeof DriverData>
+export const DriverEdit = req({
+  data: DriverData,
+})
 
+export type DriverEdit = TypeOf<typeof DriverEdit>
 export type DriverResponse = TypeOf<typeof DriverResponse>
 
-export const BatteryRow = obj(
+export const BatteryData = obj(
   {
     createdAt: string,
     updatedAt: string,
@@ -122,7 +127,7 @@ export const BatteryRow = obj(
     capacity: string,
     cycles: number,
     warrantyUpto: string,
-    lastCharged: string,
+    lastCharged: ISODate,
     isActive: boolean,
     status: Status,
     batteryName: string,
@@ -130,14 +135,20 @@ export const BatteryRow = obj(
 )
 export const BatteryResponse = req({
   data: req({
-    rows: array(BatteryRow),
+    rows: array(BatteryData),
     count: number,
   }),
 })
 
+export type BatteryData = TypeOf<typeof BatteryData>
 export type BatteryResponse = TypeOf<typeof BatteryResponse>
+export const BatteryEdit = req({
+  data: BatteryData,
+})
 
-export const VehicleRow = obj(
+export type BatteryEdit = TypeOf<typeof BatteryEdit>
+
+export const VehicleData = obj(
   {
     id: string,
     warrantyExpiry: ISODate,
@@ -147,6 +158,10 @@ export const VehicleRow = obj(
     vehicleName: string,
     updatedAt: ISODate,
     status: string,
+    createdById: string,
+    updatedById: string,
+    isActive: boolean,
+    vehicleNameCount: number,
   },
   {
     vehicleSerialNum: string,
@@ -159,14 +174,22 @@ export const VehicleRow = obj(
   },
 )
 
+export type VehicleData = TypeOf<typeof VehicleData>
+
 export const VehicleResponse = req({
   data: req({
-    rows: array(VehicleRow),
+    rows: array(VehicleData),
     count: number,
   }),
 })
 
 export type VehicleResponse = TypeOf<typeof VehicleResponse>
+
+export const VehicleEdit = req({
+  data: VehicleData,
+})
+
+export type VehicleEdit = TypeOf<typeof VehicleEdit>
 
 const ContractType = enumerate('weekly', 'monthly')
 
@@ -182,7 +205,7 @@ export const Client = obj(
   },
 )
 
-export const UserRow = obj(
+export const UserData = obj(
   {
     id: string,
   },
@@ -199,11 +222,16 @@ export const UserRow = obj(
 
 export const UserResponse = req({
   data: req({
-    rows: array(UserRow),
+    rows: array(UserData),
     count: number,
   }),
 })
+export type UserData = TypeOf<typeof UserData>
+export const UserEdit = req({
+  data: UserData,
+})
 
+export type UserEdit = TypeOf<typeof UserEdit>
 export type UserResponse = TypeOf<typeof UserResponse>
 
 export type Client = TypeOf<typeof Client>
