@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  // All,
   Create,
   Get,
   http as httpAPI,
@@ -8,11 +7,14 @@ import {
   paths,
   Put,
   Route,
+  useMatch,
 } from 'technoidentity-devfractal'
+import { string, type } from 'technoidentity-utils'
 import {
   AuthUserInfo,
   vehicleAdd,
   vehicleAPI,
+  VehicleData,
   VehicleEdit as VE,
   vehicleEditAPI,
   VehicleResponse,
@@ -39,8 +41,9 @@ async function getVehicleList(): Promise<VehicleResponse['data']['rows']> {
   throw Error('Invalid login')
 }
 
-async function getVehicle(): Promise<VE['data']> {
+async function getVehicle(id: string): Promise<VE['data']> {
   const userData = localStorage.getItem('loginData')
+
   if (userData) {
     const {
       data: { token },
@@ -49,17 +52,15 @@ async function getVehicle(): Promise<VE['data']> {
       baseURL,
       headers: { Authorization: `bearer ${token}` },
     })
-    const vehicles = await http.get(
-      { resource: 'vehicles', path: 'baaf3208-231f-45f8-9356-08f647dc846f' },
-      VE,
-    )
+    const vehicles = await http.get({ resource: 'vehicles', path: id }, VE)
     return vehicles.data
   }
   throw Error('Invalid login')
 }
 
-async function putVehicle(data: any): Promise<VE['data']> {
+async function putVehicle(data: VehicleData): Promise<VE['data']> {
   const userData = localStorage.getItem('loginData')
+
   if (userData) {
     const {
       data: { token },
@@ -75,7 +76,6 @@ async function putVehicle(data: any): Promise<VE['data']> {
 }
 
 const VehicleListRoute = () => (
-  // <All path={ps.list} api={vehicleAPI} list={VehicleList} />
   <Get asyncFn={getVehicleList} component={VehicleList1} />
 )
 
@@ -88,22 +88,23 @@ const VehicleAdd = () => (
   />
 )
 
-const VehicleEdit = () => (
-  <Put
-    id={vehicleEditAPI.idKey}
-    doGet={getVehicle}
-    onPut={putVehicle}
-    component={VehicleForm}
-    redirectTo="/vehicles"
-  />
-)
+const VehicleEdit = () => {
+  const { params } = useMatch(type({ [vehicleEditAPI.idKey]: string }))
+  return (
+    <Put
+      id={params[vehicleEditAPI.idKey as string] as any}
+      doGet={getVehicle}
+      onPut={(_id, data) => putVehicle(data)}
+      component={VehicleForm}
+      redirectTo="/vehicles"
+    />
+  )
+}
 
 export const VehicleRoutes = () => (
-  // <CrudRoutes api={vehicleAPI} form={VehicleForm} list={VehicleList} />
   <>
     <VehicleAdd />
     <Route path="/vehicles" render={() => <VehicleListRoute />} />
     <Route path={ps.edit} render={() => <VehicleEdit />} />
   </>
-  // <VehicleListRoute />
 )
