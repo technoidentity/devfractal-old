@@ -1,18 +1,18 @@
 import React from 'react'
 import {
   // All,
+  Create,
   Get,
   http as httpAPI,
   links,
   paths,
   Route,
-  Create,
 } from 'technoidentity-devfractal'
 import {
   AuthUserInfo,
-  VehicleResponse,
-  vehicleAPI,
   vehicleAdd,
+  vehicleAPI,
+  VehicleResponse,
 } from '../common'
 import { baseURL } from '../config'
 import { VehicleList1, VehicleForm } from '../views'

@@ -18,9 +18,9 @@ import {
   Trip,
   User,
   // Vehicle,
+  VehicleData,
   VehicleEdit,
   VehicleResponse,
-  VehicleData,
 } from './models'
 
 // tslint:disable-next-line: typedef
