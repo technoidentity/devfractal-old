@@ -50,3 +50,20 @@ export const SelectColumnFilter = ({
     </Column>
   )
 }
+
+export const SelectDateFilter = ({
+  column: { setFilter, Header },
+}: ColumnFilterProps) => {
+  return (
+    <Column>
+      <Input
+        type="date"
+        placeholder={`Filter by ${Header}`}
+        onChange={e => {
+          const date = e.target.value.replace(/-/g, '/')
+          setFilter((date as unknown) as string)
+        }}
+      />
+    </Column>
+  )
+}

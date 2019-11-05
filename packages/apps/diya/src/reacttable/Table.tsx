@@ -36,7 +36,7 @@ export function Table<D extends { readonly id: string }>({
     filterOption,
   })
 
-  const tableState = useTableState({ pageIndex: 0, pageSize: 10 })
+  const tableState = useTableState({ pageIndex: 0, pageSize: 20 })
 
   const reactTableData = useTable<D>(
     {
