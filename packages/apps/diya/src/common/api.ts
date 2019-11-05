@@ -7,17 +7,16 @@ import {
   AssignBattery,
   AssignDriver,
   AssignVehicle,
-  Battery,
+  BatteryResponse,
   Client,
-  Driver,
+  DriverResponse,
   Employee,
   Ev,
   GeoFence,
   Invoice,
   PlanRoute,
   Trip,
-  User,
-  // Vehicle,
+  UserResponse,
   VehicleResponse,
 } from './models'
 
@@ -54,16 +53,16 @@ function apiServer<Opt extends Props, Req extends Props>(
   }
 }
 
-export const driverAPI = api(Driver, 'drivers')
+export const driverAPI = apiServer(DriverResponse, 'drivers')
 export const vehicleAPI = apiServer(VehicleResponse, 'vehicles')
-export const batteryAPI = api(Battery, 'batteries')
+export const batteryAPI = apiServer(BatteryResponse, 'batteries')
 export const clientAPI = api(Client, 'clients')
-export const userAPI = api(User, 'users')
+export const userAPI = apiServer(UserResponse, 'users')
 export const evAPI = api(Ev, 'evs')
 export const planRouteAPI = api(PlanRoute, 'routes')
 export const employeeAPI = api(Employee, 'employees')
 export const invoiceAPI = api(Invoice, 'invoices')
-export const geoFenceAPI = api(GeoFence, 'geo_fences')
+export const geoFenceAPI = apiServer(GeoFence, 'geo_fences')
 export const tripAPI = api(Trip, 'trips')
 export const adManagerAPI = api(AdManager, 'adManagers')
 export const assignDriverAPI = api(AssignDriver, 'assignDriver')
