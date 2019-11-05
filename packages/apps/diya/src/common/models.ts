@@ -1,5 +1,6 @@
 import {
   array,
+  boolean,
   enumerate,
   Int,
   number,
@@ -89,7 +90,7 @@ export const Vehicle = obj(
 
 export type Vehicle = TypeOf<typeof Vehicle>
 
-export const VehicleRow = obj(
+export const VehicleData = obj(
   {
     id: string,
     warrantyExpiry: ISODate,
@@ -99,6 +100,10 @@ export const VehicleRow = obj(
     vehicleName: string,
     updatedAt: ISODate,
     status: string,
+    createdById: string,
+    updatedById: string,
+    isActive: boolean,
+    vehicleNameCount: number,
   },
   {
     vehicleSerialNum: string,
@@ -111,14 +116,22 @@ export const VehicleRow = obj(
   },
 )
 
+export type VehicleData = TypeOf<typeof VehicleData>
+
 export const VehicleResponse = req({
   data: req({
-    rows: array(VehicleRow),
+    rows: array(VehicleData),
     count: number,
   }),
 })
 
 export type VehicleResponse = TypeOf<typeof VehicleResponse>
+
+export const VehicleEdit = req({
+  data: VehicleData,
+})
+
+export type VehicleEdit = TypeOf<typeof VehicleEdit>
 
 const ContractType = enumerate('weekly', 'monthly')
 
