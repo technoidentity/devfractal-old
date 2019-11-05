@@ -18,7 +18,9 @@ import {
   Trip,
   User,
   // Vehicle,
+  VehicleEdit,
   VehicleResponse,
+  VehicleData,
 } from './models'
 
 // tslint:disable-next-line: typedef
@@ -56,6 +58,8 @@ function apiServer<Opt extends Props, Req extends Props>(
 
 export const driverAPI = api(Driver, 'drivers')
 export const vehicleAPI = apiServer(VehicleResponse, 'vehicles')
+export const vehicleEditAPI = apiServer(VehicleEdit, 'vehicles')
+export const vehicleAdd = apiServer(VehicleData, 'vehicles')
 export const batteryAPI = api(Battery, 'batteries')
 export const clientAPI = api(Client, 'clients')
 export const userAPI = api(User, 'users')
