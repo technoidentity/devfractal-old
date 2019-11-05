@@ -6,7 +6,7 @@ import {
   RoutedPager,
   Section,
 } from 'technoidentity-devfractal'
-// import { Vehicle } from '../common'
+import { VehicleResponse } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'
 
@@ -39,7 +39,11 @@ const vehicleLinks = links('vehicles')
 //   )
 // })
 
-export const VehicleList1 = ({ data }: { readonly data: any }) => {
+export const VehicleList1 = ({
+  data,
+}: {
+  readonly data: VehicleResponse['data']['rows']
+}) => {
   return (
     <Section>
       <HeadTitle>Vehicles</HeadTitle>
