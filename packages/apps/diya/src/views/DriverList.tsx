@@ -4,12 +4,12 @@ import {
   Columns,
   CreateLink,
   links,
-  listComponent,
+  // listComponent,
   Section,
 } from 'technoidentity-devfractal'
 import { http as httpAPI } from 'technoidentity-devfractal'
 import { date } from 'technoidentity-utils'
-import { Driver } from '../common'
+// import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { baseURL } from '../config'
 import { Table } from '../reacttable/Table'
@@ -19,13 +19,14 @@ const http = httpAPI({ baseURL })
 async function onDelete(): Promise<void> {
   await http.del({ resource: 'drivers' })
 }
-export const DriverList = listComponent(Driver, ({ data: driverList }) => {
-  const keys = Object.keys(driverList[0])
-  const tableData = driverList.map(driverList =>
+// export const DriverList = listComponent(Driver, ({ data: driverList }) => {
+export const DriverList1 = ({ data }: { readonly data: any }) => {
+  const keys = Object.keys(data[0])
+  const tableData = data.map((data: any) =>
     keys.reduce(
       (acc, k) => ({
         ...acc,
-        [k]: date.is(driverList[k]) ? formatDate(driverList[k]) : driverList[k],
+        [k]: date.is(data[k]) ? formatDate(data[k]) : data[k],
         actions: 'actions',
       }),
       {},
@@ -51,17 +52,15 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
           tableData={[
             // @TODO: Fix 'id' required/partial later
             ...((tableData as unknown) as ReadonlyArray<
-              Omit<Driver, 'id'> & { readonly id: string }
+              Omit<any, 'id'> & { readonly id: string }
             >),
           ]}
           sorting={true}
           pagination={true}
-          headerNames={['name', 'lastActive', 'shift', 'status']}
+          headerNames={['name', 'shift', 'verified']}
           filterOption={[
             { columnName: 'name', filterType: 'search' },
             { columnName: 'shift', filterType: 'select' },
-            { columnName: 'status', filterType: 'select' },
-            { columnName: 'lastActive', filterType: 'date' },
           ]}
           actions={{
             editTo: id => driverLinks.edit(id),
@@ -72,4 +71,4 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
       </Section>
     </>
   )
-})
+}

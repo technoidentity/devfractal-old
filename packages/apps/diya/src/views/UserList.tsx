@@ -1,18 +1,13 @@
 import React from 'react'
-import {
-  CreateLink,
-  links,
-  listComponent,
-  Section,
-} from 'technoidentity-devfractal'
-import { User } from '../common'
+import { CreateLink, links, Section } from 'technoidentity-devfractal'
 import { HeadTitle } from '../components'
 import { Table } from '../reacttable/Table'
 
 const userLinks = links('users')
 
-export const UserList = listComponent(User, ({ data: userList }) => {
-  const tableData = userList.map(data => ({ ...data, actions: 'actions' }))
+// export const UserList = listComponent(User, ({ data: userList }) => {
+export const UserList = ({ data }: { readonly data: any }) => {
+  const tableData = data.map((data: any) => ({ ...data, actions: 'actions' }))
   return (
     <Section>
       <HeadTitle>Users</HeadTitle>
@@ -23,12 +18,12 @@ export const UserList = listComponent(User, ({ data: userList }) => {
         tableData={[
           // @TODO: Fix 'id' required/partial later
           ...((tableData as unknown) as ReadonlyArray<
-            Omit<User, 'id'> & { readonly id: string }
+            Omit<any, 'id'> & { readonly id: string }
           >),
         ]}
         sorting={true}
         pagination={true}
-        headerNames={['userName', 'role', 'address1', 'phone', 'email']}
+        headerNames={['name', 'role', 'address1', 'address2', 'phone', 'email']}
         filterOption={[{ columnName: 'userName', filterType: 'search' }]}
         actions={{
           editTo: id => userLinks.edit(id),
@@ -36,4 +31,5 @@ export const UserList = listComponent(User, ({ data: userList }) => {
       />
     </Section>
   )
-})
+}
+// )
