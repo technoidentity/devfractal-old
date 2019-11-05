@@ -3,16 +3,22 @@ import {
   // All,
   Get,
   http as httpAPI,
-  // links,
-  // paths,
+  links,
+  paths,
   Route,
+  Create,
 } from 'technoidentity-devfractal'
-import { AuthUserInfo, VehicleResponse } from '../common'
+import {
+  AuthUserInfo,
+  VehicleResponse,
+  vehicleAPI,
+  vehicleAdd,
+} from '../common'
 import { baseURL } from '../config'
-import { VehicleList1 } from '../views'
+import { VehicleList1, VehicleForm } from '../views'
 
-// const ps = paths(vehicleAPI.resource)
-// const ls = links(vehicleAPI.resource)
+const ps = paths(vehicleAPI.resource)
+const ls = links(vehicleAPI.resource)
 
 async function getVehicleList(): Promise<VehicleResponse['data']['rows']> {
   const userData = localStorage.getItem('loginData')
@@ -35,8 +41,30 @@ const VehicleListRoute = () => (
   <Get asyncFn={getVehicleList} component={VehicleList1} />
 )
 
+const VehicleAdd = () => (
+  <Create
+    path={ps.create}
+    api={vehicleAdd}
+    form={VehicleForm}
+    redirectTo={ls.list}
+  />
+)
+
+// const VehicleEdit = () => (
+//   <Put
+//     id={vehicleAPI.idKey}
+//     doGet={vehicleAPI.get}
+//     onPut={vehicleAPI.replace}
+//     component={VehicleForm}
+//     redirectTo="/vehicles"
+//   />
+// )
+
 export const VehicleRoutes = () => (
   // <CrudRoutes api={vehicleAPI} form={VehicleForm} list={VehicleList} />
-  <Route path="/vehicles" render={() => <VehicleListRoute />} />
+  <>
+    <VehicleAdd />
+    <Route path="/vehicles" render={() => <VehicleListRoute />} />
+  </>
   // <VehicleListRoute />
 )
