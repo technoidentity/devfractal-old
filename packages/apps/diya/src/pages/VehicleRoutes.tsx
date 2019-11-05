@@ -60,6 +60,8 @@ async function getVehicle(id: string): Promise<VE['data']> {
 
 async function putVehicle(data: VehicleData): Promise<VE['data']> {
   const userData = localStorage.getItem('loginData')
+  const { vehicleName, ...rest } = data
+  console.log(rest)
 
   if (userData) {
     const {
@@ -69,7 +71,8 @@ async function putVehicle(data: VehicleData): Promise<VE['data']> {
       baseURL,
       headers: { Authorization: `bearer ${token}` },
     })
-    const vehicles = await http.put({ resource: 'vehicles' }, data, VE)
+
+    const vehicles = await http.put({ resource: 'vehicles' }, rest, VE)
     return vehicles.data
   }
   throw Error('Invalid login')
