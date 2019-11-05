@@ -14,7 +14,7 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { Driver } from '../common'
+import { DriverData } from '../common'
 import { HeadTitle } from '../components'
 
 // const validationSchema = yup.object().shape({
@@ -26,7 +26,7 @@ import { HeadTitle } from '../components'
 // })
 
 export const DriverForm = formComponent(
-  Driver,
+  DriverData,
   ({ initial, edit, onSubmit }) => (
     <>
       <Section>
