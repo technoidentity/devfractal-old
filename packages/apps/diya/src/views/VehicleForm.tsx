@@ -32,6 +32,7 @@ export const VehicleForm = formComponent(
           <Columns>
             <Column>
               <div>
+                {edit ? <Simple.Text name="vehicleName" disabled /> : <p>{}</p>}
                 <Simple.Text
                   name="makersClass"
                   label="Maker's Class"
@@ -40,7 +41,7 @@ export const VehicleForm = formComponent(
 
                 <Simple.Text name="vehicleClass" validations={[required()]} />
 
-                <Simple.Number
+                <Simple.Date
                   name="manufactureYear"
                   label="Manufacture Year"
                   validations={[required()]}
@@ -61,10 +62,10 @@ export const VehicleForm = formComponent(
                   validations={[required()]}
                 />
 
-                <Simple.Number name="warranty" validations={[required()]} />
+                <Simple.Date name="warrantyExpiry" validations={[required()]} />
 
                 <Simple.Date
-                  name="lastServiced"
+                  name="lastService"
                   label="Last Service"
                   validations={[required()]}
                 />
@@ -80,7 +81,6 @@ export const VehicleForm = formComponent(
               <Title size="6" textColor="info">
                 Vehicle Photo
               </Title>
-
               <Box>
                 <Media>
                   <MediaContent>
@@ -91,11 +91,15 @@ export const VehicleForm = formComponent(
                   </MediaContent>
                 </Media>
               </Box>
-              <Simple.Select name="status">
-                <option value="active">active</option>
-                <option value="inactive">inactive</option>
-              </Simple.Select>
               <Button variant="dark">Upload Photo</Button>
+              {edit ? (
+                <Simple.Select name="status">
+                  <option value="active">active</option>
+                  <option value="inactive">inactive</option>
+                </Simple.Select>
+              ) : (
+                <p>{}</p>
+              )}
             </Column>
           </Columns>
 
