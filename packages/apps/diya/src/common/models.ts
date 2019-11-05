@@ -1,5 +1,6 @@
 import {
   array,
+  boolean,
   enumerate,
   Int,
   number,
@@ -89,6 +90,53 @@ export const Vehicle = obj(
 
 export type Vehicle = TypeOf<typeof Vehicle>
 
+export const DriverRow = obj(
+  { id: string },
+  {
+    name: string,
+    verified: boolean,
+    shift: Shift,
+  },
+)
+export const DriverResponse = req({
+  data: req({
+    rows: array(DriverRow),
+    count: number,
+  }),
+})
+
+export type DriverResponse = TypeOf<typeof DriverResponse>
+
+export const BatteryRow = obj(
+  {
+    createdAt: string,
+    updatedAt: string,
+    id: string,
+    createdById: string,
+    updatedById: string,
+  },
+  {
+    batterySerialNum: string,
+    make: string,
+    model: string,
+    capacity: string,
+    cycles: number,
+    warrantyUpto: string,
+    lastCharged: string,
+    isActive: boolean,
+    status: Status,
+    batteryName: string,
+  },
+)
+export const BatteryResponse = req({
+  data: req({
+    rows: array(BatteryRow),
+    count: number,
+  }),
+})
+
+export type BatteryResponse = TypeOf<typeof BatteryResponse>
+
 export const VehicleRow = obj(
   {
     id: string,
@@ -133,6 +181,30 @@ export const Client = obj(
     assignedEVSHistory: Int,
   },
 )
+
+export const UserRow = obj(
+  {
+    id: string,
+  },
+  {
+    name: string,
+    verified: boolean,
+    email: string,
+    role: string,
+    address1: string,
+    address2: string,
+    phone: string,
+  },
+)
+
+export const UserResponse = req({
+  data: req({
+    rows: array(UserRow),
+    count: number,
+  }),
+})
+
+export type UserResponse = TypeOf<typeof UserResponse>
 
 export type Client = TypeOf<typeof Client>
 
