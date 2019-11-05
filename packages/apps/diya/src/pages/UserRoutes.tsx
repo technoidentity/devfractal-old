@@ -1,8 +1,29 @@
 import React from 'react'
-import { CrudRoutes } from 'technoidentity-devfractal'
-import { userAPI } from '../common'
-import { UserForm, UserList } from '../views'
+import { Get, http as httpAPI, Route } from 'technoidentity-devfractal'
+import { AuthUserInfo, UserResponse } from '../common'
+import { baseURL } from '../config'
+import { UserList } from '../views'
+
+async function getUserList(): Promise<UserResponse['data']['rows']> {
+  const userData = localStorage.getItem('loginData')
+  if (userData) {
+    const {
+      data: { token },
+    }: AuthUserInfo = JSON.parse(userData)
+    const http = httpAPI({
+      baseURL,
+      headers: { Authorization: `bearer ${token}` },
+    })
+    const users = await http.get({ resource: 'users' }, UserResponse)
+    return users.data.rows
+  }
+  throw Error('Invalid login')
+}
+
+const UserListRoute = () => <Get asyncFn={getUserList} component={UserList} />
 
 export const UserRoutes = () => (
-  <CrudRoutes api={userAPI} form={UserForm} list={UserList} />
+  <>
+    <Route path="/users" render={() => <UserListRoute />} />
+  </>
 )
