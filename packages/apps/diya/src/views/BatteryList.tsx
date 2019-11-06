@@ -1,3 +1,4 @@
+import { date } from 'io-ts-types/lib/date'
 import React from 'react'
 import {
   CreateLink,
@@ -8,12 +9,25 @@ import {
 } from 'technoidentity-devfractal'
 // import { Battery } from '../common'
 import { Table } from '../reacttable/Table'
+import { formatDate } from '../reacttable/utils'
 
 const batteryLinks = links('batteries')
 
 // export const BatteryList = listComponent(Battery, ({ data: batteryList }) => {
 export const BatteryList = ({ data }: { readonly data: any }) => {
-  const tableData = data.map((data: any) => ({ ...data, actions: 'actions' }))
+  const keys = Object.keys(data[0])
+  const tableData = data.map((batteryList: any) =>
+    keys.reduce(
+      (acc, k) => ({
+        ...acc,
+        [k]: date.is(batteryList[k])
+          ? formatDate(batteryList[k])
+          : batteryList[k],
+        actions: 'actions',
+      }),
+      {},
+    ),
+  )
   return (
     <Section>
       <Title size="4" textColor="info">
