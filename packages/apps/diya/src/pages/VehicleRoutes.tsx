@@ -1,3 +1,4 @@
+import { History } from 'history'
 import React from 'react'
 import {
   Get,
@@ -20,7 +21,6 @@ import {
 } from '../common'
 import { baseURL } from '../config'
 import { VehicleForm, VehicleList1 } from '../views'
-
 const ps = paths(vehicleAPI.resource)
 
 async function getVehicleList(): Promise<VehicleResponse['data']['rows']> {
@@ -88,6 +88,22 @@ async function postVehicle(data: VA): Promise<VE['data']> {
 
     const vehicles = await http.post({ resource: 'vehicles' }, data, VE)
     return vehicles.data
+  }
+  throw Error('Invalid login')
+}
+
+export const deleteVehicle = async (id: string, history: History<any>) => {
+  const userData = localStorage.getItem('loginData')
+  if (userData) {
+    const {
+      data: { token },
+    }: AuthUserInfo = JSON.parse(userData)
+    const http = httpAPI({
+      baseURL,
+      headers: { Authorization: `bearer ${token}` },
+    })
+    await http.del(`vehicles/${id}`)
+    return history.push('/vehicles')
   }
   throw Error('Invalid login')
 }
