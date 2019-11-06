@@ -1,10 +1,9 @@
 import React from 'react'
 import {
-  Create,
   Get,
   http as httpAPI,
-  links,
   paths,
+  Post,
   Put,
   Route,
   useMatch,
@@ -12,7 +11,7 @@ import {
 import { string, type } from 'technoidentity-utils'
 import {
   AuthUserInfo,
-  batteryAdd,
+  BatteryAdd as BA,
   batteryAPI,
   BatteryData,
   BatteryEdit as BE,
@@ -22,7 +21,6 @@ import {
 import { baseURL } from '../config'
 import { BatteryForm, BatteryList } from '../views'
 const ps = paths(batteryAPI.resource)
-const ls = links(batteryAPI.resource)
 async function getBatteryList(): Promise<BatteryResponse['data']['rows']> {
   const userData = localStorage.getItem('loginData')
   if (userData) {
@@ -73,17 +71,29 @@ async function putBattery(data: BatteryData): Promise<BE['data']> {
   throw Error('Invalid login')
 }
 
+async function postBattery(data: BA): Promise<BE['data']> {
+  const userData = localStorage.getItem('loginData')
+  if (userData) {
+    const {
+      data: { token },
+    }: AuthUserInfo = JSON.parse(userData)
+    const http = httpAPI({
+      baseURL,
+      headers: { Authorization: `bearer ${token}` },
+    })
+
+    const batteries = await http.post({ resource: 'batteries' }, data, BE)
+    return batteries.data
+  }
+  throw Error('Invalid login')
+}
+
 const BatteryListRoute = () => (
   <Get asyncFn={getBatteryList} component={BatteryList} />
 )
 
 const BatteryAdd = () => (
-  <Create
-    path={ps.create}
-    api={batteryAdd}
-    form={BatteryForm}
-    redirectTo={ls.list}
-  />
+  <Post redirectTo="/batteries" component={BatteryForm} onPost={postBattery} />
 )
 
 const BatteryEdit = () => {
@@ -100,7 +110,7 @@ const BatteryEdit = () => {
 }
 export const BatteryRoutes = () => (
   <>
-    <BatteryAdd />
+    <Route path={ps.create} render={() => <BatteryAdd />} />
     <Route path="/batteries" render={() => <BatteryListRoute />} />
     <Route path={ps.edit} render={() => <BatteryEdit />} />
   </>
