@@ -41,7 +41,6 @@ function apiServer<Opt extends Props, Req extends Props>(
   resource: string,
 ) {
   const data = localStorage.getItem('loginData')
-
   if (data) {
     const {
       data: { token },
@@ -64,12 +63,15 @@ function apiServer<Opt extends Props, Req extends Props>(
 export const driverAPI = apiServer(DriverResponse, 'drivers')
 export const driverAdd = apiServer(DriverData, 'drivers')
 export const driverEditAPI = apiServer(DriverEdit, 'drivers')
+
 export const batteryAPI = apiServer(BatteryResponse, 'batteries')
 export const batteryAdd = apiServer(BatteryData, 'batteries')
 export const batteryEditAPI = apiServer(BatteryEdit, 'batteries')
+
 export const vehicleAPI = apiServer(VehicleResponse, 'vehicles')
 export const vehicleEditAPI = apiServer(VehicleEdit, 'vehicles')
 export const vehicleAdd = apiServer(VehicleData, 'vehicles')
+
 export const clientAPI = api(Client, 'clients')
 export const userAPI = apiServer(UserResponse, 'users')
 export const userAdd = apiServer(UserData, 'users')
@@ -78,7 +80,7 @@ export const evAPI = api(Ev, 'evs')
 export const planRouteAPI = api(PlanRoute, 'routes')
 export const employeeAPI = api(Employee, 'employees')
 export const invoiceAPI = api(Invoice, 'invoices')
-export const geoFenceAPI = apiServer(GeoFence, 'geo_fences')
+export const geoFenceAPI = api(GeoFence, 'geo_fences')
 export const tripAPI = api(Trip, 'trips')
 export const adManagerAPI = api(AdManager, 'adManagers')
 export const assignDriverAPI = api(AssignDriver, 'assignDriver')
