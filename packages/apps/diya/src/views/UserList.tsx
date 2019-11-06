@@ -1,13 +1,19 @@
 import React from 'react'
 import { CreateLink, links, Section } from 'technoidentity-devfractal'
+import { UserData, UserListResponse } from '../common'
 import { HeadTitle } from '../components'
 import { Table } from '../reacttable/Table'
 
 const userLinks = links('users')
 
 // export const UserList = listComponent(User, ({ data: userList }) => {
-export const UserList = ({ data }: { readonly data: any }) => {
-  const tableData = data.map((data: any) => ({ ...data, actions: 'actions' }))
+export const UserList = ({
+  data,
+}: {
+  readonly data: UserListResponse['data']['rows']
+}) => {
+  const tableData =
+    data.length > 0 ? data.map(data => ({ ...data, actions: 'actions' })) : []
   return (
     <Section>
       <HeadTitle>Users</HeadTitle>
@@ -18,7 +24,7 @@ export const UserList = ({ data }: { readonly data: any }) => {
         tableData={[
           // @TODO: Fix 'id' required/partial later
           ...((tableData as unknown) as ReadonlyArray<
-            Omit<any, 'id'> & { readonly id: string }
+            Omit<UserData, 'id'> & { readonly id: string }
           >),
         ]}
         sorting={true}

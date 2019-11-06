@@ -8,7 +8,7 @@ import {
   Image,
   Media,
   MediaContent,
-  Radio,
+  // Radio,
   required,
   Section,
   Simple,
@@ -47,16 +47,17 @@ export const UserForm = formComponent(
               /> */}
               <Simple.Telephone name="phone" validations={[required()]} />
               <Simple.Text
-                name="licenceNo"
+                name="licence"
                 label="Licence No."
                 validations={[required()]}
               />
+              <Simple.Text name="email" validations={[required()]} />
               <Simple.Text name="aadhaar" validations={[required()]} />
 
               <Simple.Select name="role" fullWidth>
-                <option value="Admin">Admin</option>
-                <option value="Reporter">Reporter</option>
-                <option value="Dispatcher">Dispatcher</option>
+                <option value="dispatcher">Dispatcher</option>
+                <option value="reporter">reporter</option>
+                <option value="associate">Associate</option>
               </Simple.Select>
               <Simple.Text name="address1" />
               <Simple.Text name="address2" />
@@ -66,24 +67,41 @@ export const UserForm = formComponent(
               <Title size="5" textColor="info">
                 Bank Details
               </Title>
-              <Simple.Text name="accountName" validations={[required()]} />
-              <Simple.Text name="accountNumber" validations={[required()]} />
-
               <Simple.Text
-                name="confirmAccountNumber"
+                name="bankDetails.accountName"
+                label="Account Name"
                 validations={[required()]}
               />
-              <Simple.Text name="bankName" validations={[required()]} />
-              <Simple.Text name="bankBranch" validations={[required()]} />
               <Simple.Text
-                name="branchIFSCNumber"
+                name="bankDetails.accountNumber"
+                label="Account Number"
+                validations={[required()]}
+              />
+
+              {/* <Simple.Text
+              name="confirmAccountNumber"
+              validations={[required()]}
+            /> */}
+              <Simple.Text
+                name="bankDetails.name"
+                label="Bank Name"
+                validations={[required()]}
+              />
+              <Simple.Text
+                name="bankDetails.branch"
+                label="Bank Branch"
+                validations={[required()]}
+              />
+              <Simple.Text
+                name="bankDetails.ifscNumber"
                 label="Branch IFSC Number"
                 validations={[required()]}
               />
-              <Simple.RadioGroup name="verified" defaultValue="pending">
-                <Radio value="yes"> yes</Radio>
-                <Radio value="pending"> In process</Radio>
-              </Simple.RadioGroup>
+              {/* <Simple.RadioGroup name="verified" defaultValue="pending">
+              <Radio value={true}> yes</Radio>
+              <Radio value="pending"> In process</Radio>
+            </Simple.RadioGroup> */}
+              <Simple.Checkbox name="verified" />
             </Column>
 
             <Column>
@@ -105,11 +123,15 @@ export const UserForm = formComponent(
               <Button variant="dark">Upload Photo</Button>
               <div style={{ paddingTop: '10px' }}>
                 <Simple.Text name="emergencyContactPerson" />
-                <Simple.Text name="emergencyContactNumber" />
+                <Simple.Telephone name="emergencyContactNumber" />
                 <Simple.Select name="relation" fullWidth>
                   <option value="father">Father</option>
                   <option value="mother">Mother</option>
-                  <option value="spouse">Spouse</option>
+                  <option value="brother">Brother</option>
+                  <option value="sister">Sister</option>
+                  <option value="wife">Wife</option>
+                  <option value="husband">Husband</option>
+                  <option value="others">Others</option>
                 </Simple.Select>
               </div>
             </Column>

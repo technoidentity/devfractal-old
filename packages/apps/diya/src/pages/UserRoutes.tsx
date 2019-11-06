@@ -1,10 +1,9 @@
 import React from 'react'
 import {
-  Create,
   Get,
   http as httpAPI,
-  links,
   paths,
+  Post,
   Put,
   Route,
   useMatch,
@@ -12,20 +11,20 @@ import {
 import { string, type } from 'technoidentity-utils'
 import {
   AuthUserInfo,
-  userAdd,
   userAPI,
   UserData,
+  UserData as UD,
   UserEdit as UE,
   userEditAPI,
+  UserListResponse,
   UserResponse,
 } from '../common'
 import { baseURL } from '../config'
 import { UserForm, UserList } from '../views'
 
 const ps = paths(userAPI.resource)
-const ls = links(userAPI.resource)
 
-async function getUserList(): Promise<UserResponse['data']['rows']> {
+async function getUserList(): Promise<UserListResponse['data']['rows']> {
   const userData = localStorage.getItem('loginData')
   if (userData) {
     const {
@@ -35,7 +34,7 @@ async function getUserList(): Promise<UserResponse['data']['rows']> {
       baseURL,
       headers: { Authorization: `bearer ${token}` },
     })
-    const users = await http.get({ resource: 'users' }, UserResponse)
+    const users = await http.get({ resource: 'users' }, UserListResponse)
     return users.data.rows
   }
   throw Error('Invalid login')
@@ -59,7 +58,6 @@ async function getUser(id: string): Promise<UE['data']> {
 
 async function putUser(data: UserData): Promise<UE['data']> {
   const userData = localStorage.getItem('loginData')
-
   if (userData) {
     const {
       data: { token },
@@ -74,9 +72,25 @@ async function putUser(data: UserData): Promise<UE['data']> {
   throw Error('Invalid login')
 }
 
+async function postUser(data: UD): Promise<UserResponse['data']> {
+  const userData = localStorage.getItem('loginData')
+  if (userData) {
+    const {
+      data: { token },
+    }: AuthUserInfo = JSON.parse(userData)
+    const http = httpAPI({
+      baseURL,
+      headers: { Authorization: `bearer ${token}` },
+    })
+    const user = await http.post({ resource: 'users' }, data, UserResponse)
+    return user.data
+  }
+  throw Error('Invalid login')
+}
+
 const UserListRoute = () => <Get asyncFn={getUserList} component={UserList} />
 const UserAdd = () => (
-  <Create path={ps.create} api={userAdd} form={UserForm} redirectTo={ls.list} />
+  <Post redirectTo="/users" component={UserForm} onPost={postUser} />
 )
 
 const UserEdit = () => {
@@ -94,7 +108,7 @@ const UserEdit = () => {
 
 export const UserRoutes = () => (
   <>
-    <UserAdd />
+    <Route path={ps.create} render={() => <UserAdd />} />
     <Route path="/users" render={() => <UserListRoute />} />
     <Route path={ps.edit} render={() => <UserEdit />} />
   </>
