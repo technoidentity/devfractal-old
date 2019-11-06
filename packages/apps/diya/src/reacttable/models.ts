@@ -13,7 +13,7 @@ export interface FilterOptions {
 export interface ReactTableActionsProps {
   editTo?(id: string): string
   assignTo?(id: string): string
-  onDelete?(id: string): Promise<void>
+  onDelete?(id: string): void
 }
 export interface ReactTableActionsValues extends ReactTableActionsProps {
   readonly id: string
