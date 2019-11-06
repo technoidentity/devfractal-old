@@ -7,6 +7,7 @@ import {
   Section,
   Title,
 } from 'technoidentity-devfractal'
+import { BatteryResponse } from '../common'
 // import { Battery } from '../common'
 import { Table } from '../reacttable/Table'
 import { formatDate } from '../reacttable/utils'
@@ -14,20 +15,27 @@ import { formatDate } from '../reacttable/utils'
 const batteryLinks = links('batteries')
 
 // export const BatteryList = listComponent(Battery, ({ data: batteryList }) => {
-export const BatteryList = ({ data }: { readonly data: any }) => {
-  const keys = Object.keys(data[0])
-  const tableData = data.map((batteryList: any) =>
-    keys.reduce(
-      (acc, k) => ({
-        ...acc,
-        [k]: date.is(batteryList[k])
-          ? formatDate(batteryList[k])
-          : batteryList[k],
-        actions: 'actions',
-      }),
-      {},
-    ),
-  )
+export const BatteryList = ({
+  data,
+}: {
+  readonly data: BatteryResponse['data']['rows']
+}) => {
+  const keys = data.length > 0 ? Object.keys(data[0]) : []
+  const tableData =
+    data.length > 0
+      ? data.map((batteryList: any) =>
+          keys.reduce(
+            (acc, k) => ({
+              ...acc,
+              [k]: date.is(batteryList[k])
+                ? formatDate(batteryList[k])
+                : batteryList[k],
+              actions: 'actions',
+            }),
+            {},
+          ),
+        )
+      : []
   return (
     <Section>
       <Title size="4" textColor="info">

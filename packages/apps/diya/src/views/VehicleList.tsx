@@ -7,6 +7,7 @@ import {
   Section,
   useHistory,
 } from 'technoidentity-devfractal'
+import { VehicleResponse } from '../common'
 // import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { deleteVehicle } from '../pages'
@@ -42,21 +43,28 @@ const vehicleLinks = links('vehicles')
 //   )
 // })
 
-export const VehicleList1 = ({ data }: { readonly data: any }) => {
+export const VehicleList1 = ({
+  data,
+}: {
+  readonly data: VehicleResponse['data']['rows']
+}) => {
   const history: History = useHistory()
-  const keys = Object.keys(data[0])
-  const tableData = data.map((vehicalList: any) =>
-    keys.reduce(
-      (acc, k) => ({
-        ...acc,
-        [k]: date.is(vehicalList[k])
-          ? formatDate(vehicalList[k])
-          : vehicalList[k],
-        actions: 'actions',
-      }),
-      {},
-    ),
-  )
+  const keys = data.length > 0 ? Object.keys(data[0]) : []
+  const tableData =
+    data.length > 0
+      ? data.map((vehicalList: any) =>
+          keys.reduce(
+            (acc, k) => ({
+              ...acc,
+              [k]: date.is(vehicalList[k])
+                ? formatDate(vehicalList[k])
+                : vehicalList[k],
+              actions: 'actions',
+            }),
+            {},
+          ),
+        )
+      : []
   return (
     <Section>
       <HeadTitle>Vehicles</HeadTitle>

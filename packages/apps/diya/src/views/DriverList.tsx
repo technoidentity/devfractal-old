@@ -9,6 +9,7 @@ import {
 } from 'technoidentity-devfractal'
 import { http as httpAPI } from 'technoidentity-devfractal'
 import { date } from 'technoidentity-utils'
+import { DriverResponse } from '../common'
 // import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { baseURL } from '../config'
@@ -20,18 +21,25 @@ async function onDelete(): Promise<void> {
   await http.del({ resource: 'drivers' })
 }
 // export const DriverList = listComponent(Driver, ({ data: driverList }) => {
-export const DriverList1 = ({ data }: { readonly data: any }) => {
-  const keys = Object.keys(data[0])
-  const tableData = data.map((data: any) =>
-    keys.reduce(
-      (acc, k) => ({
-        ...acc,
-        [k]: date.is(data[k]) ? formatDate(data[k]) : data[k],
-        actions: 'actions',
-      }),
-      {},
-    ),
-  )
+export const DriverList1 = ({
+  data,
+}: {
+  readonly data: DriverResponse['data']['rows']
+}) => {
+  const keys = data.length > 0 ? Object.keys(data[0]) : []
+  const tableData =
+    data.length > 0
+      ? data.map(data =>
+          keys.reduce(
+            (acc, k) => ({
+              ...acc,
+              [k]: date.is(data[k]) ? formatDate(data[k]) : data[k],
+              actions: 'actions',
+            }),
+            {},
+          ),
+        )
+      : []
   return (
     <>
       <Section>
