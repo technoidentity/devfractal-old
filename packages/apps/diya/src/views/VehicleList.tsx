@@ -1,8 +1,15 @@
+import { History } from 'history'
 import { date } from 'io-ts-types/lib/date'
 import React from 'react'
-import { CreateLink, links, Section } from 'technoidentity-devfractal'
+import {
+  CreateLink,
+  links,
+  Section,
+  useHistory,
+} from 'technoidentity-devfractal'
 // import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
+import { deleteVehicle } from '../pages'
 import { Table } from '../reacttable/Table'
 import { formatDate } from '../reacttable/utils'
 
@@ -36,6 +43,7 @@ const vehicleLinks = links('vehicles')
 // })
 
 export const VehicleList1 = ({ data }: { readonly data: any }) => {
+  const history: History = useHistory()
   const keys = Object.keys(data[0])
   const tableData = data.map((vehicalList: any) =>
     keys.reduce(
@@ -75,6 +83,7 @@ export const VehicleList1 = ({ data }: { readonly data: any }) => {
         actions={{
           editTo: id => vehicleLinks.edit(id),
           assignTo: id => `/assignVehicle/${id}`,
+          onDelete: id => deleteVehicle(id, history),
         }}
       />
     </Section>
