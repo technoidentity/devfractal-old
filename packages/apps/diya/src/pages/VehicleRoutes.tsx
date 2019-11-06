@@ -108,9 +108,9 @@ export const deleteVehicle = async (id: string, history: History<any>) => {
   throw Error('Invalid login')
 }
 
-const VehicleListRoute = () => (
-  <Get asyncFn={getVehicleList} component={VehicleList1} />
-)
+const VehicleListRoute = () => {
+  return <Get asyncFn={getVehicleList} component={VehicleList1} />
+}
 
 const VehicleAdd = () => (
   <Post redirectTo="/vehicles" component={VehicleForm} onPost={postVehicle} />
