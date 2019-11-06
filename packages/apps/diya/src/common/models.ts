@@ -112,10 +112,28 @@ export const DriverEdit = req({
 export type DriverEdit = TypeOf<typeof DriverEdit>
 export type DriverResponse = TypeOf<typeof DriverResponse>
 
+export const BatteryAdd = obj(
+  {},
+  {
+    batterySerialNum: string,
+    make: string,
+    model: string,
+    capacity: string,
+    cycles: number,
+    warrantyUpto: ISODate,
+    lastCharged: ISODate,
+    isActive: boolean,
+    status: Status,
+    batteryName: string,
+  },
+)
+
+export type BatteryAdd = TypeOf<typeof BatteryAdd>
+
 export const BatteryData = obj(
   {
-    createdAt: string,
-    updatedAt: string,
+    createdAt: ISODate,
+    updatedAt: ISODate,
     id: string,
     createdById: string,
     updatedById: string,
@@ -126,7 +144,7 @@ export const BatteryData = obj(
     model: string,
     capacity: string,
     cycles: number,
-    warrantyUpto: string,
+    warrantyUpto: ISODate,
     lastCharged: ISODate,
     isActive: boolean,
     status: Status,
