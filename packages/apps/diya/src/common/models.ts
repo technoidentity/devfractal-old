@@ -174,6 +174,21 @@ export const VehicleData = obj(
   },
 )
 
+export const VehicleAdd = obj(
+  { warrantyExpiry: ISODate, lastService: ISODate, photo: string },
+  {
+    vehicleSerialNum: string,
+    registrationNumber: string,
+    makersClass: string,
+    vehicleClass: string,
+    manufactureYear: ISODate,
+    color: string,
+    insuranceExpiry: ISODate,
+  },
+)
+
+export type VehicleAdd = TypeOf<typeof VehicleAdd>
+
 export type VehicleData = TypeOf<typeof VehicleData>
 
 export const VehicleResponse = req({

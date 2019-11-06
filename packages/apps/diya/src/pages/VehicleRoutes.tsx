@@ -1,10 +1,9 @@
 import React from 'react'
 import {
-  Create,
   Get,
   http as httpAPI,
-  links,
   paths,
+  Post,
   Put,
   Route,
   useMatch,
@@ -12,7 +11,7 @@ import {
 import { string, type } from 'technoidentity-utils'
 import {
   AuthUserInfo,
-  vehicleAdd,
+  VehicleAdd as VA,
   vehicleAPI,
   VehicleData,
   VehicleEdit as VE,
@@ -23,7 +22,6 @@ import { baseURL } from '../config'
 import { VehicleForm, VehicleList1 } from '../views'
 
 const ps = paths(vehicleAPI.resource)
-const ls = links(vehicleAPI.resource)
 
 async function getVehicleList(): Promise<VehicleResponse['data']['rows']> {
   const userData = localStorage.getItem('loginData')
@@ -61,7 +59,6 @@ async function getVehicle(id: string): Promise<VE['data']> {
 async function putVehicle(data: VehicleData): Promise<VE['data']> {
   const userData = localStorage.getItem('loginData')
   const { vehicleName, ...rest } = data
-  console.log(rest)
 
   if (userData) {
     const {
@@ -78,17 +75,29 @@ async function putVehicle(data: VehicleData): Promise<VE['data']> {
   throw Error('Invalid login')
 }
 
+async function postVehicle(data: VA): Promise<VE['data']> {
+  const userData = localStorage.getItem('loginData')
+  if (userData) {
+    const {
+      data: { token },
+    }: AuthUserInfo = JSON.parse(userData)
+    const http = httpAPI({
+      baseURL,
+      headers: { Authorization: `bearer ${token}` },
+    })
+
+    const vehicles = await http.post({ resource: 'vehicles' }, data, VE)
+    return vehicles.data
+  }
+  throw Error('Invalid login')
+}
+
 const VehicleListRoute = () => (
   <Get asyncFn={getVehicleList} component={VehicleList1} />
 )
 
 const VehicleAdd = () => (
-  <Create
-    path={ps.create}
-    api={vehicleAdd}
-    form={VehicleForm}
-    redirectTo={ls.list}
-  />
+  <Post redirectTo="/vehicles" component={VehicleForm} onPost={postVehicle} />
 )
 
 const VehicleEdit = () => {
@@ -106,7 +115,7 @@ const VehicleEdit = () => {
 
 export const VehicleRoutes = () => (
   <>
-    <VehicleAdd />
+    <Route path={ps.create} render={() => <VehicleAdd />} />
     <Route path="/vehicles" render={() => <VehicleListRoute />} />
     <Route path={ps.edit} render={() => <VehicleEdit />} />
   </>
