@@ -14,7 +14,16 @@ import { ISODate } from 'technoidentity-utils'
 const Shift = enumerate('morning', 'evening')
 const Status = enumerate('active', 'inactive')
 const Verified = enumerate('yes', 'pending')
-const Relation = enumerate('father', 'spouse')
+const Relation = enumerate(
+  'father',
+  'mother',
+  'brother',
+  'sister',
+  'wife',
+  'husband',
+  'other',
+  'spouse',
+)
 
 export const Driver = obj(
   {
@@ -164,7 +173,81 @@ export const Client = obj(
 
 export type Client = TypeOf<typeof Client>
 
-export const Role = enumerate('admin', 'reporter', 'dispatcher')
+export const Role = enumerate('associate', 'dispatcher', 'reporter')
+
+export const BankDetails = req({
+  name: string,
+  branch: string,
+  accountName: string,
+  accountNumber: string,
+  ifscNumber: string,
+})
+
+export const UserRequest = obj(
+  {
+    aadhaar: string,
+    address1: string,
+    address2: string,
+    avatar: string,
+  },
+  {
+    name: string,
+    phone: string,
+    licence: string,
+    email: string,
+    verified: boolean,
+    emergencyContactPerson: string,
+    emergencyContactNumber: string,
+    relation: Relation,
+    bankDetails: BankDetails,
+    role: Role,
+  },
+)
+
+export type UserRequest = TypeOf<typeof UserRequest>
+
+export const UserData = obj(
+  {
+    //  id: string,
+    aadhaar: string,
+    //  address1: string,
+    //  address2: string,
+    avatar: string,
+    //  createdById: string,
+    //  updatedById: string,
+    //  createdAt: string,
+    //  updatedAt: string,
+    //  isActive: boolean,
+    emergencyContactPerson: string,
+    emergencyContactNumber: string,
+    relation: Relation,
+    bankDetails: BankDetails,
+    licence: string,
+  },
+  {
+    name: string,
+    phone: string,
+    email: string,
+    verified: boolean,
+    role: Role,
+  },
+)
+export type UserData = TypeOf<typeof UserData>
+
+export const UserResponse = req({
+  data: UserData,
+})
+
+export type UserResponse = TypeOf<typeof UserResponse>
+
+export const UserListResponse = req({
+  data: req({
+    rows: array(UserData),
+    count: number,
+  }),
+})
+
+export type UserListResponse = TypeOf<typeof UserListResponse>
 
 export const User = obj(
   { dateOfJoining: ISODate, id: string, email: string },
