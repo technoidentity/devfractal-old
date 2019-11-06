@@ -22,7 +22,7 @@ import {
   Trip,
   UserData,
   UserEdit,
-  UserResponse,
+  UserListResponse,
   VehicleData,
   VehicleEdit,
   VehicleResponse,
@@ -73,7 +73,7 @@ export const vehicleEditAPI = apiServer(VehicleEdit, 'vehicles')
 export const vehicleAdd = apiServer(VehicleData, 'vehicles')
 
 export const clientAPI = api(Client, 'clients')
-export const userAPI = apiServer(UserResponse, 'users')
+export const userAPI = apiServer(UserListResponse, 'users')
 export const userAdd = apiServer(UserData, 'users')
 export const userEditAPI = apiServer(UserEdit, 'users')
 export const evAPI = api(Ev, 'evs')
