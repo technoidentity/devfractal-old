@@ -13,10 +13,10 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
-import { BatteryData } from '../common'
+import { BatteryAdd } from '../common'
 import { HeadTitle } from '../components'
 export const BatteryForm = formComponent(
-  BatteryData,
+  BatteryAdd,
   ({ onSubmit, edit, initial }) => (
     <>
       <Section>
@@ -30,14 +30,31 @@ export const BatteryForm = formComponent(
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>
             <Column>
-              <Simple.Text name="make" validations={[required()]} />
-              <Simple.Text name="model" validations={[required()]} />
-              <Simple.Date name="lastCharged" />
+              <Simple.Text
+                label="Battery Make"
+                name="make"
+                validations={[required()]}
+              />
+              <Simple.Text
+                label="Battery Model"
+                name="model"
+                validations={[required()]}
+              />
+              <Simple.Date label="Last Charged" name="lastCharged" />
             </Column>
 
             <Column>
-              <Simple.Text name="capacity" validations={[required()]} />
-              <Simple.Number name="cycles" validations={[required()]} />
+              <Simple.Text
+                label="Capacity"
+                name="capacity"
+                validations={[required()]}
+              />
+              <Simple.Number
+                label="Battery Cycles"
+                name="cycles"
+                validations={[required()]}
+              />
+              <Simple.Date label="Waranty Valid UpTo" name="warrantyUpto" />
             </Column>
 
             <Column narrow>
