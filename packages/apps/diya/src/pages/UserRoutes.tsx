@@ -109,7 +109,7 @@ const UserEdit = () => {
 export const UserRoutes = () => (
   <>
     <Route path={ps.create} render={() => <UserAdd />} />
-    <Route path="/users" render={() => <UserListRoute />} />
+    <Route path={ps.list} render={() => <UserListRoute />} />
     <Route path={ps.edit} render={() => <UserEdit />} />
   </>
 )
