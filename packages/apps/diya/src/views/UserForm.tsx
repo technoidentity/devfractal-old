@@ -47,7 +47,7 @@ export const UserForm = formComponent(
               /> */}
               <Simple.Telephone name="phone" validations={[required()]} />
               <Simple.Text
-                name="licence"
+                name="license"
                 label="Licence No."
                 validations={[required()]}
               />
