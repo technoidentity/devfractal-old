@@ -103,7 +103,7 @@ export const deleteVehicle = async (id: string, history: History<any>) => {
       headers: { Authorization: `bearer ${token}` },
     })
     await http.del(`vehicles/${id}`)
-    return history.push('/vehicles')
+    history.push('/vehicles')
   }
   throw Error('Invalid login')
 }
@@ -113,7 +113,7 @@ const VehicleListRoute = () => {
 }
 
 const VehicleAdd = () => (
-  <Post redirectTo="/vehicles" component={VehicleForm} onPost={postVehicle} />
+  <Post redirectTo={ps.list} component={VehicleForm} onPost={postVehicle} />
 )
 
 const VehicleEdit = () => {
@@ -124,7 +124,7 @@ const VehicleEdit = () => {
       doGet={getVehicle}
       onPut={(_id, data) => putVehicle(data)}
       component={VehicleForm}
-      redirectTo="/vehicles"
+      redirectTo={ps.list}
     />
   )
 }
@@ -132,7 +132,7 @@ const VehicleEdit = () => {
 export const VehicleRoutes = () => (
   <>
     <Route path={ps.create} render={() => <VehicleAdd />} />
-    <Route path="/vehicles" render={() => <VehicleListRoute />} />
+    <Route path={ps.list} render={() => <VehicleListRoute />} />
     <Route path={ps.edit} render={() => <VehicleEdit />} />
   </>
 )
