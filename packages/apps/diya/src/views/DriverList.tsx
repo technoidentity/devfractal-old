@@ -9,7 +9,7 @@ import {
 } from 'technoidentity-devfractal'
 import { http as httpAPI } from 'technoidentity-devfractal'
 import { date } from 'technoidentity-utils'
-import { DriverResponse } from '../common'
+import { DriverListResponse } from '../common'
 // import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { baseURL } from '../config'
@@ -24,7 +24,7 @@ async function onDelete(): Promise<void> {
 export const DriverList1 = ({
   data,
 }: {
-  readonly data: DriverResponse['data']['rows']
+  readonly data: DriverListResponse['data']['rows']
 }) => {
   const keys = data.length > 0 ? Object.keys(data[0]) : []
   const tableData =
