@@ -99,28 +99,6 @@ export const Vehicle = obj(
 
 export type Vehicle = TypeOf<typeof Vehicle>
 
-export const DriverData = obj(
-  { id: string },
-  {
-    name: string,
-    verified: boolean,
-    shift: Shift,
-  },
-)
-export const DriverResponse = req({
-  data: req({
-    rows: array(DriverData),
-    count: number,
-  }),
-})
-export type DriverData = TypeOf<typeof DriverData>
-export const DriverEdit = req({
-  data: DriverData,
-})
-
-export type DriverEdit = TypeOf<typeof DriverEdit>
-export type DriverResponse = TypeOf<typeof DriverResponse>
-
 export const BatteryAdd = obj(
   {},
   {
@@ -249,7 +227,7 @@ export const Client = obj(
 
 export type Client = TypeOf<typeof Client>
 
-export const Role = enumerate('associate', 'dispatcher', 'reporter')
+export const Role = enumerate('associate', 'dispatcher', 'reporter', 'driver')
 
 export const BankDetails = req({
   name: string,
@@ -269,7 +247,7 @@ export const UserRequest = obj(
   {
     name: string,
     phone: string,
-    licence: string,
+    license: string,
     email: string,
     verified: boolean,
     emergencyContactPerson: string,
@@ -298,7 +276,7 @@ export const UserData = obj(
     emergencyContactNumber: string,
     relation: Relation,
     bankDetails: BankDetails,
-    licence: string,
+    license: string,
   },
   {
     name: string,
@@ -328,6 +306,49 @@ export const UserResponse = req({
 })
 
 export type UserResponse = TypeOf<typeof UserResponse>
+
+// export const DriverRequest =  union([ UserRequest, req({shift: Shift})])
+export const DriverRequest = UserRequest
+export type DriverRequest = TypeOf<typeof DriverRequest>
+// export const DriverData = union([UserData, req({shift: Shift})])
+export const DriverData = obj(
+  {
+    //  id: string,
+    aadhaar: string,
+    //  address1: string,
+    //  address2: string,
+    avatar: string,
+    //  createdById: string,
+    //  updatedById: string,
+    //  createdAt: string,
+    //  updatedAt: string,
+    //  isActive: boolean,
+    emergencyContactPerson: string,
+    emergencyContactNumber: string,
+    relation: Relation,
+    bankDetails: BankDetails,
+    license: string,
+  },
+  {
+    name: string,
+    //  phone: string,
+    //  email: string,
+    verified: boolean,
+    //  role: Role,
+  },
+)
+export type DriverData = TypeOf<typeof DriverData>
+export const DriverListResponse = req({
+  data: req({
+    rows: array(DriverData),
+    count: number,
+  }),
+})
+export type DriverListResponse = TypeOf<typeof DriverListResponse>
+export const DriverResponse = req({
+  data: DriverData,
+})
+export type DriverResponse = TypeOf<typeof DriverResponse>
 
 export const User = obj(
   { dateOfJoining: ISODate, id: string, email: string },
