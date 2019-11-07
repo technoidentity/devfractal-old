@@ -1,10 +1,9 @@
 import React from 'react'
 import {
-  Create,
   Get,
   http as httpAPI,
-  links,
   paths,
+  Post,
   Put,
   Route,
   useMatch,
@@ -12,20 +11,19 @@ import {
 import { string, type } from 'technoidentity-utils'
 import {
   AuthUserInfo,
-  driverAdd,
   driverAPI,
   DriverData,
-  DriverEdit as DE,
   driverEditAPI,
+  DriverListResponse,
   DriverResponse,
 } from '../common'
 import { baseURL } from '../config'
 import { DriverForm, DriverList1 } from '../views'
 
 const ps = paths(driverAPI.resource)
-const ls = links(driverAPI.resource)
+// const ls = links(driverAPI.resource)
 
-async function getDriverList(): Promise<DriverResponse['data']['rows']> {
+async function getDriverList(): Promise<DriverListResponse['data']['rows']> {
   const userData = localStorage.getItem('loginData')
   if (userData) {
     const {
@@ -35,12 +33,12 @@ async function getDriverList(): Promise<DriverResponse['data']['rows']> {
       baseURL,
       headers: { Authorization: `bearer ${token}` },
     })
-    const drivers = await http.get({ resource: 'drivers' }, DriverResponse)
+    const drivers = await http.get({ resource: 'drivers' }, DriverListResponse)
     return drivers.data.rows
   }
   throw Error('Invalid login')
 }
-async function getDriver(id: string): Promise<DE['data']> {
+async function getDriver(id: string): Promise<DriverResponse['data']> {
   const userData = localStorage.getItem('loginData')
 
   if (userData) {
@@ -51,13 +49,16 @@ async function getDriver(id: string): Promise<DE['data']> {
       baseURL,
       headers: { Authorization: `bearer ${token}` },
     })
-    const drivers = await http.get({ resource: 'drivers', path: id }, DE)
+    const drivers = await http.get(
+      { resource: 'users', path: id },
+      DriverResponse,
+    )
     return drivers.data
   }
   throw Error('Invalid login')
 }
 
-async function putDriver(data: DriverData): Promise<DE['data']> {
+async function putDriver(data: DriverData): Promise<DriverResponse['data']> {
   const userData = localStorage.getItem('loginData')
 
   if (userData) {
@@ -68,8 +69,24 @@ async function putDriver(data: DriverData): Promise<DE['data']> {
       baseURL,
       headers: { Authorization: `bearer ${token}` },
     })
-    const drivers = await http.put({ resource: 'drivers' }, data, DE)
+    const drivers = await http.put({ resource: 'users' }, data, DriverResponse)
     return drivers.data
+  }
+  throw Error('Invalid login')
+}
+
+async function postDriver(data: DriverData): Promise<DriverResponse['data']> {
+  const userData = localStorage.getItem('loginData')
+  if (userData) {
+    const {
+      data: { token },
+    }: AuthUserInfo = JSON.parse(userData)
+    const http = httpAPI({
+      baseURL,
+      headers: { Authorization: `bearer ${token}` },
+    })
+    const user = await http.post({ resource: 'users' }, data, DriverResponse)
+    return user.data
   }
   throw Error('Invalid login')
 }
@@ -79,12 +96,7 @@ const DriverListRoute = () => (
 )
 
 const DriverAdd = () => (
-  <Create
-    path={ps.create}
-    api={driverAdd}
-    form={DriverForm}
-    redirectTo={ls.list}
-  />
+  <Post redirectTo={ps.list} component={DriverForm} onPost={postDriver} />
 )
 
 const DriverEdit = () => {
@@ -95,15 +107,15 @@ const DriverEdit = () => {
       doGet={getDriver}
       onPut={(_id, data) => putDriver(data)}
       component={DriverForm}
-      redirectTo="/drivers"
+      redirectTo={ps.list}
     />
   )
 }
 
 export const DriverRoutes = () => (
   <>
-    <DriverAdd />
-    <Route path="/drivers" render={() => <DriverListRoute />} />
+    <Route path={ps.create} render={() => <DriverAdd />} />
+    <Route path={ps.list} render={() => <DriverListRoute />} />
     <Route path={ps.edit} render={() => <DriverEdit />} />
   </>
 )
