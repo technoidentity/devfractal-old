@@ -12,7 +12,6 @@ import {
   BatteryResponse,
   Client,
   DriverData,
-  DriverEdit,
   DriverResponse,
   Employee,
   Ev,
@@ -62,7 +61,7 @@ function apiServer<Opt extends Props, Req extends Props>(
 
 export const driverAPI = apiServer(DriverResponse, 'drivers')
 export const driverAdd = apiServer(DriverData, 'drivers')
-export const driverEditAPI = apiServer(DriverEdit, 'drivers')
+export const driverEditAPI = apiServer(DriverData, 'drivers')
 
 export const batteryAPI = apiServer(BatteryResponse, 'batteries')
 export const batteryAdd = apiServer(BatteryData, 'batteries')
