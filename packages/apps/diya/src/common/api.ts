@@ -1,7 +1,6 @@
 import { rest, toJSONServerQuery } from 'technoidentity-devfractal'
 import { ObjC, Props } from 'technoidentity-utils'
-import { AuthUserInfo } from '../common'
-import { baseURL, fakeBaseURL } from '../config'
+import { fakeBaseURL } from '../config'
 import {
   AdManager,
   AssignBattery,
@@ -35,46 +34,44 @@ function api<Opt extends Props, Req extends Props>(
   return rest(spec, 'id', { resource, baseURL: fakeBaseURL }, toJSONServerQuery)
 }
 
-function apiServer<Opt extends Props, Req extends Props>(
-  spec: ObjC<Opt, Req>,
-  resource: string,
-) {
-  const data = localStorage.getItem('loginData')
-  if (data) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(data)
-    return rest(
-      spec,
-      'id',
-      {
-        resource,
-        baseURL,
-        headers: { Authorization: `bearer ${token}` },
-      },
-      toJSONServerQuery,
-    )
-  } else {
-    throw new Error('token is require')
-  }
-}
+// function apiServer<Opt extends Props, Req extends Props>(
+//   spec: ObjC<Opt, Req>,
+//   resource: string,
+// ) {
+//   const data = localStorage.getItem('loginData')
+//   if (data) {
+//     const {
+//       data: { token },
+//     }: AuthUserInfo = JSON.parse(data)
+//     return rest(
+//       spec,
+//       'id',
+//       {
+//         resource,
+//         baseURL,
+//         headers: { Authorization: `bearer ${token}` },
+//       },
+//       toJSONServerQuery,
+//     )
+//   }
+// }
 
-export const driverAPI = apiServer(DriverResponse, 'drivers')
-export const driverAdd = apiServer(DriverData, 'drivers')
-export const driverEditAPI = apiServer(DriverData, 'drivers')
+export const driverAPI = api(DriverResponse, 'drivers')
+export const driverAdd = api(DriverData, 'drivers')
+export const driverEditAPI = api(DriverData, 'drivers')
 
-export const batteryAPI = apiServer(BatteryResponse, 'batteries')
-export const batteryAdd = apiServer(BatteryData, 'batteries')
-export const batteryEditAPI = apiServer(BatteryEdit, 'batteries')
+export const batteryAPI = api(BatteryResponse, 'batteries')
+export const batteryAdd = api(BatteryData, 'batteries')
+export const batteryEditAPI = api(BatteryEdit, 'batteries')
 
-export const vehicleAPI = apiServer(VehicleResponse, 'vehicles')
-export const vehicleEditAPI = apiServer(VehicleEdit, 'vehicles')
-export const vehicleAdd = apiServer(VehicleData, 'vehicles')
+export const vehicleAPI = api(VehicleResponse, 'vehicles')
+export const vehicleEditAPI = api(VehicleEdit, 'vehicles')
+export const vehicleAdd = api(VehicleData, 'vehicles')
 
 export const clientAPI = api(Client, 'clients')
-export const userAPI = apiServer(UserListResponse, 'users')
-export const userAdd = apiServer(UserData, 'users')
-export const userEditAPI = apiServer(UserEdit, 'users')
+export const userAPI = api(UserListResponse, 'users')
+export const userAdd = api(UserData, 'users')
+export const userEditAPI = api(UserEdit, 'users')
 export const evAPI = api(Ev, 'evs')
 export const planRouteAPI = api(PlanRoute, 'routes')
 export const employeeAPI = api(Employee, 'employees')
