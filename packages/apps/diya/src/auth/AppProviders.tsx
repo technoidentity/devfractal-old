@@ -18,7 +18,7 @@ async function login(values: LoginValues): Promise<AuthUserInfo> {
 }
 
 async function logOut(): Promise<void> {
-  localStorage.clear()
+  localStorage.removeItem('loginData')
 }
 
 export const AppProviders: React.FC = ({ children }) => {
