@@ -24,7 +24,7 @@ import { UserForm, UserList } from '../views'
 
 const ps = paths(userAPI.resource)
 
-async function getUserList(): Promise<UserListResponse['data']['rows']> {
+export async function getUserList(): Promise<UserListResponse['data']['rows']> {
   const userData = localStorage.getItem('loginData')
   if (userData) {
     const {
