@@ -1,16 +1,11 @@
-import { History } from 'history'
 import { date } from 'io-ts-types/lib/date'
-import React from 'react'
-import {
-  CreateLink,
-  links,
-  Section,
-  useHistory,
-} from 'technoidentity-devfractal'
-import { VehicleResponse } from '../common'
+import React, { useState } from 'react'
+import { CreateLink, links, Section } from 'technoidentity-devfractal'
+import { VehicleData, VehicleResponse } from '../common'
 // import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
-import { deleteVehicle } from '../pages'
+import { DeleteConfirmation } from '../components/DeleteConfirmation'
+import { deleteVehicle, getVehicleList } from '../pages'
 import { Table } from '../reacttable/Table'
 import { formatDate } from '../reacttable/utils'
 
@@ -48,11 +43,33 @@ export const VehicleList1 = ({
 }: {
   readonly data: VehicleResponse['data']['rows']
 }) => {
-  const history: History = useHistory()
-  const keys = data.length > 0 ? Object.keys(data[0]) : []
-  const tableData =
-    data.length > 0
-      ? data.map((vehicalList: any) =>
+  const [state, setState] = useState({ isOpen: false, id: '' })
+  const [resultData, setResultData] = useState<VehicleResponse['data']['rows']>(
+    [],
+  )
+  const [useResultData, setUseResultData] = useState(false)
+
+  const handleToggleModel = (id: string) => {
+    setState({ isOpen: !state.isOpen, id })
+  }
+
+  const handleVehicleList = async () => {
+    const resultData = await getVehicleList()
+    setUseResultData(true)
+    setResultData(resultData)
+    setState({ isOpen: false, id: state.id })
+  }
+
+  const keys = useResultData
+    ? resultData.length > 0
+      ? Object.keys(resultData[0])
+      : []
+    : data.length > 0
+    ? Object.keys(data[0])
+    : []
+  const tableData = useResultData
+    ? resultData.length > 0
+      ? resultData.map((vehicalList: VehicleData) =>
           keys.reduce(
             (acc, k) => ({
               ...acc,
@@ -65,8 +82,28 @@ export const VehicleList1 = ({
           ),
         )
       : []
+    : data.length > 0
+    ? data.map((vehicalList: VehicleData) =>
+        keys.reduce(
+          (acc, k) => ({
+            ...acc,
+            [k]: date.is(vehicalList[k])
+              ? formatDate(vehicalList[k])
+              : vehicalList[k],
+            actions: 'actions',
+          }),
+          {},
+        ),
+      )
+    : []
   return (
     <Section>
+      <DeleteConfirmation
+        setState={setState}
+        state={state}
+        deleteAsyncFun={deleteVehicle}
+        handleGetList={handleVehicleList}
+      />
       <HeadTitle>Vehicles</HeadTitle>
 
       <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
@@ -91,7 +128,7 @@ export const VehicleList1 = ({
         actions={{
           editTo: id => vehicleLinks.edit(id),
           assignTo: id => `/assignVehicle/${id}`,
-          onDelete: id => deleteVehicle(id, history),
+          onDelete: handleToggleModel,
         }}
       />
     </Section>
