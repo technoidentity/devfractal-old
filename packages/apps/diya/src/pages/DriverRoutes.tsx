@@ -23,7 +23,9 @@ import { DriverForm, DriverList1 } from '../views'
 const ps = paths(driverAPI.resource)
 // const ls = links(driverAPI.resource)
 
-async function getDriverList(): Promise<DriverListResponse['data']['rows']> {
+export async function getDriverList(): Promise<
+  DriverListResponse['data']['rows']
+> {
   const userData = localStorage.getItem('loginData')
   if (userData) {
     const {
