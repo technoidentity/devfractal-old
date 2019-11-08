@@ -93,7 +93,7 @@ async function postVehicle(data: VA): Promise<VE['data']> {
   throw Error('Invalid login')
 }
 
-export const deleteVehicle = async (id: string) => {
+export const deleteList = async (url: string) => {
   const userData = localStorage.getItem('loginData')
   if (userData) {
     const {
@@ -103,7 +103,8 @@ export const deleteVehicle = async (id: string) => {
       baseURL,
       headers: { Authorization: `bearer ${token}` },
     })
-    await http.del(`vehicles/${id}`)
+    await http.del(url)
+    return
   }
   throw Error('Invalid login')
 }
