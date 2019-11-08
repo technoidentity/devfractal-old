@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CreateLink, links, Section } from 'technoidentity-devfractal'
 import { UserData, UserListResponse } from '../common'
 import { HeadTitle } from '../components'
+import { DeleteConfirmation } from '../components/DeleteConfirmation'
+import { deleteList, getUserList } from '../pages'
 import { Table } from '../reacttable/Table'
 
 const userLinks = links('users')
@@ -12,10 +14,42 @@ export const UserList = ({
 }: {
   readonly data: UserListResponse['data']['rows']
 }) => {
-  const tableData =
-    data.length > 0 ? data.map(data => ({ ...data, actions: 'actions' })) : []
+  const [state, setState] = useState({ isOpen: false, id: '' })
+  const [resultData, setResultData] = useState<
+    UserListResponse['data']['rows']
+  >([])
+  const [useResultData, setUseResultData] = useState(false)
+
+  const handleToggleModel = (id: string) => {
+    setState({ isOpen: !state.isOpen, id })
+  }
+  const handleUserList = async () => {
+    const resultData = await getUserList()
+    setUseResultData(true)
+    setResultData(resultData)
+    setState({ isOpen: false, id: state.id })
+  }
+
+  const tableData = useResultData
+    ? resultData.length > 0
+      ? resultData.map((userList: UserData) => ({
+          ...userList,
+          actions: 'actions',
+        }))
+      : []
+    : data.length > 0
+    ? data.map((userList: UserData) => ({ ...userList, actions: 'actions' }))
+    : []
+
   return (
     <Section>
+      <DeleteConfirmation
+        setState={setState}
+        state={state}
+        deleteAsyncFun={deleteList}
+        handleGetList={handleUserList}
+        url={`users/${state.id}`}
+      />
       <HeadTitle>Users</HeadTitle>
       <CreateLink alignment="right" variant="primary" to={userLinks.create}>
         Add user
@@ -33,6 +67,7 @@ export const UserList = ({
         filterOption={[{ columnName: 'userName', filterType: 'search' }]}
         actions={{
           editTo: id => userLinks.edit(id),
+          onDelete: handleToggleModel,
         }}
       />
     </Section>
