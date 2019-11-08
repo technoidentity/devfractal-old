@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Column,
   Columns,
@@ -7,42 +7,84 @@ import {
   // listComponent,
   Section,
 } from 'technoidentity-devfractal'
-import { http as httpAPI } from 'technoidentity-devfractal'
 import { date } from 'technoidentity-utils'
-import { DriverListResponse } from '../common'
+import { DriverData, DriverListResponse } from '../common'
 // import { Driver } from '../common'
 import { HeadTitle } from '../components'
-import { baseURL } from '../config'
+import { DeleteConfirmation } from '../components/DeleteConfirmation'
+import { deleteList, getDriverList } from '../pages'
 import { Table } from '../reacttable/Table'
 import { formatDate } from '../reacttable/utils'
 const driverLinks = links('drivers')
-const http = httpAPI({ baseURL })
-async function onDelete(): Promise<void> {
-  await http.del({ resource: 'drivers' })
-}
+
 // export const DriverList = listComponent(Driver, ({ data: driverList }) => {
 export const DriverList1 = ({
   data,
 }: {
   readonly data: DriverListResponse['data']['rows']
 }) => {
-  const keys = data.length > 0 ? Object.keys(data[0]) : []
-  const tableData =
-    data.length > 0
-      ? data.map(data =>
+  const [state, setState] = useState({ isOpen: false, id: '' })
+  const [resultData, setResultData] = useState<
+    DriverListResponse['data']['rows']
+  >([])
+  const [useResultData, setUseResultData] = useState(false)
+
+  const handleToggleModel = (id: string) => {
+    setState({ isOpen: !state.isOpen, id })
+  }
+  const handleDriverList = async () => {
+    const resultData = await getDriverList()
+    setUseResultData(true)
+    setResultData(resultData)
+    setState({ isOpen: false, id: state.id })
+  }
+
+  const keys = useResultData
+    ? resultData.length > 0
+      ? Object.keys(resultData[0])
+      : []
+    : data.length > 0
+    ? Object.keys(data[0])
+    : []
+  const tableData = useResultData
+    ? resultData.length > 0
+      ? resultData.map((driverList: DriverData) =>
           keys.reduce(
             (acc, k) => ({
               ...acc,
-              [k]: date.is(data[k]) ? formatDate(data[k]) : data[k],
+              [k]: date.is(driverList[k])
+                ? formatDate(driverList[k])
+                : driverList[k],
               actions: 'actions',
             }),
             {},
           ),
         )
       : []
+    : data.length > 0
+    ? data.map((driverList: DriverData) =>
+        keys.reduce(
+          (acc, k) => ({
+            ...acc,
+            [k]: date.is(driverList[k])
+              ? formatDate(driverList[k])
+              : driverList[k],
+            actions: 'actions',
+          }),
+          {},
+        ),
+      )
+    : []
   return (
     <>
       <Section>
+        <DeleteConfirmation
+          setState={setState}
+          state={state}
+          deleteAsyncFun={deleteList}
+          handleGetList={handleDriverList}
+          url={`users/${state.id}`}
+        />
         <HeadTitle>Drivers</HeadTitle>
         <Columns>
           <Column>
@@ -73,7 +115,7 @@ export const DriverList1 = ({
           actions={{
             editTo: id => driverLinks.edit(id),
             assignTo: id => `/assignDriver/${id}`,
-            onDelete,
+            onDelete: handleToggleModel,
           }}
         />
       </Section>
