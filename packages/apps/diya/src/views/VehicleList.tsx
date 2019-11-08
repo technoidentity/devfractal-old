@@ -5,7 +5,7 @@ import { VehicleData, VehicleResponse } from '../common'
 // import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
-import { deleteVehicle, getVehicleList } from '../pages'
+import { deleteList, getVehicleList } from '../pages'
 import { Table } from '../reacttable/Table'
 import { formatDate } from '../reacttable/utils'
 
@@ -101,8 +101,9 @@ export const VehicleList1 = ({
       <DeleteConfirmation
         setState={setState}
         state={state}
-        deleteAsyncFun={deleteVehicle}
+        deleteAsyncFun={deleteList}
         handleGetList={handleVehicleList}
+        url={`vehicles/${state.id}`}
       />
       <HeadTitle>Vehicles</HeadTitle>
 
