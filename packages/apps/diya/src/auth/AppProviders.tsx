@@ -19,7 +19,6 @@ async function login(values: LoginValues): Promise<AuthUserInfo> {
 
 async function logOut(): Promise<void> {
   localStorage.clear()
-  await http.del({ resource: 'session' })
 }
 
 export const AppProviders: React.FC = ({ children }) => {
