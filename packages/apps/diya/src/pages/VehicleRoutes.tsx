@@ -1,4 +1,3 @@
-import { History } from 'history'
 import React from 'react'
 import {
   Get,
@@ -23,7 +22,9 @@ import { baseURL } from '../config'
 import { VehicleForm, VehicleList1 } from '../views'
 const ps = paths(vehicleAPI.resource)
 
-async function getVehicleList(): Promise<VehicleResponse['data']['rows']> {
+export async function getVehicleList(): Promise<
+  VehicleResponse['data']['rows']
+> {
   const userData = localStorage.getItem('loginData')
   if (userData) {
     const {
@@ -92,7 +93,7 @@ async function postVehicle(data: VA): Promise<VE['data']> {
   throw Error('Invalid login')
 }
 
-export const deleteVehicle = async (id: string, history: History<any>) => {
+export const deleteVehicle = async (id: string) => {
   const userData = localStorage.getItem('loginData')
   if (userData) {
     const {
@@ -103,19 +104,17 @@ export const deleteVehicle = async (id: string, history: History<any>) => {
       headers: { Authorization: `bearer ${token}` },
     })
     await http.del(`vehicles/${id}`)
-    history.push('/vehicles')
   }
   throw Error('Invalid login')
 }
 
-const VehicleListRoute = () => {
-  return <Get asyncFn={getVehicleList} component={VehicleList1} />
-}
+const VehicleListRoute = () => (
+  <Get asyncFn={getVehicleList} component={VehicleList1} />
+)
 
 const VehicleAdd = () => (
   <Post redirectTo={ps.list} component={VehicleForm} onPost={postVehicle} />
 )
-
 const VehicleEdit = () => {
   const { params } = useMatch(type({ [vehicleEditAPI.idKey]: string }))
   return (
