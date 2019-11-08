@@ -21,7 +21,9 @@ import {
 import { baseURL } from '../config'
 import { BatteryForm, BatteryList } from '../views'
 const ps = paths(batteryAPI.resource)
-async function getBatteryList(): Promise<BatteryResponse['data']['rows']> {
+export async function getBatteryList(): Promise<
+  BatteryResponse['data']['rows']
+> {
   const userData = localStorage.getItem('loginData')
   if (userData) {
     const {
