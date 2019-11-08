@@ -16,13 +16,14 @@ import React from 'react'
 
 interface DeleteProps {
   readonly state: { readonly id: string; readonly isOpen: boolean }
+  readonly url: string
   setState(
     value: React.SetStateAction<{
       readonly isOpen: boolean
       readonly id: string
     }>,
   ): void
-  deleteAsyncFun(id: string): Promise<void>
+  deleteAsyncFun(url: string): Promise<void>
   handleGetList(): Promise<void>
 }
 export const DeleteConfirmation = ({
@@ -30,13 +31,14 @@ export const DeleteConfirmation = ({
   setState,
   deleteAsyncFun,
   handleGetList,
+  url,
 }: DeleteProps) => {
   return (
     <Modal active={state.isOpen} noClose>
       <ModalBackground />
       <ModalCard>
         <ModalCardHead>
-          <ModalCardTitle>Delete Vehicle</ModalCardTitle>
+          <ModalCardTitle>Delete</ModalCardTitle>
           <Delete onClick={() => setState({ isOpen: false, id: state.id })} />
         </ModalCardHead>
         <ModalCardBody>
@@ -47,7 +49,7 @@ export const DeleteConfirmation = ({
             <Button
               variant="info"
               onClick={async () => {
-                await deleteAsyncFun(state.id)
+                await deleteAsyncFun(url)
                 await handleGetList()
               }}
               noControl
