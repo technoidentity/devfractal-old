@@ -7,6 +7,7 @@ import {
   SimpleRedirect,
 } from 'technoidentity-devfractal'
 import { SideMenuView, Visibility } from './components'
+import { NavBar } from './components/NavBar'
 import {
   BatteryRoutes,
   ClientRoutes,
@@ -37,6 +38,7 @@ export const SuperAdmin = () => {
         <SideMenuView visibility={visibility} onClick={handleClick} />
 
         <Column>
+          <NavBar />
           <SimpleRedirect from="/" to="/drivers" />
 
           <DriverRoutes />

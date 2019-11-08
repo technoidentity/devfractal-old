@@ -6,29 +6,33 @@ import {
   NavbarEnd,
   NavbarItem,
   NavbarLink,
+  useHistory,
 } from 'technoidentity-devfractal'
 import { capitalizeAll } from 'technoidentity-utils'
 import { useAuth } from '../auth/AuthContext'
+import { isAuthenticated } from '../auth/util'
+import { AuthUserInfo } from '../common'
 
 export const NavBar = () => {
-  const logData = useAuth()
-  console.log(logData)
-  return (
+  const { logout, setUser } = useAuth()
+  const { push } = useHistory()
+  const user: AuthUserInfo = isAuthenticated()
+  return user ? (
     <Navbar shadowLess>
       <NavbarEnd>
         <NavbarItem dropDown modifier="hoverable">
-          <NavbarLink>
-            {capitalizeAll(logData.user.data.user.role, '_')}
-          </NavbarLink>
+          <NavbarLink>{capitalizeAll(user.data.user.role, '_')}</NavbarLink>
           <NavbarDropDown>
-            <NavbarItem>{logData.user.data.user.name}</NavbarItem>
-            <NavbarItem>{logData.user.data.user.email}</NavbarItem>
-            <NavbarItem>{logData.user.data.user.phone}</NavbarItem>
+            <NavbarItem>{user.data.user.name}</NavbarItem>
+            <NavbarItem>{user.data.user.email}</NavbarItem>
+            <NavbarItem>{user.data.user.phone}</NavbarItem>
             <NavbarDivider />
             <NavbarLink
               onClick={() => {
-                logData.setUser({ ...logData.user })
-                logData.logout()
+                // tslint:disable-next-line:no-null-keyword
+                setUser(null)
+                logout()
+                push('/')
               }}
             >
               Logout
@@ -37,5 +41,7 @@ export const NavBar = () => {
         </NavbarItem>
       </NavbarEnd>
     </Navbar>
+  ) : (
+    <p>{}</p>
   )
 }
