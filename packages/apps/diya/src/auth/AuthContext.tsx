@@ -4,8 +4,8 @@ import { AuthUserInfo } from '../common'
 import { LoginValues } from '../views'
 
 interface AuthContext<T, R> {
-  readonly user: R
-  readonly setUser: React.Dispatch<R>
+  readonly user: R | null
+  readonly setUser: React.Dispatch<R | null>
   login(values: T): Promise<R>
   logout(): void
 }
