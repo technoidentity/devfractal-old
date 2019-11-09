@@ -77,7 +77,8 @@ interface SelectColumnFilterProps {
 interface Columns<D> {
   readonly Header: string | keyof D
   readonly accessor: string | keyof D
-  readonly Filter: any | undefined
+  readonly Filter?: any
+  readonly filter?: any
 }
 interface SortingValues {
   readonly sorting: boolean
