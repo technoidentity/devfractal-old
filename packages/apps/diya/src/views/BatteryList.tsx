@@ -58,7 +58,10 @@ export const BatteryList = ({
           batteryName: 'Name',
           cycles: 'Battery Cycles',
         }}
-        filterOption={[{ columnName: 'batteryName', filterType: 'search' }]}
+        filterOption={[
+          { columnName: 'batteryName', filterType: 'search' },
+          { columnName: 'status', filterType: 'select' },
+        ]}
         actions={{
           editTo: id => batteryLinks.edit(id),
           assignTo: id => `assignBattery/${id}`,
