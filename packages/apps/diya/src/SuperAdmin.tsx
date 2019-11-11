@@ -21,6 +21,7 @@ import {
   UserRoutes,
   VehicleRoutes,
 } from './pages'
+import { ReportsRoute } from './reports/ReportsRoute'
 import './stylesheets/styles.scss'
 import { AssignDriverRoute } from './views'
 import { AssignBatteryRoute } from './views/AssignBattery'
@@ -28,6 +29,7 @@ import { AssignVehicleRoute } from './views/AssignVehicle'
 
 export const SuperAdmin = () => {
   const [visibility, setVisibility] = React.useState<Visibility>('full')
+
   const handleClick = () => {
     setVisibility(visibility === 'full' ? 'minimal' : 'full')
   }
@@ -56,6 +58,7 @@ export const SuperAdmin = () => {
           <InvoiceListRoute />
           <PlanRouteMapRoute />
           <TripListRoute />
+          <ReportsRoute />
         </Column>
       </Columns>
     </Router>
