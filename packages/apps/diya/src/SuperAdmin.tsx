@@ -9,7 +9,7 @@ import {
 } from 'technoidentity-devfractal'
 import { SideMenuView, Visibility } from './components'
 import { NavBar } from './components/NavBar'
-import { MapView } from './maps'
+import { FilterDataEVs } from './maps/FilterMap'
 import {
   BatteryRoutes,
   ClientRoutes,
@@ -42,7 +42,7 @@ export const SuperAdmin = () => {
         <Column>
           <NavBar />
           <SimpleRedirect from="/" to="/home" />
-          <Route path="/home" render={() => <MapView />} />
+          <Route path="/home" render={() => <FilterDataEVs />} />
           <DriverRoutes />
           <AssignDriverRoute />
           <BatteryRoutes />
