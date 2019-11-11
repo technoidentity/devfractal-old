@@ -3,7 +3,7 @@ import { GoogleMapProps } from '@react-google-maps/api'
 export const defaultMapSettings: GoogleMapProps = {
   id: 'example-map',
   mapContainerStyle: {
-    height: '400px',
+    height: '750px',
     width: '100%',
   },
   zoom: 12,
