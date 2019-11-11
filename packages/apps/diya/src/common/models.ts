@@ -550,6 +550,8 @@ const Lng = enumerate(
   '78.396739',
 )
 
+const Clients = enumerate('Amazon', 'Flipkart', 'Myntra')
+
 export const VehicleLocation = obj(
   {
     id: string,
@@ -557,6 +559,7 @@ export const VehicleLocation = obj(
   {
     lat: Lat,
     lng: Lng,
+    client: Clients,
     description: string,
   },
 )
