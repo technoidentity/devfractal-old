@@ -25,7 +25,10 @@ export const FilterDataEVs = () => {
   return (
     <FilterData
       tableData={evs}
-      filterOption={[{ columnName: 'description', filterType: 'search' }]}
+      filterOption={[
+        { columnName: 'description', filterType: 'search' },
+        { columnName: 'client', filterType: 'select' },
+      ]}
       component={({ data }) => <MapView data={data} />}
     />
   )
