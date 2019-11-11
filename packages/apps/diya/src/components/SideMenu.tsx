@@ -4,6 +4,7 @@ import {
   faBell,
   faBus,
   faCarBattery,
+  faHome,
   faMapMarked,
   faPaperPlane,
   faUserFriends,
@@ -92,6 +93,12 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
         <Section style={{ marginTop: '30px' }}>
           <Menu>
             <MenuList>
+              <SideMenuItem
+                href="/home"
+                icon={faHome}
+                label="Home"
+                visibility={visibility}
+              />
               <SideMenuItem
                 href="/drivers"
                 icon={faUsers}

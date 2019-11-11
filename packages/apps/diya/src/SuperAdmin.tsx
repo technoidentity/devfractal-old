@@ -3,11 +3,13 @@ import React from 'react'
 import {
   Column,
   Columns,
+  Route,
   Router,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
 import { SideMenuView, Visibility } from './components'
 import { NavBar } from './components/NavBar'
+import { MapView } from './maps'
 import {
   BatteryRoutes,
   ClientRoutes,
@@ -39,8 +41,8 @@ export const SuperAdmin = () => {
 
         <Column>
           <NavBar />
-          <SimpleRedirect from="/" to="/drivers" />
-
+          <SimpleRedirect from="/" to="/home" />
+          <Route path="/home" render={() => <MapView />} />
           <DriverRoutes />
           <AssignDriverRoute />
           <BatteryRoutes />
