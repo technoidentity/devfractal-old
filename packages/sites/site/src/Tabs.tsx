@@ -13,7 +13,6 @@ export const ComponentsTab: React.FC = () => (
     <RoutedTabsItem value="pagination">Pagination</RoutedTabsItem>
     <RoutedTabsItem value="panel">Panel</RoutedTabsItem>
     <RoutedTabsItem value="tabs">Tabs</RoutedTabsItem>
-    <RoutedTabsItem value="step">Step</RoutedTabsItem>
   </RoutedTabs>
 )
 
@@ -22,7 +21,6 @@ export const CompositesTab: React.FC = () => (
     <RoutedTabsItem value="simple-form">Simple Form</RoutedTabsItem>
     <RoutedTabsItem value="general-form">General form</RoutedTabsItem>
     <RoutedTabsItem value="counter">Counter</RoutedTabsItem>
-    <RoutedTabsItem value="treeview">TreeView</RoutedTabsItem>
     <RoutedTabsItem value="todo">Todo</RoutedTabsItem>
     <RoutedTabsItem value="github-card">Github Card</RoutedTabsItem>
     <RoutedTabsItem value="cart-app">Cart</RoutedTabsItem>

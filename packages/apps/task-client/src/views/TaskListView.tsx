@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { Link } from 'devfractal-router'
 import {
   ButtonsGroup,
   component,
@@ -13,9 +14,7 @@ import {
   Tr,
 } from 'devfractal-ui-core'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { readonlyArray } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
+import { readonlyArray, req } from 'technoidentity-utils'
 import { Task } from '../common'
 import { PaginationView } from './PaginateView'
 

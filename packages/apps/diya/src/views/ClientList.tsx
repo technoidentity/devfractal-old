@@ -44,6 +44,7 @@ export const ClientList = listComponent(Client, ({ data: clientList }) => {
         headerLabels={{
           numberOfEVS: 'No. of EVS',
           rateOfEVS: 'Rate of EVS',
+          assignedEVSHistory: 'Assigned EVS history',
         }}
       />
     </Section>

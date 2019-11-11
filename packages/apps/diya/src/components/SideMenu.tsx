@@ -25,11 +25,7 @@ import { fn, keyof, req, TypeOf } from 'technoidentity-utils'
 import diyaLogo from '../images/diyaLogo.png'
 import { MenuBurger } from './MenuBurger'
 
-export const Visibility = keyof({
-  full: true,
-  minimal: true,
-  hidden: true,
-})
+export const Visibility = keyof({ full: true, minimal: true, hidden: true })
 
 export type Visibility = TypeOf<typeof Visibility>
 

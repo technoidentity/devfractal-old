@@ -1,7 +1,6 @@
-import { useRouter } from 'devfractal-router'
+import { NavLink, useRouter } from 'devfractal-router'
 import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { chop } from 'technoidentity-utils'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'

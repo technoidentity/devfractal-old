@@ -31,7 +31,7 @@ function api<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
   resource: string,
 ) {
-  return rest(spec, 'id', { resource, baseURL: fakeBaseURL }, toJSONServerQuery)
+  return rest(spec, 'id', resource, { baseURL: fakeBaseURL }, toJSONServerQuery)
 }
 
 // function apiServer<Opt extends Props, Req extends Props>(

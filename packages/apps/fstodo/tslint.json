@@ -1,0 +1,7 @@
+{
+  "extends": "../../../tslint.client.json",
+  "rules": {
+    "typedef": false,
+    "no-unbound-method": false
+  }
+}

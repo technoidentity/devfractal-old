@@ -1,6 +1,6 @@
 import { Route, SimpleRedirect } from 'devfractal-router'
 import { RoutedTabs, RoutedTabsItem } from 'devfractal-ui'
-import { Section, Title } from 'devfractal-ui-core'
+import { Title } from 'devfractal-ui-core'
 import React from 'react'
 import {
   FieldsLoginForm,
@@ -10,11 +10,10 @@ import {
 
 export const LoginFormVariantsTab: React.FC = () => (
   <>
-    <Section>
-      <Title size="4" textAlignment="centered">
-        Login form variants
-      </Title>
-    </Section>
+    <Title size="4" textAlignment="centered">
+      Login form variants
+    </Title>
+
     <RoutedTabs
       tabsStyle="boxed"
       to="/composites/login-form-variants"
@@ -37,23 +36,21 @@ export const LoginFormVariantsRoutes: React.FC = () => (
       to="/composites/login-form-variants/formik-form"
     />
     <Route
+      exact={false}
       path="/composites/login-form-variants/"
-      component={LoginFormVariantsTab}
+      component={LoginFormVariants}
     />
     <Route
       path="/composites/login-form-variants/formik-form"
-      exact
       component={FormikLoginForm}
     />
     <Route
       path="/composites/login-form-variants/fields-form"
-      exact
       component={FieldsLoginForm}
     />
 
     <Route
       path="/composites/login-form-variants/simple-form"
-      exact
       component={SimpleLoginForm}
     />
   </>

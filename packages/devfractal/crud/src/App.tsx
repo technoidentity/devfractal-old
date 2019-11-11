@@ -20,8 +20,7 @@ import {
 
 const Todo = obj({ id: number }, { title: string, done: boolean })
 
-const api = rest(Todo, 'id', {
-  resource: 'todos',
+const api = rest(Todo, 'id', 'todos', {
   baseURL: 'http://localhost:3000',
   withCredentials: true,
 })

@@ -25,7 +25,7 @@ export const { Links: ElementsLinks, Routes: ElementsRoutes } = dynamicRouter(
 
 export const { Links: FormsLinks, Routes: FormsRoutes } = dynamicRouter(
   forms,
-  '/forms',
+  '/form',
 )
 
 export const { Links: LayoutLinks, Routes: LayoutRoutes } = dynamicRouter(

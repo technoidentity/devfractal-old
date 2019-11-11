@@ -5,7 +5,11 @@ import { IntFromString, opt } from 'technoidentity-utils'
 import { Pager } from './Pager'
 import { useQuery } from './useQuery'
 
-export const RoutedPager: React.FC = () => {
+interface RoutedPagerProps {
+  readonly count?: number
+}
+
+export const RoutedPager: React.FC<RoutedPagerProps> = ({ count }) => {
   const { pathname } = useLocation()
   const { push } = useHistory()
 
@@ -20,6 +24,7 @@ export const RoutedPager: React.FC = () => {
       onPageChange={page => {
         push(`${pathname}?${stringify({ ...query, page })}`)
       }}
+      maxPages={count}
     />
   )
 }

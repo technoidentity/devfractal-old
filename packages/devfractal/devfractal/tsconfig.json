@@ -12,6 +12,7 @@
     { "path": "../forms" },
     { "path": "../router" },
     { "path": "../ui-api" },
+    { "path": "../fs-api" },
     { "path": "../ui" },
     { "path": "../simple" },
     { "path": "../crud" }

@@ -87,7 +87,6 @@ export function fakeFromRT(
   options: FakeOptions = defaultOptions,
 ): any {
   if (!isType(rt)) {
-    console.log(rt.name)
     throw new Error('I have no idea about what do with a function')
   }
 

@@ -1,6 +1,6 @@
-import { Button, CheckBox, Td, Tr } from 'devfractal-ui-core'
 import React from 'react'
-import { FSTodo } from './todoAPI'
+import { Button, CheckBox, Td, Tr } from 'technoidentity-devfractal'
+import { FSTodo } from '../common'
 
 interface FSTodoItemProps {
   readonly todo: FSTodo
@@ -15,6 +15,7 @@ export const FSTodoItem: React.FC<FSTodoItemProps> = ({
     <Tr>
       <Td>{todo.id}</Td>
       <Td>{todo.title}</Td>
+      <Td>{todo.completed}</Td>
       <Td>
         <CheckBox checked={todo.done} readOnly />
       </Td>

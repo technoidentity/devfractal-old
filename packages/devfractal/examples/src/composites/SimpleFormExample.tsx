@@ -1,8 +1,24 @@
 // import { maxLength, min, required } from 'devfractal-forms'
-import { before, email, minLength, required } from 'devfractal-forms'
+
+import { addDays } from 'date-fns'
+import {
+  after,
+  before,
+  email,
+  integer,
+  lowercase,
+  max,
+  maxLength,
+  min,
+  minLength,
+  positive,
+  required,
+  uppercase,
+} from 'devfractal-forms'
 import { Simple } from 'devfractal-simple'
 import { Radio, Section } from 'devfractal-ui-core'
 import React from 'react'
+import 'react-datepicker/dist/react-datepicker.css'
 import { ISODate, keyof, TypeOf } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
@@ -68,12 +84,12 @@ export const SimpleFormExample: React.FC = () => (
       <Simple.Text
         label="Username"
         name="username"
-        validations={[required(), minLength(6)]}
+        validations={[required(), minLength(6), maxLength(15), lowercase()]}
       />
       <Simple.Password
         label="Password"
         name="password"
-        validations={[required(), minLength(6)]}
+        validations={[required(), minLength(6), uppercase()]}
       />
       <Simple.Email
         label="Email"
@@ -83,11 +99,15 @@ export const SimpleFormExample: React.FC = () => (
       <Simple.Telephone
         label="Telephone"
         name="tel"
-        validations={[required()]}
+        validations={[required(), positive()]}
       />
       <Simple.Date
         name="dateOfBirth"
-        validations={[required(), before(new Date())]}
+        validations={[
+          required(),
+          after(new Date()),
+          before(addDays(new Date(), 10)),
+        ]}
       />
       <Simple.Checkbox name="remember"> Remember Me</Simple.Checkbox>
       <Simple.RadioGroup name="gender" defaultValue="female">
@@ -98,8 +118,16 @@ export const SimpleFormExample: React.FC = () => (
         <option value="associate">associate</option>
         <option value="assistant">assistant</option>
       </Simple.Select>
-      <Simple.Number label="Age" name="age" validations={[required()]} />
-      <Simple.TextArea label="TextArea" name="message" />
+      <Simple.Number
+        label="Age"
+        name="age"
+        validations={[required(), min(15), max(58), integer()]}
+      />
+      <Simple.TextArea
+        label="TextArea"
+        name="message"
+        validations={[required()]}
+      />
       <Simple.FormButtons />
       <Simple.Debug />
     </Simple.Form>

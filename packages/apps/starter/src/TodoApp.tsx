@@ -23,9 +23,8 @@ const Todo = obj(
   { title: string, scheduled: ISODate, done: boolean },
 )
 
-const todoApi = rest(Todo, 'id', {
+const todoApi = rest(Todo, 'id', 'todos', {
   baseURL: 'http://localhost:3000',
-  resource: 'todos',
 })
 
 const ps = paths(todoApi.resource)
