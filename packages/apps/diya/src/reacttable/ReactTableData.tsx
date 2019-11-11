@@ -5,6 +5,8 @@ import {
   SelectColumnFilter,
   SelectDateFilter,
 } from './ReactTableFilters'
+import { fuzzyTextFilterFn } from './utils'
+
 interface FilterProps<D> {
   readonly headers: ReadonlyArray<string | keyof D>
   readonly index: number
@@ -24,11 +26,11 @@ function getFilter<D>({ headers, index, filterOption }: FilterProps<D>) {
     filterOption.map((filterOption: FilterOptions) =>
       filterOption.columnName === headers[index]
         ? filterOption.filterType === 'search'
-          ? DefaultColumnFilter
+          ? { Filter: DefaultColumnFilter }
           : filterOption.filterType === 'select'
-          ? SelectColumnFilter
+          ? { Filter: SelectColumnFilter, filter: fuzzyTextFilterFn }
           : filterOption.filterType === 'date'
-          ? SelectDateFilter
+          ? { Filter: SelectDateFilter }
           : undefined
         : undefined,
     )
@@ -53,7 +55,7 @@ export function generateReactTableData<D>({
                 ? headerLabels[headerName as string]
                 : camelCaseToPhrase(headerName as string),
             accessor: headerName,
-            Filter: getFilter<D>({
+            ...getFilter<D>({
               headers: headerNamesWithAction,
               index,
               filterOption,
@@ -63,7 +65,7 @@ export function generateReactTableData<D>({
       : headers.map((headerName, index) => ({
           Header: camelCaseToPhrase(headerName),
           accessor: headerName,
-          Filter: getFilter({
+          ...getFilter({
             headers,
             index,
             filterOption,
