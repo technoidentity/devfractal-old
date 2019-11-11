@@ -18,13 +18,15 @@ import {
   Text,
 } from 'devfractal-ui-core'
 import React from 'react'
-export const ReportScreen = () => {
+import { HeadTitle } from '../components'
+export const ReportScreen = ({
+  handleBatteryPerformance,
+  handleTotalAnalysisReports,
+}: any) => {
   return (
-    <div>
-      <Text backgroundColor="light" color="info">
-        Reports
-      </Text>
+    <>
       <Section>
+        <HeadTitle>Reports</HeadTitle>
         <Card>
           <CardHeader>
             <CardHeaderTitle alignment="centered">
@@ -89,17 +91,21 @@ export const ReportScreen = () => {
                   <br />
                   <Text color="info">
                     <Icon color="black" icon={faChevronRight} />
-                    Day wise trip Reports
+                    Stock Report
                   </Text>
                   <br />
                   <Text color="info">
                     <Icon color="black" icon={faChevronRight} />
-                    Clent wise trip Reports
+                    Batteries Charged, swapped by Day, Week, Month
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleBatteryPerformance}
+                    color="info"
+                  >
                     <Icon color="black" icon={faChevronRight} />
-                    Driver wise trip Reports
+                    Performance Reports
                   </Text>
                 </article>
                 <article className="tile is-child notification">
@@ -134,12 +140,16 @@ export const ReportScreen = () => {
                     Cost Analysis Reports Reports
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleTotalAnalysisReports}
+                    color="info"
+                  >
                     <Icon color="black" icon={faChevronRight} />
                     Total Analysis Reports
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text style={{ cursor: 'pointer' }} color="info">
                     <Icon color="black" icon={faChevronRight} />
                     Cost Analysis / EV
                   </Text>
@@ -150,6 +160,6 @@ export const ReportScreen = () => {
           </CardContent>
         </Card>
       </Section>
-    </div>
+    </>
   )
 }

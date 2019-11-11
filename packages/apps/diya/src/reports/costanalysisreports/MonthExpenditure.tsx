@@ -1,8 +1,9 @@
 import {
+  Box,
   Card,
   CardContent,
-  CardHeader,
-  CardHeaderTitle,
+  Column,
+  Columns,
   Content,
   Select,
 } from 'devfractal-ui-core'
@@ -12,14 +13,26 @@ export const MonthExpenditure: React.FC = () => {
   const yTickValues = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
   return (
     <Card>
-      <CardHeader>
-        <CardHeaderTitle>
-          Expenditure-January 2019{' '}
-          <Select placeholder="select month">
-            <option>January</option>
-          </Select>
-        </CardHeaderTitle>
-      </CardHeader>
+      <Box>
+        <Columns>
+          <Column>Expenditure-January 2019 </Column>
+          <Column textAlignment="right">
+            <div style={{ marginTop: '-15px' }}>
+              <Select
+                style={{ border: 'none', backgroundColor: '#f3f3f3' }}
+                noControl
+              >
+                <option>select month</option>
+                <option>jan</option>
+                <option>feb</option>
+                <option>march</option>
+                <option>april</option>
+                <option>may</option>
+              </Select>
+            </div>
+          </Column>
+        </Columns>
+      </Box>
       <CardContent>
         <Content>
           <VictoryChart>
