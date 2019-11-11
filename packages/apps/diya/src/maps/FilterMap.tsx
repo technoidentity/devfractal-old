@@ -4,6 +4,7 @@ import { readonlyArray } from 'technoidentity-utils'
 import { VehicleLocation } from '../common'
 import { fakeBaseURL } from '../config'
 import { FilterData } from '../reacttable/FilterData'
+import { MapView } from './VehicleLocation'
 
 const http = httpAPI({ baseURL: fakeBaseURL })
 
@@ -17,6 +18,7 @@ export const FilterDataEVs = () => {
       )
       setEVs([...data])
     }
+    // tslint:disable-next-line: no-floating-promises
     fetchData()
   }, [])
 
@@ -24,7 +26,7 @@ export const FilterDataEVs = () => {
     <FilterData
       tableData={evs}
       filterOption={[{ columnName: 'description', filterType: 'search' }]}
-      component={({ data }) => <p>{JSON.stringify(data)}</p>}
+      component={({ data }) => <MapView data={data} />}
     />
   )
 }
