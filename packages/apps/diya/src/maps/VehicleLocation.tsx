@@ -29,6 +29,7 @@ const EvLocations: React.FC<EvLocationsProps> = ({ resource }) => {
       const data = await http.get({ resource }, readonlyArray(VehicleLocation))
       setEVs([...data])
     }
+    // tslint:disable-next-line: no-floating-promises
     fetchData()
   }, [resource])
   return (
