@@ -13,15 +13,19 @@ interface EvPositionState {
   readonly description: string
 }
 
-interface EvLocationsProps {
-  readonly data: readonly VehicleLocation[]
+interface EvLocationsProps<D> {
+  readonly data: readonly D[]
 }
 
-const EvLocations: React.FC<EvLocationsProps> = ({ data }) => {
+function isVehicleLocation(data: unknown): data is readonly VehicleLocation[] {
+  return (data as VehicleLocation[]).every(el => el.lat !== undefined)
+}
+
+function EvLocations<D>({ data }: EvLocationsProps<D>) {
   const [state, setState] = React.useState<EvPositionState>()
   return (
     <>
-      {data &&
+      {isVehicleLocation(data) &&
         data.map((ev: VehicleLocation) => (
           <Marker
             key={ev.id}
@@ -57,16 +61,20 @@ const EvLocations: React.FC<EvLocationsProps> = ({ data }) => {
 const LoadComponent = () => <div>...Loading Map</div>
 const ErrorComponent = () => <div>Map cannot be loaded right now, sorry.</div>
 
-export const MapView: React.FC<{ readonly data: readonly any[] }> = ({
-  data,
-}) => (
-  <LoadMapApiKey
-    googleMapsApiKey={googleMapApiKey}
-    loadComponent={LoadComponent}
-    errorComponent={ErrorComponent}
-  >
-    <Map {...defaultMapSettings}>
-      <EvLocations data={data} />
-    </Map>
-  </LoadMapApiKey>
-)
+interface MapViewProps<D> {
+  readonly data: readonly D[]
+}
+
+export function MapView<D>({ data }: MapViewProps<D>) {
+  return (
+    <LoadMapApiKey
+      googleMapsApiKey={googleMapApiKey}
+      loadComponent={LoadComponent}
+      errorComponent={ErrorComponent}
+    >
+      <Map {...defaultMapSettings}>
+        <EvLocations data={data} />
+      </Map>
+    </LoadMapApiKey>
+  )
+}

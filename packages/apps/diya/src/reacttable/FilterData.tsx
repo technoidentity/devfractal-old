@@ -4,13 +4,16 @@ import { Filters } from './Filters'
 import { ReactTableProps } from './models'
 import { generateReactTableData } from './ReactTableData'
 
-export function FilterData<D extends {}>({
+type FilterDataProps<D extends {}> = Pick<
+  ReactTableProps<D>,
+  'tableData' | 'filterOption'
+> & { readonly component: React.FC<{ readonly data: readonly D[] }> }
+
+export function FilterData<D>({
   tableData,
   filterOption,
   component: Component,
-}: Pick<ReactTableProps<D>, 'tableData' | 'filterOption'> & {
-  readonly component: React.FC<{ readonly data: readonly any[] }>
-}) {
+}: FilterDataProps<D>) {
   const { columns } = generateReactTableData<D>({
     tableData,
     filterOption,
@@ -29,7 +32,7 @@ export function FilterData<D extends {}>({
     useSortBy,
   )
   if (reactTableData) {
-    const data = reactTableData.rows.map(el => el.values)
+    const data: D[] = reactTableData.rows.map(el => el.original)
     return (
       <>
         <Filters {...reactTableData} />
