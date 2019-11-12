@@ -4,7 +4,7 @@ export const defaultGoogleMapProps: GoogleMapProps = {
   id: 'example-map',
 
   mapContainerStyle: {
-    height: '400px',
+    height: '750px',
     width: '100%',
   },
 
