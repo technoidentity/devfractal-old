@@ -53,7 +53,7 @@ export const PerformanceReport = () => {
 
           <CardContent>
             <Content>
-              <VictoryChart domain={{ x: [1, 60] }} height={200}>
+              <VictoryChart domain={{ x: [1, 60] }} height={170}>
                 <VictoryAxis
                   tickValues={[
                     0,
