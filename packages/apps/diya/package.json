@@ -22,10 +22,6 @@
   },
   "dependencies": {
     "@types/match-sorter": "^2.3.0",
-    "date-fns": "2.4.0",
-    "@react-google-maps/api": "^1.7.6",
-    "@types/googlemaps": "^3.37.7",
-    "formik": "1.5.8",
     "match-sorter": "^4.0.2",
     "react-table": "^7.0.0-beta.8",
     "@react-google-maps/api": "^1.7.7",
