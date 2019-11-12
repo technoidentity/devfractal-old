@@ -145,7 +145,7 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
               />
 
               <SideMenuItem
-                href="#!"
+                href="/reports"
                 icon={faPaperPlane}
                 label="Reports"
                 visibility={visibility}
