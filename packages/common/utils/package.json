@@ -28,25 +28,25 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.6.0",
-    "fp-ts": "2.1.1",
+    "date-fns": "2.7.0",
+    "fp-ts": "2.1.2",
     "io-ts": "2.0.1",
-    "io-ts-types": "0.5.1",
+    "io-ts-types": "0.5.2",
     "monocle-ts": "2.0.0",
     "tcomb": "^3.2.29",
     "tslib": "1.10.0",
-    "utility-types": "^3.8.0"
+    "utility-types": "^3.10.0"
   },
   "devDependencies": {
     "cross-env": "6.0.3",
-    "eslint": "6.5.1",
+    "eslint": "6.6.0",
     "jest": "24.9.0",
     "parcel-bundler": "1.12.4",
-    "prettier": "1.18.2",
+    "prettier": "1.19.1",
     "tcomb": "^3.2.29",
-    "tsdx": "0.10.5",
-    "tslint": "5.20.0",
-    "typescript": "3.6.4"
+    "tsdx": "0.11.0",
+    "tslint": "5.20.1",
+    "typescript": "3.7.2"
   },
   "peerDependencies": {
     "tcomb": "3.2.29"

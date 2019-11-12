@@ -31,7 +31,7 @@ describe.skip('taskSchema', () => {
       },
     })
 
-    expect(task1.validateSync().errors).toMatchInlineSnapshot(`
+    expect(task1.validateSync()?.errors).toMatchInlineSnapshot(`
             Object {
               "dateInfo": [ValidatorError: started date should be equal to or greater than current date],
               "description": [ValidatorError: Path \`description\` (\`react\`) is shorter than the minimum allowed length (10).],
@@ -43,7 +43,7 @@ describe.skip('taskSchema', () => {
   it('empty task object', () => {
     const task1 = new TaskModel({})
 
-    expect(task1.validateSync().errors).toMatchInlineSnapshot(`
+    expect(task1.validateSync()?.errors).toMatchInlineSnapshot(`
                             Object {
                               "dateInfo": [ValidatorError: Path \`dateInfo\` is required.],
                               "description": [ValidatorError: Path \`description\` is required.],
@@ -59,7 +59,7 @@ describe.skip('taskSchema', () => {
       dateInfo: {} as any,
     })
 
-    expect(task1.validateSync().errors).toMatchInlineSnapshot(`
+    expect(task1.validateSync()?.errors).toMatchInlineSnapshot(`
     Object {
       "dateInfo": [ValidationError: Validation failed: scheduled: Path \`scheduled\` is required., deadline: Path \`deadline\` is required.],
       "dateInfo.deadline": [ValidatorError: Path \`deadline\` is required.],

@@ -10,8 +10,6 @@ const FormikError: React.FC<FormikErrorProps> = ({ children, ...props }) => (
   </FieldHelp>
 )
 
-export type ErrorMessageProps = FormikErrorProps
-
 export const ErrorField: React.FC<ErrorMessageProps> = props => (
   <ErrorMessage {...props} component={FormikError} />
 )

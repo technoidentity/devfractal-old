@@ -39,10 +39,10 @@
     "cross-env": "6.0.3",
     "jest": "24.9.0",
     "parcel-bundler": "1.12.4",
-    "prettier": "1.18.2",
+    "prettier": "1.19.1",
     "ts-node-dev": "1.0.0-pre.40",
-    "tsdx": "0.10.5",
-    "tslint": "5.20.0",
-    "typescript": "3.6.4"
+    "tsdx": "0.11.0",
+    "tslint": "5.20.1",
+    "typescript": "3.7.2"
   }
 }
