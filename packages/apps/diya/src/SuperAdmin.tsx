@@ -23,6 +23,7 @@ import {
   UserRoutes,
   VehicleRoutes,
 } from './pages'
+import { ReportsRoute } from './reports/ReportsRoute'
 import './stylesheets/styles.scss'
 import { AssignDriverRoute } from './views'
 import { AssignBatteryRoute } from './views/AssignBattery'
@@ -58,6 +59,7 @@ export const SuperAdmin = () => {
           <InvoiceListRoute />
           <PlanRouteMapRoute />
           <TripListRoute />
+          <ReportsRoute />
         </Column>
       </Columns>
     </Router>
