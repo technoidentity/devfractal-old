@@ -1,9 +1,8 @@
 import React from 'react'
 import { useAuth } from '../auth/AuthContext'
-import { AuthUserInfo } from '../common'
+import { AuthUserInfo, isAuthenticated } from '../common'
 import { AuthenticatedApp } from './AuthenticatedApp'
 import { UnAuthenticatedApp } from './UnAuthenticatedApp'
-import { isAuthenticated } from './util'
 
 export const Auth: React.FC = () => {
   const { user } = useAuth()
