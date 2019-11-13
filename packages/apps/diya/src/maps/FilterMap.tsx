@@ -22,7 +22,7 @@ export const FilterDataEVs = () => {
     fetchData()
   }, [])
 
-  return (
+  return evs.length !== 0 ? (
     <FilterData
       tableData={evs}
       filterOption={[
@@ -31,5 +31,7 @@ export const FilterDataEVs = () => {
       ]}
       component={({ data }) => <MapView data={data} />}
     />
+  ) : (
+    <p>No Data</p>
   )
 }
