@@ -54,7 +54,7 @@ export const ReportsScreen = ({
                   <br />
                   <Text color="info">
                     <Icon color="black" icon={faChevronRight} />
-                    Clent wise trip Reports
+                    Client wise trip Reports
                   </Text>
                   <br />
                   <Text color="info">
