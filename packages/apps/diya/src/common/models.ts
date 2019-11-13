@@ -226,6 +226,44 @@ export const Client = obj(
 )
 
 export type Client = TypeOf<typeof Client>
+const BillingType = enumerate(
+  'contract_per_month',
+  'pay_per_delivery',
+  'pay_per_kms_and_time',
+  'pay_per_useF',
+)
+export const ClientData = obj(
+  { latitude: number, longitude: number },
+  {
+    name: string,
+    billingType: BillingType,
+    contactName: string,
+    contactNumber: string,
+    contractDoc: string,
+    email: string,
+    numberOfEvsOrDrivers: number,
+    address: string,
+  },
+)
+export type ClientData = TypeOf<typeof ClientData>
+
+export const ClientRequest = ClientData
+export type ClientRequest = TypeOf<typeof ClientRequest>
+
+export const ClientListResponse = req({
+  data: req({
+    rows: array(ClientData),
+    count: number,
+  }),
+})
+
+export type ClientListResponse = TypeOf<typeof ClientListResponse>
+
+export const ClientResponse = req({
+  data: ClientData,
+})
+
+export type ClientResponse = TypeOf<typeof ClientResponse>
 
 export const Role = enumerate('associate', 'dispatcher', 'reporter', 'driver')
 
