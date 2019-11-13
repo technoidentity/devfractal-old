@@ -1,4 +1,5 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FormikActions } from 'formik'
 import React from 'react'
 import {
   Column,
@@ -11,7 +12,6 @@ import {
 import { ClientData } from '../common'
 import { googleMapApiKey } from '../config'
 import { defaultMapSettings, MapSearch } from '../maps'
-import { FormikActions } from 'formik'
 
 export const ClientForm = formComponent(
   ClientData,
@@ -20,6 +20,7 @@ export const ClientForm = formComponent(
       lat: 17.385044,
       lng: 78.486671,
     })
+    const [address, setAddress] = React.useState<string>('')
     const [places, setPlaces] = React.useState<
       google.maps.places.Autocomplete
     >()
@@ -41,6 +42,7 @@ export const ClientForm = formComponent(
                 ...values,
                 latitude: location['lat'],
                 longitude: location['lng'],
+                address,
               }
               // tslint:disable-next-line: no-floating-promises
               onSubmit(client, actions)
@@ -85,6 +87,7 @@ export const ClientForm = formComponent(
                     const geometry =
                       places && places.getPlace() && places.getPlace().geometry
                     if (geometry) {
+                      console.log(places && places)
                       setLocation(geometry.location.toJSON())
                     }
                   }}
@@ -92,6 +95,7 @@ export const ClientForm = formComponent(
                     type: 'search',
                     ctrlSize: 'small',
                     rightIcon: faSearch,
+                    onChange: e => setAddress(e.target.value),
                   }}
                   markerOptions={{
                     draggable: true,
