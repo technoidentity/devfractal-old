@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Get,
-  http as httpAPI,
   paths,
   Post,
   Put,
@@ -10,84 +9,64 @@ import {
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
 import {
-  AuthUserInfo,
   BatteryAdd as BA,
   batteryAPI,
   BatteryData,
   BatteryEdit as BE,
   batteryEditAPI,
   BatteryResponse,
+  cargosUrl,
 } from '../common'
-import { baseURL } from '../config'
 import { BatteryForm, BatteryList } from '../views'
+
 const ps = paths(batteryAPI.resource)
+
 export async function getBatteryList(): Promise<
   BatteryResponse['data']['rows']
 > {
-  const userData = localStorage.getItem('loginData')
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const batteries = await http.get({ resource: 'batteries' }, BatteryResponse)
+  try {
+    const batteries = await cargosUrl().get(
+      { resource: 'batteries' },
+      BatteryResponse,
+    )
     return batteries.data.rows
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 async function getBattery(id: string): Promise<BE['data']> {
-  const userData = localStorage.getItem('loginData')
-
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const batteries = await http.get({ resource: 'batteries', path: id }, BE)
+  try {
+    const batteries = await cargosUrl().get(
+      { resource: 'batteries', path: id },
+      BE,
+    )
     return batteries.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 async function putBattery(data: BatteryData): Promise<BE['data']> {
-  const userData = localStorage.getItem('loginData')
-
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const batteries = await http.put({ resource: 'batteries' }, data, BE)
+  try {
+    const batteries = await cargosUrl().put({ resource: 'batteries' }, data, BE)
     return batteries.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 async function postBattery(data: BA): Promise<BE['data']> {
-  const userData = localStorage.getItem('loginData')
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-
-    const batteries = await http.post({ resource: 'batteries' }, data, BE)
+  try {
+    const batteries = await cargosUrl().post(
+      { resource: 'batteries' },
+      data,
+      BE,
+    )
     return batteries.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 const BatteryListRoute = () => (

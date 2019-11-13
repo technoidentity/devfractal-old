@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Get,
-  http as httpAPI,
   paths,
   Post,
   Put,
@@ -10,7 +9,7 @@ import {
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
 import {
-  AuthUserInfo,
+  cargosUrl,
   VehicleAdd as VA,
   vehicleAPI,
   VehicleData,
@@ -18,95 +17,62 @@ import {
   vehicleEditAPI,
   VehicleResponse,
 } from '../common'
-import { baseURL } from '../config'
 import { VehicleForm, VehicleList1 } from '../views'
 const ps = paths(vehicleAPI.resource)
 
 export async function getVehicleList(): Promise<
   VehicleResponse['data']['rows']
 > {
-  const userData = localStorage.getItem('loginData')
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const vehicles = await http.get({ resource: 'vehicles' }, VehicleResponse)
+  try {
+    const vehicles = await cargosUrl().get(
+      { resource: 'vehicles' },
+      VehicleResponse,
+    )
     return vehicles.data.rows
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 async function getVehicle(id: string): Promise<VE['data']> {
-  const userData = localStorage.getItem('loginData')
-
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const vehicles = await http.get({ resource: 'vehicles', path: id }, VE)
+  try {
+    const vehicles = await cargosUrl().get(
+      { resource: 'vehicles', path: id },
+      VE,
+    )
     return vehicles.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 async function putVehicle(data: VehicleData): Promise<VE['data']> {
-  const userData = localStorage.getItem('loginData')
   const { vehicleName, ...rest } = data
 
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-
-    const vehicles = await http.put({ resource: 'vehicles' }, rest, VE)
+  try {
+    const vehicles = await cargosUrl().put({ resource: 'vehicles' }, rest, VE)
     return vehicles.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 async function postVehicle(data: VA): Promise<VE['data']> {
-  const userData = localStorage.getItem('loginData')
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-
-    const vehicles = await http.post({ resource: 'vehicles' }, data, VE)
+  try {
+    const vehicles = await cargosUrl().post({ resource: 'vehicles' }, data, VE)
     return vehicles.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 export const deleteList = async (url: string) => {
-  const userData = localStorage.getItem('loginData')
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    await http.del(url)
+  try {
+    await cargosUrl().del(url)
     return
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 const VehicleListRoute = () => (

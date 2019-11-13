@@ -10,8 +10,7 @@ import {
 } from 'technoidentity-devfractal'
 import { capitalizeAll } from 'technoidentity-utils'
 import { useAuth } from '../auth/AuthContext'
-import { isAuthenticated } from '../auth/util'
-import { AuthUserInfo } from '../common'
+import { AuthUserInfo, isAuthenticated } from '../common'
 
 export const NavBar = () => {
   const { logout, setUser } = useAuth()
