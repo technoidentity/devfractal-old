@@ -233,7 +233,7 @@ const BillingType = enumerate(
   'pay_per_useF',
 )
 export const ClientData = obj(
-  { latitude: number, longitude: number },
+  { latitude: number, longitude: number, remarks: string },
   {
     name: string,
     billingType: BillingType,
