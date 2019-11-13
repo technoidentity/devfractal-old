@@ -16,11 +16,17 @@ import { defaultMapSettings, MapSearch } from '../maps'
 export const ClientForm = formComponent(
   ClientData,
   ({ initial, edit, onSubmit }) => {
-    const [location, setLocation] = React.useState<google.maps.LatLngLiteral>({
-      lat: 17.385044,
-      lng: 78.486671,
-    })
-    const [address, setAddress] = React.useState<string>('')
+    const initLocation =
+      initial.latitude && initial.longitude
+        ? { lat: initial.latitude, lng: initial.longitude }
+        : {
+            lat: 17.385044,
+            lng: 78.486671,
+          }
+    const [location, setLocation] = React.useState<google.maps.LatLngLiteral>(
+      initLocation,
+    )
+    const [address, setAddress] = React.useState<string>(initial.address)
     const [places, setPlaces] = React.useState<
       google.maps.places.Autocomplete
     >()
