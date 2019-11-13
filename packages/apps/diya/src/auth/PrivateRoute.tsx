@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect, RouteComponentProps, RouteProps } from 'react-router'
 import { Route } from 'technoidentity-devfractal'
-import { isAuthenticated } from './util'
+import { isAuthenticated } from '../common'
 
 // export const PrivateRoute: React.FC<any> = (props) => {
 //   return isAuthenticated() && props.children ? props.children : <SimpleRedirect from="/drivers" to="/" />

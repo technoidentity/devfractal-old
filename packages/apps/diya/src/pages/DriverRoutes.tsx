@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Get,
-  http as httpAPI,
   paths,
   Post,
   Put,
@@ -10,14 +9,13 @@ import {
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
 import {
-  AuthUserInfo,
+  cargosUrl,
   driverAPI,
   DriverData,
   driverEditAPI,
   DriverListResponse,
   DriverResponse,
 } from '../common'
-import { baseURL } from '../config'
 import { DriverForm, DriverList1 } from '../views'
 
 const ps = paths(driverAPI.resource)
@@ -26,71 +24,52 @@ const ps = paths(driverAPI.resource)
 export async function getDriverList(): Promise<
   DriverListResponse['data']['rows']
 > {
-  const userData = localStorage.getItem('loginData')
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const drivers = await http.get({ resource: 'drivers' }, DriverListResponse)
+  try {
+    const drivers = await cargosUrl().get(
+      { resource: 'drivers' },
+      DriverListResponse,
+    )
     return drivers.data.rows
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 async function getDriver(id: string): Promise<DriverResponse['data']> {
-  const userData = localStorage.getItem('loginData')
-
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const drivers = await http.get(
+  try {
+    const drivers = await cargosUrl().get(
       { resource: 'users', path: id },
       DriverResponse,
     )
     return drivers.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 async function putDriver(data: DriverData): Promise<DriverResponse['data']> {
-  const userData = localStorage.getItem('loginData')
-
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const drivers = await http.put({ resource: 'users' }, data, DriverResponse)
+  try {
+    const drivers = await cargosUrl().put(
+      { resource: 'users' },
+      data,
+      DriverResponse,
+    )
     return drivers.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 async function postDriver(data: DriverData): Promise<DriverResponse['data']> {
-  const userData = localStorage.getItem('loginData')
-  if (userData) {
-    const {
-      data: { token },
-    }: AuthUserInfo = JSON.parse(userData)
-    const http = httpAPI({
-      baseURL,
-      headers: { Authorization: `bearer ${token}` },
-    })
-    const user = await http.post({ resource: 'users' }, data, DriverResponse)
+  try {
+    const user = await cargosUrl().post(
+      { resource: 'users' },
+      data,
+      DriverResponse,
+    )
     return user.data
+  } catch (error) {
+    throw Error(error)
   }
-  throw Error('Invalid login')
 }
 
 const DriverListRoute = () => (
