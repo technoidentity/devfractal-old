@@ -43,7 +43,7 @@ export const AssignDriverForm = component(
       setDriverData(driverData)
       setVehicleList(vehicleList)
       setClientList(clientList)
-    }, [])
+    }, [driverId])
     return (
       <Section>
         <Columns columnCentered>
