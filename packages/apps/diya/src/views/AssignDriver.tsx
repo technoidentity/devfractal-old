@@ -37,7 +37,7 @@ export const AssignDriverForm = component(
     const driverId: string = params.id
 
     React.useMemo(async () => {
-      const driverData = await getDriver(params.id)
+      const driverData = await getDriver(driverId)
       const vehicleList = await getVehicleList()
       const clientList = await getClientList()
       setDriverData(driverData)
