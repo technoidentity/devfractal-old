@@ -233,7 +233,7 @@ const BillingType = enumerate(
   'pay_per_useF',
 )
 export const ClientData = obj(
-  { latitude: number, longitude: number, remarks: string },
+  { latitude: number, longitude: number, remarks: string, id: string },
   {
     name: string,
     billingType: BillingType,
@@ -527,6 +527,23 @@ export const AuthUserInfo = req({
 export type AuthUserInfo = TypeOf<typeof AuthUserInfo>
 
 const VehicleNumbers = enumerate('first', 'second')
+
+export const DriverAssign = obj(
+  { associateId: string },
+  {
+    driverId: string,
+    clientId: string,
+    vehicleId: string,
+    start: ISODate,
+    end: ISODate,
+  },
+)
+
+export type DriverAssign = TypeOf<typeof DriverAssign>
+export const DriverAssignResponse = req({
+  data: DriverAssign,
+})
+export type DriverAssignResponse = TypeOf<typeof DriverAssignResponse>
 
 export const AssignDriver = req({
   id: string,
