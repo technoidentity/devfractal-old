@@ -25,7 +25,7 @@ import {
 } from './pages'
 import { ReportsRoute } from './reports/ReportsRoute'
 import './stylesheets/styles.scss'
-import { AssignDriverRoute } from './views'
+// import { AssignDriverRoute } from './views'
 import { AssignBatteryRoute } from './views/AssignBattery'
 import { AssignVehicleRoute } from './views/AssignVehicle'
 
@@ -45,7 +45,6 @@ export const SuperAdmin = () => {
           <SimpleRedirect from="/" to="/home" />
           <Route path="/home" render={() => <FilterDataEVs />} />
           <DriverRoutes />
-          <AssignDriverRoute />
           <BatteryRoutes />
           <AssignBatteryRoute />
           <ClientRoutes />
