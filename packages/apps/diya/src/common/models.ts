@@ -353,7 +353,7 @@ export const DriverData = obj(
   {
     //  id: string,
     aadhaar: string,
-    //  address1: string,
+    address1: string,
     //  address2: string,
     avatar: string,
     //  createdById: string,
@@ -369,16 +369,27 @@ export const DriverData = obj(
   },
   {
     name: string,
-    //  phone: string,
-    //  email: string,
+    phone: string,
+    email: string,
     verified: boolean,
-    //  role: Role,
+    shift: Shift,
+  },
+)
+
+export const DriverData1 = obj(
+  {
+    id: string,
+  },
+  {
+    name: string,
+    verified: boolean,
+    shift: Shift,
   },
 )
 export type DriverData = TypeOf<typeof DriverData>
 export const DriverListResponse = req({
   data: req({
-    rows: array(DriverData),
+    rows: array(DriverData1),
     count: number,
   }),
 })
