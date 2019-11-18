@@ -8,7 +8,7 @@ import {
   Section,
 } from 'technoidentity-devfractal'
 import { date } from 'technoidentity-utils'
-import { DriverData, DriverListResponse } from '../common'
+import { DriverData1, DriverListResponse } from '../common'
 // import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
@@ -48,7 +48,7 @@ export const DriverList1 = ({
     : []
   const tableData = useResultData
     ? resultData.length > 0
-      ? resultData.map((driverList: DriverData) =>
+      ? resultData.map((driverList: DriverData1) =>
           keys.reduce(
             (acc, k) => ({
               ...acc,
@@ -62,7 +62,7 @@ export const DriverList1 = ({
         )
       : []
     : data.length > 0
-    ? data.map((driverList: DriverData) =>
+    ? data.map((driverList: DriverData1) =>
         keys.reduce(
           (acc, k) => ({
             ...acc,
@@ -107,11 +107,14 @@ export const DriverList1 = ({
           ]}
           sorting={true}
           pagination={true}
-          headerNames={['name', 'shift', 'verified']}
+          headerNames={['identificationNum', 'name', 'shift', 'verified']}
           filterOption={[
             { columnName: 'name', filterType: 'search' },
             { columnName: 'shift', filterType: 'select' },
           ]}
+          headerLabels={{
+            identificationNum: 'ID',
+          }}
           actions={{
             editTo: id => driverLinks.edit(id),
             assignTo: id => `/assignDriver/${id}`,
