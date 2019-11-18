@@ -13,33 +13,60 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
+import * as yup from 'yup'
 import { DriverData } from '../common'
 import { HeadTitle } from '../components'
+
+const schema = yup.object().shape({
+  phone: yup
+    .string()
+    .matches(/\d/, 'must be valid mobile number')
+    .length(10, 'must be 10 digit mobile number')
+    .required('this is a required field'),
+  name: yup.string().required('this is a required field'),
+  email: yup
+    .string()
+    .email('must be valid email')
+    .required('this is a required field'),
+  shift: yup.string().required(),
+  relation: yup.string().required(),
+  aadhaar: yup
+    .string()
+    .matches(/\d+/, 'must be valid aadhaar number')
+    .length(12, 'must be 12 digit aadhaar number'),
+  bankDetails: yup.object().shape({
+    accountNumber: yup
+      .string()
+      .matches(/\d/, 'must be valid account number')
+      .required('this is a required field'),
+  }),
+  emergencyContactNumber: yup
+    .string()
+    .matches(/\d/, 'must be valid mobile number')
+    .length(10, 'must be 10 digit mobile number')
+    .required('this is a required field'),
+})
 
 export const DriverForm = formComponent(
   DriverData,
   ({ initial, edit, onSubmit }) => (
     <>
       <Section>
-        <HeadTitle>{edit ? 'Edit' : 'Create'} User</HeadTitle>
+        <HeadTitle>{edit ? 'Edit' : 'Create'} Driver</HeadTitle>
       </Section>
       <Section>
         <Simple.Form
           initialValues={{ ...initial, role: 'driver' }}
           onSubmit={onSubmit}
+          validationSchema={schema}
         >
           <Columns>
             <Column>
               <Title size="5" textColor="info">
                 Personal Details
               </Title>
-              <Simple.Text name="name" validations={[required()]} />
-              {/* <Simple.Text
-                name="driverID"
-                label="Driver ID"
-                validations={[required()]}
-              /> */}
-              <Simple.Telephone name="phone" validations={[required()]} />
+              <Simple.Text name="name" />
+              <Simple.Text name="phone" />
               <Simple.Text
                 name="license"
                 label="Licence No."
@@ -47,13 +74,12 @@ export const DriverForm = formComponent(
               />
               <Simple.Text name="email" validations={[required()]} />
               <Simple.Text name="aadhaar" validations={[required()]} />
-              <Simple.Select name="shift" defaultValue="morning" fullWidth>
+              <Simple.Select name="shift" fullWidth>
                 <option value="morning">Morning</option>
                 <option value="evening">Evening</option>
               </Simple.Select>
-              <Simple.Text name="role" disabled />
-              <Simple.Text name="address1" />
-              <Simple.Text name="address2" />
+              <Simple.Text name="address1" validations={[required()]} />
+              <Simple.Text name="address2" label="Address2(Optional)" />
             </Column>
 
             <Column>
@@ -68,7 +94,6 @@ export const DriverForm = formComponent(
               <Simple.Text
                 name="bankDetails.accountNumber"
                 label="Account Number"
-                validations={[required()]}
               />
 
               {/* <Simple.Text
@@ -115,8 +140,11 @@ export const DriverForm = formComponent(
 
               <Button variant="dark">Upload Photo</Button>
               <div style={{ paddingTop: '10px' }}>
-                <Simple.Text name="emergencyContactPerson" />
-                <Simple.Telephone name="emergencyContactNumber" />
+                <Simple.Text
+                  name="emergencyContactPerson"
+                  validations={[required()]}
+                />
+                <Simple.Text name="emergencyContactNumber" />
                 <Simple.Select name="relation" fullWidth>
                   <option value="father">Father</option>
                   <option value="mother">Mother</option>
@@ -129,8 +157,8 @@ export const DriverForm = formComponent(
               </div>
             </Column>
           </Columns>
-
-          <Simple.FormButtons />
+          <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
+          <Button>Back</Button>
         </Simple.Form>
       </Section>
     </>
