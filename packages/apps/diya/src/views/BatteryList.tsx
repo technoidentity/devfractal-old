@@ -7,7 +7,7 @@ import {
   Section,
   Title,
 } from 'technoidentity-devfractal'
-import { BatteryData, BatteryResponse } from '../common'
+import { BatteryData1, BatteryResponse } from '../common'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList, getBatteryList } from '../pages'
 // import { Battery } from '../common'
@@ -48,7 +48,7 @@ export const BatteryList = ({
     : []
   const tableData = useResultData
     ? resultData.length > 0
-      ? resultData.map((batteryList: BatteryData) =>
+      ? resultData.map((batteryList: BatteryData1) =>
           keys.reduce(
             (acc, k) => ({
               ...acc,
@@ -62,7 +62,7 @@ export const BatteryList = ({
         )
       : []
     : data.length > 0
-    ? data.map((batteryList: BatteryData) =>
+    ? data.map((batteryList: BatteryData1) =>
         keys.reduce(
           (acc, k) => ({
             ...acc,
@@ -100,9 +100,9 @@ export const BatteryList = ({
         ]}
         sorting={true}
         pagination={true}
-        headerNames={['batteryName', 'cycles', 'status']}
+        headerNames={['batterySerialNum', 'cycles', 'status']}
         headerLabels={{
-          batteryName: 'Name',
+          batterySerialNum: 'Name',
           cycles: 'Battery Cycles',
         }}
         filterOption={[
