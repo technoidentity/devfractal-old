@@ -265,7 +265,7 @@ export const ClientResponse = req({
 
 export type ClientResponse = TypeOf<typeof ClientResponse>
 
-export const Role = enumerate('associate', 'dispatcher', 'reporter', 'driver')
+export const Role = enumerate('dispatcher', 'associate', 'reporter', 'driver')
 
 export const BankDetails = req({
   name: string,
@@ -302,8 +302,9 @@ export const UserData = obj(
   {
     //  id: string,
     aadhaar: string,
-    //  address1: string,
-    //  address2: string,
+
+    address2: string,
+    address1: string,
     avatar: string,
     //  createdById: string,
     //  updatedById: string,
