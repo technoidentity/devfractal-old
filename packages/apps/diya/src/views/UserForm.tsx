@@ -14,16 +14,37 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
+import * as yup from 'yup'
 import { UserData } from '../common'
 import { HeadTitle } from '../components'
 
-// const validationSchema = yup.object().shape({
-//   name: yup.string().required(),
-//   driverId: yup.string().required(),
-//   phone: yup.string().required(),
-//   driverLicence: yup.string().required(),
-//   adharNumber: yup.string().required(),
-// })
+const schema = yup.object().shape({
+  phone: yup
+    .string()
+    .matches(/\d/, 'must be valid mobile number')
+    .length(10, 'must be 10 digit mobile number')
+    .required('this is a required field'),
+  email: yup
+    .string()
+    .email('must be valid email')
+    .required('this is a required field'),
+  aadhaar: yup
+    .string()
+    .matches(/\d+/, 'must be valid aadhaar number')
+    .length(12, 'must be 12 digit aadhaar number')
+    .required('this is a required field'),
+  bankDetails: yup.object().shape({
+    accountNumber: yup
+      .string()
+      .matches(/\d/, 'must be valid account number')
+      .required('this is a required field'),
+  }),
+  emergencyContactNumber: yup
+    .string()
+    .matches(/\d/, 'must be valid mobile number')
+    .length(10, 'must be 10 digit mobile number')
+    .required('this is a required field'),
+})
 
 export const UserForm = formComponent(
   UserData,
@@ -33,34 +54,33 @@ export const UserForm = formComponent(
         <HeadTitle>{edit ? 'Edit' : 'Create'} User</HeadTitle>
       </Section>
       <Section>
-        <Simple.Form initialValues={initial} onSubmit={onSubmit}>
+        <Simple.Form
+          initialValues={initial}
+          onSubmit={onSubmit}
+          validationSchema={schema}
+        >
           <Columns>
             <Column>
               <Title size="5" textColor="info">
                 Personal Details
               </Title>
               <Simple.Text name="name" validations={[required()]} />
-              {/* <Simple.Text
-                name="driverID"
-                label="Driver ID"
-                validations={[required()]}
-              /> */}
-              <Simple.Telephone name="phone" validations={[required()]} />
+              <Simple.Text name="phone" />
               <Simple.Text
                 name="license"
                 label="Licence No."
                 validations={[required()]}
               />
-              <Simple.Text name="email" validations={[required()]} />
-              <Simple.Text name="aadhaar" validations={[required()]} />
+              <Simple.Text name="email" />
+              <Simple.Text name="aadhaar" />
 
               <Simple.Select name="role" fullWidth>
                 <option value="dispatcher">Dispatcher</option>
-                <option value="reporter">reporter</option>
+                <option value="reporter">Reporter</option>
                 <option value="associate">Associate</option>
               </Simple.Select>
-              <Simple.Text name="address1" />
-              <Simple.Text name="address2" />
+              <Simple.Text name="address1" validations={[required()]} />
+              <Simple.Text name="address2" label="Address2(Optional)" />
             </Column>
 
             <Column>
@@ -75,7 +95,6 @@ export const UserForm = formComponent(
               <Simple.Text
                 name="bankDetails.accountNumber"
                 label="Account Number"
-                validations={[required()]}
               />
 
               {/* <Simple.Text
@@ -122,8 +141,11 @@ export const UserForm = formComponent(
 
               <Button variant="dark">Upload Photo</Button>
               <div style={{ paddingTop: '10px' }}>
-                <Simple.Text name="emergencyContactPerson" />
-                <Simple.Telephone name="emergencyContactNumber" />
+                <Simple.Text
+                  name="emergencyContactPerson"
+                  validations={[required()]}
+                />
+                <Simple.Text name="emergencyContactNumber" />
                 <Simple.Select name="relation" fullWidth>
                   <option value="father">Father</option>
                   <option value="mother">Mother</option>
@@ -136,8 +158,8 @@ export const UserForm = formComponent(
               </div>
             </Column>
           </Columns>
-
-          <Simple.FormButtons />
+          <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
+          <Button>Back</Button>
         </Simple.Form>
       </Section>
     </>
