@@ -138,9 +138,26 @@ export const BatteryData = obj(
     batteryName: string,
   },
 )
+
+const BatteryData1 = obj(
+  {
+    id: string,
+  },
+  {
+    batterySerialNum: string,
+    // vehicleId: string,
+    // lastCharged: ISODate,
+    make: string,
+    model: string,
+    status: string,
+    cycles: number,
+  },
+)
+
+export type BatteryData1 = TypeOf<typeof BatteryData1>
 export const BatteryResponse = req({
   data: req({
-    rows: array(BatteryData),
+    rows: array(BatteryData1),
     count: number,
   }),
 })
