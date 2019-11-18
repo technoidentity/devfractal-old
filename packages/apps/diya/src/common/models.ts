@@ -387,6 +387,7 @@ export const DriverData1 = obj(
   },
 )
 export type DriverData = TypeOf<typeof DriverData>
+export type DriverData1 = TypeOf<typeof DriverData1>
 export const DriverListResponse = req({
   data: req({
     rows: array(DriverData1),
