@@ -84,6 +84,7 @@ export const DriverList1 = ({
           deleteAsyncFun={deleteList}
           handleGetList={handleDriverList}
           url={`users/${state.id}`}
+          message="Driver Deleted"
         />
         <HeadTitle>Drivers</HeadTitle>
         <Columns>
