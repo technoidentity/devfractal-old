@@ -120,11 +120,12 @@ export const VehicleList1 = ({
         sorting={true}
         pagination={true}
         headerNames={[
-          'vehicleName',
+          'vehicleSerialNum',
           'registrationNumber',
           'insuranceExpiry',
           'lastService',
         ]}
+        headerLabels={{ vehicleSerialNum: 'Vehicle ID' }}
         filterOption={[{ columnName: 'name', filterType: 'search' }]}
         actions={{
           editTo: id => vehicleLinks.edit(id),
