@@ -17,6 +17,8 @@ import {
   GeoFence,
   Invoice,
   PlanRoute,
+  TabletData,
+  TabletListResponse,
   Trip,
   UserData,
   UserEdit,
@@ -67,6 +69,10 @@ export const batteryEditAPI = api(BatteryEdit, 'batteries')
 export const vehicleAPI = api(VehicleResponse, 'vehicles')
 export const vehicleEditAPI = api(VehicleEdit, 'vehicles')
 export const vehicleAdd = api(VehicleData, 'vehicles')
+
+export const tabletAPI = api(TabletListResponse, 'tablets')
+export const tabletEditAPI = api(TabletData, 'tablets')
+export const tabletAdd = api(TabletData, 'tablets')
 
 export const clientAPI = api(Client, 'clients')
 export const userAPI = api(UserListResponse, 'users')
