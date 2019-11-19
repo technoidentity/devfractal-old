@@ -14,7 +14,7 @@ export const TabletForm = formComponent(TabletData, ({ initial, onSubmit }) => {
   React.useMemo(async () => {
     const vehicleList = await getVehicleList()
     setVehicleList(vehicleList)
-  }, [vehicleList])
+  }, [])
   return (
     <>
       <Section>
