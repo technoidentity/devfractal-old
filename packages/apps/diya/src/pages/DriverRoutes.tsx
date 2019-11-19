@@ -11,15 +11,16 @@ import { string, type } from 'technoidentity-utils'
 import {
   cargosUrl,
   driverAPI,
+  DriverAssign,
+  DriverAssignResponse,
   DriverData,
   driverEditAPI,
   DriverListResponse,
   DriverResponse,
 } from '../common'
-import { DriverForm, DriverList1 } from '../views'
+import { AssignDriverForm, DriverForm, DriverList1 } from '../views'
 
 const ps = paths(driverAPI.resource)
-// const ls = links(driverAPI.resource)
 
 export async function getDriverList(): Promise<
   DriverListResponse['data']['rows']
@@ -34,7 +35,7 @@ export async function getDriverList(): Promise<
     throw Error(error)
   }
 }
-async function getDriver(id: string): Promise<DriverResponse['data']> {
+export async function getDriver(id: string): Promise<DriverResponse['data']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'users', path: id },
@@ -72,6 +73,21 @@ async function postDriver(data: DriverData): Promise<DriverResponse['data']> {
   }
 }
 
+async function postDriverAssign(
+  data: DriverAssign,
+): Promise<DriverAssignResponse['data']> {
+  try {
+    const assignDriver = await cargosUrl().post(
+      { resource: 'vehicles/assign/clients' },
+      data,
+      DriverAssignResponse,
+    )
+    return assignDriver.data
+  } catch (error) {
+    throw Error(error)
+  }
+}
+
 const DriverListRoute = () => (
   <Get asyncFn={getDriverList} component={DriverList1} />
 )
@@ -93,10 +109,24 @@ const DriverEdit = () => {
   )
 }
 
+const DriverAssignRoute = () => {
+  return (
+    <Post
+      redirectTo={ps.list}
+      component={AssignDriverForm}
+      onPost={postDriverAssign}
+    />
+  )
+}
+
 export const DriverRoutes = () => (
   <>
     <Route path={ps.create} render={() => <DriverAdd />} />
     <Route path={ps.list} render={() => <DriverListRoute />} />
     <Route path={ps.edit} render={() => <DriverEdit />} />
+    <Route
+      path="/drivers/assignDriver/:id"
+      render={() => <DriverAssignRoute />}
+    />
   </>
 )

@@ -84,6 +84,7 @@ export const DriverList1 = ({
           deleteAsyncFun={deleteList}
           handleGetList={handleDriverList}
           url={`users/${state.id}`}
+          message="Driver Deleted"
         />
         <HeadTitle>Drivers</HeadTitle>
         <Columns>
@@ -117,7 +118,7 @@ export const DriverList1 = ({
           }}
           actions={{
             editTo: id => driverLinks.edit(id),
-            assignTo: id => `/assignDriver/${id}`,
+            assignTo: id => `/drivers/assignDriver/${id}`,
             onDelete: handleToggleModel,
           }}
         />

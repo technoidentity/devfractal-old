@@ -104,6 +104,7 @@ export const VehicleList1 = ({
         deleteAsyncFun={deleteList}
         handleGetList={handleVehicleList}
         url={`vehicles/${state.id}`}
+        message="Vehicle Deleted"
       />
       <HeadTitle>Vehicles</HeadTitle>
 

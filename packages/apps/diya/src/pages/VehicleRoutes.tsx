@@ -17,9 +17,9 @@ import {
   vehicleEditAPI,
   VehicleResponse,
 } from '../common'
+import { toastMessage } from '../components/Message'
 import { VehicleForm, VehicleList1 } from '../views'
 const ps = paths(vehicleAPI.resource)
-
 export async function getVehicleList(): Promise<
   VehicleResponse['data']['rows']
 > {
@@ -66,11 +66,13 @@ async function postVehicle(data: VA): Promise<VE['data']> {
   }
 }
 
-export const deleteList = async (url: string) => {
+export const deleteList = async (url: string, msg: string) => {
   try {
     await cargosUrl().del(url)
+    toastMessage(msg)
     return
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }

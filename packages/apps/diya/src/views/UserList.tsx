@@ -49,6 +49,7 @@ export const UserList = ({
         deleteAsyncFun={deleteList}
         handleGetList={handleUserList}
         url={`users/${state.id}`}
+        message="User Deleted"
       />
       <HeadTitle>Users</HeadTitle>
       <CreateLink alignment="right" variant="primary" to={userLinks.create}>

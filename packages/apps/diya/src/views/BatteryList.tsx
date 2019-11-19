@@ -84,6 +84,7 @@ export const BatteryList = ({
         deleteAsyncFun={deleteList}
         handleGetList={handleBatteryList}
         url={`batteries/${state.id}`}
+        message="Battery Deleted"
       />
       <Title size="4" textColor="info">
         Batteries
