@@ -18,6 +18,7 @@ import {
   DriverListResponse,
   DriverResponse,
 } from '../common'
+import { toastMessage } from '../components/Message'
 import { AssignDriverForm, DriverForm, DriverList1 } from '../views'
 
 const ps = paths(driverAPI.resource)
@@ -54,8 +55,10 @@ async function putDriver(data: DriverData): Promise<DriverResponse['data']> {
       data,
       DriverResponse,
     )
+    toastMessage('Driver Updated')
     return drivers.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }
@@ -67,8 +70,10 @@ async function postDriver(data: DriverData): Promise<DriverResponse['data']> {
       data,
       DriverResponse,
     )
+    toastMessage('Driver Added')
     return user.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }

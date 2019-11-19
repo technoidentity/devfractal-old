@@ -17,6 +17,7 @@ import {
   BatteryResponse,
   cargosUrl,
 } from '../common'
+import { toastMessage } from '../components/Message'
 import { BatteryForm, BatteryList } from '../views'
 
 const ps = paths(batteryAPI.resource)
@@ -50,8 +51,10 @@ async function getBattery(id: string): Promise<BE['data']> {
 async function putBattery(data: BatteryData): Promise<BE['data']> {
   try {
     const batteries = await cargosUrl().put({ resource: 'batteries' }, data, BE)
+    toastMessage('Battery Updated')
     return batteries.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }
@@ -63,8 +66,10 @@ async function postBattery(data: BA): Promise<BE['data']> {
       data,
       BE,
     )
+    toastMessage('Battery Added')
     return batteries.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }

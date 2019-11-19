@@ -18,6 +18,7 @@ import {
   UserListResponse,
   UserResponse,
 } from '../common'
+import { toastMessage } from '../components/Message'
 import { UserForm, UserList } from '../views'
 
 const ps = paths(userAPI.resource)
@@ -42,8 +43,10 @@ async function getUser(id: string): Promise<UE['data']> {
 async function putUser(data: UserData): Promise<UE['data']> {
   try {
     const users = await cargosUrl().put({ resource: 'users' }, data, UE)
+    toastMessage('User Updated')
     return users.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }
@@ -55,8 +58,10 @@ async function postUser(data: UD): Promise<UserResponse['data']> {
       data,
       UserResponse,
     )
+    toastMessage('User Added')
     return user.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }

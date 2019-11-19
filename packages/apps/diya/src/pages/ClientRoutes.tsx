@@ -15,6 +15,7 @@ import {
   ClientListResponse,
   ClientResponse,
 } from '../common'
+import { toastMessage } from '../components/Message'
 import { ClientForm, ClientList } from '../views'
 
 // export const ClientRoutes = () => (
@@ -56,8 +57,10 @@ async function putClient(data: ClientData): Promise<ClientResponse['data']> {
       data,
       ClientResponse,
     )
+    toastMessage('Client Updated')
     return drivers.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }
@@ -69,8 +72,10 @@ async function postClient(data: ClientData): Promise<ClientResponse['data']> {
       data,
       ClientResponse,
     )
+    toastMessage('Client Added')
     return user.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }

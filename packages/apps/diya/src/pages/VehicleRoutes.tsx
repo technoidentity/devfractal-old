@@ -51,8 +51,10 @@ async function putVehicle(data: VehicleData): Promise<VE['data']> {
 
   try {
     const vehicles = await cargosUrl().put({ resource: 'vehicles' }, rest, VE)
+    toastMessage('Vehicle Updated')
     return vehicles.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }
@@ -60,8 +62,10 @@ async function putVehicle(data: VehicleData): Promise<VE['data']> {
 async function postVehicle(data: VA): Promise<VE['data']> {
   try {
     const vehicles = await cargosUrl().post({ resource: 'vehicles' }, data, VE)
+    toastMessage('Vehicle Added')
     return vehicles.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }
