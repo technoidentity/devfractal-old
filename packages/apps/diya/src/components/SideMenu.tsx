@@ -7,6 +7,7 @@ import {
   faHome,
   faMapMarked,
   faPaperPlane,
+  faTabletAlt,
   faUserFriends,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
@@ -148,6 +149,13 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
                 href="/reports"
                 icon={faPaperPlane}
                 label="Reports"
+                visibility={visibility}
+              />
+
+              <SideMenuItem
+                href="/tablets"
+                icon={faTabletAlt}
+                label="Tablet"
                 visibility={visibility}
               />
             </MenuList>
