@@ -363,6 +363,42 @@ export const UserResponse = req({
 
 export type UserResponse = TypeOf<typeof UserResponse>
 
+export const TabletData = obj(
+  {
+    fcm: string,
+  },
+  {
+    androidDeviceId: string,
+    vehicleId: string,
+  },
+)
+
+export const TabletData1 = obj(
+  {
+    id: string,
+  },
+  {
+    androidDeviceId: string,
+    vehicleId: string,
+    fcm: string,
+  },
+)
+
+export type TabletData1 = TypeOf<typeof TabletData1>
+export type TabletData = TypeOf<typeof TabletData>
+
+export const TabletListResponse = req({
+  data: req({
+    rows: array(TabletData1),
+    count: number,
+  }),
+})
+export const TabletResponse = req({
+  data: TabletData,
+})
+export type TabletResponse = TypeOf<typeof TabletResponse>
+export type TabletListResponse = TypeOf<typeof TabletListResponse>
+
 // export const DriverRequest =  union([ UserRequest, req({shift: Shift})])
 export const DriverRequest = UserRequest
 export type DriverRequest = TypeOf<typeof DriverRequest>
@@ -404,6 +440,7 @@ export const DriverData1 = obj(
     shift: Shift,
   },
 )
+
 export type DriverData = TypeOf<typeof DriverData>
 export type DriverData1 = TypeOf<typeof DriverData1>
 export const DriverListResponse = req({
@@ -559,7 +596,7 @@ export type AuthUserInfo = TypeOf<typeof AuthUserInfo>
 const VehicleNumbers = enumerate('first', 'second')
 
 export const DriverAssign = obj(
-  { associateId: string },
+  {},
   {
     driverId: string,
     clientId: string,
