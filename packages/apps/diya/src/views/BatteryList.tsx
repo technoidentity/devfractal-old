@@ -1,22 +1,14 @@
 import { date } from 'io-ts-types/lib/date'
 import React, { useState } from 'react'
-import {
-  CreateLink,
-  links,
-  // listComponent,
-  Section,
-  Title,
-} from 'technoidentity-devfractal'
+import { CreateLink, links, Section, Title } from 'technoidentity-devfractal'
 import { BatteryData1, BatteryResponse } from '../common'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList, getBatteryList } from '../pages'
-// import { Battery } from '../common'
 import { Table } from '../reacttable/Table'
 import { formatDate } from '../reacttable/utils'
 
 const batteryLinks = links('batteries')
 
-// export const BatteryList = listComponent(Battery, ({ data: batteryList }) => {
 export const BatteryList = ({
   data,
 }: {
@@ -112,7 +104,6 @@ export const BatteryList = ({
         ]}
         actions={{
           editTo: id => batteryLinks.edit(id),
-          assignTo: id => `assignBattery/${id}`,
           onDelete: handleToggleModel,
         }}
       />
