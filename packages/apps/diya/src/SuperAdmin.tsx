@@ -27,7 +27,6 @@ import { TabletFormRoute } from './pages/TabletFormRoute'
 import { ReportsRoute } from './reports/ReportsRoute'
 import './stylesheets/styles.scss'
 import { AssignBatteryRoute } from './views/AssignBattery'
-import { AssignVehicleRoute } from './views/AssignVehicle'
 
 export const SuperAdmin = () => {
   const [visibility, setVisibility] = React.useState<Visibility>('full')
@@ -49,7 +48,6 @@ export const SuperAdmin = () => {
           <AssignBatteryRoute />
           <ClientRoutes />
           <VehicleRoutes />
-          <AssignVehicleRoute />
           <EmployeeRoutes />
           <GeoFenceRoutes />
           <UserRoutes />
