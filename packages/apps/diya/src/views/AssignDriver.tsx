@@ -8,19 +8,19 @@ import {
   Section,
   Simple,
   SubmitAction,
-  Title,
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
 import {
+  AssignForm,
   ClientListResponse,
-  DriverAssign,
   DriverResponse,
   VehicleResponse,
 } from '../common'
+import { HeadTitle } from '../components'
 import { getClientList, getDriver, getVehicleList } from '../pages'
 
 const AssignDriverFormProps = req({
-  onSubmit: fn<SubmitAction<DriverAssign>>(),
+  onSubmit: fn<SubmitAction<AssignForm>>(),
 })
 
 export const AssignDriverForm = component(
@@ -48,9 +48,9 @@ export const AssignDriverForm = component(
       <Section>
         <Columns columnCentered>
           <Column size="half">
-            <Title size="5">Assign</Title>
+            <HeadTitle>Assign</HeadTitle>
             <Simple.Form
-              initialValues={{ ...empty(DriverAssign), driverId }}
+              initialValues={{ ...empty(AssignForm), driverId }}
               onSubmit={onSubmit}
             >
               <Columns>
