@@ -8,6 +8,7 @@ import {
   useMatch,
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
+import { postAssignForm } from '.'
 import {
   cargosUrl,
   clientAPI,
@@ -17,13 +18,9 @@ import {
 } from '../common'
 import { toastMessage } from '../components/Message'
 import { ClientForm, ClientList } from '../views'
-
-// export const ClientRoutes = () => (
-//   <CrudRoutes api={clientAPI} form={ClientForm} list={ClientList} />
-// )
+import { AssignClientForm } from '../views/AssignClient'
 
 const ps = paths(clientAPI.resource)
-// const ls = links(driverAPI.resource)
 
 export async function getClientList(): Promise<
   ClientListResponse['data']['rows']
@@ -38,7 +35,7 @@ export async function getClientList(): Promise<
     throw Error(error)
   }
 }
-async function getClient(id: string): Promise<ClientResponse['data']> {
+export async function getClient(id: string): Promise<ClientResponse['data']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'clients', path: id },
@@ -101,10 +98,24 @@ const ClientEdit = () => {
   )
 }
 
+const ClientAssignRoute = () => {
+  return (
+    <Post
+      redirectTo={ps.list}
+      component={AssignClientForm}
+      onPost={postAssignForm}
+    />
+  )
+}
+
 export const ClientRoutes = () => (
   <>
     <Route path={ps.create} render={() => <ClientAdd />} />
     <Route path={ps.list} render={() => <ClientListRoute />} />
     <Route path={ps.edit} render={() => <ClientEdit />} />
+    <Route
+      path="/clients/assignClient/:id"
+      render={() => <ClientAssignRoute />}
+    />
   </>
 )
