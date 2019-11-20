@@ -19,6 +19,8 @@ import {
 } from '../common'
 import { toastMessage } from '../components/Message'
 import { VehicleForm, VehicleList1 } from '../views'
+import { AssignVehicleForm } from '../views/AssignVehicle'
+import { postAssignForm } from './DriverRoutes'
 const ps = paths(vehicleAPI.resource)
 export async function getVehicleList(): Promise<
   VehicleResponse['data']['rows']
@@ -34,7 +36,7 @@ export async function getVehicleList(): Promise<
   }
 }
 
-async function getVehicle(id: string): Promise<VE['data']> {
+export async function getVehicle(id: string): Promise<VE['data']> {
   try {
     const vehicles = await cargosUrl().get(
       { resource: 'vehicles', path: id },
@@ -101,10 +103,24 @@ const VehicleEdit = () => {
   )
 }
 
+const VehicleAssignRoute = () => {
+  return (
+    <Post
+      redirectTo={ps.list}
+      component={AssignVehicleForm}
+      onPost={postAssignForm}
+    />
+  )
+}
+
 export const VehicleRoutes = () => (
   <>
     <Route path={ps.create} render={() => <VehicleAdd />} />
     <Route path={ps.list} render={() => <VehicleListRoute />} />
     <Route path={ps.edit} render={() => <VehicleEdit />} />
+    <Route
+      path="/vehicles/assignVehicle/:id"
+      render={() => <VehicleAssignRoute />}
+    />
   </>
 )
