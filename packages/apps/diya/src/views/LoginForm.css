@@ -1,0 +1,52 @@
+@media (min-width: 320px) {
+  .hero {
+    background-image: url(../images/diyaBackGround.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 460px) {
+  .hero {
+    background-image: url(../images/diyaBackGround.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 720px) {
+  .hero {
+    background-image: url(../images/diyaBackGround.png);
+    background-image: url(../images/diyaBackGround.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 980px) {
+  .hero {
+    background-image: url(../images/diyaBackGround.png);
+    background-image: url(../images/diyaBackGround.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1750px) {
+  .hero {
+    background-image: url(../images/diyaBackGround.png);
+    background-image: url(../images/diyaBackGround.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
