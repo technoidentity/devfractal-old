@@ -595,7 +595,7 @@ export type AuthUserInfo = TypeOf<typeof AuthUserInfo>
 
 const VehicleNumbers = enumerate('first', 'second')
 
-export const DriverAssign = obj(
+export const AssignForm = obj(
   {},
   {
     driverId: string,
@@ -606,11 +606,11 @@ export const DriverAssign = obj(
   },
 )
 
-export type DriverAssign = TypeOf<typeof DriverAssign>
-export const DriverAssignResponse = req({
-  data: DriverAssign,
+export type AssignForm = TypeOf<typeof AssignForm>
+export const AssignFormResponse = req({
+  data: AssignForm,
 })
-export type DriverAssignResponse = TypeOf<typeof DriverAssignResponse>
+export type AssignFormResponse = TypeOf<typeof AssignFormResponse>
 
 export const AssignDriver = req({
   id: string,
