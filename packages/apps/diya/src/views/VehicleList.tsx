@@ -130,7 +130,7 @@ export const VehicleList1 = ({
         filterOption={[{ columnName: 'name', filterType: 'search' }]}
         actions={{
           editTo: id => vehicleLinks.edit(id),
-          assignTo: id => `/assignVehicle/${id}`,
+          assignTo: id => `/vehicles/assignVehicle/${id}`,
           onDelete: handleToggleModel,
         }}
       />
