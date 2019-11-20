@@ -35,6 +35,7 @@ export const ClientList = ({
         filterOption={[{ columnName: 'clientName', filterType: 'search' }]}
         actions={{
           editTo: id => clientLinks.edit(id),
+          assignTo: id => `/clients/assignClient/${id}`,
         }}
         headerLabels={{
           name: 'Client Name',
