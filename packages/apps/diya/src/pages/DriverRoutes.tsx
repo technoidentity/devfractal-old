@@ -9,10 +9,10 @@ import {
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
 import {
+  AssignForm,
+  AssignFormResponse,
   cargosUrl,
   driverAPI,
-  DriverAssign,
-  DriverAssignResponse,
   DriverData,
   driverEditAPI,
   DriverListResponse,
@@ -78,17 +78,19 @@ async function postDriver(data: DriverData): Promise<DriverResponse['data']> {
   }
 }
 
-async function postDriverAssign(
-  data: DriverAssign,
-): Promise<DriverAssignResponse['data']> {
+export async function postAssignForm(
+  data: AssignForm,
+): Promise<AssignFormResponse['data']> {
   try {
-    const assignDriver = await cargosUrl().post(
+    const assign = await cargosUrl().post(
       { resource: 'vehicles/assign/clients' },
       data,
-      DriverAssignResponse,
+      AssignFormResponse,
     )
-    return assignDriver.data
+    toastMessage('assigned')
+    return assign.data
   } catch (error) {
+    toastMessage('fail')
     throw Error(error)
   }
 }
@@ -119,7 +121,7 @@ const DriverAssignRoute = () => {
     <Post
       redirectTo={ps.list}
       component={AssignDriverForm}
-      onPost={postDriverAssign}
+      onPost={postAssignForm}
     />
   )
 }
