@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
-    "jsx": "react"
+    "jsx": "react",
+    "typeRoots": [ "src/customTypings","node_modules/@types"]
   },
   "references": [
     { "path": "../../common/utils" },
