@@ -70,7 +70,7 @@ export const AssignClientForm = component(
                       ))}
                   </Simple.Select>
                   <Simple.Select label="Vehicle" name="vehicleId">
-                    <option value="">Select Client</option>
+                    <option value="">Select Vehicle</option>
                     {vehicleList &&
                       vehicleList.map(vehicleList => (
                         <option key={vehicleList.id} value={vehicleList.id}>
