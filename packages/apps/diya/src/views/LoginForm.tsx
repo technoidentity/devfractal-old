@@ -39,7 +39,7 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
     <Card
       style={{
         width: '325px',
-        height: '400px',
+        height: 'auto',
         borderRadius: '10px',
       }}
     >
@@ -85,10 +85,12 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
             <Field>
               <Button
                 type="submit"
-                variant="primary"
                 fullWidth
                 style={{
                   borderRadius: '5px',
+                  backgroundColor: '#2c7ec1',
+                  color: '#ffffff',
+                  marginBottom: '30px',
                 }}
               >
                 Login
