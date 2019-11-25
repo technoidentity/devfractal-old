@@ -87,8 +87,10 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
         {/* <Burger onClick={onClick} /> */}
         <MenuBurger isMinimal={visibility === 'minimal'} onClick={onClick} />
 
-        {visibility !== 'minimal' && (
+        {visibility !== 'minimal' ? (
           <Image src={diyaLogo} alt="diyaImage" size="96x96" />
+        ) : (
+          <Image src={diyaLogo} alt="diyaImage" size="32x32" />
         )}
 
         <Section style={{ marginTop: '30px' }}>
