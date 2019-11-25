@@ -3,16 +3,18 @@ import { Simple } from 'devfractal-simple'
 import { Column, Columns, Section } from 'devfractal-ui-core'
 import React, { useState } from 'react'
 import { length } from 'technoidentity-devfractal'
+import { useAuth } from '../auth/AuthContext'
 import { TabletData, VehicleResponse } from '../common'
 import { HeadTitle } from '../components'
 import { getVehicleList } from '../pages'
 
 export const TabletForm = formComponent(TabletData, ({ initial, onSubmit }) => {
+  const { logout, setUser } = useAuth()
   const [vehicleList, setVehicleList] = useState<
     VehicleResponse['data']['rows']
   >([])
   React.useMemo(async () => {
-    const vehicleList = await getVehicleList()
+    const vehicleList = await getVehicleList({ setUser, logout })
     setVehicleList(vehicleList)
   }, [])
   return (

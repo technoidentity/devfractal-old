@@ -1,6 +1,7 @@
 import { date } from 'io-ts-types/lib/date'
 import React, { useState } from 'react'
 import { CreateLink, links, Section } from 'technoidentity-devfractal'
+import { useAuth } from '../auth/AuthContext'
 import { VehicleData, VehicleResponse } from '../common'
 // import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
@@ -43,6 +44,7 @@ export const VehicleList1 = ({
 }: {
   readonly data: VehicleResponse['data']['rows']
 }) => {
+  const { logout, setUser } = useAuth()
   const [state, setState] = useState({ isOpen: false, id: '' })
   const [resultData, setResultData] = useState<VehicleResponse['data']['rows']>(
     [],
@@ -54,7 +56,7 @@ export const VehicleList1 = ({
   }
 
   const handleVehicleList = async () => {
-    const resultData = await getVehicleList()
+    const resultData = await getVehicleList({ setUser, logout })
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })
@@ -101,7 +103,9 @@ export const VehicleList1 = ({
       <DeleteConfirmation
         setState={setState}
         state={state}
-        deleteAsyncFun={deleteList}
+        deleteAsyncFun={(url, message) =>
+          deleteList(url, message, { setUser, logout })
+        }
         handleGetList={handleVehicleList}
         url={`vehicles/${state.id}`}
         message="Vehicle Deleted"

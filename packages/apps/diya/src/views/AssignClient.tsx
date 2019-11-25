@@ -10,6 +10,7 @@ import {
   SubmitAction,
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
+import { useAuth } from '../auth/AuthContext'
 import {
   AssignForm,
   ClientResponse,
@@ -26,6 +27,7 @@ const AssignClientFormProps = req({
 export const AssignClientForm = component(
   AssignClientFormProps,
   ({ onSubmit }) => {
+    const { logout, setUser } = useAuth()
     const { params }: any = useRouteMatch()
     const [clientData, setClientData] = useState<ClientResponse['data']>()
     const [driverList, setDriverList] = useState<
@@ -37,9 +39,9 @@ export const AssignClientForm = component(
     const clientId: string = params.id
 
     React.useMemo(async () => {
-      const clientData = await getClient(clientId)
-      const driverList = await getDriverList()
-      const vehicleList = await getVehicleList()
+      const clientData = await getClient(clientId, { setUser, logout })
+      const driverList = await getDriverList({ setUser, logout })
+      const vehicleList = await getVehicleList({ setUser, logout })
       setClientData(clientData)
       setDriverList(driverList)
       setVehicleList(vehicleList)
