@@ -35,7 +35,7 @@ export const VehicleForm = formComponent(
                 {edit ? <Simple.Text name="vehicleName" disabled /> : <p>{}</p>}
                 <Simple.Text
                   name="vehicleSerialNum"
-                  label="Vehicle ID"
+                  label="Vehicle Serial Number"
                   validations={[required()]}
                 />
                 <Simple.Text
