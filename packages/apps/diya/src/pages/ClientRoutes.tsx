@@ -16,7 +16,7 @@ import {
   ClientData,
   ClientListResponse,
   ClientResponse,
-  sessionExpir,
+  sessionExpire,
 } from '../common'
 import { toastMessage } from '../components/Message'
 import { ClientForm, ClientList } from '../views'
@@ -35,7 +35,7 @@ export async function getClientList({
     )
     return drivers.data.rows
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -50,7 +50,7 @@ export async function getClient(
     )
     return drivers.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -68,7 +68,7 @@ async function putClient(
     toastMessage('Client Updated')
     return drivers.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
@@ -87,7 +87,7 @@ async function postClient(
     toastMessage('Client Added')
     return user.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }

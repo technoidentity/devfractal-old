@@ -25,7 +25,7 @@ export const cargosUrl = () => {
   throw Error('login is required')
 }
 
-export const sessionExpir = ({ error, logout, setUser, toastMessage }: any) => {
+export const sessionExpire = ({ error, logout, setUser, toastMessage }: any) => {
   if (error.response && error.response.status === 401) {
     logout()
     // tslint:disable-next-line:no-null-keyword

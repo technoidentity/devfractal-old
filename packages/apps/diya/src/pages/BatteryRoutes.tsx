@@ -17,7 +17,7 @@ import {
   batteryEditAPI,
   BatteryResponse,
   cargosUrl,
-  sessionExpir,
+  sessionExpire,
 } from '../common'
 import { toastMessage } from '../components/Message'
 import { BatteryForm, BatteryList } from '../views'
@@ -35,7 +35,7 @@ export async function getBatteryList({
     )
     return batteries.data.rows
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -51,7 +51,7 @@ async function getBattery(
     )
     return batteries.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -65,7 +65,7 @@ async function putBattery(
     toastMessage('Battery Updated')
     return batteries.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
@@ -84,7 +84,7 @@ async function postBattery(
     toastMessage('Battery Added')
     return batteries.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }

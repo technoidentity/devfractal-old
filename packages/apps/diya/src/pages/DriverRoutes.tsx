@@ -18,7 +18,7 @@ import {
   driverEditAPI,
   DriverListResponse,
   DriverResponse,
-  sessionExpir,
+  sessionExpire,
 } from '../common'
 import { toastMessage } from '../components/Message'
 import { AssignDriverForm, DriverForm, DriverList1 } from '../views'
@@ -36,7 +36,7 @@ export async function getDriverList({
     )
     return drivers.data.rows
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -51,7 +51,7 @@ export async function getDriver(
     )
     return drivers.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -69,7 +69,7 @@ async function putDriver(
     toastMessage('Driver Updated')
     return drivers.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
@@ -88,7 +88,7 @@ async function postDriver(
     toastMessage('Driver Added')
     return user.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
@@ -107,7 +107,7 @@ export async function postAssignForm(
     toastMessage('assigned')
     return assign.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
