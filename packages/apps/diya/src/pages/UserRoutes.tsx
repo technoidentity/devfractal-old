@@ -8,8 +8,10 @@ import {
   useMatch,
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
+import { useAuth } from '../auth/AuthContext'
 import {
   cargosUrl,
+  sessionExpire,
   userAPI,
   UserData,
   UserData as UD,
@@ -23,35 +25,38 @@ import { UserForm, UserList } from '../views'
 
 const ps = paths(userAPI.resource)
 
-export async function getUserList(): Promise<UserListResponse['data']['rows']> {
+export async function getUserList({setUser,logout}:any): Promise<UserListResponse['data']['rows']> {
   try {
     const users = await cargosUrl().get({ resource: 'users' }, UserListResponse)
     return users.data.rows
   } catch (error) {
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
-async function getUser(id: string): Promise<UE['data']> {
+async function getUser(id: string,{setUser,logout}:any): Promise<UE['data']> {
   try {
     const users = await cargosUrl().get({ resource: 'users', path: id }, UE)
     return users.data
   } catch (error) {
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-async function putUser(data: UserData): Promise<UE['data']> {
+async function putUser(data: UserData,{setUser,logout}:any): Promise<UE['data']> {
   try {
     const users = await cargosUrl().put({ resource: 'users' }, data, UE)
     toastMessage('User Updated')
     return users.data
   } catch (error) {
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-async function postUser(data: UD): Promise<UserResponse['data']> {
+async function postUser(data: UD,{setUser,logout}:any): Promise<UserResponse['data']> {
   try {
     const user = await cargosUrl().post(
       { resource: 'users' },
@@ -61,33 +66,37 @@ async function postUser(data: UD): Promise<UserResponse['data']> {
     toastMessage('User Added')
     return user.data
   } catch (error) {
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-const UserListRoute = () => <Get asyncFn={getUserList} component={UserList} />
-const UserAdd = () => (
-  <Post redirectTo="/users" component={UserForm} onPost={postUser} />
+const UserListRoute = ({setUser,logout}:any) => <Get asyncFn={()=>getUserList({setUser,logout})} component={UserList} />
+const UserAdd = ({setUser,logout}:any) => (
+  <Post redirectTo="/users" component={UserForm} onPost={(data)=>postUser(data,{setUser,logout})} />
 )
 
-const UserEdit = () => {
+const UserEdit = ({setUser,logout}:any) => {
   const { params } = useMatch(type({ [userEditAPI.idKey]: string }))
   return (
     <Put
       id={params[userEditAPI.idKey as string] as any}
-      doGet={getUser}
-      onPut={(_id, data) => putUser(data)}
+      doGet={(id)=>getUser(id as string,{setUser,logout})}
+      onPut={(_id, data) => putUser(data,{setUser,logout})}
       component={UserForm}
       redirectTo="/users"
     />
   )
 }
 
-export const UserRoutes = () => (
+export const UserRoutes = () =>{
+  const { logout, setUser } = useAuth()
+  return (
   <>
-    <Route path={ps.create} render={() => <UserAdd />} />
-    <Route path={ps.list} render={() => <UserListRoute />} />
-    <Route path={ps.edit} render={() => <UserEdit />} />
+    <Route path={ps.create} render={() => <UserAdd setUser={setUser} logout={logout} />} />
+    <Route path={ps.list} render={() => <UserListRoute setUser={setUser} logout={logout} />} />
+    <Route path={ps.edit} render={() => <UserEdit setUser={setUser} logout={logout} />} />
   </>
 )
+  }

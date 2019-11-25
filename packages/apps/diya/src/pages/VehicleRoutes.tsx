@@ -11,7 +11,7 @@ import { string, type } from 'technoidentity-utils'
 import { useAuth } from '../auth/AuthContext'
 import {
   cargosUrl,
-  sessionExpir,
+  sessionExpire,
   VehicleAdd as VA,
   vehicleAPI,
   VehicleData,
@@ -36,7 +36,7 @@ export async function getVehicleList({
     )
     return vehicles.data.rows
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -52,7 +52,7 @@ export async function getVehicle(
     )
     return vehicles.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -68,7 +68,7 @@ async function putVehicle(
     toastMessage('Vehicle Updated')
     return vehicles.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
@@ -83,7 +83,7 @@ async function postVehicle(
     toastMessage('Vehicle Added')
     return vehicles.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
@@ -99,7 +99,7 @@ export const deleteList = async (
     toastMessage(msg)
     return
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }

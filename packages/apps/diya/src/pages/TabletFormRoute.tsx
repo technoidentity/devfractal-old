@@ -5,7 +5,7 @@ import { string, type } from 'technoidentity-utils'
 import { useAuth } from '../auth/AuthContext'
 import {
   cargosUrl,
-  sessionExpir,
+  sessionExpire,
   tabletAPI,
   TabletData,
   tabletEditAPI,
@@ -28,7 +28,7 @@ export async function getTabletList({
     )
     return drivers.data.rows
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -44,7 +44,7 @@ export async function getTablet(
     )
     return tablets.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
@@ -62,7 +62,7 @@ async function putTablet(
     toastMessage('Tablet Updated')
     return tablets.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
@@ -81,7 +81,7 @@ async function postTablet(
     toastMessage('Tablet Added')
     return tablet.data
   } catch (error) {
-    sessionExpir({ error, setUser, logout, toastMessage })
+    sessionExpire({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
