@@ -9,12 +9,14 @@ import {
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
 import { postAssignForm } from '.'
+import { useAuth } from '../auth/AuthContext'
 import {
   cargosUrl,
   clientAPI,
   ClientData,
   ClientListResponse,
   ClientResponse,
+  sessionExpir,
 } from '../common'
 import { toastMessage } from '../components/Message'
 import { ClientForm, ClientList } from '../views'
@@ -22,9 +24,10 @@ import { AssignClientForm } from '../views/AssignClient'
 
 const ps = paths(clientAPI.resource)
 
-export async function getClientList(): Promise<
-  ClientListResponse['data']['rows']
-> {
+export async function getClientList({
+  setUser,
+  logout,
+}: any): Promise<ClientListResponse['data']['rows']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'clients' },
@@ -32,10 +35,14 @@ export async function getClientList(): Promise<
     )
     return drivers.data.rows
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
-export async function getClient(id: string): Promise<ClientResponse['data']> {
+export async function getClient(
+  id: string,
+  { setUser, logout }: any,
+): Promise<ClientResponse['data']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'clients', path: id },
@@ -43,11 +50,15 @@ export async function getClient(id: string): Promise<ClientResponse['data']> {
     )
     return drivers.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-async function putClient(data: ClientData): Promise<ClientResponse['data']> {
+async function putClient(
+  data: ClientData,
+  { setUser, logout }: any,
+): Promise<ClientResponse['data']> {
   try {
     const drivers = await cargosUrl().put(
       { resource: 'clients' },
@@ -57,12 +68,16 @@ async function putClient(data: ClientData): Promise<ClientResponse['data']> {
     toastMessage('Client Updated')
     return drivers.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-async function postClient(data: ClientData): Promise<ClientResponse['data']> {
+async function postClient(
+  data: ClientData,
+  { setUser, logout }: any,
+): Promise<ClientResponse['data']> {
   try {
     const user = await cargosUrl().post(
       { resource: 'clients' },
@@ -72,50 +87,70 @@ async function postClient(data: ClientData): Promise<ClientResponse['data']> {
     toastMessage('Client Added')
     return user.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-const ClientListRoute = () => (
-  <Get asyncFn={getClientList} component={ClientList} />
+const ClientListRoute = ({ setUser, logout }: any) => (
+  <Get
+    asyncFn={() => getClientList({ setUser, logout })}
+    component={ClientList}
+  />
 )
 
-const ClientAdd = () => (
-  <Post redirectTo={ps.list} component={ClientForm} onPost={postClient} />
+const ClientAdd = ({ setUser, logout }: any) => (
+  <Post
+    redirectTo={ps.list}
+    component={ClientForm}
+    onPost={data => postClient(data, { setUser, logout })}
+  />
 )
 
-const ClientEdit = () => {
+const ClientEdit = ({ setUser, logout }: any) => {
   const { params } = useMatch(type({ [clientAPI.idKey]: string }))
   return (
     <Put
       id={params[clientAPI.idKey as string] as any}
-      doGet={getClient}
-      onPut={(_id, data) => putClient(data)}
+      doGet={id => getClient(id as string, { setUser, logout })}
+      onPut={(_id, data) => putClient(data, { setUser, logout })}
       component={ClientForm}
       redirectTo={ps.list}
     />
   )
 }
 
-const ClientAssignRoute = () => {
+const ClientAssignRoute = ({ setUser, logout }: any) => {
   return (
     <Post
       redirectTo={ps.list}
       component={AssignClientForm}
-      onPost={postAssignForm}
+      onPost={data => postAssignForm(data, { setUser, logout })}
     />
   )
 }
 
-export const ClientRoutes = () => (
-  <>
-    <Route path={ps.create} render={() => <ClientAdd />} />
-    <Route path={ps.list} render={() => <ClientListRoute />} />
-    <Route path={ps.edit} render={() => <ClientEdit />} />
-    <Route
-      path="/clients/assignClient/:id"
-      render={() => <ClientAssignRoute />}
-    />
-  </>
-)
+export const ClientRoutes = () => {
+  const { logout, setUser } = useAuth()
+  return (
+    <>
+      <Route
+        path={ps.create}
+        render={() => <ClientAdd setUser={setUser} logout={logout}  />}
+      />
+      <Route
+        path={ps.list}
+        render={() => <ClientListRoute setUser={setUser} logout={logout}  />}
+      />
+      <Route
+        path={ps.edit}
+        render={() => <ClientEdit setUser={setUser} logout={logout}  />}
+      />
+      <Route
+        path="/clients/assignClient/:id"
+        render={() => <ClientAssignRoute setUser={setUser} logout={logout}  />}
+      />
+    </>
+  )
+}

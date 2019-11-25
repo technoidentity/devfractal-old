@@ -8,6 +8,7 @@ import {
   useMatch,
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
+import { useAuth } from '../auth/AuthContext'
 import {
   AssignForm,
   AssignFormResponse,
@@ -17,15 +18,17 @@ import {
   driverEditAPI,
   DriverListResponse,
   DriverResponse,
+  sessionExpir,
 } from '../common'
 import { toastMessage } from '../components/Message'
 import { AssignDriverForm, DriverForm, DriverList1 } from '../views'
 
 const ps = paths(driverAPI.resource)
 
-export async function getDriverList(): Promise<
-  DriverListResponse['data']['rows']
-> {
+export async function getDriverList({
+  setUser,
+  logout,
+}: any): Promise<DriverListResponse['data']['rows']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'drivers' },
@@ -33,10 +36,14 @@ export async function getDriverList(): Promise<
     )
     return drivers.data.rows
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
-export async function getDriver(id: string): Promise<DriverResponse['data']> {
+export async function getDriver(
+  id: string,
+  { setUser, logout }: any,
+): Promise<DriverResponse['data']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'users', path: id },
@@ -44,11 +51,15 @@ export async function getDriver(id: string): Promise<DriverResponse['data']> {
     )
     return drivers.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-async function putDriver(data: DriverData): Promise<DriverResponse['data']> {
+async function putDriver(
+  data: DriverData,
+  { setUser, logout }: any,
+): Promise<DriverResponse['data']> {
   try {
     const drivers = await cargosUrl().put(
       { resource: 'users' },
@@ -58,12 +69,16 @@ async function putDriver(data: DriverData): Promise<DriverResponse['data']> {
     toastMessage('Driver Updated')
     return drivers.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-async function postDriver(data: DriverData): Promise<DriverResponse['data']> {
+async function postDriver(
+  data: DriverData,
+  { setUser, logout }: any,
+): Promise<DriverResponse['data']> {
   try {
     const user = await cargosUrl().post(
       { resource: 'users' },
@@ -73,6 +88,7 @@ async function postDriver(data: DriverData): Promise<DriverResponse['data']> {
     toastMessage('Driver Added')
     return user.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
@@ -80,6 +96,7 @@ async function postDriver(data: DriverData): Promise<DriverResponse['data']> {
 
 export async function postAssignForm(
   data: AssignForm,
+  { setUser, logout }: any,
 ): Promise<AssignFormResponse['data']> {
   try {
     const assign = await cargosUrl().post(
@@ -90,50 +107,70 @@ export async function postAssignForm(
     toastMessage('assigned')
     return assign.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-const DriverListRoute = () => (
-  <Get asyncFn={getDriverList} component={DriverList1} />
+const DriverListRoute = ({ setUser, logout }: any) => (
+  <Get
+    asyncFn={() => getDriverList({ setUser, logout })}
+    component={DriverList1}
+  />
 )
 
-const DriverAdd = () => (
-  <Post redirectTo={ps.list} component={DriverForm} onPost={postDriver} />
+const DriverAdd = ({ setUser, logout }: any) => (
+  <Post
+    redirectTo={ps.list}
+    component={DriverForm}
+    onPost={data => postDriver(data, { setUser, logout })}
+  />
 )
 
-const DriverEdit = () => {
+const DriverEdit = ({ setUser, logout }: any) => {
   const { params } = useMatch(type({ [driverEditAPI.idKey]: string }))
   return (
     <Put
       id={params[driverEditAPI.idKey as string] as any}
-      doGet={getDriver}
-      onPut={(_id, data) => putDriver(data)}
+      doGet={id => getDriver(id as string, { setUser, logout })}
+      onPut={(_id, data) => putDriver(data, { setUser, logout })}
       component={DriverForm}
       redirectTo={ps.list}
     />
   )
 }
 
-const DriverAssignRoute = () => {
+const DriverAssignRoute = ({ setUser, logout }: any) => {
   return (
     <Post
       redirectTo={ps.list}
       component={AssignDriverForm}
-      onPost={postAssignForm}
+      onPost={data => postAssignForm(data, { setUser, logout })}
     />
   )
 }
 
-export const DriverRoutes = () => (
-  <>
-    <Route path={ps.create} render={() => <DriverAdd />} />
-    <Route path={ps.list} render={() => <DriverListRoute />} />
-    <Route path={ps.edit} render={() => <DriverEdit />} />
-    <Route
-      path="/drivers/assignDriver/:id"
-      render={() => <DriverAssignRoute />}
-    />
-  </>
-)
+export const DriverRoutes = () => {
+  const { logout, setUser } = useAuth()
+  return (
+    <>
+      <Route
+        path={ps.create}
+        render={() => <DriverAdd setUser={setUser} logout={logout}  />}
+      />
+      <Route
+        path={ps.list}
+        render={() => <DriverListRoute setUser={setUser} logout={logout}  />}
+      />
+      <Route
+        path={ps.edit}
+        render={() => <DriverEdit setUser={setUser} logout={logout}  />}
+      />
+      <Route
+        path="/drivers/assignDriver/:id"
+        render={() => <DriverAssignRoute setUser={setUser} logout={logout}  />}
+      />
+    </>
+  )
+}

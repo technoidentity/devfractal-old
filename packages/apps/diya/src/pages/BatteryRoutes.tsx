@@ -8,6 +8,7 @@ import {
   useMatch,
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
+import { useAuth } from '../auth/AuthContext'
 import {
   BatteryAdd as BA,
   batteryAPI,
@@ -16,15 +17,17 @@ import {
   batteryEditAPI,
   BatteryResponse,
   cargosUrl,
+  sessionExpir,
 } from '../common'
 import { toastMessage } from '../components/Message'
 import { BatteryForm, BatteryList } from '../views'
 
 const ps = paths(batteryAPI.resource)
 
-export async function getBatteryList(): Promise<
-  BatteryResponse['data']['rows']
-> {
+export async function getBatteryList({
+  setUser,
+  logout,
+}: any): Promise<BatteryResponse['data']['rows']> {
   try {
     const batteries = await cargosUrl().get(
       { resource: 'batteries' },
@@ -32,11 +35,15 @@ export async function getBatteryList(): Promise<
     )
     return batteries.data.rows
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-async function getBattery(id: string): Promise<BE['data']> {
+async function getBattery(
+  id: string,
+  { setUser, logout }: any,
+): Promise<BE['data']> {
   try {
     const batteries = await cargosUrl().get(
       { resource: 'batteries', path: id },
@@ -44,22 +51,30 @@ async function getBattery(id: string): Promise<BE['data']> {
     )
     return batteries.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-async function putBattery(data: BatteryData): Promise<BE['data']> {
+async function putBattery(
+  data: BatteryData,
+  { setUser, logout }: any,
+): Promise<BE['data']> {
   try {
     const batteries = await cargosUrl().put({ resource: 'batteries' }, data, BE)
     toastMessage('Battery Updated')
     return batteries.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-async function postBattery(data: BA): Promise<BE['data']> {
+async function postBattery(
+  data: BA,
+  { setUser, logout }: any,
+): Promise<BE['data']> {
   try {
     const batteries = await cargosUrl().post(
       { resource: 'batteries' },
@@ -69,35 +84,55 @@ async function postBattery(data: BA): Promise<BE['data']> {
     toastMessage('Battery Added')
     return batteries.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-const BatteryListRoute = () => (
-  <Get asyncFn={getBatteryList} component={BatteryList} />
+const BatteryListRoute = ({ setUser, logout }: any) => (
+  <Get
+    asyncFn={() => getBatteryList({ setUser, logout })}
+    component={BatteryList}
+  />
 )
 
-const BatteryAdd = () => (
-  <Post redirectTo="/batteries" component={BatteryForm} onPost={postBattery} />
+const BatteryAdd = ({ setUser, logout }: any) => (
+  <Post
+    redirectTo="/batteries"
+    component={BatteryForm}
+    onPost={data => postBattery(data, { setUser, logout })}
+  />
 )
 
-const BatteryEdit = () => {
+const BatteryEdit = ({ setUser, logout }: any) => {
   const { params } = useMatch(type({ [batteryEditAPI.idKey]: string }))
   return (
     <Put
       id={params[batteryEditAPI.idKey as string] as any}
-      doGet={getBattery}
-      onPut={(_id, data) => putBattery(data)}
+      doGet={id => getBattery(id as string, { setUser, logout })}
+      onPut={(_id, data) => putBattery(data, { setUser, logout })}
       component={BatteryForm}
       redirectTo="/batteries"
     />
   )
 }
-export const BatteryRoutes = () => (
-  <>
-    <Route path={ps.create} render={() => <BatteryAdd />} />
-    <Route path="/batteries" render={() => <BatteryListRoute />} />
-    <Route path={ps.edit} render={() => <BatteryEdit />} />
-  </>
-)
+export const BatteryRoutes = () => {
+  const { logout, setUser } = useAuth()
+  return (
+    <>
+      <Route
+        path={ps.create}
+        render={() => <BatteryAdd setUser={setUser} logout={logout} />}
+      />
+      <Route
+        path="/batteries"
+        render={() => <BatteryListRoute setUser={setUser} logout={logout} />}
+      />
+      <Route
+        path={ps.edit}
+        render={() => <BatteryEdit setUser={setUser} logout={logout} />}
+      />
+    </>
+  )
+}

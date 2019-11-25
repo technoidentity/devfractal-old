@@ -2,8 +2,10 @@ import { Route, useMatch } from 'devfractal-router'
 import React from 'react'
 import { Get, paths, Post, Put } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
+import { useAuth } from '../auth/AuthContext'
 import {
   cargosUrl,
+  sessionExpir,
   tabletAPI,
   TabletData,
   tabletEditAPI,
@@ -15,9 +17,10 @@ import { TabletForm } from '../views/AddTabletForm'
 import { TabletList } from '../views/TabletList'
 const ps = paths(tabletAPI.resource)
 
-export async function getTabletList(): Promise<
-  TabletListResponse['data']['rows']
-> {
+export async function getTabletList({
+  setUser,
+  logout,
+}: any): Promise<TabletListResponse['data']['rows']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'tablets' },
@@ -25,11 +28,15 @@ export async function getTabletList(): Promise<
     )
     return drivers.data.rows
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-export async function getTablet(id: string): Promise<TabletResponse['data']> {
+export async function getTablet(
+  id: string,
+  { setUser, logout }: any,
+): Promise<TabletResponse['data']> {
   try {
     const tablets = await cargosUrl().get(
       { resource: 'tablets', path: id },
@@ -37,11 +44,15 @@ export async function getTablet(id: string): Promise<TabletResponse['data']> {
     )
     return tablets.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-async function putTablet(data: TabletData): Promise<TabletResponse['data']> {
+async function putTablet(
+  data: TabletData,
+  { setUser, logout }: any,
+): Promise<TabletResponse['data']> {
   try {
     const tablets = await cargosUrl().put(
       { resource: 'tablets' },
@@ -51,12 +62,16 @@ async function putTablet(data: TabletData): Promise<TabletResponse['data']> {
     toastMessage('Tablet Updated')
     return tablets.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-async function postTablet(data: TabletData): Promise<TabletResponse['data']> {
+async function postTablet(
+  data: TabletData,
+  { setUser, logout }: any,
+): Promise<TabletResponse['data']> {
   try {
     const tablet = await cargosUrl().post(
       { resource: 'tablets' },
@@ -66,36 +81,56 @@ async function postTablet(data: TabletData): Promise<TabletResponse['data']> {
     toastMessage('Tablet Added')
     return tablet.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-const TabletListRoute = () => (
-  <Get asyncFn={getTabletList} component={TabletList} />
+const TabletListRoute = ({ setUser, logout }: any) => (
+  <Get
+    asyncFn={() => getTabletList({ setUser, logout })}
+    component={TabletList}
+  />
 )
 
-const TabletAdd = () => (
-  <Post redirectTo={ps.list} component={TabletForm} onPost={postTablet} />
+const TabletAdd = ({ setUser, logout }: any) => (
+  <Post
+    redirectTo={ps.list}
+    component={TabletForm}
+    onPost={data => postTablet(data, { setUser, logout })}
+  />
 )
 
-const TabletEdit = () => {
+const TabletEdit = ({ setUser, logout }: any) => {
   const { params } = useMatch(type({ [tabletEditAPI.idKey]: string }))
   return (
     <Put
       id={params[tabletEditAPI.idKey as string] as any}
-      doGet={getTablet}
-      onPut={(_id, data) => putTablet(data)}
+      doGet={id => getTablet(id as string, { setUser, logout })}
+      onPut={(_id, data) => putTablet(data, { setUser, logout })}
       component={TabletForm}
       redirectTo={ps.list}
     />
   )
 }
 
-export const TabletFormRoute = () => (
-  <>
-    <Route path={ps.create} render={() => <TabletAdd />} />
-    <Route path={ps.list} render={() => <TabletListRoute />} />
-    <Route path={ps.edit} render={() => <TabletEdit />} />
-  </>
-)
+export const TabletFormRoute = () => {
+  const { logout, setUser } = useAuth()
+  return (
+    <>
+      <Route
+        path={ps.create}
+        render={() => <TabletAdd setUser={setUser} logout={logout} />}
+      />
+      <Route
+        path={ps.list}
+        render={() => <TabletListRoute setUser={setUser} logout={logout} />}
+      />
+      <Route
+        path={ps.edit}
+        render={() => <TabletEdit setUser={setUser} logout={logout} />}
+      />
+    </>
+  )
+}

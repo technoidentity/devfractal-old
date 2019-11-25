@@ -8,8 +8,10 @@ import {
   useMatch,
 } from 'technoidentity-devfractal'
 import { string, type } from 'technoidentity-utils'
+import { useAuth } from '../auth/AuthContext'
 import {
   cargosUrl,
+  sessionExpir,
   VehicleAdd as VA,
   vehicleAPI,
   VehicleData,
@@ -22,9 +24,11 @@ import { VehicleForm, VehicleList1 } from '../views'
 import { AssignVehicleForm } from '../views/AssignVehicle'
 import { postAssignForm } from './DriverRoutes'
 const ps = paths(vehicleAPI.resource)
-export async function getVehicleList(): Promise<
-  VehicleResponse['data']['rows']
-> {
+
+export async function getVehicleList({
+  setUser,
+  logout,
+}: any): Promise<VehicleResponse['data']['rows']> {
   try {
     const vehicles = await cargosUrl().get(
       { resource: 'vehicles' },
@@ -32,11 +36,15 @@ export async function getVehicleList(): Promise<
     )
     return vehicles.data.rows
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-export async function getVehicle(id: string): Promise<VE['data']> {
+export async function getVehicle(
+  id: string,
+  { setUser, logout }: any,
+): Promise<VE['data']> {
   try {
     const vehicles = await cargosUrl().get(
       { resource: 'vehicles', path: id },
@@ -44,11 +52,15 @@ export async function getVehicle(id: string): Promise<VE['data']> {
     )
     return vehicles.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     throw Error(error)
   }
 }
 
-async function putVehicle(data: VehicleData): Promise<VE['data']> {
+async function putVehicle(
+  data: VehicleData,
+  { setUser, logout }: any,
+): Promise<VE['data']> {
   const { vehicleName, ...rest } = data
 
   try {
@@ -56,71 +68,102 @@ async function putVehicle(data: VehicleData): Promise<VE['data']> {
     toastMessage('Vehicle Updated')
     return vehicles.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-async function postVehicle(data: VA): Promise<VE['data']> {
+async function postVehicle(
+  data: VA,
+  { setUser, logout }: any,
+): Promise<VE['data']> {
   try {
     const vehicles = await cargosUrl().post({ resource: 'vehicles' }, data, VE)
     toastMessage('Vehicle Added')
     return vehicles.data
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-export const deleteList = async (url: string, msg: string) => {
+export const deleteList = async (
+  url: string,
+  msg: string,
+  { setUser, logout }: any,
+) => {
   try {
     await cargosUrl().del(url)
     toastMessage(msg)
     return
   } catch (error) {
+    sessionExpir({ error, setUser, logout, toastMessage })
     toastMessage('fail')
     throw Error(error)
   }
 }
 
-const VehicleListRoute = () => (
-  <Get asyncFn={getVehicleList} component={VehicleList1} />
-)
+const VehicleListRoute = ({ push, setUser, logout }: any) => {
+  return (
+    <Get
+      asyncFn={() => getVehicleList({ push, setUser, logout })}
+      component={VehicleList1}
+    />
+  )
+}
 
-const VehicleAdd = () => (
-  <Post redirectTo={ps.list} component={VehicleForm} onPost={postVehicle} />
+const VehicleAdd = ({ push, setUser, logout }: any) => (
+  <Post
+    redirectTo={ps.list}
+    component={VehicleForm}
+    onPost={data => postVehicle(data, { push, setUser, logout })}
+  />
 )
-const VehicleEdit = () => {
+const VehicleEdit = ({ push, setUser, logout }: any) => {
   const { params } = useMatch(type({ [vehicleEditAPI.idKey]: string }))
   return (
     <Put
       id={params[vehicleEditAPI.idKey as string] as any}
-      doGet={getVehicle}
-      onPut={(_id, data) => putVehicle(data)}
+      doGet={id => getVehicle(id as string, { push, setUser, logout })}
+      onPut={(_id, data) => putVehicle(data, { push, setUser, logout })}
       component={VehicleForm}
       redirectTo={ps.list}
     />
   )
 }
 
-const VehicleAssignRoute = () => {
+const VehicleAssignRoute = ({ setUser, logout }: any) => {
   return (
     <Post
       redirectTo={ps.list}
       component={AssignVehicleForm}
-      onPost={postAssignForm}
+      onPost={data => postAssignForm(data, { setUser, logout })}
     />
   )
 }
 
-export const VehicleRoutes = () => (
-  <>
-    <Route path={ps.create} render={() => <VehicleAdd />} />
-    <Route path={ps.list} render={() => <VehicleListRoute />} />
-    <Route path={ps.edit} render={() => <VehicleEdit />} />
-    <Route
-      path="/vehicles/assignVehicle/:id"
-      render={() => <VehicleAssignRoute />}
-    />
-  </>
-)
+export const VehicleRoutes = () => {
+  const { logout, setUser } = useAuth()
+  return (
+    <>
+      <Route
+        path={ps.create}
+        render={() => <VehicleAdd setUser={setUser} logout={logout} />}
+      />
+      <Route
+        path={ps.list}
+        render={() => <VehicleListRoute setUser={setUser} logout={logout} />}
+      />
+      <Route
+        path={ps.edit}
+        render={() => <VehicleEdit setUser={setUser} logout={logout} />}
+      />
+      <Route
+        path="/vehicles/assignVehicle/:id"
+        render={() => <VehicleAssignRoute setUser={setUser} logout={logout} />}
+      />
+    </>
+  )
+}
