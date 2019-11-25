@@ -8,6 +8,7 @@ import {
   Image,
   Media,
   MediaContent,
+  positive,
   required,
   Section,
   Simple,
@@ -52,7 +53,7 @@ export const BatteryForm = formComponent(
               <Simple.Number
                 label="Battery Cycles"
                 name="cycles"
-                validations={[required()]}
+                validations={[required(), positive()]}
               />
               <Simple.Date label="Waranty Valid UpTo" name="warrantyUpto" />
             </Column>
