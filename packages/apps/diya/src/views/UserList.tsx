@@ -26,7 +26,7 @@ export const UserList = ({
     setState({ isOpen: !state.isOpen, id })
   }
   const handleUserList = async () => {
-    const resultData = await getUserList()
+    const resultData = await getUserList({setUser,logout})
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })
