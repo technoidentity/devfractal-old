@@ -8,6 +8,7 @@ import {
   Section,
 } from 'technoidentity-devfractal'
 import { date } from 'technoidentity-utils'
+import { useAuth } from '../auth/AuthContext'
 import { DriverData1, DriverListResponse } from '../common'
 // import { Driver } from '../common'
 import { HeadTitle } from '../components'
@@ -23,6 +24,7 @@ export const DriverList1 = ({
 }: {
   readonly data: DriverListResponse['data']['rows']
 }) => {
+  const { logout, setUser } = useAuth()
   const [state, setState] = useState({ isOpen: false, id: '' })
   const [resultData, setResultData] = useState<
     DriverListResponse['data']['rows']
@@ -33,7 +35,7 @@ export const DriverList1 = ({
     setState({ isOpen: !state.isOpen, id })
   }
   const handleDriverList = async () => {
-    const resultData = await getDriverList()
+    const resultData = await getDriverList({ setUser, logout })
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })
@@ -81,7 +83,7 @@ export const DriverList1 = ({
         <DeleteConfirmation
           setState={setState}
           state={state}
-          deleteAsyncFun={deleteList}
+          deleteAsyncFun={(url,message)=>deleteList(url,message,{ setUser, logout })}
           handleGetList={handleDriverList}
           url={`users/${state.id}`}
           message="Driver Deleted"

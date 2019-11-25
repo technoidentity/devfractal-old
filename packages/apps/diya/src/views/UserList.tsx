@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CreateLink, links, Section } from 'technoidentity-devfractal'
+import { useAuth } from '../auth/AuthContext'
 import { UserData, UserListResponse } from '../common'
 import { HeadTitle } from '../components'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
@@ -14,6 +15,7 @@ export const UserList = ({
 }: {
   readonly data: UserListResponse['data']['rows']
 }) => {
+  const { logout, setUser } = useAuth()
   const [state, setState] = useState({ isOpen: false, id: '' })
   const [resultData, setResultData] = useState<
     UserListResponse['data']['rows']
@@ -46,7 +48,7 @@ export const UserList = ({
       <DeleteConfirmation
         setState={setState}
         state={state}
-        deleteAsyncFun={deleteList}
+        deleteAsyncFun={(url,message)=>deleteList(url,message,{setUser,logout})}
         handleGetList={handleUserList}
         url={`users/${state.id}`}
         message="User Deleted"
