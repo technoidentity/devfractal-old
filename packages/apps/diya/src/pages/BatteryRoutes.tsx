@@ -62,11 +62,11 @@ async function putBattery(
 ): Promise<BE['data']> {
   try {
     const batteries = await cargosUrl().put({ resource: 'batteries' }, data, BE)
-    toastMessage('Battery Updated')
+    toastMessage('success','Battery Updated')
     return batteries.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
@@ -81,11 +81,11 @@ async function postBattery(
       data,
       BE,
     )
-    toastMessage('Battery Added')
+    toastMessage('success','Battery Added')
     return batteries.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }

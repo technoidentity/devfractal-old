@@ -65,11 +65,11 @@ async function putVehicle(
 
   try {
     const vehicles = await cargosUrl().put({ resource: 'vehicles' }, rest, VE)
-    toastMessage('Vehicle Updated')
+    toastMessage('success','Vehicle Updated')
     return vehicles.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
@@ -80,11 +80,11 @@ async function postVehicle(
 ): Promise<VE['data']> {
   try {
     const vehicles = await cargosUrl().post({ resource: 'vehicles' }, data, VE)
-    toastMessage('Vehicle Added')
+    toastMessage('success','Vehicle Added')
     return vehicles.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
@@ -96,11 +96,11 @@ export const deleteList = async (
 ) => {
   try {
     await cargosUrl().del(url)
-    toastMessage(msg)
+    toastMessage('success',msg)
     return
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }

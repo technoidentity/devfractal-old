@@ -66,11 +66,11 @@ async function putDriver(
       data,
       DriverResponse,
     )
-    toastMessage('Driver Updated')
+    toastMessage('success','Driver Updated')
     return drivers.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
@@ -85,11 +85,11 @@ async function postDriver(
       data,
       DriverResponse,
     )
-    toastMessage('Driver Added')
+    toastMessage('success','Driver Added')
     return user.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
@@ -104,11 +104,12 @@ export async function postAssignForm(
       data,
       AssignFormResponse,
     )
-    toastMessage('assigned')
+    toastMessage('success','assigned')
     return assign.data
   } catch (error) {
+    console.log(error.response)
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }

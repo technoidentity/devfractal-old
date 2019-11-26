@@ -65,11 +65,11 @@ async function putClient(
       data,
       ClientResponse,
     )
-    toastMessage('Client Updated')
+    toastMessage('success','Client Updated')
     return drivers.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
@@ -84,11 +84,11 @@ async function postClient(
       data,
       ClientResponse,
     )
-    toastMessage('Client Added')
+    toastMessage('success','Client Added')
     return user.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }

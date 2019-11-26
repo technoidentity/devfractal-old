@@ -47,11 +47,11 @@ async function getUser(id: string,{setUser,logout}:any): Promise<UE['data']> {
 async function putUser(data: UserData,{setUser,logout}:any): Promise<UE['data']> {
   try {
     const users = await cargosUrl().put({ resource: 'users' }, data, UE)
-    toastMessage('User Updated')
+    toastMessage('success','User Updated')
     return users.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
@@ -63,11 +63,11 @@ async function postUser(data: UD,{setUser,logout}:any): Promise<UserResponse['da
       data,
       UserResponse,
     )
-    toastMessage('User Added')
+    toastMessage('success','User Added')
     return user.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }

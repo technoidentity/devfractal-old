@@ -59,11 +59,11 @@ async function putTablet(
       data,
       TabletResponse,
     )
-    toastMessage('Tablet Updated')
+    toastMessage('success','Tablet Updated')
     return tablets.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
@@ -78,11 +78,11 @@ async function postTablet(
       data,
       TabletResponse,
     )
-    toastMessage('Tablet Added')
+    toastMessage('success','Tablet Added')
     return tablet.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail')
+    toastMessage('fail',error.response.data.errors)
     throw Error(error)
   }
 }
