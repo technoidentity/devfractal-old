@@ -91,7 +91,7 @@ export const FilterDataEVs = () => {
               </Column>
               <Column textAlignment="left">
                 <Text>
-                  Total House
+                  Total Hours
                   <br />
                   {'165 hrs'}
                 </Text>
@@ -146,7 +146,7 @@ export const FilterDataEVs = () => {
             </Text>
             <Columns>
               <Column>
-                <Text textSize="7">Total Vehicles : 102</Text>
+                <Text textSize="7">Total Vehicles : 106</Text>
               </Column>
               <Column>
                 <Text textSize="7">On the move : 98</Text>
