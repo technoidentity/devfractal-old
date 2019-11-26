@@ -1,5 +1,5 @@
 import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
-import { Form, Formik, FormikProps } from 'formik'
+import { Form, Formik, FormikActions, FormikProps } from 'formik'
 import React from 'react'
 import {
   Button,
@@ -104,7 +104,10 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
 )
 
 export interface LoginFormProps {
-  onLogin(values: LoginValues): Promise<void>
+  onLogin(
+    values: LoginValues,
+    actions: FormikActions<LoginValues>,
+  ): Promise<void>
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => (
@@ -112,8 +115,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => (
     initialValues={initialValues}
     validationSchema={schema}
     onSubmit={async (values, actions) => {
-      await onLogin(values)
-      actions.setSubmitting(false)
+      await onLogin(values, actions)
     }}
     component={InnerLoginForm}
   />
