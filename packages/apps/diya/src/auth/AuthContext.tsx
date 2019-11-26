@@ -1,3 +1,4 @@
+import { FormikActions } from 'formik'
 import React from 'react'
 import { verify } from 'technoidentity-utils'
 import { AuthUserInfo } from '../common'
@@ -6,7 +7,14 @@ import { LoginValues } from '../views'
 interface AuthContext<T, R> {
   readonly user: R | null
   readonly setUser: React.Dispatch<R | null>
-  login(values: T): Promise<R>
+  readonly setCount: React.Dispatch<number>
+  readonly noOfLoginAttempts: number 
+  login(
+    values: T,
+    actions: FormikActions<LoginValues>,
+    setCount: React.Dispatch<number>,
+    noOfLoginAttempts: number,
+  ): Promise<R>
   logout(): void
 }
 
@@ -18,9 +26,19 @@ interface AuthProviderProps<T, R> extends AuthContext<T, R> {}
 
 export const AuthProvider: React.FC<
   AuthProviderProps<LoginValues, AuthUserInfo>
-> = ({ user, setUser, login, logout, children }) => {
+> = ({
+  user,
+  setUser,
+  login,
+  logout,
+  setCount,
+  noOfLoginAttempts,
+  children,
+}) => {
   return (
-    <AuthContext.Provider value={{ user, setUser, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, setUser, login, logout, setCount, noOfLoginAttempts }}
+    >
       {children}
     </AuthContext.Provider>
   )
