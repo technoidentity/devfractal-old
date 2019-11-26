@@ -49,6 +49,8 @@ export const ClientForm = formComponent(
                 latitude: location['lat'],
                 longitude: location['lng'],
                 address,
+                id: values.id !== '' ? values.id : undefined,
+                remarks: undefined,
               }
               // tslint:disable-next-line: no-floating-promises
               onSubmit(client, actions)
