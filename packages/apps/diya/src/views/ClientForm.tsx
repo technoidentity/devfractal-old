@@ -5,6 +5,8 @@ import {
   Column,
   Columns,
   formComponent,
+  positive,
+  required,
   Section,
   Simple,
   Title,
@@ -39,18 +41,24 @@ export const ClientForm = formComponent(
         </Section>
         <Section>
           <Simple.Form
-            initialValues={initial}
+            initialValues={{
+              ...initial,
+              numberOfEvsOrDrivers:
+                initial.numberOfEvsOrDrivers === 0
+                  ? undefined
+                  : initial.numberOfEvsOrDrivers,
+            }}
             onSubmit={(
               values: ClientData,
               actions: FormikActions<ClientData>,
             ) => {
               const client = {
                 ...values,
-                latitude: location['lat'],
-                longitude: location['lng'],
+                latitude: location.lat,
+                longitude: location.lng,
                 address,
                 id: values.id !== '' ? values.id : undefined,
-                remarks: undefined,
+                remarks: values.remarks ? values.remarks : '',
               }
               // tslint:disable-next-line: no-floating-promises
               onSubmit(client, actions)
@@ -58,7 +66,11 @@ export const ClientForm = formComponent(
           >
             <Columns>
               <Column>
-                <Simple.Text name="name" label="Client Name" />
+                <Simple.Text
+                  name="name"
+                  label="Client Name"
+                  validations={[required()]}
+                />
 
                 <Simple.Select name="billingType" fullWidth>
                   <option value="contract_per_month">Contract Per Month</option>
@@ -69,13 +81,25 @@ export const ClientForm = formComponent(
                   <option value="pay_per_use">Pay Per Use</option>
                   <option value="remarks">Remarks</option>
                 </Simple.Select>
-                <Simple.Number name="numberOfEvsOrDrivers" label="No. of EVS" />
+                <Simple.Number
+                  name="numberOfEvsOrDrivers"
+                  label="No. of EVS"
+                  validations={[required(), positive()]}
+                />
               </Column>
 
               <Column>
-                <Simple.Text name="contactName" />
-                <Simple.Telephone name="contactNumber" />
-                <Simple.Email name="email" label="Email Address" />
+                <Simple.Text name="contactName" validations={[required()]} />
+                <Simple.Telephone
+                  name="contactNumber"
+                  validations={[required()]}
+                />
+                <Simple.Email
+                  name="email"
+                  label="Email Address"
+                  validations={[required()]}
+                />
+                <Simple.Text name="remarks" label="Remarks" />
               </Column>
               <Column>
                 <MapSearch
