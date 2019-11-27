@@ -1,3 +1,6 @@
+import TextField from '@material-ui/core/TextField'
+
+import { FormikActions } from 'formik'
 import React from 'react'
 import { useState } from 'react'
 import { useRouteMatch } from 'react-router'
@@ -19,6 +22,7 @@ import {
 } from '../common'
 import { HeadTitle } from '../components'
 import { getClientList, getDriverList, getVehicle } from '../pages'
+import { formatDateWithTimeStamp } from '../reacttable/utils'
 
 const AssignVehicleFormProps = req({
   onSubmit: fn<SubmitAction<AssignForm>>(),
@@ -36,6 +40,8 @@ export const AssignVehicleForm = component(
     const [clientList, setClientList] = useState<
       ClientListResponse['data']['rows']
     >([])
+    const [endDate, setEndDate] = useState()
+    const [startDate, setStartDate] = useState()
     const vehicleId: string = params.id
 
     React.useMemo(async () => {
@@ -52,10 +58,29 @@ export const AssignVehicleForm = component(
           <Column size="half">
             <HeadTitle>Assign</HeadTitle>
             <Simple.Form
-              initialValues={{ ...empty(AssignForm), vehicleId }}
-              onSubmit={onSubmit}
+              initialValues={{
+                ...empty(AssignForm),
+                vehicleId,
+              }}
+              onSubmit={(
+                values: AssignForm,
+                actions: FormikActions<AssignForm>,
+              ) => {
+                const assignVehicleData = {
+                  ...values,
+                  end: endDate
+                    ? endDate
+                    : formatDateWithTimeStamp(empty(AssignForm).end),
+                  start: startDate
+                    ? startDate
+                    : formatDateWithTimeStamp(empty(AssignForm).start),
+                }
+                // tslint:disable-next-line: no-floating-promises
+                onSubmit(assignVehicleData, actions)
+              }}
             >
               <Columns>
+                {console.log(endDate, startDate)}
                 <Column>
                   <Simple.Select label="Vehicle" name="vehicleId" disabled>
                     <option value={vehicleId}>
@@ -84,8 +109,66 @@ export const AssignVehicleForm = component(
                 </Column>
 
                 <Column>
-                  <Simple.Date name="start" />
-                  <Simple.Date name="end" />
+                  <div style={{ marginBottom: '0.75rem' }}>
+                    <label
+                      style={{
+                        color: '#363636',
+                        display: 'block',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                      }}
+                    >
+                      Start
+                    </label>
+                    <TextField
+                      style={{
+                        border: '1px solid transparent',
+                        backgroundColor: 'white',
+                        borderColor: '#dbdbdb',
+                        borderRadius: '0',
+                        color: '#363636',
+                        borderBottom: 'none',
+                      }}
+                      name="end"
+                      type="datetime-local"
+                      defaultValue={formatDateWithTimeStamp(
+                        empty(AssignForm).start,
+                      )}
+                      onChange={e => {
+                        setStartDate(e.target.value)
+                      }}
+                    />
+                  </div>
+                  <div style={{ marginBottom: '0.75rem' }}>
+                    <label
+                      style={{
+                        color: '#363636',
+                        display: 'block',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                      }}
+                    >
+                      End
+                    </label>
+                    <TextField
+                      name="end"
+                      style={{
+                        border: '1px solid transparent',
+                        backgroundColor: 'white',
+                        borderColor: '#dbdbdb',
+                        borderRadius: '0',
+                        color: '#363636',
+                        borderBottom: 'none',
+                      }}
+                      type="datetime-local"
+                      defaultValue={formatDateWithTimeStamp(
+                        empty(AssignForm).end,
+                      )}
+                      onChange={e => {
+                        setEndDate(e.target.value)
+                      }}
+                    />
+                  </div>
                 </Column>
               </Columns>
               <Simple.FormButtons />
