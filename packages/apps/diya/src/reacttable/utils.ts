@@ -2,7 +2,13 @@ import { format } from 'date-fns'
 import matchSorter from 'match-sorter'
 
 export function formatDate(date: Date | undefined): string | undefined {
-  return date && format(date, 'yyyy/MM/dd')
+  return date && format(date, 'dd/MM/yyyy')
+}
+
+export function formatDateWithTimeStamp(
+  date: Date | undefined,
+): string | undefined {
+  return date && format(date, "yyyy-MM-dd'T'hh:mm")
 }
 
 export function fuzzyTextFilterFn(
