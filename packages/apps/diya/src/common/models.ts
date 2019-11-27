@@ -250,7 +250,7 @@ const BillingType = enumerate(
   'pay_per_useF',
 )
 export const ClientData = obj(
-  { latitude: number, longitude: number, remarks: string, id: string },
+  { latitude: number, longitude: number, id: string },
   {
     name: string,
     billingType: BillingType,
@@ -260,6 +260,7 @@ export const ClientData = obj(
     email: string,
     numberOfEvsOrDrivers: number,
     address: string,
+    remarks: string,
   },
 )
 export type ClientData = TypeOf<typeof ClientData>
