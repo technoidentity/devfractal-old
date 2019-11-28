@@ -115,6 +115,12 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
                 visibility={visibility}
               />
               <SideMenuItem
+                href="/tablets"
+                icon={faTabletAlt}
+                label="Tablet"
+                visibility={visibility}
+              />
+              <SideMenuItem
                 href="/batteries"
                 icon={faCarBattery}
                 label="Battery"
@@ -151,13 +157,6 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
                 href="/reports"
                 icon={faPaperPlane}
                 label="Reports"
-                visibility={visibility}
-              />
-
-              <SideMenuItem
-                href="/tablets"
-                icon={faTabletAlt}
-                label="Tablet"
                 visibility={visibility}
               />
             </MenuList>
