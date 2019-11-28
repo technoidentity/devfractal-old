@@ -31,7 +31,13 @@ export const FilterDataEVs = () => {
         { resource: 'vehicles_location' },
         readonlyArray(VehicleLocation),
       )
-      setEVs([...data])
+
+      const resultData = data.map(obj => ({
+        ...obj,
+        description: `${Math.floor(Math.random() * 100) + 1}%`,
+      }))
+
+      setEVs([...resultData])
     }
     // tslint:disable-next-line: no-floating-promises
     fetchData()
