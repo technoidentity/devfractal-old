@@ -19,9 +19,9 @@ export const AssignBatteryForm = component(
       <Section>
         <HeadTitle>Assign</HeadTitle>
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
-          <Simple.Text name="client" />
-          <Simple.Text name="vehicleID" label="Vehicle ID" />
-          <Simple.Text name="driver" />
+          <Simple.Text label="Client" name="client" />
+          <Simple.Text name="vehicleID" label="Vehicle" />
+          <Simple.Text label="Driver" name="driver" />
           <Simple.FormButtons />
         </Simple.Form>
       </Section>
