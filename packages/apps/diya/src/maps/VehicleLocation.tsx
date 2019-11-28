@@ -28,19 +28,20 @@ function EvLocations<D>({ data }: EvLocationsProps<D>) {
       {isVehicleLocation(data) &&
         data.map((ev: VehicleLocation) => (
           <Marker
-            key={ev.id}
-            position={{
-              lat: Number(ev.lat),
-              lng: Number(ev.lng),
-            }}
-            icon={evIcon}
-            onClick={() => {
+            onMouseOver={() => {
               setState({
                 lat: Number(ev.lat),
                 lng: Number(ev.lng),
                 description: ev.description,
               })
             }}
+            onMouseDown={() => setState(undefined)}
+            key={ev.id}
+            position={{
+              lat: Number(ev.lat),
+              lng: Number(ev.lng),
+            }}
+            icon={evIcon}
           />
         ))}
       {state && (
