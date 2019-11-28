@@ -39,6 +39,7 @@ export const ClientList = ({
         }}
         headerLabels={{
           name: 'Client Name',
+          billingType:'Billing Type',
           numberOfEvsOrDrivers: 'No. of EVS',
         }}
       />

@@ -105,10 +105,10 @@ export const TabletList = ({
           ]}
           sorting={true}
           pagination={true}
-          headerNames={['androidDeviceId', 'vehicleId']}
+          headerNames={['androidDeviceId', 'vehicleName']}
           filterOption={[
             { columnName: 'androidDeviceId', filterType: 'search' },
-            { columnName: 'vehicleId', filterType: 'select' },
+            { columnName: 'vehicleName', filterType: 'search' },
           ]}
           actions={{
             editTo: id => tabletLink.edit(id),

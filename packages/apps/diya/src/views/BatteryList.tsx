@@ -100,7 +100,7 @@ export const BatteryList = ({
         headerNames={['batteryName', 'batterySerialNum', 'cycles', 'status']}
         headerLabels={{
           batteryName: 'Name',
-          batterySerialNum: 'serialNumber',
+          batterySerialNum: 'Serial Number',
           cycles: 'Battery Cycles',
         }}
         filterOption={[
