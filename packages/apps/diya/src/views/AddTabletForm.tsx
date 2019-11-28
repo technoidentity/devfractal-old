@@ -26,8 +26,8 @@ export const TabletForm = formComponent(TabletData, ({ initial, onSubmit }) => {
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>
             <Column>
-              <Simple.Text name="androidDeviceId" validations={[length(16)]} />
-              <Simple.Select name="vehicleId" required fullWidth>
+              <Simple.Text label="Android Device ID" name="androidDeviceId" validations={[length(16)]} />
+              <Simple.Select  label="Vehicle Id" name="vehicleId" required fullWidth>
                 <option value="">Select Vehicle</option>
                 {vehicleList &&
                   vehicleList.map(vehicleList => (
