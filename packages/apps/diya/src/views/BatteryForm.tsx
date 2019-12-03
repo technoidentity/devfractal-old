@@ -14,8 +14,17 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
+import * as yup from 'yup'
 import { BatteryAdd } from '../common'
 import { HeadTitle } from '../components'
+
+const schema = yup.object().shape({
+  cycles: yup
+    .number()
+    .required('this is a required field')
+    .nullable(),
+})
+
 export const BatteryForm = formComponent(
   BatteryAdd,
   ({ onSubmit, edit, initial }) => (
@@ -28,7 +37,11 @@ export const BatteryForm = formComponent(
           Battery Details
         </Title>
 
-        <Simple.Form initialValues={initial} onSubmit={onSubmit}>
+        <Simple.Form
+          initialValues={initial}
+          onSubmit={onSubmit}
+          validationSchema={schema}
+        >
           <Columns>
             <Column>
               <Simple.Text
@@ -53,7 +66,7 @@ export const BatteryForm = formComponent(
               <Simple.Number
                 label="Battery Cycles"
                 name="cycles"
-                validations={[required(), positive()]}
+                validations={[positive()]}
               />
               <Simple.Date label="Waranty Valid UpTo" name="warrantyUpto" />
             </Column>
