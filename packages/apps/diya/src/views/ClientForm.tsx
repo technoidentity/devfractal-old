@@ -28,6 +28,9 @@ export const ClientForm = formComponent(
     const [location, setLocation] = React.useState<google.maps.LatLngLiteral>(
       initLocation,
     )
+    const [billingType, setBillingType] = React.useState<string>(
+      initial.address,
+    )
     const [address, setAddress] = React.useState<string>(initial.address)
     const [places, setPlaces] = React.useState<
       google.maps.places.Autocomplete
@@ -72,7 +75,13 @@ export const ClientForm = formComponent(
                   validations={[required()]}
                 />
 
-                <Simple.Select name="billingType" fullWidth>
+                <Simple.Select
+                  name="billingType"
+                  fullWidth
+                  onClick={e => {
+                    setBillingType(e.currentTarget.value)
+                  }}
+                >
                   <option value="contract_per_month">Contract Per Month</option>
                   <option value="pay_per_delivery">Pay Per Delivery</option>
                   <option value="pay_per_kms_and_time">
@@ -81,15 +90,25 @@ export const ClientForm = formComponent(
                   <option value="pay_per_use">Pay Per Use</option>
                   <option value="remarks">Remarks</option>
                 </Simple.Select>
+                {billingType === 'remarks' ? (
+                  <Simple.Text name="remarks" label="Remarks" />
+                ) : // tslint:disable-next-line:no-null-keyword
+                null}
+
                 <Simple.Number
                   name="numberOfEvsOrDrivers"
                   label="No. of EVS"
                   validations={[required(), positive()]}
+                  noControl
                 />
               </Column>
 
               <Column>
-                <Simple.Text name="contactName" validations={[required()]} />
+                <Simple.Text
+                  name="contactName"
+                  validations={[required()]}
+                  noControl
+                />
                 <Simple.Telephone
                   name="contactNumber"
                   validations={[required()]}
@@ -99,7 +118,6 @@ export const ClientForm = formComponent(
                   label="Email Address"
                   validations={[required()]}
                 />
-                <Simple.Text name="remarks" label="Remarks" />
               </Column>
               <Column>
                 <MapSearch
