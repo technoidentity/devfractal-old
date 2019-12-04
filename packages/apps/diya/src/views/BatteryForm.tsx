@@ -54,7 +54,11 @@ export const BatteryForm = formComponent(
                 name="model"
                 validations={[required()]}
               />
-              <Simple.Date label="Last Charged" name="lastCharged" />
+              <Simple.Date
+                dateFormat="dd/MM/yyyy"
+                label="Last Charged"
+                name="lastCharged"
+              />
             </Column>
 
             <Column>
@@ -68,7 +72,11 @@ export const BatteryForm = formComponent(
                 name="cycles"
                 validations={[positive()]}
               />
-              <Simple.Date label="Waranty Valid UpTo" name="warrantyUpto" />
+              <Simple.Date
+                dateFormat="dd/MM/yyyy"
+                label="Waranty Valid UpTo"
+                name="warrantyUpto"
+              />
             </Column>
 
             <Column narrow>

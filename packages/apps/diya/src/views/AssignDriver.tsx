@@ -16,6 +16,7 @@ import {
   SubmitAction,
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
+import * as yup from 'yup'
 import { useAuth } from '../auth/AuthContext'
 import {
   AssignForm,
@@ -28,6 +29,12 @@ import { getClientList, getDriver, getVehicleList } from '../pages'
 import { formatDateWithTimeStamp } from '../reacttable/utils'
 const AssignDriverFormProps = req({
   onSubmit: fn<SubmitAction<AssignForm>>(),
+})
+
+const schema = yup.object().shape({
+  vehicleId: yup.string().required('this is a required field'),
+  driverId: yup.string().required('this is a required field'),
+  clientId: yup.string().required('this is required field'),
 })
 
 export const AssignDriverForm = component(
@@ -61,6 +68,7 @@ export const AssignDriverForm = component(
             <HeadTitle>Assign</HeadTitle>
             <Simple.Form
               initialValues={{ ...empty(AssignForm), driverId }}
+              validationSchema={schema}
               onSubmit={(
                 values: AssignForm,
                 actions: FormikActions<AssignForm>,

@@ -5,15 +5,31 @@ import {
   Column,
   Columns,
   formComponent,
-  positive,
   required,
   Section,
   Simple,
   Title,
 } from 'technoidentity-devfractal'
+import * as yup from 'yup'
 import { ClientData } from '../common'
 import { googleMapApiKey } from '../config'
 import { defaultMapSettings, MapSearch } from '../maps'
+
+const schema = yup.object().shape({
+  contactNumber: yup
+    .string()
+    .matches(/\d/, 'must be valid mobile number')
+    .length(10, 'must be 10 digit mobile number')
+    .required('this is a required field'),
+  email: yup
+    .string()
+    .email('must be valid email')
+    .required('this is a required field'),
+  numberOfEvsOrDrivers: yup
+    .number()
+    .positive('must be positive number')
+    .required('this is required field'),
+})
 
 export const ClientForm = formComponent(
   ClientData,
@@ -51,6 +67,7 @@ export const ClientForm = formComponent(
                   ? undefined
                   : initial.numberOfEvsOrDrivers,
             }}
+            validationSchema={schema}
             onSubmit={(
               values: ClientData,
               actions: FormikActions<ClientData>,
@@ -98,7 +115,6 @@ export const ClientForm = formComponent(
                 <Simple.Number
                   name="numberOfEvsOrDrivers"
                   label="No. of EVS"
-                  validations={[required(), positive()]}
                   noControl
                 />
               </Column>
@@ -137,7 +153,6 @@ export const ClientForm = formComponent(
                     const geometry =
                       places && places.getPlace() && places.getPlace().geometry
                     if (geometry) {
-                      console.log(places && places)
                       setLocation(geometry.location.toJSON())
                     }
                   }}

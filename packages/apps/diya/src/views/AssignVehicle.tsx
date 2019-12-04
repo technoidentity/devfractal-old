@@ -1,4 +1,8 @@
-import TextField from '@material-ui/core/TextField'
+import DateFnsUtils from '@date-io/date-fns'
+import {
+  KeyboardDateTimePicker,
+  MuiPickersUtilsProvider,
+} from '@material-ui/pickers'
 
 import { FormikActions } from 'formik'
 import React from 'react'
@@ -13,6 +17,7 @@ import {
   SubmitAction,
 } from 'technoidentity-devfractal'
 import { empty, fn, req } from 'technoidentity-utils'
+import * as yup from 'yup'
 import { useAuth } from '../auth/AuthContext'
 import {
   AssignForm,
@@ -26,6 +31,12 @@ import { formatDateWithTimeStamp } from '../reacttable/utils'
 
 const AssignVehicleFormProps = req({
   onSubmit: fn<SubmitAction<AssignForm>>(),
+})
+
+const schema = yup.object().shape({
+  vehicleId: yup.string().required('this is a required field'),
+  driverId: yup.string().required('this is a required field'),
+  clientId: yup.string().required('this is required field'),
 })
 
 export const AssignVehicleForm = component(
@@ -62,6 +73,7 @@ export const AssignVehicleForm = component(
                 ...empty(AssignForm),
                 vehicleId,
               }}
+              validationSchema={schema}
               onSubmit={(
                 values: AssignForm,
                 actions: FormikActions<AssignForm>,
@@ -80,7 +92,6 @@ export const AssignVehicleForm = component(
               }}
             >
               <Columns>
-                {console.log(endDate, startDate)}
                 <Column>
                   <Simple.Select label="Vehicle" name="vehicleId" disabled>
                     <option value={vehicleId}>
@@ -109,66 +120,81 @@ export const AssignVehicleForm = component(
                 </Column>
 
                 <Column>
-                  <div style={{ marginBottom: '0.75rem' }}>
-                    <label
-                      style={{
-                        color: '#363636',
-                        display: 'block',
-                        fontSize: '1rem',
-                        fontWeight: 700,
-                      }}
-                    >
-                      Start
-                    </label>
-                    <TextField
-                      style={{
-                        border: '1px solid transparent',
-                        backgroundColor: 'white',
-                        borderColor: '#dbdbdb',
-                        borderRadius: '0',
-                        color: '#363636',
-                        borderBottom: 'none',
-                      }}
-                      name="end"
-                      type="datetime-local"
-                      defaultValue={formatDateWithTimeStamp(
-                        empty(AssignForm).start,
-                      )}
-                      onChange={e => {
-                        setStartDate(e.target.value)
-                      }}
-                    />
-                  </div>
-                  <div style={{ marginBottom: '0.75rem' }}>
-                    <label
-                      style={{
-                        color: '#363636',
-                        display: 'block',
-                        fontSize: '1rem',
-                        fontWeight: 700,
-                      }}
-                    >
-                      End
-                    </label>
-                    <TextField
-                      name="end"
-                      style={{
-                        border: '1px solid transparent',
-                        backgroundColor: 'white',
-                        borderColor: '#dbdbdb',
-                        borderRadius: '0',
-                        color: '#363636',
-                        borderBottom: 'none',
-                      }}
-                      type="datetime-local"
-                      defaultValue={formatDateWithTimeStamp(
-                        empty(AssignForm).end,
-                      )}
-                      onChange={e => {
-                        setEndDate(e.target.value)
-                      }}
-                    />
-                  </div>
+                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <div style={{ marginBottom: '0.75rem' }}>
+                      <label
+                        style={{
+                          color: '#363636',
+                          display: 'block',
+                          fontSize: '1rem',
+                          fontWeight: 700,
+                        }}
+                      >
+                        Start
+                      </label>
+                      <KeyboardDateTimePicker
+                        style={{
+                          border: '1px solid transparent',
+                          backgroundColor: 'white',
+                          borderColor: '#dbdbdb',
+                          borderRadius: '0',
+                          color: '#363636',
+                          borderBottom: 'none',
+                        }}
+                        defaultValue={formatDateWithTimeStamp(
+                          empty(AssignForm).start,
+                        )}
+                        value={
+                          startDate
+                            ? startDate
+                            : formatDateWithTimeStamp(empty(AssignForm).start)
+                        }
+                        onChange={e => {
+                          setStartDate(e)
+                        }}
+                        format="dd/MM/yyyy hh:mm a"
+                      />
+                    </div>
+                    <div style={{ marginBottom: '0.75rem' }}>
+                      <label
+                        style={{
+                          color: '#363636',
+                          display: 'block',
+                          fontSize: '1rem',
+                          fontWeight: 700,
+                        }}
+                      >
+                        End
+                      </label>
+                      <KeyboardDateTimePicker
+                        style={{
+                          border: '1px solid transparent',
+                          backgroundColor: 'white',
+                          borderColor: '#dbdbdb',
+                          borderRadius: '0',
+                          color: '#363636',
+                          borderBottom: 'none',
+                        }}
+                        defaultValue={formatDateWithTimeStamp(
+                          empty(AssignForm).end,
+                        )}
+                        value={
+                          endDate
+                            ? endDate
+                            : formatDateWithTimeStamp(empty(AssignForm).end)
+                        }
+                        onChange={e => {
+                          setEndDate(e)
+                        }}
+                        minDate={
+                          startDate
+                            ? startDate
+                            : formatDateWithTimeStamp(empty(AssignForm).start)
+                        }
+                        format="dd/MM/yyyy hh:mm a"
+                      />
+                    </div>
+                  </MuiPickersUtilsProvider>
                 </Column>
               </Columns>
               <Simple.FormButtons />
