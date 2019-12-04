@@ -23,11 +23,17 @@ export const MonthExpenditure: React.FC = () => {
                 noControl
               >
                 <option>select month</option>
-                <option>jan</option>
-                <option>feb</option>
+                <option>january</option>
+                <option>february</option>
                 <option>march</option>
                 <option>april</option>
                 <option>may</option>
+                <option>june</option>
+                <option>july</option>
+                <option>august</option>
+                <option>september</option>'<option>october</option>
+                <option>november</option>
+                <option>december</option>
               </Select>
             </div>
           </Column>
