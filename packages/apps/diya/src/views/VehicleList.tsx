@@ -129,9 +129,13 @@ export const VehicleList1 = ({
           'registrationNumber',
           'insuranceExpiry',
           'lastService',
+          'status',
         ]}
         headerLabels={{ vehicleName: 'Name' }}
-        filterOption={[{ columnName: 'vehicleName', filterType: 'search' }]}
+        filterOption={[
+          { columnName: 'vehicleName', filterType: 'search' },
+          { columnName: 'status', filterType: 'select' },
+        ]}
         actions={{
           editTo: id => vehicleLinks.edit(id),
           assignTo: id => `/vehicles/assignVehicle/${id}`,
