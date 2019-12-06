@@ -21,7 +21,7 @@ import { HeadTitle } from '../components'
 const schema = yup.object().shape({
   phone: yup
     .string()
-    .matches(/\d/, 'must be valid mobile number')
+    .matches(/^\d+$/, 'must be valid mobile number')
     .length(10, 'must be 10 digit mobile number')
     .required('this is a required field'),
   email: yup
@@ -30,7 +30,7 @@ const schema = yup.object().shape({
     .required('this is a required field'),
   aadhaar: yup
     .string()
-    .matches(/\d+/, 'must be valid aadhaar number')
+    .matches(/^\d+$/, 'must be valid aadhaar number')
     .length(12, 'must be 12 digit aadhaar number')
     .required('this is a required field'),
   bankDetails: yup.object().shape({
