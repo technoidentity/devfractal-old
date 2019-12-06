@@ -57,6 +57,7 @@ export const DriverList1 = ({
               [k]: date.is(driverList[k])
                 ? formatDate(driverList[k])
                 : driverList[k],
+              verified: driverList.verified ? 'verified' : 'pending',
               actions: 'actions',
             }),
             {},
@@ -71,6 +72,7 @@ export const DriverList1 = ({
             [k]: date.is(driverList[k])
               ? formatDate(driverList[k])
               : driverList[k],
+            verified: driverList.verified ? 'verified' : 'pending',
             actions: 'actions',
           }),
           {},
@@ -83,7 +85,9 @@ export const DriverList1 = ({
         <DeleteConfirmation
           setState={setState}
           state={state}
-          deleteAsyncFun={(url,message)=>deleteList(url,message,{ setUser, logout })}
+          deleteAsyncFun={(url, message) =>
+            deleteList(url, message, { setUser, logout })
+          }
           handleGetList={handleDriverList}
           url={`users/${state.id}`}
           message="Driver Deleted"
