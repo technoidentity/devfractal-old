@@ -75,6 +75,7 @@ export const UserForm = formComponent(
               <Simple.Text name="aadhaar" />
 
               <Simple.Select name="role" fullWidth>
+                <option value="">Select Role</option>
                 <option value="dispatcher">Dispatcher</option>
                 <option value="reporter">Reporter</option>
                 <option value="associate">Associate</option>
@@ -147,6 +148,7 @@ export const UserForm = formComponent(
                 />
                 <Simple.Text name="emergencyContactNumber" />
                 <Simple.Select name="relation" fullWidth>
+                  <option value="">Select Relation</option>
                   <option value="father">Father</option>
                   <option value="mother">Mother</option>
                   <option value="brother">Brother</option>
