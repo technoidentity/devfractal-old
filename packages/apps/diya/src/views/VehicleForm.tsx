@@ -13,13 +13,37 @@ import {
   Simple,
   Title,
 } from 'technoidentity-devfractal'
+import * as yup from 'yup'
 import { VehicleAdd } from '../common'
 import { HeadTitle } from '../components'
+const schema = yup.object().shape({
+  manufactureYear: yup.date().required(),
+  warrantyExpiry: yup
+    .date()
+    .required()
+    .min(
+      yup.ref('manufactureYear'),
+      'warrantyExpiry must be later than manufacture year',
+    ),
+    lastService: yup
+    .date()
+    .required()
+    .min(
+      yup.ref('manufactureYear'),
+      'lastService must be later than manufacture year',
+    ),
+    insuranceExpiry: yup
+    .date()
+    .required()
+    .min(
+      yup.ref('manufactureYear'),
+      'insuranceExpiry must be later than manufacture year',
+    ),
+})
 
 export const VehicleForm = formComponent(
   VehicleAdd,
   ({ onSubmit, initial, edit }) => {
-    const [manufactureDate, setManufactureDate] = React.useState()
     return (
       <>
         <Section>
@@ -30,7 +54,11 @@ export const VehicleForm = formComponent(
             Vehicle Details
           </Title>
 
-          <Simple.Form initialValues={initial} onSubmit={onSubmit}>
+          <Simple.Form
+            initialValues={initial}
+            onSubmit={onSubmit}
+            validationSchema={schema}
+          >
             <Columns>
               <Column>
                 <div>
@@ -56,9 +84,6 @@ export const VehicleForm = formComponent(
                     name="manufactureYear"
                     label="Manufacture Year"
                     dateFormat="dd/MM/yyyy"
-                    onChange={e => {
-                      setManufactureDate(e)
-                    }}
                     validations={[required()]}
                   />
                   <Simple.Text
@@ -81,11 +106,6 @@ export const VehicleForm = formComponent(
                     name="warrantyExpiry"
                     dateFormat="dd/MM/yyyy"
                     validations={[required()]}
-                    minDate={
-                      manufactureDate
-                        ? manufactureDate
-                        : initial.manufactureYear
-                    }
                   />
 
                   <Simple.Date
