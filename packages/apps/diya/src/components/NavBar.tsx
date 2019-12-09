@@ -1,5 +1,7 @@
 import React from 'react'
 import {
+  Column,
+  Columns,
   Navbar,
   NavbarDivider,
   NavbarDropDown,
@@ -17,29 +19,37 @@ export const NavBar = () => {
   const { push } = useHistory()
   const user: AuthUserInfo = isAuthenticated()
   return user ? (
-    <Navbar shadowLess>
-      <NavbarEnd>
-        <NavbarItem dropDown modifier="hoverable">
-          <NavbarLink>{capitalizeAll(user.data.user.role, '_')}</NavbarLink>
-          <NavbarDropDown>
-            <NavbarItem>{user.data.user.name}</NavbarItem>
-            <NavbarItem>{user.data.user.email}</NavbarItem>
-            <NavbarItem>{user.data.user.phone}</NavbarItem>
-            <NavbarDivider />
-            <NavbarLink
-              onClick={() => {
-                // tslint:disable-next-line:no-null-keyword
-                setUser(null)
-                logout()
-                push('/')
-              }}
-            >
-              Logout
-            </NavbarLink>
-          </NavbarDropDown>
-        </NavbarItem>
-      </NavbarEnd>
-    </Navbar>
+    <Columns>
+      <Column>
+        <Navbar shadowLess>
+          <NavbarEnd>
+            <NavbarItem dropDown modifier="hoverable">
+              <NavbarLink>{capitalizeAll(user.data.user.role, '_')}</NavbarLink>
+              <Column>
+                <NavbarDropDown>
+                  <NavbarItem>{user.data.user.name}</NavbarItem>
+                  <NavbarItem>{user.data.user.email}</NavbarItem>
+                  <NavbarItem>{user.data.user.phone}</NavbarItem>
+                  <NavbarDivider />
+                  <NavbarLink
+                    display="flex"
+                    arrowLess
+                    onClick={() => {
+                      // tslint:disable-next-line:no-null-keyword
+                      setUser(null)
+                      logout()
+                      push('/')
+                    }}
+                  >
+                    Logout
+                  </NavbarLink>
+                </NavbarDropDown>
+              </Column>
+            </NavbarItem>
+          </NavbarEnd>
+        </Navbar>
+      </Column>
+    </Columns>
   ) : (
     <p>{}</p>
   )
