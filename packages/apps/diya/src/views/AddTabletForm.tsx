@@ -2,11 +2,13 @@ import { formComponent } from 'devfractal-crud'
 import { Simple } from 'devfractal-simple'
 import { Column, Columns, Section } from 'devfractal-ui-core'
 import React, { useState } from 'react'
-import { length } from 'technoidentity-devfractal'
+import { CreateLink, links, length } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { TabletData, VehicleResponse } from '../common'
 import { HeadTitle } from '../components'
 import { getVehicleList } from '../pages'
+
+const tabletLinks = links('tablets')
 
 export const TabletForm = formComponent(TabletData, ({ initial, onSubmit }) => {
   const { logout, setUser } = useAuth()
@@ -22,12 +24,24 @@ export const TabletForm = formComponent(TabletData, ({ initial, onSubmit }) => {
       <Section>
         <HeadTitle>Add Tablet</HeadTitle>
       </Section>
+      <CreateLink alignment="right" variant="primary" to={tabletLinks.list}>
+        Back
+      </CreateLink>
       <Section>
         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
           <Columns>
             <Column>
-              <Simple.Text label="Android Device ID" name="androidDeviceId" validations={[length(16)]} />
-              <Simple.Select  label="Vehicle Id" name="vehicleId" required fullWidth>
+              <Simple.Text
+                label="Android Device ID"
+                name="androidDeviceId"
+                validations={[length(16)]}
+              />
+              <Simple.Select
+                label="Vehicle Id"
+                name="vehicleId"
+                required
+                fullWidth
+              >
                 <option value="">Select Vehicle</option>
                 {vehicleList &&
                   vehicleList.map(vehicleList => (

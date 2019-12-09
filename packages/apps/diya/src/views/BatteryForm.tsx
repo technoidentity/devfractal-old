@@ -4,8 +4,10 @@ import {
   Button,
   Column,
   Columns,
+  CreateLink,
   formComponent,
   Image,
+  links,
   Media,
   MediaContent,
   positive,
@@ -17,6 +19,8 @@ import {
 import * as yup from 'yup'
 import { BatteryAdd } from '../common'
 import { HeadTitle } from '../components'
+
+const batteryLinks = links('batteries')
 
 const schema = yup.object().shape({
   cycles: yup
@@ -32,6 +36,9 @@ export const BatteryForm = formComponent(
       <Section>
         <HeadTitle>{edit ? 'Update' : 'Add'} Battery</HeadTitle>
       </Section>
+      <CreateLink alignment="right" variant="primary" to={batteryLinks.list}>
+        Back
+      </CreateLink>
       <Section>
         <Title textAlignment="left" size="5" textColor="info">
           Battery Details

@@ -11,6 +11,8 @@ import {
   Column,
   Columns,
   component,
+  CreateLink,
+  links,
   Section,
   Simple,
   SubmitAction,
@@ -27,6 +29,9 @@ import {
 import { HeadTitle } from '../components'
 import { getClientList, getDriver, getVehicleList } from '../pages'
 import { formatDateWithTimeStamp } from '../reacttable/utils'
+
+const driverLinks = links('drivers')
+
 const AssignDriverFormProps = req({
   onSubmit: fn<SubmitAction<AssignForm>>(),
 })
@@ -66,6 +71,13 @@ export const AssignDriverForm = component(
         <Columns columnCentered>
           <Column size="half">
             <HeadTitle>Assign</HeadTitle>
+            <CreateLink
+              alignment="right"
+              variant="primary"
+              to={driverLinks.list}
+            >
+              Back
+            </CreateLink>
             <Simple.Form
               initialValues={{ ...empty(AssignForm), driverId }}
               validationSchema={schema}
