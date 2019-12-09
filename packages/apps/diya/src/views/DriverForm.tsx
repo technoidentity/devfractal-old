@@ -4,8 +4,10 @@ import {
   Button,
   Column,
   Columns,
+  CreateLink,
   formComponent,
   Image,
+  links,
   Media,
   MediaContent,
   required,
@@ -16,6 +18,7 @@ import {
 import * as yup from 'yup'
 import { DriverData } from '../common'
 import { HeadTitle } from '../components'
+const driverLinks = links('drivers')
 
 const schema = yup.object().shape({
   phone: yup
@@ -54,6 +57,9 @@ export const DriverForm = formComponent(
       <Section>
         <HeadTitle>{edit ? 'Edit' : 'Create'} Driver</HeadTitle>
       </Section>
+      <CreateLink alignment="right" variant="primary" to={driverLinks.list}>
+        Back
+      </CreateLink>
       <Section>
         <Simple.Form
           initialValues={{ ...initial, role: 'driver' }}
@@ -160,7 +166,6 @@ export const DriverForm = formComponent(
             </Column>
           </Columns>
           <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
-          <Button>Back</Button>
         </Simple.Form>
       </Section>
     </>
