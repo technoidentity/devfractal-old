@@ -4,8 +4,10 @@ import {
   Button,
   Column,
   Columns,
+  CreateLink,
   formComponent,
   Image,
+  links,
   Media,
   MediaContent,
   required,
@@ -16,6 +18,9 @@ import {
 import * as yup from 'yup'
 import { VehicleAdd } from '../common'
 import { HeadTitle } from '../components'
+
+const vehicleLinks = links('vehicles')
+
 const schema = yup.object().shape({
   manufactureYear: yup.date().required(),
   warrantyExpiry: yup
@@ -25,14 +30,14 @@ const schema = yup.object().shape({
       yup.ref('manufactureYear'),
       'warrantyExpiry must be later than manufacture year',
     ),
-    lastService: yup
+  lastService: yup
     .date()
     .required()
     .min(
       yup.ref('manufactureYear'),
       'lastService must be later than manufacture year',
     ),
-    insuranceExpiry: yup
+  insuranceExpiry: yup
     .date()
     .required()
     .min(
@@ -46,6 +51,9 @@ export const VehicleForm = formComponent(
   ({ onSubmit, initial, edit }) => {
     return (
       <>
+        <CreateLink alignment="right" variant="primary" to={vehicleLinks.list}>
+          Back
+        </CreateLink>
         <Section>
           <HeadTitle>{edit ? 'Edit' : 'Add'} Vehicle</HeadTitle>
         </Section>
