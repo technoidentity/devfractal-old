@@ -19,7 +19,7 @@ import {
   PlanRoute,
   TabletData,
   TabletListResponse,
-  Trip,
+  TripListResponse,
   UserData,
   UserEdit,
   UserListResponse,
@@ -83,7 +83,7 @@ export const planRouteAPI = api(PlanRoute, 'routes')
 export const employeeAPI = api(Employee, 'employees')
 export const invoiceAPI = api(Invoice, 'invoices')
 export const geoFenceAPI = api(GeoFence, 'geo_fences')
-export const tripAPI = api(Trip, 'trips')
+export const tripAPI = api(TripListResponse, 'trips')
 export const adManagerAPI = api(AdManager, 'adManagers')
 export const assignDriverAPI = api(AssignDriver, 'assignDriver')
 export const assignVehicleAPI = api(AssignVehicle, 'assignVehicle')
