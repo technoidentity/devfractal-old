@@ -8,11 +8,11 @@ import {
   Section,
   Simple,
 } from 'technoidentity-devfractal'
-import { GeoFence } from '../common'
+import { useAuth } from '../auth/AuthContext'
+import { ClientListResponse, GeoFence, VehicleResponse } from '../common'
 import { HeadTitle } from '../components'
 import { GeoFence as GeoFenceMap } from '../maps'
 import { getClientList, getVehicleList } from '../pages'
-import { useAuth } from '../auth/AuthContext'
 
 const geoFenceLinks = links('geo_fences')
 
@@ -32,7 +32,7 @@ export const GeoFenceForm = formComponent(
       const clientList = await getClientList({ setUser, logout })
       setVehicleList(vehicleList)
       setClientList(clientList)
-    }, [])
+    }, [logout, setUser])
     return (
       <>
         <Section>
