@@ -7,6 +7,7 @@ import {
   faHome,
   faMapMarked,
   faPaperPlane,
+  faRandom,
   faTabletAlt,
   faUserFriends,
   faUsers,
@@ -143,6 +144,12 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
                 href="/users"
                 icon={faUsers}
                 label="Users"
+                visibility={visibility}
+              />
+              <SideMenuItem
+                href="/trips"
+                icon={faRandom}
+                label="View Trips"
                 visibility={visibility}
               />
 
