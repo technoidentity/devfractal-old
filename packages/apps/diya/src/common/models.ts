@@ -560,6 +560,24 @@ export const Trip = obj(
 
 export type Trip = TypeOf<typeof Trip>
 
+export const TripData = obj(
+  {},
+  {
+    tripId: string,
+    vehicleId: string,
+    date: ISODate,
+    startTime: string,
+    clientName: string,
+  },
+)
+export const TripListResponse = req({
+  data: req({
+    rows: array(TripData),
+    count: number,
+  }),
+})
+export type TripListResponse = TypeOf<typeof TripListResponse>
+
 export const SelectVehicles = enumerate('vehicle1', 'vehicle2', 'vehicle3')
 
 export const AdManager = obj(
