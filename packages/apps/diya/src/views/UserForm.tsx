@@ -36,7 +36,7 @@ const schema = yup.object().shape({
   bankDetails: yup.object().shape({
     accountNumber: yup
       .string()
-      .matches(/\d/, 'must be valid account number')
+      .matches(/^\d+$/, 'must be valid account number')
       .required('this is a required field'),
   }),
   emergencyContactNumber: yup
