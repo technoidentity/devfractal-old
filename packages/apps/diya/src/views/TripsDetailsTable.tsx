@@ -1,31 +1,40 @@
-import { links, listComponent } from 'devfractal-crud';
-import { Section } from 'devfractal-ui-core';
-import React from 'react';
-import { Trip } from '../common';
-import { HeadTitle } from '../components';
-import { Table } from '../reacttable/Table';
+import { CreateLink, links } from 'devfractal-crud'
+import { Column, Columns, Section } from 'devfractal-ui-core'
+import React from 'react'
+import { TripListResponse } from '../common'
+import { HeadTitle } from '../components'
+import { Table } from '../reacttable/Table'
 
 const tripLinks = links('trips')
 
-export const TripDetailsTable = listComponent(Trip, ({ data: tripsList }) => {
-  const tableData = tripsList.map(data => ({ ...data, actions: 'actions' }))
+export const TripDetailsTable = ({
+  data,
+}: {
+  readonly data: TripListResponse['data']['rows']
+}) => {
+  const tableData = data.map(tripList => ({ ...tripList, actions: 'actions' }))
   return (
     <Section>
       <HeadTitle>View Trips</HeadTitle>
+      <Columns>
+        <Column>
+          <CreateLink alignment="right" variant="primary" to={tripLinks.create}>
+            Add Trip
+          </CreateLink>
+        </Column>
+      </Columns>
+
       <Table
         tableData={[
           ...((tableData as unknown) as ReadonlyArray<
-            Omit<Trip, 'id'> & { readonly id: string }
+            Omit<TripListResponse, 'id'> & { readonly id: string }
           >),
         ]}
         sorting={true}
         pagination={true}
-        headerNames={['evId','tripId','date','startTime','clientName','companyDispatcher']}
+        headerNames={['evId', 'tripId', 'date', 'startTime', 'clientName']}
         filterOption={[{ columnName: 'tripId', filterType: 'search' }]}
-        actions={{
-          editTo: id => tripLinks.edit(id),
-        }}
       />
     </Section>
   )
-})
+}
