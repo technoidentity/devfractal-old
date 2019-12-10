@@ -4,11 +4,13 @@ import {
   Button,
   Column,
   Columns,
+  CreateLink,
   formComponent,
   Image,
+  links,
+  // Radio,
   Media,
   MediaContent,
-  // Radio,
   required,
   Section,
   Simple,
@@ -17,7 +19,7 @@ import {
 import * as yup from 'yup'
 import { UserData } from '../common'
 import { HeadTitle } from '../components'
-
+const userLinks = links('users')
 const schema = yup.object().shape({
   phone: yup
     .string()
@@ -53,6 +55,9 @@ export const UserForm = formComponent(
       <Section>
         <HeadTitle>{edit ? 'Edit' : 'Create'} User</HeadTitle>
       </Section>
+      <CreateLink alignment="right" variant="primary" to={userLinks.list}>
+        Back
+      </CreateLink>
       <Section>
         <Simple.Form
           initialValues={initial}
@@ -161,7 +166,6 @@ export const UserForm = formComponent(
             </Column>
           </Columns>
           <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
-          <Button>Back</Button>
         </Simple.Form>
       </Section>
     </>
