@@ -1,9 +1,3 @@
-import DateFnsUtils from '@date-io/date-fns'
-import {
-  KeyboardDateTimePicker,
-  MuiPickersUtilsProvider,
-} from '@material-ui/pickers'
-import { FormikActions } from 'formik'
 import React from 'react'
 import { useState } from 'react'
 import { useRouteMatch } from 'react-router'
@@ -28,7 +22,6 @@ import {
 } from '../common'
 import { HeadTitle } from '../components'
 import { getClient, getDriverList, getVehicleList } from '../pages'
-import { formatDateWithTimeStamp } from '../reacttable/utils'
 
 const clientLinks = links('clients')
 
@@ -36,6 +29,11 @@ const schema = yup.object().shape({
   vehicleId: yup.string().required('this is a required field'),
   driverId: yup.string().required('this is a required field'),
   clientId: yup.string().required('this is required field'),
+  start: yup.date().required('this is a required field'),
+  end: yup
+    .date()
+    .required()
+    .min(yup.ref('start'), 'end date must be later than start date'),
 })
 
 const AssignClientFormProps = req({
@@ -54,8 +52,6 @@ export const AssignClientForm = component(
     const [vehicleList, setVehicleList] = useState<
       VehicleResponse['data']['rows']
     >([])
-    const [endDate, setEndDate] = useState()
-    const [startDate, setStartDate] = useState()
     const clientId: string = params.id
 
     React.useMemo(async () => {
@@ -81,22 +77,7 @@ export const AssignClientForm = component(
             <Simple.Form
               initialValues={{ ...empty(AssignForm), clientId }}
               validationSchema={schema}
-              onSubmit={(
-                values: AssignForm,
-                actions: FormikActions<AssignForm>,
-              ) => {
-                const assignDriverData = {
-                  ...values,
-                  end: endDate
-                    ? endDate
-                    : formatDateWithTimeStamp(empty(AssignForm).end),
-                  start: startDate
-                    ? startDate
-                    : formatDateWithTimeStamp(empty(AssignForm).start),
-                }
-                // tslint:disable-next-line: no-floating-promises
-                onSubmit(assignDriverData, actions)
-              }}
+              onSubmit={onSubmit}
             >
               <Columns>
                 <Column>
@@ -126,82 +107,16 @@ export const AssignClientForm = component(
                 </Column>
 
                 <Column>
-                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <div style={{ marginBottom: '0.75rem' }}>
-                      <label
-                        style={{
-                          color: '#363636',
-                          display: 'block',
-                          fontSize: '1rem',
-                          fontWeight: 700,
-                        }}
-                      >
-                        Start
-                      </label>
-                      <KeyboardDateTimePicker
-                        style={{
-                          border: '1px solid transparent',
-                          backgroundColor: 'white',
-                          borderColor: '#dbdbdb',
-                          borderRadius: '0',
-                          color: '#363636',
-                          borderBottom: 'none',
-                        }}
-                        defaultValue={formatDateWithTimeStamp(
-                          empty(AssignForm).start,
-                        )}
-                        value={
-                          startDate
-                            ? startDate
-                            : formatDateWithTimeStamp(empty(AssignForm).start)
-                        }
-                        onChange={e => {
-                          setStartDate(e)
-                        }}
-                        format="dd/MM/yyyy hh:mm a"
-                      />
-                    </div>
-                    <div style={{ marginBottom: '0.75rem' }}>
-                      <label
-                        style={{
-                          color: '#363636',
-                          display: 'block',
-                          fontSize: '1rem',
-                          fontWeight: 700,
-                        }}
-                      >
-                        End
-                      </label>
-
-                      <KeyboardDateTimePicker
-                        style={{
-                          border: '1px solid transparent',
-                          backgroundColor: 'white',
-                          borderColor: '#dbdbdb',
-                          borderRadius: '0',
-                          color: '#363636',
-                          borderBottom: 'none',
-                        }}
-                        defaultValue={formatDateWithTimeStamp(
-                          empty(AssignForm).end,
-                        )}
-                        value={
-                          endDate
-                            ? endDate
-                            : formatDateWithTimeStamp(empty(AssignForm).end)
-                        }
-                        onChange={e => {
-                          setEndDate(e)
-                        }}
-                        minDate={
-                          startDate
-                            ? startDate
-                            : formatDateWithTimeStamp(empty(AssignForm).start)
-                        }
-                        format="dd/MM/yyyy hh:mm a"
-                      />
-                    </div>
-                  </MuiPickersUtilsProvider>
+                  <Simple.Date
+                    name="start"
+                    label="Start"
+                    dateFormat="dd/MM/yyyy hh:mm a"
+                  />
+                  <Simple.Date
+                    name="end"
+                    label="End"
+                    dateFormat="dd/MM/yyyy hh:mm a"
+                  />
                 </Column>
               </Columns>
               <Simple.FormButtons />
