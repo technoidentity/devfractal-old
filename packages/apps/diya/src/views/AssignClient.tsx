@@ -11,6 +11,8 @@ import {
   Column,
   Columns,
   component,
+  CreateLink,
+  links,
   Section,
   Simple,
   SubmitAction,
@@ -27,6 +29,8 @@ import {
 import { HeadTitle } from '../components'
 import { getClient, getDriverList, getVehicleList } from '../pages'
 import { formatDateWithTimeStamp } from '../reacttable/utils'
+
+const clientLinks = links('clients')
 
 const schema = yup.object().shape({
   vehicleId: yup.string().required('this is a required field'),
@@ -67,6 +71,13 @@ export const AssignClientForm = component(
         <Columns columnCentered>
           <Column size="half">
             <HeadTitle>Assign</HeadTitle>
+            <CreateLink
+              alignment="right"
+              variant="primary"
+              to={clientLinks.list}
+            >
+              Back
+            </CreateLink>
             <Simple.Form
               initialValues={{ ...empty(AssignForm), clientId }}
               validationSchema={schema}

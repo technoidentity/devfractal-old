@@ -4,7 +4,9 @@ import React from 'react'
 import {
   Column,
   Columns,
+  CreateLink,
   formComponent,
+  links,
   required,
   Section,
   Simple,
@@ -14,6 +16,8 @@ import * as yup from 'yup'
 import { ClientData } from '../common'
 import { googleMapApiKey } from '../config'
 import { defaultMapSettings, MapSearch } from '../maps'
+
+const clientLinks = links('clients')
 
 const schema = yup.object().shape({
   contactNumber: yup
@@ -57,6 +61,9 @@ export const ClientForm = formComponent(
           <Title size="4" textColor="info">
             {edit ? 'Update' : 'Add'} Client
           </Title>
+          <CreateLink alignment="right" variant="primary" to={clientLinks.list}>
+            Back
+          </CreateLink>
         </Section>
         <Section>
           <Simple.Form
