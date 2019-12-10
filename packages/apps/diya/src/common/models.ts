@@ -548,12 +548,13 @@ export const GeoFence = obj(
 export type GeoFence = TypeOf<typeof GeoFence>
 
 export const Trip = obj(
-  { id: string },
+  { tripId: string },
   {
-    customerName: string,
-    address: string,
-    contactNumber: Int,
-    status: RouteStatus,
+    evId: string,
+    date: ISODate,
+    candidateName: string,
+    companyDispatcher: string,
+    startTime: string,
   },
 )
 
