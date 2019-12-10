@@ -10,6 +10,7 @@ import {
   Field,
   Image,
   InputField,
+  Text,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
 import diyaLogo from '../images/diyaLogo.png'
@@ -90,11 +91,14 @@ const InnerLoginForm: React.FC<FormikProps<LoginValues>> = () => (
                   borderRadius: '5px',
                   backgroundColor: '#2c7ec1',
                   color: '#ffffff',
-                  marginBottom: '30px',
+                  marginBottom: '15px',
                 }}
               >
                 Login
               </Button>
+              <Text style={{ color: '#4cb523', marginBottom: '30px' }}>
+                Forgot password?
+              </Text>
             </Field>
           </Form>
         </Column>
