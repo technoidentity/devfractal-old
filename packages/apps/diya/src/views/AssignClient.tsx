@@ -65,7 +65,7 @@ export const AssignClientForm = component(
       setClientData(clientData)
       setDriverList(driverList)
       setVehicleList(vehicleList)
-    }, [clientId])
+    }, [clientId, logout, setUser])
     return (
       <Section>
         <Columns columnCentered>

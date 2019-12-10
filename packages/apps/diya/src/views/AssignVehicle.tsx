@@ -65,7 +65,7 @@ export const AssignVehicleForm = component(
       setVehicleData(vehicleData)
       setDriverList(driverList)
       setClientList(clientList)
-    }, [vehicleId])
+    }, [vehicleId, logout, setUser])
     return (
       <>
         <CreateLink alignment="right" variant="primary" to={vehicleLinks.list}>

@@ -2,7 +2,7 @@ import { formComponent } from 'devfractal-crud'
 import { Simple } from 'devfractal-simple'
 import { Column, Columns, Section } from 'devfractal-ui-core'
 import React, { useState } from 'react'
-import { CreateLink, links, length } from 'technoidentity-devfractal'
+import { CreateLink, length, links } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { TabletData, VehicleResponse } from '../common'
 import { HeadTitle } from '../components'
@@ -18,7 +18,7 @@ export const TabletForm = formComponent(TabletData, ({ initial, onSubmit }) => {
   React.useMemo(async () => {
     const vehicleList = await getVehicleList({ setUser, logout })
     setVehicleList(vehicleList)
-  }, [])
+  }, [logout, setUser])
   return (
     <>
       <Section>
