@@ -2,6 +2,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FormikActions } from 'formik'
 import React from 'react'
 import {
+  Button,
   Column,
   Columns,
   CreateLink,
@@ -141,7 +142,10 @@ export const ClientForm = formComponent(
                   label="Email Address"
                   validations={[required()]}
                 />
+
+                <Button variant="primary">Upload Document</Button>
               </Column>
+
               <Column>
                 <MapSearch
                   mapOptions={{
