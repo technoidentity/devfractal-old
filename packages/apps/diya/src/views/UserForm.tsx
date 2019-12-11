@@ -43,7 +43,7 @@ const schema = yup.object().shape({
   }),
   emergencyContactNumber: yup
     .string()
-    .matches(/\d/, 'must be valid mobile number')
+    .matches(/^\d+$/, 'must be valid mobile number')
     .length(10, 'must be 10 digit mobile number')
     .required('this is a required field'),
 })
