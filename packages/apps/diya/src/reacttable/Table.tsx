@@ -1,3 +1,4 @@
+import { Column, Columns } from 'devfractal-ui-core'
 import React from 'react'
 import {
   TableInstance,
@@ -52,26 +53,34 @@ export function Table<D extends { readonly id: string }>({
   if (tableData.length > 0) {
     if (isPaginated(reactTableData)) {
       return (
-        <>
-          <Filters {...reactTableData} />
-          <ReactTable {...reactTableData} sorting={sorting} actions={actions} />
-          {pagination ? (
-            <Pagination
-              canPreviousPage={reactTableData.canPreviousPage}
-              canNextPage={reactTableData.canNextPage}
-              pageOptions={reactTableData.pageOptions}
-              pageCount={reactTableData.pageCount}
-              gotoPage={reactTableData.gotoPage}
-              nextPage={reactTableData.nextPage}
-              previousPage={reactTableData.previousPage}
-              setPageSize={reactTableData.setPageSize}
-              pageIndex={reactTableData.pageIndex}
-              pageSize={reactTableData.pageSize}
+        <Columns>
+          <Column>
+            <Filters {...reactTableData} />
+            <ReactTable
+              {...reactTableData}
+              sorting={sorting}
+              actions={actions}
             />
-          ) : (
-            <></>
-          )}
-        </>
+            {pagination ? (
+              <Column style={{ paddingLeft: '40px' }}>
+                <Pagination
+                  canPreviousPage={reactTableData.canPreviousPage}
+                  canNextPage={reactTableData.canNextPage}
+                  pageOptions={reactTableData.pageOptions}
+                  pageCount={reactTableData.pageCount}
+                  gotoPage={reactTableData.gotoPage}
+                  nextPage={reactTableData.nextPage}
+                  previousPage={reactTableData.previousPage}
+                  setPageSize={reactTableData.setPageSize}
+                  pageIndex={reactTableData.pageIndex}
+                  pageSize={reactTableData.pageSize}
+                />
+              </Column>
+            ) : (
+              <></>
+            )}
+          </Column>
+        </Columns>
       )
     } else {
       return <p>error</p>
