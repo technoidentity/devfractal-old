@@ -26,7 +26,7 @@ export const UserList = ({
     setState({ isOpen: !state.isOpen, id })
   }
   const handleUserList = async () => {
-    const resultData = await getUserList({setUser,logout})
+    const resultData = await getUserList({ setUser, logout })
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })
@@ -48,7 +48,9 @@ export const UserList = ({
       <DeleteConfirmation
         setState={setState}
         state={state}
-        deleteAsyncFun={(url,message)=>deleteList(url,message,{setUser,logout})}
+        deleteAsyncFun={(url, message) =>
+          deleteList(url, message, { setUser, logout })
+        }
         handleGetList={handleUserList}
         url={`users/${state.id}`}
         message="User Deleted"
@@ -66,7 +68,7 @@ export const UserList = ({
         ]}
         sorting={true}
         pagination={true}
-        headerNames={['name', 'role', 'address1', 'address2', 'phone', 'email']}
+        headerNames={['name', 'role', 'address1', 'phone', 'email']}
         filterOption={[{ columnName: 'userName', filterType: 'search' }]}
         actions={{
           editTo: id => userLinks.edit(id),
