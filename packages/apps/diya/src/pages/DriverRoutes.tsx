@@ -28,15 +28,18 @@ const ps = paths(driverAPI.resource)
 export async function getDriverList({
   setUser,
   logout,
+  setHeaderText,
 }: any): Promise<DriverListResponse['data']['rows']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'drivers' },
       DriverListResponse,
     )
+    setHeaderText('Drivers')
     return drivers.data.rows
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
+    setHeaderText(undefined)
     throw Error(error)
   }
 }
@@ -66,11 +69,11 @@ async function putDriver(
       data,
       DriverResponse,
     )
-    toastMessage('success','Driver Updated')
+    toastMessage('success', 'Driver Updated')
     return drivers.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
@@ -85,11 +88,11 @@ async function postDriver(
       data,
       DriverResponse,
     )
-    toastMessage('success','Driver Added')
+    toastMessage('success', 'Driver Added')
     return user.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
@@ -104,19 +107,19 @@ export async function postAssignForm(
       data,
       AssignFormResponse,
     )
-    toastMessage('success','assigned')
+    toastMessage('success', 'assigned')
     return assign.data
   } catch (error) {
     console.log(error.response)
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
 
-const DriverListRoute = ({ setUser, logout }: any) => (
+const DriverListRoute = ({ setUser, logout, setHeaderText }: any) => (
   <Get
-    asyncFn={() => getDriverList({ setUser, logout })}
+    asyncFn={() => getDriverList({ setUser, logout, setHeaderText })}
     component={DriverList1}
   />
 )
@@ -153,24 +156,30 @@ const DriverAssignRoute = ({ setUser, logout }: any) => {
 }
 
 export const DriverRoutes = () => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   return (
     <>
       <Route
         path={ps.create}
-        render={() => <DriverAdd setUser={setUser} logout={logout}  />}
+        render={() => <DriverAdd setUser={setUser} logout={logout} />}
       />
       <Route
         path={ps.list}
-        render={() => <DriverListRoute setUser={setUser} logout={logout}  />}
+        render={() => (
+          <DriverListRoute
+            setUser={setUser}
+            logout={logout}
+            setHeaderText={setHeaderText}
+          />
+        )}
       />
       <Route
         path={ps.edit}
-        render={() => <DriverEdit setUser={setUser} logout={logout}  />}
+        render={() => <DriverEdit setUser={setUser} logout={logout} />}
       />
       <Route
         path="/drivers/assignDriver/:id"
-        render={() => <DriverAssignRoute setUser={setUser} logout={logout}  />}
+        render={() => <DriverAssignRoute setUser={setUser} logout={logout} />}
       />
     </>
   )
