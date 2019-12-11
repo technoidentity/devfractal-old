@@ -70,7 +70,7 @@ export const GeoFenceForm = formComponent(
                 </Simple.Select>
                 <Simple.TextArea name="comments" />
 
-                <Simple.FormButtons />
+                <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
               </Simple.Form>
             </Column>
           </Columns>
