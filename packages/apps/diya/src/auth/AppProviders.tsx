@@ -33,7 +33,7 @@ async function login(
       case 401:
         // {
         //   if (noOfLoginAttempts >= 4) {
-            actions.setErrors({ password: 'Username or Password is invalid' })
+        actions.setErrors({ password: 'Username or Password is invalid' })
         //     toastMessage(
         //       'fail',
         //       'Your account has been locked. Please check your registered email account to reset your password',
@@ -62,6 +62,7 @@ async function logOut(): Promise<void> {
 export const AppProviders: React.FC = ({ children }) => {
   const [user, setUser] = React.useState()
   const [noOfLoginAttempts, setCount] = React.useState(0)
+  const [headerText, setHeaderText] = React.useState()
 
   return (
     <AuthProvider
@@ -71,6 +72,8 @@ export const AppProviders: React.FC = ({ children }) => {
       logout={logOut}
       noOfLoginAttempts={noOfLoginAttempts}
       setCount={setCount}
+      headerText={headerText}
+      setHeaderText={setHeaderText}
     >
       {children}
     </AuthProvider>
