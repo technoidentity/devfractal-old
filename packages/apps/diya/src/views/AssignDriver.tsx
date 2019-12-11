@@ -20,7 +20,7 @@ import {
   DriverResponse,
   VehicleResponse,
 } from '../common'
-import { HeadTitle } from '../components'
+// import { HeadTitle } from '../components'
 import { getClientList, getDriver, getVehicleList } from '../pages'
 
 const driverLinks = links('drivers')
@@ -43,7 +43,7 @@ const schema = yup.object().shape({
 export const AssignDriverForm = component(
   AssignDriverFormProps,
   ({ onSubmit }) => {
-    const { logout, setUser } = useAuth()
+    const { logout, setUser, setHeaderText } = useAuth()
     const { params }: any = useRouteMatch()
     const [driverData, setDriverData] = useState<DriverResponse['data']>()
     const [vehicleList, setVehicleList] = useState<
@@ -56,17 +56,22 @@ export const AssignDriverForm = component(
 
     React.useMemo(async () => {
       const driverData = await getDriver(driverId, { setUser, logout })
-      const vehicleList = await getVehicleList({ setUser, logout })
-      const clientList = await getClientList({ setUser, logout })
+      const vehicleList = await getVehicleList({
+        setUser,
+        logout,
+        setHeaderText,
+      })
+      const clientList = await getClientList({ setUser, logout, setHeaderText })
       setDriverData(driverData)
       setVehicleList(vehicleList)
       setClientList(clientList)
+      setHeaderText('Assign')
     }, [driverId, logout, setUser])
     return (
       <Section>
         <Columns columnCentered>
           <Column size="half">
-            <HeadTitle>Assign</HeadTitle>
+            {/* <HeadTitle>Assign</HeadTitle> */}
             <CreateLink
               alignment="right"
               variant="primary"

@@ -16,8 +16,9 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
+// import { HeadTitle } from '../components'
+import { useAuth } from '../auth/AuthContext'
 import { VehicleAdd } from '../common'
-import { HeadTitle } from '../components'
 
 const vehicleLinks = links('vehicles')
 
@@ -49,14 +50,20 @@ const schema = yup.object().shape({
 export const VehicleForm = formComponent(
   VehicleAdd,
   ({ onSubmit, initial, edit }) => {
+    const { setHeaderText } = useAuth()
+    if (edit) {
+      setHeaderText('Update Vehicle')
+    } else {
+      setHeaderText('Create Vehicle')
+    }
     return (
       <>
         <CreateLink alignment="right" variant="primary" to={vehicleLinks.list}>
           Back
         </CreateLink>
-        <Section>
+        {/* <Section>
           <HeadTitle>{edit ? 'Edit' : 'Add'} Vehicle</HeadTitle>
-        </Section>
+        </Section> */}
         <Section>
           <Title textAlignment="left" size="5" textColor="info">
             Vehicle Details

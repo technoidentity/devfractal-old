@@ -20,7 +20,7 @@ import {
   DriverListResponse,
   VehicleResponse,
 } from '../common'
-import { HeadTitle } from '../components'
+// import { HeadTitle } from '../components'
 import { getClient, getDriverList, getVehicleList } from '../pages'
 
 const clientLinks = links('clients')
@@ -43,7 +43,7 @@ const AssignClientFormProps = req({
 export const AssignClientForm = component(
   AssignClientFormProps,
   ({ onSubmit }) => {
-    const { logout, setUser } = useAuth()
+    const { logout, setUser, setHeaderText } = useAuth()
     const { params }: any = useRouteMatch()
     const [clientData, setClientData] = useState<ClientResponse['data']>()
     const [driverList, setDriverList] = useState<
@@ -56,17 +56,22 @@ export const AssignClientForm = component(
 
     React.useMemo(async () => {
       const clientData = await getClient(clientId, { setUser, logout })
-      const driverList = await getDriverList({ setUser, logout })
-      const vehicleList = await getVehicleList({ setUser, logout })
+      const driverList = await getDriverList({ setUser, logout, setHeaderText })
+      const vehicleList = await getVehicleList({
+        setUser,
+        logout,
+        setHeaderText,
+      })
       setClientData(clientData)
       setDriverList(driverList)
       setVehicleList(vehicleList)
+      setHeaderText('Assign')
     }, [clientId, logout, setUser])
     return (
       <Section>
         <Columns columnCentered>
           <Column size="half">
-            <HeadTitle>Assign</HeadTitle>
+            {/* <HeadTitle>Assign</HeadTitle> */}
             <CreateLink
               alignment="right"
               variant="primary"

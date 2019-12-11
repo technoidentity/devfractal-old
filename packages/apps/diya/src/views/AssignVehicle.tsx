@@ -42,7 +42,7 @@ const schema = yup.object().shape({
 export const AssignVehicleForm = component(
   AssignVehicleFormProps,
   ({ onSubmit }) => {
-    const { logout, setUser } = useAuth()
+    const { logout, setUser, setHeaderText } = useAuth()
     const { params }: any = useRouteMatch()
     const [vehicleData, setVehicleData] = useState<VehicleEdit['data']>()
     const [driverList, setDriverList] = useState<
@@ -55,11 +55,12 @@ export const AssignVehicleForm = component(
 
     React.useMemo(async () => {
       const vehicleData = await getVehicle(vehicleId, { setUser, logout })
-      const driverList = await getDriverList({ setUser, logout })
-      const clientList = await getClientList({ setUser, logout })
+      const driverList = await getDriverList({ setUser, logout, setHeaderText })
+      const clientList = await getClientList({ setUser, logout, setHeaderText })
       setVehicleData(vehicleData)
       setDriverList(driverList)
       setClientList(clientList)
+      setHeaderText('Assign')
     }, [vehicleId, logout, setUser])
     return (
       <>

@@ -16,8 +16,9 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
+import { useAuth } from '../auth/AuthContext'
 import { DriverData } from '../common'
-import { HeadTitle } from '../components'
+// import { HeadTitle } from '../components'
 const driverLinks = links('drivers')
 
 const schema = yup.object().shape({
@@ -52,124 +53,132 @@ const schema = yup.object().shape({
 
 export const DriverForm = formComponent(
   DriverData,
-  ({ initial, edit, onSubmit }) => (
-    <>
-      <Section>
-        <HeadTitle>{edit ? 'Edit' : 'Create'} Driver</HeadTitle>
-      </Section>
-      <CreateLink alignment="right" variant="primary" to={driverLinks.list}>
-        Back
-      </CreateLink>
-      <Section>
-        <Simple.Form
-          initialValues={{ ...initial, role: 'driver' }}
-          onSubmit={onSubmit}
-          validationSchema={schema}
-        >
-          <Columns>
-            <Column>
-              <Title size="5" textColor="info">
-                Personal Details
-              </Title>
-              <Simple.Text name="name" />
-              <Simple.Text name="phone" />
-              <Simple.Text
-                name="license"
-                label="Licence No."
-                validations={[required()]}
-              />
-              <Simple.Text name="email" validations={[required()]} />
-              <Simple.Text name="aadhaar" validations={[required()]} />
-              <Simple.Select name="shift" fullWidth>
-                <option value="">Select Shift</option>
-                <option value="morning">Morning</option>
-                <option value="evening">Evening</option>
-              </Simple.Select>
-              <Simple.Text name="address1" validations={[required()]} />
-              <Simple.Text name="address2" label="Address2(Optional)" />
-            </Column>
+  ({ initial, edit, onSubmit }) => {
+    const { setHeaderText } = useAuth()
+    if (edit) {
+      setHeaderText('Update Driver')
+    } else {
+      setHeaderText('Create Driver')
+    }
+    return (
+      <>
+        <Section>
+          {/* <HeadTitle>{edit ? 'Edit' : 'Create'} Driver</HeadTitle> */}
+        </Section>
+        <CreateLink alignment="right" variant="primary" to={driverLinks.list}>
+          Back
+        </CreateLink>
+        <Section>
+          <Simple.Form
+            initialValues={{ ...initial, role: 'driver' }}
+            onSubmit={onSubmit}
+            validationSchema={schema}
+          >
+            <Columns>
+              <Column>
+                <Title size="5" textColor="info">
+                  Personal Details
+                </Title>
+                <Simple.Text name="name" />
+                <Simple.Text name="phone" />
+                <Simple.Text
+                  name="license"
+                  label="Licence No."
+                  validations={[required()]}
+                />
+                <Simple.Text name="email" validations={[required()]} />
+                <Simple.Text name="aadhaar" validations={[required()]} />
+                <Simple.Select name="shift" fullWidth>
+                  <option value="">Select Shift</option>
+                  <option value="morning">Morning</option>
+                  <option value="evening">Evening</option>
+                </Simple.Select>
+                <Simple.Text name="address1" validations={[required()]} />
+                <Simple.Text name="address2" label="Address2(Optional)" />
+              </Column>
 
-            <Column>
-              <Title size="5" textColor="info">
-                Bank Details
-              </Title>
-              <Simple.Text
-                name="bankDetails.accountName"
-                label="Account Name"
-                validations={[required()]}
-              />
-              <Simple.Text
-                name="bankDetails.accountNumber"
-                label="Account Number"
-              />
+              <Column>
+                <Title size="5" textColor="info">
+                  Bank Details
+                </Title>
+                <Simple.Text
+                  name="bankDetails.accountName"
+                  label="Account Name"
+                  validations={[required()]}
+                />
+                <Simple.Text
+                  name="bankDetails.accountNumber"
+                  label="Account Number"
+                />
 
-              {/* <Simple.Text
+                {/* <Simple.Text
               name="confirmAccountNumber"
               validations={[required()]}
             /> */}
-              <Simple.Text
-                name="bankDetails.name"
-                label="Bank Name"
-                validations={[required()]}
-              />
-              <Simple.Text
-                name="bankDetails.branch"
-                label="Bank Branch"
-                validations={[required()]}
-              />
-              <Simple.Text
-                name="bankDetails.ifscNumber"
-                label="Branch IFSC Number"
-                validations={[required()]}
-              />
-              {/* <Simple.RadioGroup name="verified" defaultValue="pending">
+                <Simple.Text
+                  name="bankDetails.name"
+                  label="Bank Name"
+                  validations={[required()]}
+                />
+                <Simple.Text
+                  name="bankDetails.branch"
+                  label="Bank Branch"
+                  validations={[required()]}
+                />
+                <Simple.Text
+                  name="bankDetails.ifscNumber"
+                  label="Branch IFSC Number"
+                  validations={[required()]}
+                />
+                {/* <Simple.RadioGroup name="verified" defaultValue="pending">
               <Radio value={true}> yes</Radio>
               <Radio value="pending"> In process</Radio>
             </Simple.RadioGroup> */}
-              <Simple.Checkbox name="verified" />
-            </Column>
+                <Simple.Checkbox name="verified" />
+              </Column>
 
-            <Column>
-              <Title size="6" textColor="info">
-                Profile Photo
-              </Title>
+              <Column>
+                <Title size="6" textColor="info">
+                  Profile Photo
+                </Title>
 
-              <Box>
-                <Media>
-                  <MediaContent>
-                    <Image
-                      size="128x128"
-                      src="https://bulma.io/images/placeholders/128x128.png"
-                    />
-                  </MediaContent>
-                </Media>
-              </Box>
+                <Box>
+                  <Media>
+                    <MediaContent>
+                      <Image
+                        size="128x128"
+                        src="https://bulma.io/images/placeholders/128x128.png"
+                      />
+                    </MediaContent>
+                  </Media>
+                </Box>
 
-              <Button variant="dark">Upload Photo</Button>
-              <div style={{ paddingTop: '10px' }}>
-                <Simple.Text
-                  name="emergencyContactPerson"
-                  validations={[required()]}
-                />
-                <Simple.Text name="emergencyContactNumber" />
-                <Simple.Select name="relation" fullWidth>
-                  <option value="">Select Relation</option>
-                  <option value="father">Father</option>
-                  <option value="mother">Mother</option>
-                  <option value="brother">Brother</option>
-                  <option value="sister">Sister</option>
-                  <option value="wife">Wife</option>
-                  <option value="husband">Husband</option>
-                  <option value="others">Others</option>
-                </Simple.Select>
-              </div>
-            </Column>
-          </Columns>
-          <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
-        </Simple.Form>
-      </Section>
-    </>
-  ),
+                <Button variant="dark">Upload Photo</Button>
+                <div style={{ paddingTop: '10px' }}>
+                  <Simple.Text
+                    name="emergencyContactPerson"
+                    validations={[required()]}
+                  />
+                  <Simple.Text name="emergencyContactNumber" />
+                  <Simple.Select name="relation" fullWidth>
+                    <option value="">Select Relation</option>
+                    <option value="father">Father</option>
+                    <option value="mother">Mother</option>
+                    <option value="brother">Brother</option>
+                    <option value="sister">Sister</option>
+                    <option value="wife">Wife</option>
+                    <option value="husband">Husband</option>
+                    <option value="others">Others</option>
+                  </Simple.Select>
+                </div>
+              </Column>
+            </Columns>
+            <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
+          </Simple.Form>
+        </Section>
+      </>
+    )
+  },
 )
 
 // export const DriverForm = formComponent(
