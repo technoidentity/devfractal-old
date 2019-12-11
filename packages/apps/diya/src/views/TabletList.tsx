@@ -8,7 +8,7 @@ import {
 } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { TabletData1, TabletListResponse } from '../common'
-import { HeadTitle } from '../components'
+// import { HeadTitle } from '../components'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList } from '../pages'
 import { getTabletList } from '../pages/TabletFormRoute'
@@ -83,7 +83,7 @@ export const TabletList = ({
           url={`tablets/${state.id}`}
           message="Tablet Deleted"
         />
-        <HeadTitle>Tablets</HeadTitle>
+        {/* <HeadTitle>Tablets</HeadTitle> */}
         <Columns>
           <Column>
             <CreateLink

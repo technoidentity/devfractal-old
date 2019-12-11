@@ -1,6 +1,6 @@
 import { date } from 'io-ts-types/lib/date'
 import React, { useState } from 'react'
-import { CreateLink, links, Section, Title } from 'technoidentity-devfractal'
+import { CreateLink, links, Section } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { BatteryData1, BatteryResponse } from '../common'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
@@ -82,9 +82,9 @@ export const BatteryList = ({
         url={`batteries/${state.id}`}
         message="Battery Deleted"
       />
-      <Title size="4" textColor="info">
+      {/* <Title size="4" textColor="info">
         Batteries
-      </Title>
+      </Title> */}
       <CreateLink alignment="right" variant="primary" to={batteryLinks.create}>
         Add Battery
       </CreateLink>

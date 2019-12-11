@@ -17,11 +17,11 @@ import {
   VictoryLine,
   VictoryScatter,
 } from 'victory'
-import { HeadTitle } from '../../components'
+// import { HeadTitle } from '../../components'
 export const PerformanceReport = () => {
   return (
     <>
-      <HeadTitle>Battery Reports > Performance</HeadTitle>
+      {/* <HeadTitle>Battery Reports > Performance</HeadTitle> */}
       <Section>
         <Card>
           <Box>

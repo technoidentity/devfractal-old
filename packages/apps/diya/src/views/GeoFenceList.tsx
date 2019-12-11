@@ -5,6 +5,7 @@ import {
   listComponent,
   Section,
 } from 'technoidentity-devfractal'
+import { useAuth } from '../auth/AuthContext'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 import { Table } from '../reacttable/Table'
@@ -14,6 +15,9 @@ const geoFenceLinks = links('geo_fences')
 export const GeoFenceList = listComponent(
   GeoFence,
   ({ data: geoFenceList }) => {
+    const { setHeaderText } = useAuth()
+    // tslint:disable-next-line:no-null-keyword
+    setHeaderText(null)
     const tableData = geoFenceList.map(data => ({
       ...data,
       actions: 'actions',
