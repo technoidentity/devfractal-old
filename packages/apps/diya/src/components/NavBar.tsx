@@ -8,20 +8,26 @@ import {
   NavbarEnd,
   NavbarItem,
   NavbarLink,
+  NavbarStart,
   useHistory,
 } from 'technoidentity-devfractal'
 import { capitalizeAll } from 'technoidentity-utils'
 import { useAuth } from '../auth/AuthContext'
 import { AuthUserInfo, isAuthenticated } from '../common'
 
-export const NavBar = () => {
+export const NavBar = ({ headerText }: { readonly headerText: string }) => {
   const { logout, setUser } = useAuth()
   const { push } = useHistory()
   const user: AuthUserInfo = isAuthenticated()
   return user ? (
     <Columns>
       <Column>
-        <Navbar shadowLess>
+        <Navbar shadowLess style={{ backgroundColor: '#c8e1ed' }}>
+          <NavbarStart>
+            <NavbarItem style={{ color: '#2d7ec1' }} textSize="5">
+              {headerText}
+            </NavbarItem>
+          </NavbarStart>
           <NavbarEnd>
             <NavbarItem dropDown modifier="hoverable">
               <NavbarLink>{capitalizeAll(user.data.user.role, '_')}</NavbarLink>

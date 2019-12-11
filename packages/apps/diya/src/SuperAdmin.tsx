@@ -7,6 +7,7 @@ import {
   Router,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
+import { useAuth } from './auth/AuthContext'
 import { SideMenuView, Visibility } from './components'
 import { NavBar } from './components/NavBar'
 import { FilterDataEVs } from './maps/FilterMap'
@@ -29,7 +30,9 @@ import './stylesheets/styles.scss'
 import { AssignBatteryRoute } from './views/AssignBattery'
 
 export const SuperAdmin = () => {
+  const { headerText } = useAuth()
   const [visibility, setVisibility] = React.useState<Visibility>('full')
+
   const handleClick = () => {
     setVisibility(visibility === 'full' ? 'minimal' : 'full')
   }
@@ -40,7 +43,7 @@ export const SuperAdmin = () => {
         <SideMenuView visibility={visibility} onClick={handleClick} />
 
         <Column>
-          <NavBar />
+          <NavBar headerText={headerText} />
           <SimpleRedirect from="/" to="/home" />
           <Route path="/home" render={() => <FilterDataEVs />} />
           <DriverRoutes />
