@@ -578,7 +578,7 @@ export const TripListResponse = req({
 })
 export type TripListResponse = TypeOf<typeof TripListResponse>
 
-export const DriverReportData = obj(
+export const DriverDataReport = obj(
   {
     id: string,
   },
@@ -590,7 +590,7 @@ export const DriverReportData = obj(
   },
 )
 
-export type DriverReportData = TypeOf<typeof DriverReportData>
+export type DriverDataReport = TypeOf<typeof DriverDataReport>
 
 export const DriverTripReportData = obj(
   {
