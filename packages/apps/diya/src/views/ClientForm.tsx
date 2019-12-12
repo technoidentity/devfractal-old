@@ -8,6 +8,7 @@ import {
   CreateLink,
   formComponent,
   links,
+  matches,
   required,
   Section,
   Simple,
@@ -97,7 +98,10 @@ export const ClientForm = formComponent(
                 <Simple.Text
                   name="name"
                   label="Client Name"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
 
                 <Simple.Select
@@ -130,7 +134,10 @@ export const ClientForm = formComponent(
               <Column>
                 <Simple.Text
                   name="contactName"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                   noControl
                 />
                 <Simple.Telephone

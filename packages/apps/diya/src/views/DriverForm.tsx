@@ -8,6 +8,7 @@ import {
   formComponent,
   Image,
   links,
+  matches,
   Media,
   MediaContent,
   required,
@@ -71,7 +72,12 @@ export const DriverForm = formComponent(
               <Title size="5" textColor="info">
                 Personal Details
               </Title>
-              <Simple.Text name="name" />
+              <Simple.Text
+                name="name"
+                validations={[
+                  matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                ]}
+              />
               <Simple.Text name="phone" />
               <Simple.Text
                 name="license"
@@ -96,7 +102,10 @@ export const DriverForm = formComponent(
               <Simple.Text
                 name="bankDetails.accountName"
                 label="Account Name"
-                validations={[required()]}
+                validations={[
+                  matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                  required(),
+                ]}
               />
               <Simple.Text
                 name="bankDetails.accountNumber"
@@ -110,17 +119,25 @@ export const DriverForm = formComponent(
               <Simple.Text
                 name="bankDetails.name"
                 label="Bank Name"
-                validations={[required()]}
+                validations={[
+                  matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                  required(),
+                ]}
               />
               <Simple.Text
                 name="bankDetails.branch"
                 label="Bank Branch"
-                validations={[required()]}
+                validations={[
+                  matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                  required(),
+                ]}
               />
               <Simple.Text
                 name="bankDetails.ifscNumber"
                 label="Branch IFSC Number"
-                validations={[required()]}
+                validations={[
+                  matches(/^[A-Za-z]{4}[0][\d]{6}$/, 'must be valid ifsc'),
+                ]}
               />
               {/* <Simple.RadioGroup name="verified" defaultValue="pending">
               <Radio value={true}> yes</Radio>
@@ -149,7 +166,10 @@ export const DriverForm = formComponent(
               <div style={{ paddingTop: '10px' }}>
                 <Simple.Text
                   name="emergencyContactPerson"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
                 <Simple.Text name="emergencyContactNumber" />
                 <Simple.Select name="relation" fullWidth>
