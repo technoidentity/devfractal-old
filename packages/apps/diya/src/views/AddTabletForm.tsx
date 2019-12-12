@@ -12,7 +12,7 @@ const tabletLinks = links('tablets')
 
 export const TabletForm = formComponent(
   TabletData,
-  ({ initial, edit, onSubmit }) => {
+  ({ initial, onSubmit, edit }) => {
     const { logout, setUser } = useAuth()
     const [vehicleList, setVehicleList] = useState<
       VehicleResponse['data']['rows']
@@ -24,7 +24,7 @@ export const TabletForm = formComponent(
     return (
       <>
         <Section>
-          <HeadTitle>Add Tablet</HeadTitle>
+          <HeadTitle>Edit Tablet</HeadTitle>
         </Section>
         <CreateLink alignment="right" variant="primary" to={tabletLinks.list}>
           Back
