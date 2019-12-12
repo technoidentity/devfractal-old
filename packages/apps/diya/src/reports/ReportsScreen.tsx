@@ -18,15 +18,20 @@ import {
   Text,
 } from 'devfractal-ui-core'
 import React from 'react'
-import { HeadTitle } from '../components'
+import { useAuth } from '../auth/AuthContext'
+// import { HeadTitle } from '../components'
 export const ReportsScreen = ({
   handleBatteryPerformance,
   handleTotalAnalysisReports,
+  handleInvoicesReports,
+  handleEvsAssignedReports,
 }: any) => {
+  const { setHeaderText } = useAuth()
+  setHeaderText('Reports')
   return (
     <>
       <Section>
-        <HeadTitle>Reports</HeadTitle>
+        {/* <HeadTitle>Reports</HeadTitle> */}
         <Card>
           <CardHeader>
             <CardHeaderTitle alignment="centered">
@@ -68,12 +73,20 @@ export const ReportsScreen = ({
                     Client Reports
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text
+                    color="info"
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleInvoicesReports}
+                  >
                     <Icon color="black" icon={faChevronRight} />
                     Invoice Month, Year
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text
+                    color="info"
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleEvsAssignedReports}
+                  >
                     <Icon color="black" icon={faChevronRight} />
                     Vehicals Assigned
                   </Text>

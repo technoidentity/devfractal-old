@@ -1,7 +1,7 @@
 import React from 'react'
 import { CreateLink, links, Section } from 'technoidentity-devfractal'
 import { Client, ClientListResponse } from '../common'
-import { HeadTitle } from '../components'
+// import { HeadTitle } from '../components'
 import { Table } from '../reacttable/Table'
 
 const clientLinks = links('clients')
@@ -17,7 +17,7 @@ export const ClientList = ({
   }))
   return (
     <Section>
-      <HeadTitle>Clients</HeadTitle>
+      {/* <HeadTitle>Clients</HeadTitle> */}
 
       <CreateLink alignment="right" variant="primary" to={clientLinks.create}>
         Add Client
@@ -39,7 +39,7 @@ export const ClientList = ({
         }}
         headerLabels={{
           name: 'Client Name',
-          billingType:'Billing Type',
+          billingType: 'Billing Type',
           numberOfEvsOrDrivers: 'No. of EVS',
         }}
       />

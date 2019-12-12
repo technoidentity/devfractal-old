@@ -27,15 +27,18 @@ const ps = paths(clientAPI.resource)
 export async function getClientList({
   setUser,
   logout,
+  setHeaderText,
 }: any): Promise<ClientListResponse['data']['rows']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'clients' },
       ClientListResponse,
     )
+    setHeaderText('Clients')
     return drivers.data.rows
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
+    setHeaderText(undefined)
     throw Error(error)
   }
 }
@@ -65,11 +68,11 @@ async function putClient(
       data,
       ClientResponse,
     )
-    toastMessage('success','Client Updated')
+    toastMessage('success', 'Client Updated')
     return drivers.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
@@ -84,18 +87,18 @@ async function postClient(
       data,
       ClientResponse,
     )
-    toastMessage('success','Client Added')
+    toastMessage('success', 'Client Added')
     return user.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
 
-const ClientListRoute = ({ setUser, logout }: any) => (
+const ClientListRoute = ({ setUser, logout, setHeaderText }: any) => (
   <Get
-    asyncFn={() => getClientList({ setUser, logout })}
+    asyncFn={() => getClientList({ setUser, logout, setHeaderText })}
     component={ClientList}
   />
 )
@@ -132,24 +135,30 @@ const ClientAssignRoute = ({ setUser, logout }: any) => {
 }
 
 export const ClientRoutes = () => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   return (
     <>
       <Route
         path={ps.create}
-        render={() => <ClientAdd setUser={setUser} logout={logout}  />}
+        render={() => <ClientAdd setUser={setUser} logout={logout} />}
       />
       <Route
         path={ps.list}
-        render={() => <ClientListRoute setUser={setUser} logout={logout}  />}
+        render={() => (
+          <ClientListRoute
+            setUser={setUser}
+            logout={logout}
+            setHeaderText={setHeaderText}
+          />
+        )}
       />
       <Route
         path={ps.edit}
-        render={() => <ClientEdit setUser={setUser} logout={logout}  />}
+        render={() => <ClientEdit setUser={setUser} logout={logout} />}
       />
       <Route
         path="/clients/assignClient/:id"
-        render={() => <ClientAssignRoute setUser={setUser} logout={logout}  />}
+        render={() => <ClientAssignRoute setUser={setUser} logout={logout} />}
       />
     </>
   )

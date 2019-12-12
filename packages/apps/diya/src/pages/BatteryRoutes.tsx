@@ -27,15 +27,18 @@ const ps = paths(batteryAPI.resource)
 export async function getBatteryList({
   setUser,
   logout,
+  setHeaderText,
 }: any): Promise<BatteryResponse['data']['rows']> {
   try {
     const batteries = await cargosUrl().get(
       { resource: 'batteries' },
       BatteryResponse,
     )
+    setHeaderText('Batteries')
     return batteries.data.rows
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
+    setHeaderText(undefined)
     throw Error(error)
   }
 }
@@ -62,11 +65,11 @@ async function putBattery(
 ): Promise<BE['data']> {
   try {
     const batteries = await cargosUrl().put({ resource: 'batteries' }, data, BE)
-    toastMessage('success','Battery Updated')
+    toastMessage('success', 'Battery Updated')
     return batteries.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
@@ -81,18 +84,18 @@ async function postBattery(
       data,
       BE,
     )
-    toastMessage('success','Battery Added')
+    toastMessage('success', 'Battery Added')
     return batteries.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
 
-const BatteryListRoute = ({ setUser, logout }: any) => (
+const BatteryListRoute = ({ setUser, logout, setHeaderText }: any) => (
   <Get
-    asyncFn={() => getBatteryList({ setUser, logout })}
+    asyncFn={() => getBatteryList({ setUser, logout, setHeaderText })}
     component={BatteryList}
   />
 )
@@ -118,7 +121,7 @@ const BatteryEdit = ({ setUser, logout }: any) => {
   )
 }
 export const BatteryRoutes = () => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   return (
     <>
       <Route
@@ -127,7 +130,13 @@ export const BatteryRoutes = () => {
       />
       <Route
         path="/batteries"
-        render={() => <BatteryListRoute setUser={setUser} logout={logout} />}
+        render={() => (
+          <BatteryListRoute
+            setUser={setUser}
+            logout={logout}
+            setHeaderText={setHeaderText}
+          />
+        )}
       />
       <Route
         path={ps.edit}

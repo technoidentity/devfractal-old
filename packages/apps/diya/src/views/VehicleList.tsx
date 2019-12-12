@@ -4,7 +4,7 @@ import { CreateLink, links, Section } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { VehicleData, VehicleResponse } from '../common'
 // import { Vehicle } from '../common'
-import { HeadTitle } from '../components'
+// import { HeadTitle } from '../components'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList, getVehicleList } from '../pages'
 import { Table } from '../reacttable/Table'
@@ -110,7 +110,7 @@ export const VehicleList1 = ({
         url={`vehicles/${state.id}`}
         message="Vehicle Deleted"
       />
-      <HeadTitle>Vehicles</HeadTitle>
+      {/* <HeadTitle>Vehicles</HeadTitle> */}
 
       <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
         Add Vehicle

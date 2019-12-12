@@ -10,9 +10,10 @@ import {
   required,
   Section,
   Simple,
-  Title,
+  // Title,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
+import { useAuth } from '../auth/AuthContext'
 import { ClientData } from '../common'
 import { googleMapApiKey } from '../config'
 import { defaultMapSettings, MapSearch } from '../maps'
@@ -38,6 +39,13 @@ const schema = yup.object().shape({
 export const ClientForm = formComponent(
   ClientData,
   ({ initial, edit, onSubmit }) => {
+    const { setHeaderText } = useAuth()
+    if (edit) {
+      setHeaderText('Update Client')
+    } else {
+      setHeaderText('Create Client')
+    }
+
     const initLocation =
       initial.latitude && initial.longitude
         ? { lat: initial.latitude, lng: initial.longitude }
@@ -58,9 +66,9 @@ export const ClientForm = formComponent(
     return (
       <>
         <Section>
-          <Title size="4" textColor="info">
+          {/* <Title size="4" textColor="info">
             {edit ? 'Update' : 'Add'} Client
-          </Title>
+          </Title> */}
           <CreateLink alignment="right" variant="primary" to={clientLinks.list}>
             Back
           </CreateLink>

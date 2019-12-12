@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CreateLink, links, Section } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { UserData, UserListResponse } from '../common'
-import { HeadTitle } from '../components'
+// import { HeadTitle } from '../components'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList, getUserList } from '../pages'
 import { Table } from '../reacttable/Table'
@@ -15,7 +15,7 @@ export const UserList = ({
 }: {
   readonly data: UserListResponse['data']['rows']
 }) => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   const [state, setState] = useState({ isOpen: false, id: '' })
   const [resultData, setResultData] = useState<
     UserListResponse['data']['rows']
@@ -26,7 +26,7 @@ export const UserList = ({
     setState({ isOpen: !state.isOpen, id })
   }
   const handleUserList = async () => {
-    const resultData = await getUserList({setUser,logout})
+    const resultData = await getUserList({ setUser, logout, setHeaderText })
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })
@@ -48,12 +48,14 @@ export const UserList = ({
       <DeleteConfirmation
         setState={setState}
         state={state}
-        deleteAsyncFun={(url,message)=>deleteList(url,message,{setUser,logout})}
+        deleteAsyncFun={(url, message) =>
+          deleteList(url, message, { setUser, logout })
+        }
         handleGetList={handleUserList}
         url={`users/${state.id}`}
         message="User Deleted"
       />
-      <HeadTitle>Users</HeadTitle>
+      {/* <HeadTitle>Users</HeadTitle> */}
       <CreateLink alignment="right" variant="primary" to={userLinks.create}>
         Add user
       </CreateLink>

@@ -20,15 +20,18 @@ const ps = paths(tabletAPI.resource)
 export async function getTabletList({
   setUser,
   logout,
+  setHeaderText,
 }: any): Promise<TabletListResponse['data']['rows']> {
   try {
     const drivers = await cargosUrl().get(
       { resource: 'tablets' },
       TabletListResponse,
     )
+    setHeaderText('Tablets')
     return drivers.data.rows
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
+    setHeaderText('undefined')
     throw Error(error)
   }
 }
@@ -59,11 +62,11 @@ async function putTablet(
       data,
       TabletResponse,
     )
-    toastMessage('success','Tablet Updated')
+    toastMessage('success', 'Tablet Updated')
     return tablets.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
@@ -78,18 +81,18 @@ async function postTablet(
       data,
       TabletResponse,
     )
-    toastMessage('success','Tablet Added')
+    toastMessage('success', 'Tablet Added')
     return tablet.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
 
-const TabletListRoute = ({ setUser, logout }: any) => (
+const TabletListRoute = ({ setUser, logout, setHeaderText }: any) => (
   <Get
-    asyncFn={() => getTabletList({ setUser, logout })}
+    asyncFn={() => getTabletList({ setUser, logout, setHeaderText })}
     component={TabletList}
   />
 )
@@ -116,7 +119,7 @@ const TabletEdit = ({ setUser, logout }: any) => {
 }
 
 export const TabletFormRoute = () => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   return (
     <>
       <Route
@@ -125,7 +128,13 @@ export const TabletFormRoute = () => {
       />
       <Route
         path={ps.list}
-        render={() => <TabletListRoute setUser={setUser} logout={logout} />}
+        render={() => (
+          <TabletListRoute
+            setUser={setUser}
+            logout={logout}
+            setHeaderText={setHeaderText}
+          />
+        )}
       />
       <Route
         path={ps.edit}

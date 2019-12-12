@@ -8,7 +8,9 @@ interface AuthContext<T, R> {
   readonly user: R | null
   readonly setUser: React.Dispatch<R | null>
   readonly setCount: React.Dispatch<number>
-  readonly noOfLoginAttempts: number 
+  readonly noOfLoginAttempts: number
+  readonly headerText: string
+  readonly setHeaderText: React.Dispatch<string | null>
   login(
     values: T,
     actions: FormikActions<LoginValues>,
@@ -34,10 +36,21 @@ export const AuthProvider: React.FC<
   setCount,
   noOfLoginAttempts,
   children,
+  headerText,
+  setHeaderText,
 }) => {
   return (
     <AuthContext.Provider
-      value={{ user, setUser, login, logout, setCount, noOfLoginAttempts }}
+      value={{
+        user,
+        setUser,
+        login,
+        logout,
+        setCount,
+        noOfLoginAttempts,
+        headerText,
+        setHeaderText,
+      }}
     >
       {children}
     </AuthContext.Provider>

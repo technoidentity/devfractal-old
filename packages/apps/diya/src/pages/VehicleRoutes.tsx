@@ -28,15 +28,18 @@ const ps = paths(vehicleAPI.resource)
 export async function getVehicleList({
   setUser,
   logout,
+  setHeaderText,
 }: any): Promise<VehicleResponse['data']['rows']> {
   try {
     const vehicles = await cargosUrl().get(
       { resource: 'vehicles' },
       VehicleResponse,
     )
+    setHeaderText('Vehicles')
     return vehicles.data.rows
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
+    setHeaderText(undefined)
     throw Error(error)
   }
 }
@@ -65,11 +68,11 @@ async function putVehicle(
 
   try {
     const vehicles = await cargosUrl().put({ resource: 'vehicles' }, rest, VE)
-    toastMessage('success','Vehicle Updated')
+    toastMessage('success', 'Vehicle Updated')
     return vehicles.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
@@ -80,11 +83,11 @@ async function postVehicle(
 ): Promise<VE['data']> {
   try {
     const vehicles = await cargosUrl().post({ resource: 'vehicles' }, data, VE)
-    toastMessage('success','Vehicle Added')
+    toastMessage('success', 'Vehicle Added')
     return vehicles.data
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
@@ -96,19 +99,19 @@ export const deleteList = async (
 ) => {
   try {
     await cargosUrl().del(url)
-    toastMessage('success',msg)
+    toastMessage('success', msg)
     return
   } catch (error) {
     sessionExpire({ error, setUser, logout, toastMessage })
-    toastMessage('fail',error.response.data.errors)
+    toastMessage('fail', error.response.data.errors)
     throw Error(error)
   }
 }
 
-const VehicleListRoute = ({ push, setUser, logout }: any) => {
+const VehicleListRoute = ({ push, setUser, logout, setHeaderText }: any) => {
   return (
     <Get
-      asyncFn={() => getVehicleList({ push, setUser, logout })}
+      asyncFn={() => getVehicleList({ push, setUser, logout, setHeaderText })}
       component={VehicleList1}
     />
   )
@@ -145,7 +148,7 @@ const VehicleAssignRoute = ({ setUser, logout }: any) => {
 }
 
 export const VehicleRoutes = () => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   return (
     <>
       <Route
@@ -154,7 +157,13 @@ export const VehicleRoutes = () => {
       />
       <Route
         path={ps.list}
-        render={() => <VehicleListRoute setUser={setUser} logout={logout} />}
+        render={() => (
+          <VehicleListRoute
+            setUser={setUser}
+            logout={logout}
+            setHeaderText={setHeaderText}
+          />
+        )}
       />
       <Route
         path={ps.edit}

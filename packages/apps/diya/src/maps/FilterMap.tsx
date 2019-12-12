@@ -16,6 +16,7 @@ import {
   Text,
 } from 'technoidentity-devfractal'
 import { readonlyArray } from 'technoidentity-utils'
+import { useAuth } from '../auth/AuthContext'
 import { VehicleLocation } from '../common'
 import { fakeBaseURL } from '../config'
 import { FilterData } from '../reacttable/FilterData'
@@ -25,6 +26,9 @@ const http = httpAPI({ baseURL: fakeBaseURL })
 
 export const FilterDataEVs = () => {
   const [evs, setEVs] = React.useState<VehicleLocation[]>([])
+  const { setHeaderText } = useAuth()
+  // tslint:disable-next-line:no-null-keyword
+  setHeaderText(null)
   React.useEffect(() => {
     const fetchData = async () => {
       const data = await http.get(
