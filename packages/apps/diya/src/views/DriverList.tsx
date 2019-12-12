@@ -10,15 +10,12 @@ import {
 import { date } from 'technoidentity-utils'
 import { useAuth } from '../auth/AuthContext'
 import { DriverData1, DriverListResponse } from '../common'
-// import { Driver } from '../common'
-// import { HeadTitle } from '../components'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList, getDriverList } from '../pages'
 import { Table } from '../reacttable/Table'
 import { formatDate } from '../reacttable/utils'
 const driverLinks = links('drivers')
 
-// export const DriverList = listComponent(Driver, ({ data: driverList }) => {
 export const DriverList1 = ({
   data,
 }: {
@@ -92,7 +89,6 @@ export const DriverList1 = ({
           url={`users/${state.id}`}
           message="Driver Deleted"
         />
-        {/* <HeadTitle>Drivers</HeadTitle> */}
         <Columns>
           <Column>
             <CreateLink

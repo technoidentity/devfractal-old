@@ -85,7 +85,6 @@ export const SideMenuView: React.FC<SideMenuViewProps> = ({
           alignItems: 'center',
         }}
       >
-        {/* <Burger onClick={onClick} /> */}
         <MenuBurger isMinimal={visibility === 'minimal'} onClick={onClick} />
 
         {visibility !== 'minimal' ? (

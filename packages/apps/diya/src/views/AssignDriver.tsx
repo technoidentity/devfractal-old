@@ -20,7 +20,6 @@ import {
   DriverResponse,
   VehicleResponse,
 } from '../common'
-// import { HeadTitle } from '../components'
 import { getClientList, getDriver, getVehicleList } from '../pages'
 
 const driverLinks = links('drivers')
@@ -71,7 +70,6 @@ export const AssignDriverForm = component(
       <Section>
         <Columns columnCentered>
           <Column size="half">
-            {/* <HeadTitle>Assign</HeadTitle> */}
             <CreateLink
               alignment="right"
               variant="primary"

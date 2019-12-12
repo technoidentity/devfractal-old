@@ -1,5 +1,4 @@
 import React from 'react'
-// import { HeadTitle } from '../../components'
 import { Table } from '../../reacttable/Table'
 
 export const InvoicesReport: React.FC = () => {
@@ -28,7 +27,6 @@ export const InvoicesReport: React.FC = () => {
   ]
   return (
     <>
-      {/* <HeadTitle> Client Reports > Invoices Report</HeadTitle> */}
       <Table
         tableData={data}
         sorting={true}

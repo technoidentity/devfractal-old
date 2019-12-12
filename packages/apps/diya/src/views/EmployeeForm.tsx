@@ -15,14 +15,6 @@ import {
 } from 'technoidentity-devfractal'
 import { Employee } from '../common'
 
-// const validationSchema = yup.object().shape({
-//   name: yup.string().required(),
-//   driverId: yup.string().required(),
-//   phone: yup.string().required(),
-//   driverLicence: yup.string().required(),
-//   adharNuzmber: yup.string().required(),
-// })
-
 export const EmployeeForm = formComponent(
   Employee,
   ({ initial, edit, onSubmit }) => (
@@ -39,11 +31,6 @@ export const EmployeeForm = formComponent(
                 Personal Details
               </Title>
               <Simple.Text name="name" validations={[required()]} />
-              {/* <Simple.Text
-                name="driverID"
-                label="Driver ID"
-                validations={[required()]}
-              /> */}
               <Simple.Telephone name="phone" validations={[required()]} />
               <Simple.Text name="adharNumber" validations={[required()]} />
 

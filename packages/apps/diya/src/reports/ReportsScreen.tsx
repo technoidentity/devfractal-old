@@ -19,7 +19,6 @@ import {
 } from 'devfractal-ui-core'
 import React from 'react'
 import { useAuth } from '../auth/AuthContext'
-// import { HeadTitle } from '../components'
 export const ReportsScreen = ({
   handleBatteryPerformance,
   handleTotalAnalysisReports,
@@ -34,7 +33,6 @@ export const ReportsScreen = ({
   return (
     <>
       <Section>
-        {/* <HeadTitle>Reports</HeadTitle> */}
         <Card>
           <CardHeader>
             <CardHeaderTitle alignment="centered">

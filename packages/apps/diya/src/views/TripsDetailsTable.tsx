@@ -2,7 +2,6 @@ import { CreateLink, links } from 'devfractal-crud'
 import { Column, Columns, Section } from 'devfractal-ui-core'
 import React from 'react'
 import { TripListResponse } from '../common'
-// import { HeadTitle } from '../components'
 import { Table } from '../reacttable/Table'
 
 const tripLinks = links('trips')
@@ -15,7 +14,6 @@ export const TripDetailsTable = ({
   const tableData = data.map(tripList => ({ ...tripList, actions: 'actions' }))
   return (
     <Section>
-      {/* <HeadTitle>View Trips</HeadTitle> */}
       <Columns>
         <Column>
           <CreateLink alignment="right" variant="primary" to={tripLinks.create}>

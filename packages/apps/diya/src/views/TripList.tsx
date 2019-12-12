@@ -1,7 +1,6 @@
 import React from 'react'
 import { links, listComponent, Section } from 'technoidentity-devfractal'
 import { Trip } from '../common'
-// import { HeadTitle } from '../components'
 import { Table } from '../reacttable/Table'
 
 const tripLinks = links('trips')
@@ -10,7 +9,6 @@ export const TripList = listComponent(Trip, ({ data: tripsList }) => {
   const tableData = tripsList.map(data => ({ ...data, actions: 'actions' }))
   return (
     <Section>
-      {/* <HeadTitle>View Trips</HeadTitle> */}
       <Table
         tableData={[
           // @TODO: Fix 'id' required/partial later

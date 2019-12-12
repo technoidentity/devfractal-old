@@ -5,7 +5,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Columns, Icon, Text } from 'devfractal-ui-core'
 import React from 'react'
-// import { HeadTitle } from '../../components'
 import { Table } from '../../reacttable/Table'
 
 export const AssignedEVsReport: React.FC = () => {
@@ -34,7 +33,6 @@ export const AssignedEVsReport: React.FC = () => {
   ]
   return (
     <>
-      {/* <HeadTitle> Client Reports > Assigned EVs Report</HeadTitle> */}
       <Columns style={{ paddingLeft: '40px', marginTop: '10px' }}>
         <Icon
           color="#2c7dc0"

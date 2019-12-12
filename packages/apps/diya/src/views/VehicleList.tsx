@@ -3,41 +3,13 @@ import React, { useState } from 'react'
 import { CreateLink, links, Section } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { VehicleData, VehicleResponse } from '../common'
-// import { Vehicle } from '../common'
-// import { HeadTitle } from '../components'
+
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList, getVehicleList } from '../pages'
 import { Table } from '../reacttable/Table'
 import { formatDate } from '../reacttable/utils'
 
 const vehicleLinks = links('vehicles')
-
-// export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
-//   return (
-//     <Section>
-//       <HeadTitle>Vehicles</HeadTitle>
-
-//       <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
-//         Add Vehicle
-//       </CreateLink>
-
-//       <DiyaTable
-//         data={vehicleList}
-//         // select={[
-//         //   'vehicleName',
-//         //   'numberPlate',
-//         //   'group',
-//         //   'nextService',
-//         //   'insuranceDue',
-//         //   'status',
-//         // ]}
-//         editTo={v => vehicleLinks.edit(v.id)}
-//         assignTo={v => `/assignVehicle/${v.id}`}
-//       />
-//       <RoutedPager />
-//     </Section>
-//   )
-// })
 
 export const VehicleList1 = ({
   data,
@@ -110,8 +82,6 @@ export const VehicleList1 = ({
         url={`vehicles/${state.id}`}
         message="Vehicle Deleted"
       />
-      {/* <HeadTitle>Vehicles</HeadTitle> */}
-
       <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
         Add Vehicle
       </CreateLink>

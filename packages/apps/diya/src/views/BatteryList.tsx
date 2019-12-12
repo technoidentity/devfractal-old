@@ -82,9 +82,7 @@ export const BatteryList = ({
         url={`batteries/${state.id}`}
         message="Battery Deleted"
       />
-      {/* <Title size="4" textColor="info">
-        Batteries
-      </Title> */}
+
       <CreateLink alignment="right" variant="primary" to={batteryLinks.create}>
         Add Battery
       </CreateLink>

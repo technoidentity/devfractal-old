@@ -19,7 +19,6 @@ import {
 import * as yup from 'yup'
 import { useAuth } from '../auth/AuthContext'
 import { DriverData } from '../common'
-// import { HeadTitle } from '../components'
 const driverLinks = links('drivers')
 
 const schema = yup.object().shape({
@@ -63,9 +62,6 @@ export const DriverForm = formComponent(
     }
     return (
       <>
-        <Section>
-          {/* <HeadTitle>{edit ? 'Edit' : 'Create'} Driver</HeadTitle> */}
-        </Section>
         <CreateLink alignment="right" variant="primary" to={driverLinks.list}>
           Back
         </CreateLink>
@@ -120,10 +116,6 @@ export const DriverForm = formComponent(
                   label="Account Number"
                 />
 
-                {/* <Simple.Text
-              name="confirmAccountNumber"
-              validations={[required()]}
-            /> */}
                 <Simple.Text
                   name="bankDetails.name"
                   label="Bank Name"

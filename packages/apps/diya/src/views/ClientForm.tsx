@@ -12,7 +12,6 @@ import {
   required,
   Section,
   Simple,
-  // Title,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
 import { useAuth } from '../auth/AuthContext'
@@ -68,9 +67,6 @@ export const ClientForm = formComponent(
     return (
       <>
         <Section>
-          {/* <Title size="4" textColor="info">
-            {edit ? 'Update' : 'Add'} Client
-          </Title> */}
           <CreateLink alignment="right" variant="primary" to={clientLinks.list}>
             Back
           </CreateLink>
