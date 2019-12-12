@@ -16,7 +16,6 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
-// import { HeadTitle } from '../components'
 import { useAuth } from '../auth/AuthContext'
 import { VehicleAdd } from '../common'
 
@@ -61,9 +60,6 @@ export const VehicleForm = formComponent(
         <CreateLink alignment="right" variant="primary" to={vehicleLinks.list}>
           Back
         </CreateLink>
-        {/* <Section>
-          <HeadTitle>{edit ? 'Edit' : 'Add'} Vehicle</HeadTitle>
-        </Section> */}
         <Section>
           <Title textAlignment="left" size="5" textColor="info">
             Vehicle Details
@@ -170,84 +166,3 @@ export const VehicleForm = formComponent(
     )
   },
 )
-
-// export const VehicleForm = formComponent(
-//   Vehicle,
-//   ({ onSubmit, initial, edit }) => (
-//     <>
-//       <Section>
-//         <HeadTitle>{edit ? 'Edit' : 'Add'} Vehicle</HeadTitle>
-//       </Section>
-//       <Section>
-//         <Title textAlignment="left" size="5" textColor="info">
-//           Vehicle Details
-//         </Title>
-
-//         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
-//           <Columns>
-//             <Column>
-//               <div>
-//                 <Simple.Text
-//                   name="makersClass"
-//                   label="Maker's Class"
-//                   validations={[required()]}
-//                 />
-
-//                 <Simple.Text name="vehicleClass" validations={[required()]} />
-
-//                 <Simple.Number
-//                   name="yearOfManufacturing"
-//                   validations={[required()]}
-//                 />
-//                 <Simple.Text name="color" validations={[required()]} />
-//               </div>
-//             </Column>
-
-//             <Column>
-//               <div>
-//                 <Simple.Text
-//                   name="regnNumber"
-//                   label="Regn. Number"
-//                   validations={[required()]}
-//                 />
-
-//                 <Simple.Number name="warranty" validations={[required()]} />
-
-//                 <Simple.Date
-//                   name="lastServicedDate"
-//                   validations={[required()]}
-//                 />
-
-//                 <Simple.Date
-//                   name="insuranceExpiryDate"
-//                   validations={[required()]}
-//                 />
-//               </div>
-//             </Column>
-
-//             <Column narrow>
-//               <Title size="6" textColor="info">
-//                 Vehicle Photo
-//               </Title>
-
-//               <Box>
-//                 <Media>
-//                   <MediaContent>
-//                     <Image
-//                       size="128x128"
-//                       src="https://bulma.io/images/placeholders/128x128.png"
-//                     />
-//                   </MediaContent>
-//                 </Media>
-//               </Box>
-
-//               <Button variant="dark">Upload Photo</Button>
-//             </Column>
-//           </Columns>
-
-//           <Simple.FormButtons />
-//         </Simple.Form>
-//       </Section>
-//     </>
-//   ),
-// )
