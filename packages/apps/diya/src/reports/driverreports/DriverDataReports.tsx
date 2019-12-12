@@ -1,13 +1,5 @@
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
-import {
-  Box,
-  Card,
-  CardContent,
-  Column,
-  Columns,
-  Input,
-  Section,
-} from 'devfractal-ui-core'
+import { Box, Column, Columns, Input } from 'devfractal-ui-core'
 import React from 'react'
 import { HeadTitle } from '../../components'
 import { Table } from '../../reacttable/Table'
@@ -40,47 +32,42 @@ export const fakeData = [
 export const DriverDataReport: React.FC = () => (
   <>
     <HeadTitle>
-      {' '}
-      <Section>Driver Reports > Data Report</Section>
+      <Box style={{ backgroundColor: '#87CEFA' }}>
+        Driver Reports > Data Report
+      </Box>
     </HeadTitle>
-    <Section>
-      <Card>
-        <Columns>
-          <Column>
-            <Box>
-              <Columns>
-                <Column>
-                  <Input rightIcon={faCalendar} placeholder="12/12/2019" />
-                </Column>
-                <Column>
-                  <Input rightIcon={faCalendar} placeholder="12/12/2019" />
-                </Column>
-              </Columns>
-            </Box>
-            <CardContent>
-              <Table
-                tableData={fakeData}
-                sorting={false}
-                pagination={true}
-                headerNames={[
-                  'driverName',
-                  'id',
-                  'clientName',
-                  'evId',
-                  'assignedDate',
-                ]}
-                headerLabels={{
-                  driverName: 'Driver Name',
-                  id: 'ID',
-                  clientName: 'Client Name',
-                  evId: 'EV ID',
-                  assignedDate: 'Assigned Date',
-                }}
-              />
-            </CardContent>
-          </Column>
-        </Columns>
-      </Card>
-    </Section>
+    <Columns>
+      <Column>
+        <Box>
+          <Columns>
+            <Column>
+              <Input rightIcon={faCalendar} placeholder="12/12/2019" />
+            </Column>
+            <Column>
+              <Input rightIcon={faCalendar} placeholder="12/12/2019" />
+            </Column>
+          </Columns>
+        </Box>
+        <Table
+          tableData={fakeData}
+          sorting={false}
+          pagination={true}
+          headerNames={[
+            'driverName',
+            'id',
+            'clientName',
+            'evId',
+            'assignedDate',
+          ]}
+          headerLabels={{
+            driverName: 'Driver Name',
+            id: 'ID',
+            clientName: 'Client Name',
+            evId: 'EV ID',
+            assignedDate: 'Assigned Date',
+          }}
+        />
+      </Column>
+    </Columns>
   </>
 )
