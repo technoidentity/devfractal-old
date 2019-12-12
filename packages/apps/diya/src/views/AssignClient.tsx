@@ -66,7 +66,7 @@ export const AssignClientForm = component(
       setDriverList(driverList)
       setVehicleList(vehicleList)
       setHeaderText('Assign')
-    }, [clientId, logout, setUser])
+    }, [clientId, logout, setUser, setHeaderText])
     return (
       <Section>
         <Columns columnCentered>

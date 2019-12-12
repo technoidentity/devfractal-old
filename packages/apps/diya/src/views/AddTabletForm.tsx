@@ -29,7 +29,7 @@ export const TabletForm = formComponent(
       } else {
         setHeaderText('Add Tablet')
       }
-    }, [logout, setUser])
+    }, [logout, setUser, edit, setHeaderText])
     return (
       <>
         {/* <Section>
