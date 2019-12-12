@@ -22,6 +22,9 @@ import { HeadTitle } from '../components'
 export const ReportsScreen = ({
   handleBatteryPerformance,
   handleTotalAnalysisReports,
+  handleDriverDataReport,
+  handleDriverTripReport,
+  handleDriverBehaviourReport,
 }: any) => {
   return (
     <>
@@ -114,18 +117,18 @@ export const ReportsScreen = ({
                     Driver Reports
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text color="info" onClick={handleDriverBehaviourReport}>
                     <Icon color="black" icon={faChevronRight} />
                     Driver Behaviour - Speed Changes,Route Tracking, GEO
                     Fencing,Attendance Log
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text color="info" onClick={handleDriverDataReport}>
                     <Icon color="black" icon={faChevronRight} />
                     Driver Data Details
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text color="info" onClick={handleDriverTripReport}>
                     <Icon color="black" icon={faChevronRight} />
                     Driver trip Reports
                   </Text>
