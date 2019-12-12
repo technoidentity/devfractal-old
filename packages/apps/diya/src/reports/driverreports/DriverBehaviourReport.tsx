@@ -1,7 +1,6 @@
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import { Box, Columns, Icon, Select, Text } from 'devfractal-ui-core'
+import { Columns, Icon, Select, Text } from 'devfractal-ui-core'
 import React from 'react'
-import { HeadTitle } from '../../components'
 import { Table } from '../../reacttable/Table'
 
 export const DriverBehaviourReport = () => {
@@ -27,9 +26,6 @@ export const DriverBehaviourReport = () => {
   ]
   return (
     <>
-      <Box style={{ backgroundColor: '#87CEFA' }}>
-        <HeadTitle> Driver Reports > Behaviour Report</HeadTitle>
-      </Box>
       <Columns style={{ paddingLeft: '40px', marginTop: '10px' }}>
         <Icon
           color="#2c7dc0"

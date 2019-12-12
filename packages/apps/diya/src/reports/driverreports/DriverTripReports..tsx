@@ -3,9 +3,8 @@ import {
   faMapMarker,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons'
-import { Box, Columns, Icon, Input, Select, Text } from 'devfractal-ui-core'
+import { Columns, Icon, Input, Select, Text } from 'devfractal-ui-core'
 import React from 'react'
-import { HeadTitle } from '../../components'
 import { Table } from '../../reacttable/Table'
 
 export const DriverTripReport: React.FC = () => {
@@ -45,9 +44,6 @@ export const DriverTripReport: React.FC = () => {
   ]
   return (
     <>
-      <Box style={{ backgroundColor: '#87CEFA' }}>
-        <HeadTitle> Driver Reports > Trip Report</HeadTitle>
-      </Box>
       <Columns style={{ paddingLeft: '40px', marginTop: '10px' }}>
         <Icon
           color="#2c7dc0"

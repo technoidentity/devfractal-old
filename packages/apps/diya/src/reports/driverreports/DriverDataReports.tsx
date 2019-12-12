@@ -1,7 +1,6 @@
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 import { Box, Column, Columns, Input } from 'devfractal-ui-core'
 import React from 'react'
-import { HeadTitle } from '../../components'
 import { Table } from '../../reacttable/Table'
 
 // tslint:disable-next-line:readonly-array
@@ -31,11 +30,6 @@ export const fakeData = [
 
 export const DriverDataReport: React.FC = () => (
   <>
-    <HeadTitle>
-      <Box style={{ backgroundColor: '#87CEFA' }}>
-        Driver Reports > Data Report
-      </Box>
-    </HeadTitle>
     <Columns>
       <Column>
         <Box>
