@@ -1,3 +1,4 @@
+import { Th } from 'devfractal-ui-core'
 import React from 'react'
 import { ReactColumnProps } from './models'
 export function ReactColumn<D>({
@@ -6,16 +7,22 @@ export function ReactColumn<D>({
   actions,
 }: ReactColumnProps<D>) {
   return (
-    <th {...getHeaderProps()}>
-      {render('Header') === 'Actions' ? (
-        actions ? (
-          render('Header')
-        ) : (
-          <></>
-        )
+    <Th {...getHeaderProps()}>
+      {render('Header') === 'Table Information' ? (
+        <></>
       ) : (
-        render('Header')
+        <>
+          {render('Header') === 'Actions' ? (
+            actions ? (
+              render('Header')
+            ) : (
+              <></>
+            )
+          ) : (
+            <>{render('Header')}</>
+          )}
+        </>
       )}
-    </th>
+    </Th>
   )
 }
