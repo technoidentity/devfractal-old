@@ -182,8 +182,7 @@ export const ClientForm = formComponent(
                 />
               </Column>
             </Columns>
-
-            <Simple.FormButtons />
+            <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
           </Simple.Form>
         </Section>
       </>
