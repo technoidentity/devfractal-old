@@ -13,6 +13,7 @@ import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList } from '../pages'
 import { getTabletList } from '../pages/TabletFormRoute'
 import { Table } from '../reacttable/Table'
+
 const tabletLink = links('tablets')
 
 export const TabletList = ({

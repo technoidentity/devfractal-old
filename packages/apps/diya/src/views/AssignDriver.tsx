@@ -126,7 +126,7 @@ export const AssignDriverForm = component(
                   />
                 </Column>
               </Columns>
-              <Simple.FormButtons />
+              <Simple.FormButtons submit={'Assign'} />
             </Simple.Form>
           </Column>
         </Columns>

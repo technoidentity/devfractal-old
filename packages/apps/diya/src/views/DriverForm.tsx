@@ -8,6 +8,7 @@ import {
   formComponent,
   Image,
   links,
+  matches,
   Media,
   MediaContent,
   required,
@@ -46,7 +47,7 @@ const schema = yup.object().shape({
   }),
   emergencyContactNumber: yup
     .string()
-    .matches(/\d/, 'must be valid mobile number')
+    .matches(/^\d+$/, 'must be valid mobile number')
     .length(10, 'must be 10 digit mobile number')
     .required('this is a required field'),
 })
@@ -79,7 +80,12 @@ export const DriverForm = formComponent(
                 <Title size="5" textColor="info">
                   Personal Details
                 </Title>
-                <Simple.Text name="name" />
+                <Simple.Text
+                  name="name"
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                  ]}
+                />
                 <Simple.Text name="phone" />
                 <Simple.Text
                   name="license"
@@ -104,7 +110,10 @@ export const DriverForm = formComponent(
                 <Simple.Text
                   name="bankDetails.accountName"
                   label="Account Name"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
                 <Simple.Text
                   name="bankDetails.accountNumber"
@@ -118,22 +127,26 @@ export const DriverForm = formComponent(
                 <Simple.Text
                   name="bankDetails.name"
                   label="Bank Name"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
                 <Simple.Text
                   name="bankDetails.branch"
                   label="Bank Branch"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
                 <Simple.Text
                   name="bankDetails.ifscNumber"
                   label="Branch IFSC Number"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[A-Za-z]{4}[0][\d]{6}$/, 'must be valid ifsc'),
+                  ]}
                 />
-                {/* <Simple.RadioGroup name="verified" defaultValue="pending">
-              <Radio value={true}> yes</Radio>
-              <Radio value="pending"> In process</Radio>
-            </Simple.RadioGroup> */}
                 <Simple.Checkbox name="verified" />
               </Column>
 
@@ -157,7 +170,10 @@ export const DriverForm = formComponent(
                 <div style={{ paddingTop: '10px' }}>
                   <Simple.Text
                     name="emergencyContactPerson"
-                    validations={[required()]}
+                    validations={[
+                      matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                      required(),
+                    ]}
                   />
                   <Simple.Text name="emergencyContactNumber" />
                   <Simple.Select name="relation" fullWidth>
@@ -180,95 +196,3 @@ export const DriverForm = formComponent(
     )
   },
 )
-
-// export const DriverForm = formComponent(
-//   DriverData,
-//   ({ initial, edit, onSubmit }) => (
-//     <>
-//       <Section>
-//         <HeadTitle>{edit ? 'Edit' : 'Create'} Driver</HeadTitle>
-//       </Section>
-//       <Section>
-//         <Simple.Form initialValues={initial} onSubmit={onSubmit}>
-//           <Columns>
-//             <Column>
-//               <Title size="5" textColor="info">
-//                 Personal Details
-//               </Title>
-//               <Simple.Text name="name" validations={[required()]} />
-//               {/* <Simple.Text
-//                 name="driverID"
-//                 label="Driver ID"
-//                 validations={[required()]}
-//               /> */}
-//               <Simple.Telephone name="phone" validations={[required()]} />
-//               <Simple.Text name="driverLicence" validations={[required()]} />
-//               <Simple.Text name="adharNumber" validations={[required()]} />
-
-//               <Simple.Select name="shift" fullWidth>
-//                 <option value="morning">Morning</option>
-//                 <option value="evening">Evening</option>
-//               </Simple.Select>
-//               <Simple.Text name="address1" />
-//               <Simple.Text name="address2" />
-//             </Column>
-
-//             <Column>
-//               <Title size="5" textColor="info">
-//                 Bank Details
-//               </Title>
-//               <Simple.Text name="accountName" validations={[required()]} />
-//               <Simple.Text name="accountNumber" validations={[required()]} />
-
-//               <Simple.Text
-//                 name="confirmAccountNumber"
-//                 validations={[required()]}
-//               />
-//               <Simple.Text name="bankName" validations={[required()]} />
-//               <Simple.Text name="bankBranch" validations={[required()]} />
-//               <Simple.Text
-//                 name="branchIFSCNumber"
-//                 label="Branch IFSC Number"
-//                 validations={[required()]}
-//               />
-//               <Simple.RadioGroup name="verified" defaultValue="pending">
-//                 <Radio value="yes"> yes</Radio>
-//                 <Radio value="pending"> In process</Radio>
-//               </Simple.RadioGroup>
-//             </Column>
-
-//             <Column>
-//               <Title size="6" textColor="info">
-//                 Profile Photo
-//               </Title>
-
-//               <Box>
-//                 <Media>
-//                   <MediaContent>
-//                     <Image
-//                       size="128x128"
-//                       src="https://bulma.io/images/placeholders/128x128.png"
-//                     />
-//                   </MediaContent>
-//                 </Media>
-//               </Box>
-
-//               <Button variant="dark">Upload Photo</Button>
-//               <div style={{ padding: '15px' }}>
-//                 <Simple.Text name="emergencyContactPerson" />
-//                 <Simple.Text name="emergencyContactNumber" />
-//                 <Simple.Select name="relation" fullWidth>
-//                   <option value="father">Father</option>
-//                   <option value="mother">Mother</option>
-//                   <option value="spouse">Spouse</option>
-//                 </Simple.Select>
-//               </div>
-//             </Column>
-//           </Columns>
-
-//           <Simple.FormButtons />
-//         </Simple.Form>
-//       </Section>
-//     </>
-//   ),
-// )

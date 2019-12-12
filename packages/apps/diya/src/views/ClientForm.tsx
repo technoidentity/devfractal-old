@@ -2,11 +2,13 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FormikActions } from 'formik'
 import React from 'react'
 import {
+  Button,
   Column,
   Columns,
   CreateLink,
   formComponent,
   links,
+  matches,
   required,
   Section,
   Simple,
@@ -104,7 +106,10 @@ export const ClientForm = formComponent(
                 <Simple.Text
                   name="name"
                   label="Client Name"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
 
                 <Simple.Select
@@ -137,7 +142,10 @@ export const ClientForm = formComponent(
               <Column>
                 <Simple.Text
                   name="contactName"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                   noControl
                 />
                 <Simple.Telephone
@@ -149,7 +157,10 @@ export const ClientForm = formComponent(
                   label="Email Address"
                   validations={[required()]}
                 />
+
+                <Button variant="primary">Upload Document</Button>
               </Column>
+
               <Column>
                 <MapSearch
                   mapOptions={{
@@ -186,8 +197,7 @@ export const ClientForm = formComponent(
                 />
               </Column>
             </Columns>
-
-            <Simple.FormButtons />
+            <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
           </Simple.Form>
         </Section>
       </>

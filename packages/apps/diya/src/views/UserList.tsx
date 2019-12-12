@@ -2,14 +2,12 @@ import React, { useState } from 'react'
 import { CreateLink, links, Section } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { UserData, UserListResponse } from '../common'
-// import { HeadTitle } from '../components'
 import { DeleteConfirmation } from '../components/DeleteConfirmation'
 import { deleteList, getUserList } from '../pages'
 import { Table } from '../reacttable/Table'
 
 const userLinks = links('users')
 
-// export const UserList = listComponent(User, ({ data: userList }) => {
 export const UserList = ({
   data,
 }: {
@@ -55,7 +53,6 @@ export const UserList = ({
         url={`users/${state.id}`}
         message="User Deleted"
       />
-      {/* <HeadTitle>Users</HeadTitle> */}
       <CreateLink alignment="right" variant="primary" to={userLinks.create}>
         Add user
       </CreateLink>
@@ -68,7 +65,7 @@ export const UserList = ({
         ]}
         sorting={true}
         pagination={true}
-        headerNames={['name', 'role', 'address1', 'address2', 'phone', 'email']}
+        headerNames={['name', 'role', 'address1', 'phone', 'email']}
         filterOption={[{ columnName: 'userName', filterType: 'search' }]}
         actions={{
           editTo: id => userLinks.edit(id),

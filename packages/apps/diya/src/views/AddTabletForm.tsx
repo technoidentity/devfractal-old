@@ -5,7 +5,6 @@ import React, { useState } from 'react'
 import { CreateLink, length, links } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { TabletData, VehicleResponse } from '../common'
-// import { HeadTitle } from '../components'
 import { getVehicleList } from '../pages'
 
 const tabletLinks = links('tablets')
@@ -32,9 +31,6 @@ export const TabletForm = formComponent(
     }, [logout, setUser, edit, setHeaderText])
     return (
       <>
-        {/* <Section>
-        <HeadTitle>Add Tablet</HeadTitle>
-      </Section> */}
         <CreateLink alignment="right" variant="primary" to={tabletLinks.list}>
           Back
         </CreateLink>
@@ -63,7 +59,7 @@ export const TabletForm = formComponent(
                 </Simple.Select>
               </Column>
             </Columns>
-            <Simple.FormButtons submit={'Save'} />
+            <Simple.FormButtons submit={edit ? 'Update' : 'Save'} />
           </Simple.Form>
         </Section>
       </>

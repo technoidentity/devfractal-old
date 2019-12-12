@@ -8,7 +8,7 @@ import {
   formComponent,
   Image,
   links,
-  // Radio,
+  matches,
   Media,
   MediaContent,
   required,
@@ -17,7 +17,6 @@ import {
   Title,
 } from 'technoidentity-devfractal'
 import * as yup from 'yup'
-// import { HeadTitle } from '../components'
 import { useAuth } from '../auth/AuthContext'
 import { UserData } from '../common'
 const userLinks = links('users')
@@ -44,7 +43,7 @@ const schema = yup.object().shape({
   }),
   emergencyContactNumber: yup
     .string()
-    .matches(/\d/, 'must be valid mobile number')
+    .matches(/^\d+$/, 'must be valid mobile number')
     .length(10, 'must be 10 digit mobile number')
     .required('this is a required field'),
 })
@@ -60,9 +59,6 @@ export const UserForm = formComponent(
     }
     return (
       <>
-        {/* <Section>
-        <HeadTitle>{edit ? 'Edit' : 'Create'} User</HeadTitle>
-      </Section> */}
         <CreateLink alignment="right" variant="primary" to={userLinks.list}>
           Back
         </CreateLink>
@@ -77,7 +73,13 @@ export const UserForm = formComponent(
                 <Title size="5" textColor="info">
                   Personal Details
                 </Title>
-                <Simple.Text name="name" validations={[required()]} />
+                <Simple.Text
+                  name="name"
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
+                />
                 <Simple.Text name="phone" />
                 <Simple.Text
                   name="license"
@@ -104,36 +106,40 @@ export const UserForm = formComponent(
                 <Simple.Text
                   name="bankDetails.accountName"
                   label="Account Name"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
                 <Simple.Text
                   name="bankDetails.accountNumber"
                   label="Account Number"
                 />
 
-                {/* <Simple.Text
-              name="confirmAccountNumber"
-              validations={[required()]}
-            /> */}
                 <Simple.Text
                   name="bankDetails.name"
                   label="Bank Name"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
                 <Simple.Text
                   name="bankDetails.branch"
                   label="Bank Branch"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                    required(),
+                  ]}
                 />
                 <Simple.Text
                   name="bankDetails.ifscNumber"
                   label="Branch IFSC Number"
-                  validations={[required()]}
+                  validations={[
+                    matches(/^[A-Za-z]{4}[0][\d]{6}$/, 'must be valid Ifsc'),
+                    required(),
+                  ]}
                 />
-                {/* <Simple.RadioGroup name="verified" defaultValue="pending">
-              <Radio value={true}> yes</Radio>
-              <Radio value="pending"> In process</Radio>
-            </Simple.RadioGroup> */}
                 <Simple.Checkbox name="verified" />
               </Column>
 
@@ -157,7 +163,10 @@ export const UserForm = formComponent(
                 <div style={{ paddingTop: '10px' }}>
                   <Simple.Text
                     name="emergencyContactPerson"
-                    validations={[required()]}
+                    validations={[
+                      matches(/^[a-zA-Z ]*$/, 'must take only alphabets'),
+                      required(),
+                    ]}
                   />
                   <Simple.Text name="emergencyContactNumber" />
                   <Simple.Select name="relation" fullWidth>

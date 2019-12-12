@@ -22,7 +22,7 @@ export const AssignBatteryForm = component(
           <Simple.Text label="Client" name="client" />
           <Simple.Text name="vehicleID" label="Vehicle" />
           <Simple.Text label="Driver" name="driver" />
-          <Simple.FormButtons />
+          <Simple.FormButtons submit={'Assign'} />
         </Simple.Form>
       </Section>
     </>
