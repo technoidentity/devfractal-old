@@ -119,7 +119,7 @@ export const AssignVehicleForm = component(
                     />
                   </Column>
                 </Columns>
-                <Simple.FormButtons />
+                <Simple.FormButtons submit={'Assign'} />
               </Simple.Form>
             </Column>
           </Columns>
