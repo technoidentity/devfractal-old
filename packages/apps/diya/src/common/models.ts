@@ -578,6 +578,35 @@ export const TripListResponse = req({
 })
 export type TripListResponse = TypeOf<typeof TripListResponse>
 
+export const DriverDataReport = obj(
+  {
+    id: string,
+  },
+  {
+    evId: string,
+    driverName: string,
+    clientName: string,
+    assignedDate: ISODate,
+  },
+)
+
+export type DriverDataReport = TypeOf<typeof DriverDataReport>
+
+export const DriverTripReportData = obj(
+  {
+    id: string,
+  },
+  {
+    noOfCustomers: number,
+    start: ISODate,
+    end: ISODate,
+    successfulDeliveries: number,
+    cashCollected: number,
+  },
+)
+
+export type DriverTripReportData = TypeOf<typeof DriverTripReportData>
+
 export const SelectVehicles = enumerate('vehicle1', 'vehicle2', 'vehicle3')
 
 export const AdManager = obj(

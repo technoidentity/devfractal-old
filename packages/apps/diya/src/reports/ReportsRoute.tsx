@@ -6,6 +6,9 @@ import { PerformanceReport } from './batteryreports/PerformanceReport'
 import { AssignedEVsReport } from './clientreports/AssignedEVsReport'
 import { InvoicesReport } from './clientreports/InvoicesReport'
 import { TotalAnalysisReport } from './costanalysisreports/TotalAnalysisReport'
+import { DriverBehaviourReport } from './driverreports/DriverBehaviourReport'
+import { DriverDataReport } from './driverreports/DriverDataReports'
+import { DriverTripReport } from './driverreports/DriverTripReports.'
 import { ReportsScreen } from './ReportsScreen'
 
 export const ReportsRoute = () => {
@@ -28,6 +31,20 @@ export const ReportsRoute = () => {
     setHeaderText('Client Reports > Assigned EVs Report')
     history.push('/reports/assignedEvsReport')
   }
+
+  const handleDriverDataReport = () => {
+    setHeaderText('Driver Reports > Data Report')
+    history.push('/reports/driverDataReport')
+  }
+  const handleDriverTripReport = () => {
+    setHeaderText('Driver Reports > Trip Report')
+    history.push('/reports/driverTripReport')
+  }
+
+  const handleDriverBehaviourReport = () => {
+    setHeaderText('Driver Reports > Behaviour Report')
+    history.push('/reports/driverBehaviourReport')
+  }
   return (
     <>
       <Route
@@ -38,6 +55,9 @@ export const ReportsRoute = () => {
             handleTotalAnalysisReports={handleTotalAnalysisReports}
             handleInvoicesReports={handleInvoicesReports}
             handleEvsAssignedReports={handleEvsAssignedReports}
+            handleDriverDataReport={handleDriverDataReport}
+            handleDriverTripReport={handleDriverTripReport}
+            handleDriverBehaviourReport={handleDriverBehaviourReport}
           />
         )}
       />
@@ -53,6 +73,18 @@ export const ReportsRoute = () => {
       <Route
         path="/reports/assignedEvsReport"
         render={() => <AssignedEVsReport />}
+      />
+      <Route
+        path="/reports/driverDataReport"
+        render={() => <DriverDataReport />}
+      />
+      <Route
+        path="/reports/driverTripReport"
+        render={() => <DriverTripReport />}
+      />
+      <Route
+        path="/reports/driverBehaviourReport"
+        render={() => <DriverBehaviourReport />}
       />
     </>
   )

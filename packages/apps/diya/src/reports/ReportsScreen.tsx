@@ -25,6 +25,9 @@ export const ReportsScreen = ({
   handleTotalAnalysisReports,
   handleInvoicesReports,
   handleEvsAssignedReports,
+  handleDriverDataReport,
+  handleDriverTripReport,
+  handleDriverBehaviourReport,
 }: any) => {
   const { setHeaderText } = useAuth()
   setHeaderText('Reports')
@@ -127,18 +130,30 @@ export const ReportsScreen = ({
                     Driver Reports
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text
+                    color="info"
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleDriverBehaviourReport}
+                  >
                     <Icon color="black" icon={faChevronRight} />
                     Driver Behaviour - Speed Changes,Route Tracking, GEO
                     Fencing,Attendance Log
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text
+                    color="info"
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleDriverDataReport}
+                  >
                     <Icon color="black" icon={faChevronRight} />
                     Driver Data Details
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text
+                    color="info"
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleDriverTripReport}
+                  >
                     <Icon color="black" icon={faChevronRight} />
                     Driver trip Reports
                   </Text>
