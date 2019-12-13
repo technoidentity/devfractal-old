@@ -561,13 +561,22 @@ export const Trip = obj(
 export type Trip = TypeOf<typeof Trip>
 
 export const TripData = obj(
-  {},
   {
-    tripId: string,
-    vehicleId: string,
-    date: ISODate,
+    createdAt: string,
+    updatedAt: string,
+    id: string,
+    createdById: string,
+    updatedById: string,
+    isActive: string,
+    cashCollected: number,
+    vehicleName: string,
+    tripName: string,
+  },
+  {
+    startDate: string,
     startTime: string,
-    clientName: string,
+    vehicleId: string,
+    tripStatus: string,
   },
 )
 export const TripListResponse = req({
@@ -577,6 +586,69 @@ export const TripListResponse = req({
   }),
 })
 export type TripListResponse = TypeOf<typeof TripListResponse>
+
+export const EVsAssignedData = obj(
+  {
+    associateId: string,
+    createdAt: string,
+    updatedAt: string,
+    id: string,
+    createdById: string,
+    updatedById: string,
+    isActive: string,
+    driverName: string,
+    vehicleName: string,
+    clientName: string,
+  },
+  {
+    clientId: string,
+    driverId: string,
+    vehicleId: string,
+    start: ISODate,
+    end: string,
+  },
+)
+export type EVsAssignedData = TypeOf<typeof EVsAssignedData>
+
+export const EVsTripData = obj(
+  {},
+  {
+    vehicleId: string,
+    startDate: ISODate,
+    startTime: string,
+  },
+)
+
+export type EVsTripData = TypeOf<typeof EVsTripData>
+
+export const EVsTripResponse = obj(
+  {
+    createdById: string,
+    updatedById: string,
+  },
+  {
+    startDate: ISODate,
+    startTime: string,
+    vehicleId: string,
+    tripStatus: string,
+
+    isActive: boolean,
+    id: string,
+  },
+)
+
+export const EVsAddTripResponse = req({
+  data: EVsTripResponse,
+})
+export type EVsAddTripResponse = TypeOf<typeof EVsAddTripResponse>
+
+export const EVsAssignedResponse = req({
+  data: req({
+    rows: array(EVsAssignedData),
+    count: number,
+  }),
+})
+export type EVsAssignedResponse = TypeOf<typeof EVsAssignedResponse>
 
 export const DriverDataReport = obj(
   {
