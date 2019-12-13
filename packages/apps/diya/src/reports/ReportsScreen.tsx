@@ -105,12 +105,20 @@ export const ReportsScreen = ({
                     Battery Reports
                   </Text>
                   <br />
-                  <Text color="info" onClick={handleBatteryDayWiseReport}>
+                  <Text
+                    color="info"
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleBatteryDayWiseReport}
+                  >
                     <Icon color="black" icon={faChevronRight} />
                     Stock Report
                   </Text>
                   <br />
-                  <Text color="info" onClick={handleBatteryStatusReport}>
+                  <Text
+                    color="info"
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleBatteryStatusReport}
+                  >
                     <Icon color="black" icon={faChevronRight} />
                     Batteries Charged, swapped by Day, Week, Month
                   </Text>
