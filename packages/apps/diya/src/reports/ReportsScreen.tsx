@@ -29,6 +29,9 @@ export const ReportsScreen = ({
   handleDriverBehaviourReport,
   handleBatteryDayWiseReport,
   handleBatteryStatusReport,
+  handleDriverWiseTripReport,
+  handleDayWiseTripReport,
+  handleClientWiseTripReport,
 }: any) => {
   const { setHeaderText } = useAuth()
   setHeaderText('Reports')
@@ -55,17 +58,17 @@ export const ReportsScreen = ({
                     Trip Reports
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text color="info" onClick={handleDayWiseTripReport}>
                     <Icon color="black" icon={faChevronRight} />
                     Day wise trip Reports
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text color="info" onClick={handleClientWiseTripReport}>
                     <Icon color="black" icon={faChevronRight} />
                     Client wise trip Reports
                   </Text>
                   <br />
-                  <Text color="info">
+                  <Text color="info" onClick={handleDriverWiseTripReport}>
                     <Icon color="black" icon={faChevronRight} />
                     Driver wise trip Reports
                   </Text>

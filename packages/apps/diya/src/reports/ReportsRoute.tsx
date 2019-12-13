@@ -11,6 +11,9 @@ import { DriverBehaviourReport } from './driverreports/DriverBehaviourReport'
 import { DriverDataReport } from './driverreports/DriverDataReports'
 import { DriverTripReport } from './driverreports/DriverTripReports.'
 import { ReportsScreen } from './ReportsScreen'
+import { ClientWiseTripReport } from './tripreports/ClientWiseTripReport'
+import { DayWiseTripReport } from './tripreports/DayWiseTripReport'
+import { DriverWiseTripReport } from './tripreports/DriverWiseTripReport'
 
 export const ReportsRoute = () => {
   const history: History = useHistory()
@@ -47,6 +50,18 @@ export const ReportsRoute = () => {
     history.push('/reports/batteryStatusReport')
   }
 
+  const handleClientWiseTripReport = () => {
+    history.push('/reports/clientWiseTripReport')
+  }
+
+  const handleDayWiseTripReport = () => {
+    history.push('/reports/dayWiseTripReport')
+  }
+
+  const handleDriverWiseTripReport = () => {
+    history.push('/reports/driverWiseTripReport')
+  }
+
   return (
     <>
       <Route
@@ -62,6 +77,9 @@ export const ReportsRoute = () => {
             handleDriverBehaviourReport={handleDriverBehaviourReport}
             handleBatteryDayWiseReport={handleBatteryDayWiseReport}
             handleBatteryStatusReport={handleBatteryStatusReport}
+            handleClientWiseTripReport={handleClientWiseTripReport}
+            handleDayWiseTripReport={handleDayWiseTripReport}
+            handleDriverWiseTripReport={handleDriverWiseTripReport}
           />
         )}
       />
@@ -97,6 +115,18 @@ export const ReportsRoute = () => {
       <Route
         path="/reports/driverBehaviourReport"
         render={() => <DriverBehaviourReport />}
+      />
+      <Route
+        path="/reports/clientWiseTripReport"
+        render={() => <ClientWiseTripReport />}
+      />
+      <Route
+        path="/reports/dayWiseTripReport"
+        render={() => <DayWiseTripReport />}
+      />
+      <Route
+        path="/reports/driverWiseTripReport"
+        render={() => <DriverWiseTripReport />}
       />
     </>
   )
