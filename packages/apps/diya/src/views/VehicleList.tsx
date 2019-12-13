@@ -16,7 +16,7 @@ export const VehicleList1 = ({
 }: {
   readonly data: VehicleResponse['data']['rows']
 }) => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   const [state, setState] = useState({ isOpen: false, id: '' })
   const [resultData, setResultData] = useState<VehicleResponse['data']['rows']>(
     [],
@@ -28,7 +28,7 @@ export const VehicleList1 = ({
   }
 
   const handleVehicleList = async () => {
-    const resultData = await getVehicleList({ setUser, logout })
+    const resultData = await getVehicleList({ setUser, logout, setHeaderText })
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })

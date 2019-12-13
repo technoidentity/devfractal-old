@@ -21,7 +21,7 @@ export const DriverList1 = ({
 }: {
   readonly data: DriverListResponse['data']['rows']
 }) => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   const [state, setState] = useState({ isOpen: false, id: '' })
   const [resultData, setResultData] = useState<
     DriverListResponse['data']['rows']
@@ -32,7 +32,7 @@ export const DriverList1 = ({
     setState({ isOpen: !state.isOpen, id })
   }
   const handleDriverList = async () => {
-    const resultData = await getDriverList({ setUser, logout })
+    const resultData = await getDriverList({ setUser, logout, setHeaderText })
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })
