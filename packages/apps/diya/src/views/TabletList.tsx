@@ -20,7 +20,7 @@ export const TabletList = ({
 }: {
   readonly data: TabletListResponse['data']['rows']
 }) => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   const [state, setState] = useState({ isOpen: false, id: '' })
   const [resultData, setResultData] = useState<
     TabletListResponse['data']['rows']
@@ -32,7 +32,7 @@ export const TabletList = ({
     setState({ isOpen: !state.isOpen, id })
   }
   const handleTabletList = async () => {
-    const resultData = await getTabletList({ setUser, logout })
+    const resultData = await getTabletList({ setUser, logout, setHeaderText })
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })

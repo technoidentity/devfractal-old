@@ -15,7 +15,7 @@ export const BatteryList = ({
 }: {
   readonly data: BatteryResponse['data']['rows']
 }) => {
-  const { logout, setUser } = useAuth()
+  const { logout, setUser, setHeaderText } = useAuth()
   const [state, setState] = useState({ isOpen: false, id: '' })
   const [resultData, setResultData] = useState<BatteryResponse['data']['rows']>(
     [],
@@ -27,7 +27,7 @@ export const BatteryList = ({
   }
 
   const handleBatteryList = async () => {
-    const resultData = await getBatteryList({ setUser, logout })
+    const resultData = await getBatteryList({ setUser, logout, setHeaderText })
     setUseResultData(true)
     setResultData(resultData)
     setState({ isOpen: false, id: state.id })

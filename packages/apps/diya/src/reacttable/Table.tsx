@@ -21,7 +21,9 @@ function isPaginated<D>(
   return (table as TableInstance<D> & UsePaginationValues<D>).page !== undefined
 }
 
-export function Table<D extends { readonly id: string }>({
+export function Table<
+  D extends { readonly id: string; readonly vehicleId?: string }
+>({
   tableData,
   filterOption,
   headerNames,

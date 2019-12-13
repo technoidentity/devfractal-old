@@ -4,7 +4,9 @@ import { TableProps } from './models'
 import { ReactTableBody } from './ReactTableBody'
 import { ReactTableHead } from './ReactTableHead'
 
-export function ReactTable<D extends { readonly id: string }>({
+export function ReactTable<
+  D extends { readonly id: string; readonly vehicleId?: string }
+>({
   getTableProps,
   headerGroups,
   page,

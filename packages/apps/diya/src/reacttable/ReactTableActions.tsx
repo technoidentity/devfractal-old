@@ -5,9 +5,11 @@ import { ReactTableActionsValues } from './models'
 
 export const ReactTableActions = ({
   id,
+  vehicleId,
   editTo,
   assignTo,
   onDelete,
+  addTrip,
 }: ReactTableActionsValues) => {
   return (
     <>
@@ -15,9 +17,8 @@ export const ReactTableActions = ({
         <Link to={editTo(id)}>
           <Icon icon={faEdit} />
         </Link>
-      ) : (
-        <></>
-      )}
+      ) : // tslint:disable-next-line:no-null-keyword
+      null}
       {onDelete ? (
         <a
           href="#!"
@@ -28,16 +29,24 @@ export const ReactTableActions = ({
         >
           <Icon icon={faTrash} />
         </a>
-      ) : (
-        <></>
-      )}
+      ) : // tslint:disable-next-line:no-null-keyword
+      null}
       {assignTo ? (
         <ButtonLink to={assignTo(id)} size="small" variant="info">
           Assign
         </ButtonLink>
-      ) : (
-        <></>
-      )}
+      ) : // tslint:disable-next-line:no-null-keyword
+      null}
+      {addTrip ? (
+        <ButtonLink
+          to={addTrip(vehicleId ? vehicleId : '')}
+          size="small"
+          variant="info"
+        >
+          Add Trip
+        </ButtonLink>
+      ) : // tslint:disable-next-line:no-null-keyword
+      null}
     </>
   )
 }
