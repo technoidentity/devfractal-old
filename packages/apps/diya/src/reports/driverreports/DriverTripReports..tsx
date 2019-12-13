@@ -5,9 +5,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Columns, Icon, Input, Select, Text } from 'devfractal-ui-core'
 import React from 'react'
+import { useAuth } from '../../auth/AuthContext'
 import { Table } from '../../reacttable/Table'
 
 export const DriverTripReport: React.FC = () => {
+  const { setHeaderText } = useAuth()
+  setHeaderText('Driver Reports > Trip Report')
+
   const data = [
     {
       id: '1',

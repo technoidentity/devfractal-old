@@ -9,6 +9,7 @@ import {
   Section,
   Select,
 } from 'devfractal-ui-core'
+
 import React from 'react'
 import {
   VictoryAxis,
@@ -17,7 +18,11 @@ import {
   VictoryLine,
   VictoryScatter,
 } from 'victory'
+import { useAuth } from '../../auth/AuthContext'
 export const PerformanceReport = () => {
+  const { setHeaderText } = useAuth()
+  setHeaderText('Battery Reports > Performance')
+
   return (
     <>
       <Section>

@@ -1,9 +1,13 @@
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { Columns, Icon, Select, Text } from 'devfractal-ui-core'
 import React from 'react'
+import { useAuth } from '../../auth/AuthContext'
 import { Table } from '../../reacttable/Table'
 
 export const DriverBehaviourReport = () => {
+  const { setHeaderText } = useAuth()
+  setHeaderText('Driver Reports > Behaviour Report')
+
   const data = [
     {
       id: '1',

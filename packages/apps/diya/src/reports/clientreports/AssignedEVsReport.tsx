@@ -3,11 +3,15 @@ import {
   faCar,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons'
-import { Columns, Icon, Text } from 'devfractal-ui-core'
+import { Columns, Icon, Input, Select, Text } from 'devfractal-ui-core'
 import React from 'react'
+import { useAuth } from '../../auth/AuthContext'
 import { Table } from '../../reacttable/Table'
 
 export const AssignedEVsReport: React.FC = () => {
+  const { setHeaderText } = useAuth()
+  setHeaderText('Client Reports > Assigned EVs Report')
+
   const data = [
     {
       id: '1',
@@ -57,6 +61,14 @@ export const AssignedEVsReport: React.FC = () => {
         />
         <Text style={{ color: '#2c7dc0', marginLeft: '8px' }}>Date -</Text>
         <Text style={{ paddingLeft: '10px' }}>18/9/2019 </Text>
+        <Select name="select client" style={{ marginLeft: '40px' }}>
+          <option value="select client">select client</option>
+        </Select>
+        <Input
+          rightIcon={faCalendar}
+          placeholder="12/12/2019"
+          style={{ marginLeft: '40px' }}
+        />
       </Columns>
 
       <Table

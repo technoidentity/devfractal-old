@@ -1,7 +1,11 @@
 import React from 'react'
+import { useAuth } from '../../auth/AuthContext'
 import { Table } from '../../reacttable/Table'
 
 export const InvoicesReport: React.FC = () => {
+  const { setHeaderText } = useAuth()
+  setHeaderText('Client Reports > Invoices Report')
+
   const data = [
     {
       id: '1',
