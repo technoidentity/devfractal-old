@@ -41,6 +41,7 @@ export const TabletForm = formComponent(
                 <Simple.Text
                   label="Android Device ID"
                   name="androidDeviceId"
+                  required
                   validations={[length(16)]}
                 />
                 <Simple.Select
