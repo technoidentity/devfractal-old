@@ -14,7 +14,7 @@ export async function getTripList({
 }: any): Promise<TripListResponse['data']['rows']> {
   try {
     const drivers = await cargosUrl().get(
-      { resource: 'vehicles/assign/clients' },
+      { resource: 'trips' },
       TripListResponse,
     )
     setHeaderText('Trips')
