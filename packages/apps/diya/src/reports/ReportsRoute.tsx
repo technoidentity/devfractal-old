@@ -3,6 +3,8 @@ import React from 'react'
 import { Route, useHistory } from 'technoidentity-devfractal'
 import { useAuth } from '../auth/AuthContext'
 import { PerformanceReport } from './batteryreports/PerformanceReport'
+import { BatteryStatusReport } from './batteryreports/StatusReport'
+import { BatteryDayWiseReport } from './batteryreports/StockReport'
 import { AssignedEVsReport } from './clientreports/AssignedEVsReport'
 import { InvoicesReport } from './clientreports/InvoicesReport'
 import { TotalAnalysisReport } from './costanalysisreports/TotalAnalysisReport'
@@ -45,6 +47,17 @@ export const ReportsRoute = () => {
     setHeaderText('Driver Reports > Behaviour Report')
     history.push('/reports/driverBehaviourReport')
   }
+
+  const handleBatteryDayWiseReport = () => {
+    setHeaderText('Battery Reports > Day wise Report')
+    history.push('/reports/batteryDayWiseReport')
+  }
+
+  const handleBatteryStatusReport = () => {
+    setHeaderText('Battery Reports > Status Report')
+    history.push('/reports/batteryStatusReport')
+  }
+
   return (
     <>
       <Route
@@ -58,12 +71,22 @@ export const ReportsRoute = () => {
             handleDriverDataReport={handleDriverDataReport}
             handleDriverTripReport={handleDriverTripReport}
             handleDriverBehaviourReport={handleDriverBehaviourReport}
+            handleBatteryDayWiseReport={handleBatteryDayWiseReport}
+            handleBatteryStatusReport={handleBatteryStatusReport}
           />
         )}
       />
       <Route
         path="/reports/batteryPerformance"
         render={() => <PerformanceReport />}
+      />
+      <Route
+        path="/reports/batteryDayWiseReport"
+        render={() => <BatteryDayWiseReport />}
+      />
+      <Route
+        path="/reports/batteryStatusReport"
+        render={() => <BatteryStatusReport />}
       />
       <Route
         path="/reports/totalAnalysisReport"
