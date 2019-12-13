@@ -14,9 +14,11 @@ export interface ReactTableActionsProps {
   editTo?(id: string): string
   assignTo?(id: string): string
   onDelete?(id: string): void
+  addTrip?(id: string): string
 }
 export interface ReactTableActionsValues extends ReactTableActionsProps {
   readonly id: string
+  readonly vehicleId?: string
 }
 
 interface ReactSortingColumnValues {

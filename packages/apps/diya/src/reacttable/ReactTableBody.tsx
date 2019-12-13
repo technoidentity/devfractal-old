@@ -4,11 +4,9 @@ import { TableBody, Td, Tr } from 'technoidentity-devfractal'
 // import { date } from 'technoidentity-utils'
 import { TableBodyProps } from './models'
 import { ReactTableActions } from './ReactTableActions'
-export function ReactTableBody<D extends { readonly id: string }>({
-  page,
-  prepareRow,
-  actions,
-}: TableBodyProps<D>) {
+export function ReactTableBody<
+  D extends { readonly id: string; readonly vehicleId?: string }
+>({ page, prepareRow, actions }: TableBodyProps<D>) {
   return (
     <TableBody>
       {page.map((row: Row<D>, i: number) => {
@@ -25,8 +23,10 @@ export function ReactTableBody<D extends { readonly id: string }>({
                             onDelete={actions.onDelete}
                             // TODO: Property 'id' does not exist on type '{}'
                             id={row.original.id}
+                            vehicleId={row.original.vehicleId}
                             assignTo={actions.assignTo}
                             editTo={actions.editTo}
+                            addTrip={actions.addTrip}
                           />
                         ) : (
                           <></>
