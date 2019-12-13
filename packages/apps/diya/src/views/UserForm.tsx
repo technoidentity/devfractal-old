@@ -136,7 +136,10 @@ export const UserForm = formComponent(
                   name="bankDetails.ifscNumber"
                   label="Branch IFSC Number"
                   validations={[
-                    matches(/^[A-Za-z]{4}[0][\d]{6}$/, 'must be valid Ifsc'),
+                    matches(
+                      /^[A-Za-z]{4}[0][\d]{6}$/,
+                      ' an 11-character code with the first four alphabetic characters representing the bank name, and the last six characters representing the branch. The fifth character is 0 (zero) and reserved for future use.',
+                    ),
                     required(),
                   ]}
                 />
