@@ -416,7 +416,7 @@ export const DriverData = obj(
     //  id: string,
     aadhaar: string,
     address1: string,
-    //  address2: string,
+    address2: string,
     avatar: string,
     //  createdById: string,
     //  updatedById: string,
