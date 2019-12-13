@@ -1,5 +1,4 @@
 import {
-  faCalendar,
   faCar,
   faMarker,
   faUserCircle,
