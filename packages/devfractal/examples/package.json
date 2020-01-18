@@ -26,12 +26,12 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.25",
-    "@fortawesome/free-brands-svg-icons": "5.11.2",
-    "@fortawesome/free-regular-svg-icons": "5.11.2",
-    "@fortawesome/free-solid-svg-icons": "5.11.2",
-    "@fortawesome/react-fontawesome": "0.1.7",
-    "date-fns": "2.7.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.26",
+    "@fortawesome/free-brands-svg-icons": "5.12.0",
+    "@fortawesome/free-regular-svg-icons": "5.12.0",
+    "@fortawesome/free-solid-svg-icons": "5.12.0",
+    "@fortawesome/react-fontawesome": "0.1.8",
+    "date-fns": "2.9.0",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -44,15 +44,15 @@
     "devfractal-ui": "1.2.19",
     "devfractal-ui-api": "1.2.19",
     "devfractal-ui-core": "1.2.19",
-    "eslint": "6.6.0",
+    "eslint": "6.8.0",
     "jest": "24.9.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react-styleguidist": "10.2.0",
+    "react-styleguidist": "10.6.0",
     "rimraf": "3.0.0",
     "technoidentity-utils": "1.2.19",
-    "tsdx": "0.11.0",
-    "typescript": "3.7.2"
+    "tsdx": "0.12.3",
+    "typescript": "3.7.5"
   },
   "peerDependencies": {
     "devfractal-crud": "1.2.19"

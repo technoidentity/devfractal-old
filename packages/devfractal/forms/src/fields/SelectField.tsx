@@ -3,9 +3,10 @@ import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
 import { FormikFieldConfig, OmitForm } from '../types'
 
-type FormikSelectProps<V> = FormikFieldProps<V> & OmitForm<SelectProps>
+type FormikSelectProps<> = FormikFieldProps<SelectProps['value']> &
+  OmitForm<SelectProps>
 
-const FormikSelect: <V>(props: FormikSelectProps<V>) => JSX.Element = ({
+const FormikSelect: (props: FormikSelectProps) => JSX.Element = ({
   form,
   field,
   children,

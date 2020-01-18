@@ -1,13 +1,12 @@
-import { SubmitAction } from 'devfractal-ui-api'
+import { FormikHelpers } from 'formik'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-utils'
-import { cast, empty } from 'technoidentity-utils'
+import { cast, empty, Mixed, TypeOf } from 'technoidentity-utils'
 import { formProps } from './common'
 
 interface InnerFormProps<T> {
   readonly initial: T
   readonly edit: boolean
-  readonly onSubmit: SubmitAction<T>
+  onSubmit(values: T, actions: FormikHelpers<T>): Promise<void>
 }
 
 export interface FormProps<T> {

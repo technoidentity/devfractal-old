@@ -3,9 +3,10 @@ import { Field as FormikField, FieldProps as FormikFieldProps } from 'formik'
 import React from 'react'
 import { FormikFieldConfig, OmitForm } from '../types'
 
-type FormikTextAreaProps<V> = FormikFieldProps<V> & OmitForm<TextAreaProps>
+type FormikTextAreaProps = FormikFieldProps<TextAreaProps['value']> &
+  OmitForm<TextAreaProps>
 
-const FormikTextArea: <V>(props: FormikTextAreaProps<V>) => JSX.Element = ({
+const FormikTextArea: (props: FormikTextAreaProps) => JSX.Element = ({
   form,
   field,
   ...props

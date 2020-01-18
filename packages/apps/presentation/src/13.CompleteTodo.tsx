@@ -1,4 +1,4 @@
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import {
   component,
@@ -49,7 +49,7 @@ export const TodoFormProps = obj(
   { initial: Todo },
   {
     onSubmit: fn<
-      (values: Todo, actions: FormikActions<Todo>) => Promise<void>
+      (values: Todo, actions: FormikHelpers<Todo>) => Promise<void>
     >(),
   },
 )

@@ -3,13 +3,9 @@ import { Field, FieldConfig, FieldProps } from 'formik'
 import React from 'react'
 import { OmitForm } from '../types'
 
-type InputInnerProps<V> = FieldProps<V> & OmitForm<InputProps>
+type InputInnerProps = FieldProps<InputProps['value']> & OmitForm<InputProps>
 
-function InputInner<V>({
-  form,
-  field,
-  ...props
-}: InputInnerProps<V>): JSX.Element {
+function InputInner({ form, field, ...props }: InputInnerProps): JSX.Element {
   return <Input {...props} {...field} />
 }
 

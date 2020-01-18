@@ -1,4 +1,11 @@
-import { ErrorMessage, Field, FieldProps, Form, Formik } from 'formik'
+import {
+  ErrorMessage,
+  Field,
+  FieldProps,
+  Form,
+  Formik,
+  FormikHelpers,
+} from 'formik'
 import React from 'react'
 import {
   Button,
@@ -8,20 +15,18 @@ import {
   Input,
   Label,
   ServerError,
-  SubmitAction,
   Text,
   Title,
   useGet,
   useParams,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
-import { type } from 'technoidentity-utils'
-import { IntFromString } from 'technoidentity-utils'
+import { IntFromString, type } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 
-const FormikDate: React.FC<FieldProps<Todo>> = ({ form, field, ...props }) => (
+const FormikDate: React.FC<FieldProps> = ({ form, field, ...props }) => (
   <DateInput
     {...props}
     onChange={date => form.setFieldValue(field.name, date)}
@@ -31,7 +36,7 @@ const FormikDate: React.FC<FieldProps<Todo>> = ({ form, field, ...props }) => (
   />
 )
 
-const FormikInput: React.FC<FieldProps<Todo>> = ({ form, field, ...props }) => (
+const FormikInput: React.FC<FieldProps> = ({ form, field, ...props }) => (
   <Input {...props} {...field} />
 )
 
@@ -85,7 +90,7 @@ const schema: yup.Schema<Todo> = yup.object().shape({
 
 interface TodoFormProps {
   readonly initial?: Todo
-  readonly onSubmit: SubmitAction<Todo>
+  onSubmit(values: Todo, actions: FormikHelpers<Todo>): Promise<void>
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, initial }) => (
@@ -114,7 +119,7 @@ const EditTodo: React.FC = () => {
 
   const result = useGet(todoAPI.get, id)
 
-  const { serverError, onSubmit } = useSubmitRedirect(
+  const { serverError, onSubmit } = useSubmitRedirect<Todo>(
     data => todoAPI.update(id, data),
     '/todos',
   )

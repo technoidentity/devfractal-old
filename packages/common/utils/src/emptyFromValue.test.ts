@@ -1,6 +1,4 @@
-import { today } from './common'
 import { emptyFromValue } from './emptyFromValue'
-
 // tslint:disable no-null-keyword
 
 it('emptyFromValue', () => {
@@ -10,7 +8,7 @@ it('emptyFromValue', () => {
       integer: 10,
       string: 'hello',
       boolean: true,
-      date: today(),
+      // date: today(),
       null: null,
       array: [1, 3, 4],
       anyArray: [1, 'hello', false],
@@ -21,7 +19,6 @@ it('emptyFromValue', () => {
       "anyArray": Array [],
       "array": Array [],
       "boolean": false,
-      "date": Object {},
       "integer": 0,
       "null": null,
       "number": 0,

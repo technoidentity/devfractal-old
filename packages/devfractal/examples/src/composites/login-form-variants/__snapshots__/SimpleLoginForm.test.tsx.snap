@@ -5,6 +5,7 @@ exports[`Simple Login Form 1`] = `
   className="section"
 >
   <form
+    action="#"
     onReset={[Function]}
     onSubmit={[Function]}
   >

@@ -1,4 +1,4 @@
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import { Simple } from 'technoidentity-devfractal'
 import { component, Section } from 'technoidentity-devfractal'
@@ -16,7 +16,7 @@ export const TodoFormProps = obj(
   { initial: Todo },
   {
     onSubmit: fn<
-      (values: Todo, actions: FormikActions<Todo>) => Promise<void>
+      (values: Todo, actions: FormikHelpers<Todo>) => Promise<void>
     >(),
   },
 )

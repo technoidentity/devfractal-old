@@ -1,6 +1,6 @@
 import { Simple } from 'devfractal-simple'
 import { Column, Columns, component, Section } from 'devfractal-ui-core'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import { string, TypeOf } from 'technoidentity-utils'
 import { empty, fn, req } from 'technoidentity-utils'
@@ -17,7 +17,7 @@ const LoginFormProps = req({
   onSubmit: fn<
     (
       values: TypeOf<typeof LoginValues>,
-      actions: FormikActions<typeof values>,
+      actions: FormikHelpers<typeof values>,
     ) => Promise<void>
   >(),
 })

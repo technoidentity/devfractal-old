@@ -23,7 +23,7 @@ import {
   FieldPropsBase,
   Label,
 } from 'devfractal-ui-core'
-import { Form, Formik, FormikActions, FormikConsumer } from 'formik'
+import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
 import React from 'react'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
@@ -213,7 +213,7 @@ const SimpleFormButtons: React.FC<SimpleFormButtonsProps> = ({
 export interface SimpleFormProps<Values> {
   readonly initialValues: Values
   readonly validationSchema?: ObjectSchema<Partial<Values>>
-  onSubmit?(values: Values, actions: FormikActions<Values>): void
+  onSubmit?(values: Values, actions: FormikHelpers<Values>): void
 }
 
 export interface TypedForm<Values extends {}> {
@@ -315,7 +315,7 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 
 // tslint:disable-next-line:typedef
 export const Simple = {
-  ...typedForm<{ readonly [s: string]: any }>(),
+  ...typedForm<any>(),
   FormButtons: SimpleFormButtons,
   Debug: DebugField,
 }

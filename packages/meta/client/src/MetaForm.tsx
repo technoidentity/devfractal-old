@@ -1,6 +1,6 @@
 import { Simple } from 'devfractal-simple'
 import { Field, Label } from 'devfractal-ui-core'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import { EnumMT, Mixed, MT, PrimitiveMT } from 'meta-core'
 import React from 'react'
 import { camelCaseToPhrase } from 'technoidentity-utils'
@@ -106,7 +106,7 @@ const ObjectMetaEditor: React.FC<ObjectMetaEditorProps> = ({ meta }) => (
 
 export interface MetaFormProps {
   readonly meta: MT
-  onSubmit?(values: any, actions: FormikActions<any>): void
+  onSubmit?(values: any, actions: FormikHelpers<any>): void
 }
 
 export const MetaForm: React.FC<MetaFormProps> = ({ onSubmit, meta }) => {

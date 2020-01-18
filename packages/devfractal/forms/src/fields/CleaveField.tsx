@@ -3,13 +3,14 @@ import React from 'react'
 import { CleaveInput, CleaveInputProps } from '../components'
 import { OmitForm } from '../types'
 
-type CleaveInputInnerProps<V> = FieldProps<V> & OmitForm<CleaveInputProps>
+type CleaveInputInnerProps = FieldProps<CleaveInputProps['value']> &
+  OmitForm<CleaveInputProps>
 
-function CleaveInputInner<V>({
+function CleaveInputInner({
   form,
   field,
   ...props
-}: CleaveInputInnerProps<V>): JSX.Element {
+}: CleaveInputInnerProps): JSX.Element {
   return (
     <CleaveInput
       {...props}

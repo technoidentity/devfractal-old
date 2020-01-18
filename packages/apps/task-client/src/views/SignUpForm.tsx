@@ -1,7 +1,7 @@
 import { Link } from 'devfractal-router'
 import { Simple } from 'devfractal-simple'
 import { Column, Columns, component, Section, Text } from 'devfractal-ui-core'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import { empty, fn, req, string, TypeOf } from 'technoidentity-utils'
 import * as yup from 'yup'
@@ -38,7 +38,7 @@ const SignUpFormProps = req({
   onSubmit: fn<
     (
       values: Omit<SignUpValues, 'confirmPassword'>,
-      actions: FormikActions<Omit<SignUpValues, 'confirmPassword'>>,
+      actions: FormikHelpers<Omit<SignUpValues, 'confirmPassword'>>,
     ) => Promise<void>
   >(),
 })

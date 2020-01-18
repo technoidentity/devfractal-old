@@ -1,11 +1,11 @@
-import express from 'express'
+import express, { Response } from 'express'
 import { BAD_REQUEST, NO_CONTENT } from 'http-status-codes'
-import { Request, Response } from './types'
-import { User, UserModel } from './userSchema'
+import { Request } from './types'
+import { UserModel } from './userSchema'
 
 export const userRouter = express.Router()
 
-userRouter.get('/', async (_: Request, res: Response<User[]>) => {
+userRouter.get('/', async (_: Request, res: Response) => {
   try {
     const users = await UserModel.find().exec()
     res.send(users)
@@ -14,7 +14,7 @@ userRouter.get('/', async (_: Request, res: Response<User[]>) => {
   }
 })
 
-userRouter.get('/:id', async (req: Request, res: Response<User>) => {
+userRouter.get('/:id', async (req: Request, res: Response) => {
   try {
     await UserModel.findById(req.params.id).exec()
     res.sendStatus(NO_CONTENT)
@@ -23,7 +23,7 @@ userRouter.get('/:id', async (req: Request, res: Response<User>) => {
   }
 })
 
-userRouter.post('/', async (req: Request, res: Response<User>) => {
+userRouter.post('/', async (req: Request, res: Response) => {
   try {
     const newUser = new UserModel(req.body)
     const result = await newUser.save()
@@ -33,7 +33,7 @@ userRouter.post('/', async (req: Request, res: Response<User>) => {
   }
 })
 
-userRouter.put('/:id', async (req: Request, res: Response<User>) => {
+userRouter.put('/:id', async (req: Request, res: Response) => {
   try {
     const user = await UserModel.findById({ _id: req.params.id }).exec()
     if (user !== undefined && user !== null) {

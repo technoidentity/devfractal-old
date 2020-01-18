@@ -1,4 +1,4 @@
-import { Field, Form, Formik, FormikActions } from 'formik'
+import { Field, Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Text, Title } from 'technoidentity-devfractal'
@@ -7,7 +7,7 @@ import { FSTodo, fsTodoAPI } from '../common'
 export interface AddTodoProps {
   onAddTodo(
     todo: Omit<FSTodo, 'id'>,
-    actions: FormikActions<Omit<FSTodo, 'id'>>,
+    actions: FormikHelpers<Omit<FSTodo, 'id'>>,
   ): void
 }
 
@@ -38,7 +38,7 @@ export const FSAddTodo: React.FC<RouteComponentProps> = ({ history }) => {
   // tslint:disable-next-line: typedef
   const handleAddTodo = async (
     todo: Omit<FSTodo, 'id'>,
-    actions: FormikActions<typeof todo>,
+    actions: FormikHelpers<typeof todo>,
   ) => {
     try {
       await fsTodoAPI.create(todo)

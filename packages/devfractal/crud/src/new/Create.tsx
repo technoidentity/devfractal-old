@@ -1,6 +1,7 @@
 import { API } from 'devfractal-api'
 import { Route } from 'devfractal-router'
-import { Post, SubmitAction } from 'devfractal-ui-api'
+import { Post } from 'devfractal-ui-api'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 
@@ -14,7 +15,10 @@ export interface CreateProps<
   readonly path: string
   readonly redirectTo?: string
   readonly form: React.FC<{
-    readonly onSubmit: SubmitAction<TypeOf<ObjC<Opt, Req>>>
+    onSubmit(
+      values: TypeOf<ObjC<Opt, Req>>,
+      actions: FormikHelpers<TypeOf<ObjC<Opt, Req>>>,
+    ): Promise<void> // SubmitAction<TypeOf<ObjC<Opt, Req>>>
   }>
   readonly api: API<Opt, Req, ID>
 }

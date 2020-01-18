@@ -1,7 +1,7 @@
 import { Simple } from 'devfractal-simple'
 import { Get } from 'devfractal-ui-api'
 import { Section } from 'devfractal-ui-core'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import * as t from 'technoidentity-utils'
 import { date } from 'technoidentity-utils'
@@ -11,7 +11,7 @@ export interface EditorViewProps<T extends {}> {
   readonly data: T
   readonly id?: keyof T
   readonly schema?: ObjectSchema<T>
-  onSubmit?(values: T, actions: FormikActions<T>): void
+  onSubmit?(values: T, actions: FormikHelpers<T>): void
 }
 
 export function EditorView<T extends {}>({
@@ -50,7 +50,7 @@ export function EditorView<T extends {}>({
 export interface EditorProps<T extends {}> {
   readonly data: T | (() => Promise<T>)
   readonly id: keyof T
-  onSubmit?(values: T, actions: FormikActions<T>): void
+  onSubmit?(values: T, actions: FormikHelpers<T>): void
 }
 
 export function Editor<T extends {}>({

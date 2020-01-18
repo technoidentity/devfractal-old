@@ -55,7 +55,7 @@ module.exports = {
         '@typescript-eslint/interface-name-prefix': 'error',
         '@typescript-eslint/member-naming': 'error',
         '@typescript-eslint/no-array-constructor': 'error',
-        '@typescript-eslint/no-empty-function': 'error',
+        '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-extraneous-class': 'error',
         '@typescript-eslint/no-floating-promises': 'error',
         '@typescript-eslint/no-for-in-array': 'error',

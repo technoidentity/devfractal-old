@@ -26,28 +26,28 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "firebase": "7.3.0",
+    "firebase": "7.7.0",
     "tslib": "1.10.0"
   },
   "devDependencies": {
     "cross-env": "6.0.3",
     "devfractal-api": "1.2.19",
     "devfractal-router": "1.2.19",
-    "eslint": "6.6.0",
+    "eslint": "6.8.0",
     "formik": "1.5.8",
     "jest": "24.9.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react-styleguidist": "10.2.0",
+    "react-styleguidist": "10.6.0",
     "rimraf": "3.0.0",
     "technoidentity-utils": "1.2.19",
-    "tsdx": "0.11.0",
+    "tsdx": "0.12.3",
     "tslint": "5.20.1",
-    "typescript": "3.7.2"
+    "typescript": "3.7.5"
   },
   "peerDependencies": {
     "devfractal-api": "1.2.19",
     "devfractal-router": "1.2.19",
-    "formik": "2.0.3"
+    "formik": "2.1.2"
   }
 }

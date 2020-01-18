@@ -5,6 +5,7 @@ exports[`AddTodo 1`] = `
   className="section"
 >
   <form
+    action="#"
     onReset={[Function]}
     onSubmit={[Function]}
   >
@@ -70,7 +71,6 @@ exports[`AddTodo 1`] = `
             onBlur={[Function]}
             onChange={[Function]}
             type="checkbox"
-            value={false}
           />
         </label>
       </div>

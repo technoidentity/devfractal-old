@@ -1,13 +1,12 @@
-import express from 'express'
+import express, { Response } from 'express'
 import {
   BAD_REQUEST,
   CREATED,
   INTERNAL_SERVER_ERROR,
   NO_CONTENT,
 } from 'http-status-codes'
-import { boolean, string, TypeOf } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
-import { AuthSession, Request, Response } from './types'
+import { boolean, req, string, TypeOf } from 'technoidentity-utils'
+import { AuthSession, Request } from './types'
 import { isUserValid } from './userSchema'
 
 export const sessionRouter = express.Router()
@@ -16,7 +15,7 @@ export const AuthSegment = req({ authenticated: boolean })
 
 type AuthSegment = TypeOf<typeof AuthSegment>
 
-sessionRouter.get('/', (req: Request, res: Response<AuthSegment>) => {
+sessionRouter.get('/', (req: Request, res: Response) => {
   return res.send({ authenticated: req.session !== undefined })
 })
 
@@ -28,7 +27,7 @@ sessionRouter.post(
   '/',
   async (
     req: Request<PostSessionBody, undefined, AuthSession>,
-    res: Response<AuthSegment>,
+    res: Response,
   ) => {
     try {
       if (

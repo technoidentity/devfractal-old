@@ -1,24 +1,23 @@
 import { useHistory } from 'devfractal-router'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import { History } from 'history'
 import React from 'react'
-import { SubmitAction } from './common'
 
 export interface SubmitResult<T extends {}> {
   readonly serverError: string | undefined
-  readonly onSubmit: SubmitAction<T>
+  onSubmit(values: T, actions: FormikHelpers<T>): Promise<void>
 }
 
 export function useSubmit<T extends {}>(
   asyncFn: (formValues: T) => Promise<T>,
-  onSuccess: (values: T, actions: FormikActions<T>) => void,
-  onFailure?: (err: any, actions: FormikActions<T>) => void,
+  onSuccess: (values: T, actions: FormikHelpers<T>) => void,
+  onFailure?: (err: any, actions: FormikHelpers<T>) => void,
 ): SubmitResult<T> {
   const [serverError, setServerError] = React.useState<string | undefined>(
     undefined,
   )
 
-  async function onSubmit(values: T, actions: FormikActions<T>): Promise<void> {
+  async function onSubmit(values: T, actions: FormikHelpers<T>): Promise<void> {
     return asyncFn(values)
       .then(values => onSuccess(values, actions))
       .catch(err => {

@@ -27,17 +27,11 @@ import { HeadTitle } from '../components'
 
 const { create, edit } = links(adManagerAPI.resource)
 
-const FormikInput: React.FC<FieldProps<AdManager>> = ({
-  form,
-  field,
-  ...props
-}) => <Input {...props} {...field} />
+const FormikInput: React.FC<FieldProps> = ({ form, field, ...props }) => (
+  <Input {...props} {...field} />
+)
 
-const FormikDate: React.FC<FieldProps<AdManager>> = ({
-  form,
-  field,
-  ...props
-}) => (
+const FormikDate: React.FC<FieldProps> = ({ form, field, ...props }) => (
   <DateInput
     {...props}
     onChange={date => form.setFieldValue(field.name, date)}
@@ -129,7 +123,7 @@ export const EditAdManager: React.FC = () => {
 
   const result = useGet(adManagerAPI.get, id)
 
-  const { serverError, onSubmit } = useSubmitRedirect(
+  const { serverError, onSubmit } = useSubmitRedirect<AdManager>(
     data => adManagerAPI.update(id, data),
     '/adManagers',
   )

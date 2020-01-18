@@ -10,10 +10,6 @@ export interface Request<
   session?: Session
 }
 
-export interface Response<Body extends {} = {}> extends express.Response {
-  send(body?: Body): Response<Body>
-}
-
 export interface AuthSession extends Express.Session {
   loggedIn?: boolean
 }

@@ -2,7 +2,7 @@ import { format } from 'date-fns'
 import { DateField } from 'devfractal-forms'
 import { Simple } from 'devfractal-simple'
 import { Column, Columns, component, Section } from 'devfractal-ui-core'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import { produce } from 'immer'
 import React from 'react'
 import { empty, fn, obj } from 'technoidentity-utils'
@@ -67,7 +67,7 @@ export const TaskFormProps = obj(
   { initial: Task },
   {
     onSubmit: fn<
-      (values: Task, actions: FormikActions<Task>) => Promise<void>
+      (values: Task, actions: FormikHelpers<Task>) => Promise<void>
     >(),
   },
 )

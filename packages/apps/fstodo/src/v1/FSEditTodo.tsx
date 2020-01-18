@@ -1,12 +1,12 @@
 // tslint:disable typedef
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import { Get, Simple, Text } from 'technoidentity-devfractal'
 import { FSTodo, fsTodoAPI } from '../common'
 
 export interface EditTodoViewProps {
   readonly todo: FSTodo
-  onEditTodo(todo: FSTodo, actions: FormikActions<FSTodo>): void
+  onEditTodo(todo: FSTodo, actions: FormikHelpers<FSTodo>): void
 }
 
 export const FSEditTodoView: React.FC<EditTodoViewProps> = ({
@@ -30,7 +30,7 @@ export const FSEditTodo: React.FC<FSEditTodoProps> = ({ id }) => {
   const [err, setErr] = React.useState('')
   const handleEditTodo = async (
     todo: FSTodo,
-    actions: FormikActions<typeof todo>,
+    actions: FormikHelpers<typeof todo>,
   ) => {
     try {
       await fsTodoAPI.replace(todo.id, todo)

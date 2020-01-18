@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { FormikActions, FormikErrors } from 'formik'
+import { FormikErrors, FormikHelpers } from 'formik'
 import { jsonStringify, timeout } from 'technoidentity-utils'
 
 export function consoleSubmit<Values extends {}>(
   milliseconds: number = 0,
-): (values: Values, formikArgs: FormikActions<Values>) => Promise<void> {
+): (values: Values, formikArgs: FormikHelpers<Values>) => Promise<void> {
   return async (values, { setSubmitting }) =>
     timeout(milliseconds, () => {
       console.log(jsonStringify(values))
@@ -25,7 +25,7 @@ const id: (x: unknown) => any = x => x
 
 type APISubmitResult<Values extends {}, Result extends Values = Values> = (
   values: Values,
-  actions: FormikActions<Values>,
+  actions: FormikHelpers<Values>,
 ) => Promise<Result>
 
 export type ApiSubmitAction = 'post' | 'put'

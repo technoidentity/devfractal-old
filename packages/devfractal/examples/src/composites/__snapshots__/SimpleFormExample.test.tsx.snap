@@ -5,6 +5,7 @@ exports[`Simple Form Example 1`] = `
   className="section"
 >
   <form
+    action="#"
     onReset={[Function]}
     onSubmit={[Function]}
   >
@@ -147,7 +148,6 @@ exports[`Simple Form Example 1`] = `
             onBlur={[Function]}
             onChange={[Function]}
             type="checkbox"
-            value={false}
           />
         </label>
       </div>

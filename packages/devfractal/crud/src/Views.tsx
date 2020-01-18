@@ -1,6 +1,6 @@
 import { RowClickEvent, SimpleTable } from 'devfractal-simple'
 import { Button, Container, Field } from 'devfractal-ui-core'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import { Mixed, TypeOf } from 'technoidentity-utils'
 import { empty } from 'technoidentity-utils'
@@ -9,7 +9,7 @@ import { Viewer } from './Viewer'
 
 interface EditProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)
-  onSubmit?(values: T, actions: FormikActions<T>): void
+  onSubmit?(values: T, actions: FormikHelpers<T>): void
 }
 
 interface ViewProps<T extends Record<string, any>> {
@@ -17,7 +17,7 @@ interface ViewProps<T extends Record<string, any>> {
 }
 
 interface CreateProps<T extends Record<string, any>> {
-  onSubmit?(values: T, actions: FormikActions<T>): void
+  onSubmit?(values: T, actions: FormikHelpers<T>): void
 }
 
 interface ListProps<T extends Record<string, any>> {
@@ -42,7 +42,7 @@ export function Views<RT extends Mixed, ID extends keyof RT>(
 ): CrudViewsResult<RT, ID> {
   return {
     Create: ({ onSubmit }) => (
-      <Editor id={id} data={empty(typeValue)} onSubmit={onSubmit} />
+      <Editor id={id} data={empty(typeValue)} onSubmit={onSubmit as any} />
     ),
 
     Edit: ({ data, onSubmit }) => (

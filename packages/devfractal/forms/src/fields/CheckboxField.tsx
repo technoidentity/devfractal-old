@@ -5,13 +5,13 @@ import { FormikFieldConfig, OmitForm } from '../types'
 
 type FormikCheckboxProps<V> = FormikFieldProps<V> & OmitForm<CheckBoxProps>
 
-const FormikCheckbox: <V>(props: FormikCheckboxProps<V>) => JSX.Element = ({
+const FormikCheckbox: (props: FormikCheckboxProps<boolean>) => JSX.Element = ({
   form,
-  field,
+  field: { value, ...field },
   children,
   ...props
 }) => (
-  <CheckBox {...props} {...field} checked={field.value}>
+  <CheckBox {...props} {...field} checked={value}>
     {children}
   </CheckBox>
 )

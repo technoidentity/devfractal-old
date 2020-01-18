@@ -12,12 +12,12 @@ import {
   Select,
   Text,
 } from 'devfractal-ui-core'
-import { Form, Formik, FormikActions } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
 import { PrimitiveMT } from 'meta-core'
 import React from 'react'
 
 export interface MetaBuildFormProps {
-  onSubmit(values: any, formikActions: FormikActions<any>): void
+  onSubmit(values: any, formikActions: FormikHelpers<any>): void
 }
 
 interface Meta {

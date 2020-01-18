@@ -3,13 +3,14 @@ import React from 'react'
 import { DateInput, DateInputProps } from '../components'
 import { OmitForm } from '../types'
 
-type DateInputInnerProps<V> = FieldProps<V> & OmitForm<DateInputProps>
+type DateInputInnerProps = FieldProps<DateInputProps['selected']> &
+  OmitForm<DateInputProps>
 
-function DateInputInner<V>({
+function DateInputInner({
   form,
   field,
   ...props
-}: DateInputInnerProps<V>): JSX.Element {
+}: DateInputInnerProps): JSX.Element {
   return (
     <DateInput
       {...props}
