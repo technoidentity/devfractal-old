@@ -24,8 +24,8 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "io-ts": "^2.0.1",
-    "technoidentity-utils": "^1.2.19",
+    "io-ts": "2.0.1",
+    "technoidentity-utils": "1.2.19",
     "tslib": "1.10.0"
   },
   "devDependencies": {

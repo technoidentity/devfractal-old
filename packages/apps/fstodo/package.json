@@ -3,13 +3,13 @@
   "version": "1.2.19",
   "private": true,
   "dependencies": {
-    "firebase": "^7.3.0",
+    "firebase": "7.3.0",
     "formik": "1.5.8",
     "react": "16.11.0",
     "react-datepicker": "2.10.0",
     "react-dom": "16.11.0",
-    "technoidentity-devfractal": "^1.2.19",
-    "technoidentity-utils": "^1.2.19",
+    "technoidentity-devfractal": "1.2.19",
+    "technoidentity-utils": "1.2.19",
     "yup": "0.27.0"
   },
   "devDependencies": {

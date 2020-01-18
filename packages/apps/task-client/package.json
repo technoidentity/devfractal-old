@@ -25,11 +25,11 @@
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-use": "13.6.2",
-    "technoidentity-devfractal": "^1.2.19",
-    "technoidentity-utils": "^1.2.19"
+    "technoidentity-devfractal": "1.2.19",
+    "technoidentity-utils": "1.2.19"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.2",
+    "@babel/core": "7.7.2",
     "cross-env": "6.0.3",
     "eslint": "6.6.0",
     "jest": "24.9.0",
