@@ -1,4 +1,4 @@
-import { useMatch } from 'devfractal-router'
+import { useParams } from 'devfractal-router'
 import { Put } from 'devfractal-ui-api'
 import { Section, Title } from 'devfractal-ui-core'
 import React from 'react'
@@ -10,7 +10,8 @@ import { TaskForm } from '../views'
 const Params = req({ id: string })
 
 export const EditTaskRoute: React.FC = () => {
-  const { params } = useMatch(Params)
+  const params = useParams(Params)
+
   return (
     <Section>
       <Title textAlignment="centered">Edit Task</Title>

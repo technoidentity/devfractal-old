@@ -1,4 +1,4 @@
-import { Link, useRouter } from 'devfractal-router'
+import { Link, useLocation } from 'devfractal-router'
 import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
 import { chop } from 'technoidentity-utils'
@@ -76,11 +76,10 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   children,
   ...props
 }) => {
-  const { location } = useRouter()
+  const { pathname } = useLocation()
 
   const classes: string = classNamesHelper(props, {
-    'is-active':
-      active || (href && chop(location.pathname).startsWith(chop(href))),
+    'is-active': active || (href && chop(pathname).startsWith(chop(href))),
   })
 
   return (

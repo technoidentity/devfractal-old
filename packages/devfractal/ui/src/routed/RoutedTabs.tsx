@@ -1,4 +1,4 @@
-import { NavLink, useRouter } from 'devfractal-router'
+import { NavLink, useLocation } from 'devfractal-router'
 import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
 import { chop, extractSegment } from 'technoidentity-utils'
@@ -94,13 +94,14 @@ export const RoutedTabs: React.FC<RoutedTabsProps> = args => {
     [`is-${tabsStyle}`]: tabsStyle,
     'is-fullwidth': fullWidth,
   })
-  const { location } = useRouter()
+  const { pathname } = useLocation()
+
   return (
     <RoutedTabsContext.Provider
       value={{
         baseURL: to,
         separator: urlSeparator,
-        currentLocation: location.pathname,
+        currentLocation: pathname,
       }}
     >
       <El {...props} className={classes}>

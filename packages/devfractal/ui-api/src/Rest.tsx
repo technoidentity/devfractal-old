@@ -1,5 +1,5 @@
 import { API } from 'devfractal-api'
-import { Route, useMatch } from 'devfractal-router'
+import { Route, useParams } from 'devfractal-router'
 import React from 'react'
 import { Mixed, type } from 'technoidentity-utils'
 import { getProp } from 'technoidentity-utils'
@@ -113,7 +113,8 @@ export function RestPut<T>({
     throw new Error(`${api.idKey} not defined`)
   }
 
-  const { params } = useMatch(type({ [api.idKey]: idPropSpec }))
+  // tslint:disable-next-line: typedef
+  const params = useParams(type({ [api.idKey]: idPropSpec }))
 
   return (
     <Route

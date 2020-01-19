@@ -1,45 +1,21 @@
-import { History, Location } from 'history'
-import { parse } from 'query-string'
 import React from 'react'
 import { RouteChildrenProps } from 'react-router'
-import { Mixed, TypeOf } from 'technoidentity-utils'
-import { cast, verify } from 'technoidentity-utils'
+import { verify } from 'technoidentity-utils'
+
 // tslint:disable typedef
 
-interface RouterContext extends RouteChildrenProps {
+interface SafeRouterContext extends RouteChildrenProps {
   setRouteMatched(value: boolean): void
   getRouteMatched(): boolean
 }
 
-export const RouterContext: React.Context<RouterContext> = React.createContext<
-  RouterContext
->((undefined as unknown) as RouterContext)
+export const SafeRouterContext: React.Context<SafeRouterContext> = React.createContext<
+  SafeRouterContext
+>((undefined as unknown) as SafeRouterContext)
 
-export function useRouter(): RouterContext {
-  const result = React.useContext(RouterContext)
+export function useSafeRouter(): SafeRouterContext {
+  const result = React.useContext(SafeRouterContext)
   verify(result !== null)
 
   return result
-}
-
-export function useHistory(): History {
-  const { history } = useRouter()
-
-  return history
-}
-
-export function useLocation(): Location {
-  const { location } = useRouter()
-
-  return location
-}
-
-export function useQuery<Spec extends Mixed>(
-  querySpec: Spec,
-): TypeOf<typeof querySpec> {
-  const location = useLocation()
-  const query = parse(location.search)
-  cast(querySpec, query)
-
-  return query
 }

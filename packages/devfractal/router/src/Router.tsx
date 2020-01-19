@@ -6,7 +6,7 @@ import {
   HashRouterProps,
   Route,
 } from 'react-router-dom'
-import { RouterContext, useRouter } from './RouterContext'
+import { SafeRouterContext, useSafeRouter } from './RouterContext'
 
 // tslint:disable no-class readonly-keyword no-object-mutation no-this
 class RouteMatched {
@@ -30,7 +30,7 @@ export type RouterProps<T extends RouterType> = (T extends 'browser'
 }
 
 const CheckRouteMatched: React.FC = () => {
-  const { getRouteMatched } = useRouter()
+  const { getRouteMatched } = useSafeRouter()
   if (!getRouteMatched()) {
     throw new Error('no route matched')
   }
@@ -41,10 +41,12 @@ const CheckRouteMatched: React.FC = () => {
 const RouterChildren: React.FC = ({ children }) => (
   <Route>
     {routeProps => (
-      <RouterContext.Provider value={{ ...routeProps, ...new RouteMatched() }}>
+      <SafeRouterContext.Provider
+        value={{ ...routeProps, ...new RouteMatched() }}
+      >
         {children}
         <CheckRouteMatched />
-      </RouterContext.Provider>
+      </SafeRouterContext.Provider>
     )}
   </Route>
 )

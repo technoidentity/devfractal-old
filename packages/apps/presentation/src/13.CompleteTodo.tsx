@@ -13,7 +13,7 @@ import {
   Section,
   SimpleTable,
   Title,
-  useMatch,
+  useParams,
   useRedirect,
 } from 'technoidentity-devfractal'
 import {
@@ -69,7 +69,7 @@ const CreateTodoRoute = () => (
 const Params = req({ id: string })
 
 export const EditTodoRoute = () => {
-  const { params } = useMatch(Params)
+  const params = useParams(Params)
 
   return (
     <Put

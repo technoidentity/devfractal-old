@@ -1,12 +1,12 @@
-import { useRouter } from 'devfractal-router'
+import { useLocation } from 'devfractal-router'
 import { Null } from 'devfractal-ui-core'
 import React from 'react'
 import { capitalizeAll, chop } from 'technoidentity-utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 
 export const DynamicBreadcrumb: React.FC = () => {
-  const { location } = useRouter()
-  const segments: string[] = chop(location.pathname).split('/')
+  const { pathname } = useLocation()
+  const segments: string[] = chop(pathname).split('/')
 
   if (segments.length <= 1) {
     return <Null />

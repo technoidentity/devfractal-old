@@ -1,4 +1,4 @@
-import { useMatch } from 'devfractal-router'
+import { useParams } from 'devfractal-router'
 import { Get } from 'devfractal-ui-api'
 import React from 'react'
 import { opt } from 'technoidentity-utils'
@@ -8,7 +8,7 @@ import { TaskListView } from '../views'
 const Params = opt({ filter: TaskFilter })
 
 export const TaskListRoute: React.FC = () => {
-  const { params } = useMatch(Params)
+  const params = useParams(Params)
   const filterOne = (params && params.filter) || 'all'
   return (
     <Get asyncFn={getTasks} deps={[filterOne]}>

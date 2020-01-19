@@ -1,4 +1,4 @@
-import { useRouter } from 'devfractal-router'
+import { useLocation } from 'devfractal-router'
 import React from 'react'
 
 // @TODO: need a spinner
@@ -8,9 +8,9 @@ export const Loading: React.FC = () => (
 
 // @TODO: need a nice error view similar to next.js?
 export const NotFound: React.FC = () => {
-  const { location } = useRouter()
+  const { pathname } = useLocation()
 
-  return <h1>{`path ${location.pathname} did not match any route`}</h1>
+  return <h1>{`path ${pathname} did not match any route`}</h1>
 }
 
 export interface ErrorViewProps {

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route as RRRoute, RouteProps } from 'react-router-dom'
-import { MatchContext } from './MatchContext'
-import { useRouter } from './RouterContext'
+import { useSafeRouter } from './RouterContext'
 
 export function Route({
   component: Component,
@@ -10,7 +9,7 @@ export function Route({
   exact,
   ...props
 }: RouteProps): JSX.Element {
-  const { setRouteMatched } = useRouter()
+  const { setRouteMatched } = useSafeRouter()
 
   return (
     <RRRoute
@@ -21,16 +20,12 @@ export function Route({
           setRouteMatched(true)
         }
 
-        return (
-          <MatchContext.Provider value={renderProps.match}>
-            {Component ? (
-              <Component {...renderProps} />
-            ) : render ? (
-              render(renderProps)
-            ) : (
-              children
-            )}
-          </MatchContext.Provider>
+        return Component ? (
+          <Component {...renderProps} />
+        ) : render ? (
+          render(renderProps)
+        ) : (
+          children
         )
       }}
     />

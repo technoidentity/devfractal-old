@@ -1,4 +1,4 @@
-import { Route, useMatch } from 'devfractal-router'
+import { Route, useParams } from 'devfractal-router'
 import { Put, SubmitAction } from 'devfractal-ui-api'
 import React from 'react'
 import {
@@ -43,7 +43,8 @@ function Children<
     throw new Error(`${api.idKey} not defined`)
   }
 
-  const { params } = useMatch(type({ [api.idKey]: string }))
+  // tslint:disable-next-line: typedef
+  const params = useParams(type({ [api.idKey]: string }))
 
   return (
     <Put

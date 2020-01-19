@@ -1,4 +1,4 @@
-import { NavLink, useRouter } from 'devfractal-router'
+import { NavLink, useLocation } from 'devfractal-router'
 import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
 import React from 'react'
 import { chop } from 'technoidentity-utils'
@@ -22,13 +22,14 @@ export interface BreadcrumbItemProps
 
 export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = args => {
   const { active, href, children, ...props } = args
-  const { location } = useRouter()
+  const { pathname } = useLocation()
+
   return (
     <El
       as="li"
       {...props}
       className={classNamesHelper(props, {
-        'is-active': active || (href && chop(href)) === chop(location.pathname),
+        'is-active': active || (href && chop(href)) === chop(pathname),
       })}
     >
       {<NavLink to={href || '#'}>{children}</NavLink>}
