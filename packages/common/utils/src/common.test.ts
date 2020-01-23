@@ -1,3 +1,4 @@
+import { pick as ldPick } from 'lodash-es'
 import { buildObject, omit, pick, range, repeatedly, today } from './common'
 
 it('range', () => {
@@ -63,4 +64,10 @@ it('pick', () => {
   expect(pick({ x: 1, y: '2' }, ['x'])).toEqual({ x: 1 })
   expect(pick({ x: 1, y: '2' }, ['z'] as any)).toEqual({})
   expect(pick({ x: 1, y: '2' }, ['x', 'y'])).toEqual({ x: 1, y: '2' })
+})
+
+it('testing if lodash-es works with jest', () => {
+  expect(ldPick({ x: 1, y: '2' }, ['x'])).toEqual({ x: 1 })
+  expect(ldPick({ x: 1, y: '2' }, ['z'] as any)).toEqual({})
+  expect(ldPick({ x: 1, y: '2' }, ['x', 'y'])).toEqual({ x: 1, y: '2' })
 })
