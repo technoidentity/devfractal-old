@@ -142,12 +142,12 @@ exports[`Simple Form Example 1`] = `
           className="checkbox"
         >
           <input
-            checked={false}
             className="checkbox"
             name="remember"
             onBlur={[Function]}
             onChange={[Function]}
             type="checkbox"
+            value={false}
           />
         </label>
       </div>
