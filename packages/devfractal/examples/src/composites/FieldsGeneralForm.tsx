@@ -1,5 +1,6 @@
 import {
   CheckboxField,
+  DateField,
   ErrorField,
   InputField,
   RadioGroupField,
@@ -17,7 +18,7 @@ import {
 } from 'devfractal-ui-core'
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { boolean, object, ObjectSchema, string } from 'yup'
+import { boolean, date, object, ObjectSchema, string } from 'yup'
 
 interface GeneralFormProps {
   readonly name: string
@@ -27,6 +28,7 @@ interface GeneralFormProps {
   readonly select: string
   readonly message: string
   readonly radio: string
+  readonly date: Date
 }
 
 const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = () => {
@@ -74,6 +76,12 @@ const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = () => {
             <ErrorField name="agree" />
           </Field>
 
+          <Field>
+            <Label>Date</Label>
+            <DateField name="date" />
+            <ErrorField name="date" />
+          </Field>
+
           <Field grouped>
             <RadioGroupField name="radio">
               <Radio value="yes"> Yes</Radio>
@@ -105,6 +113,7 @@ export const initialValues: GeneralFormProps = {
   message: '',
   agree: false,
   radio: 'no',
+  date: new Date(),
 }
 
 const validationSchema: ObjectSchema<GeneralFormProps> = object({
@@ -117,6 +126,7 @@ const validationSchema: ObjectSchema<GeneralFormProps> = object({
   message: string().required('This field is required'),
   agree: boolean().required('This field is required'),
   radio: string().required('This field is required'),
+  date: date().required('This field is required'),
 })
 
 export const FieldsGeneralForm: () => JSX.Element = () => (

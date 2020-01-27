@@ -1,32 +1,21 @@
-import { Field, FieldConfig, FieldProps } from 'formik'
+import { useField } from 'formik'
 import React from 'react'
 import { DateInput, DateInputProps } from '../components'
-import { OmitForm } from '../types'
+import { FormikFieldConfig } from '../types'
 
-type DateInputInnerProps = FieldProps<DateInputProps['selected']> &
-  OmitForm<DateInputProps>
+export type DateFieldProps = Omit<DateInputProps, 'onChange'> &
+  FormikFieldConfig & { readonly onChange?: DateInputProps['onChange'] }
 
-function DateInputInner({
-  form,
-  field,
-  ...props
-}: DateInputInnerProps): JSX.Element {
+export const DateField: React.FC<DateFieldProps> = props => {
+  const [field, , helpers] = useField(props)
+  const { validate, ...rest } = props
   return (
     <DateInput
-      {...props}
-      onChange={date => form.setFieldValue(field.name, date)}
       name={field.name}
       onBlur={field.onBlur}
       selected={field.value}
+      onChange={date => helpers.setValue(date)}
+      {...rest}
     />
   )
 }
-
-export type DateFieldProps = {
-  readonly onChange?: DateInputProps['onChange']
-} & Omit<DateInputProps, 'onChange'> &
-  FieldConfig
-
-export const DateField: React.FC<DateFieldProps> = props => (
-  <Field {...props} component={DateInputInner} />
-)

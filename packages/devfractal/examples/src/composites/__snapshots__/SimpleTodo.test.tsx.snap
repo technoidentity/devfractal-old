@@ -71,13 +71,13 @@ Array [
             className="checkbox"
           >
             <input
-              checked={false}
               className="checkbox"
               id="done"
               name="done"
               onBlur={[Function]}
               onChange={[Function]}
               type="checkbox"
+              value={false}
             />
           </label>
         </div>
