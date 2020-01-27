@@ -15,6 +15,7 @@ Array [
       >
         <label
           className="label"
+          htmlFor="title"
         >
           Title:
         </label>
@@ -23,6 +24,7 @@ Array [
         >
           <input
             className="input"
+            id="title"
             name="title"
             onBlur={[Function]}
             onChange={[Function]}
@@ -36,6 +38,7 @@ Array [
       >
         <label
           className="label"
+          htmlFor="description"
         >
           Description:
         </label>
@@ -44,6 +47,7 @@ Array [
         >
           <textarea
             className="textarea"
+            id="description"
             name="description"
             onBlur={[Function]}
             onChange={[Function]}
@@ -56,6 +60,7 @@ Array [
       >
         <label
           className="label"
+          htmlFor="done"
         >
            Done
         </label>
@@ -68,6 +73,7 @@ Array [
             <input
               checked={false}
               className="checkbox"
+              id="done"
               name="done"
               onBlur={[Function]}
               onChange={[Function]}

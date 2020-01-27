@@ -14,6 +14,7 @@ exports[`Simple Login Form 1`] = `
     >
       <label
         className="label"
+        htmlFor="username"
       >
         Username:
       </label>
@@ -22,6 +23,7 @@ exports[`Simple Login Form 1`] = `
       >
         <input
           className="input"
+          id="username"
           name="username"
           onBlur={[Function]}
           onChange={[Function]}
@@ -35,6 +37,7 @@ exports[`Simple Login Form 1`] = `
     >
       <label
         className="label"
+        htmlFor="password"
       >
         Password:
       </label>
@@ -43,6 +46,7 @@ exports[`Simple Login Form 1`] = `
       >
         <input
           className="input"
+          id="password"
           name="password"
           onBlur={[Function]}
           onChange={[Function]}

@@ -111,10 +111,17 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
 ): JSX.Element {
   const [fieldProps, rest] = splitFieldProps(args)
   const { schema, label, validations, ...props } = rest
+
+  const id: string = props.id || props.name
+
   return (
     <Field {...fieldProps}>
-      <Label>{label || camelCaseToPhrase(props.name)}</Label>
-      <InputField {...props} validate={validator(schema, validations)} />
+      <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
+      <InputField
+        id={id}
+        {...props}
+        validate={validator(schema, validations)}
+      />
       <ErrorField name={props.name} />
     </Field>
   )
@@ -133,10 +140,12 @@ function SimpleDate<Values extends {}>(
 ): JSX.Element {
   const [fieldProps, rest] = splitFieldProps(args)
   const { label, validations, ...props } = rest
+  const id: string = props.id || props.name
+
   return (
     <Field {...fieldProps}>
-      <Label>{label || camelCaseToPhrase(props.name)}</Label>
-      <DateField {...props} validate={validator(date(), validations)} />
+      <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
+      <DateField id={id} {...props} validate={validator(date(), validations)} />
       <ErrorField name={props.name} />
     </Field>
   )
@@ -250,12 +259,14 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 
     Checkbox: ({ children, noLabel, ...args }) => {
       const [fieldProps, props] = splitFieldProps(args)
+      const id: string = props.id || props.name
+
       return (
         <Field {...fieldProps}>
-          <Label>
+          <Label htmlFor={id}>
             {children || (!noLabel && ` ${camelCaseToPhrase(props.name)}`)}
           </Label>
-          <CheckboxField {...props} />
+          <CheckboxField id={id} {...props} />
           <ErrorField name={props.name} />
         </Field>
       )
@@ -263,9 +274,11 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 
     RadioGroup: ({ children, label, ...args }) => {
       const [fieldProps, props] = splitFieldProps(args)
+      const id: string = props.id || props.name
+
       return (
         <Field {...fieldProps}>
-          <Label>{label || camelCaseToPhrase(props.name)}</Label>
+          <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
           <RadioGroupField {...props}>{children}</RadioGroupField>
           <ErrorField name={props.name} />
         </Field>
@@ -274,10 +287,14 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 
     Select: ({ children, label, ...args }) => {
       const [fieldProps, props] = splitFieldProps(args)
+      const id: string = props.id || props.name
+
       return (
         <Field {...fieldProps}>
-          <Label>{label || camelCaseToPhrase(props.name)}</Label>
-          <SelectField {...props}>{children}</SelectField>
+          <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
+          <SelectField id={id} {...props}>
+            {children}
+          </SelectField>
           <ErrorField name={props.name} />
         </Field>
       )
@@ -285,10 +302,13 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 
     TextArea: ({ label, validations, ...args }) => {
       const [fieldProps, props] = splitFieldProps(args)
+      const id: string = props.id || props.name
+
       return (
         <Field {...fieldProps}>
-          <Label>{label || camelCaseToPhrase(props.name)}</Label>
+          <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
           <TextAreaField
+            id={id}
             {...props}
             validate={validator(string(), validations)}
           />

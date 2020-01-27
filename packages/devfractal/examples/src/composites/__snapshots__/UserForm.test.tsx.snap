@@ -11,6 +11,7 @@ exports[`User Form Example 1`] = `
   >
     <label
       className="label"
+      htmlFor="name"
     >
       Name:
     </label>
@@ -19,6 +20,7 @@ exports[`User Form Example 1`] = `
     >
       <input
         className="input"
+        id="name"
         name="name"
         onBlur={[Function]}
         onChange={[Function]}
@@ -32,6 +34,7 @@ exports[`User Form Example 1`] = `
   >
     <label
       className="label"
+      htmlFor="username"
     >
       UserName:
     </label>
@@ -40,6 +43,7 @@ exports[`User Form Example 1`] = `
     >
       <input
         className="input"
+        id="username"
         name="username"
         onBlur={[Function]}
         onChange={[Function]}
@@ -53,6 +57,7 @@ exports[`User Form Example 1`] = `
   >
     <label
       className="label"
+      htmlFor="email"
     >
       Email
     </label>
@@ -61,6 +66,7 @@ exports[`User Form Example 1`] = `
     >
       <input
         className="input"
+        id="email"
         name="email"
         onBlur={[Function]}
         onChange={[Function]}
@@ -74,6 +80,7 @@ exports[`User Form Example 1`] = `
   >
     <label
       className="label"
+      htmlFor="phone"
     >
       Phone:
     </label>
@@ -82,6 +89,7 @@ exports[`User Form Example 1`] = `
     >
       <input
         className="input"
+        id="phone"
         name="phone"
         onBlur={[Function]}
         onChange={[Function]}
@@ -95,6 +103,7 @@ exports[`User Form Example 1`] = `
   >
     <label
       className="label"
+      htmlFor="website"
     >
       Website:
     </label>
@@ -103,6 +112,7 @@ exports[`User Form Example 1`] = `
     >
       <input
         className="input"
+        id="website"
         name="website"
         onBlur={[Function]}
         onChange={[Function]}

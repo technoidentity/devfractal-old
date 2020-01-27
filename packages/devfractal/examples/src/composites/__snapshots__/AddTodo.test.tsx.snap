@@ -14,6 +14,7 @@ exports[`AddTodo 1`] = `
     >
       <label
         className="label"
+        htmlFor="title"
       >
         Title:
       </label>
@@ -22,6 +23,7 @@ exports[`AddTodo 1`] = `
       >
         <input
           className="input"
+          id="title"
           name="title"
           onBlur={[Function]}
           onChange={[Function]}
@@ -35,6 +37,7 @@ exports[`AddTodo 1`] = `
     >
       <label
         className="label"
+        htmlFor="description"
       >
         Description:
       </label>
@@ -43,6 +46,7 @@ exports[`AddTodo 1`] = `
       >
         <textarea
           className="textarea"
+          id="description"
           name="description"
           onBlur={[Function]}
           onChange={[Function]}
@@ -55,6 +59,7 @@ exports[`AddTodo 1`] = `
     >
       <label
         className="label"
+        htmlFor="done"
       >
          Done
       </label>
@@ -67,6 +72,7 @@ exports[`AddTodo 1`] = `
           <input
             checked={false}
             className="checkbox"
+            id="done"
             name="done"
             onBlur={[Function]}
             onChange={[Function]}
