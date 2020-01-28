@@ -3,6 +3,8 @@ import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from '../types'
 
+// @TODO type:'radio' must be passed to useField??
+
 export type RadioFieldProps = RadioGroupProps & FormikFieldConfig
 
 export const RadioGroupField: React.FC<RadioFieldProps> = props => {
