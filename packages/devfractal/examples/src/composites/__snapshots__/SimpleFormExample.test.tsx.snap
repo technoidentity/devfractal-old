@@ -153,6 +153,7 @@ exports[`Simple Form Example 1`] = `
           className="checkbox"
         >
           <input
+            checked={false}
             className="checkbox"
             id="remember"
             name="remember"

@@ -70,6 +70,7 @@ exports[`AddTodo 1`] = `
           className="checkbox"
         >
           <input
+            checked={false}
             className="checkbox"
             id="done"
             name="done"

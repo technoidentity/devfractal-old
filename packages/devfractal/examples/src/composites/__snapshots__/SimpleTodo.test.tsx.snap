@@ -71,6 +71,7 @@ Array [
             className="checkbox"
           >
             <input
+              checked={false}
               className="checkbox"
               id="done"
               name="done"
