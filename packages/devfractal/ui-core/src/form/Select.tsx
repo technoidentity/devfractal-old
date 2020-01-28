@@ -39,6 +39,7 @@ export const Select: React.FC<SelectProps> = ({
   state,
   children,
   rounded,
+
   ...props
 }) => {
   const divClasses: string = classNames('select', {
@@ -47,9 +48,12 @@ export const Select: React.FC<SelectProps> = ({
     'is-fullwidth': fullWidth,
     'is-rounded': rounded,
     [`is-${props.ctrlSize}`]: props.ctrlSize,
+    'is-multiple': props.multiple,
   })
 
-  const classes: string = classNamesHelper(props, { [`is-${state}`]: state })
+  const classes: string = classNamesHelper(props, {
+    [`is-${state}`]: state,
+  })
 
   return (
     <ControlWrapper {...props}>
