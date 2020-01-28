@@ -66,6 +66,7 @@ Array [
             className="checkbox"
           >
             <input
+              checked={false}
               className="checkbox"
               name="done"
               onBlur={[Function]}
