@@ -18,7 +18,7 @@ export function warn(condition: unknown, message: string): void {
   } catch (x) {}
 }
 
-export function debug(condition: unknown, message: string): void {
+export function debug(condition: unknown, message: string): asserts condition {
   if (process.env.NODE_ENV === 'development') {
     warn(condition, message)
   }
@@ -35,20 +35,20 @@ export function fatal(message?: string): never {
   }
 }
 
-export function error(message?: string): void {
-  if (process.env.NODE_ENV === 'development') {
-    fatal(message)
-  }
-}
-
 // copied from tiny-invariant package
-export function verify(condition: unknown, message?: string): void {
+export function verify(
+  condition: unknown,
+  message?: string,
+): asserts condition {
   if (!condition) {
     fatal(message)
   }
 }
 
-export function assert(condition: unknown, message?: string): void {
+export function assert(
+  condition: unknown,
+  message?: string,
+): asserts condition {
   if (process.env.NODE_ENV === 'development') {
     verify(condition, message)
   }

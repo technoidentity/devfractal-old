@@ -5,23 +5,18 @@ import { assert, fatal } from './assertions'
 
 export function cast<A, O, I>(spec: Type<A, O, I>, args: I): A {
   const decoded: Either<Errors, A> = spec.decode(args)
-  return isRight(decoded)
-    ? decoded.right
-    : fatal(PathReporter.report(decoded).join('\n'))
+  if (isRight(decoded)) {
+    return decoded.right
+  }
+
+  fatal(PathReporter.report(decoded).join('\n'))
 }
 
-export const verifyCast: typeof cast = cast
-
-export function assertCast<A, O, I>(
-  spec: Type<A, O, I>,
-  args: I,
-): A | undefined {
+export function assertCast<A, O, I>(spec: Type<A, O, I>, args: I): A {
   const decoded: Either<Errors, A> = spec.decode(args)
   assert(spec.is(args), PathReporter.report(decoded).join('\n'))
-  return isRight(decoded) ? decoded.right : undefined
+  return isRight(decoded) ? decoded.right : args
 }
-
-export const debugCast: typeof assertCast = assertCast
 
 export async function rejected<T>(
   decoded: Either<Errors, T> | string,
