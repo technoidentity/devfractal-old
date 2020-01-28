@@ -23,6 +23,7 @@
     "dev": "yarn clean && yarn concurrently \"yarn dev:types:watch\" \"yarn dev:test:watch\"",
     "elint": "lerna run elint",
     "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
     "test": "lerna run test",
     "tlint": "lerna run tlint",
     "up": "ncu -u && lerna exec -- ncu -u",
