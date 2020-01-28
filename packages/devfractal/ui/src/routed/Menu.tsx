@@ -1,7 +1,7 @@
-import { Link, useLocation } from 'devfractal-router'
-import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
+import { Link, useLocation } from '@stp/router'
+import { classNamesHelper, El, Helpers } from '@stp/ui-core'
+import { chop } from '@stp/utils'
 import React from 'react'
-import { chop } from 'technoidentity-utils'
 
 type MenuSize = 'small' | 'medium' | 'large'
 

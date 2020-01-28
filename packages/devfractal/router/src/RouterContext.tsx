@@ -1,6 +1,6 @@
+import { verify } from '@stp/utils'
 import React from 'react'
 import { RouteChildrenProps } from 'react-router'
-import { verify } from 'technoidentity-utils'
 
 // tslint:disable typedef
 

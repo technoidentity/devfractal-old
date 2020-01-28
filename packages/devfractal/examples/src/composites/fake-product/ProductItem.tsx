@@ -1,4 +1,4 @@
-import { Button, Td, Tr } from 'devfractal-ui-core'
+import { Button, Td, Tr } from '@stp/ui-core'
 import React from 'react'
 import { Product } from './fakeData'
 

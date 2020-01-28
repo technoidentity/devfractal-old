@@ -1,8 +1,4 @@
-import {
-  Section,
-  TextArea as TextAreaComponent,
-  Title,
-} from 'devfractal-ui-core'
+import { Section, TextArea as TextAreaComponent, Title } from '@stp/ui-core'
 import React from 'react'
 
 const DynamicTextAreaExample: React.FC = () => {

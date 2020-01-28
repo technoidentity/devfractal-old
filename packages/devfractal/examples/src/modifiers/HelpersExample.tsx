@@ -1,10 +1,4 @@
-import {
-  Box,
-  Button,
-  Section,
-  Text,
-  Title,
-} from 'devfractal-ui-core'
+import { Box, Button, Section, Text, Title } from '@stp/ui-core'
 import React from 'react'
 
 export const Helpers: React.FC = () => (

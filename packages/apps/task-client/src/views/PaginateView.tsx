@@ -5,7 +5,7 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from 'devfractal-ui'
+} from '@stp/ui'
 import React from 'react'
 
 export const PaginationView: React.FC = () => (

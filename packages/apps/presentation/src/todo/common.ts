@@ -1,6 +1,6 @@
-import { rest } from 'devfractal-api'
-import { boolean, number, string, TypeOf } from 'technoidentity-utils'
-import { ISODate, obj } from 'technoidentity-utils'
+import { rest } from '@stp/api'
+import { boolean, number, string, TypeOf } from '@stp/utils'
+import { ISODate, obj } from '@stp/utils'
 
 export const Todo = obj(
   { id: number },

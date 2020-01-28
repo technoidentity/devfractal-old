@@ -1,5 +1,5 @@
-import { boolean, number, string } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
+import { boolean, number, string } from '@stp/utils'
+import { req } from '@stp/utils'
 import { toJSONServerQuery } from './query'
 import { rest } from './rest'
 

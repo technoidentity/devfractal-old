@@ -1,4 +1,4 @@
-import { Viewer } from 'devfractal-crud'
+import { Viewer } from '@stp/crud'
 import { SimpleTable } from 'devfractal-simple'
 import React from 'react'
 import { SimpleAddTodo } from './AddTodo'

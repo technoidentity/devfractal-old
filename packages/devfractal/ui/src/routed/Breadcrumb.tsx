@@ -1,7 +1,7 @@
-import { NavLink, useLocation } from 'devfractal-router'
-import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
+import { NavLink, useLocation } from '@stp/router'
+import { classNamesHelper, El, Helpers } from '@stp/ui-core'
+import { chop } from '@stp/utils'
 import React from 'react'
-import { chop } from 'technoidentity-utils'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 

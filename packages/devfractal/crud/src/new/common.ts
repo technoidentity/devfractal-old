@@ -1,6 +1,6 @@
-import { SubmitAction } from 'devfractal-ui-api'
-import { Mixed, number, readonlyArray, TypeOf } from 'technoidentity-utils'
-import { fn, obj, req } from 'technoidentity-utils'
+import { SubmitAction } from '@stp/ui-api'
+import { Mixed, number, readonlyArray, TypeOf } from '@stp/utils'
+import { fn, obj, req } from '@stp/utils'
 
 // tslint:disable typedef
 

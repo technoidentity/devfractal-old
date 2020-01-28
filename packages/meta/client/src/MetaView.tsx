@@ -1,5 +1,5 @@
-import { Viewer } from 'devfractal-crud'
-import { Box, Label } from 'devfractal-ui-core'
+import { Viewer } from '@stp/crud'
+import { Box, Label } from '@stp/ui-core'
 import { MT } from 'meta-core'
 import React from 'react'
 

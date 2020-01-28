@@ -1,4 +1,4 @@
-import { Control } from 'devfractal-ui-core'
+import { Control } from '@stp/ui-core'
 import {
   Box,
   Delete,
@@ -8,7 +8,7 @@ import {
   Tags,
   Text,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const BasicTagExample: React.FC = () => (

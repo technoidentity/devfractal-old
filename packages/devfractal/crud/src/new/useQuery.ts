@@ -1,6 +1,6 @@
-import { useLocation } from 'devfractal-router'
+import { useLocation } from '@stp/router'
+import { cast, ObjC, Props, record, string, TypeOf } from '@stp/utils'
 import { parse } from 'query-string'
-import { cast, ObjC, Props, record, string, TypeOf } from 'technoidentity-utils'
 
 export function useQuery<Opt extends Props, Req extends Props>(
   spec: ObjC<Req, Opt>,

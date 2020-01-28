@@ -14,7 +14,7 @@ import {
   PanelTabs,
   PanelTabsItem,
   Section,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 export const PanelExample: React.FC = () => (

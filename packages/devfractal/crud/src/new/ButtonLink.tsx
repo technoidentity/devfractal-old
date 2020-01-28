@@ -5,7 +5,7 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 import { Link } from 'react-router-dom'
 

@@ -1,9 +1,4 @@
-import {
-  Box,
-  Section,
-  SubTitle,
-  Title as TitleComponent,
-} from 'devfractal-ui-core'
+import { Box, Section, SubTitle, Title as TitleComponent } from '@stp/ui-core'
 import React from 'react'
 
 const TitleSizeExample: React.FC = () => (

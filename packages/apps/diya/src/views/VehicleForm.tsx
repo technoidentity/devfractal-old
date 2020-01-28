@@ -12,7 +12,7 @@ import {
   Section,
   Simple,
   Title,
-} from 'technoidentity-devfractal'
+} from '@stp/devfractal'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 

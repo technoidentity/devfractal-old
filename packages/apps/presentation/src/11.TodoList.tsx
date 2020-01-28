@@ -9,7 +9,7 @@ import {
   Td,
   Th,
   Tr,
-} from 'technoidentity-devfractal'
+} from '@stp/devfractal'
 import { Todo, todoApi } from './08.todoAPI'
 
 export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (

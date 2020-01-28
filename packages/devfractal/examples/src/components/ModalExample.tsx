@@ -23,7 +23,7 @@ import {
   Ol,
   Section,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 export const ImageModalExample: React.FC = () => {

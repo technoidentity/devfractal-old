@@ -1,10 +1,4 @@
-import {
-  Box,
-  Field,
-  File as FileComponent,
-  Section,
-  Title,
-} from 'devfractal-ui-core'
+import { Box, Field, File as FileComponent, Section, Title } from '@stp/ui-core'
 import React from 'react'
 
 const BasicFileExample: React.FC = () => (

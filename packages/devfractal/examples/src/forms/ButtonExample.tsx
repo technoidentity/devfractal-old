@@ -19,7 +19,7 @@ import {
   Section,
   Text,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const DynamicButtonExample: React.FC = () => {

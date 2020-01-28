@@ -19,9 +19,9 @@ import {
   useGet,
   useParams,
   useSubmitRedirect,
-} from 'technoidentity-devfractal'
-import { type } from 'technoidentity-utils'
-import { IntFromString } from 'technoidentity-utils'
+} from '@stp/devfractal'
+import { type } from '@stp/utils'
+import { IntFromString } from '@stp/utils'
 import { AdManager, adManagerAPI } from '../common'
 import { HeadTitle } from '../components'
 

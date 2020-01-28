@@ -1,11 +1,11 @@
-import axios from 'axios'
 import {
   Card as DfCard,
   CardContent,
   CardImage,
   SubTitle,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
+import axios from 'axios'
 import React from 'react'
 import { GithubUserInfo } from './types'
 

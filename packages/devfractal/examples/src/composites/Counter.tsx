@@ -1,12 +1,5 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
-import {
-  Box,
-  Button,
-  Column,
-  Columns,
-  Icon,
-  Text,
-} from 'devfractal-ui-core'
+import { Box, Button, Column, Columns, Icon, Text } from '@stp/ui-core'
 import React from 'react'
 
 interface CounterProps {

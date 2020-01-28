@@ -1,13 +1,6 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { Button, CheckBox, Field, Icon, Td, Tr } from '@stp/devfractal'
 import React from 'react'
-import {
-  Button,
-  CheckBox,
-  Field,
-  Icon,
-  Td,
-  Tr,
-} from 'technoidentity-devfractal'
 import { FSTodo } from '../common'
 
 interface FSTodoItemProps {

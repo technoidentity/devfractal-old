@@ -1,4 +1,4 @@
-import { FieldHelp, FieldHelpProps } from 'devfractal-ui-core'
+import { FieldHelp, FieldHelpProps } from '@stp/ui-core'
 import { ErrorMessage, ErrorMessageProps } from 'formik'
 import React from 'react'
 

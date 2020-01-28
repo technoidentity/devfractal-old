@@ -1,5 +1,5 @@
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
-import { Button, classNamesHelper, El, Helpers, Icon } from 'devfractal-ui-core'
+import { Button, classNamesHelper, El, Helpers, Icon } from '@stp/ui-core'
 import React from 'react'
 
 type DropDownModifier = 'hoverable' | 'active'

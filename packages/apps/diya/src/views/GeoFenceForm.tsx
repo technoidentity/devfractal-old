@@ -5,7 +5,7 @@ import {
   formComponent,
   Section,
   Simple,
-} from 'technoidentity-devfractal'
+} from '@stp/devfractal'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 import { GeoFence as GeoFenceMap } from '../maps'

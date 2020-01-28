@@ -1,7 +1,7 @@
 import React from 'react'
-import { Put, useParams } from 'technoidentity-devfractal'
-import { string } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
+import { Put, useParams } from '@stp/devfractal'
+import { string } from '@stp/utils'
+import { req } from '@stp/utils'
 import { todoApi } from './08.todoAPI'
 import { TodoForm } from './09.TodoForm'
 

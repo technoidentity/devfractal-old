@@ -1,6 +1,6 @@
+import * as t from '@stp/utils'
+import { assertCast } from '@stp/utils'
 import React from 'react'
-import * as t from 'technoidentity-utils'
-import { assertCast } from 'technoidentity-utils'
 
 export function component<Spec extends t.Mixed>(
   spec: Spec,

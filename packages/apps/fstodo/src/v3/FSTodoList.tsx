@@ -1,8 +1,8 @@
 // tslint:disable typedef
-import { CrudTable, links } from 'devfractal-crud'
-import { component } from 'devfractal-ui-core'
+import { CrudTable, links } from '@stp/crud'
+import { component } from '@stp/ui-core'
+import { readonlyArray, req } from '@stp/utils'
 import React from 'react'
-import { readonlyArray, req } from 'technoidentity-utils'
 import { FSTodo } from '../common'
 
 const todoLinks = links('todos')

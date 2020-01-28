@@ -1,4 +1,4 @@
-import { Input, InputProps } from 'devfractal-ui-core'
+import { Input, InputProps } from '@stp/ui-core'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from '../types'

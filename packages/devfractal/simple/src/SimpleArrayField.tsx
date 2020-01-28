@@ -1,9 +1,4 @@
-import {
-  Button,
-  Delete,
-  Field,
-  Notification,
-} from 'devfractal-ui-core'
+import { Button, Delete, Field, Notification } from '@stp/ui-core'
 import { FieldArray } from 'formik'
 import React from 'react'
 

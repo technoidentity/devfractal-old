@@ -1,4 +1,4 @@
-import { boolean, readonly, req, string, type } from 'technoidentity-utils'
+import { boolean, readonly, req, string, type } from '@stp/utils'
 import { buildUrl, http as httpAPI } from './http'
 
 // tslint:disable typedef

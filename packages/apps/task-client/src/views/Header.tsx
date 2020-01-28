@@ -1,4 +1,4 @@
-import { Navbar, NavbarEnd, NavbarItem } from 'devfractal-ui-core'
+import { Navbar, NavbarEnd, NavbarItem } from '@stp/ui-core'
 import React from 'react'
 import { Logout } from './Logout'
 

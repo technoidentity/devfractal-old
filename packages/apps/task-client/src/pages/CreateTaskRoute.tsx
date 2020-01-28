@@ -1,5 +1,5 @@
-import { Post } from 'devfractal-ui-api'
-import { Section, Title } from 'devfractal-ui-core'
+import { Post } from '@stp/ui-api'
+import { Section, Title } from '@stp/ui-core'
 import React from 'react'
 import { Task, taskAPI } from '../common'
 import { TaskForm } from '../views'

@@ -1,6 +1,6 @@
-import { API, APIQuery } from 'devfractal-api'
+import { API, APIQuery } from '@stp/api'
+import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
-import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { All, AllComponentProps } from './All'
 import { paths as resPaths } from './common'
 import { Create } from './Create'

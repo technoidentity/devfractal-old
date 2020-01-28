@@ -1,4 +1,4 @@
-import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
+import { classNamesHelper, El, Helpers } from '@stp/ui-core'
 import React from 'react'
 
 export interface PaginationProps

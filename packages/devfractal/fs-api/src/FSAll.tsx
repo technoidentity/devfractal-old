@@ -1,7 +1,7 @@
-import { Route } from 'devfractal-router'
-import { Get } from 'devfractal-ui-api'
+import { Route } from '@stp/router'
+import { Get } from '@stp/ui-api'
+import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
-import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 
 interface ChildrenProps<

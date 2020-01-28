@@ -1,7 +1,7 @@
-import { useLocation } from 'devfractal-router'
-import { Null } from 'devfractal-ui-core'
+import { useLocation } from '@stp/router'
+import { Null } from '@stp/ui-core'
+import { capitalizeAll, chop } from '@stp/utils'
 import React from 'react'
-import { capitalizeAll, chop } from 'technoidentity-utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 
 export const DynamicBreadcrumb: React.FC = () => {

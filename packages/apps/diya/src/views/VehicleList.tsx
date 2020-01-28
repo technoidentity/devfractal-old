@@ -5,7 +5,7 @@ import {
   listComponent,
   RoutedPager,
   Section,
-} from 'technoidentity-devfractal'
+} from '@stp/devfractal'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'

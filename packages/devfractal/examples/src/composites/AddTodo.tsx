@@ -1,5 +1,5 @@
+import { Section } from '@stp/ui-core'
 import { Simple } from 'devfractal-simple'
-import { Section } from 'devfractal-ui-core'
 import React from 'react'
 import { boolean, object, ObjectSchema, string } from 'yup'
 

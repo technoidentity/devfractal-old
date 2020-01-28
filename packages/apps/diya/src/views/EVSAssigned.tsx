@@ -1,6 +1,6 @@
 import { faBus, faMapMarker } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Link } from 'technoidentity-devfractal'
+import { Link } from '@stp/devfractal'
 import {
   Button,
   ButtonsGroup,
@@ -10,9 +10,9 @@ import {
   links,
   listComponent,
   SimpleTable,
-} from 'technoidentity-devfractal'
-import { string } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
+} from '@stp/devfractal'
+import { string } from '@stp/utils'
+import { req } from '@stp/utils'
 import { Ev } from '../common'
 import { HeadTitle } from '../components'
 

@@ -10,8 +10,8 @@ import {
   faCircle,
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import { Link, Route } from 'devfractal-router'
-import { DynamicBreadcrumb } from 'devfractal-ui'
+import { Link, Route } from '@stp/router'
+import { DynamicBreadcrumb } from '@stp/ui'
 import {
   Button,
   ButtonsGroup,
@@ -34,7 +34,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 import { default as developer } from '../src/images/asset/developer.png'
 import logo from '../src/images/asset/logo.png'
@@ -403,7 +403,8 @@ export const ResourceSection: React.FC = () => (
           />
         </Title>
         <SubTitle size="6">
-          Devfractal is an open source project developed at Technoidentity
+          Devfractal is an open source project developed in collaboration with
+          Technoidentity
         </SubTitle>
       </Column>
 

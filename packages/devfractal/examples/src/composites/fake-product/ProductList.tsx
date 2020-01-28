@@ -1,10 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableHead,
-  Th,
-  Tr,
-} from 'devfractal-ui-core'
+import { Table, TableBody, TableHead, Th, Tr } from '@stp/ui-core'
 import React from 'react'
 import { Product } from './fakeData'
 import { ProductItem } from './ProductItem'

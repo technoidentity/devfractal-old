@@ -1,5 +1,5 @@
-import * as t from 'technoidentity-utils'
-import { date, lit, obj, opt, req } from 'technoidentity-utils'
+import * as t from '@stp/utils'
+import { date, lit, obj, opt, req } from '@stp/utils'
 
 // tslint:disable typedef
 
@@ -114,9 +114,8 @@ export const MT: t.Type<MT> = t.recursion('MT', () =>
   ),
 )
 
-export const Mixed: t.Type<PrimitiveMT | EnumMT | ArrayMT | MT> = t.recursion(
-  'Mixed',
-  () => t.union([PrimitiveMT, EnumMT, ArrayMT, MT]),
-)
+export const Mixed: t.Type<
+  PrimitiveMT | EnumMT | ArrayMT | MT
+> = t.recursion('Mixed', () => t.union([PrimitiveMT, EnumMT, ArrayMT, MT]))
 
 export type Mixed = t.TypeOf<typeof Mixed>

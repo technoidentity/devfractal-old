@@ -5,9 +5,9 @@ import {
   Tabs,
   TabsItem,
   TabsProps,
-} from 'devfractal-ui'
+} from '@stp/ui'
+import { camelCaseToPhrase } from '@stp/utils'
 import React from 'react'
-import { camelCaseToPhrase } from 'technoidentity-utils'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {
   readonly name?: string

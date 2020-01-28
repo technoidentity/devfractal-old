@@ -1,6 +1,3 @@
-import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { decode } from 'io-ts-promise'
-import { stringify } from 'query-string'
 import {
   array,
   chop,
@@ -13,7 +10,10 @@ import {
   string,
   TypeOf,
   verify,
-} from 'technoidentity-utils'
+} from '@stp/utils'
+import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
+import { decode } from 'io-ts-promise'
+import { stringify } from 'query-string'
 
 export interface MethodArgs {
   readonly resource?: string

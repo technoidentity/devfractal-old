@@ -1,5 +1,5 @@
+import { Section } from '@stp/ui-core'
 import 'bulma/bulma.sass'
-import { Section } from 'devfractal-ui-core'
 import React from 'react'
 // import 'react-datepicker/dist/react-datepicker.css'
 import { render } from 'react-dom'

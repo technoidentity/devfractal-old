@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Container,
-  Media,
-  MediaContent,
-  MediaLeft,
-  Text,
-} from 'devfractal-ui-core'
+import { Container, Media, MediaContent, MediaLeft, Text } from '@stp/ui-core'
 
 export const FormMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>

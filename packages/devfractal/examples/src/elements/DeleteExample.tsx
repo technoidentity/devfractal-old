@@ -9,7 +9,7 @@ import {
   Tag,
   Tags,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const DynamicDeleteExample: React.FC = () => {

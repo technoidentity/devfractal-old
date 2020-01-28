@@ -6,7 +6,7 @@ import {
   MessageHeader,
   Section,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 export const SimpleMessageExample: React.FC = () => (

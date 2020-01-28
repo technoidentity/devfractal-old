@@ -1,10 +1,5 @@
-import { ErrorField, InputField } from 'devfractal-forms'
-import {
-  Button,
-  Container,
-  Field as FieldGroup,
-  Label,
-} from 'devfractal-ui-core'
+import { ErrorField, InputField } from '@stp/forms'
+import { Button, Container, Field as FieldGroup, Label } from '@stp/ui-core'
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { initialLoginValues, loginSchema, LoginValues } from './common'

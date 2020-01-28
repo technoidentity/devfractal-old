@@ -5,7 +5,7 @@ import {
   Notification,
   Section,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 export const Responsive: React.FC = () => (

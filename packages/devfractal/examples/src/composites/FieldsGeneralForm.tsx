@@ -6,16 +6,9 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from 'devfractal-forms'
+} from '@stp/forms'
+import { Button, Container, Field, Label, Radio, Section } from '@stp/ui-core'
 import { Simple } from 'devfractal-simple'
-import {
-  Button,
-  Container,
-  Field,
-  Label,
-  Radio,
-  Section,
-} from 'devfractal-ui-core'
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { boolean, date, object, ObjectSchema, string } from 'yup'

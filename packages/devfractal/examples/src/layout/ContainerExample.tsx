@@ -3,7 +3,7 @@ import {
   Notification,
   Section,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const CenteredContainerExample: React.FC = () => (

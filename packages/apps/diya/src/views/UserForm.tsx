@@ -13,7 +13,7 @@ import {
   Section,
   Simple,
   Title,
-} from 'technoidentity-devfractal'
+} from '@stp/devfractal'
 import { User } from '../common'
 import { HeadTitle } from '../components'
 

@@ -1,6 +1,5 @@
-// import { maxLength, min, required } from 'devfractal-forms'
+// import { maxLength, min, required } from '@stp/forms'
 
-import { addDays } from 'date-fns'
 import {
   after,
   before,
@@ -14,12 +13,13 @@ import {
   positive,
   required,
   uppercase,
-} from 'devfractal-forms'
+} from '@stp/forms'
+import { Radio, Section } from '@stp/ui-core'
+import { ISODate, keyof, TypeOf } from '@stp/utils'
+import { addDays } from 'date-fns'
 import { Simple } from 'devfractal-simple'
-import { Radio, Section } from 'devfractal-ui-core'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import { ISODate, keyof, TypeOf } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 const Position = keyof({

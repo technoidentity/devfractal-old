@@ -1,9 +1,9 @@
+import { Button, Container, Field } from '@stp/ui-core'
+import { Mixed, TypeOf } from '@stp/utils'
+import { empty } from '@stp/utils'
 import { RowClickEvent, SimpleTable } from 'devfractal-simple'
-import { Button, Container, Field } from 'devfractal-ui-core'
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-utils'
-import { empty } from 'technoidentity-utils'
 import { Editor } from './Editor'
 import { Viewer } from './Viewer'
 

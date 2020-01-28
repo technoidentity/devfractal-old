@@ -8,7 +8,7 @@ import {
   Th,
   Title,
   Tr,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const BorderedTableExample: React.FC = () => (

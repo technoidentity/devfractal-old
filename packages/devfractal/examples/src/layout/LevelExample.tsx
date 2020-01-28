@@ -8,7 +8,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const LevelLeftExample: React.FC = () => (

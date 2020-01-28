@@ -1,16 +1,9 @@
-import { Get } from 'devfractal-ui-api'
-import {
-  CheckBox,
-  Column,
-  Columns,
-  Section,
-  Text,
-  Title,
-} from 'devfractal-ui-core'
+import { Get } from '@stp/ui-api'
+import { CheckBox, Column, Columns, Section, Text, Title } from '@stp/ui-core'
+import * as t from '@stp/utils'
+import { date } from '@stp/utils'
+import { camelCaseToPhrase } from '@stp/utils'
 import React from 'react'
-import * as t from 'technoidentity-utils'
-import { date } from 'technoidentity-utils'
-import { camelCaseToPhrase } from 'technoidentity-utils'
 import { formatDate, isFunction } from './utils'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (

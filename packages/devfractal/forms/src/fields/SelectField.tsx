@@ -1,4 +1,4 @@
-import { Select, SelectProps } from 'devfractal-ui-core'
+import { Select, SelectProps } from '@stp/ui-core'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from '../types'

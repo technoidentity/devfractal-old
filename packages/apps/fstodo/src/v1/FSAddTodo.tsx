@@ -1,7 +1,7 @@
+import { Text, Title } from '@stp/devfractal'
 import { Field, Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { Text, Title } from 'technoidentity-devfractal'
 import { FSTodo, fsTodoAPI } from '../common'
 
 export interface AddTodoProps {

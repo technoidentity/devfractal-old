@@ -1,4 +1,4 @@
-import { Section, Title } from 'devfractal-ui-core'
+import { Section, Title } from '@stp/ui-core'
 import { MBool, MDate, MMT, MNumber, MString } from 'meta-core'
 import React from 'react'
 import { render } from 'react-dom'

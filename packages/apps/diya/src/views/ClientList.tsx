@@ -6,7 +6,7 @@ import {
   listComponent,
   RoutedPager,
   Section,
-} from 'technoidentity-devfractal'
+} from '@stp/devfractal'
 import { Client } from '../common'
 import { HeadTitle } from '../components'
 

@@ -1,5 +1,5 @@
-import { components, paths } from 'devfractal-crud'
-import { Route, SimpleRedirect, Switch } from 'devfractal-router'
+import { components, paths } from '@stp/crud'
+import { Route, SimpleRedirect, Switch } from '@stp/router'
 import React from 'react'
 import { inMemoryAPI } from './inMemoryAPI'
 import { TodoRT } from './types'
@@ -32,7 +32,7 @@ export const TodoRoutes: React.FC = () => {
 }
 
 // import React from 'react'
-// import { api, Crud, Section, SimpleRedirect } from 'devfractal-ui-core'
+// import { api, Crud, Section, SimpleRedirect } from '@stp/ui-core'
 // import { TodoRT } from './types'
 
 // const resource: string = 'todos'

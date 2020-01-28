@@ -1,4 +1,4 @@
-import { Post } from 'devfractal-ui-api'
+import { Post } from '@stp/ui-api'
 import React from 'react'
 import { sessionAPI } from '../common'
 import { useAuth } from '../utils'

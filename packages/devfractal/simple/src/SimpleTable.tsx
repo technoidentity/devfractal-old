@@ -1,4 +1,4 @@
-import { Get } from 'devfractal-ui-api'
+import { Get } from '@stp/ui-api'
 import {
   CheckBox,
   Table,
@@ -9,10 +9,10 @@ import {
   Text,
   Th,
   Tr,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
+import * as t from '@stp/utils'
+import { camelCaseToPhrase, date } from '@stp/utils'
 import React from 'react'
-import * as t from 'technoidentity-utils'
-import { camelCaseToPhrase, date } from 'technoidentity-utils'
 import { formatDate } from './utils'
 
 export interface SimpleTableHeaderProps {

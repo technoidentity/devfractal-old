@@ -1,12 +1,12 @@
-import { Route, SimpleRedirect } from 'devfractal-router'
+import { Route, SimpleRedirect } from '@stp/router'
 import {
   DropDown,
   DropDownDivider,
   DropDownItem,
   RoutedTabs,
   RoutedTabsItem,
-} from 'devfractal-ui'
-import { Field, Level, LevelItem, Section, Title } from 'devfractal-ui-core'
+} from '@stp/ui'
+import { Field, Level, LevelItem, Section, Title } from '@stp/ui-core'
 import React from 'react'
 
 const DropdownExampleTab: React.FC = () => (

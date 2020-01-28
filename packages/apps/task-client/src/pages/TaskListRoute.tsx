@@ -1,7 +1,7 @@
-import { useParams } from 'devfractal-router'
-import { Get } from 'devfractal-ui-api'
+import { useParams } from '@stp/router'
+import { Get } from '@stp/ui-api'
 import React from 'react'
-import { opt } from 'technoidentity-utils'
+import { opt } from '@stp/utils'
 import { getTasks, TaskFilter } from '../common'
 import { TaskListView } from '../views'
 

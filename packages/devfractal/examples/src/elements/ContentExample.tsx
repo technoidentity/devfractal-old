@@ -5,7 +5,7 @@ import {
   Section,
   Text,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const BasicContentExample: React.FC = () => (

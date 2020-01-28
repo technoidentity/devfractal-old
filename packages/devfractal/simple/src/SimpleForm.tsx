@@ -14,7 +14,7 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from 'devfractal-forms'
+} from '@stp/forms'
 import {
   Button,
   ButtonsGroup,
@@ -22,10 +22,10 @@ import {
   Field,
   FieldPropsBase,
   Label,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
+import { camelCaseToPhrase } from '@stp/utils'
 import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
 import React from 'react'
-import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   date,
   DateSchema,

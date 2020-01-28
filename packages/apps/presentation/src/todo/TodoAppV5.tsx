@@ -10,8 +10,8 @@ import {
   Section,
   SimpleRedirect,
   Title,
-} from 'technoidentity-devfractal'
-import { CreateLink } from 'technoidentity-devfractal'
+} from '@stp/devfractal'
+import { CreateLink } from '@stp/devfractal'
 import { Todo, todoAPI } from './common'
 
 const { create, edit, list } = links(todoAPI.resource)

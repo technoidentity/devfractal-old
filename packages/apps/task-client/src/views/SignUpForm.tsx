@@ -1,9 +1,9 @@
-import { Link } from 'devfractal-router'
+import { Link } from '@stp/router'
 import { Simple } from 'devfractal-simple'
-import { Column, Columns, component, Section, Text } from 'devfractal-ui-core'
+import { Column, Columns, component, Section, Text } from '@stp/ui-core'
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { empty, fn, req, string, TypeOf } from 'technoidentity-utils'
+import { empty, fn, req, string, TypeOf } from '@stp/utils'
 import * as yup from 'yup'
 
 const SignUpValues = req({

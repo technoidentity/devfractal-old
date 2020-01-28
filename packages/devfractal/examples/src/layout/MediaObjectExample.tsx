@@ -16,7 +16,7 @@ import {
   Section,
   TextArea,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const SimpleMediaObjectExample: React.FC = () => (

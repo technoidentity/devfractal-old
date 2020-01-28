@@ -4,7 +4,7 @@ import {
   faStepBackward,
   faStepForward,
 } from '@fortawesome/free-solid-svg-icons'
-import { Button, Field, Icon, Section } from 'devfractal-ui-core'
+import { Button, Field, Icon, Section } from '@stp/ui-core'
 import React from 'react'
 
 interface PagerViewProps {

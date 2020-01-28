@@ -22,7 +22,7 @@ import {
   Section,
   Select,
   TextArea,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 export const General: React.FC = () => (

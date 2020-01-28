@@ -1,8 +1,8 @@
-import { Route } from 'devfractal-router'
-import { Post } from 'devfractal-ui-api'
+import { Route } from '@stp/router'
+import { Post } from '@stp/ui-api'
+import { ObjC, Props, TypeOf } from '@stp/utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 
 export interface FSCreateProps<

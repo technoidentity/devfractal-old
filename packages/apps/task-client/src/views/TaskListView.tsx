@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import { Link } from 'devfractal-router'
+import { Link } from '@stp/router'
 import {
   ButtonsGroup,
   component,
@@ -12,9 +12,9 @@ import {
   Th,
   Title,
   Tr,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
-import { readonlyArray, req } from 'technoidentity-utils'
+import { readonlyArray, req } from '@stp/utils'
 import { Task } from '../common'
 import { PaginationView } from './PaginateView'
 

@@ -1,7 +1,7 @@
-import { NavLink, useLocation } from 'devfractal-router'
-import { classNamesHelper, El, Helpers } from 'devfractal-ui-core'
+import { NavLink, useLocation } from '@stp/router'
+import { classNamesHelper, El, Helpers } from '@stp/ui-core'
+import { chop, extractSegment } from '@stp/utils'
 import React from 'react'
-import { chop, extractSegment } from 'technoidentity-utils'
 
 interface RoutedTabsContext {
   readonly baseURL?: string

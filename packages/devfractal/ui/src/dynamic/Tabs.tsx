@@ -5,9 +5,9 @@ import {
   Helpers,
   Uncontrolled,
   ValueChangeEvent,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
+import { debug } from '@stp/utils'
 import React from 'react'
-import { debug } from 'technoidentity-utils'
 
 export interface TabsChangeEvent extends ValueChangeEvent<string> {}
 
@@ -94,7 +94,7 @@ const TabsView: React.FC<Omit<TabsViewProps, 'defaultValue'>> = ({
     'is-fullwidth': fullWidth,
   })
   const selected: string =
-    value || ((children && children[0] && children[0].props.value) || '0')
+    value || (children && children[0] && children[0].props.value) || '0'
   return (
     <El {...props} className={classes}>
       <ul>

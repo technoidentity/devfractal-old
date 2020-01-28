@@ -1,4 +1,4 @@
-import { RadioGroup, RadioGroupProps } from 'devfractal-ui-core'
+import { RadioGroup, RadioGroupProps } from '@stp/ui-core'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from '../types'

@@ -1,8 +1,4 @@
-import {
-  Image as ImageComponent,
-  Section,
-  Title,
-} from 'devfractal-ui-core'
+import { Image as ImageComponent, Section, Title } from '@stp/ui-core'
 import React from 'react'
 
 const BasicImageExample: React.FC = () => (

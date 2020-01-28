@@ -4,7 +4,7 @@ import {
   Notification as NotificationComponent,
   Section,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const BasicNotificationExample: React.FC = () => (

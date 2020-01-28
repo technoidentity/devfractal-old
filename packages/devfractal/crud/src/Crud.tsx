@@ -1,6 +1,6 @@
-import { Route, Switch } from 'devfractal-router'
+import { Route, Switch } from '@stp/router'
+import { Mixed, TypeOf } from '@stp/utils'
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-utils'
 import { APIRepository } from './api'
 import { components as comps, ComponentsResult } from './Components'
 import { paths as ps } from './new'

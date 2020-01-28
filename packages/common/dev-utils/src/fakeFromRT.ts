@@ -1,5 +1,3 @@
-import Chance from 'chance'
-import t, { Any, Constructor, Irreducible } from 'tcomb'
 import {
   buildObject,
   isDict,
@@ -16,7 +14,9 @@ import {
   isUnion,
   repeatedly,
   verify,
-} from 'technoidentity-utils'
+} from '@stp/utils'
+import Chance from 'chance'
+import t, { Any, Constructor, Irreducible } from 'tcomb'
 import { defaultOptions, FakeOptions } from './fake'
 
 // tslint:disable typedef

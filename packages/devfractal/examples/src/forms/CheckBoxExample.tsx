@@ -3,7 +3,7 @@ import {
   Field,
   Section,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const DynamicCheckBoxExample: React.FC = () => {

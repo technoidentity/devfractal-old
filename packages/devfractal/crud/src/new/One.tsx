@@ -1,8 +1,8 @@
-import { API } from 'devfractal-api'
-import { Route } from 'devfractal-router'
-import { Get } from 'devfractal-ui-api'
+import { API } from '@stp/api'
+import { Route } from '@stp/router'
+import { Get } from '@stp/ui-api'
+import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
-import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 
 export interface OneComponentProps<T> {
   readonly data: T

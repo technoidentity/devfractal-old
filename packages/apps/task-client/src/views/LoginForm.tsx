@@ -1,9 +1,9 @@
 import { Simple } from 'devfractal-simple'
-import { Column, Columns, component, Section } from 'devfractal-ui-core'
+import { Column, Columns, component, Section } from '@stp/ui-core'
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { string, TypeOf } from 'technoidentity-utils'
-import { empty, fn, req } from 'technoidentity-utils'
+import { string, TypeOf } from '@stp/utils'
+import { empty, fn, req } from '@stp/utils'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({

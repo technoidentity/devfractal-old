@@ -1,8 +1,6 @@
-import { API, APIQuery, Page } from 'devfractal-api'
-import { Route, useHistory, useLocation } from 'devfractal-router'
-import { Get } from 'devfractal-ui-api'
-import { parse, stringify } from 'query-string'
-import React from 'react'
+import { API, APIQuery, Page } from '@stp/api'
+import { Route, useHistory, useLocation } from '@stp/router'
+import { Get } from '@stp/ui-api'
 import {
   cast,
   IntFromString,
@@ -12,7 +10,9 @@ import {
   record,
   string,
   TypeOf,
-} from 'technoidentity-utils'
+} from '@stp/utils'
+import { parse, stringify } from 'query-string'
+import React from 'react'
 
 // tslint:disable-next-line: typedef
 export const ClientQuery = opt({

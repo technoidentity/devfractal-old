@@ -17,7 +17,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 export const SimpleCardExample: React.FC = () => (

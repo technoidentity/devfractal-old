@@ -1,6 +1,6 @@
-import { Route, SimpleRedirect } from 'devfractal-router'
-import { RoutedTabs, RoutedTabsItem } from 'devfractal-ui'
-import { Title } from 'devfractal-ui-core'
+import { Route, SimpleRedirect } from '@stp/router'
+import { RoutedTabs, RoutedTabsItem } from '@stp/ui'
+import { Title } from '@stp/ui-core'
 import React from 'react'
 import {
   FieldsLoginForm,

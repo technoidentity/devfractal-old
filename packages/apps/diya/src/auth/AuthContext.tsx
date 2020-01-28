@@ -1,5 +1,5 @@
 import React from 'react'
-import { verify } from 'technoidentity-utils'
+import { verify } from '@stp/utils'
 import { AuthUserInfo } from '../common'
 import { LoginValues } from '../views'
 
@@ -16,9 +16,10 @@ const AuthContext = React.createContext<
 
 interface AuthProviderProps<T, R> extends AuthContext<T, R> {}
 
-export const AuthProvider: React.FC<
-  AuthProviderProps<LoginValues, AuthUserInfo>
-> = ({ user, setUser, login, logout, children }) => {
+export const AuthProvider: React.FC<AuthProviderProps<
+  LoginValues,
+  AuthUserInfo
+>> = ({ user, setUser, login, logout, children }) => {
   return (
     <AuthContext.Provider value={{ user, setUser, login, logout }}>
       {children}

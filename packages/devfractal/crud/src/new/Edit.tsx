@@ -1,15 +1,8 @@
-import { API } from 'devfractal-api'
-import { Route, useParams } from 'devfractal-router'
-import { Put, SubmitAction } from 'devfractal-ui-api'
+import { API } from '@stp/api'
+import { Route, useParams } from '@stp/router'
+import { Put, SubmitAction } from '@stp/ui-api'
+import { getProp, ObjC, Props, string, type, TypeOf } from '@stp/utils'
 import React from 'react'
-import {
-  getProp,
-  ObjC,
-  Props,
-  string,
-  type,
-  TypeOf,
-} from 'technoidentity-utils'
 
 // tslint:disable no-unbound-method
 

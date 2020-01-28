@@ -1,3 +1,4 @@
+import { dynamicRouter } from '@stp/ui'
 import {
   columns,
   elements,
@@ -5,7 +6,6 @@ import {
   layout,
   modifiers,
 } from 'devfractal-examples'
-import { dynamicRouter } from 'devfractal-ui'
 
 export * from './ComponentRoutes'
 export * from './CompositesRoutes'

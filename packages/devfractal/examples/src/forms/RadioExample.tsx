@@ -8,7 +8,7 @@ import {
   RadioGroup,
   Section,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const DynamicRadioExample: React.FC = () => {

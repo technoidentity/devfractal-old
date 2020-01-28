@@ -1,4 +1,4 @@
-import { ButtonsGroup, ButtonsGroupProps } from 'devfractal-ui-core'
+import { ButtonsGroup, ButtonsGroupProps } from '@stp/ui-core'
 import React from 'react'
 import { ButtonLink, ButtonLinkProps } from './ButtonLink'
 export interface CreateLinkProps extends ButtonLinkProps {

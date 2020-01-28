@@ -1,4 +1,4 @@
-import { NavLink } from 'devfractal-router'
+import { NavLink } from '@stp/router'
 import {
   Navbar,
   NavbarBrand,
@@ -9,7 +9,7 @@ import {
   NavbarItem,
   NavbarItemsProps,
   NavbarMenu,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const NavBurger: React.FC<NavbarBurgerProps> = props => (

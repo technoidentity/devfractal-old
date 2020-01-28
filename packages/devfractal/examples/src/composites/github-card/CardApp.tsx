@@ -1,4 +1,4 @@
-import { Section } from 'devfractal-ui-core'
+import { Section } from '@stp/ui-core'
 import React from 'react'
 import { Card } from './Card'
 import { SearchForm } from './SearchForm'

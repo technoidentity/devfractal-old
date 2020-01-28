@@ -31,7 +31,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import Link from 'next/link'
 import React from 'react'
 import {
@@ -386,7 +386,8 @@ export const ResourceSection: React.FC = () => (
           />
         </Title>
         <SubTitle size="6">
-          Devfractal is an open source project developed at Technoidentity
+          Devfractal is an open source project developed with collaboration with
+          Technoidentity
         </SubTitle>
       </Column>
 

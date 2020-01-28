@@ -1,5 +1,5 @@
+import { debug } from '@stp/utils'
 import React from 'react'
-import { debug } from 'technoidentity-utils'
 import { classNamesHelper, El, Helpers } from '../base'
 import { AllControlHelpers } from './controlDiv'
 import { ControlWrapper } from './ControlWrapper'
@@ -40,7 +40,7 @@ const RadioGroupView: React.FC<RadioGroupViewProps> = ({
         // )
         const _selected: string =
           selected ||
-          ((children && children[0] && children[0].props.value) || '0')
+          (children && children[0] && children[0].props.value) || '0'
         return React.cloneElement(child, {
           name,
           value: child.props.value || i.toString(),

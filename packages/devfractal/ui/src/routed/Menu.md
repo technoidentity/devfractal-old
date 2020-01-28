@@ -1,7 +1,7 @@
 ### Menu
 
 ```jsx
-import { Router, Route } from 'devfractal-router'
+import { Router, Route } from '@stp/router'
 ;<Router>
   <Route
     path="/"

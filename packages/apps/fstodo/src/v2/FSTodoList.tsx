@@ -1,5 +1,4 @@
 // tslint:disable typedef
-import React from 'react'
 import {
   ButtonLink,
   ButtonsGroup,
@@ -11,8 +10,9 @@ import {
   Th,
   Tr,
   useHistory,
-} from 'technoidentity-devfractal'
-import { fn, readonlyArray, req } from 'technoidentity-utils'
+} from '@stp/devfractal'
+import { fn, readonlyArray, req } from '@stp/utils'
+import React from 'react'
 import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoItem } from './FSTodoItem'
 

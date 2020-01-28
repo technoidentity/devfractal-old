@@ -1,7 +1,7 @@
 // tslint:disable typedef
+import { Get, Simple, Text } from '@stp/devfractal'
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { Get, Simple, Text } from 'technoidentity-devfractal'
 import { FSTodo, fsTodoAPI } from '../common'
 
 export interface EditTodoViewProps {

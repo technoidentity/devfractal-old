@@ -1,5 +1,5 @@
-import { Menu, MenuItem, MenuLabel, MenuList } from 'devfractal-ui'
-import { Box, Section } from 'devfractal-ui-core'
+import { Menu, MenuItem, MenuLabel, MenuList } from '@stp/ui'
+import { Box, Section } from '@stp/ui-core'
 import React from 'react'
 
 export const MenuExample: React.FC = () => (

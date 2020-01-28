@@ -1,6 +1,6 @@
+import { jsonStringify, timeout } from '@stp/utils'
 import axios from 'axios'
 import { FormikErrors, FormikHelpers } from 'formik'
-import { jsonStringify, timeout } from 'technoidentity-utils'
 
 export function consoleSubmit<Values extends {}>(
   milliseconds: number = 0,

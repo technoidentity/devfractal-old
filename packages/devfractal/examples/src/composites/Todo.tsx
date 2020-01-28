@@ -1,4 +1,3 @@
-import { format } from 'date-fns'
 import {
   CheckBox,
   Input,
@@ -8,7 +7,8 @@ import {
   TableHead,
   Td,
   Tr,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
+import { format } from 'date-fns'
 import React from 'react'
 
 interface Todo {

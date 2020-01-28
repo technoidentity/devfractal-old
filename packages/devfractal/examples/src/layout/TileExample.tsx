@@ -5,7 +5,7 @@ import {
   SubTitle,
   Tile as TileComponent,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const SimpleTilesExample: React.FC = () => (

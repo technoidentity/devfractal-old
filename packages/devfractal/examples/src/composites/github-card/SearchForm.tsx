@@ -1,5 +1,5 @@
-import { InputField } from 'devfractal-forms'
-import { Button, Field } from 'devfractal-ui-core'
+import { InputField } from '@stp/forms'
+import { Button, Field } from '@stp/ui-core'
 import { Form, Formik } from 'formik'
 import React from 'react'
 

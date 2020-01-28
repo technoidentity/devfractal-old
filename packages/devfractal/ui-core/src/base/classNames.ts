@@ -1,5 +1,5 @@
-import * as t from 'technoidentity-utils'
-import { keys } from 'technoidentity-utils'
+import * as t from '@stp/utils'
+import { keys } from '@stp/utils'
 
 export type ClassNameArg =
   | string

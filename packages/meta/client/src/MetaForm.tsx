@@ -1,9 +1,9 @@
+import { Field, Label } from '@stp/ui-core'
+import { camelCaseToPhrase } from '@stp/utils'
 import { Simple } from 'devfractal-simple'
-import { Field, Label } from 'devfractal-ui-core'
 import { FormikHelpers } from 'formik'
 import { EnumMT, Mixed, MT, PrimitiveMT } from 'meta-core'
 import React from 'react'
-import { camelCaseToPhrase } from 'technoidentity-utils'
 import { metaToInitialValues } from './metaToInitialValues'
 import { mtToYup } from './metaToYup'
 

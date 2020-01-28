@@ -1,4 +1,4 @@
-import { Router } from 'devfractal-router'
+import { Router } from '@stp/router'
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
 import { BreadcrumbExample } from './BreadcrumbExample'

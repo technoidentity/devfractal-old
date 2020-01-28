@@ -1,5 +1,5 @@
+import { useSubmitRedirect } from '@stp/devfractal'
 import React from 'react'
-import { useSubmitRedirect } from 'technoidentity-devfractal'
 import { fsTodoAPI } from '../common'
 import { FSTodoForm } from './FSTodoForm'
 

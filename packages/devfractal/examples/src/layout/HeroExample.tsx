@@ -1,4 +1,4 @@
-import { Tabs, TabsItem } from 'devfractal-ui'
+import { Tabs, TabsItem } from '@stp/ui'
 import {
   Button,
   Container,
@@ -15,7 +15,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const SimpleHeroExample: React.FC = () => (

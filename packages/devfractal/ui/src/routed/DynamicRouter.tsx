@@ -1,6 +1,6 @@
-import { Route, SimpleRedirect } from 'devfractal-router'
+import { Route, SimpleRedirect } from '@stp/router'
+import { capitalizeAll, toLower } from '@stp/utils'
 import React from 'react'
-import { capitalizeAll, toLower } from 'technoidentity-utils'
 import { RoutedTabs, RoutedTabsItem } from './RoutedTabs'
 
 export interface DynamicRouterResult {

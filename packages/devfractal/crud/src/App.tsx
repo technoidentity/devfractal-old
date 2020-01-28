@@ -1,12 +1,12 @@
+import { rest } from '@stp/api'
+import { Router, SimpleRedirect } from '@stp/router'
+import { Section } from '@stp/ui-core'
+import { boolean, number, string } from '@stp/utils'
+import { obj } from '@stp/utils'
 import 'bulma/css/bulma.css'
-import { rest } from 'devfractal-api'
-import { Router, SimpleRedirect } from 'devfractal-router'
 import { Simple } from 'devfractal-simple'
-import { Section } from 'devfractal-ui-core'
 import React from 'react'
 import { render } from 'react-dom'
-import { boolean, number, string } from 'technoidentity-utils'
-import { obj } from 'technoidentity-utils'
 import {
   ButtonLink,
   CrudRoutes,

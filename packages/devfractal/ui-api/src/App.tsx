@@ -1,8 +1,8 @@
-// import { rest, SubmitAction } from 'devfractal-api'
-// import { Title } from 'devfractal-ui-core'
-// import { number, string, TypeOf } from 'technoidentity-utils'
+// import { rest, SubmitAction } from '@stp/api'
+// import { Title } from '@stp/ui-core'
+// import { number, string, TypeOf } from '@stp/utils'
 import React from 'react'
-// import { ISODate, props } from 'technoidentity-utils'
+// import { ISODate, props } from '@stp/utils'
 // import { Post } from './Post'
 
 // // tslint:disable typedef

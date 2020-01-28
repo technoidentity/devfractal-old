@@ -1,10 +1,4 @@
-import {
-  Container,
-  Media,
-  MediaContent,
-  MediaLeft,
-  Text,
-} from 'devfractal-ui-core'
+import { Container, Media, MediaContent, MediaLeft, Text } from '@stp/ui-core'
 import React from 'react'
 import columnsIcon from '../src/images/column.png'
 import componentsIcon from '../src/images/components.png'

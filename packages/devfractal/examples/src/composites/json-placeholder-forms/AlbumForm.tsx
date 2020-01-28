@@ -1,5 +1,5 @@
 export const AlbumForm: number = 100
-// import * as t from 'technoidentity-utils'
+// import * as t from '@stp/utils'
 // import React from 'react'
 // import {
 //   consoleSubmit,
@@ -9,7 +9,7 @@ export const AlbumForm: number = 100
 //   Simple,
 //   Title,
 //   typeInvariant,
-// } from 'devfractal-ui-core'
+// } from '@stp/ui-core'
 
 // // tslint:disable typedef
 

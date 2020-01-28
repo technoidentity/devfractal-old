@@ -37,6 +37,6 @@ module.exports = {
   components: './src/**/[A-Z]*.tsx',
   exampleMode: 'expand',
   pagePerSection: true,
-  title: 'devfractal-ui-core Style Guide',
+  title: '@stp/ui-core Style Guide',
   ignore: ['./src/App.tsx', './src/**/*.test.tsx', './src/**/*.test.ts'],
 }

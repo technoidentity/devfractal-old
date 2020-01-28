@@ -1,5 +1,5 @@
+import { debug } from '@stp/utils'
 import React from 'react'
-import { debug } from 'technoidentity-utils'
 
 export interface ValueChangeEvent<Value> {
   readonly name?: string

@@ -1,5 +1,5 @@
+import { Title } from '@stp/ui-core'
 import { Simple } from 'devfractal-simple'
-import { Title } from 'devfractal-ui-core'
 import React from 'react'
 import { Product } from './fakeData'
 

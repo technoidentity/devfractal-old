@@ -7,9 +7,9 @@ import {
   faUserFriends,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
+import { Route, Router } from '@stp/router'
+import { Icon, Section } from '@stp/ui-core'
 import 'bulma/css/bulma.css'
-import { Route, Router } from 'devfractal-router'
-import { Icon, Section } from 'devfractal-ui-core'
 import React from 'react'
 import { render } from 'react-dom'
 import { Menu, MenuItem, MenuList } from './routed'

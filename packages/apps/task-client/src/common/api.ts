@@ -1,5 +1,5 @@
-import { rest } from 'devfractal-api'
-import { verify } from 'technoidentity-utils'
+import { rest } from '@stp/api'
+import { verify } from '@stp/utils'
 import { Session, Task, TaskFilter, User } from './types'
 
 export const apiOptions = {

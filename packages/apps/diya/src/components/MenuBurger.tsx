@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames } from 'technoidentity-devfractal'
+import { classNames } from '@stp/devfractal'
 
 export const MenuBurger: React.FC<any> = ({ isMinimal, onClick }) => (
   <a

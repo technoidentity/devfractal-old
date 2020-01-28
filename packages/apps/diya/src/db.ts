@@ -1,4 +1,4 @@
-import { startFakeJSONServer } from 'technoidentity-dev-utils'
+import { startFakeJSONServer } from '@stp/dev-utils'
 import {
   Battery,
   Client,

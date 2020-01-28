@@ -7,11 +7,11 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from 'devfractal-forms'
-import { Field, Label } from 'devfractal-ui-core'
+} from '@stp/forms'
+import { Field, Label } from '@stp/ui-core'
+import { camelCaseToPhrase } from '@stp/utils'
 import { Form, Formik } from 'formik'
 import React from 'react'
-import { camelCaseToPhrase } from 'technoidentity-utils'
 import * as yup from 'yup'
 import {
   Simple,

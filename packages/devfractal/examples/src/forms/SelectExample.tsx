@@ -5,7 +5,7 @@ import {
   Select as SelectComponent,
   Text,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const DynamicSelectExample: React.FC = () => {

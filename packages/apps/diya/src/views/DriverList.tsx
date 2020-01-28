@@ -9,7 +9,7 @@ import {
   Section,
   useHistory,
   useLocation,
-} from 'technoidentity-devfractal'
+} from '@stp/devfractal'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'

@@ -1,6 +1,6 @@
-import { maxLength, minLength, required } from 'devfractal-forms'
+import { maxLength, minLength, required } from '@stp/forms'
+import { Section } from '@stp/ui-core'
 import { Simple } from 'devfractal-simple'
-import { Section } from 'devfractal-ui-core'
 import React from 'react'
 import { initialLoginValues } from './common'
 

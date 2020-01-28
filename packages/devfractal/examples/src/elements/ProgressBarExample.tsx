@@ -3,7 +3,7 @@ import {
   ProgressBar as ProgressBarComponent,
   Section,
   Title,
-} from 'devfractal-ui-core'
+} from '@stp/ui-core'
 import React from 'react'
 
 const BasicProgressBarExample: React.FC = () => (
