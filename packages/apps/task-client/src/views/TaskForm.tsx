@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import { DateField } from '@stp/forms'
-import { Simple } from 'devfractal-simple'
+import { Simple } from '@stp/simple'
 import { Column, Columns, component, Section } from '@stp/ui-core'
 import { FormikHelpers } from 'formik'
 import { produce } from 'immer'

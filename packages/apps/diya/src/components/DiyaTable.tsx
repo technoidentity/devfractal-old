@@ -1,9 +1,9 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { ButtonLink } from '@stp/crud'
-import { SimpleTable, SimpleTableProps } from 'devfractal-simple'
-import { Icon } from '@stp/ui-core'
-import React from 'react'
 import { Link } from '@stp/devfractal'
+import { Icon } from '@stp/devfractal'
+import { SimpleTable, SimpleTableProps } from '@stp/simple'
+import React from 'react'
 
 export interface DiyaActionsProps {
   readonly editTo: string

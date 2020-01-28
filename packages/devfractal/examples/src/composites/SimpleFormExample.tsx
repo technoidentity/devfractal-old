@@ -14,10 +14,10 @@ import {
   required,
   uppercase,
 } from '@stp/forms'
+import { Simple } from '@stp/simple'
 import { Radio, Section } from '@stp/ui-core'
 import { ISODate, keyof, TypeOf } from '@stp/utils'
 import { addDays } from 'date-fns'
-import { Simple } from 'devfractal-simple'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 

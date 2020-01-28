@@ -1,10 +1,10 @@
 import { rest } from '@stp/api'
 import { Router, SimpleRedirect } from '@stp/router'
+import { Simple } from '@stp/simple'
 import { Section } from '@stp/ui-core'
 import { boolean, number, string } from '@stp/utils'
 import { obj } from '@stp/utils'
 import 'bulma/css/bulma.css'
-import { Simple } from 'devfractal-simple'
 import React from 'react'
 import { render } from 'react-dom'
 import {

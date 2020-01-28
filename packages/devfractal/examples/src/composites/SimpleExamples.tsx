@@ -1,5 +1,5 @@
+import { SimpleRoutedTabs, SimpleTabs } from '@stp/simple'
 import { Section, Text } from '@stp/ui-core'
-import { SimpleRoutedTabs, SimpleTabs } from 'devfractal-simple'
 import React from 'react'
 
 const SimpleTabsExample: React.FC = () => (

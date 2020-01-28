@@ -1,4 +1,9 @@
 import {
+  Simple,
+  SimpleArrayField,
+  SimpleArrayFieldComponentProps,
+} from '@stp/simple'
+import {
   CheckBox,
   Column,
   Columns,
@@ -7,11 +12,6 @@ import {
   Select,
   Text,
 } from '@stp/ui-core'
-import {
-  Simple,
-  SimpleArrayField,
-  SimpleArrayFieldComponentProps,
-} from 'devfractal-simple'
 import { Form, Formik, FormikHelpers } from 'formik'
 import { PrimitiveMT } from 'meta-core'
 import React from 'react'

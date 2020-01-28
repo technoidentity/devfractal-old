@@ -1,5 +1,5 @@
+import { SimpleTable } from '@stp/simple'
 import { Container, Title } from '@stp/ui-core'
-import { SimpleTable } from 'devfractal-simple'
 import { MT } from 'meta-core'
 import React from 'react'
 

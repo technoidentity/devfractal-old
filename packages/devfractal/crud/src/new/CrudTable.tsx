@@ -1,7 +1,7 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Link } from '@stp/router'
+import { SimpleTable, SimpleTableProps } from '@stp/simple'
 import { Icon } from '@stp/ui-core'
-import { SimpleTable, SimpleTableProps } from 'devfractal-simple'
 import React from 'react'
 
 export interface ActionsProps {

@@ -40,7 +40,7 @@
     "@stp/crud": "1.2.19",
     "@stp/forms": "1.2.19",
     "@stp/router": "1.2.19",
-    "devfractal-simple": "1.2.19",
+    "@stp/simple": "1.2.19",
     "@stp/ui": "1.2.19",
     "@stp/ui-api": "1.2.19",
     "@stp/ui-core": "1.2.19",

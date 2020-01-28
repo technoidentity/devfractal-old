@@ -27,7 +27,7 @@
     "devfractal-examples": "1.2.18",
     "@stp/forms": "1.2.18",
     "@stp/router": "1.2.18",
-    "devfractal-simple": "1.2.18",
+    "@stp/simple": "1.2.18",
     "@stp/ui-api": "1.2.18",
     "@stp/ui-core": "1.2.18",
     "@stp/ui": "1.2.18",

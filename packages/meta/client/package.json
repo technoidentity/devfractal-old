@@ -34,7 +34,7 @@
     "cross-env": "6.0.3",
     "date-fns": "2.9.0",
     "@stp/crud": "1.2.19",
-    "devfractal-simple": "1.2.19",
+    "@stp/simple": "1.2.19",
     "@stp/ui-core": "1.2.19",
     "eslint": "6.8.0",
     "formik": "2.1.2",
