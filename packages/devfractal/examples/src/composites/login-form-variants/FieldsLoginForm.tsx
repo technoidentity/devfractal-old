@@ -35,7 +35,7 @@ export const FieldsLoginForm: React.FC = () => (
   <Formik
     initialValues={initialLoginValues}
     validationSchema={loginSchema}
-    render={LoginFormInner}
+    component={LoginFormInner}
     onSubmit={values => console.log(values)}
   />
 )

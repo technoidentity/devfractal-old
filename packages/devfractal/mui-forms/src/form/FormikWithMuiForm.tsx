@@ -21,11 +21,15 @@ const MuiForm: (props: FormikProps<FormikWithMuiFormProps>) => JSX.Element = ({
       <br />
       <TextMuiField name="name" value={values.name} />
       <br />
-      <SwitchMuiField placeholder="switch" name="switch" value={values.switch} />
+      <SwitchMuiField
+        placeholder="switch"
+        name="switch"
+        value={values.switch}
+      />
       <br />
       <RadioMuiField name="gender" value={values.gender} />
       <br />
-      <DateMuiField onChange={handleChange}  name="date" value={values.date} />
+      <DateMuiField onChange={handleChange} name="date" value={values.date} />
       <br />
       <Button type="submit">submit</Button>
     </form>
@@ -45,7 +49,7 @@ export const FormikWithMuiForm: React.FC = () => (
     onSubmit={values => {
       console.log(values)
     }}
-    render={MuiForm}
+    component={MuiForm}
   />
 )
 

@@ -126,7 +126,7 @@ export const FieldsGeneralForm: () => JSX.Element = () => (
   <Formik
     initialValues={initialValues}
     validationSchema={validationSchema}
-    render={InnerFieldsGeneralForm}
+    component={InnerFieldsGeneralForm}
     onSubmit={values => {
       console.log(values)
     }}
