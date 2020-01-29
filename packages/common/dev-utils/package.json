@@ -36,13 +36,13 @@
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "cross-env": "6.0.3",
-    "jest": "24.9.0",
+    "cross-env": "7.0.0",
+    "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "ts-node-dev": "1.0.0-pre.40",
+    "ts-node-dev": "1.0.0-pre.44",
     "tsdx": "0.12.3",
-    "tslint": "5.20.1",
+    "tslint": "6.0.0",
     "typescript": "3.7.5"
   }
 }

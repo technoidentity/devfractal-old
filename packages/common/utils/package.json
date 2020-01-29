@@ -29,22 +29,22 @@
   },
   "dependencies": {
     "date-fns": "2.9.0",
-    "fp-ts": "2.4.1",
-    "io-ts": "2.0.5",
+    "fp-ts": "2.4.3",
+    "io-ts": "2.0.6",
     "io-ts-types": "0.5.5",
     "monocle-ts": "2.0.1",
     "tslib": "1.10.0",
     "utility-types": "3.10.0"
   },
   "devDependencies": {
-    "cross-env": "6.0.3",
+    "cross-env": "7.0.0",
     "eslint": "6.8.0",
-    "jest": "24.9.0",
+    "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "tcomb": "3.2.29",
     "tsdx": "0.12.3",
-    "tslint": "5.20.1",
+    "tslint": "6.0.0",
     "typescript": "3.7.5"
   },
   "peerDependencies": {
