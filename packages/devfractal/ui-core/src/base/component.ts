@@ -2,6 +2,7 @@ import * as t from '@stp/utils'
 import { AnyObj, assertCast, isObj } from '@stp/utils'
 import { getPropTypes, PropTypeable } from 'prop-types-ts'
 import React from 'react'
+import { getDisplayName } from './getDisplayName'
 
 type Propable = PropTypeable | AnyObj
 
@@ -18,7 +19,7 @@ export function component<Spec extends t.Mixed & Propable>(
   // tslint:disable no-object-mutation
 
   Comp.displayName =
-    displayName || spec.name.endsWith('Props')
+    displayName || getDisplayName(Comp) || spec.name.endsWith('Props')
       ? spec.name.slice(0, spec.name.length - 'Props'.length)
       : spec.name
 
