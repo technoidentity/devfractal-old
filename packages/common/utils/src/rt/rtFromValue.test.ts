@@ -1,4 +1,4 @@
-import { today } from './common'
+import { today } from '../common'
 import { rtFromValue } from './rtFromValue'
 
 // tslint:disable no-null-keyword typedef

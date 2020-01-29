@@ -1,6 +1,5 @@
 import { Constructor, Irreducible } from 'tcomb'
-import { verify } from './assertions'
-import { buildObject, keys, nop } from './common'
+import { buildObject, keys, nop, verify } from '../common'
 import {
   isDict,
   isEnums,

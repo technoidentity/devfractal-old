@@ -12,7 +12,7 @@ import {
   StringC,
 } from 'io-ts'
 import { PickByValue } from 'utility-types'
-import { buildObject, omit, pick } from './common'
+import { buildObject, omit, pick } from '../common'
 import {
   exactObj,
   ExactObjC,

@@ -1,7 +1,7 @@
 import { Either, isRight } from 'fp-ts/lib/Either'
 import { Errors, literal, string, Type } from 'io-ts'
 import { PathReporter } from 'io-ts/lib/PathReporter'
-import { assert, fatal } from './assertions'
+import { assert, fatal } from '../common'
 
 export function cast<A, O, I>(spec: Type<A, O, I>, args: I): A {
   const decoded: Either<Errors, A> = spec.decode(args)

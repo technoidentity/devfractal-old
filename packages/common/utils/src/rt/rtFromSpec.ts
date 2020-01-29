@@ -24,9 +24,8 @@ import {
   VoidType,
 } from 'io-ts'
 import tcomb from 'tcomb'
-import { buildObject } from './common'
-import { EnumType } from './enums'
-import { ObjType } from './obj'
+import { buildObject } from '../common'
+import { EnumType, ObjType } from '../spec'
 import { Literal } from './tcombRefinements'
 
 function rtFromObjectSpec<T extends Props>(

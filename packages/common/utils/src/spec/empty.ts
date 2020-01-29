@@ -22,7 +22,7 @@ import {
   UnknownType,
   VoidType,
 } from 'io-ts'
-import { buildObject, keys, today } from './common'
+import { buildObject, keys, today } from '../common'
 import { EnumType } from './enums'
 import { ObjType } from './obj'
 

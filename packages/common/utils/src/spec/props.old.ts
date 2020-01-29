@@ -12,7 +12,7 @@ import {
   TypeC,
   TypeOf,
 } from 'io-ts'
-import { omit, pick } from './common'
+import { omit, pick } from '../common'
 
 // tslint:disable no-class no-parameter-properties
 // tslint:disable no-this readonly-array typedef

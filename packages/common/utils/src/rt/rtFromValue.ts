@@ -1,5 +1,5 @@
 import tcomb from 'tcomb'
-import { buildObject } from './common'
+import { buildObject } from '../common'
 
 function rtFromPrimitiveValue(value: unknown): tcomb.Irreducible<any> {
   if (tcomb.Integer.is(value)) {

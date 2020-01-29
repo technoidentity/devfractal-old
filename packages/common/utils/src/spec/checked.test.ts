@@ -1,6 +1,6 @@
 import { number, readonly, string, type } from 'io-ts'
+import { range } from '../common'
 import { checked, checkedAsync } from './checked'
-import { range } from './common'
 
 // tslint:disable typedef
 it('checked', () => {

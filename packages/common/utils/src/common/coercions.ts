@@ -2,7 +2,7 @@ import { BooleanFromString } from 'io-ts-types/lib/BooleanFromString'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
 import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import { NumberFromString } from 'io-ts-types/lib/NumberFromString'
-import { cast } from './iotsUtils'
+import { cast } from '../spec'
 
 export function toInt(from: string): number {
   return cast(IntFromString, from)
