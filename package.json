@@ -20,7 +20,7 @@
     "dev:types:watch": "yarn tsc -b -w packages",
     "dev:types": "yarn tsc --build packages",
     "dev:build": "yarn dev:types",
-    "dev": "yarn clean && yarn concurrently \"yarn dev:types:watch\" \"yarn dev:test:watch\"",
+    "dev": "yarn clean && yarn dev:types:watch",
     "elint": "lerna run elint",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
