@@ -1,5 +1,6 @@
 import { Button } from '@material-ui/core'
-import { Formik, FormikProps } from 'formik'
+import { jsonStringify } from '@stp/utils'
+import { Formik, FormikConsumer, FormikProps } from 'formik'
 import React from 'react'
 import { CheckboxMuiField } from '../fields/CheckBoxMuiField'
 import { DateMuiField } from '../fields/DateMuiField'
@@ -7,6 +8,12 @@ import { RadioMuiField } from '../fields/RadioMuiField'
 import { SelectField } from '../fields/SelectMuiField'
 import { SwitchMuiField } from '../fields/SwitchMuiField'
 import { TextMuiField } from '../fields/TextMuiField'
+
+export const DebugField: React.FC = () => (
+  <FormikConsumer>
+    {({ values }) => <pre>{jsonStringify(values)}</pre>}
+  </FormikConsumer>
+)
 
 const MuiForm: (props: FormikProps<FormikWithMuiFormProps>) => JSX.Element = ({
   values,
@@ -19,7 +26,12 @@ const MuiForm: (props: FormikProps<FormikWithMuiFormProps>) => JSX.Element = ({
       <br />
       <SelectField name="select" value={values.select} />
       <br />
-      <TextMuiField name="name" value={values.name} />
+      <TextMuiField
+        label="Name"
+        placeholder="Enter your name"
+        name="name"
+        value={values.name}
+      />
       <br />
       <SwitchMuiField
         placeholder="switch"
@@ -32,6 +44,7 @@ const MuiForm: (props: FormikProps<FormikWithMuiFormProps>) => JSX.Element = ({
       <DateMuiField onChange={handleChange} name="date" value={values.date} />
       <br />
       <Button type="submit">submit</Button>
+      <DebugField />
     </form>
   )
 }
