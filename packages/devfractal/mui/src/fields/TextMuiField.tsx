@@ -1,20 +1,14 @@
 import { TextField } from '@material-ui/core'
 import { TextFieldProps } from '@material-ui/core/TextField'
-import { Field, FieldConfig, FieldProps } from 'formik'
+import { useField } from 'formik'
 import React from 'react'
+import { FormikFieldConfig } from '../types'
 
-type InputInnerProps<V> = FieldProps<V>
+export type InputFieldProps = FormikFieldConfig & TextFieldProps
 
-function FormikMuiText<V>({
-  form,
-  field,
-  ...props
-}: InputInnerProps<V>): JSX.Element {
-  return <TextField label="Name" fullWidth={true} {...props} {...field} />
+export const TextMuiField: React.FC<InputFieldProps> = props => {
+  const [field] = useField(props as any)
+  const { validate, ...rest } = props
+
+  return <TextField fullWidth={true} {...field} {...rest} />
 }
-
-export type InputFieldProps = FieldConfig & TextFieldProps
-
-export const TextMuiField: React.FC<InputFieldProps> = props => (
-  <Field {...props} component={FormikMuiText} />
-)
