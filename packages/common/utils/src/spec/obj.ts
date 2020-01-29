@@ -45,11 +45,15 @@ export class ObjType<
     readonly optional: Opt,
     readonly required: Req,
     readonly props: Opt & Req,
-    spec: Type<A, O, I>,
+    spec: Type<A, O, I> & (ObjSpec<Opt, Req> | ExactObjSpec<Opt, Req>),
     name: string,
   ) {
     super(name, spec.is, spec.validate, spec.encode)
   }
+}
+
+export function isObj(spec: Mixed & { readonly _tag: string }): spec is AnyObj {
+  return spec._tag === 'ObjType'
 }
 
 export interface ObjC<Opt extends Props, Req extends Props>
