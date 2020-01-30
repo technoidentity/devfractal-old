@@ -23,7 +23,7 @@ export const ClientQuery = opt({
 })
 
 export interface AllComponentProps<T> {
-  readonly data: ReadonlyArray<T>
+  readonly data: readonly T[]
   readonly page: number
   onPageChange(page: number): void
 }
@@ -91,7 +91,7 @@ function Children<
 }
 
 export interface AllComponentProps<T> {
-  readonly data: ReadonlyArray<T>
+  readonly data: readonly T[]
   // fetchAgain(): void
 }
 

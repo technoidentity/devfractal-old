@@ -10,7 +10,7 @@ export interface SimpleArrayFieldComponentProps<T> {
 
 export interface SimpleArrayFieldProps<T> {
   readonly name: string
-  readonly data: ReadonlyArray<T>
+  readonly data: readonly T[]
   readonly noRemove?: boolean
   readonly render: React.FC<SimpleArrayFieldComponentProps<T>>
   onAdd?(): T

@@ -10,7 +10,7 @@ export interface Repository<
   ID extends keyof T,
   V extends number | string = T[ID]
 > {
-  all(): Promise<ReadonlyArray<T>>
+  all(): Promise<readonly T[]>
   create(value: Omit<T, ID>): Promise<T>
   one(id: V): Promise<T>
   edit(value: T): Promise<T>

@@ -7,7 +7,7 @@ import { fakeTodoList } from './fakeTodoList'
 import { Todo, TodoListRT, TodoRT } from './types'
 
 // tslint:disable no-let
-let staticTodoList: ReadonlyArray<Todo> = fakeTodoList(5)
+let staticTodoList: readonly Todo[] = fakeTodoList(5)
 let nextID: number = 1000
 // tslint:enable no-let
 

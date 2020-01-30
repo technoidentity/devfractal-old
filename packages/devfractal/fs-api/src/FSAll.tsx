@@ -30,7 +30,7 @@ ChildrenProps<Opt, Req, ID>): JSX.Element {
 }
 
 export interface FSAllComponentProps<T> {
-  readonly data: ReadonlyArray<T>
+  readonly data: readonly T[]
 }
 
 export interface FSAllProps<

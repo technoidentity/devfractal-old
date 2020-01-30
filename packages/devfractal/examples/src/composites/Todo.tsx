@@ -19,7 +19,7 @@ interface Todo {
   readonly done: boolean
 }
 
-type TodoList = ReadonlyArray<Todo>
+type TodoList = readonly Todo[]
 
 const TodoItem: React.FC<Todo> = ({ id, title, description, time, done }) => (
   <Tr>
@@ -65,7 +65,7 @@ const TodoListView: React.FC<TodoListViewProps> = ({ todoList }) => (
   </Table>
 )
 
-const todoList: ReadonlyArray<Todo> = [
+const todoList: readonly Todo[] = [
   {
     id: 1,
     title: 'bring milk',

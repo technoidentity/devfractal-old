@@ -115,14 +115,14 @@ export const lit: typeof literal = literal
 
 // export function pickProps<T extends Props, K extends keyof T>(
 //   props: T,
-//   keys: ReadonlyArray<K>,
+//   keys: readonly K[],
 // ): Pick<T, K> {
 //   return pick(props, keys)
 // }
 
 // export function omitProps<T extends Props, K extends keyof T>(
 //   props: T,
-//   keys: ReadonlyArray<K>,
+//   keys: readonly K[],
 // ): Omit<T, K> {
 //   return omit(props, keys)
 // }

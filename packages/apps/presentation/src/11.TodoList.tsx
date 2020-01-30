@@ -24,7 +24,7 @@ export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (
 )
 
 export interface TodoListViewProps {
-  readonly todoList: ReadonlyArray<Todo>
+  readonly todoList: readonly Todo[]
 }
 
 export const TodoListView: React.FC<TodoListViewProps> = ({

@@ -23,7 +23,7 @@ export interface MetaBuildFormProps {
 interface Meta {
   readonly label: string
   readonly kind: PrimitiveMT['kind']
-  readonly refinements: ReadonlyArray<any>
+  readonly refinements: readonly any[]
 }
 
 // tslint:disable-next-line:typedef
@@ -211,7 +211,7 @@ const RefinementsSubForm: React.FC<RefinementsSubFormProps> = ({
 }
 
 interface FieldProps {
-  readonly refinements: ReadonlyArray<any>
+  readonly refinements: readonly any[]
   readonly name: string
 }
 
@@ -238,7 +238,7 @@ const AddField: React.FC<FieldProps> = ({ name }) => {
   )
 }
 
-const initialValues: { readonly meta: ReadonlyArray<Meta> } = { meta: [] }
+const initialValues: { readonly meta: readonly Meta[] } = { meta: [] }
 
 const AddFieldComponent: React.FC<SimpleArrayFieldComponentProps<any>> = ({
   data,

@@ -4,7 +4,7 @@ import React from 'react'
 import { listProps } from './common'
 
 export interface ListProps<T> {
-  readonly data: ReadonlyArray<T>
+  readonly data: readonly T[]
   readonly page: number
   onPageChange(page: number): void
 }

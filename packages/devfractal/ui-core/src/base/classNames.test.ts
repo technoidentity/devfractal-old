@@ -39,7 +39,7 @@ it('classNames for complex args', () => {
       {
         a: true,
         b: false,
-        c: [1, 2, 3] as ReadonlyArray<number>,
+        c: [1, 2, 3] as readonly number[],
       },
       [],
     ),

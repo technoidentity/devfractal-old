@@ -85,10 +85,8 @@ const validators = {
   // tslint:disable-next-line:readonly-array
   array: (v: unknown): v is any[] => t.Array.is(v),
 
-  minArrayLength: (min: number) => (v: ReadonlyArray<unknown>) =>
-    v.length >= min,
-  maxArrayLength: (max: number) => (v: ReadonlyArray<unknown>) =>
-    v.length <= max,
+  minArrayLength: (min: number) => (v: readonly unknown[]) => v.length >= min,
+  maxArrayLength: (max: number) => (v: readonly unknown[]) => v.length <= max,
 
   // TODO: may be tcomb is wrong about object?
   object: (v: unknown): v is object => t.Object.is(v),
@@ -190,7 +188,7 @@ function errorsForDateRefinements(
 
 function errorsForArrayRefinements(
   r: ArrayRefinements,
-  value: ReadonlyArray<unknown>,
+  value: readonly unknown[],
 ): readonly string[] {
   const errors: string[] = []
 
@@ -223,7 +221,7 @@ interface ErrorsEnum {
 interface ErrorsArray {
   readonly kind: ArrayMT['kind']
   readonly errors?: readonly string[]
-  readonly elements?: ReadonlyArray<Errors>
+  readonly elements?: readonly Errors[]
 }
 
 interface ErrorsObject {
@@ -237,10 +235,8 @@ export type Errors = ErrorsPrimitive | ErrorsEnum | ErrorsArray | ErrorsObject
 // returns undefined if result is empty array
 function removeUndefined<T>(
   rs: ReadonlyArray<T | undefined>,
-): ReadonlyArray<T> | undefined {
-  const result: ReadonlyArray<T> = rs.filter(
-    e => e !== undefined,
-  ) as ReadonlyArray<T>
+): readonly T[] | undefined {
+  const result: readonly T[] = rs.filter(e => e !== undefined) as readonly T[]
 
   return result.length === 0 ? undefined : result
 }
@@ -322,7 +318,7 @@ function validateArray(meta: ArrayMT, value: unknown): ErrorsArray | undefined {
     return { kind: meta.kind, errors: [errorMessage(meta)] }
   }
 
-  const elements: ReadonlyArray<Errors> | undefined = removeUndefined(
+  const elements: readonly Errors[] | undefined = removeUndefined(
     value.map(e => validate(meta.of, e)),
   )
 

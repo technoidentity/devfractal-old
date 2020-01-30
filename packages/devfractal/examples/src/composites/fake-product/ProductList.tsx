@@ -4,7 +4,7 @@ import { Product } from './fakeData'
 import { ProductItem } from './ProductItem'
 
 export interface ProductListProps {
-  readonly productList: ReadonlyArray<Product>
+  readonly productList: readonly Product[]
   onDeleteTodo(id: number): Promise<void>
 }
 

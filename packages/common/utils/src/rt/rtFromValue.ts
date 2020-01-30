@@ -30,7 +30,7 @@ function rtFromPrimitiveValue(value: unknown): tcomb.Irreducible<any> {
   throw new Error(`Unsupported #{value}`)
 }
 
-function rtFromArrayValue<V, T extends ReadonlyArray<V>>(
+function rtFromArrayValue<V, T extends readonly V[]>(
   value: T,
 ): tcomb.List<ReadonlyArray<tcomb.Type<any>>> | tcomb.List<any> {
   return value[0] !== undefined

@@ -13,7 +13,7 @@ export const sessionAPI = rest(Session, 'id', 'session', apiOptions)
 
 export const taskAPI = rest(Task, '_id', 'tasks', apiOptions)
 
-export async function getTasks(path: TaskFilter): Promise<ReadonlyArray<Task>> {
+export async function getTasks(path: TaskFilter): Promise<readonly Task[]> {
   verify(TaskFilter, path)
 
   return taskAPI.many({

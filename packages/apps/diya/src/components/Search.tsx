@@ -43,7 +43,7 @@ export function Search<T>({
   fetchSuggestions,
 }: SearchProps<T>): JSX.Element {
   const [value, setValue] = React.useState<string>('')
-  const [suggestions, setSuggestions] = React.useState<ReadonlyArray<T>>([])
+  const [suggestions, setSuggestions] = React.useState<readonly T[]>([])
 
   return (
     <>

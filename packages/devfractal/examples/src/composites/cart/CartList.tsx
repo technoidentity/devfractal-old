@@ -22,7 +22,7 @@ export const CartItem: React.FC<CartItemProps> = ({ cartItem }) => {
 }
 
 export interface CartListProps {
-  readonly cartList: ReadonlyArray<CartItem>
+  readonly cartList: readonly CartItem[]
 }
 
 export const CartList: React.FC<CartListProps> = ({ cartList }) => {

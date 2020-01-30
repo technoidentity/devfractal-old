@@ -39,7 +39,7 @@ export interface CrudTableProps<
     SimpleTableProps<T, EK, Select>,
     'select' | 'override' | 'extra' | 'onRowClicked'
   > {
-  readonly data: ReadonlyArray<T>
+  readonly data: readonly T[]
   editTo(value: T): string
   onDelete?(value: T): void
 }
