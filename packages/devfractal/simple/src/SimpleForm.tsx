@@ -239,6 +239,8 @@ export interface TypedForm<Values extends {}> {
   readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
   readonly Select: React.FC<SimpleSelectProps<Values>>
   readonly Form: React.FC<SimpleFormProps<Values>>
+  readonly FormButtons: React.FC<SimpleFormButtonsProps>
+  readonly Debug: typeof DebugField
 }
 
 function typedFormInternal<Values extends {}>(): TypedForm<Values> {
@@ -331,6 +333,8 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
         <Form>{children}</Form>
       </Formik>
     ),
+    FormButtons: SimpleFormButtons,
+    Debug: DebugField,
   }
 }
 
@@ -346,8 +350,4 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
 }
 
 // tslint:disable-next-line:typedef
-export const Simple = {
-  ...typedForm<any>(),
-  FormButtons: SimpleFormButtons,
-  Debug: DebugField,
-}
+export const Simple = typedForm<any>()
