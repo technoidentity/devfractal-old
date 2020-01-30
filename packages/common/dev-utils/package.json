@@ -3,7 +3,7 @@
   "version": "1.2.19",
   "description": "devlopment utils for all devfractal libs",
   "main": "dist/index.js",
-  "module": "dist/@stp/dev-utils.esm.js",
+  "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
@@ -19,7 +19,7 @@
     "server": "ts-node-dev --project tsconfig.tsnode.json src/app.ts",
     "start": "parcel index.html --open",
     "test:watch": "yarn test --watch",
-    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
+    "test": "jest --passWithNoTests",
     "tlint:fix": "yarn lint --fix",
     "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",

@@ -6,7 +6,7 @@
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
     "server": "json-server data/todos.json",
-    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
+    "test": "jest --passWithNoTests",
     "test:watch": "yarn test --watch",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",
     "elint:fix": "yarn elint --quiet --fix",
