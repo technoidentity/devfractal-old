@@ -6,7 +6,7 @@ import { FormikFieldConfig } from '../types'
 
 export type SwitchFieldProps = FormikFieldConfig & SwitchProps
 
-export const SwitchMuiField: React.FC<SwitchFieldProps> = props => {
+export const SwitchField: React.FC<SwitchFieldProps> = props => {
   const [field] = useField(props as any)
   const { validate, ...rest } = props
 

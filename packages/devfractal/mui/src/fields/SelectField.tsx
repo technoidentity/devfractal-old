@@ -8,7 +8,7 @@ import { FormikFieldConfig } from '../types'
 
 type FormikSelectProps<V> = FormikFieldProps<V>
 
-const FormikWithMuiSelect: <V>(props: FormikSelectProps<V>) => JSX.Element = ({
+const FormikWithSelect: <V>(props: FormikSelectProps<V>) => JSX.Element = ({
   form,
   field,
   ...props
@@ -32,7 +32,7 @@ export const SelectField: React.FC<SelectFieldProps> = ({
   children,
   ...props
 }) => (
-  <FormikField {...props} component={FormikWithMuiSelect}>
+  <FormikField {...props} component={FormikWithSelect}>
     {children}
   </FormikField>
 )

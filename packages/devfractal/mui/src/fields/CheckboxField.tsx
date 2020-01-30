@@ -5,7 +5,7 @@ import { FormikFieldConfig } from '../types'
 
 export type CheckboxFieldProps = FormikFieldConfig & CheckboxProps
 
-export const CheckboxMuiField: React.FC<CheckboxFieldProps> = props => {
+export const CheckboxField: React.FC<CheckboxFieldProps> = props => {
   const [field] = useField({ type: 'checkbox', ...(props as any) })
   const { validate, ...rest } = props
 
