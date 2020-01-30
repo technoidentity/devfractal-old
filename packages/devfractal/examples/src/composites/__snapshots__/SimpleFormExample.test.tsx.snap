@@ -106,9 +106,9 @@ exports[`Simple Form Example 1`] = `
     >
       <label
         className="label"
-        htmlFor="dateOfBirth"
+        htmlFor="date"
       >
-        Date of birth
+        Date
       </label>
       <div
         className="control"
@@ -122,8 +122,8 @@ exports[`Simple Form Example 1`] = `
             <input
               className="input"
               disabled={false}
-              id="dateOfBirth"
-              name="dateOfBirth"
+              id="date"
+              name="date"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -210,9 +210,9 @@ exports[`Simple Form Example 1`] = `
     >
       <label
         className="label"
-        htmlFor="position"
+        htmlFor="select"
       >
-        Position
+        Select
       </label>
       <div
         className="control"
@@ -222,10 +222,11 @@ exports[`Simple Form Example 1`] = `
         >
           <select
             className=""
-            id="position"
-            name="position"
+            id="select"
+            name="select"
             onBlur={[Function]}
             onChange={[Function]}
+            value="assistant"
           >
             <option
               value="associate"

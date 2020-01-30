@@ -14,7 +14,7 @@ import {
   required,
   uppercase,
 } from '@stp/forms'
-import { Simple } from '@stp/simple'
+import { typedForm } from '@stp/simple'
 import { Radio, Section } from '@stp/ui-core'
 import { ISODate, keyof, TypeOf } from '@stp/utils'
 import { addDays } from 'date-fns'
@@ -78,58 +78,63 @@ const initialValues: SimpleValues = {
 //   age: number().required(),
 // })
 
-export const SimpleFormExample: React.FC = () => (
-  <Section>
-    <Simple.Form initialValues={initialValues}>
-      <Simple.Text
-        label="Username"
-        name="username"
-        validations={[required(), minLength(6), maxLength(15), lowercase()]}
-      />
-      <Simple.Password
-        label="Password"
-        name="password"
-        validations={[required(), minLength(6), uppercase()]}
-      />
-      <Simple.Email
-        label="Email"
-        name="email"
-        validations={[required(), email()]}
-      />
-      <Simple.Telephone
-        label="Telephone"
-        name="tel"
-        validations={[required(), positive()]}
-      />
-      <Simple.Date
-        name="dateOfBirth"
-        validations={[
-          required(),
-          after(new Date()),
-          before(addDays(new Date(), 10)),
-        ]}
-      />
-      <Simple.Checkbox name="remember"> Remember Me</Simple.Checkbox>
-      <Simple.RadioGroup name="gender" defaultValue="female">
-        <Radio value="female"> Female</Radio>
-        <Radio value="male"> Male</Radio>
-      </Simple.RadioGroup>
-      <Simple.Select name="position">
-        <option value="associate">associate</option>
-        <option value="assistant">assistant</option>
-      </Simple.Select>
-      <Simple.Number
-        label="Age"
-        name="age"
-        validations={[required(), min(15), max(58), integer()]}
-      />
-      <Simple.TextArea
-        label="TextArea"
-        name="message"
-        validations={[required()]}
-      />
-      <Simple.FormButtons />
-      <Simple.Debug />
-    </Simple.Form>
-  </Section>
-)
+export const SimpleFormExample: React.FC = () => {
+  // tslint:disable-next-line: typedef
+  const Simple = typedForm<typeof initialValues>()
+
+  return (
+    <Section>
+      <Simple.Form initialValues={initialValues}>
+        <Simple.Text
+          label="Username"
+          name="username"
+          validations={[required(), minLength(6), maxLength(15), lowercase()]}
+        />
+        <Simple.Password
+          label="Password"
+          name="password"
+          validations={[required(), minLength(6), uppercase()]}
+        />
+        <Simple.Email
+          label="Email"
+          name="email"
+          validations={[required(), email()]}
+        />
+        <Simple.Telephone
+          label="Telephone"
+          name="tel"
+          validations={[required(), positive()]}
+        />
+        <Simple.Date
+          name="date"
+          validations={[
+            required(),
+            after(new Date()),
+            before(addDays(new Date(), 10)),
+          ]}
+        />
+        <Simple.Checkbox name="remember"> Remember Me</Simple.Checkbox>
+        <Simple.RadioGroup name="gender" defaultValue="female">
+          <Radio value="female"> Female</Radio>
+          <Radio value="male"> Male</Radio>
+        </Simple.RadioGroup>
+        <Simple.Select name="select">
+          <option value="associate">associate</option>
+          <option value="assistant">assistant</option>
+        </Simple.Select>
+        <Simple.Number
+          label="Age"
+          name="age"
+          validations={[required(), min(15), max(58), integer()]}
+        />
+        <Simple.TextArea
+          label="TextArea"
+          name="message"
+          validations={[required()]}
+        />
+        <Simple.FormButtons />
+        <Simple.Debug />
+      </Simple.Form>
+    </Section>
+  )
+}
