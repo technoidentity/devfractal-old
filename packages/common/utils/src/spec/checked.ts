@@ -1,5 +1,5 @@
 import { Mixed, tuple, TupleC, TypeOf } from 'io-ts'
-import { cast } from './iotsUtils'
+import { assertCast } from './iotsUtils'
 
 // tslint:disable readonly-array
 
@@ -11,9 +11,9 @@ export function tupleChecked<
   R extends Mixed
 >(argSpecs: TupleC<T>, resultSpec: R, f: (...args: A) => TypeOf<R>): typeof f {
   return (...args) => {
-    cast(argSpecs, args)
+    assertCast(argSpecs, args)
 
-    return cast(resultSpec, f(...args))
+    return assertCast(resultSpec, f(...args))
   }
 }
 
@@ -83,9 +83,9 @@ export function tupleCheckedAsync<
   f: (...args: A) => Promise<TypeOf<typeof resultSpec>>,
 ): typeof f {
   return async (...args) => {
-    cast(argSpecs, args)
+    assertCast(argSpecs, args)
 
-    return cast(resultSpec, await f(...args))
+    return assertCast(resultSpec, await f(...args))
   }
 }
 
