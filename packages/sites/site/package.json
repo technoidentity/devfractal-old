@@ -31,6 +31,7 @@
     "@fortawesome/react-fontawesome": "0.1.8",
     "@stp/api": "1.2.19",
     "@stp/crud": "1.2.19",
+    "@stp/mui": "1.2.19",
     "devfractal-examples": "1.2.19",
     "@stp/forms": "1.2.19",
     "@stp/router": "1.2.19",
