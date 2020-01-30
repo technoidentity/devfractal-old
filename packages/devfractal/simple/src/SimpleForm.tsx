@@ -106,6 +106,7 @@ T): [FieldPropsBase, Omit<T, keyof FieldProps>] {
     rest,
   ]
 }
+
 function SimpleInput<Values extends {}, S extends Schema<any>>(
   args: SimpleInputProps<Values, S>,
 ): JSX.Element {
@@ -240,7 +241,7 @@ export interface TypedForm<Values extends {}> {
   readonly Form: React.FC<SimpleFormProps<Values>>
 }
 
-export function typedForm<Values extends {}>(): TypedForm<Values> {
+function typedFormInternal<Values extends {}>(): TypedForm<Values> {
   return {
     Text: props => <SimpleInput {...props} type="text" schema={string()} />,
     Date: props => <SimpleDate {...props} />,
@@ -331,6 +332,17 @@ export function typedForm<Values extends {}>(): TypedForm<Values> {
       </Formik>
     ),
   }
+}
+
+// tslint:disable-next-line: no-let
+let form: TypedForm<any> | undefined
+
+export function typedForm<Values extends {}>(): TypedForm<Values> {
+  if (form) {
+    return form
+  }
+  form = typedFormInternal()
+  return form
 }
 
 // tslint:disable-next-line:typedef
