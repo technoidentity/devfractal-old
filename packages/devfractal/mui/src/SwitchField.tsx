@@ -2,7 +2,7 @@ import { Switch } from '@material-ui/core'
 import { SwitchProps } from '@material-ui/core/Switch'
 import { useField } from 'formik'
 import React from 'react'
-import { FormikFieldConfig } from '../types'
+import { FormikFieldConfig } from './types'
 
 export type SwitchFieldProps = FormikFieldConfig & SwitchProps
 

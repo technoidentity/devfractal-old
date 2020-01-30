@@ -1,7 +1,7 @@
 import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox'
 import { useField } from 'formik'
 import React from 'react'
-import { FormikFieldConfig } from '../types'
+import { FormikFieldConfig } from './types'
 
 export type CheckboxFieldProps = FormikFieldConfig & CheckboxProps
 

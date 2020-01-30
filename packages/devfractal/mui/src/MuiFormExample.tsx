@@ -13,7 +13,7 @@ import {
   SelectField,
   SwitchField,
   TextField,
-} from './fields'
+} from '.'
 
 // tslint:disable typedef
 
