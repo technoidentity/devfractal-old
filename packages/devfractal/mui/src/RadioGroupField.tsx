@@ -2,7 +2,7 @@ import { RadioGroup } from '@material-ui/core'
 import { RadioGroupProps } from '@material-ui/core/RadioGroup'
 import { useField } from 'formik'
 import React from 'react'
-import { FormikFieldConfig } from '../types'
+import { FormikFieldConfig } from './types'
 
 export type RadioProps = FormikFieldConfig & RadioGroupProps
 
