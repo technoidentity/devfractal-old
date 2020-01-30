@@ -9,7 +9,7 @@ interface Todo {
   readonly done: boolean
 }
 
-const todoList: ReadonlyArray<Todo> = [
+const todoList: readonly Todo[] = [
   {
     id: 1,
     title: 'bring milk',

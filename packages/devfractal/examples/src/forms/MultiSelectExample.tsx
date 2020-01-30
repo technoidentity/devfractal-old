@@ -17,9 +17,9 @@ type JobTypes = 'designer' | 'developer' | 'manager'
 
 type Locations = 'NY' | 'SF' | 'CH' | 'OTHER'
 
-type JobType = ReadonlyArray<JobTypes>
+type JobType = readonly JobTypes[]
 
-type Location = ReadonlyArray<Locations>
+type Location = readonly Locations[]
 
 export interface FormValues {
   readonly isAwesome: false

@@ -6,7 +6,7 @@ import { FSTodoItem } from './FSTodoItem'
 // tslint:disable typedef
 
 export interface FSTodoListProps {
-  readonly todoList: ReadonlyArray<FSTodo>
+  readonly todoList: readonly FSTodo[]
   onDeleteTodo(id: string): void
 }
 
@@ -31,7 +31,7 @@ export const FSTodoListView: React.FC<FSTodoListProps> = ({
 )
 
 export const FSTodoList: React.FC = () => {
-  const [todos, setTodos] = React.useState<ReadonlyArray<FSTodo>>([])
+  const [todos, setTodos] = React.useState<readonly FSTodo[]>([])
   const [fetchAgain, setFetchAgain] = React.useState(false)
   const [err, setErr] = React.useState('')
 

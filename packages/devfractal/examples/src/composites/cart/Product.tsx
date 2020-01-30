@@ -34,7 +34,7 @@ export const Product: React.FC<ProductProps> = ({ product, onAddProduct }) => {
 }
 
 interface ProductListProps {
-  readonly productList: ReadonlyArray<Product>
+  readonly productList: readonly Product[]
   onAddProduct(id: number): void
 }
 

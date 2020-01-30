@@ -40,7 +40,7 @@ export function useRest(): RestContext {
 }
 
 export interface RestGetComponentProps<T> {
-  readonly data: ReadonlyArray<T>
+  readonly data: readonly T[]
   // fetchAgain(): void
 }
 

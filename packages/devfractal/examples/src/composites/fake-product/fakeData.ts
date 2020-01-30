@@ -18,5 +18,5 @@ export interface Product {
 
 export const fakeProducts: (
   n: number,
-) => Promise<ReadonlyArray<Product>> = async n =>
+) => Promise<readonly Product[]> = async n =>
   range(n).map(_ => ({ id: fakeID(), title: fakeTitle(), price: fakePrice() }))

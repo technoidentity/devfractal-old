@@ -5,7 +5,7 @@ import React from 'react'
 
 export interface MetaListProps {
   readonly meta: MT
-  readonly data: ReadonlyArray<any>
+  readonly data: readonly any[]
 }
 
 export const MetaList: React.FC<MetaListProps> = ({ meta, data }) => {

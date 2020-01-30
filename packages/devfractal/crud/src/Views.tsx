@@ -21,7 +21,7 @@ interface CreateProps<T extends Record<string, any>> {
 }
 
 interface ListProps<T extends Record<string, any>> {
-  list(): Promise<ReadonlyArray<T>>
+  list(): Promise<readonly T[]>
   onCreate?(): void
   onEdit?(value: RowClickEvent<T>): void
   onDelete?(value: RowClickEvent<T>): void

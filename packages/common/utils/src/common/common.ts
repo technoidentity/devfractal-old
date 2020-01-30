@@ -23,7 +23,7 @@ function rangeInternal(
   start: number,
   stop: number,
   step: number = 1,
-): ReadonlyArray<number> {
+): readonly number[] {
   assert(step > 0)
 
   const result: number[] = []
@@ -37,14 +37,14 @@ export function range(
   start: number,
   stop?: number,
   step?: number,
-): ReadonlyArray<number> {
+): readonly number[] {
   return stop ? rangeInternal(start, stop, step) : rangeInternal(0, start)
 }
 
 export function repeatedly<T>(
   n: number,
   f: (index: number) => T,
-): ReadonlyArray<T> {
+): readonly T[] {
   const result: T[] = []
   for (let i: number = 0; i < n; i++) {
     result.push(f(i))
@@ -94,7 +94,7 @@ export type ISODate = TypeOf<typeof ISODate>
 
 export function pick<T extends {}, K extends keyof T>(
   obj: T,
-  ks: ReadonlyArray<K>,
+  ks: readonly K[],
 ): Pick<T, K> {
   const result: any = {}
 
@@ -109,7 +109,7 @@ export function pick<T extends {}, K extends keyof T>(
 
 export function omit<T extends {}, K extends keyof T>(
   obj: T,
-  ks: ReadonlyArray<K>,
+  ks: readonly K[],
 ): Omit<T, K> {
   const result: any = {}
 

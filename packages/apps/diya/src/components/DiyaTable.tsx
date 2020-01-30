@@ -47,7 +47,7 @@ export interface DiyaTableProps<
     SimpleTableProps<T, EK, Select>,
     'select' | 'override' | 'extra' | 'onRowClicked'
   > {
-  readonly data: ReadonlyArray<T>
+  readonly data: readonly T[]
   editTo(value: T): string
   onDelete?(value: T): void
   assignTo(value: T): string
