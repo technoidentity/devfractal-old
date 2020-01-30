@@ -1,14 +1,14 @@
 import DateFnsUtils from '@date-io/date-fns'
+import { Button } from '@material-ui/core'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import React from 'react'
 import { render } from 'react-dom'
 import 'typeface-roboto'
-import { FormikWithMuiForm } from './MuiFormExample'
 
 const App: React.FC = () => {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <FormikWithMuiForm />
+      <Button>OK</Button>
     </MuiPickersUtilsProvider>
   )
 }

@@ -39,6 +39,7 @@
     "@stp/api": "1.2.19",
     "@stp/crud": "1.2.19",
     "@stp/forms": "1.2.19",
+    "@stp/mui": "1.2.19",
     "@stp/router": "1.2.19",
     "@stp/simple": "1.2.19",
     "@stp/ui": "1.2.19",
@@ -55,7 +56,8 @@
     "typescript": "3.7.5"
   },
   "peerDependencies": {
-    "@stp/crud": "1.2.19"
+    "@stp/crud": "1.2.19",
+    "@stp/mui": "1.2.19"
   },
   "gitHead": "c904aa8f531b4c7b986520b5583f9c0e13a28aa8"
 }
