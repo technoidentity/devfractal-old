@@ -167,9 +167,19 @@ export interface SimpleRadioGroupProps<Values extends {}>
 }
 
 export interface SimpleSelectProps<Values extends {}>
-  extends Omit<SelectFieldProps, 'name' | 'size'>,
+  extends Omit<SelectFieldProps, 'name' | 'size' | 'multiple'>,
     Named<Values>,
     FieldProps {
+  readonly label?: string
+}
+
+// @TODO: validations must be array validations?
+export interface SimpleMultiSelectProps<Values extends {}>
+  extends Omit<SelectFieldProps, 'name' | 'size' | 'value' | 'multiple'>,
+    Named<Values>,
+    FieldProps {
+  // tslint:disable-next-line: readonly-array
+  readonly value?: string[]
   readonly label?: string
 }
 
@@ -238,6 +248,7 @@ export interface TypedForm<Values extends {}> {
   readonly RadioGroup: React.FC<SimpleRadioGroupProps<Values>>
   readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
   readonly Select: React.FC<SimpleSelectProps<Values>>
+  readonly MultiSelect: React.FC<SimpleMultiSelectProps<Values>>
   readonly Form: React.FC<SimpleFormProps<Values>>
   readonly FormButtons: React.FC<SimpleFormButtonsProps>
   readonly Debug: typeof DebugField
@@ -298,6 +309,19 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
           <SelectField id={id} {...props}>
             {children}
           </SelectField>
+          <ErrorField name={props.name} />
+        </Field>
+      )
+    },
+
+    MultiSelect: ({ label, ...args }) => {
+      const [fieldProps, props] = splitFieldProps(args)
+      const id: string = props.id || props.name
+
+      return (
+        <Field {...fieldProps}>
+          <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
+          <SelectField id={id} {...props} multiple={true} />
           <ErrorField name={props.name} />
         </Field>
       )

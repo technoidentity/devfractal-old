@@ -46,6 +46,7 @@ interface SimpleValues {
   readonly remember: boolean
   readonly gender: Gender
   readonly select: Position
+  readonly multiSelect: readonly string[]
   readonly message: string
   readonly age: number
 }
@@ -59,6 +60,7 @@ const initialValues: SimpleValues = {
   remember: false,
   gender: 'male',
   select: 'assistant',
+  multiSelect: [],
   message: '',
   age: 0,
 }
@@ -118,15 +120,25 @@ export const SimpleFormExample: React.FC = () => {
           <Radio value="female"> Female</Radio>
           <Radio value="male"> Male</Radio>
         </Simple.RadioGroup>
+
         <Simple.Select name="select">
           <option value="associate">associate</option>
           <option value="assistant">assistant</option>
         </Simple.Select>
+
+        <Simple.MultiSelect name="multiSelect">
+          <option value="associate">associate</option>
+          <option value="assistant">assistant</option>
+          <option value="manager">manager</option>
+          <option value="hr">human resources</option>
+        </Simple.MultiSelect>
+
         <Simple.Number
           label="Age"
           name="age"
           validations={[required(), min(15), max(58), integer()]}
         />
+
         <Simple.TextArea
           label="TextArea"
           name="message"
