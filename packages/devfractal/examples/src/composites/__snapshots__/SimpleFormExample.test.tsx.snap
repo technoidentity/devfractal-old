@@ -210,6 +210,54 @@ exports[`Simple Form Example 1`] = `
     >
       <label
         className="label"
+        htmlFor="multiCheck"
+      >
+        Multi check
+      </label>
+      <div
+        className="control"
+      >
+        <label
+          className="checkbox"
+        >
+          <input
+            checked={true}
+            className="checkbox"
+            id="foo"
+            name="multiCheck"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="checkbox"
+            value="foo"
+          />
+           Foo
+        </label>
+      </div>
+      <div
+        className="control"
+      >
+        <label
+          className="checkbox"
+        >
+          <input
+            checked={false}
+            className="checkbox"
+            id="bar"
+            name="multiCheck"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="checkbox"
+            value="bar"
+          />
+           Bar
+        </label>
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        className="label"
         htmlFor="select"
       >
         Select
@@ -364,6 +412,9 @@ exports[`Simple Form Example 1`] = `
   "gender": "male",
   "select": "assistant",
   "multiSelect": [],
+  "multiCheck": [
+    "foo"
+  ],
   "message": "",
   "age": 0
 }
