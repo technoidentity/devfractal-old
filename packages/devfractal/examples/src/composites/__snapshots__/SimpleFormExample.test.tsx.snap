@@ -247,6 +247,54 @@ exports[`Simple Form Example 1`] = `
     >
       <label
         className="label"
+        htmlFor="multiSelect"
+      >
+        Multi select
+      </label>
+      <div
+        className="control"
+      >
+        <div
+          className="select is-multiple"
+        >
+          <select
+            className=""
+            id="multiSelect"
+            multiple={true}
+            name="multiSelect"
+            onBlur={[Function]}
+            onChange={[Function]}
+            value={Array []}
+          >
+            <option
+              value="associate"
+            >
+              associate
+            </option>
+            <option
+              value="assistant"
+            >
+              assistant
+            </option>
+            <option
+              value="manager"
+            >
+              manager
+            </option>
+            <option
+              value="hr"
+            >
+              human resources
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <label
+        className="label"
         htmlFor="age"
       >
         Age
@@ -315,6 +363,7 @@ exports[`Simple Form Example 1`] = `
   "remember": false,
   "gender": "male",
   "select": "assistant",
+  "multiSelect": [],
   "message": "",
   "age": 0
 }
