@@ -47,6 +47,7 @@ interface SimpleValues {
   readonly gender: Gender
   readonly select: Position
   readonly multiSelect: readonly string[]
+  readonly multiCheck: readonly string[]
   readonly message: string
   readonly age: number
 }
@@ -61,6 +62,7 @@ const initialValues: SimpleValues = {
   gender: 'male',
   select: 'assistant',
   multiSelect: [],
+  multiCheck: ['foo'],
   message: '',
   age: 0,
 }
@@ -120,6 +122,11 @@ export const SimpleFormExample: React.FC = () => {
           <Radio value="female"> Female</Radio>
           <Radio value="male"> Male</Radio>
         </Simple.RadioGroup>
+
+        <Simple.MultiCheckbox name="multiCheck">
+          <Simple.CheckboxItem value="foo"> Foo</Simple.CheckboxItem>
+          <Simple.CheckboxItem value="bar"> Bar</Simple.CheckboxItem>
+        </Simple.MultiCheckbox>
 
         <Simple.Select name="select">
           <option value="associate">associate</option>

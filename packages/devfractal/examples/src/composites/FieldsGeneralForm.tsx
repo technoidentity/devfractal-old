@@ -11,7 +11,7 @@ import { Simple } from '@stp/simple'
 import { Button, Container, Field, Label, Radio, Section } from '@stp/ui-core'
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { boolean, date, object, ObjectSchema, string } from 'yup'
+import { array, boolean, date, object, ObjectSchema, string } from 'yup'
 
 interface GeneralFormProps {
   readonly name: string
@@ -19,6 +19,7 @@ interface GeneralFormProps {
   readonly email: string
   readonly agree: boolean
   readonly select: string
+  readonly foo: readonly string[]
   readonly message: string
   readonly radio: string
   readonly date: Date
@@ -82,6 +83,27 @@ const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = () => {
             </RadioGroupField>
           </Field>
 
+          <Field>
+            <Label>Foo</Label>
+            <CheckboxField name="foo" value="foo">
+              {' '}
+              Foo
+            </CheckboxField>
+            <CheckboxField name="foo" value="bar">
+              {' '}
+              Bar
+            </CheckboxField>
+            <CheckboxField name="foo" value="fizz">
+              {' '}
+              Fizz
+            </CheckboxField>
+            <CheckboxField name="foo" value="buzz">
+              {' '}
+              Buzz
+            </CheckboxField>
+            <ErrorField name="foo" />
+          </Field>
+
           <Field groupModifier="grouped-centered">
             <Button type="submit" variant="info">
               Submit
@@ -103,6 +125,7 @@ export const initialValues: GeneralFormProps = {
   username: '',
   email: '',
   select: '',
+  foo: ['fizz'],
   message: '',
   agree: false,
   radio: 'no',
@@ -116,6 +139,7 @@ const validationSchema: ObjectSchema<GeneralFormProps> = object({
     .email()
     .required('This field is required'),
   select: string().required('This field is required'),
+  foo: array(string()).min(1),
   message: string().required('This field is required'),
   agree: boolean().required('This field is required'),
   radio: string().required('This field is required'),

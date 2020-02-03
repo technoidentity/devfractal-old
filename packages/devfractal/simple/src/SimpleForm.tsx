@@ -19,6 +19,7 @@ import {
   Button,
   ButtonsGroup,
   ButtonsGroupProps,
+  ElProps,
   Field,
   FieldPropsBase,
   Label,
@@ -166,6 +167,16 @@ export interface SimpleRadioGroupProps<Values extends {}>
   readonly label?: string
 }
 
+export interface SimpleMultiCheckboxProps<Values extends {}>
+  extends Omit<ElProps, 'name'>,
+    Named<Values>,
+    FieldProps {
+  readonly label?: string
+}
+
+export interface CheckboxItemProps
+  extends Omit<CheckboxFieldProps, 'name' | 'size'> {}
+
 export interface SimpleSelectProps<Values extends {}>
   extends Omit<SelectFieldProps, 'name' | 'size' | 'multiple'>,
     Named<Values>,
@@ -249,10 +260,20 @@ export interface TypedForm<Values extends {}> {
   readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
   readonly Select: React.FC<SimpleSelectProps<Values>>
   readonly MultiSelect: React.FC<SimpleMultiSelectProps<Values>>
+  readonly MultiCheckbox: React.FC<SimpleMultiCheckboxProps<Values>>
+  readonly CheckboxItem: React.FC<CheckboxItemProps>
   readonly Form: React.FC<SimpleFormProps<Values>>
   readonly FormButtons: React.FC<SimpleFormButtonsProps>
   readonly Debug: typeof DebugField
 }
+
+interface MultiCheckContext {
+  readonly name: string
+}
+
+const MultiCheckContext: React.Context<MultiCheckContext> = React.createContext(
+  undefined as any,
+)
 
 function typedFormInternal<Values extends {}>(): TypedForm<Values> {
   return {
@@ -325,6 +346,26 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
           <ErrorField name={props.name} />
         </Field>
       )
+    },
+
+    MultiCheckbox: ({ label, children, ...rest }) => {
+      const [fieldProps, props] = splitFieldProps(rest)
+      const id: string = props.id || props.name
+      return (
+        <Field {...fieldProps}>
+          <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
+          <MultiCheckContext.Provider value={{ name: props.name }}>
+            {children}
+          </MultiCheckContext.Provider>
+          <ErrorField name={props.name} />
+        </Field>
+      )
+    },
+
+    CheckboxItem: props => {
+      const id: string = props.id || `${props.value}`
+      const { name } = React.useContext(MultiCheckContext)
+      return <CheckboxField name={name} id={id} {...props} />
     },
 
     TextArea: ({ label, validations, ...args }) => {
