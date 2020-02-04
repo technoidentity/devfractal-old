@@ -1,20 +1,26 @@
-import { FormControlLabel, Radio, RadioGroup } from '@material-ui/core'
-import { RadioGroupProps } from '@material-ui/core/RadioGroup'
+import {
+  FormControlLabel,
+  FormControlLabelProps,
+  Radio,
+  RadioGroup,
+  RadioGroupProps as MuiRadioGroupProps,
+  RadioProps as MuiRadioProps,
+} from '@material-ui/core'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from './types'
 
-export type RadioProps = FormikFieldConfig & RadioGroupProps
+export type RadioGroupProps = FormikFieldConfig & MuiRadioGroupProps
 
-interface RadioContextProps {
+interface RadioContext {
   readonly name: string
 }
 
-const RadioFieldContext: React.Context<RadioContextProps> = React.createContext(
-  { name: '' },
+const RadioFieldContext: React.Context<RadioContext> = React.createContext(
+  undefined as any,
 )
 
-export const RadioGroupField: React.FC<RadioProps> = props => {
+export const RadioGroupField: React.FC<RadioGroupProps> = props => {
   const [field] = useField(props as any)
   const { validate, ...rest } = props
 
@@ -25,7 +31,10 @@ export const RadioGroupField: React.FC<RadioProps> = props => {
   )
 }
 
-export const RadioItem: React.FC<any> = ({ label, ...rest }) => {
+export type RadioItemProps = Omit<FormControlLabelProps, 'control'> &
+  MuiRadioProps
+
+export const RadioItem: React.FC<RadioItemProps> = ({ label, ...rest }) => {
   const { name } = React.useContext(RadioFieldContext)
   return (
     <FormControlLabel control={<Radio name={name} />} label={label} {...rest} />
