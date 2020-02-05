@@ -33,7 +33,6 @@
     "cleave.js": "1.5.3",
     "date-fns": "2.9.0",
     "react-datepicker": "2.11.0",
-    "rifm": "0.10.1",
     "tslib": "1.10.0",
     "typeface-roboto": "0.0.75"
   },
@@ -48,7 +47,6 @@
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "react-styleguidist": "10.6.1",
-    "rimraf": "3.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
     "typescript": "3.7.5"

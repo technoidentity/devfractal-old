@@ -36,7 +36,6 @@
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "@stp/core": "1.2.19",
     "@stp/crud": "1.2.19",
     "@stp/forms": "1.2.19",
     "@stp/mui": "1.2.19",
@@ -48,7 +47,6 @@
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "react-styleguidist": "10.6.1",
-    "rimraf": "3.0.1",
     "tsdx": "0.12.3",
     "typescript": "3.7.5"
   },

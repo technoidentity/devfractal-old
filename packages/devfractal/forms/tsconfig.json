@@ -8,6 +8,7 @@
   "references": [
     { "path": "../../common/utils" },
     { "path": "../core" },
+    { "path": "../router" },
     { "path": "../ui" }
   ]
 }

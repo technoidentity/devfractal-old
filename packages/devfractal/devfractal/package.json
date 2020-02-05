@@ -29,7 +29,7 @@
     "@stp/forms": "1.2.19",
     "@stp/router": "1.2.19",
     "@stp/ui": "1.2.19",
-    "@stp/fs-api": "*",
+    "@stp/fs-api": "1.2.19",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -41,14 +41,12 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-test-renderer": "16.12.0",
-    "rimraf": "3.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
     "typescript": "3.7.5"
   },
   "peerDependencies": {
     "bulma": "0.8.0",
-    "formik": "2.1.3",
     "@stp/utils": "1.2.19",
     "yup": "0.28.1"
   }
