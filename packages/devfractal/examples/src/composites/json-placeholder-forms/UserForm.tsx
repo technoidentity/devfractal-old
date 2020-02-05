@@ -13,7 +13,7 @@ export const UserForm: number = 100
 //   Title,
 //   typeInvariant,
 //   url,
-// } from '@stp/ui-core'
+// } from '@stp/ui'
 
 // // tslint:disable typedef
 

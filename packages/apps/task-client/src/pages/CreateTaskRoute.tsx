@@ -1,5 +1,5 @@
 import { Post } from '@stp/ui-api'
-import { Section, Title } from '@stp/ui-core'
+import { Section, Title } from '@stp/ui'
 import React from 'react'
 import { Task, taskAPI } from '../common'
 import { TaskForm } from '../views'

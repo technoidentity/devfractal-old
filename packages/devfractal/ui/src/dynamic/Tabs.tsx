@@ -1,13 +1,7 @@
-import {
-  classNamesHelper,
-  ControlledProps,
-  El,
-  Helpers,
-  Uncontrolled,
-  ValueChangeEvent,
-} from '@stp/ui-core'
+import { ControlledProps, Uncontrolled, ValueChangeEvent } from '@stp/ui-core'
 import { debug } from '@stp/utils'
 import React from 'react'
+import { classNamesHelper, El, Helpers } from '../core'
 
 export interface TabsChangeEvent extends ValueChangeEvent<string> {}
 

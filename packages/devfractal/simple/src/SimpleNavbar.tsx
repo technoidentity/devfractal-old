@@ -9,7 +9,7 @@ import {
   NavbarItem,
   NavbarItemsProps,
   NavbarMenu,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 const NavBurger: React.FC<NavbarBurgerProps> = props => (

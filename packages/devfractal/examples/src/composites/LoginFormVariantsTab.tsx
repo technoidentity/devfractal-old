@@ -1,6 +1,6 @@
 import { Route, SimpleRedirect } from '@stp/router'
 import { RoutedTabs, RoutedTabsItem } from '@stp/ui'
-import { Title } from '@stp/ui-core'
+import { Title } from '@stp/ui'
 import React from 'react'
 import {
   FieldsLoginForm,

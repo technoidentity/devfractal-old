@@ -1,5 +1,6 @@
+import { classNames } from '@stp/ui-core'
 import React from 'react'
-import { classNames, classNamesHelper, El, Helpers } from '../base'
+import { classNamesHelper, El, Helpers } from '../base'
 
 type FixedSquaredImageSize =
   | '16x16'

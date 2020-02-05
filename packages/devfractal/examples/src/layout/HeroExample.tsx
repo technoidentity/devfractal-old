@@ -15,7 +15,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 const SimpleHeroExample: React.FC = () => (

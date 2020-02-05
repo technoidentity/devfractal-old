@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from '@stp/router'
-import { classNamesHelper, El, Helpers } from '@stp/ui-core'
 import { chop } from '@stp/utils'
 import React from 'react'
+import { classNamesHelper, El, Helpers } from '../core'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 

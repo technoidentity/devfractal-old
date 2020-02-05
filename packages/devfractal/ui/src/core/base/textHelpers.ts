@@ -1,4 +1,4 @@
-import { classNames } from '../common/classNames'
+import { classNames } from '@stp/ui-core'
 
 type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 

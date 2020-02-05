@@ -1,5 +1,5 @@
-import { classNamesHelper, El, Helpers } from '@stp/ui-core'
 import React from 'react'
+import { classNamesHelper, El, Helpers } from '../core'
 
 export interface PaginationProps
   extends React.HTMLAttributes<HTMLElement>,

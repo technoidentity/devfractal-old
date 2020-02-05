@@ -1,4 +1,4 @@
-import { Button } from '@stp/ui-core'
+import { Button } from '@stp/ui'
 import React from 'react'
 
 export interface DeleteButtonProps {

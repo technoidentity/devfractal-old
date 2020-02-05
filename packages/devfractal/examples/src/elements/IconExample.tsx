@@ -6,7 +6,7 @@ import {
   faInfoCircle,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
-import { Icon as IconComponent, Section, Title } from '@stp/ui-core'
+import { Icon as IconComponent, Section, Title } from '@stp/ui'
 import React from 'react'
 
 const BasicIconExample: React.FC = () => (

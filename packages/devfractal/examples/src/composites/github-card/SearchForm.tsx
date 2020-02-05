@@ -1,5 +1,5 @@
 import { InputField } from '@stp/forms'
-import { Button, Field } from '@stp/ui-core'
+import { Button, Field } from '@stp/ui'
 import { Form, Formik } from 'formik'
 import React from 'react'
 

@@ -1,4 +1,4 @@
-import { CheckBox, CheckBoxProps } from '@stp/ui-core'
+import { CheckBox, CheckBoxProps } from '@stp/ui'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from '../types'

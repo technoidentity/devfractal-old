@@ -26,11 +26,6 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.26",
-    "@fortawesome/free-brands-svg-icons": "5.12.0",
-    "@fortawesome/free-regular-svg-icons": "5.12.0",
-    "@fortawesome/free-solid-svg-icons": "5.12.0",
-    "@fortawesome/react-fontawesome": "0.1.8",
     "@types/react-is": "^16.7.1",
     "prop-types-ts": "^0.7.3",
     "react-is": "^16.12.0",
@@ -43,7 +38,6 @@
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react-styleguidist": "10.6.1",
     "rimraf": "3.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
@@ -52,9 +46,6 @@
   },
   "peerDependencies": {
     "@stp/utils": "1.2.19",
-    "bulma": "0.8.0",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
     "tcomb": "3.2.29"
   }
 }

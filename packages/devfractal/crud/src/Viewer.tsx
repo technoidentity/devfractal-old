@@ -1,5 +1,5 @@
 import { Get } from '@stp/ui-api'
-import { CheckBox, Column, Columns, Section, Text, Title } from '@stp/ui-core'
+import { CheckBox, Column, Columns, Section, Text, Title } from '@stp/ui'
 import * as t from '@stp/utils'
 import { date } from '@stp/utils'
 import { camelCaseToPhrase } from '@stp/utils'

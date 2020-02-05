@@ -23,7 +23,7 @@ import {
   Field,
   FieldPropsBase,
   Label,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import { camelCaseToPhrase } from '@stp/utils'
 import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
 import React from 'react'

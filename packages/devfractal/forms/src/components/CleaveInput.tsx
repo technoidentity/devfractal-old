@@ -5,7 +5,7 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import Cleave from 'cleave.js/react'
 import { Props as CleaveProps } from 'cleave.js/react/props'
 import React from 'react'

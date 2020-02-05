@@ -1,5 +1,5 @@
 // import { rest, SubmitAction } from '@stp/api'
-// import { Title } from '@stp/ui-core'
+// import { Title } from '@stp/ui'
 // import { number, string, TypeOf } from '@stp/utils'
 import React from 'react'
 // import { ISODate, props } from '@stp/utils'

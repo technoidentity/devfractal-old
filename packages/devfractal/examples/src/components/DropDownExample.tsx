@@ -6,7 +6,7 @@ import {
   RoutedTabs,
   RoutedTabsItem,
 } from '@stp/ui'
-import { Field, Level, LevelItem, Section, Title } from '@stp/ui-core'
+import { Field, Level, LevelItem, Section, Title } from '@stp/ui'
 import React from 'react'
 
 const DropdownExampleTab: React.FC = () => (

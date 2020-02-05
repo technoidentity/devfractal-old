@@ -1,4 +1,4 @@
-import { ButtonsGroup, ButtonsGroupProps } from '@stp/ui-core'
+import { ButtonsGroup, ButtonsGroupProps } from '@stp/ui'
 import React from 'react'
 import { ButtonLink, ButtonLinkProps } from './ButtonLink'
 export interface CreateLinkProps extends ButtonLinkProps {

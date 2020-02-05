@@ -1,6 +1,6 @@
 import { Simple } from '@stp/simple'
 import { Get } from '@stp/ui-api'
-import { Section } from '@stp/ui-core'
+import { Section } from '@stp/ui'
 import * as t from '@stp/utils'
 import { date } from '@stp/utils'
 import { FormikHelpers } from 'formik'

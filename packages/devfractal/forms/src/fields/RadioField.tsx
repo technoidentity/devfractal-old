@@ -1,4 +1,4 @@
-import { RadioGroup, RadioGroupProps } from '@stp/ui-core'
+import { RadioGroup, RadioGroupProps } from '@stp/ui'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from '../types'

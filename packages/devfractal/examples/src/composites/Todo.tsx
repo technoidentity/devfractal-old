@@ -7,7 +7,7 @@ import {
   TableHead,
   Td,
   Tr,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import { format } from 'date-fns'
 import React from 'react'
 

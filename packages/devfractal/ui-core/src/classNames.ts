@@ -1,5 +1,4 @@
-import * as t from '@stp/utils'
-import { keys } from '@stp/utils'
+import { keys, string, UnknownArray, UnknownRecord } from '@stp/utils'
 
 export type ClassNameArg =
   | string
@@ -14,16 +13,16 @@ export function classNames(...args: ClassNameArg[]): string {
   const draft: string[] = []
 
   args.forEach(arg => {
-    if (t.string.is(arg)) {
+    if (string.is(arg)) {
       if (arg !== '') {
         draft.push(arg)
       }
-    } else if (t.UnknownArray.is(arg)) {
+    } else if (UnknownArray.is(arg)) {
       const res: string = classNames(...arg)
       if (res !== '') {
         draft.push(res)
       }
-    } else if (t.UnknownRecord.is(arg)) {
+    } else if (UnknownRecord.is(arg)) {
       keys(arg).forEach(key => {
         if (arg[key]) {
           draft.push(key)

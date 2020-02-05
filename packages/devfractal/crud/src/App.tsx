@@ -1,7 +1,7 @@
 import { rest } from '@stp/api'
 import { Router, SimpleRedirect } from '@stp/router'
 import { Simple } from '@stp/simple'
-import { Section } from '@stp/ui-core'
+import { Section } from '@stp/ui'
 import { boolean, number, string } from '@stp/utils'
 import { obj } from '@stp/utils'
 import 'bulma/css/bulma.css'

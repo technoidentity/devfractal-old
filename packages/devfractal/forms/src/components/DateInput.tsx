@@ -5,7 +5,7 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker'
 

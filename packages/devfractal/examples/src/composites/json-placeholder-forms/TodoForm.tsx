@@ -8,7 +8,7 @@ export const TodoForm: number = 100
 //   Section,
 //   Simple,
 //   typeInvariant,
-// } from '@stp/ui-core'
+// } from '@stp/ui'
 
 // // tslint:disable typedef
 

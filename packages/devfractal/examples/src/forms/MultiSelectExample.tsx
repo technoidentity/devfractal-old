@@ -9,7 +9,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import { Form, Formik } from 'formik'
 import React from 'react'
 

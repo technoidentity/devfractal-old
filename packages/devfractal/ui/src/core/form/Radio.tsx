@@ -40,7 +40,8 @@ const RadioGroupView: React.FC<RadioGroupViewProps> = ({
         // )
         const _selected: string =
           selected ||
-          (children && children[0] && children[0].props.value) || '0'
+          (children && children[0] && children[0].props.value) ||
+          '0'
         return React.cloneElement(child, {
           name,
           value: child.props.value || i.toString(),

@@ -7,7 +7,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@stp/ui'
-import { Section, Text, Title } from '@stp/ui-core'
+import { Section, Text, Title } from '@stp/ui'
 import React from 'react'
 
 export const SimplePaginationExample: React.FC = () => (

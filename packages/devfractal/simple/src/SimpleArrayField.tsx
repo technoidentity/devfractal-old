@@ -1,4 +1,4 @@
-import { Button, Delete, Field, Notification } from '@stp/ui-core'
+import { Button, Delete, Field, Notification } from '@stp/ui'
 import { FieldArray } from 'formik'
 import React from 'react'
 

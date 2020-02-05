@@ -8,7 +8,7 @@ import {
   SelectField,
   TextAreaField,
 } from '@stp/forms'
-import { Field, Label } from '@stp/ui-core'
+import { Field, Label } from '@stp/ui'
 import { camelCaseToPhrase } from '@stp/utils'
 import { Form, Formik } from 'formik'
 import React from 'react'

@@ -1,5 +1,5 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { Input } from '@stp/ui-core'
+import { Input } from '@stp/ui'
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
 import { http as httpAPI } from '@stp/devfractal'

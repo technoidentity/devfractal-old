@@ -11,7 +11,7 @@ import {
   Input,
   Select,
   Text,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import { Form, Formik, FormikHelpers } from 'formik'
 import { PrimitiveMT } from 'meta-core'
 import React from 'react'

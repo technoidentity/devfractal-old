@@ -1,5 +1,5 @@
 import { RowClickEvent, SimpleTable } from '@stp/simple'
-import { Button, Container, Field } from '@stp/ui-core'
+import { Button, Container, Field } from '@stp/ui'
 import { Mixed, TypeOf } from '@stp/utils'
 import { empty } from '@stp/utils'
 import { FormikHelpers } from 'formik'

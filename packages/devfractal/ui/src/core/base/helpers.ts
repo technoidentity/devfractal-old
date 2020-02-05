@@ -1,4 +1,4 @@
-import { ClassNameArg, classNames } from '../common/classNames'
+import { ClassNameArg, classNames } from '@stp/ui-core'
 import {
   removeTextHelpers,
   TextHelpers,

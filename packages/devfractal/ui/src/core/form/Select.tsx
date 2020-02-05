@@ -1,5 +1,6 @@
+import { classNames } from '@stp/ui-core'
 import React from 'react'
-import { classNames, classNamesHelper } from '../base'
+import { classNamesHelper } from '../base'
 import { AllControlHelpers, ControlDiv } from './controlDiv'
 import { ControlWrapper } from './ControlWrapper'
 

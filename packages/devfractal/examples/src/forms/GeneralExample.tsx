@@ -22,7 +22,7 @@ import {
   Section,
   Select,
   TextArea,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 export const General: React.FC = () => (

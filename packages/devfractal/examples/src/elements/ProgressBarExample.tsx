@@ -3,7 +3,7 @@ import {
   ProgressBar as ProgressBarComponent,
   Section,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 const BasicProgressBarExample: React.FC = () => (

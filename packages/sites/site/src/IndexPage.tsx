@@ -34,7 +34,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 import { default as developer } from '../src/images/asset/developer.png'
 import logo from '../src/images/asset/logo.png'

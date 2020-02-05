@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Column,
   Columns,
@@ -10,6 +9,7 @@ import {
   Title,
 } from '@stp/devfractal'
 import { empty, fn, req } from '@stp/utils'
+import React from 'react'
 import { AssignDriver, assignDriverAPI } from '../common'
 
 const AssignDriverFormProps = req({

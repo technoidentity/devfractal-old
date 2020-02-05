@@ -15,7 +15,7 @@ import {
   uppercase,
 } from '@stp/forms'
 import { typedForm } from '@stp/simple'
-import { Radio, Section } from '@stp/ui-core'
+import { Radio, Section } from '@stp/ui'
 import { ISODate, keyof, TypeOf } from '@stp/utils'
 import { addDays } from 'date-fns'
 import React from 'react'

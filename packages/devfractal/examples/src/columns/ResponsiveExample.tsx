@@ -5,7 +5,7 @@ import {
   Notification,
   Section,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 export const Responsive: React.FC = () => (

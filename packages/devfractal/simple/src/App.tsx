@@ -1,4 +1,4 @@
-import { Section } from '@stp/ui-core'
+import { Section } from '@stp/ui'
 import 'bulma/bulma.sass'
 import React from 'react'
 // import 'react-datepicker/dist/react-datepicker.css'
