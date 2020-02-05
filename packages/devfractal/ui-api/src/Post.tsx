@@ -1,7 +1,7 @@
+import { useSubmitRedirect } from '@stp/core'
 import React from 'react'
 import { SubmitAction } from './common'
 import { ServerError } from './ServerError'
-import { useSubmitRedirect } from './useSubmit'
 export interface PostComponentProps<T> {
   readonly onSubmit: SubmitAction<T>
 }

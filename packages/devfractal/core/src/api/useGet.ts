@@ -9,7 +9,8 @@ export type AsyncResult<T> = { refresh(): void } & (
   | {
       readonly state: 'failure'
       readonly error: Error
-    })
+    }
+)
 
 export function useGet<T extends {}, P extends any[]>(
   asyncFn: (...params: P) => Promise<T>,

@@ -1,7 +1,7 @@
+import { useSubmitReset } from '@stp/core'
 import React from 'react'
 import { SubmitAction } from './common'
 import { ServerError } from './ServerError'
-import { useSubmitReset } from './useSubmit'
 
 export interface PostResetProps<T> {
   // readonly inlineErrors?: boolean

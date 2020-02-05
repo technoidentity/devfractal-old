@@ -1,6 +1,5 @@
-import { component } from '@stp/core'
+import { component, useRedirect } from '@stp/core'
 import { Button } from '@stp/ui'
-import { useRedirect } from '@stp/ui-api'
 import { req, string } from '@stp/utils'
 import React from 'react'
 import { sessionAPI } from '../common'

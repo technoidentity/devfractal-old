@@ -1,8 +1,8 @@
+import { useSubmitReset } from '@stp/core'
 import React from 'react'
 import { SubmitAction } from './common'
 import { Get } from './Get'
 import { ServerError } from './ServerError'
-import { useSubmitReset } from './useSubmit'
 
 export interface PutResetComponentProps<T> {
   readonly initial?: T
