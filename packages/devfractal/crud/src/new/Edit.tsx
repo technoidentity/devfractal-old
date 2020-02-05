@@ -1,4 +1,4 @@
-import { API } from '@stp/api'
+import { API } from '@stp/core'
 import { Route, useParams } from '@stp/router'
 import { Put, SubmitAction } from '@stp/ui-api'
 import { getProp, ObjC, Props, string, type, TypeOf } from '@stp/utils'

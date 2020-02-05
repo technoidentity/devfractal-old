@@ -1,4 +1,4 @@
-export * from '@stp/api'
+export * from '@stp/core'
 export * from '@stp/crud'
 export * from '@stp/forms'
 export * from '@stp/fs-api'

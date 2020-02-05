@@ -1,4 +1,4 @@
-import { API, APIQuery, Page } from '@stp/api'
+import { API, APIQuery, Page } from '@stp/core'
 import { Route, useHistory, useLocation } from '@stp/router'
 import { Get } from '@stp/ui-api'
 import {

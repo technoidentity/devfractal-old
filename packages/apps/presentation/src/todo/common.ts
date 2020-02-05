@@ -1,4 +1,4 @@
-import { rest } from '@stp/api'
+import { rest } from '@stp/core'
 import { boolean, number, string, TypeOf } from '@stp/utils'
 import { ISODate, obj } from '@stp/utils'
 

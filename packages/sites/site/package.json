@@ -29,7 +29,7 @@
     "@fortawesome/free-regular-svg-icons": "5.12.0",
     "@fortawesome/free-solid-svg-icons": "5.12.0",
     "@fortawesome/react-fontawesome": "0.1.8",
-    "@stp/api": "1.2.19",
+    "@stp/core": "1.2.19",
     "@stp/crud": "1.2.19",
     "@stp/mui": "1.2.19",
     "devfractal-examples": "1.2.19",

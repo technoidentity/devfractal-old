@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "cross-env": "7.0.0",
-    "@stp/api": "1.2.19",
+    "@stp/core": "1.2.19",
     "@stp/forms": "1.2.19",
     "@stp/router": "1.2.19",
     "@stp/simple": "1.2.19",

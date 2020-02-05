@@ -26,8 +26,13 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
+    "@stp/dev-utils": "1.2.19",
     "@types/react-is": "^16.7.1",
+    "axios": "0.19.2",
+    "immer": "5.3.2",
+    "io-ts-promise": "2.0.2",
     "prop-types-ts": "^0.7.3",
+    "query-string": "6.10.1",
     "react-is": "^16.12.0",
     "tslib": "1.10.0"
   },

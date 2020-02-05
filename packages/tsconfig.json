@@ -9,7 +9,6 @@
     { "path": "apps/starter" },
     { "path": "apps/fstodo" },
     { "path": "apps/task-server" },
-    { "path": "devfractal/api" },
     { "path": "devfractal/crud" },
     { "path": "devfractal/devfractal" },
     { "path": "devfractal/examples" },

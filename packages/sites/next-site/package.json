@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "bulma": "0.7.5",
-    "@stp/api": "1.2.18",
+    "@stp/core": "1.2.18",
     "@stp/crud": "1.2.18",
     "devfractal-examples": "1.2.18",
     "@stp/forms": "1.2.18",

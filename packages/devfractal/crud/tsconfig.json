@@ -8,7 +8,6 @@
   "references": [
     { "path": "../../common/utils" },
     { "path": "../core" },
-    { "path": "../api" },
     { "path": "../forms" },
     { "path": "../router" },
     { "path": "../ui-api" },

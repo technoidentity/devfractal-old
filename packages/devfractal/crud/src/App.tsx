@@ -1,4 +1,4 @@
-import { rest } from '@stp/api'
+import { rest } from '@stp/core'
 import { Router, SimpleRedirect } from '@stp/router'
 import { Simple } from '@stp/simple'
 import { Section } from '@stp/ui'

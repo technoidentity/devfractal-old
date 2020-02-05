@@ -1,4 +1,4 @@
-import { rest } from '@stp/api'
+import { rest } from '@stp/core'
 import { verify } from '@stp/utils'
 import { Session, Task, TaskFilter, User } from './types'
 

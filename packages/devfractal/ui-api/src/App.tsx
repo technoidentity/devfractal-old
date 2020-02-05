@@ -1,4 +1,4 @@
-// import { rest, SubmitAction } from '@stp/api'
+// import { rest, SubmitAction } from '@stp/core'
 // import { Title } from '@stp/ui'
 // import { number, string, TypeOf } from '@stp/utils'
 import React from 'react'

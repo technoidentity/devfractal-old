@@ -1,4 +1,4 @@
-import { API } from '@stp/api'
+import { API } from '@stp/core'
 import { Route, useParams } from '@stp/router'
 import { Mixed, type } from '@stp/utils'
 import { getProp } from '@stp/utils'
