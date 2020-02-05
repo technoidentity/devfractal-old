@@ -1,7 +1,7 @@
 import { Mixed, TypeOf } from '@stp/utils'
 import { assert } from '@stp/utils'
 import React from 'react'
-import { api } from './api'
+import { api } from './apiFn'
 import { Crud } from './Crud'
 
 export interface SimpleCrudProps<RT extends Mixed> {

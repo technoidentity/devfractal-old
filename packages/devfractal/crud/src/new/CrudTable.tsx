@@ -1,8 +1,8 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Link } from '@stp/router'
-import { SimpleTable, SimpleTableProps } from '@stp/simple'
 import { Icon } from '@stp/ui'
 import React from 'react'
+import { SimpleTable, SimpleTableProps } from '../simple'
 
 export interface ActionsProps {
   readonly editTo: string

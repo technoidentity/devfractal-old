@@ -1,9 +1,8 @@
 import { CheckBox, Column, Columns, Section, Text, Title } from '@stp/ui'
-import { Get } from '@stp/ui-api'
 import * as t from '@stp/utils'
-import { date } from '@stp/utils'
-import { camelCaseToPhrase } from '@stp/utils'
+import { camelCaseToPhrase, date } from '@stp/utils'
 import React from 'react'
+import { Get } from './api'
 import { formatDate, isFunction } from './utils'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (

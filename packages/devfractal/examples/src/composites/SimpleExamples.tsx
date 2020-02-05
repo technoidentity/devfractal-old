@@ -1,4 +1,4 @@
-import { SimpleRoutedTabs, SimpleTabs } from '@stp/simple'
+import { SimpleRoutedTabs, SimpleTabs } from '@stp/crud'
 import { Section, Text } from '@stp/ui'
 import React from 'react'
 

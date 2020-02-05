@@ -1,5 +1,5 @@
+import { Get } from '@stp/crud'
 import { Route } from '@stp/router'
-import { Get } from '@stp/ui-api'
 import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
 import { FirstoreAPI } from './firestoreRest'

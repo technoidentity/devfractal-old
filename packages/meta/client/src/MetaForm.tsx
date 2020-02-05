@@ -1,4 +1,4 @@
-import { Simple } from '@stp/simple'
+import { Simple } from '@stp/crud'
 import { Field, Label } from '@stp/ui'
 import { camelCaseToPhrase } from '@stp/utils'
 import { FormikHelpers } from 'formik'

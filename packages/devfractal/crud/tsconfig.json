@@ -10,8 +10,6 @@
     { "path": "../core" },
     { "path": "../forms" },
     { "path": "../router" },
-    { "path": "../ui-api" },
-    { "path": "../ui" },
-    { "path": "../simple" }
+    { "path": "../ui" }
   ]
 }

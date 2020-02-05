@@ -1,5 +1,5 @@
+import { Simple } from '@stp/crud'
 import { CheckboxField, SelectField } from '@stp/forms'
-import { Simple } from '@stp/simple'
 import {
   Button,
   Column,

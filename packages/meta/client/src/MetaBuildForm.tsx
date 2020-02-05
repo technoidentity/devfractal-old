@@ -2,7 +2,7 @@ import {
   Simple,
   SimpleArrayField,
   SimpleArrayFieldComponentProps,
-} from '@stp/simple'
+} from '@stp/crud'
 import {
   CheckBox,
   Column,

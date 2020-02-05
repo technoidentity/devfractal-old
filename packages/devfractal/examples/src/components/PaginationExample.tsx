@@ -1,4 +1,4 @@
-import { SimplePagerView } from '@stp/simple'
+import { SimplePagerView } from '@stp/crud'
 import {
   Pagination,
   PaginationEllipsis,

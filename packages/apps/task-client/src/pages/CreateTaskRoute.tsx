@@ -1,4 +1,4 @@
-import { Post } from '@stp/ui-api'
+import { Post } from '@stp/crud'
 import { Section, Title } from '@stp/ui'
 import React from 'react'
 import { Task, taskAPI } from '../common'

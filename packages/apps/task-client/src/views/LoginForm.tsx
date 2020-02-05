@@ -1,5 +1,5 @@
 import { component } from '@stp/core'
-import { Simple } from '@stp/simple'
+import { Simple } from '@stp/crud'
 import { Column, Columns, Section } from '@stp/ui'
 import { empty, fn, req, string, TypeOf } from '@stp/utils'
 import { FormikHelpers } from 'formik'

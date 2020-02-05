@@ -1,4 +1,4 @@
-import { Simple } from '@stp/simple'
+import { Simple } from '@stp/crud'
 import { Title } from '@stp/ui'
 import React from 'react'
 import { Product } from './fakeData'

@@ -1,5 +1,5 @@
 import { DateField } from '@stp/forms'
-import { Simple } from '@stp/simple'
+import { Simple } from '@stp/crud'
 import { Column, Columns, Section } from '@stp/ui'
 import { component } from '@stp/core'
 import { empty, fn, obj } from '@stp/utils'

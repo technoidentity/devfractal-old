@@ -1,5 +1,5 @@
 import { useParams } from '@stp/router'
-import { Put } from '@stp/ui-api'
+import { Put } from '@stp/crud'
 import { Section, Title } from '@stp/ui'
 import React from 'react'
 import { string } from '@stp/utils'

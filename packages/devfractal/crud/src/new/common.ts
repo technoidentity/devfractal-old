@@ -1,6 +1,5 @@
-import { SubmitAction } from '@stp/ui-api'
-import { Mixed, number, readonlyArray, TypeOf } from '@stp/utils'
-import { fn, obj, req } from '@stp/utils'
+import { fn, Mixed, number, obj, readonlyArray, req, TypeOf } from '@stp/utils'
+import { SubmitAction } from '../api'
 
 // tslint:disable typedef
 

@@ -1,6 +1,5 @@
 import { API, APIQuery, Page } from '@stp/core'
 import { Route, useHistory, useLocation } from '@stp/router'
-import { Get } from '@stp/ui-api'
 import {
   cast,
   IntFromString,
@@ -13,6 +12,7 @@ import {
 } from '@stp/utils'
 import { parse, stringify } from 'query-string'
 import React from 'react'
+import { Get } from '../api'
 
 // tslint:disable-next-line: typedef
 export const ClientQuery = opt({

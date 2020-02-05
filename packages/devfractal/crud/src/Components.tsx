@@ -2,7 +2,7 @@ import { Mixed, TypeOf } from '@stp/utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { APIRepository, Repository } from './api'
+import { APIRepository, Repository } from './apiFn'
 import { links as links_, paths as paths_ } from './new'
 import { CrudViewsResult, Views } from './Views'
 

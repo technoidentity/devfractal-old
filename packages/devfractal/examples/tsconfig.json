@@ -9,12 +9,9 @@
     { "path": "../../common/utils" },
     { "path": "../core" },
     { "path": "../forms" },
-    { "path": "../forms" },
     { "path": "../mui" },
     { "path": "../router" },
-    { "path": "../ui-api" },
     { "path": "../ui" },
-    { "path": "../simple" },
     { "path": "../crud" }
   ]
 }

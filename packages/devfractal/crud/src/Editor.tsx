@@ -1,11 +1,11 @@
-import { Simple } from '@stp/simple'
 import { Section } from '@stp/ui'
-import { Get } from '@stp/ui-api'
 import * as t from '@stp/utils'
 import { date } from '@stp/utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { ObjectSchema } from 'yup'
+import { Get } from './api'
+import { Simple } from './simple'
 import { isFunction } from './utils'
 export interface EditorViewProps<T extends {}> {
   readonly data: T

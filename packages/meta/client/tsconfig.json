@@ -8,8 +8,6 @@
   "references": [
     { "path": "../../common/utils" },
     { "path": "../core" },
-    { "path": "../../devfractal/core" },
-    { "path": "../../devfractal/simple" },
     { "path": "../../devfractal/crud" }
   ]
 }

@@ -1,5 +1,5 @@
+import { Simple } from '@stp/crud'
 import { maxLength, minLength, required } from '@stp/forms'
-import { Simple } from '@stp/simple'
 import { Section } from '@stp/ui'
 import React from 'react'
 import { initialLoginValues } from './common'

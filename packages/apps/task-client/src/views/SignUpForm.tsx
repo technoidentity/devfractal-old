@@ -1,6 +1,6 @@
 import { component } from '@stp/core'
 import { Link } from '@stp/router'
-import { Simple } from '@stp/simple'
+import { Simple } from '@stp/crud'
 import { Column, Columns, Section, Text } from '@stp/ui'
 import { empty, fn, req, string, TypeOf } from '@stp/utils'
 import { FormikHelpers } from 'formik'
