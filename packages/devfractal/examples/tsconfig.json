@@ -8,10 +8,10 @@
   "references": [
     { "path": "../../common/utils" },
     { "path": "../core" },
+    { "path": "../crud" },
     { "path": "../forms" },
     { "path": "../mui" },
     { "path": "../router" },
-    { "path": "../ui" },
-    { "path": "../crud" }
+    { "path": "../ui" }
   ]
 }
