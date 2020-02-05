@@ -33,7 +33,7 @@
     "yup": "0.28.1"
   },
   "devDependencies": {
-    "@babel/core": "7.8.3",
+    "@babel/core": "7.8.4",
     "bulma": "0.8.0",
     "cross-env": "7.0.0",
     "eslint": "6.8.0",
