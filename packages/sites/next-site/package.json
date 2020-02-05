@@ -12,7 +12,7 @@
     "lint": "yarn elint && yarn tlint",
     "start": "next",
     "test:watch": "yarn test --watch",
-    "test": "cross-env NODE_EN='test' jest --passWithNoTests",
+    "test": "jest --passWithNoTests",
     "tlint:fix": "yarn lint --fix",
     "tlint": "yarn tslint -p . 'src/**/*.tsx' 'src/**/*.ts'",
     "types:watch": "yarn types --watch",

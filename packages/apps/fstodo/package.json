@@ -44,7 +44,7 @@
     "server": "json-server data/todos.json",
     "build": "parcel build index.html",
     "clean": "rimraf dist .cache",
-    "test": "cross-env NODE_EN='test' jest --passWithNoTests",
+    "test": "jest --passWithNoTests",
     "test:watch": "yarn test --watch",
     "tlint": "yarn tslint -p . 'src/**/*.tsx' 'src/**/*.ts'",
     "tlint:fix": "yarn lint --fix",
