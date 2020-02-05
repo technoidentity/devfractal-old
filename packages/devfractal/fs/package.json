@@ -1,5 +1,5 @@
 {
-  "name": "@stp/fs-api",
+  "name": "@stp/fs",
   "version": "1.2.19",
   "source": "src/index.ts",
   "main": "dist/index.js",

@@ -15,7 +15,7 @@
     { "path": "devfractal/forms" },
     { "path": "devfractal/mui" },
     { "path": "devfractal/router" },
-    { "path": "devfractal/fs-api" },
+    { "path": "devfractal/fs" },
     { "path": "devfractal/core" },
     { "path": "devfractal/ui" },
     { "path": "meta/client" },

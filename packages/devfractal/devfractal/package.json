@@ -29,7 +29,7 @@
     "@stp/forms": "1.2.19",
     "@stp/router": "1.2.19",
     "@stp/ui": "1.2.19",
-    "@stp/fs-api": "1.2.19",
+    "@stp/fs": "1.2.19",
     "tslib": "1.10.0"
   },
   "devDependencies": {
