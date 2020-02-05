@@ -1,4 +1,4 @@
-import { classNames } from '@stp/ui-core'
+import { classNames } from '@stp/core'
 import React from 'react'
 import { classNamesHelper } from '../base'
 import { AllControlHelpers, ControlDiv } from './controlDiv'

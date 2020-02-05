@@ -32,7 +32,7 @@
     "@stp/ui": "1.2.19",
     "@stp/ui-api": "1.2.19",
     "@stp/fs-api": "*",
-    "@stp/ui-core": "1.2.19",
+    "@stp/core": "1.2.19",
     "tslib": "1.10.0"
   },
   "devDependencies": {

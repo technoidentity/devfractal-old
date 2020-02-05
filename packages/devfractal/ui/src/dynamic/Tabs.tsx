@@ -1,4 +1,4 @@
-import { ControlledProps, Uncontrolled, ValueChangeEvent } from '@stp/ui-core'
+import { ControlledProps, Uncontrolled, ValueChangeEvent } from '@stp/core'
 import { debug } from '@stp/utils'
 import React from 'react'
 import { classNamesHelper, El, Helpers } from '../core'

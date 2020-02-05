@@ -1,4 +1,3 @@
-import { Get } from '@stp/ui-api'
 import {
   CheckBox,
   Table,
@@ -10,6 +9,7 @@ import {
   Th,
   Tr,
 } from '@stp/ui'
+import { Get } from '@stp/ui-api'
 import * as t from '@stp/utils'
 import { camelCaseToPhrase, date } from '@stp/utils'
 import React from 'react'

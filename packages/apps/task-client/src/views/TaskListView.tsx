@@ -11,7 +11,7 @@ import {
   Title,
   Tr,
 } from '@stp/ui'
-import { component } from '@stp/ui-core'
+import { component } from '@stp/core'
 import { readonlyArray, req } from '@stp/utils'
 import { format } from 'date-fns'
 import React from 'react'

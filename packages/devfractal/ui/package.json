@@ -35,7 +35,7 @@
     "@fortawesome/free-solid-svg-icons": "5.12.0",
     "@fortawesome/react-fontawesome": "0.1.8",
     "@stp/router": "1.2.19",
-    "@stp/ui-core": "1.2.19",
+    "@stp/core": "1.2.19",
     "@stp/utils": "1.2.19",
     "@types/react-is": "^16.7.1",
     "cross-env": "7.0.0",
@@ -54,7 +54,7 @@
   },
   "peerDependencies": {
     "@stp/router": "1.2.19",
-    "@stp/ui-core": "1.2.19",
+    "@stp/core": "1.2.19",
     "bulma": "0.8.0",
     "react-dom": "16.12.0",
     "react": "16.12.0",

@@ -1,7 +1,7 @@
 import { DateField } from '@stp/forms'
 import { Simple } from '@stp/simple'
 import { Column, Columns, Section } from '@stp/ui'
-import { component } from '@stp/ui-core'
+import { component } from '@stp/core'
 import { empty, fn, obj } from '@stp/utils'
 import { format } from 'date-fns'
 import { FormikHelpers } from 'formik'
