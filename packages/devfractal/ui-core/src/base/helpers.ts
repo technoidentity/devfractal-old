@@ -1,4 +1,4 @@
-import { ClassNameArg, classNames } from './classNames'
+import { ClassNameArg, classNames } from '../common/classNames'
 import {
   removeTextHelpers,
   TextHelpers,
