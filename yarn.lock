@@ -2291,7 +2291,7 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@material-ui/core@4.9.1", "@material-ui/core@^4.9.1":
+"@material-ui/core@4.9.1":
   version "4.9.1"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.9.1.tgz#8e57382b12a01b35a3fa2a45424528915aef2115"
   integrity sha512-wehQI0ahHDsZjK+uA8Q5Cs1K1/1HXYe2icwTqARaRCt7d9bTp0bJN/C9TLe/+sRWfRIkx6OIk7ABSJT1jBqxRg==
@@ -3043,7 +3043,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-is@^16.7.1":
+"@types/react-is@16.7.1":
   version "16.7.1"
   resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-16.7.1.tgz#d3f1c68c358c00ce116b55ef5410cf486dd08539"
   integrity sha512-dMLFD2cCsxtDgMkTydQCM0PxDq8vwc6uN5M/jRktDfYvH3nQj6pjC9OrCXS2lKlYoYTNJorI/dI8x9dpLshexQ==
@@ -6266,7 +6266,7 @@ data-urls@^1.0.0, data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@2.9.0, date-fns@^2.0.1, date-fns@^2.9.0:
+date-fns@2.9.0, date-fns@^2.0.1:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.9.0.tgz#d0b175a5c37ed5f17b97e2272bbc1fa5aec677d2"
   integrity sha512-khbFLu/MlzLjEzy9Gh8oY1hNt/Dvxw3J6Rbc28cVoYWQaC1S3YI4xwkF9ZWcjDLscbZlY9hISMr66RFzZagLsA==
@@ -12440,7 +12440,7 @@ npm-bundled@^1.0.1, npm-bundled@^1.1.1:
   dependencies:
     npm-normalize-package-bin "^1.0.1"
 
-npm-check-updates@^4.0.1:
+npm-check-updates@4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-4.0.1.tgz#9a4cb95bba95b59380a0175c1f4713dad6e439ab"
   integrity sha512-rDrKAqhQuTYq2EkndroPMZGA9N6tpTotOVOIJoxRa3ZKnb/mOcq2TZv4A4LLSM8+9kZlP+sBwE+XAGh8wWZw/w==
@@ -13984,7 +13984,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types-ts@^0.7.3:
+prop-types-ts@0.7.3:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/prop-types-ts/-/prop-types-ts-0.7.3.tgz#cacc6b6f4bb5261e02c58ba58aa626742643dd17"
   integrity sha512-XMcEeXXUV7w2jgsVRcKqNsEnfV+SZgJsfQ3OUGWOcAZ5KK5einadFdPUEqT+wGpTBQQQv3EG1wP8fHqtZSyPdA==
@@ -14407,7 +14407,7 @@ react-icons@^3.8.0:
   dependencies:
     camelcase "^5.0.0"
 
-react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
+react-is@16.12.0, react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==

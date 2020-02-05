@@ -84,7 +84,7 @@
     "lodash": "4.17.15",
     "lodash-es": "4.17.15",
     "mongoose": "5.8.11",
-    "npm-check-updates": "^4.0.1",
+    "npm-check-updates": "4.0.1",
     "react": "16.12.0",
     "react-datepicker": "2.11.0",
     "react-docgen-typescript": "1.16.2",
