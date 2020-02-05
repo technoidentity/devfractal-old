@@ -1,6 +1,5 @@
 import {
   CheckboxField,
-  consoleSubmit,
   ErrorField,
   InputField,
   InputFieldProps,
@@ -21,6 +20,7 @@ import {
   SimpleSelectProps,
   SimpleTextAreaProps,
 } from './SimpleForm'
+import { consoleSubmit } from './utils'
 
 interface Named<Values extends {}, Value> {
   readonly name: keyof Values & string

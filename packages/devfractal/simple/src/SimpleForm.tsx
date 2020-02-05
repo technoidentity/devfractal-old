@@ -1,7 +1,6 @@
 import {
   CheckboxField,
   CheckboxFieldProps,
-  consoleSubmit,
   DateField,
   DateFieldProps,
   DebugField,
@@ -37,6 +36,7 @@ import {
   string,
   StringSchema,
 } from 'yup'
+import { consoleSubmit } from './utils'
 
 type Replace<T, K extends string & keyof T, R extends string> = Omit<T, K> &
   { readonly [P in R]?: T[K] }
