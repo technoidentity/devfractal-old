@@ -12,8 +12,6 @@
     "watch": "tsdx watch --tsconfig tsconfig.build.json",
     "lint:fix": "yarn elint:fix && yarn tlint:fix",
     "lint": "yarn elint && yarn tlint",
-    "sg:build": "styleguidist build",
-    "sg": "styleguidist server",
     "start": "parcel index.html --open",
     "test:watch": "yarn test --watch",
     "test": "jest --passWithNoTests",
@@ -38,7 +36,6 @@
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react-styleguidist": "10.6.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
     "typescript": "3.7.5"

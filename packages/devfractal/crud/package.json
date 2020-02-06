@@ -33,10 +33,7 @@
     "@stp/core": "1.2.19",
     "@stp/forms": "1.2.19",
     "@stp/router": "1.2.19",
-    "@stp/crud": "1.2.19",
     "@stp/ui": "1.2.19",
-    "@stp/crud": "1.2.19",
-    "@stp/core": "1.2.19",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
@@ -48,7 +45,6 @@
     "typescript": "3.7.5"
   },
   "peerDependencies": {
-    "@stp/crud": "1.2.19",
     "@stp/crud": "1.2.19"
   }
 }
