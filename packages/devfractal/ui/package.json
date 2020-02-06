@@ -26,6 +26,10 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
+    "cleave.js": "1.5.3",
+    "date-fns": "2.9.0",
+    "react-datepicker": "2.11.0",
+    "rifm": "0.10.1",
     "tslib": "1.10.0"
   },
   "devDependencies": {

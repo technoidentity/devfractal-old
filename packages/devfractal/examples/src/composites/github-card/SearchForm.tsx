@@ -1,4 +1,4 @@
-import { InputField } from '@stp/forms'
+import { InputField } from '@stp/ui'
 import { Button, Field } from '@stp/ui'
 import { Form, Formik } from 'formik'
 import React from 'react'

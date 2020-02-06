@@ -26,7 +26,7 @@
   "dependencies": {
     "@stp/core": "1.2.19",
     "@stp/crud": "1.2.19",
-    "@stp/forms": "1.2.19",
+    "@stp/ui": "1.2.19",
     "@stp/fs": "1.2.19",
     "@stp/router": "1.2.19",
     "@stp/ui": "1.2.19",

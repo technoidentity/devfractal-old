@@ -12,7 +12,6 @@
     { "path": "devfractal/crud" },
     { "path": "devfractal/devfractal" },
     { "path": "devfractal/examples" },
-    { "path": "devfractal/forms" },
     { "path": "devfractal/mui" },
     { "path": "devfractal/router" },
     { "path": "devfractal/fs" },

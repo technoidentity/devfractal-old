@@ -31,7 +31,6 @@
   "devDependencies": {
     "cross-env": "7.0.0",
     "@stp/core": "1.2.19",
-    "@stp/forms": "1.2.19",
     "@stp/router": "1.2.19",
     "@stp/ui": "1.2.19",
     "eslint": "6.8.0",

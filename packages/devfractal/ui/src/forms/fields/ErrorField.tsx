@@ -1,6 +1,6 @@
-import { FieldHelp, FieldHelpProps } from '@stp/ui'
 import { ErrorMessage, ErrorMessageProps } from 'formik'
 import React from 'react'
+import { FieldHelp, FieldHelpProps } from '../../core'
 
 type FormikErrorProps = Omit<FieldHelpProps, 'variant'>
 
