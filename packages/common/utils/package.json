@@ -1,6 +1,6 @@
 {
   "name": "stp-utils",
-  "version": "1.2.19",
+  "version": "1.2.20",
   "description": "utils for all devfractal libraries",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -30,8 +30,8 @@
   "dependencies": {
     "date-fns": "2.9.0",
     "fp-ts": "2.4.4",
-    "io-ts-types": "0.5.5",
     "io-ts": "2.0.6",
+    "io-ts-types": "0.5.5",
     "monocle-ts": "2.1.0",
     "tslib": "1.10.0",
     "utility-types": "3.10.0"

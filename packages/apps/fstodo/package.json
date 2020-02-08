@@ -1,6 +1,6 @@
 {
   "name": "app-fstodo",
-  "version": "1.2.19",
+  "version": "1.2.20",
   "private": true,
   "dependencies": {
     "firebase": "7.8.1",
@@ -8,8 +8,8 @@
     "react": "16.12.0",
     "react-datepicker": "2.12.0",
     "react-dom": "16.12.0",
-    "stp-devfractal": "1.2.19",
-    "stp-utils": "1.2.19",
+    "stp-devfractal": "^1.2.20",
+    "stp-utils": "^1.2.20",
     "yup": "0.28.1"
   },
   "devDependencies": {

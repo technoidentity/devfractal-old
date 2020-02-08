@@ -1,6 +1,6 @@
 {
   "name": "stp-core",
-  "version": "1.2.19",
+  "version": "1.2.20",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -26,18 +26,16 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "stp-dev-utils": "1.2.19",
     "axios": "0.19.2",
     "immer": "5.3.4",
     "io-ts-promise": "2.0.2",
     "prop-types-ts": "0.7.4",
     "query-string": "6.10.1",
     "react-is": "16.12.0",
+    "stp-dev-utils": "^1.2.20",
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "stp-router": "1.2.19",
-    "stp-utils": "1.2.19",
     "@types/react-is": "16.7.1",
     "cross-env": "7.0.0",
     "eslint": "6.8.0",
@@ -45,14 +43,16 @@
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
+    "stp-router": "^1.2.20",
+    "stp-utils": "^1.2.20",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
     "typescript": "3.7.5",
     "yup": "0.28.1"
   },
   "peerDependencies": {
+    "formik": "2.1.4",
     "stp-router": "1.2.19",
-    "stp-utils": "1.2.19",
-    "formik": "2.1.4"
+    "stp-utils": "1.2.19"
   }
 }

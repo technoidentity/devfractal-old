@@ -1,6 +1,6 @@
 {
   "name": "apps-diya-client",
-  "version": "1.2.19",
+  "version": "1.2.20",
   "private": true,
   "scripts": {
     "start": "parcel index.html --open",
@@ -28,8 +28,8 @@
     "react": "16.12.0",
     "react-autosuggest": "9.4.3",
     "react-dom": "16.12.0",
-    "stp-devfractal": "1.2.19",
-    "stp-utils": "1.2.19",
+    "stp-devfractal": "^1.2.20",
+    "stp-utils": "^1.2.20",
     "yup": "0.28.1"
   },
   "devDependencies": {
@@ -48,7 +48,7 @@
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "react-datepicker": "2.12.0",
-    "stp-dev-utils": "1.2.19",
+    "stp-dev-utils": "^1.2.20",
     "ts-jest": "25.2.0",
     "ts-node": "8.6.2",
     "tslint-config-prettier": "1.18.0",
