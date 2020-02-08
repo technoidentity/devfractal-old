@@ -44,5 +44,6 @@
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
     "typescript": "3.7.5"
-  }
+  },
+  "gitHead": "2c409d4ca6c890ca54339a2526821f6a1095d9cf"
 }

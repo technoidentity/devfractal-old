@@ -49,5 +49,6 @@
   },
   "peerDependencies": {
     "tcomb": "3.2.29"
-  }
+  },
+  "gitHead": "2c409d4ca6c890ca54339a2526821f6a1095d9cf"
 }

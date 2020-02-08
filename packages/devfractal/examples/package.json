@@ -54,5 +54,6 @@
   "peerDependencies": {
     "stp-crud": "1.2.19",
     "stp-mui": "1.2.19"
-  }
+  },
+  "gitHead": "2c409d4ca6c890ca54339a2526821f6a1095d9cf"
 }

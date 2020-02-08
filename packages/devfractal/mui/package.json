@@ -65,5 +65,6 @@
     "src/**/*.{ts,tsx,js,jsx,json,css}": [
       "yarn prettier --write"
     ]
-  }
+  },
+  "gitHead": "2c409d4ca6c890ca54339a2526821f6a1095d9cf"
 }

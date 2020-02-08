@@ -61,5 +61,6 @@
     "react-dom": "16.12.0",
     "stp-core": "1.2.19",
     "stp-router": "1.2.19"
-  }
+  },
+  "gitHead": "2c409d4ca6c890ca54339a2526821f6a1095d9cf"
 }
