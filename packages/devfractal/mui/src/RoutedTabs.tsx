@@ -2,44 +2,44 @@ import { Tab, TabProps, Tabs, TabsProps } from '@material-ui/core'
 import { NavLink, useLocation } from '@stp/router'
 import React from 'react'
 
-interface MaterialRoutedTabsContext {
+interface RoutedTabsContext {
   readonly baseURL?: string
   readonly separator?: string
   readonly currentLocation?: string
 }
 
-const MaterialRoutedTabsContext: React.Context<MaterialRoutedTabsContext> = React.createContext<
-  MaterialRoutedTabsContext
+const RoutedTabsContext: React.Context<RoutedTabsContext> = React.createContext<
+  RoutedTabsContext
 >({})
 
-export interface MaterialRoutedTabsItemProps extends TabProps {
+export interface RoutedTabsItemProps extends TabProps {
   readonly value: string
 }
 
-export const MaterialRoutedTabsItem: React.FC<MaterialRoutedTabsItemProps> = args => {
+export const RoutedTabsItem: React.FC<RoutedTabsItemProps> = args => {
   const { value, ...props } = args
   return (
-    <MaterialRoutedTabsContext.Consumer>
+    <RoutedTabsContext.Consumer>
       {({ baseURL, separator }) => (
         <NavLink to={baseURL ? `${baseURL}${separator}${value}` : ''}>
           <Tab {...props} />
         </NavLink>
       )}
-    </MaterialRoutedTabsContext.Consumer>
+    </RoutedTabsContext.Consumer>
   )
 }
 
-export interface MaterialRoutedTabsProps extends TabsProps {
+export interface RoutedTabsProps extends TabsProps {
   readonly to?: string
   readonly urlSeparator?: string
 }
 
-export const MaterialRoutedTabs: React.FC<MaterialRoutedTabsProps> = args => {
+export const RoutedTabs: React.FC<RoutedTabsProps> = args => {
   const { to, children, urlSeparator = '/', ...props } = args
   const { pathname } = useLocation()
 
   return (
-    <MaterialRoutedTabsContext.Provider
+    <RoutedTabsContext.Provider
       value={{
         baseURL: to,
         separator: urlSeparator,
@@ -47,6 +47,6 @@ export const MaterialRoutedTabs: React.FC<MaterialRoutedTabsProps> = args => {
       }}
     >
       <Tabs {...props}>{children}</Tabs>
-    </MaterialRoutedTabsContext.Provider>
+    </RoutedTabsContext.Provider>
   )
 }
