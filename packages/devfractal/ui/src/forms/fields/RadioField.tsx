@@ -1,6 +1,6 @@
-import { RadioGroup, RadioGroupProps } from '@stp/ui'
 import { useField } from 'formik'
 import React from 'react'
+import { RadioGroup, RadioGroupProps } from '../../core'
 import { FormikFieldConfig } from '../types'
 
 // @TODO type:'radio' must be passed to useField??

@@ -1,6 +1,6 @@
-import { Input, InputProps } from '@stp/ui'
 import { useField } from 'formik'
 import React from 'react'
+import { Input, InputProps } from '../../core'
 import { FormikFieldConfig } from '../types'
 
 export type InputFieldProps = InputProps & FormikFieldConfig

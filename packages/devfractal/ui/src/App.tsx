@@ -7,6 +7,7 @@ import {
   faUserFriends,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
+
 import { Route, Router } from '@stp/router'
 import 'bulma/css/bulma.css'
 import React from 'react'
@@ -53,14 +54,16 @@ const MenuComponent: React.FC = () => (
 const ClientList: React.FC = () => <h1>clients</h1>
 const VehicleList: React.FC = () => <h1>vehicles</h1>
 
-export const App: React.FC = () => (
-  <Section>
-    <Router variant="hash">
-      <Route exact path="/" component={MenuComponent} />
-      <Route exact path="/clients" component={ClientList} />
-      <Route exact path="/vehicles" component={VehicleList} />
-    </Router>
-  </Section>
-)
+export const App: React.FC = () => {
+  return (
+    <Section>
+      <Router variant="hash">
+        <Route exact path="/" component={MenuComponent} />
+        <Route exact path="/clients" component={ClientList} />
+        <Route exact path="/vehicles" component={VehicleList} />
+      </Router>
+    </Section>
+  )
+}
 
 render(<App />, document.getElementById('root'))

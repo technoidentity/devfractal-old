@@ -1,6 +1,6 @@
-import { TextArea, TextAreaProps } from '@stp/ui'
 import { useField } from 'formik'
 import React from 'react'
+import { TextArea, TextAreaProps } from '../../core'
 import { FormikFieldConfig } from '../types'
 
 export type TextAreaFieldProps = TextAreaProps & FormikFieldConfig

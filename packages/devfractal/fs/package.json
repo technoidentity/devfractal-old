@@ -12,8 +12,6 @@
     "watch": "tsdx watch --tsconfig tsconfig.build.json",
     "lint:fix": "yarn elint:fix && yarn tlint:fix",
     "lint": "yarn elint && yarn tlint",
-    "sg:build": "styleguidist build",
-    "sg": "styleguidist server",
     "start": "parcel index.html --open",
     "test:watch": "yarn test --watch",
     "test": "jest --passWithNoTests",
@@ -26,7 +24,7 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "firebase": "7.8.0",
+    "firebase": "7.8.1",
     "tslib": "1.10.0"
   },
   "devDependencies": {
@@ -34,11 +32,10 @@
     "@stp/utils": "1.2.19",
     "cross-env": "7.0.0",
     "eslint": "6.8.0",
-    "formik": "2.1.3",
+    "formik": "2.1.4",
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react-styleguidist": "10.6.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
     "typescript": "3.7.5"

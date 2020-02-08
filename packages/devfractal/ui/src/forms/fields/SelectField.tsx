@@ -1,6 +1,6 @@
-import { Select, SelectProps } from '@stp/ui'
 import { useField } from 'formik'
 import React from 'react'
+import { Select, SelectProps } from '../../core'
 import { FormikFieldConfig } from '../types'
 
 export type SelectFieldProps = SelectProps &

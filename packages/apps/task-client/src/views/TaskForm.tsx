@@ -1,4 +1,4 @@
-import { DateField } from '@stp/forms'
+import { DateField } from '@stp/ui'
 import { Simple } from '@stp/crud'
 import { Column, Columns, Section } from '@stp/ui'
 import { component } from '@stp/core'

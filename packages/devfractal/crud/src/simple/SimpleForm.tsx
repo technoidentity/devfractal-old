@@ -13,7 +13,7 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from '@stp/forms'
+} from '@stp/ui'
 import {
   Button,
   ButtonsGroup,
