@@ -5,12 +5,16 @@ import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
+import { Get } from '@stp/crud'
 import { CheckBox, Text } from '@stp/ui'
 import * as t from '@stp/utils'
 import { camelCaseToPhrase, date } from '@stp/utils'
+import { format } from 'date-fns'
 import React from 'react'
-import { Get } from '../api'
-import { formatDate } from './utils'
+
+function formatDate(date: Date | undefined): string | undefined {
+  return date && format(date, 'dd/MM/yyyy')
+}
 
 export interface SimpleMuiTableHeaderProps {
   readonly headers: readonly string[]
