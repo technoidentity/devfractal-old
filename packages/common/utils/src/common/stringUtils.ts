@@ -2,7 +2,7 @@ export function capitalize(arg: string): string {
   return arg.length === 0 ? '' : arg[0].toUpperCase() + arg.slice(1)
 }
 
-export function toLower(arg: string, delimiter?: string): string {
+export function toLower(arg: string, delimiter: string = ''): string {
   if (arg.length === 0) {
     return ''
   }
