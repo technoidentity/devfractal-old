@@ -1,6 +1,6 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
-import { Field, Section, Select as SelectComponent, Text, Title } from 'stp-ui'
 import React from 'react'
+import { Field, Section, Select as SelectComponent, Text, Title } from 'technoidentity-ui'
 
 const DynamicSelectExample: React.FC = () => {
   const [select, setSelect] = React.useState('red')

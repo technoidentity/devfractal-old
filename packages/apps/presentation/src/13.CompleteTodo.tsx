@@ -15,7 +15,7 @@ import {
   Title,
   useParams,
   useRedirect,
-} from 'stp-devfractal'
+} from 'technoidentity-devfractal'
 import {
   boolean,
   fn,
@@ -26,7 +26,7 @@ import {
   req,
   string,
   TypeOf,
-} from 'stp-utils'
+} from 'technoidentity-utils'
 
 const Todo = obj(
   {

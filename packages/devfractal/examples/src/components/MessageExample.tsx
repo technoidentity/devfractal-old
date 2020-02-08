@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Box,
   Delete,
@@ -6,8 +7,7 @@ import {
   MessageHeader,
   Section,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const SimpleMessageExample: React.FC = () => (
   <Section>

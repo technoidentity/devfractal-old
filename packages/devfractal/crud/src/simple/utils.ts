@@ -1,6 +1,6 @@
-import { jsonStringify, timeout } from 'stp-utils/src'
 import { format } from 'date-fns'
 import { FormikHelpers } from 'formik'
+import { jsonStringify, timeout } from 'technoidentity-utils/src'
 
 export function formatDate(date: Date | undefined): string | undefined {
   return date && format(date, 'dd/MM/yyyy')

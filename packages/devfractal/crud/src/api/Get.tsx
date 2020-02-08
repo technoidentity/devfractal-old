@@ -1,5 +1,5 @@
-import { AsyncResult, useGet } from 'stp-core'
 import React from 'react'
+import { AsyncResult, useGet } from 'technoidentity-core'
 import { ErrorView, Loading } from './Components'
 
 // tslint:disable readonly-array no-unbound-method

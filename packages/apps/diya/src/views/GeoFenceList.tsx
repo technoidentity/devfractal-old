@@ -6,7 +6,7 @@ import {
   listComponent,
   RoutedPager,
   Section,
-} from 'stp-devfractal'
+} from 'technoidentity-devfractal'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 

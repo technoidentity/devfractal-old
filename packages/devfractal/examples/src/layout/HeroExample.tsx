@@ -1,4 +1,5 @@
-import { Tabs, TabsItem } from 'stp-ui'
+import React from 'react'
+import { Tabs, TabsItem } from 'technoidentity-ui'
 import {
   Button,
   Container,
@@ -15,8 +16,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const SimpleHeroExample: React.FC = () => (
   <Section>

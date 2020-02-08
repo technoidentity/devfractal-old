@@ -9,6 +9,7 @@ import {
   faTimes,
   faUnderline,
 } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import {
   Box,
   Button as ButtonComponent,
@@ -19,8 +20,7 @@ import {
   Section,
   Text,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const DynamicButtonExample: React.FC = () => {
   const [click, setClick] = React.useState(false)

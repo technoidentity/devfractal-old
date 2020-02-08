@@ -7,8 +7,8 @@ import {
   Simple,
   SubmitAction,
   Title,
-} from 'stp-devfractal'
-import { empty, fn, req } from 'stp-utils'
+} from 'technoidentity-devfractal'
+import { empty, fn, req } from 'technoidentity-utils'
 import React from 'react'
 import { AssignDriver, assignDriverAPI } from '../common'
 

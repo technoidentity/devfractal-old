@@ -1,6 +1,6 @@
-import { Button, Delete, Field, Notification } from 'stp-ui'
 import { FieldArray } from 'formik'
 import React from 'react'
+import { Button, Delete, Field, Notification } from 'technoidentity-ui'
 
 export interface SimpleArrayFieldComponentProps<T> {
   readonly name: string

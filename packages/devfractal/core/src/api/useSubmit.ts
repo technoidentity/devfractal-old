@@ -1,7 +1,7 @@
-import { useHistory } from 'stp-router'
 import { FormikHelpers } from 'formik'
 import { History } from 'history'
 import React from 'react'
+import { useHistory } from 'technoidentity-router'
 
 export interface SubmitResult<T extends {}> {
   readonly serverError: string | undefined

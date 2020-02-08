@@ -1,6 +1,6 @@
-import { Section } from 'stp-ui'
 import Cleave from 'cleave.js/react'
 import React from 'react'
+import { Section } from 'technoidentity-ui'
 
 export const CleaveComponent: React.FC = () => (
   <Section>

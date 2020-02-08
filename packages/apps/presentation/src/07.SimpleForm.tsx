@@ -5,7 +5,7 @@ import {
   required,
   Section,
   Simple,
-} from 'stp-devfractal'
+} from 'technoidentity-devfractal'
 import { initialLoginValues } from './06.ModerateForm'
 
 export const SimpleLoginForm: React.FC = () => (

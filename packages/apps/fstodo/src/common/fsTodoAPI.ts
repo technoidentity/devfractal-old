@@ -1,5 +1,5 @@
-import { FSDate, fsRest } from 'stp-devfractal'
-import { boolean, req, string, TypeOf } from 'stp-utils'
+import { FSDate, fsRest } from 'technoidentity-devfractal'
+import { boolean, req, string, TypeOf } from 'technoidentity-utils'
 import { db } from './firestore'
 // tslint:disable typedef
 export const FSTodo = req({

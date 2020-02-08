@@ -1,5 +1,5 @@
-import { buildObject, keys } from 'stp-utils'
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema'
+import { buildObject, keys } from 'technoidentity-utils'
 import {
   ArrayRefinements,
   Mixed,

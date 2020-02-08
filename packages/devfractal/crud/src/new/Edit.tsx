@@ -1,7 +1,7 @@
-import { API } from 'stp-core'
-import { Route, useParams } from 'stp-router'
-import { getProp, ObjC, Props, string, type, TypeOf } from 'stp-utils'
 import React from 'react'
+import { API } from 'technoidentity-core'
+import { Route, useParams } from 'technoidentity-router'
+import { getProp, ObjC, Props, string, type, TypeOf } from 'technoidentity-utils'
 import { Put, SubmitAction } from '../api'
 
 // tslint:disable no-unbound-method

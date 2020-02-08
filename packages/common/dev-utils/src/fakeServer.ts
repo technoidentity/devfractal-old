@@ -1,5 +1,5 @@
-import { AnyObj, range } from 'stp-utils'
 import * as server from 'json-server'
+import { AnyObj, range } from 'technoidentity-utils'
 import { fake } from './fake'
 
 interface ResourceConfig {

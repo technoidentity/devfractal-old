@@ -3,6 +3,7 @@ import {
   faCodeBranch,
   faSearch,
 } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import {
   Button,
   CheckBox,
@@ -14,8 +15,7 @@ import {
   PanelTabs,
   PanelTabsItem,
   Section,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const PanelExample: React.FC = () => (
   <Section>

@@ -1,6 +1,6 @@
-import { Simple } from 'stp-crud'
-import { Section } from 'stp-ui'
 import React from 'react'
+import { Simple } from 'technoidentity-crud'
+import { Section } from 'technoidentity-ui'
 import { boolean, object, ObjectSchema, string } from 'yup'
 
 export interface AddTodoValues {

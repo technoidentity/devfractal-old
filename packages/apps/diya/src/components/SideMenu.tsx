@@ -20,8 +20,8 @@ import {
   NavbarBurger,
   NavbarBurgerProps,
   Section,
-} from 'stp-devfractal'
-import { fn, keyof, req, TypeOf } from 'stp-utils'
+} from 'technoidentity-devfractal'
+import { fn, keyof, req, TypeOf } from 'technoidentity-utils'
 import diyaLogo from '../images/diyaLogo.png'
 import { MenuBurger } from './MenuBurger'
 

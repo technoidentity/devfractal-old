@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Router, Section, SimpleRedirect } from 'stp-devfractal'
+import { Route, Router, Section, SimpleRedirect } from 'technoidentity-devfractal'
 import { CreateTodo, EditTodo, TodoList } from './TodoAppV0'
 
 export const TodoApp = () => (

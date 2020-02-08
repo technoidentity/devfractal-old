@@ -1,4 +1,4 @@
-import { Link } from 'stp-router'
+import { Link } from 'technoidentity-router'
 import {
   ButtonsGroup,
   Field,
@@ -10,9 +10,9 @@ import {
   Th,
   Title,
   Tr,
-} from 'stp-ui'
-import { component } from 'stp-core'
-import { readonlyArray, req } from 'stp-utils'
+} from 'technoidentity-ui'
+import { component } from 'technoidentity-core'
+import { readonlyArray, req } from 'technoidentity-utils'
 import { format } from 'date-fns'
 import React from 'react'
 import { Task } from '../common'

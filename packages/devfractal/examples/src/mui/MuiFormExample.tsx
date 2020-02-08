@@ -3,6 +3,8 @@ import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import { makeStyles } from '@material-ui/core/styles'
+import { Formik, FormikConsumer, FormikProps } from 'formik'
+import React from 'react'
 import {
   CheckboxField,
   DateField,
@@ -10,10 +12,8 @@ import {
   SelectField,
   SwitchField,
   TextField,
-} from 'stp-mui'
-import { jsonStringify } from 'stp-utils'
-import { Formik, FormikConsumer, FormikProps } from 'formik'
-import React from 'react'
+} from 'technoidentity-mui'
+import { jsonStringify } from 'technoidentity-utils'
 
 // tslint:disable typedef
 

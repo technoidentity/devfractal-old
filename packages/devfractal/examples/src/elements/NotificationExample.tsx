@@ -1,11 +1,11 @@
+import React from 'react'
 import {
   Box,
   Delete,
   Notification as NotificationComponent,
   Section,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const BasicNotificationExample: React.FC = () => (
   <Section>

@@ -1,10 +1,10 @@
+import React from 'react'
 import {
   Container,
   Section as SectionComponent,
   SubTitle,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const LargeSectionExample: React.FC = () => (
   <SectionComponent>

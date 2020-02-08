@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   RoutedTabs,
   RoutedTabsItem,
@@ -5,9 +6,8 @@ import {
   Tabs,
   TabsItem,
   TabsProps,
-} from 'stp-ui'
-import { camelCaseToPhrase } from 'stp-utils'
-import React from 'react'
+} from 'technoidentity-ui'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {
   readonly name?: string

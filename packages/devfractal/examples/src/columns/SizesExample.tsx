@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Box,
   Column,
@@ -7,8 +8,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const Sizes: React.FC = () => (
   <div>

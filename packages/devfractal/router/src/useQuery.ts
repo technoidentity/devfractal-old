@@ -1,6 +1,6 @@
-import { cast, Mixed, TypeOf } from 'stp-utils'
 import { parse } from 'query-string'
 import { useLocation } from 'react-router'
+import { cast, Mixed, TypeOf } from 'technoidentity-utils'
 
 export function useQuery<Spec extends Mixed>(
   querySpec: Spec,

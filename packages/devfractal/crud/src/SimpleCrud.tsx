@@ -1,6 +1,6 @@
-import { Mixed, TypeOf } from 'stp-utils'
-import { assert } from 'stp-utils'
 import React from 'react'
+import { Mixed, TypeOf } from 'technoidentity-utils'
+import { assert } from 'technoidentity-utils'
 import { api } from './apiFn'
 import { Crud } from './Crud'
 

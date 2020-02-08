@@ -1,8 +1,8 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { ButtonLink } from 'stp-crud'
-import { Link } from 'stp-devfractal'
-import { Icon } from 'stp-devfractal'
-import { SimpleTable, SimpleTableProps } from 'stp-crud'
+import { ButtonLink } from 'technoidentity-crud'
+import { Link } from 'technoidentity-devfractal'
+import { Icon } from 'technoidentity-devfractal'
+import { SimpleTable, SimpleTableProps } from 'technoidentity-crud'
 import React from 'react'
 
 export interface DiyaActionsProps {

@@ -1,7 +1,7 @@
-import { SimpleTable } from 'stp-crud'
-import { Container, Title } from 'stp-ui'
 import { MT } from 'meta-core'
 import React from 'react'
+import { SimpleTable } from 'technoidentity-crud'
+import { Container, Title } from 'technoidentity-ui'
 
 export interface MetaListProps {
   readonly meta: MT

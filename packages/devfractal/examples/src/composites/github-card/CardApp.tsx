@@ -1,5 +1,5 @@
-import { Section } from 'stp-ui'
 import React from 'react'
+import { Section } from 'technoidentity-ui'
 import { Card } from './Card'
 import { SearchForm } from './SearchForm'
 

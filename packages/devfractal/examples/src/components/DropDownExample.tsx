@@ -1,13 +1,13 @@
-import { Route, SimpleRedirect } from 'stp-router'
+import React from 'react'
+import { Route, SimpleRedirect } from 'technoidentity-router'
 import {
   DropDown,
   DropDownDivider,
   DropDownItem,
   RoutedTabs,
   RoutedTabsItem,
-} from 'stp-ui'
-import { Field, Level, LevelItem, Section, Title } from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
+import { Field, Level, LevelItem, Section, Title } from 'technoidentity-ui'
 
 const DropdownExampleTab: React.FC = () => (
   <>

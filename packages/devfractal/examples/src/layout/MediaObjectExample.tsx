@@ -1,4 +1,5 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import {
   Button,
   CheckBox,
@@ -16,8 +17,7 @@ import {
   Section,
   TextArea,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const SimpleMediaObjectExample: React.FC = () => (
   <Section>

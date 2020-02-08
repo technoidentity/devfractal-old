@@ -4,10 +4,10 @@ import {
   faPuzzlePiece,
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
-import { Route, SimpleRedirect } from 'stp-router'
-import { Breadcrumb, BreadcrumbItem } from 'stp-ui'
-import { Container, Icon, Section } from 'stp-ui'
 import React from 'react'
+import { Route, SimpleRedirect } from 'technoidentity-router'
+import { Breadcrumb, BreadcrumbItem } from 'technoidentity-ui'
+import { Container, Icon, Section } from 'technoidentity-ui'
 
 export const BreadcrumbAlignmentsExample: React.FC = () => (
   <>

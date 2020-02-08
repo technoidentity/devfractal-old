@@ -1,6 +1,6 @@
-import { SimpleRoutedTabs, SimpleTabs } from 'stp-crud'
-import { Section, Text } from 'stp-ui'
 import React from 'react'
+import { SimpleRoutedTabs, SimpleTabs } from 'technoidentity-crud'
+import { Section, Text } from 'technoidentity-ui'
 
 const SimpleTabsExample: React.FC = () => (
   <SimpleTabs

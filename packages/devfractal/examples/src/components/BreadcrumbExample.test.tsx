@@ -1,6 +1,6 @@
-import { Router } from 'stp-router'
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
+import { Router } from 'technoidentity-router'
 import { BreadcrumbExample } from './BreadcrumbExample'
 
 const Ex: React.FC = () => (

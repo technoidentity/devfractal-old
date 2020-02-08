@@ -10,9 +10,9 @@ import {
   SubmitAction,
   Title,
   useParams,
-} from 'stp-devfractal'
-import { IntFromString, type } from 'stp-utils'
-import { empty } from 'stp-utils'
+} from 'technoidentity-devfractal'
+import { IntFromString, type } from 'technoidentity-utils'
+import { empty } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 

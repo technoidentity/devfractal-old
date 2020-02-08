@@ -12,8 +12,8 @@ import {
   Td,
   Th,
   Tr,
-} from 'stp-devfractal'
-import { boolean, capitalize, date } from 'stp-utils'
+} from 'technoidentity-devfractal'
+import { boolean, capitalize, date } from 'technoidentity-utils'
 import { Todo } from './common'
 
 const Actions = withRouter(({ history, editTo }: any) => {

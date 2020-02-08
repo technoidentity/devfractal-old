@@ -1,9 +1,9 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { Input } from 'stp-ui'
+import { Input } from 'technoidentity-ui'
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
-import { http as httpAPI } from 'stp-devfractal'
-import { Mixed, readonlyArray } from 'stp-utils'
+import { http as httpAPI } from 'technoidentity-devfractal'
+import { Mixed, readonlyArray } from 'technoidentity-utils'
 import '../stylesheets/auto-suggestion.scss'
 
 const http: ReturnType<typeof httpAPI> = httpAPI({

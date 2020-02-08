@@ -1,4 +1,5 @@
-import { NavLink } from 'stp-router'
+import React from 'react'
+import { NavLink } from 'technoidentity-router'
 import {
   Navbar,
   NavbarBrand,
@@ -9,8 +10,7 @@ import {
   NavbarItem,
   NavbarItemsProps,
   NavbarMenu,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const NavBurger: React.FC<NavbarBurgerProps> = props => (
   <NavbarBurger role="button" {...props}>

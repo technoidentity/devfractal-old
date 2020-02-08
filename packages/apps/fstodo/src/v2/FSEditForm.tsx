@@ -1,6 +1,6 @@
-import { Get, useParams, useSubmitRedirect } from 'stp-devfractal'
-import { req, string } from 'stp-utils'
 import React from 'react'
+import { Get, useParams, useSubmitRedirect } from 'technoidentity-devfractal'
+import { req, string } from 'technoidentity-utils'
 import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoForm } from './FSTodoForm'
 

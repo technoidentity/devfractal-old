@@ -12,7 +12,7 @@ import {
   Section,
   Simple,
   Title,
-} from 'stp-devfractal'
+} from 'technoidentity-devfractal'
 import { Employee } from '../common'
 
 // const validationSchema = yup.object().shape({

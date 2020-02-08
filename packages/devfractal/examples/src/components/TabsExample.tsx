@@ -7,9 +7,9 @@ import {
   faImage,
   faMusic,
 } from '@fortawesome/free-solid-svg-icons'
-import { Tabs, TabsItem } from 'stp-ui'
-import { Box, Icon, Section, Title } from 'stp-ui'
 import React from 'react'
+import { Tabs, TabsItem } from 'technoidentity-ui'
+import { Box, Icon, Section, Title } from 'technoidentity-ui'
 
 export const TabsExamples: React.FC = () => (
   <>

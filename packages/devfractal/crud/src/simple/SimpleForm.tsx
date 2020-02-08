@@ -1,3 +1,5 @@
+import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
+import React from 'react'
 import {
   CheckboxField,
   CheckboxFieldProps,
@@ -13,7 +15,7 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from 'stp-ui'
+} from 'technoidentity-ui'
 import {
   Button,
   ButtonsGroup,
@@ -22,10 +24,8 @@ import {
   Field,
   FieldPropsBase,
   Label,
-} from 'stp-ui'
-import { camelCaseToPhrase } from 'stp-utils'
-import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
-import React from 'react'
+} from 'technoidentity-ui'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   date,
   DateSchema,

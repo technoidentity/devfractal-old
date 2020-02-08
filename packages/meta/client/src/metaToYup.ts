@@ -1,4 +1,3 @@
-import { buildObject } from 'stp-utils'
 import {
   ArrayMT,
   ArrayRefinements,
@@ -12,6 +11,7 @@ import {
   StringMT,
   StringRefinements,
 } from 'meta-core'
+import { buildObject } from 'technoidentity-utils'
 import {
   array,
   ArraySchema,

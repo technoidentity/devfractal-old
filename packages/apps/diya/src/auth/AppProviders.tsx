@@ -1,5 +1,5 @@
 import React from 'react'
-import { http as httpAPI } from 'stp-devfractal'
+import { http as httpAPI } from 'technoidentity-devfractal'
 import { AuthUserInfo } from '../common'
 import { baseURL } from '../config'
 import { LoginValues } from '../views'

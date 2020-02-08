@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrudRoutes } from 'stp-devfractal'
+import { CrudRoutes } from 'technoidentity-devfractal'
 import { geoFenceAPI } from '../common'
 import { GeoFenceForm, GeoFenceList } from '../views'
 

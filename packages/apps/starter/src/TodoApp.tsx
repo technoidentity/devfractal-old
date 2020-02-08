@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   All,
   Create,
@@ -14,9 +15,8 @@ import {
   Section,
   SimpleRedirect,
   Title,
-} from 'stp-devfractal'
-import { boolean, ISODate, number, obj, string } from 'stp-utils'
-import React from 'react'
+} from 'technoidentity-devfractal'
+import { boolean, ISODate, number, obj, string } from 'technoidentity-utils'
 
 const Todo = obj(
   { id: number },

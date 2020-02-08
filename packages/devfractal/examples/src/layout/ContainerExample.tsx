@@ -1,10 +1,10 @@
+import React from 'react'
 import {
   Container as ContainerComponent,
   Notification,
   Section,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const CenteredContainerExample: React.FC = () => (
   <Section>

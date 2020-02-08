@@ -1,4 +1,4 @@
-import { Router } from 'stp-router'
+import { Router } from 'technoidentity-router'
 import React from 'react'
 import { SiteHeader } from './IndexPage'
 import { MainRoute } from './MainRoute'

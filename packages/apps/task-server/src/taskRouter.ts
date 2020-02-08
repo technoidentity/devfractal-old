@@ -1,4 +1,3 @@
-import { req, string, toInt, TypeOf } from 'stp-utils'
 import { endOfToday, startOfToday } from 'date-fns'
 import express, { Response } from 'express'
 import {
@@ -6,6 +5,7 @@ import {
   INTERNAL_SERVER_ERROR,
   NO_CONTENT,
 } from 'http-status-codes'
+import { req, string, toInt, TypeOf } from 'technoidentity-utils'
 import { auth } from './auth'
 import { TaskModel } from './taskSchema'
 import { Request } from './types'

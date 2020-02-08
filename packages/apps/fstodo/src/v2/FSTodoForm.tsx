@@ -1,6 +1,6 @@
 // tslint:disable typedef
-import { formComponent, Simple } from 'stp-devfractal'
 import React from 'react'
+import { formComponent, Simple } from 'technoidentity-devfractal'
 import { FSTodo } from '../common'
 
 export const FSTodoForm = formComponent(FSTodo, ({ initial, onSubmit }) => (

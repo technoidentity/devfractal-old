@@ -1,6 +1,9 @@
-// import { maxLength, min, required } from 'stp-ui'
+// import { maxLength, min, required } from 'technoidentity-ui'
 
-import { typedForm } from 'stp-crud'
+import { addDays } from 'date-fns'
+import React from 'react'
+import 'react-datepicker/dist/react-datepicker.css'
+import { typedForm } from 'technoidentity-crud'
 import {
   after,
   before,
@@ -14,12 +17,9 @@ import {
   positive,
   required,
   uppercase,
-} from 'stp-ui'
-import { Radio, Section } from 'stp-ui'
-import { ISODate, keyof, TypeOf } from 'stp-utils'
-import { addDays } from 'date-fns'
-import React from 'react'
-import 'react-datepicker/dist/react-datepicker.css'
+} from 'technoidentity-ui'
+import { Radio, Section } from 'technoidentity-ui'
+import { ISODate, keyof, TypeOf } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 const Position = keyof({

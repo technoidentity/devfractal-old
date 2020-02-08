@@ -1,5 +1,5 @@
 import React from 'react'
-import { All, paths } from 'stp-devfractal'
+import { All, paths } from 'technoidentity-devfractal'
 import { invoiceAPI } from '../common'
 import { InvoiceList } from '../views'
 

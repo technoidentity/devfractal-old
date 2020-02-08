@@ -1,3 +1,5 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   AllControlHelpers,
   ButtonProps,
@@ -5,9 +7,7 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from 'stp-ui'
-import React from 'react'
-import { Link } from 'react-router-dom'
+} from 'technoidentity-ui'
 
 export interface ButtonLinkProps
   extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'defaultValue'>,

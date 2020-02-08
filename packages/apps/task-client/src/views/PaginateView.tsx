@@ -5,7 +5,7 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from 'stp-ui'
+} from 'technoidentity-ui'
 import React from 'react'
 
 export const PaginationView: React.FC = () => (

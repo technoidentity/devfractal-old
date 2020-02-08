@@ -1,5 +1,5 @@
-import { range } from 'stp-utils'
 import Chance from 'chance'
+import { range } from 'technoidentity-utils'
 
 const chance: Chance.Chance = new Chance()
 

@@ -1,3 +1,4 @@
+import Chance from 'chance'
 import {
   AnyArrayType,
   ArrayC,
@@ -26,9 +27,8 @@ import {
   UnionType,
   unknown,
   VoidType,
-} from 'stp-utils'
-import { buildObject, repeatedly } from 'stp-utils'
-import Chance from 'chance'
+} from 'technoidentity-utils'
+import { buildObject, repeatedly } from 'technoidentity-utils'
 
 // tslint:disable typedef no-use-before-declare
 

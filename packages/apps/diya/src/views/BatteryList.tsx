@@ -6,7 +6,7 @@ import {
   RoutedPager,
   Section,
   Title,
-} from 'stp-devfractal'
+} from 'technoidentity-devfractal'
 import { Battery } from '../common'
 import { DiyaTable } from '../components/DiyaTable'
 

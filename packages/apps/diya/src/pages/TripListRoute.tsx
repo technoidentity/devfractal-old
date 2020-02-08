@@ -1,5 +1,5 @@
 import React from 'react'
-import { All, paths } from 'stp-devfractal'
+import { All, paths } from 'technoidentity-devfractal'
 import { tripAPI } from '../common'
 import { TripList } from '../views'
 

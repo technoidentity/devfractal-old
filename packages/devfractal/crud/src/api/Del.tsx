@@ -1,5 +1,5 @@
-import { useDel } from 'stp-core'
 import React from 'react'
+import { useDel } from 'technoidentity-core'
 
 export interface DelProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

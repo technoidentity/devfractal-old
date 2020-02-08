@@ -1,12 +1,12 @@
+import axios from 'axios'
+import React from 'react'
 import {
   Card as DfCard,
   CardContent,
   CardImage,
   SubTitle,
   Title,
-} from 'stp-ui'
-import axios from 'axios'
-import React from 'react'
+} from 'technoidentity-ui'
 import { GithubUserInfo } from './types'
 
 export interface CardViewProps {

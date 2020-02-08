@@ -1,4 +1,4 @@
-import { fn, Mixed, number, obj, readonlyArray, req, TypeOf } from 'stp-utils'
+import { fn, Mixed, number, obj, readonlyArray, req, TypeOf } from 'technoidentity-utils'
 import { SubmitAction } from '../api'
 
 // tslint:disable typedef

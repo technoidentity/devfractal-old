@@ -1,5 +1,5 @@
-import { classNames } from 'stp-core'
 import React from 'react'
+import { classNames } from 'technoidentity-core'
 import { classNamesHelper } from '../base'
 import { AllControlHelpers, ControlDiv } from './controlDiv'
 import { ControlWrapper } from './ControlWrapper'

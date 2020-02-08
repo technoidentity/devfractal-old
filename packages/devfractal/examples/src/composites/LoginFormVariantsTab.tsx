@@ -1,7 +1,7 @@
-import { Route, SimpleRedirect } from 'stp-router'
-import { RoutedTabs, RoutedTabsItem } from 'stp-ui'
-import { Title } from 'stp-ui'
 import React from 'react'
+import { Route, SimpleRedirect } from 'technoidentity-router'
+import { RoutedTabs, RoutedTabsItem } from 'technoidentity-ui'
+import { Title } from 'technoidentity-ui'
 import {
   FieldsLoginForm,
   FormikLoginForm,

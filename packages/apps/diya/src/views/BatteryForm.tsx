@@ -12,7 +12,7 @@ import {
   Section,
   Simple,
   Title,
-} from 'stp-devfractal'
+} from 'technoidentity-devfractal'
 import { Battery } from '../common'
 import { HeadTitle } from '../components'
 

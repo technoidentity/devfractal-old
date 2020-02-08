@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Content,
   Image,
@@ -5,8 +6,7 @@ import {
   SubTitle,
   Tile as TileComponent,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const SimpleTilesExample: React.FC = () => (
   <Section>

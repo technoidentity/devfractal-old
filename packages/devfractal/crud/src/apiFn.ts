@@ -1,6 +1,6 @@
-import { Mixed, readonlyArray, ReadonlyArrayC, Type, TypeOf } from 'stp-utils'
-import { cast, toPromise } from 'stp-utils'
 import axios, { AxiosPromise } from 'axios'
+import { Mixed, readonlyArray, ReadonlyArrayC, Type, TypeOf } from 'technoidentity-utils'
+import { cast, toPromise } from 'technoidentity-utils'
 import { apiURLs, URLs } from './urls'
 
 // tslint:disable typedef

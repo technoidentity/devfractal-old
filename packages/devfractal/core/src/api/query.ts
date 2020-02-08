@@ -1,3 +1,4 @@
+import { stringify } from 'query-string'
 import {
   AnyObj,
   cast,
@@ -13,8 +14,7 @@ import {
   string,
   TypeOf,
   union,
-} from 'stp-utils'
-import { stringify } from 'query-string'
+} from 'technoidentity-utils'
 
 // tslint:disable typedef
 

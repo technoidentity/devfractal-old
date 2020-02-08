@@ -1,8 +1,8 @@
-import { Post } from 'stp-crud'
-import { Route } from 'stp-router'
-import { ObjC, Props, TypeOf } from 'stp-utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
+import { Post } from 'technoidentity-crud'
+import { Route } from 'technoidentity-router'
+import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 
 export interface FSCreateProps<

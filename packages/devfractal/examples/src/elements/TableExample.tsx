@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Section,
   Table as TableComponent,
@@ -8,8 +9,7 @@ import {
   Th,
   Title,
   Tr,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const BorderedTableExample: React.FC = () => (
   <Section>

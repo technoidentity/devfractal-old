@@ -6,7 +6,9 @@ import {
   MenuItem,
   Paper,
 } from '@material-ui/core'
-import { Simple } from 'stp-crud'
+import { Form, Formik, FormikProps } from 'formik'
+import React from 'react'
+import { Simple } from 'technoidentity-crud'
 import {
   CheckboxField,
   DateField,
@@ -14,10 +16,8 @@ import {
   RadioItem,
   SelectField,
   TextField,
-} from 'stp-mui'
-import { ErrorField } from 'stp-ui'
-import { Form, Formik, FormikProps } from 'formik'
-import React from 'react'
+} from 'technoidentity-mui'
+import { ErrorField } from 'technoidentity-ui'
 import { boolean, date, object, ObjectSchema, string } from 'yup'
 
 // @TODO: implement RadioField with formik integration

@@ -1,5 +1,5 @@
 export const PhotoForm: number = 100
-// import * as t from 'stp-utils'
+// import * as t from 'technoidentity-utils'
 // import React from 'react'
 // import {
 //   consoleSubmit,
@@ -10,7 +10,7 @@ export const PhotoForm: number = 100
 //   Title,
 //   typeInvariant,
 //   url,
-// } from 'stp-ui'
+// } from 'technoidentity-ui'
 
 // // tslint:disable typedef
 

@@ -1,6 +1,6 @@
-import { Simple } from 'stp-crud'
-import { Title } from 'stp-ui'
 import React from 'react'
+import { Simple } from 'technoidentity-crud'
+import { Title } from 'technoidentity-ui'
 import { Product } from './fakeData'
 
 export interface AddProductFormProps {

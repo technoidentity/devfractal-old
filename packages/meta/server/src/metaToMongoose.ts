@@ -1,6 +1,6 @@
-import { buildObject } from 'stp-utils'
 import { MT, PropertyMT } from 'meta-core'
 import { Document, model, Model, Schema, SchemaDefinition } from 'mongoose'
+import { buildObject } from 'technoidentity-utils'
 
 function mtToMongoSchema(meta: PropertyMT): any {
   switch (meta.kind) {

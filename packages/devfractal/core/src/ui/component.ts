@@ -1,7 +1,7 @@
-import * as t from 'stp-utils'
-import { AnyObj, assertCast, isObj } from 'stp-utils'
 import { getPropTypes, PropTypeable } from 'prop-types-ts'
 import React from 'react'
+import * as t from 'technoidentity-utils'
+import { AnyObj, assertCast, isObj } from 'technoidentity-utils'
 import { getDisplayName } from './getDisplayName'
 
 type Propable = PropTypeable | AnyObj

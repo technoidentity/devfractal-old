@@ -1,7 +1,7 @@
-import { Simple } from 'stp-crud'
-import { maxLength, minLength, required } from 'stp-ui'
-import { Section } from 'stp-ui'
 import React from 'react'
+import { Simple } from 'technoidentity-crud'
+import { maxLength, minLength, required } from 'technoidentity-ui'
+import { Section } from 'technoidentity-ui'
 import { initialLoginValues } from './common'
 
 export const SimpleLoginForm: React.FC = () => (

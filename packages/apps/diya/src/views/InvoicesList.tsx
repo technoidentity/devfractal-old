@@ -4,7 +4,7 @@ import {
   RoutedPager,
   Section,
   SimpleTable,
-} from 'stp-devfractal'
+} from 'technoidentity-devfractal'
 import { Invoice } from '../common'
 import { HeadTitle } from '../components'
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Box as BoxComponent,
   Content,
@@ -6,8 +7,7 @@ import {
   MediaContent,
   MediaLeft,
   Section,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const Box: React.FC = () => (
   <Section>

@@ -1,4 +1,4 @@
-import { dynamicRouter } from 'stp-ui'
+import { dynamicRouter } from 'technoidentity-ui'
 import {
   columns,
   elements,

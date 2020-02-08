@@ -1,4 +1,5 @@
-import { Control } from 'stp-ui'
+import React from 'react'
+import { Control } from 'technoidentity-ui'
 import {
   Box,
   Delete,
@@ -8,8 +9,7 @@ import {
   Tags,
   Text,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const BasicTagExample: React.FC = () => (
   <Section>

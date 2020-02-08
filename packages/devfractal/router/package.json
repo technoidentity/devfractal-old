@@ -1,5 +1,5 @@
 {
-  "name": "stp-router",
+  "name": "technoidentity-router",
   "version": "1.2.20",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -37,7 +37,7 @@
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "stp-utils": "^1.2.20",
+    "technoidentity-utils": "^1.2.20",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
     "typescript": "3.7.5"
@@ -45,7 +45,7 @@
   "peerDependencies": {
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "stp-utils": "1.2.19"
+    "technoidentity-utils": "1.2.19"
   },
   "gitHead": "2c409d4ca6c890ca54339a2526821f6a1095d9cf"
 }

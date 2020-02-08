@@ -13,7 +13,7 @@ import {
   Section,
   Simple,
   Title,
-} from 'stp-devfractal'
+} from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
 

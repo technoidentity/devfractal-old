@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Button,
   Field,
@@ -8,8 +9,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'stp-ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const LevelLeftExample: React.FC = () => (
   <Section>

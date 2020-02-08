@@ -7,8 +7,8 @@ import {
   formProps,
   Section,
   Simple,
-} from 'stp-devfractal'
-import { empty } from 'stp-utils'
+} from 'technoidentity-devfractal'
+import { empty } from 'technoidentity-utils'
 import { AssignVehicle, assignVehicleAPI } from '../common'
 import { HeadTitle } from '../components'
 
