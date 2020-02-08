@@ -1,5 +1,5 @@
-import { Simple } from '@stp/simple'
-import { Field, Label } from '@stp/ui-core'
+import { Simple } from '@stp/crud'
+import { Field, Label } from '@stp/ui'
 import { camelCaseToPhrase } from '@stp/utils'
 import { FormikHelpers } from 'formik'
 import { EnumMT, Mixed, MT, PrimitiveMT } from 'meta-core'

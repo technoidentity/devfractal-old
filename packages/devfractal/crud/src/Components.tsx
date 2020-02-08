@@ -1,10 +1,40 @@
-import { formikSubmit } from '@stp/forms'
 import { Mixed, TypeOf } from '@stp/utils'
+import { FormikHelpers } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { APIRepository, Repository } from './api'
+import { APIRepository, Repository } from './apiFn'
 import { links as links_, paths as paths_ } from './new'
 import { CrudViewsResult, Views } from './Views'
+
+type APISubmitResult<Values extends {}, Result extends Values = Values> = (
+  values: Values,
+  actions: FormikHelpers<Values>,
+) => Promise<Result>
+
+function formikSubmit<Values, Result extends Values>(
+  asyncFn: (values: Values) => Promise<Result>,
+  resetOnSubmit: boolean = true,
+): APISubmitResult<Values, Result> {
+  return async (values, { setValues, setErrors, setSubmitting, resetForm }) => {
+    try {
+      const response: Result = await asyncFn(values)
+
+      setValues(response)
+      setSubmitting(false)
+
+      if (resetOnSubmit) {
+        resetForm()
+      }
+
+      return response
+    } catch (errors) {
+      setErrors(errors)
+      setSubmitting(false)
+      throw errors
+    }
+  }
+}
+
 interface ComponentsArgsBase<
   RT extends Mixed,
   ID extends keyof TypeOf<RT>,

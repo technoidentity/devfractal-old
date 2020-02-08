@@ -1,4 +1,4 @@
-import { API, APIQuery } from '@stp/api'
+import { API, APIQuery } from '@stp/core'
 import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
 import { All, AllComponentProps } from './All'

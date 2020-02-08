@@ -6,7 +6,7 @@ import {
   MediaContent,
   MediaLeft,
   Section,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 export const Box: React.FC = () => (

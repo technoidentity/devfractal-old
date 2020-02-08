@@ -1,5 +1,6 @@
-// import { maxLength, min, required } from '@stp/forms'
+// import { maxLength, min, required } from '@stp/ui'
 
+import { typedForm } from '@stp/crud'
 import {
   after,
   before,
@@ -13,9 +14,8 @@ import {
   positive,
   required,
   uppercase,
-} from '@stp/forms'
-import { typedForm } from '@stp/simple'
-import { Radio, Section } from '@stp/ui-core'
+} from '@stp/ui'
+import { Radio, Section } from '@stp/ui'
 import { ISODate, keyof, TypeOf } from '@stp/utils'
 import { addDays } from 'date-fns'
 import React from 'react'

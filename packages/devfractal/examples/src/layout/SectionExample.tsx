@@ -3,7 +3,7 @@ import {
   Section as SectionComponent,
   SubTitle,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 const LargeSectionExample: React.FC = () => (

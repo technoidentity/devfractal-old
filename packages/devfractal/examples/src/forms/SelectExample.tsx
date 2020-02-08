@@ -1,11 +1,5 @@
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
-import {
-  Field,
-  Section,
-  Select as SelectComponent,
-  Text,
-  Title,
-} from '@stp/ui-core'
+import { Field, Section, Select as SelectComponent, Text, Title } from '@stp/ui'
 import React from 'react'
 
 const DynamicSelectExample: React.FC = () => {

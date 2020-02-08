@@ -1,9 +1,9 @@
-import { API } from '@stp/api'
+import { API } from '@stp/core'
 import { Route } from '@stp/router'
-import { Post } from '@stp/ui-api'
 import { ObjC, Props, TypeOf } from '@stp/utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
+import { Post } from '../api'
 
 // tslint:disable no-unbound-method
 

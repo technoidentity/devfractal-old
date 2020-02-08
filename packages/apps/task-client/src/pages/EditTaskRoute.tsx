@@ -1,6 +1,6 @@
 import { useParams } from '@stp/router'
-import { Put } from '@stp/ui-api'
-import { Section, Title } from '@stp/ui-core'
+import { Put } from '@stp/crud'
+import { Section, Title } from '@stp/ui'
 import React from 'react'
 import { string } from '@stp/utils'
 import { req } from '@stp/utils'

@@ -29,7 +29,7 @@
     "meta-core": "1.2.19",
     "meta-server": "1.2.19",
     "mongodb": "3.5.2",
-    "mongoose": "5.8.10",
+    "mongoose": "5.8.11",
     "mongoose-paginate": "5.0.3",
     "mongoose-unique-validator": "2.0.3",
     "tcomb": "3.2.29",
@@ -41,7 +41,6 @@
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "prettier": "1.19.1",
-    "rimraf": "3.0.1",
     "source-map-loader": "0.2.4",
     "tslint": "6.0.0",
     "typescript": "3.7.5"

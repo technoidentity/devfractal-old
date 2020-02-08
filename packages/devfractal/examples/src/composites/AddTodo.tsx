@@ -1,5 +1,5 @@
-import { Simple } from '@stp/simple'
-import { Section } from '@stp/ui-core'
+import { Simple } from '@stp/crud'
+import { Section } from '@stp/ui'
 import React from 'react'
 import { boolean, object, ObjectSchema, string } from 'yup'
 

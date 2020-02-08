@@ -1,5 +1,5 @@
-import { CheckboxField, SelectField } from '@stp/forms'
-import { Simple } from '@stp/simple'
+import { Simple } from '@stp/crud'
+import { CheckboxField, SelectField } from '@stp/ui'
 import {
   Button,
   Column,
@@ -9,7 +9,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import { Form, Formik } from 'formik'
 import React from 'react'
 

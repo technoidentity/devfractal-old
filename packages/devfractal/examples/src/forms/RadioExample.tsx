@@ -8,7 +8,7 @@ import {
   RadioGroup,
   Section,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 const DynamicRadioExample: React.FC = () => {

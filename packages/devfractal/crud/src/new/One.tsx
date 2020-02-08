@@ -1,8 +1,8 @@
-import { API } from '@stp/api'
+import { API } from '@stp/core'
 import { Route } from '@stp/router'
-import { Get } from '@stp/ui-api'
 import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
+import { Get } from '../api'
 
 export interface OneComponentProps<T> {
   readonly data: T

@@ -21,20 +21,19 @@
   },
   "dependencies": {
     "date-fns": "2.9.0",
-    "immer": "5.3.2",
+    "immer": "5.3.4",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-use": "13.22.3",
+    "react-use": "13.24.0",
     "@stp/devfractal": "1.2.19",
     "@stp/utils": "1.2.19"
   },
   "devDependencies": {
-    "@babel/core": "7.8.3",
+    "@babel/core": "7.8.4",
     "cross-env": "7.0.0",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "prettier": "1.19.1",
-    "rimraf": "3.0.1",
     "tslint": "6.0.0",
     "typescript": "3.7.5"
   },

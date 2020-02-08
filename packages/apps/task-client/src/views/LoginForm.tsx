@@ -1,9 +1,9 @@
-import { Simple } from '@stp/simple'
-import { Column, Columns, component, Section } from '@stp/ui-core'
+import { component } from '@stp/core'
+import { Simple } from '@stp/crud'
+import { Column, Columns, Section } from '@stp/ui'
+import { empty, fn, req, string, TypeOf } from '@stp/utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { string, TypeOf } from '@stp/utils'
-import { empty, fn, req } from '@stp/utils'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({

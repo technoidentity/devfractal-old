@@ -1,3 +1,4 @@
+import { Simple } from '@stp/crud'
 import {
   CheckboxField,
   DateField,
@@ -6,9 +7,8 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from '@stp/forms'
-import { Simple } from '@stp/simple'
-import { Button, Container, Field, Label, Radio, Section } from '@stp/ui-core'
+} from '@stp/ui'
+import { Button, Container, Field, Label, Radio, Section } from '@stp/ui'
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { array, boolean, date, object, ObjectSchema, string } from 'yup'

@@ -7,15 +7,10 @@
   },
   "references": [
     { "path": "../../common/utils" },
-    { "path": "../ui-core" },
-    { "path": "../api" },
-    { "path": "../forms" },
-    { "path": "../forms" },
+    { "path": "../core" },
+    { "path": "../crud" },
     { "path": "../mui" },
     { "path": "../router" },
-    { "path": "../ui-api" },
-    { "path": "../ui" },
-    { "path": "../simple" },
-    { "path": "../crud" }
+    { "path": "../ui" }
   ]
 }

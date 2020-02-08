@@ -1,0 +1,58 @@
+{
+  "name": "@stp/core",
+  "version": "1.2.19",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "elint:fix": "yarn elint --quiet --fix",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "watch": "tsdx watch --tsconfig tsconfig.build.json",
+    "lint:fix": "yarn elint:fix && yarn tlint:fix",
+    "lint": "yarn elint && yarn tlint",
+    "sg:build": "styleguidist build",
+    "sg": "styleguidist server",
+    "start": "parcel index.html --open",
+    "test:watch": "yarn test --watch",
+    "test": "jest --passWithNoTests",
+    "tlint:fix": "yarn lint --fix",
+    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
+    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "types": "tsc --noEmit -p .",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
+    "validate": "yarn lint:fix && yarn types && yarn test"
+  },
+  "dependencies": {
+    "@stp/dev-utils": "1.2.19",
+    "axios": "0.19.2",
+    "immer": "5.3.4",
+    "io-ts-promise": "2.0.2",
+    "prop-types-ts": "0.7.4",
+    "query-string": "6.10.1",
+    "react-is": "16.12.0",
+    "tslib": "1.10.0"
+  },
+  "devDependencies": {
+    "@stp/router": "1.2.19",
+    "@stp/utils": "1.2.19",
+    "@types/react-is": "16.7.1",
+    "cross-env": "7.0.0",
+    "eslint": "6.8.0",
+    "formik": "2.1.4",
+    "jest": "25.1.0",
+    "parcel-bundler": "1.12.4",
+    "prettier": "1.19.1",
+    "tsdx": "0.12.3",
+    "tslint": "6.0.0",
+    "typescript": "3.7.5",
+    "yup": "0.28.1"
+  },
+  "peerDependencies": {
+    "@stp/router": "1.2.19",
+    "@stp/utils": "1.2.19",
+    "formik": "2.1.4"
+  }
+}

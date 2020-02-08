@@ -1,0 +1,14 @@
+{
+  "extends": "../../../tsconfig.client.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "jsx": "react"
+  },
+  "references": [
+    { "path": "../../common/utils" },
+    { "path": "../core" },
+    { "path": "../crud" },
+    { "path": "../router" }
+  ]
+}

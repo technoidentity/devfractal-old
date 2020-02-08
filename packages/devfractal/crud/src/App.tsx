@@ -1,9 +1,7 @@
-import { rest } from '@stp/api'
+import { rest } from '@stp/core'
 import { Router, SimpleRedirect } from '@stp/router'
-import { Simple } from '@stp/simple'
-import { Section } from '@stp/ui-core'
-import { boolean, number, string } from '@stp/utils'
-import { obj } from '@stp/utils'
+import { Section } from '@stp/ui'
+import { boolean, number, obj, string } from '@stp/utils'
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
@@ -15,6 +13,7 @@ import {
   links,
   listComponent,
 } from './new'
+import { Simple } from './simple'
 
 // tslint:disable typedef
 

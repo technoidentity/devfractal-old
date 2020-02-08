@@ -2,7 +2,7 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { ButtonLink } from '@stp/crud'
 import { Link } from '@stp/devfractal'
 import { Icon } from '@stp/devfractal'
-import { SimpleTable, SimpleTableProps } from '@stp/simple'
+import { SimpleTable, SimpleTableProps } from '@stp/crud'
 import React from 'react'
 
 export interface DiyaActionsProps {

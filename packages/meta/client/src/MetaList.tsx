@@ -1,5 +1,5 @@
-import { SimpleTable } from '@stp/simple'
-import { Container, Title } from '@stp/ui-core'
+import { SimpleTable } from '@stp/crud'
+import { Container, Title } from '@stp/ui'
 import { MT } from 'meta-core'
 import React from 'react'
 

@@ -32,7 +32,7 @@ export const TodoRoutes: React.FC = () => {
 }
 
 // import React from 'react'
-// import { api, Crud, Section, SimpleRedirect } from '@stp/ui-core'
+// import { api, Crud, Section, SimpleRedirect } from '@stp/ui'
 // import { TodoRT } from './types'
 
 // const resource: string = 'todos'

@@ -1,7 +1,7 @@
 import { Route, Switch } from '@stp/router'
 import { Mixed, TypeOf } from '@stp/utils'
 import React from 'react'
-import { APIRepository } from './api'
+import { APIRepository } from './apiFn'
 import { components as comps, ComponentsResult } from './Components'
 import { paths as ps } from './new'
 

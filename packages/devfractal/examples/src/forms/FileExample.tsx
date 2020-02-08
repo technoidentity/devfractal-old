@@ -1,4 +1,4 @@
-import { Box, Field, File as FileComponent, Section, Title } from '@stp/ui-core'
+import { Box, Field, File as FileComponent, Section, Title } from '@stp/ui'
 import React from 'react'
 
 const BasicFileExample: React.FC = () => (

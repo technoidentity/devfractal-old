@@ -1,13 +1,4 @@
-import {
-  Button,
-  Table,
-  TableBody,
-  TableHead,
-  Td,
-  Th,
-  Title,
-  Tr,
-} from '@stp/ui-core'
+import { Button, Table, TableBody, TableHead, Td, Th, Title, Tr } from '@stp/ui'
 import React from 'react'
 
 export interface Product {

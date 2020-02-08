@@ -1,10 +1,9 @@
-import { RowClickEvent, SimpleTable } from '@stp/simple'
-import { Button, Container, Field } from '@stp/ui-core'
-import { Mixed, TypeOf } from '@stp/utils'
-import { empty } from '@stp/utils'
+import { Button, Container, Field } from '@stp/ui'
+import { empty, Mixed, TypeOf } from '@stp/utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { Editor } from './Editor'
+import { RowClickEvent, SimpleTable } from './simple'
 import { Viewer } from './Viewer'
 
 interface EditProps<T extends Record<string, any>> {

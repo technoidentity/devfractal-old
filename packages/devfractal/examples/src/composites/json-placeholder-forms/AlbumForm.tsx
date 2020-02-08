@@ -9,7 +9,7 @@ export const AlbumForm: number = 100
 //   Simple,
 //   Title,
 //   typeInvariant,
-// } from '@stp/ui-core'
+// } from '@stp/ui'
 
 // // tslint:disable typedef
 

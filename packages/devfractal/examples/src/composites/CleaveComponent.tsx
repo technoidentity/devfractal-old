@@ -1,4 +1,4 @@
-import { Section } from '@stp/ui-core'
+import { Section } from '@stp/ui'
 import Cleave from 'cleave.js/react'
 import React from 'react'
 

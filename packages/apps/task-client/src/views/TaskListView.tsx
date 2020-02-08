@@ -1,8 +1,6 @@
-import { format } from 'date-fns'
 import { Link } from '@stp/router'
 import {
   ButtonsGroup,
-  component,
   Field,
   Section,
   Table,
@@ -12,9 +10,11 @@ import {
   Th,
   Title,
   Tr,
-} from '@stp/ui-core'
-import React from 'react'
+} from '@stp/ui'
+import { component } from '@stp/core'
 import { readonlyArray, req } from '@stp/utils'
+import { format } from 'date-fns'
+import React from 'react'
 import { Task } from '../common'
 import { PaginationView } from './PaginateView'
 

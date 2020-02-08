@@ -1,4 +1,4 @@
-import { Box, Section, Text, Title } from '@stp/ui-core'
+import { Box, Section, Text, Title } from '@stp/ui'
 import React from 'react'
 
 const TextColorExample: React.FC = () => (

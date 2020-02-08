@@ -1,4 +1,4 @@
-import { Content, Footer as FooterComponent, Section } from '@stp/ui-core'
+import { Content, Footer as FooterComponent, Section } from '@stp/ui'
 import React from 'react'
 
 export const Footer: React.FC = () => (

@@ -12,8 +12,6 @@
     "watch": "tsdx watch --tsconfig tsconfig.build.json",
     "lint:fix": "yarn elint:fix && yarn tlint:fix",
     "lint": "yarn elint && yarn tlint",
-    "sg:build": "styleguidist build",
-    "sg": "styleguidist server",
     "start": "parcel index.html --open",
     "test:watch": "yarn test --watch",
     "test": "jest --passWithNoTests",
@@ -26,39 +24,35 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.26",
-    "@fortawesome/free-brands-svg-icons": "5.12.0",
-    "@fortawesome/free-regular-svg-icons": "5.12.0",
-    "@fortawesome/free-solid-svg-icons": "5.12.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.27",
+    "@fortawesome/free-brands-svg-icons": "5.12.1",
+    "@fortawesome/free-regular-svg-icons": "5.12.1",
+    "@fortawesome/free-solid-svg-icons": "5.12.1",
     "@fortawesome/react-fontawesome": "0.1.8",
-    "@material-ui/core": "^4.9.1",
+    "@material-ui/core": "4.9.1",
+    "@material-ui/pickers": "3.2.10",
     "date-fns": "2.9.0",
+    "react-dom": "16.12.0",
+    "react": "16.12.0",
+    "tcomb": "3.2.29",
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "@stp/api": "1.2.19",
     "@stp/crud": "1.2.19",
-    "@stp/forms": "1.2.19",
+    "@stp/ui": "1.2.19",
     "@stp/mui": "1.2.19",
     "@stp/router": "1.2.19",
-    "@stp/simple": "1.2.19",
-    "@stp/ui": "1.2.19",
-    "@stp/ui-api": "1.2.19",
-    "@stp/ui-core": "1.2.19",
     "@stp/utils": "1.2.19",
     "cross-env": "7.0.0",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react-styleguidist": "10.6.1",
-    "rimraf": "3.0.1",
     "tsdx": "0.12.3",
     "typescript": "3.7.5"
   },
   "peerDependencies": {
     "@stp/crud": "1.2.19",
     "@stp/mui": "1.2.19"
-  },
-  "gitHead": "c904aa8f531b4c7b986520b5583f9c0e13a28aa8"
+  }
 }

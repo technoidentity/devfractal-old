@@ -9,7 +9,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 const DynamicInputExample: React.FC = () => {

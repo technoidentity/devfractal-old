@@ -9,7 +9,7 @@ import {
   Tag,
   Tags,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 const DynamicDeleteExample: React.FC = () => {

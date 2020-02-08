@@ -16,7 +16,7 @@ import {
   Section,
   TextArea,
   Title,
-} from '@stp/ui-core'
+} from '@stp/ui'
 import React from 'react'
 
 const SimpleMediaObjectExample: React.FC = () => (

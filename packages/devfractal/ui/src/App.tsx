@@ -9,10 +9,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import { Route, Router } from '@stp/router'
-import { Icon, Section } from '@stp/ui-core'
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
+import { Icon, Section } from './core'
 import { Menu, MenuItem, MenuList } from './routed'
 
 const MenuComponent: React.FC = () => (
