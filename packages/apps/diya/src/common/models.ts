@@ -1,5 +1,5 @@
-import { enumerate, Int, number, obj, req, string, TypeOf } from '@stp/utils'
-import { ISODate } from '@stp/utils'
+import { enumerate, Int, number, obj, req, string, TypeOf } from 'stp-utils'
+import { ISODate } from 'stp-utils'
 
 const Shift = enumerate('morning', 'evening')
 const Status = enumerate('active', 'inactive')

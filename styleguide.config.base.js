@@ -37,6 +37,6 @@ module.exports = {
   components: './src/**/[A-Z]*.tsx',
   exampleMode: 'expand',
   pagePerSection: true,
-  title: '@stp/core Style Guide',
+  title: 'stp-core Style Guide',
   ignore: ['./src/App.tsx', './src/**/*.test.tsx', './src/**/*.test.ts'],
 }

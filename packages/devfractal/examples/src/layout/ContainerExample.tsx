@@ -3,7 +3,7 @@ import {
   Notification,
   Section,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 const CenteredContainerExample: React.FC = () => (

@@ -1,4 +1,4 @@
-import { Route, Router } from '@stp/router'
+import { Route, Router } from 'stp-router'
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
 import { MenuExample } from './MenuExample'

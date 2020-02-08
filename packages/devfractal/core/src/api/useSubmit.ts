@@ -1,4 +1,4 @@
-import { useHistory } from '@stp/router'
+import { useHistory } from 'stp-router'
 import { FormikHelpers } from 'formik'
 import { History } from 'history'
 import React from 'react'

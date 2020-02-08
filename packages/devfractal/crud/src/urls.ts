@@ -1,5 +1,5 @@
-import { Int, string, TypeOf, union } from '@stp/utils'
-import { cast, chop, verify } from '@stp/utils'
+import { Int, string, TypeOf, union } from 'stp-utils'
+import { cast, chop, verify } from 'stp-utils'
 
 // tslint:disable-next-line: typedef
 const idRT = union([Int, string])

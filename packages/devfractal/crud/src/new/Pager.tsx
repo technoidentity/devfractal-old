@@ -1,4 +1,4 @@
-import { Pagination, PaginationNext, PaginationPrevious } from '@stp/ui'
+import { Pagination, PaginationNext, PaginationPrevious } from 'stp-ui'
 import React from 'react'
 
 export interface PagerProps {

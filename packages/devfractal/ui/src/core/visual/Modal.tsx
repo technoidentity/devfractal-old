@@ -1,4 +1,4 @@
-import { classNames, Null } from '@stp/core'
+import { classNames, Null } from 'stp-core'
 import React from 'react'
 import { classNamesHelper, El, Helpers } from '../base'
 

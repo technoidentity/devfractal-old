@@ -1,5 +1,5 @@
-import { API, APIQuery, Page } from '@stp/core'
-import { Route, useHistory, useLocation } from '@stp/router'
+import { API, APIQuery, Page } from 'stp-core'
+import { Route, useHistory, useLocation } from 'stp-router'
 import {
   cast,
   IntFromString,
@@ -9,7 +9,7 @@ import {
   record,
   string,
   TypeOf,
-} from '@stp/utils'
+} from 'stp-utils'
 import { parse, stringify } from 'query-string'
 import React from 'react'
 import { Get } from '../api'

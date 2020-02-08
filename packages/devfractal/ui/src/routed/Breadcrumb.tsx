@@ -1,5 +1,5 @@
-import { NavLink, useLocation } from '@stp/router'
-import { chop } from '@stp/utils'
+import { NavLink, useLocation } from 'stp-router'
+import { chop } from 'stp-utils'
 import React from 'react'
 import { classNamesHelper, El, Helpers } from '../core'
 

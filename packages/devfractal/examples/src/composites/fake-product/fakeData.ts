@@ -1,4 +1,4 @@
-import { range } from '@stp/utils'
+import { range } from 'stp-utils'
 import Chance from 'chance'
 
 const chance: Chance.Chance = new Chance()

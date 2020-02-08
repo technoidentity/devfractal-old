@@ -5,7 +5,7 @@ import {
   Notification,
   Section,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 export const Options: React.FC = () => (

@@ -6,7 +6,7 @@ import {
   string,
   type,
   TypeOf,
-} from '@stp/utils'
+} from 'stp-utils'
 
 // tslint:disable typedef
 export const TodoRT = readonly(

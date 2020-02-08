@@ -1,5 +1,5 @@
 // tslint:disable typedef
-import { Get, Simple, Text } from '@stp/devfractal'
+import { Get, Simple, Text } from 'stp-devfractal'
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { FSTodo, fsTodoAPI } from '../common'

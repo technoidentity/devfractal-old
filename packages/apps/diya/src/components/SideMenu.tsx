@@ -20,8 +20,8 @@ import {
   NavbarBurger,
   NavbarBurgerProps,
   Section,
-} from '@stp/devfractal'
-import { fn, keyof, req, TypeOf } from '@stp/utils'
+} from 'stp-devfractal'
+import { fn, keyof, req, TypeOf } from 'stp-utils'
 import diyaLogo from '../images/diyaLogo.png'
 import { MenuBurger } from './MenuBurger'
 

@@ -1,4 +1,4 @@
-import { Button, CheckBox, Td, Tr } from '@stp/devfractal'
+import { Button, CheckBox, Td, Tr } from 'stp-devfractal'
 import React from 'react'
 import { FSTodo } from '../common'
 

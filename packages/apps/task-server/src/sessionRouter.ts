@@ -1,4 +1,4 @@
-import { boolean, req, string, TypeOf } from '@stp/utils'
+import { boolean, req, string, TypeOf } from 'stp-utils'
 import express, { Response } from 'express'
 import {
   BAD_REQUEST,

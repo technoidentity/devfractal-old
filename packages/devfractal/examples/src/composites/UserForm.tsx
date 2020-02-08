@@ -1,4 +1,4 @@
-import { Simple } from '@stp/crud'
+import { Simple } from 'stp-crud'
 import React from 'react'
 import { number, object, ObjectSchema, string } from 'yup'
 

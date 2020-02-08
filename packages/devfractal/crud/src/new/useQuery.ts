@@ -1,5 +1,5 @@
-import { useLocation } from '@stp/router'
-import { cast, ObjC, Props, record, string, TypeOf } from '@stp/utils'
+import { useLocation } from 'stp-router'
+import { cast, ObjC, Props, record, string, TypeOf } from 'stp-utils'
 import { parse } from 'query-string'
 
 export function useQuery<Opt extends Props, Req extends Props>(

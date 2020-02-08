@@ -1,4 +1,4 @@
-import { Image as ImageComponent, Section, Title } from '@stp/ui'
+import { Image as ImageComponent, Section, Title } from 'stp-ui'
 import React from 'react'
 
 const BasicImageExample: React.FC = () => (

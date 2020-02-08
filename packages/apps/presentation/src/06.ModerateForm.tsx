@@ -7,7 +7,7 @@ import {
   Field as FieldGroup,
   InputField,
   Label,
-} from '@stp/devfractal'
+} from 'stp-devfractal'
 import yup from 'yup'
 
 interface LoginValues {

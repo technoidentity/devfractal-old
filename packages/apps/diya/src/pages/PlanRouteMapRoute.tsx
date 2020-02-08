@@ -1,5 +1,5 @@
 import React from 'react'
-import { All, paths } from '@stp/devfractal'
+import { All, paths } from 'stp-devfractal'
 import { planRouteAPI } from '../common'
 import { PlanRouteList } from '../views'
 

@@ -14,7 +14,7 @@ import {
   isUnion,
   repeatedly,
   verify,
-} from '@stp/utils'
+} from 'stp-utils'
 import Chance from 'chance'
 import t, { Any, Constructor, Irreducible } from 'tcomb'
 import { defaultOptions, FakeOptions } from './fake'

@@ -1,4 +1,4 @@
-import { Button, Td, Tr } from '@stp/ui'
+import { Button, Td, Tr } from 'stp-ui'
 import React from 'react'
 import { Product } from './fakeData'
 

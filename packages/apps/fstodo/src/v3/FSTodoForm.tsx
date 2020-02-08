@@ -1,5 +1,5 @@
 // tslint:disable typedef
-import { formComponent, Simple } from '@stp/devfractal'
+import { formComponent, Simple } from 'stp-devfractal'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import { FSTodo } from '../common'

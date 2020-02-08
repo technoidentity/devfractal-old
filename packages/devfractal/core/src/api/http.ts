@@ -10,7 +10,7 @@ import {
   string,
   TypeOf,
   verify,
-} from '@stp/utils'
+} from 'stp-utils'
 import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'

@@ -1,5 +1,5 @@
-import { string, TypeOf } from '@stp/utils'
-import { req } from '@stp/utils'
+import { string, TypeOf } from 'stp-utils'
+import { req } from 'stp-utils'
 import { Document, model, Schema } from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 

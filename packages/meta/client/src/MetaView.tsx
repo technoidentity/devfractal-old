@@ -1,5 +1,5 @@
-import { Viewer } from '@stp/crud'
-import { Box, Label } from '@stp/ui'
+import { Viewer } from 'stp-crud'
+import { Box, Label } from 'stp-ui'
 import { MT } from 'meta-core'
 import React from 'react'
 

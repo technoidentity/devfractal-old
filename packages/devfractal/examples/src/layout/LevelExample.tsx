@@ -8,7 +8,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 const LevelLeftExample: React.FC = () => (

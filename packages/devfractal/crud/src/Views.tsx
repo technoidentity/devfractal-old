@@ -1,5 +1,5 @@
-import { Button, Container, Field } from '@stp/ui'
-import { empty, Mixed, TypeOf } from '@stp/utils'
+import { Button, Container, Field } from 'stp-ui'
+import { empty, Mixed, TypeOf } from 'stp-utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { Editor } from './Editor'

@@ -1,4 +1,4 @@
-import { useDel } from '@stp/core'
+import { useDel } from 'stp-core'
 import React from 'react'
 
 export interface DelProps

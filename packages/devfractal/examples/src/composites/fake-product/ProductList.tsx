@@ -1,4 +1,4 @@
-import { Table, TableBody, TableHead, Th, Tr } from '@stp/ui'
+import { Table, TableBody, TableHead, Th, Tr } from 'stp-ui'
 import React from 'react'
 import { Product } from './fakeData'
 import { ProductItem } from './ProductItem'

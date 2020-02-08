@@ -1,4 +1,4 @@
-import { range } from '@stp/utils'
+import { range } from 'stp-utils'
 import Chance from 'chance'
 import tcomb, { assert } from 'tcomb'
 import { Todo, TodoList } from './types'

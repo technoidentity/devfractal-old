@@ -1,5 +1,5 @@
-import * as t from '@stp/utils'
-import { cast, keys } from '@stp/utils'
+import * as t from 'stp-utils'
+import { cast, keys } from 'stp-utils'
 import React from 'react'
 
 // tslint:disable typedef

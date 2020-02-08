@@ -10,8 +10,8 @@ import {
   SelectField,
   SwitchField,
   TextField,
-} from '@stp/mui'
-import { jsonStringify } from '@stp/utils'
+} from 'stp-mui'
+import { jsonStringify } from 'stp-utils'
 import { Formik, FormikConsumer, FormikProps } from 'formik'
 import React from 'react'
 

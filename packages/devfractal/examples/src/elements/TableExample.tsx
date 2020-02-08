@@ -8,7 +8,7 @@ import {
   Th,
   Title,
   Tr,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 const BorderedTableExample: React.FC = () => (

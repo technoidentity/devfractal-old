@@ -1,4 +1,4 @@
-import { debug } from '@stp/utils'
+import { debug } from 'stp-utils'
 import React from 'react'
 
 export interface ValueChangeEvent<Value> {

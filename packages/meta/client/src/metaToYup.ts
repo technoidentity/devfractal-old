@@ -1,4 +1,4 @@
-import { buildObject } from '@stp/utils'
+import { buildObject } from 'stp-utils'
 import {
   ArrayMT,
   ArrayRefinements,

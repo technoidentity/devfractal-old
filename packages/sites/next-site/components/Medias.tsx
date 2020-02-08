@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Media, MediaContent, MediaLeft, Text } from '@stp/ui'
+import { Container, Media, MediaContent, MediaLeft, Text } from 'stp-ui'
 
 export const FormMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>

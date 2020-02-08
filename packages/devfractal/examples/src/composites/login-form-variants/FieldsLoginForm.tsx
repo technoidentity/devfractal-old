@@ -1,5 +1,5 @@
-import { ErrorField, InputField } from '@stp/ui'
-import { Button, Container, Field as FieldGroup, Label } from '@stp/ui'
+import { ErrorField, InputField } from 'stp-ui'
+import { Button, Container, Field as FieldGroup, Label } from 'stp-ui'
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { initialLoginValues, loginSchema, LoginValues } from './common'

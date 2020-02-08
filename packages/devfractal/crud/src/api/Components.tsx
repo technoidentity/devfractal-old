@@ -1,4 +1,4 @@
-import { useLocation } from '@stp/router'
+import { useLocation } from 'stp-router'
 import React from 'react'
 
 // @TODO: need a spinner

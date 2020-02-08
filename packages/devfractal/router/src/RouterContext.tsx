@@ -1,4 +1,4 @@
-import { verify } from '@stp/utils'
+import { verify } from 'stp-utils'
 import React from 'react'
 import { RouteChildrenProps } from 'react-router'
 

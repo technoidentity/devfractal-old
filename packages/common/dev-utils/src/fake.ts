@@ -26,8 +26,8 @@ import {
   UnionType,
   unknown,
   VoidType,
-} from '@stp/utils'
-import { buildObject, repeatedly } from '@stp/utils'
+} from 'stp-utils'
+import { buildObject, repeatedly } from 'stp-utils'
 import Chance from 'chance'
 
 // tslint:disable typedef no-use-before-declare

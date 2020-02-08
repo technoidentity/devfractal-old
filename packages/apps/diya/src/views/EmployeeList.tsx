@@ -6,7 +6,7 @@ import {
   listComponent,
   RoutedPager,
   Section,
-} from '@stp/devfractal'
+} from 'stp-devfractal'
 import { Employee } from '../common'
 import { HeadTitle } from '../components'
 

@@ -1,4 +1,4 @@
-import { Section } from '@stp/ui'
+import { Section } from 'stp-ui'
 import React from 'react'
 import { Card } from './Card'
 import { SearchForm } from './SearchForm'

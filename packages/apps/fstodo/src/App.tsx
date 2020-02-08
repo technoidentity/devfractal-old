@@ -1,4 +1,4 @@
-import { Router, SimpleRedirect } from '@stp/devfractal'
+import { Router, SimpleRedirect } from 'stp-devfractal'
 import 'bulma'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'

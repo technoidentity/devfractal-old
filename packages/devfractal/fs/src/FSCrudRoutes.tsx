@@ -1,4 +1,4 @@
-import { ObjC, Props, TypeOf } from '@stp/utils'
+import { ObjC, Props, TypeOf } from 'stp-utils'
 import React from 'react'
 import { FirstoreAPI } from './firestoreRest'
 import { FSAll, FSAllComponentProps } from './FSAll'

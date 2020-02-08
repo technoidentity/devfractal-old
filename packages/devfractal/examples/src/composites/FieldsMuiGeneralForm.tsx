@@ -6,7 +6,7 @@ import {
   MenuItem,
   Paper,
 } from '@material-ui/core'
-import { Simple } from '@stp/crud'
+import { Simple } from 'stp-crud'
 import {
   CheckboxField,
   DateField,
@@ -14,8 +14,8 @@ import {
   RadioItem,
   SelectField,
   TextField,
-} from '@stp/mui'
-import { ErrorField } from '@stp/ui'
+} from 'stp-mui'
+import { ErrorField } from 'stp-ui'
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
 import { boolean, date, object, ObjectSchema, string } from 'yup'

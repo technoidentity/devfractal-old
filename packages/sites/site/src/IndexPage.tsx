@@ -10,8 +10,8 @@ import {
   faCircle,
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import { Link, Route } from '@stp/router'
-import { DynamicBreadcrumb } from '@stp/ui'
+import { Link, Route } from 'stp-router'
+import { DynamicBreadcrumb } from 'stp-ui'
 import {
   Button,
   ButtonsGroup,
@@ -34,7 +34,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 import { default as developer } from '../src/images/asset/developer.png'
 import logo from '../src/images/asset/logo.png'

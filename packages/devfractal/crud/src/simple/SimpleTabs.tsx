@@ -5,8 +5,8 @@ import {
   Tabs,
   TabsItem,
   TabsProps,
-} from '@stp/ui'
-import { camelCaseToPhrase } from '@stp/utils'
+} from 'stp-ui'
+import { camelCaseToPhrase } from 'stp-utils'
 import React from 'react'
 
 export interface SimpleTabsProps extends Omit<TabsProps, 'selectedTab'> {

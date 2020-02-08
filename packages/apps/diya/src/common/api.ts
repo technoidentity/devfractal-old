@@ -1,5 +1,5 @@
-import { rest, toJSONServerQuery } from '@stp/devfractal'
-import { ObjC, Props } from '@stp/utils'
+import { rest, toJSONServerQuery } from 'stp-devfractal'
+import { ObjC, Props } from 'stp-utils'
 import { fakeBaseURL } from '../config'
 import {
   AdManager,

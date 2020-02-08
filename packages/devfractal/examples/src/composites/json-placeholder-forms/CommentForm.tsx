@@ -1,5 +1,5 @@
 export const AlbumForm: number = 100
-// import * as t from '@stp/utils'
+// import * as t from 'stp-utils'
 // import React from 'react'
 // import {
 //   consoleSubmit,
@@ -12,7 +12,7 @@ export const AlbumForm: number = 100
 //   Simple,
 //   Title,
 //   typeInvariant,
-// } from '@stp/ui'
+// } from 'stp-ui'
 
 // // tslint:disable typedef
 

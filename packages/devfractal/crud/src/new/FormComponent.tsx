@@ -1,4 +1,4 @@
-import { cast, empty, Mixed, TypeOf } from '@stp/utils'
+import { cast, empty, Mixed, TypeOf } from 'stp-utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { formProps } from './common'

@@ -2,7 +2,7 @@ import {
   Simple,
   SimpleArrayField,
   SimpleArrayFieldComponentProps,
-} from '@stp/crud'
+} from 'stp-crud'
 import {
   CheckBox,
   Column,
@@ -11,7 +11,7 @@ import {
   Input,
   Select,
   Text,
-} from '@stp/ui'
+} from 'stp-ui'
 import { Form, Formik, FormikHelpers } from 'formik'
 import { PrimitiveMT } from 'meta-core'
 import React from 'react'

@@ -31,7 +31,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import Link from 'next/link'
 import React from 'react'
 import {

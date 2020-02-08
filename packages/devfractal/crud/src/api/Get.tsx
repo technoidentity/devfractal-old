@@ -1,4 +1,4 @@
-import { AsyncResult, useGet } from '@stp/core'
+import { AsyncResult, useGet } from 'stp-core'
 import React from 'react'
 import { ErrorView, Loading } from './Components'
 

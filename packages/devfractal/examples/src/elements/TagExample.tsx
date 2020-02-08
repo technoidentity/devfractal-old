@@ -1,4 +1,4 @@
-import { Control } from '@stp/ui'
+import { Control } from 'stp-ui'
 import {
   Box,
   Delete,
@@ -8,7 +8,7 @@ import {
   Tags,
   Text,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 const BasicTagExample: React.FC = () => (

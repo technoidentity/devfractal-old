@@ -6,9 +6,9 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from '@stp/ui'
-import { Field, Label } from '@stp/ui'
-import { camelCaseToPhrase } from '@stp/utils'
+} from 'stp-ui'
+import { Field, Label } from 'stp-ui'
+import { camelCaseToPhrase } from 'stp-utils'
 import { Form, Formik } from 'formik'
 import React from 'react'
 import * as yup from 'yup'

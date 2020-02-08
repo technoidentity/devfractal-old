@@ -1,4 +1,4 @@
-import { debug } from '@stp/utils'
+import { debug } from 'stp-utils'
 import React from 'react'
 import { classNamesHelper, El, Helpers } from '../base'
 import { AllControlHelpers } from './controlDiv'

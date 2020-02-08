@@ -1,4 +1,4 @@
-import { CheckBox as CheckBoxComponent, Field, Section, Title } from '@stp/ui'
+import { CheckBox as CheckBoxComponent, Field, Section, Title } from 'stp-ui'
 import React from 'react'
 
 const DynamicCheckBoxExample: React.FC = () => {

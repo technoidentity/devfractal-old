@@ -1,4 +1,4 @@
-import { cast, Mixed, TypeOf } from '@stp/utils'
+import { cast, Mixed, TypeOf } from 'stp-utils'
 import { useParams as useParamsRR } from 'react-router'
 
 export function useParams<Spec extends Mixed>(paramsSpec: Spec): TypeOf<Spec> {

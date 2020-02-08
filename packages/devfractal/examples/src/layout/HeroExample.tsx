@@ -1,4 +1,4 @@
-import { Tabs, TabsItem } from '@stp/ui'
+import { Tabs, TabsItem } from 'stp-ui'
 import {
   Button,
   Container,
@@ -15,7 +15,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 const SimpleHeroExample: React.FC = () => (

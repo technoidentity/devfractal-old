@@ -1,4 +1,4 @@
-import { Text, Title } from '@stp/devfractal'
+import { Text, Title } from 'stp-devfractal'
 import { Field, Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'

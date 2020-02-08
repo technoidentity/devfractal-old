@@ -1,4 +1,4 @@
-import { useSubmitReset } from '@stp/core'
+import { useSubmitReset } from 'stp-core'
 import React from 'react'
 import { SubmitAction } from './common'
 import { ServerError } from './ServerError'

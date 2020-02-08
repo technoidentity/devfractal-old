@@ -1,5 +1,5 @@
 {
-  "name": "@stp/utils",
+  "name": "stp-utils",
   "version": "1.2.19",
   "description": "utils for all devfractal libraries",
   "main": "dist/index.js",

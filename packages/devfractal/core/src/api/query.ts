@@ -13,7 +13,7 @@ import {
   string,
   TypeOf,
   union,
-} from '@stp/utils'
+} from 'stp-utils'
 import { stringify } from 'query-string'
 
 // tslint:disable typedef

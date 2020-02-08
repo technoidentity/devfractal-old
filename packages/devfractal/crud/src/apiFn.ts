@@ -1,5 +1,5 @@
-import { Mixed, readonlyArray, ReadonlyArrayC, Type, TypeOf } from '@stp/utils'
-import { cast, toPromise } from '@stp/utils'
+import { Mixed, readonlyArray, ReadonlyArrayC, Type, TypeOf } from 'stp-utils'
+import { cast, toPromise } from 'stp-utils'
 import axios, { AxiosPromise } from 'axios'
 import { apiURLs, URLs } from './urls'
 

@@ -1,6 +1,6 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { Link } from '@stp/router'
-import { Icon } from '@stp/ui'
+import { Link } from 'stp-router'
+import { Icon } from 'stp-ui'
 import React from 'react'
 import { SimpleTable, SimpleTableProps } from '../simple'
 

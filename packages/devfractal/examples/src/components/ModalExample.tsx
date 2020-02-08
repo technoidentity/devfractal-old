@@ -23,7 +23,7 @@ import {
   Ol,
   Section,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 export const ImageModalExample: React.FC = () => {

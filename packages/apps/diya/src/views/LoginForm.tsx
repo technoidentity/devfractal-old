@@ -8,7 +8,7 @@ import {
   Field,
   InputField,
   Section,
-} from '@stp/devfractal'
+} from 'stp-devfractal'
 import * as yup from 'yup'
 
 export interface LoginValues {

@@ -1,7 +1,7 @@
 ### Menu
 
 ```jsx
-import { Router, Route } from '@stp/router'
+import { Router, Route } from 'stp-router'
 ;<Router>
   <Route
     path="/"

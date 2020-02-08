@@ -1,4 +1,4 @@
-import { jsonStringify, timeout } from '@stp/utils/src'
+import { jsonStringify, timeout } from 'stp-utils/src'
 import { format } from 'date-fns'
 import { FormikHelpers } from 'formik'
 

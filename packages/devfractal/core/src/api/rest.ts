@@ -6,7 +6,7 @@ import {
   readonlyArray,
   TypeOf,
   UnknownArray,
-} from '@stp/utils'
+} from 'stp-utils'
 import { AxiosInstance } from 'axios'
 import { produce } from 'immer'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'

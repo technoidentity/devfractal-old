@@ -1,4 +1,4 @@
-import { buildObject, jsonStringify, keys } from '@stp/utils'
+import { buildObject, jsonStringify, keys } from 'stp-utils'
 import { compareAsc } from 'date-fns'
 import * as t from 'tcomb'
 import {

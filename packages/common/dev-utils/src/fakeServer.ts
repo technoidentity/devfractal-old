@@ -1,4 +1,4 @@
-import { AnyObj, range } from '@stp/utils'
+import { AnyObj, range } from 'stp-utils'
 import * as server from 'json-server'
 import { fake } from './fake'
 

@@ -1,5 +1,5 @@
-import { Route, Router, Switch } from '@stp/router'
-import { NotFound } from '@stp/crud'
+import { Route, Router, Switch } from 'stp-router'
+import { NotFound } from 'stp-crud'
 import React from 'react'
 import {
   CreateTaskRoute,

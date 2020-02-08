@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrudRoutes } from '@stp/devfractal'
+import { CrudRoutes } from 'stp-devfractal'
 import { batteryAPI } from '../common'
 import { BatteryForm, BatteryList } from '../views'
 

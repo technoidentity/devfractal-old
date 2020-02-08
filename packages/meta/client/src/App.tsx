@@ -1,4 +1,4 @@
-import { Section, Title } from '@stp/ui'
+import { Section, Title } from 'stp-ui'
 import { MBool, MDate, MMT, MNumber, MString } from 'meta-core'
 import React from 'react'
 import { render } from 'react-dom'

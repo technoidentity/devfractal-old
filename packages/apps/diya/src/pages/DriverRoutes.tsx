@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrudRoutes } from '@stp/devfractal'
+import { CrudRoutes } from 'stp-devfractal'
 import { driverAPI } from '../common'
 import { DriverForm, DriverList } from '../views'
 

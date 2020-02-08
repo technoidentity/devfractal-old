@@ -13,8 +13,8 @@ import {
   Section,
   SimpleRedirect,
   Title,
-} from '@stp/devfractal'
-import { CreateLink } from '@stp/devfractal'
+} from 'stp-devfractal'
+import { CreateLink } from 'stp-devfractal'
 import { Todo, todoAPI } from './common'
 
 const ps = paths(todoAPI.resource)

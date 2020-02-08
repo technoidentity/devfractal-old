@@ -1,4 +1,4 @@
-import { cast, Mixed, TypeOf } from '@stp/utils'
+import { cast, Mixed, TypeOf } from 'stp-utils'
 import { parse } from 'query-string'
 import { useLocation } from 'react-router'
 

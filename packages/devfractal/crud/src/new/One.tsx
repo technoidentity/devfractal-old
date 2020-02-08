@@ -1,6 +1,6 @@
-import { API } from '@stp/core'
-import { Route } from '@stp/router'
-import { ObjC, Props, TypeOf } from '@stp/utils'
+import { API } from 'stp-core'
+import { Route } from 'stp-router'
+import { ObjC, Props, TypeOf } from 'stp-utils'
 import React from 'react'
 import { Get } from '../api'
 

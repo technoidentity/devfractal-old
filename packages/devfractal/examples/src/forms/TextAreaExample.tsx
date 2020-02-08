@@ -1,4 +1,4 @@
-import { Section, TextArea as TextAreaComponent, Title } from '@stp/ui'
+import { Section, TextArea as TextAreaComponent, Title } from 'stp-ui'
 import React from 'react'
 
 const DynamicTextAreaExample: React.FC = () => {

@@ -1,4 +1,4 @@
-import { useSubmitRedirect } from '@stp/core'
+import { useSubmitRedirect } from 'stp-core'
 import React from 'react'
 import { SubmitAction } from './common'
 import { ServerError } from './ServerError'

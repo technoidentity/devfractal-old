@@ -1,4 +1,4 @@
-import { Container, Media, MediaContent, MediaLeft, Text } from '@stp/ui'
+import { Container, Media, MediaContent, MediaLeft, Text } from 'stp-ui'
 import React from 'react'
 import columnsIcon from '../src/images/column.png'
 import componentsIcon from '../src/images/components.png'

@@ -19,7 +19,7 @@ import {
   Section,
   Text,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 const DynamicButtonExample: React.FC = () => {

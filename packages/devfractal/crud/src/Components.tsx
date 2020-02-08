@@ -1,4 +1,4 @@
-import { Mixed, TypeOf } from '@stp/utils'
+import { Mixed, TypeOf } from 'stp-utils'
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'

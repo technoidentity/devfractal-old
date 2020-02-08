@@ -1,5 +1,5 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { Button, CheckBox, Field, Icon, Td, Tr } from '@stp/devfractal'
+import { Button, CheckBox, Field, Icon, Td, Tr } from 'stp-devfractal'
 import React from 'react'
 import { FSTodo } from '../common'
 

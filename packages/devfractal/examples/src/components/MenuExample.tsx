@@ -1,5 +1,5 @@
-import { Menu, MenuItem, MenuLabel, MenuList } from '@stp/ui'
-import { Box, Section } from '@stp/ui'
+import { Menu, MenuItem, MenuLabel, MenuList } from 'stp-ui'
+import { Box, Section } from 'stp-ui'
 import React from 'react'
 
 export const MenuExample: React.FC = () => (

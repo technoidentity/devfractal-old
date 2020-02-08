@@ -35,7 +35,7 @@
     "@babel/plugin-proposal-class-properties": "7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "7.8.3",
     "@babel/preset-typescript": "7.8.3",
-    "@stp/dev-utils": "1.2.19",
+    "stp-dev-utils": "1.2.19",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.4.0",
     "@types/body-parser": "1.17.1",

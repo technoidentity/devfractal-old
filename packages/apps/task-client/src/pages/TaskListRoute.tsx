@@ -1,7 +1,7 @@
-import { useParams } from '@stp/router'
-import { Get } from '@stp/crud'
+import { useParams } from 'stp-router'
+import { Get } from 'stp-crud'
 import React from 'react'
-import { opt } from '@stp/utils'
+import { opt } from 'stp-utils'
 import { getTasks, TaskFilter } from '../common'
 import { TaskListView } from '../views'
 

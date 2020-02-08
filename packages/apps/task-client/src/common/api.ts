@@ -1,5 +1,5 @@
-import { rest } from '@stp/core'
-import { verify } from '@stp/utils'
+import { rest } from 'stp-core'
+import { verify } from 'stp-utils'
 import { Session, Task, TaskFilter, User } from './types'
 
 export const apiOptions = {

@@ -1,4 +1,4 @@
-import { Route, SimpleRedirect } from '@stp/router'
+import { Route, SimpleRedirect } from 'stp-router'
 import {
   CardApp,
   Cart,

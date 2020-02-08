@@ -6,7 +6,7 @@ import {
   Section,
   Simple,
   Title,
-} from '@stp/devfractal'
+} from 'stp-devfractal'
 import { Client } from '../common'
 
 export const ClientForm = formComponent(

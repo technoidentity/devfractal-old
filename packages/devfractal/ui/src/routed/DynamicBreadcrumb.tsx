@@ -1,6 +1,6 @@
-import { Null } from '@stp/core'
-import { useLocation } from '@stp/router'
-import { capitalizeAll, chop } from '@stp/utils'
+import { Null } from 'stp-core'
+import { useLocation } from 'stp-router'
+import { capitalizeAll, chop } from 'stp-utils'
 import React from 'react'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 

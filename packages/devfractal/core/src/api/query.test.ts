@@ -1,5 +1,5 @@
-import * as t from '@stp/utils'
-import { obj, opt } from '@stp/utils'
+import * as t from 'stp-utils'
+import { obj, opt } from 'stp-utils'
 import { APIQuery, toAPIQuery, toJSONServerQuery } from './query'
 
 // tslint:disable typedef

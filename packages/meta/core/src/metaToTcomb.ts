@@ -15,7 +15,7 @@ import {
   Positive,
   Upper,
   Url,
-} from '@stp/utils'
+} from 'stp-utils'
 import * as t from 'tcomb'
 import {
   ArrayRefinements,

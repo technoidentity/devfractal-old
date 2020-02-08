@@ -20,8 +20,8 @@ import {
   useGet,
   useParams,
   useSubmitRedirect,
-} from '@stp/devfractal'
-import { IntFromString, type } from '@stp/utils'
+} from 'stp-devfractal'
+import { IntFromString, type } from 'stp-utils'
 import * as yup from 'yup'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'

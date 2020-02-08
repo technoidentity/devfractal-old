@@ -1,4 +1,4 @@
-import { Post } from '@stp/crud'
+import { Post } from 'stp-crud'
 import React from 'react'
 import { sessionAPI } from '../common'
 import { useAuth } from '../utils'

@@ -1,4 +1,4 @@
-import { ISODate, obj, string, TypeOf } from '@stp/utils'
+import { ISODate, obj, string, TypeOf } from 'stp-utils'
 import { compareAsc, format, startOfDay } from 'date-fns'
 import { Document, model, Schema } from 'mongoose'
 import mongoosePaginate from 'mongoose-paginate'

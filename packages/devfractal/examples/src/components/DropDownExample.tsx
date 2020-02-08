@@ -1,12 +1,12 @@
-import { Route, SimpleRedirect } from '@stp/router'
+import { Route, SimpleRedirect } from 'stp-router'
 import {
   DropDown,
   DropDownDivider,
   DropDownItem,
   RoutedTabs,
   RoutedTabsItem,
-} from '@stp/ui'
-import { Field, Level, LevelItem, Section, Title } from '@stp/ui'
+} from 'stp-ui'
+import { Field, Level, LevelItem, Section, Title } from 'stp-ui'
 import React from 'react'
 
 const DropdownExampleTab: React.FC = () => (

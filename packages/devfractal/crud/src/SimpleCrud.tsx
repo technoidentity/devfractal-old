@@ -1,5 +1,5 @@
-import { Mixed, TypeOf } from '@stp/utils'
-import { assert } from '@stp/utils'
+import { Mixed, TypeOf } from 'stp-utils'
+import { assert } from 'stp-utils'
 import React from 'react'
 import { api } from './apiFn'
 import { Crud } from './Crud'

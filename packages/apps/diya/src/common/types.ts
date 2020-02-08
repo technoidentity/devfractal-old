@@ -1,6 +1,6 @@
-import { keyof, string } from '@stp/utils'
-import { IntFromString } from '@stp/utils'
-import { opt, req } from '@stp/utils'
+import { keyof, string } from 'stp-utils'
+import { IntFromString } from 'stp-utils'
+import { opt, req } from 'stp-utils'
 
 export const Resources = keyof({
   batteries: 0,

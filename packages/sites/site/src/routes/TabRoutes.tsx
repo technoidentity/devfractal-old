@@ -1,4 +1,4 @@
-import { Route } from '@stp/router'
+import { Route } from 'stp-router'
 import React from 'react'
 import { ComponentsTab, CompositesTab } from '../Tabs'
 import {

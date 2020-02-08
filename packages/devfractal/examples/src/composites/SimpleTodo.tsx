@@ -1,5 +1,5 @@
-import { Viewer } from '@stp/crud'
-import { SimpleTable } from '@stp/crud'
+import { Viewer } from 'stp-crud'
+import { SimpleTable } from 'stp-crud'
 import React from 'react'
 import { SimpleAddTodo } from './AddTodo'
 

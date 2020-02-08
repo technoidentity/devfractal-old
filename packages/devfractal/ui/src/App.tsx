@@ -8,7 +8,7 @@ import {
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { Route, Router } from '@stp/router'
+import { Route, Router } from 'stp-router'
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'

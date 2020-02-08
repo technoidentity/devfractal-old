@@ -1,6 +1,6 @@
-import * as t from '@stp/utils'
-import { EnumType, ObjType } from '@stp/utils'
-import { buildObject, keys } from '@stp/utils'
+import * as t from 'stp-utils'
+import { EnumType, ObjType } from 'stp-utils'
+import { buildObject, keys } from 'stp-utils'
 import { Document, model, Model, Schema } from 'mongoose'
 
 function schemaFromPrimitiveRT(spec: t.Mixed): any {

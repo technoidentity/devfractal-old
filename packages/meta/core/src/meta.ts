@@ -1,5 +1,5 @@
-import * as t from '@stp/utils'
-import { date, lit, obj, opt, req } from '@stp/utils'
+import * as t from 'stp-utils'
+import { date, lit, obj, opt, req } from 'stp-utils'
 
 // tslint:disable typedef
 

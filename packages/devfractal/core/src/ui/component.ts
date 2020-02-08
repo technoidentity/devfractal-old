@@ -1,5 +1,5 @@
-import * as t from '@stp/utils'
-import { AnyObj, assertCast, isObj } from '@stp/utils'
+import * as t from 'stp-utils'
+import { AnyObj, assertCast, isObj } from 'stp-utils'
 import { getPropTypes, PropTypeable } from 'prop-types-ts'
 import React from 'react'
 import { getDisplayName } from './getDisplayName'

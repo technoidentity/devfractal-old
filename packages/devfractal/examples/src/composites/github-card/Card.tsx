@@ -4,7 +4,7 @@ import {
   CardImage,
   SubTitle,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import axios from 'axios'
 import React from 'react'
 import { GithubUserInfo } from './types'

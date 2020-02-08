@@ -1,5 +1,5 @@
-import { number, TypeOf } from '@stp/utils'
-import { cast, fn, obj } from '@stp/utils'
+import { number, TypeOf } from 'stp-utils'
+import { cast, fn, obj } from 'stp-utils'
 
 // tslint:disable no-empty
 

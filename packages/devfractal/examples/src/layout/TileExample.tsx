@@ -5,7 +5,7 @@ import {
   SubTitle,
   Tile as TileComponent,
   Title,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 const SimpleTilesExample: React.FC = () => (

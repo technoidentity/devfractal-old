@@ -1,4 +1,4 @@
-import { req, string, toInt, TypeOf } from '@stp/utils'
+import { req, string, toInt, TypeOf } from 'stp-utils'
 import { endOfToday, startOfToday } from 'date-fns'
 import express, { Response } from 'express'
 import {

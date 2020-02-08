@@ -1,4 +1,4 @@
-import { Navbar, NavbarEnd, NavbarItem } from '@stp/ui'
+import { Navbar, NavbarEnd, NavbarItem } from 'stp-ui'
 import React from 'react'
 import { Logout } from './Logout'
 

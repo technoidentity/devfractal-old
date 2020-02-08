@@ -1,5 +1,5 @@
-import { number, readonly, string, type } from '@stp/utils'
-import { checked, checkedAsync, range } from '@stp/utils'
+import { number, readonly, string, type } from 'stp-utils'
+import { checked, checkedAsync, range } from 'stp-utils'
 
 export const checkedAdd = checked(
   [number, number, number],

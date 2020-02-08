@@ -1,5 +1,5 @@
-import * as t from '@stp/utils'
-import { date } from '@stp/utils'
+import * as t from 'stp-utils'
+import { date } from 'stp-utils'
 import * as firebase from 'firebase/app'
 import 'firebase/firestore'
 

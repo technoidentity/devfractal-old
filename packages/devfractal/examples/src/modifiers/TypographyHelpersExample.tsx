@@ -1,4 +1,4 @@
-import { Box, Section, Text, Title } from '@stp/ui'
+import { Box, Section, Text, Title } from 'stp-ui'
 import React from 'react'
 
 const TextSizesExample: React.FC = () => (

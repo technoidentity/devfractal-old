@@ -10,7 +10,7 @@ import {
   tuple,
   type,
   union,
-} from '@stp/utils'
+} from 'stp-utils'
 
 console.log(
   empty(

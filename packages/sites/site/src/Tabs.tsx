@@ -1,4 +1,4 @@
-import { RoutedTabs, RoutedTabsItem } from '@stp/ui'
+import { RoutedTabs, RoutedTabsItem } from 'stp-ui'
 import React from 'react'
 
 export const ComponentsTab: React.FC = () => (

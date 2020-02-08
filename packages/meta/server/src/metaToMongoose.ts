@@ -1,4 +1,4 @@
-import { buildObject } from '@stp/utils'
+import { buildObject } from 'stp-utils'
 import { MT, PropertyMT } from 'meta-core'
 import { Document, model, Model, Schema, SchemaDefinition } from 'mongoose'
 

@@ -1,5 +1,5 @@
-import { Route, SimpleRedirect } from '@stp/router'
-import { capitalizeAll, toLower } from '@stp/utils'
+import { Route, SimpleRedirect } from 'stp-router'
+import { capitalizeAll, toLower } from 'stp-utils'
 import React from 'react'
 import { RoutedTabs, RoutedTabsItem } from './RoutedTabs'
 

@@ -1,5 +1,5 @@
 // tslint:disable typedef
-import { formComponent, Simple } from '@stp/devfractal'
+import { formComponent, Simple } from 'stp-devfractal'
 import React from 'react'
 import { FSTodo } from '../common'
 

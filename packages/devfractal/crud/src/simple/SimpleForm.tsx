@@ -13,7 +13,7 @@ import {
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from '@stp/ui'
+} from 'stp-ui'
 import {
   Button,
   ButtonsGroup,
@@ -22,8 +22,8 @@ import {
   Field,
   FieldPropsBase,
   Label,
-} from '@stp/ui'
-import { camelCaseToPhrase } from '@stp/utils'
+} from 'stp-ui'
+import { camelCaseToPhrase } from 'stp-utils'
 import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
 import React from 'react'
 import {

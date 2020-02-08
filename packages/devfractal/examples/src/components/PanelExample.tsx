@@ -14,7 +14,7 @@ import {
   PanelTabs,
   PanelTabsItem,
   Section,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 
 export const PanelExample: React.FC = () => (

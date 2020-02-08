@@ -5,7 +5,7 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from '@stp/ui'
+} from 'stp-ui'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
