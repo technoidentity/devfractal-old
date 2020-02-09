@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Box,
   Button,
@@ -13,6 +12,7 @@ import {
   Simple,
   Title,
 } from '@stp/devfractal'
+import React from 'react'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 

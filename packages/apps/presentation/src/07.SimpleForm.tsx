@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   maxLength,
   minLength,
@@ -6,6 +5,7 @@ import {
   Section,
   Simple,
 } from '@stp/devfractal'
+import React from 'react'
 import { initialLoginValues } from './06.ModerateForm'
 
 export const SimpleLoginForm: React.FC = () => (

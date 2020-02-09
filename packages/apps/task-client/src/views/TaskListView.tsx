@@ -1,3 +1,4 @@
+import { component } from '@stp/core'
 import { Link } from '@stp/router'
 import {
   ButtonsGroup,
@@ -11,7 +12,6 @@ import {
   Title,
   Tr,
 } from '@stp/ui'
-import { component } from '@stp/core'
 import { readonlyArray, req } from '@stp/utils'
 import { format } from 'date-fns'
 import React from 'react'

@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Get,
   maxLength,
@@ -13,6 +12,7 @@ import {
 } from '@stp/devfractal'
 import { IntFromString, type } from '@stp/utils'
 import { empty } from '@stp/utils'
+import React from 'react'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 

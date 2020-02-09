@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   CreateLink,
   CrudTable,
@@ -7,6 +6,7 @@ import {
   RoutedPager,
   Section,
 } from '@stp/devfractal'
+import React from 'react'
 import { Client } from '../common'
 import { HeadTitle } from '../components'
 

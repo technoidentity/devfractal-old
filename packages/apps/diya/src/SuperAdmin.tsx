@@ -1,6 +1,6 @@
+import { Column, Columns, Router, SimpleRedirect } from '@stp/devfractal'
 import 'bulma/css/bulma.css'
 import React from 'react'
-import { Column, Columns, Router, SimpleRedirect } from '@stp/devfractal'
 import { SideMenuView, Visibility } from './components'
 import {
   BatteryRoutes,

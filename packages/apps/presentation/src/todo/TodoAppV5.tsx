@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   CrudRoutes,
   CrudTable,
@@ -12,6 +11,7 @@ import {
   Title,
 } from '@stp/devfractal'
 import { CreateLink } from '@stp/devfractal'
+import React from 'react'
 import { Todo, todoAPI } from './common'
 
 const { create, edit, list } = links(todoAPI.resource)

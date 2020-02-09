@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Column,
   Columns,
@@ -10,6 +9,7 @@ import {
   useHistory,
   useLocation,
 } from '@stp/devfractal'
+import React from 'react'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'
@@ -55,7 +55,7 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
           assignTo={v => `/assignDriver/${v.id}`}
         />
 
-        <RoutedPager count={Math.ceil((driverList as any).totalCount / 25)} />
+        <RoutedPager count={Math.ceil((driverList).totalCount / 25)} />
       </Section>
     </>
   )

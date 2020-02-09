@@ -1,6 +1,6 @@
-import React from 'react'
 import { component, Create, formProps, Section, Simple } from '@stp/devfractal'
 import { empty } from '@stp/utils'
+import React from 'react'
 import { AssignBattery, assignBatteryAPI } from '../common'
 import { HeadTitle } from '../components'
 

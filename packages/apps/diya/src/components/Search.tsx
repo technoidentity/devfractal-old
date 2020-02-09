@@ -1,9 +1,9 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { http as httpAPI } from '@stp/devfractal'
 import { Input } from '@stp/ui'
+import { Mixed, readonlyArray } from '@stp/utils'
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
-import { http as httpAPI } from '@stp/devfractal'
-import { Mixed, readonlyArray } from '@stp/utils'
 import '../stylesheets/auto-suggestion.scss'
 
 const http: ReturnType<typeof httpAPI> = httpAPI({

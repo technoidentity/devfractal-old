@@ -1,9 +1,9 @@
-import { FormikHelpers } from 'formik'
-import React from 'react'
 import { Simple } from '@stp/devfractal'
 import { component, Section } from '@stp/devfractal'
 import { TypeOf } from '@stp/utils'
 import { fn, obj } from '@stp/utils'
+import { FormikHelpers } from 'formik'
+import React from 'react'
 import { Todo } from './08.todoAPI'
 
 export const initialValues: Todo = {

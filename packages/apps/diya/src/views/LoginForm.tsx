@@ -1,6 +1,4 @@
 import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
-import { Form, Formik, FormikProps } from 'formik'
-import React from 'react'
 import {
   Button,
   ButtonsGroup,
@@ -9,6 +7,8 @@ import {
   InputField,
   Section,
 } from '@stp/devfractal'
+import { Form, Formik, FormikProps } from 'formik'
+import React from 'react'
 import * as yup from 'yup'
 
 export interface LoginValues {

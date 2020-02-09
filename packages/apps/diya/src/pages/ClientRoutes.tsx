@@ -1,5 +1,5 @@
-import React from 'react'
 import { CrudRoutes } from '@stp/devfractal'
+import React from 'react'
 import { clientAPI } from '../common'
 import { ClientForm, ClientList } from '../views'
 

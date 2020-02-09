@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Column,
   Columns,
@@ -6,6 +5,7 @@ import {
   Section,
   Simple,
 } from '@stp/devfractal'
+import React from 'react'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 import { GeoFence as GeoFenceMap } from '../maps'

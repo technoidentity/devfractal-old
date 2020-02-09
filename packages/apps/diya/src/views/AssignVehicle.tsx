@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Column,
   Columns,
@@ -9,6 +8,7 @@ import {
   Simple,
 } from '@stp/devfractal'
 import { empty } from '@stp/utils'
+import React from 'react'
 import { AssignVehicle, assignVehicleAPI } from '../common'
 import { HeadTitle } from '../components'
 

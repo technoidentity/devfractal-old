@@ -1,5 +1,3 @@
-import { Form, Formik, FormikProps } from 'formik'
-import React from 'react'
 import {
   Button,
   Container,
@@ -8,6 +6,8 @@ import {
   InputField,
   Label,
 } from '@stp/devfractal'
+import { Form, Formik, FormikProps } from 'formik'
+import React from 'react'
 import yup from 'yup'
 
 interface LoginValues {

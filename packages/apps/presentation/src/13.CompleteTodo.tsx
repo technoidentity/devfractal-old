@@ -1,5 +1,3 @@
-import { FormikHelpers } from 'formik'
-import React from 'react'
 import {
   component,
   Editor,
@@ -27,6 +25,8 @@ import {
   string,
   TypeOf,
 } from '@stp/utils'
+import { FormikHelpers } from 'formik'
+import React from 'react'
 
 const Todo = obj(
   {

@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Editor,
   Get,
@@ -11,6 +10,7 @@ import {
 import { type } from '@stp/utils'
 import { IntFromString } from '@stp/utils'
 import { empty } from '@stp/utils'
+import React from 'react'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   CreateLink,
   links,
@@ -6,6 +5,7 @@ import {
   RoutedPager,
   Section,
 } from '@stp/devfractal'
+import React from 'react'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'

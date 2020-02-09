@@ -1,5 +1,3 @@
-import { Form, Formik } from 'formik'
-import React from 'react'
 import {
   Button,
   CheckboxField,
@@ -18,6 +16,8 @@ import {
 import { type } from '@stp/utils'
 import { IntFromString } from '@stp/utils'
 import { empty } from '@stp/utils'
+import { Form, Formik } from 'formik'
+import React from 'react'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 

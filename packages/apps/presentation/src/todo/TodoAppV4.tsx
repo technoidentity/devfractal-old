@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   All,
   Create,
@@ -15,6 +14,7 @@ import {
   Title,
 } from '@stp/devfractal'
 import { CreateLink } from '@stp/devfractal'
+import React from 'react'
 import { Todo, todoAPI } from './common'
 
 const ps = paths(todoAPI.resource)

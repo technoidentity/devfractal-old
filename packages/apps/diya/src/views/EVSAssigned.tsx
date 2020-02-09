@@ -1,5 +1,4 @@
 import { faBus, faMapMarker } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
 import { Link } from '@stp/devfractal'
 import {
   Button,
@@ -13,6 +12,7 @@ import {
 } from '@stp/devfractal'
 import { string } from '@stp/utils'
 import { req } from '@stp/utils'
+import React from 'react'
 import { Ev } from '../common'
 import { HeadTitle } from '../components'
 

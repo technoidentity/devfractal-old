@@ -5,8 +5,8 @@ import {
   Marker,
   MarkerProps,
 } from '@react-google-maps/api'
-import React from 'react'
 import { Input, InputProps } from '@stp/devfractal'
+import React from 'react'
 import { LoadMapApiKey } from './LoadMapApiKey'
 
 interface MapSearchProps {

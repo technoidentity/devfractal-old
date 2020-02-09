@@ -1,5 +1,5 @@
-import React from 'react'
 import { classNames } from '@stp/devfractal'
+import React from 'react'
 
 export const MenuBurger: React.FC<any> = ({ isMinimal, onClick }) => (
   <a

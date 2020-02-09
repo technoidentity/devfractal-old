@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   CreateLink,
   links,
@@ -7,6 +6,7 @@ import {
   Section,
   Title,
 } from '@stp/devfractal'
+import React from 'react'
 import { Battery } from '../common'
 import { DiyaTable } from '../components/DiyaTable'
 

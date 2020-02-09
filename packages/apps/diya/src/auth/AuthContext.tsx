@@ -1,5 +1,5 @@
-import React from 'react'
 import { verify } from '@stp/utils'
+import React from 'react'
 import { AuthUserInfo } from '../common'
 import { LoginValues } from '../views'
 
@@ -31,5 +31,5 @@ export function useAuth(): AuthContext<LoginValues, AuthUserInfo> {
   const context = React.useContext(AuthContext)
   verify(context !== undefined)
 
-  return context as AuthContext<LoginValues, AuthUserInfo>
+  return context
 }
