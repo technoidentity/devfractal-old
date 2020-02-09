@@ -14,7 +14,9 @@ module.exports = {
   roots: [
     '<rootDir>/packages/common/utils',
     '<rootDir>/packages/devfractal/examples',
-    '<rootDir>/packages/devfractal/api',
+    '<rootDir>/packages/devfractal/core',
+    '<rootDir>/packages/devfractal/ui',
+    '<rootDir>/packages/devfractal/crud',
     '<rootDir>/packages/devfractal/starter',
     '<rootDir>/packages/meta/core',
     '<rootDir>/packages/meta/client',
