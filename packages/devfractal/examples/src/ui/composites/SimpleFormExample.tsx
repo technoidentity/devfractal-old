@@ -1,6 +1,5 @@
 // import { maxLength, min, required } from '@stp/ui'
 
-import { typedForm } from '@stp/crud'
 import {
   after,
   before,
@@ -14,7 +13,8 @@ import {
   positive,
   required,
   uppercase,
-} from '@stp/ui'
+} from '@stp/core'
+import { typedForm } from '@stp/crud'
 import { Radio, Section } from '@stp/ui'
 import { ISODate, keyof, TypeOf } from '@stp/utils'
 import { addDays } from 'date-fns'
