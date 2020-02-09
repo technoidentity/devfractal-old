@@ -3,7 +3,7 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
-import { FieldsMuiGeneralForm } from './composites/FieldsMuiGeneralForm'
+import { FieldsMuiGeneralForm } from './ui/composites/FieldsMuiGeneralForm'
 
 export const App: React.FC = () => {
   return (
