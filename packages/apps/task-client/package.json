@@ -9,7 +9,7 @@
     "test:watch": "yarn test --watch",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",
     "elint:fix": "yarn elint --quiet --fix",
-    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
+    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
     "tlint:fix": "yarn lint --fix",
     "lint": "yarn elint && yarn tlint",
     "lint:fix": "yarn elint:fix && yarn tlint:fix",

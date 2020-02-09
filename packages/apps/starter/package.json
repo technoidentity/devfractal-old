@@ -43,7 +43,7 @@
     "build": "parcel build index.html",
     "test": "jest --passWithNoTests",
     "test:watch": "yarn test --watch",
-    "tlint": "yarn tslint -p . 'src/**/*.tsx' 'src/**/*.ts'",
+    "tlint": "yarn tslint -p . 'src/**/*.tsx' 'src/**/*.ts' 'src/**/*.tsx'",
     "tlint:fix": "yarn lint --fix",
     "elint": "eslint './src/**/*.{js,ts,tsx}'",
     "elint:fix": "yarn elint --quiet --fix",
