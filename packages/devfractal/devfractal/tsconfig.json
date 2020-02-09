@@ -9,7 +9,7 @@
     { "path": "../../common/utils" },
     { "path": "../core" },
     { "path": "../crud" },
-    { "path": "../fs" },
+    { "path": "../firestore" },
     { "path": "../mui" },
     { "path": "../router" },
     { "path": "../ui" }

@@ -14,7 +14,7 @@
     { "path": "devfractal/examples" },
     { "path": "devfractal/mui" },
     { "path": "devfractal/router" },
-    { "path": "devfractal/fs" },
+    { "path": "devfractal/firestore" },
     { "path": "devfractal/core" },
     { "path": "devfractal/ui" },
     { "path": "meta/client" },
