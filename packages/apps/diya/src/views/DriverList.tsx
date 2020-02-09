@@ -55,7 +55,7 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
           assignTo={v => `/assignDriver/${v.id}`}
         />
 
-        <RoutedPager count={Math.ceil((driverList).totalCount / 25)} />
+        <RoutedPager />
       </Section>
     </>
   )
