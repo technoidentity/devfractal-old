@@ -2956,6 +2956,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-beautiful-dnd@^12.1.1":
+  version "12.1.1"
+  resolved "https://registry.yarnpkg.com/@types/react-beautiful-dnd/-/react-beautiful-dnd-12.1.1.tgz#149e638c0f912eee6b74ea419b26bb43d0b1da60"
+  integrity sha512-CPKynKgGVRK+xmywLMD0qNWamdscxhgf1Um+2oEgN6Qibn1rye3M4p2bdxAMgtOTZ2L81bYl6KGKSzJVboJWeA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-datepicker@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-2.11.0.tgz#aa6faa66de17b0ff96bc0af9d5d2506d5dd99703"
