@@ -6,27 +6,26 @@
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsdx build --tsconfig tsconfig.build.json",
-    "elint:fix": "yarn elint --quiet --fix",
-    "elint": "eslint './src/**/*.{js,ts,tsx}'",
-    "watch": "tsdx watch --tsconfig tsconfig.build.json",
-    "lint:fix": "yarn elint:fix && yarn tlint:fix",
-    "lint": "yarn elint && yarn tlint",
     "start": "parcel index.html --open",
-    "test:watch": "yarn test --watch",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lib": "tsdx watch --tsconfig tsconfig.build.json",
     "test": "jest --passWithNoTests",
-    "tlint:fix": "yarn lint --fix",
+    "test:watch": "yarn test --watch",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "elint:fix": "yarn elint --quiet --fix",
     "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
-    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
-    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "tlint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
-    "validate:noFix": "yarn lint && yarn types && yarn test",
-    "validate": "yarn lint:fix && yarn types && yarn test"
+    "lint": "yarn elint && yarn tlint",
+    "lint:fix": "yarn elint:fix && yarn tlint:fix",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
+    "validate": "yarn lint:fix && yarn types && yarn test",
+    "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
     "@stp/core": "1.2.19",
     "@stp/crud": "1.2.19",
-    "@stp/ui": "1.2.19",
     "@stp/fs": "1.2.19",
     "@stp/router": "1.2.19",
     "@stp/ui": "1.2.19",
@@ -48,6 +47,8 @@
   "peerDependencies": {
     "@stp/utils": "1.2.19",
     "bulma": "0.8.0",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
     "yup": "0.28.1"
   }
 }

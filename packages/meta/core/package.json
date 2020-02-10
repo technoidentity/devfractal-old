@@ -11,20 +11,19 @@
   "author": "Pervez Iqbal",
   "private": true,
   "scripts": {
-    "watch": "tsdx watch --tsconfig tsconfig.build.json",
     "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lib": "tsdx watch --tsconfig tsconfig.build.json",
     "test": "jest --passWithNoTests",
     "test:watch": "yarn test --watch",
     "lint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
     "types": "tsc --noEmit -p .",
-    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
     "validate:noFix": "yarn lint && yarn types && yarn test",
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "io-ts": "2.0.6",
     "@stp/utils": "1.2.19",
     "tslib": "1.10.0"
   },
