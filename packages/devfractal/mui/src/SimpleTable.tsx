@@ -5,7 +5,6 @@ import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import { Get } from '@stp/crud'
 import { CheckBox, Text } from '@stp/ui'
 import * as t from '@stp/utils'
 import { camelCaseToPhrase, date } from '@stp/utils'
@@ -38,7 +37,7 @@ export interface RowsProps<
   T extends Record<string, any>,
   EK extends string,
   Select extends keyof T
-> extends Omit<SimpleTableViewProps<T, EK, Select>, 'override'> {
+> extends Omit<SimpleTableProps<T, EK, Select>, 'override'> {
   readonly select: readonly Select[]
   render?(keyOrHeader: string, value: T): React.ReactNode
 }
@@ -80,19 +79,28 @@ function TableRows<
   )
 }
 
-export interface SimpleTableViewProps<
+export interface RowClickEvent<T extends Record<string, any>> {
+  readonly value: T
+}
+
+export interface SimpleTableProps<
   T extends Record<string, any>,
   EK extends string,
   Select extends keyof T = keyof T
-> extends SimpleTableProps<T, EK, Select> {
+> extends TableProps {
+  readonly select?: readonly Select[]
+  readonly override?: Partial<Record<Select, string>>
+  readonly extra?: readonly EK[]
   readonly data: readonly T[]
+  onRowClicked?(value: RowClickEvent<T>): void
+  children?(key: keyof T | EK, value: T): React.ReactNode
 }
 
-function TableView<
+export function SimpleTable<
   T extends Record<string, any>,
   Select extends keyof T,
   EK extends string
->(args: SimpleTableViewProps<T, EK, Select>): JSX.Element {
+>(args: SimpleTableProps<T, EK, Select>): JSX.Element {
   const {
     select,
     override,
@@ -135,36 +143,5 @@ function TableView<
         </TableBody>
       </Table>
     </TableContainer>
-  )
-}
-
-export interface RowClickEvent<T extends Record<string, any>> {
-  readonly value: T
-}
-
-export interface SimpleTableProps<
-  T extends Record<string, any>,
-  EK extends string,
-  Select extends keyof T = keyof T
-> extends TableProps {
-  readonly select?: readonly Select[]
-  readonly override?: Partial<Record<Select, string>>
-  readonly extra?: readonly EK[]
-  readonly data: readonly T[] | (() => Promise<readonly T[]>)
-  onRowClicked?(value: RowClickEvent<T>): void
-  children?(key: keyof T | EK, value: T): React.ReactNode
-}
-
-export function SimpleTable<
-  T extends Record<string, any>,
-  EK extends string,
-  Select extends keyof T = keyof T
->(args: SimpleTableProps<T, EK, Select>): JSX.Element {
-  const { data, ...props } = args
-
-  return typeof data === 'function' ? (
-    <Get asyncFn={data}>{data => <TableView {...props} data={data} />}</Get>
-  ) : (
-    <TableView data={data} {...props} />
   )
 }
