@@ -1,12 +1,9 @@
 import * as t from '@stp/utils'
-import { AnyObj, assertCast, isObj } from '@stp/utils'
-import { getPropTypes, PropTypeable } from 'prop-types-ts'
+import { AnyObj, assertCast } from '@stp/utils'
 import React from 'react'
 import { getDisplayName } from './getDisplayName'
 
-type Propable = PropTypeable | AnyObj
-
-export function component<Spec extends t.Mixed & Propable>(
+export function component<Spec extends AnyObj>(
   spec: Spec,
   inner: React.FC<t.TypeOf<Spec>>,
   displayName?: string,
@@ -23,10 +20,7 @@ export function component<Spec extends t.Mixed & Propable>(
       ? spec.name.slice(0, spec.name.length - 'Props'.length)
       : spec.name
 
-  const propSpec: Propable = spec
+  // Comp.propTypes = getPropTypes(spec, { strict: false }) as any
 
-  Comp.propTypes = isObj(propSpec)
-    ? getPropTypes(t.interface(propSpec.props), { strict: false })
-    : (getPropTypes(propSpec, { strict: false }) as any)
   return Comp
 }
