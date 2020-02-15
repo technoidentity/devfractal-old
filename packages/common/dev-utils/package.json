@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-dev-utils",
-  "version": "1.2.19",
+  "version": "1.3.0",
   "description": "devlopment utils for all devfractal libs",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -29,10 +29,10 @@
     "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-utils": "1.2.19",
     "chance": "1.1.4",
     "json-server": "0.16.0",
     "tcomb": "3.2.29",
+    "technoidentity-utils": "^1.3.0",
     "tslib": "1.10.0"
   },
   "devDependencies": {

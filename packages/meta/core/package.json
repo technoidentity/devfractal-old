@@ -1,6 +1,6 @@
 {
   "name": "meta-core",
-  "version": "1.2.19",
+  "version": "1.3.0",
   "description": "meta data, similar to json schema",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -24,7 +24,7 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-utils": "1.2.19",
+    "technoidentity-utils": "^1.3.0",
     "tslib": "1.10.0"
   },
   "devDependencies": {
