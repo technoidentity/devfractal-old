@@ -26,7 +26,7 @@
     "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "query-string": "6.10.1",
+    "query-string": "6.11.0",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
     "tslib": "1.10.0"

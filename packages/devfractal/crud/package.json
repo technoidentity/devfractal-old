@@ -37,7 +37,7 @@
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react-styleguidist": "10.6.1",
+    "react-styleguidist": "10.6.2",
     "@stp/utils": "1.2.19",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",

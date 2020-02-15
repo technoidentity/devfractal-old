@@ -23,6 +23,7 @@ mongoose.connect(uri, { useNewUrlParser: true }, (err: any) => {
 export const app = (() => {
   const app = express()
 
+  // tslint:disable-next-line: deprecation
   app.use(bodyParser.json())
 
   app.use(
