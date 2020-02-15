@@ -45,7 +45,7 @@ export class ObjType<
     readonly optional: Opt,
     readonly required: Req,
     readonly props: Opt & Req,
-    spec: Type<A, O, I> & (ObjSpec<Opt, Req> | ExactObjSpec<Opt, Req>),
+    readonly spec: Type<A, O, I> & (ObjSpec<Opt, Req> | ExactObjSpec<Opt, Req>),
     name: string,
   ) {
     super(name, spec.is, spec.validate, spec.encode)
