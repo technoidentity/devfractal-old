@@ -1,6 +1,6 @@
-import * as t from '@stp/utils'
-import { AnyObj, assertCast } from '@stp/utils'
 import React from 'react'
+import * as t from 'technoidentity-utils'
+import { AnyObj, assertCast } from 'technoidentity-utils'
 import { getDisplayName } from './getDisplayName'
 
 export function component<Spec extends AnyObj>(

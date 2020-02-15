@@ -1,5 +1,5 @@
-import { useSubmitReset } from '@stp/core'
 import React from 'react'
+import { useSubmitReset } from 'technoidentity-core'
 import { SubmitAction } from './common'
 import { ServerError } from './ServerError'
 

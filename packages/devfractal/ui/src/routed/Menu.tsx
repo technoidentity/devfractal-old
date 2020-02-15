@@ -1,6 +1,6 @@
-import { Link, useLocation } from '@stp/router'
-import { chop } from '@stp/utils'
 import React from 'react'
+import { Link, useLocation } from 'technoidentity-router'
+import { chop } from 'technoidentity-utils'
 import { classNamesHelper, El, Helpers } from '../core'
 
 type MenuSize = 'small' | 'medium' | 'large'

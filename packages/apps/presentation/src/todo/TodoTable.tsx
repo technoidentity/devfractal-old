@@ -1,3 +1,6 @@
+import { format } from 'date-fns'
+import React from 'react'
+import { withRouter } from 'react-router'
 import {
   Button,
   CheckBox,
@@ -9,11 +12,8 @@ import {
   Td,
   Th,
   Tr,
-} from '@stp/devfractal'
-import { boolean, capitalize, date } from '@stp/utils'
-import { format } from 'date-fns'
-import React from 'react'
-import { withRouter } from 'react-router'
+} from 'technoidentity-devfractal'
+import { boolean, capitalize, date } from 'technoidentity-utils'
 import { Todo } from './common'
 
 const Actions = withRouter(({ history, editTo }: any) => {

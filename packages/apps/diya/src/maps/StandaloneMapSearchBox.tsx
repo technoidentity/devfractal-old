@@ -1,6 +1,6 @@
 import { StandaloneSearchBox } from '@react-google-maps/api'
-import { Input } from '@stp/devfractal'
 import React, { MutableRefObject } from 'react'
+import { Input } from 'technoidentity-devfractal'
 
 export const StandaloneGoogleMapSearchBox = ({
   onPlacesChanged,

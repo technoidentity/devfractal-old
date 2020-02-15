@@ -1,5 +1,11 @@
-import { Box, Field, File as FileComponent, Section, Title } from '@stp/ui'
 import React from 'react'
+import {
+  Box,
+  Field,
+  File as FileComponent,
+  Section,
+  Title,
+} from 'technoidentity-ui'
 
 const BasicFileExample: React.FC = () => (
   <Section>

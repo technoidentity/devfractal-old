@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Column,
   Columns,
@@ -5,8 +6,7 @@ import {
   Section,
   Simple,
   Title,
-} from '@stp/devfractal'
-import React from 'react'
+} from 'technoidentity-devfractal'
 import { Client } from '../common'
 
 export const ClientForm = formComponent(

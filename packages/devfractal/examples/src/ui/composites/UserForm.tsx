@@ -1,5 +1,5 @@
-import { Simple } from '@stp/crud'
 import React from 'react'
+import { Simple } from 'technoidentity-crud'
 import { number, object, ObjectSchema, string } from 'yup'
 
 interface LoginValues {

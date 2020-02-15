@@ -1,5 +1,5 @@
-import { CrudRoutes } from '@stp/devfractal'
 import React from 'react'
+import { CrudRoutes } from 'technoidentity-devfractal'
 import { driverAPI } from '../common'
 import { DriverForm, DriverList } from '../views'
 

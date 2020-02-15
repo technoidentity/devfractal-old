@@ -1,5 +1,12 @@
-import { Table, TableBody, TableHead, Text, Th, Tr } from '@stp/devfractal'
 import React from 'react'
+import {
+  Table,
+  TableBody,
+  TableHead,
+  Text,
+  Th,
+  Tr,
+} from 'technoidentity-devfractal'
 import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoItem } from './FSTodoItem'
 

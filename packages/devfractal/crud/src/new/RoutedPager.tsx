@@ -1,7 +1,7 @@
-import { useHistory, useLocation } from '@stp/router'
-import { IntFromString, opt } from '@stp/utils'
 import { stringify } from 'query-string'
 import React from 'react'
+import { useHistory, useLocation } from 'technoidentity-router'
+import { IntFromString, opt } from 'technoidentity-utils'
 import { Pager } from './Pager'
 import { useQuery } from './useQuery'
 

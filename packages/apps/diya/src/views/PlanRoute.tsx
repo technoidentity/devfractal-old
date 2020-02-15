@@ -1,5 +1,10 @@
-import { CrudTable, links, listComponent, Section } from '@stp/devfractal'
 import React from 'react'
+import {
+  CrudTable,
+  links,
+  listComponent,
+  Section,
+} from 'technoidentity-devfractal'
 import { PlanRoute } from '../common'
 import { HeadTitle } from '../components'
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   CreateLink,
   CrudTable,
@@ -5,8 +6,7 @@ import {
   listComponent,
   RoutedPager,
   Section,
-} from '@stp/devfractal'
-import React from 'react'
+} from 'technoidentity-devfractal'
 import { Employee } from '../common'
 import { HeadTitle } from '../components'
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Box,
   Content as ContentComponent,
@@ -5,8 +6,7 @@ import {
   Section,
   Text,
   Title,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const BasicContentExample: React.FC = () => (
   <Section>

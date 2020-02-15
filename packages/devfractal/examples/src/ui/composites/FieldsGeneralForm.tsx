@@ -1,4 +1,6 @@
-import { Simple } from '@stp/crud'
+import { Form, Formik, FormikProps } from 'formik'
+import React from 'react'
+import { Simple } from 'technoidentity-crud'
 import {
   CheckboxField,
   DateField,
@@ -7,10 +9,15 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from '@stp/ui'
-import { Button, Container, Field, Label, Radio, Section } from '@stp/ui'
-import { Form, Formik, FormikProps } from 'formik'
-import React from 'react'
+} from 'technoidentity-ui'
+import {
+  Button,
+  Container,
+  Field,
+  Label,
+  Radio,
+  Section,
+} from 'technoidentity-ui'
 import { array, boolean, date, object, ObjectSchema, string } from 'yup'
 
 interface GeneralFormProps {

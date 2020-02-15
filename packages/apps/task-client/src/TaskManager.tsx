@@ -1,6 +1,6 @@
-import { NotFound } from '@stp/crud'
-import { Route, Router, Switch } from '@stp/router'
 import React from 'react'
+import { NotFound } from 'technoidentity-crud'
+import { Route, Router, Switch } from 'technoidentity-router'
 import {
   CreateTaskRoute,
   EditTaskRoute,

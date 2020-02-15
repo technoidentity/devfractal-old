@@ -1,5 +1,6 @@
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import {
   Button,
   ButtonsGroup,
@@ -20,8 +21,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const BasicNavbarExample: React.FC = () => (
   <>

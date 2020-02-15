@@ -1,6 +1,6 @@
-import { components, paths } from '@stp/crud'
-import { Route, SimpleRedirect, Switch } from '@stp/router'
 import React from 'react'
+import { components, paths } from 'technoidentity-crud'
+import { Route, SimpleRedirect, Switch } from 'technoidentity-router'
 import { inMemoryAPI } from './inMemoryAPI'
 import { TodoRT } from './types'
 
@@ -32,7 +32,7 @@ export const TodoRoutes: React.FC = () => {
 }
 
 // import React from 'react'
-// import { api, Crud, Section, SimpleRedirect } from '@stp/ui'
+// import { api, Crud, Section, SimpleRedirect } from 'technoidentity-ui'
 // import { TodoRT } from './types'
 
 // const resource: string = 'todos'

@@ -1,7 +1,7 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { Link } from '@stp/router'
-import { Icon } from '@stp/ui'
 import React from 'react'
+import { Link } from 'technoidentity-router'
+import { Icon } from 'technoidentity-ui'
 import { SimpleTable, SimpleTableProps } from '../simple'
 
 export interface ActionsProps {

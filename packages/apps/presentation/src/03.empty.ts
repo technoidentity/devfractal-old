@@ -10,7 +10,7 @@ import {
   tuple,
   type,
   union,
-} from '@stp/utils'
+} from 'technoidentity-utils'
 
 console.log(
   empty(

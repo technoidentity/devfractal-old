@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Pagination,
   PaginationEllipsis,
@@ -5,8 +6,7 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const PaginationView: React.FC = () => (
   <Pagination alignment="centered">

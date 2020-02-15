@@ -1,7 +1,14 @@
-import { Put, SubmitAction } from '@stp/crud'
-import { Route, useParams } from '@stp/router'
-import { getProp, ObjC, Props, string, type, TypeOf } from '@stp/utils'
 import React from 'react'
+import { Put, SubmitAction } from 'technoidentity-crud'
+import { Route, useParams } from 'technoidentity-router'
+import {
+  getProp,
+  ObjC,
+  Props,
+  string,
+  type,
+  TypeOf,
+} from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 
 // tslint:disable no-unbound-method

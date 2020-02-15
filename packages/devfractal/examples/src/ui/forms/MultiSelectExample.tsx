@@ -1,5 +1,7 @@
-import { Simple } from '@stp/crud'
-import { CheckboxField, SelectField } from '@stp/ui'
+import { Form, Formik } from 'formik'
+import React from 'react'
+import { Simple } from 'technoidentity-crud'
+import { CheckboxField, SelectField } from 'technoidentity-ui'
 import {
   Button,
   Column,
@@ -9,9 +11,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from '@stp/ui'
-import { Form, Formik } from 'formik'
-import React from 'react'
+} from 'technoidentity-ui'
 
 type JobTypes = 'designer' | 'developer' | 'manager'
 

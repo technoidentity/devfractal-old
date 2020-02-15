@@ -1,5 +1,5 @@
-import { Image as ImageComponent, Section, Title } from '@stp/ui'
 import React from 'react'
+import { Image as ImageComponent, Section, Title } from 'technoidentity-ui'
 
 const BasicImageExample: React.FC = () => (
   <Section>

@@ -1,4 +1,5 @@
-import { SimplePagerView } from '@stp/crud'
+import React from 'react'
+import { SimplePagerView } from 'technoidentity-crud'
 import {
   Pagination,
   PaginationEllipsis,
@@ -6,9 +7,8 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from '@stp/ui'
-import { Section, Text, Title } from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
+import { Section, Text, Title } from 'technoidentity-ui'
 
 export const SimplePaginationExample: React.FC = () => (
   <>

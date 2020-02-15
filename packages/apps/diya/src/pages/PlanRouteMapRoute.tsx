@@ -1,5 +1,5 @@
-import { All, paths } from '@stp/devfractal'
 import React from 'react'
+import { All, paths } from 'technoidentity-devfractal'
 import { planRouteAPI } from '../common'
 import { PlanRouteList } from '../views'
 

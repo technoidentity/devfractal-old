@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Editor,
   Get,
@@ -6,11 +7,10 @@ import {
   SubmitAction,
   Title,
   useParams,
-} from '@stp/devfractal'
-import { type } from '@stp/utils'
-import { IntFromString } from '@stp/utils'
-import { empty } from '@stp/utils'
-import React from 'react'
+} from 'technoidentity-devfractal'
+import { type } from 'technoidentity-utils'
+import { IntFromString } from 'technoidentity-utils'
+import { empty } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 

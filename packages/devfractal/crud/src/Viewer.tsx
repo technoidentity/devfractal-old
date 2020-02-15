@@ -1,7 +1,14 @@
-import { CheckBox, Column, Columns, Section, Text, Title } from '@stp/ui'
-import * as t from '@stp/utils'
-import { camelCaseToPhrase, date } from '@stp/utils'
 import React from 'react'
+import {
+  CheckBox,
+  Column,
+  Columns,
+  Section,
+  Text,
+  Title,
+} from 'technoidentity-ui'
+import * as t from 'technoidentity-utils'
+import { camelCaseToPhrase, date } from 'technoidentity-utils'
 import { Get } from './api'
 import { formatDate, isFunction } from './utils'
 

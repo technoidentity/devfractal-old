@@ -1,6 +1,11 @@
-import { component, formProps, Section, Simple } from '@stp/devfractal'
-import { empty } from '@stp/utils'
 import React from 'react'
+import {
+  component,
+  formProps,
+  Section,
+  Simple,
+} from 'technoidentity-devfractal'
+import { empty } from 'technoidentity-utils'
 import { Ev } from '../common'
 import { HeadTitle } from '../components'
 

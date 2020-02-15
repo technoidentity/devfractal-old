@@ -1,6 +1,6 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
-import { Box, Button, Column, Columns, Icon, Text } from '@stp/ui'
 import React from 'react'
+import { Box, Button, Column, Columns, Icon, Text } from 'technoidentity-ui'
 
 interface CounterProps {
   readonly value: number

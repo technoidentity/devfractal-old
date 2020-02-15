@@ -1,16 +1,19 @@
-import Paper from '@material-ui/core/Paper'
-import Table, { TableProps } from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableContainer from '@material-ui/core/TableContainer'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-import { CheckBox, Text } from '@stp/ui'
-import * as t from '@stp/utils'
-import { camelCaseToPhrase, date } from '@stp/utils'
+import {
+  Checkbox,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableProps,
+  TableRow,
+  Typography,
+} from '@material-ui/core'
 import { format } from 'date-fns'
 import React from 'react'
-
+import * as t from 'technoidentity-utils'
+import { camelCaseToPhrase, date } from 'technoidentity-utils'
 function formatDate(date: Date | undefined): string | undefined {
   return date && format(date, 'dd/MM/yyyy')
 }
@@ -61,7 +64,7 @@ function TableRows<
               {date.is(value[h]) ? (
                 <>{formatDate(value[h])}</>
               ) : t.boolean.is(value[h]) ? (
-                <CheckBox readOnly checked={value[h]} />
+                <Checkbox readOnly checked={value[h]} />
               ) : value[h] !== undefined ? (
                 value[h]
               ) : (
@@ -112,7 +115,7 @@ export function SimpleTable<
   } = args
 
   if (data.length === 0) {
-    return <Text textSize="3">No Values</Text>
+    return <Typography variant="h3">No Values</Typography>
   }
 
   const keys: ReadonlyArray<keyof T> =

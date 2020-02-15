@@ -10,8 +10,9 @@ import {
   faCircle,
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import { Link, Route } from '@stp/router'
-import { DynamicBreadcrumb } from '@stp/ui'
+import React from 'react'
+import { Link, Route } from 'technoidentity-router'
+import { DynamicBreadcrumb } from 'technoidentity-ui'
 import {
   Button,
   ButtonsGroup,
@@ -34,8 +35,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 import { default as developer } from '../src/images/asset/developer.png'
 import logo from '../src/images/asset/logo.png'
 import { default as contentLoader } from '../src/images/contentLoader.png'

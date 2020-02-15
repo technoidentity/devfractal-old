@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Box,
   Button,
@@ -11,8 +12,7 @@ import {
   Section,
   Simple,
   Title,
-} from '@stp/devfractal'
-import React from 'react'
+} from 'technoidentity-devfractal'
 import { Employee } from '../common'
 
 // const validationSchema = yup.object().shape({

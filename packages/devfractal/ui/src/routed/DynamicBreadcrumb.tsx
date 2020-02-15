@@ -1,7 +1,7 @@
-import { Null } from '@stp/core'
-import { useLocation } from '@stp/router'
-import { capitalizeAll, chop } from '@stp/utils'
 import React from 'react'
+import { Null } from 'technoidentity-core'
+import { useLocation } from 'technoidentity-router'
+import { capitalizeAll, chop } from 'technoidentity-utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 
 export const DynamicBreadcrumb: React.FC = () => {

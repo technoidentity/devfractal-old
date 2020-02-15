@@ -1,4 +1,5 @@
 import { faHeart, faReply, faRetweet } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import {
   Box,
   Button,
@@ -23,8 +24,7 @@ import {
   Ol,
   Section,
   Title,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const ImageModalExample: React.FC = () => {
   const [modal, setModal] = React.useState(false)

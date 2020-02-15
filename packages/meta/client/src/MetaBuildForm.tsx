@@ -1,8 +1,11 @@
+import { Form, Formik, FormikHelpers } from 'formik'
+import { PrimitiveMT } from 'meta-core'
+import React from 'react'
 import {
   Simple,
   SimpleArrayField,
   SimpleArrayFieldComponentProps,
-} from '@stp/crud'
+} from 'technoidentity-crud'
 import {
   CheckBox,
   Column,
@@ -11,10 +14,7 @@ import {
   Input,
   Select,
   Text,
-} from '@stp/ui'
-import { Form, Formik, FormikHelpers } from 'formik'
-import { PrimitiveMT } from 'meta-core'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export interface MetaBuildFormProps {
   onSubmit(values: any, formikActions: FormikHelpers<any>): void

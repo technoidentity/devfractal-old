@@ -1,6 +1,6 @@
-import * as t from '@stp/utils'
-import { date } from '@stp/utils'
-import { req } from '@stp/utils'
+import * as t from 'technoidentity-utils'
+import { date } from 'technoidentity-utils'
+import { req } from 'technoidentity-utils'
 import { startFakeJSONServer } from './fakeServer'
 
 const User = req({

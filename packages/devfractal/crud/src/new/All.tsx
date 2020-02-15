@@ -1,5 +1,7 @@
-import { API, APIQuery, Page } from '@stp/core'
-import { Route, useHistory, useLocation } from '@stp/router'
+import { parse, stringify } from 'query-string'
+import React from 'react'
+import { API, APIQuery, Page } from 'technoidentity-core'
+import { Route, useHistory, useLocation } from 'technoidentity-router'
 import {
   cast,
   IntFromString,
@@ -9,9 +11,7 @@ import {
   record,
   string,
   TypeOf,
-} from '@stp/utils'
-import { parse, stringify } from 'query-string'
-import React from 'react'
+} from 'technoidentity-utils'
 import { Get } from '../api'
 
 // tslint:disable-next-line: typedef

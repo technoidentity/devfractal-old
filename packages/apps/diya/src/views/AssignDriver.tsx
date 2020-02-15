@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Column,
   Columns,
@@ -7,9 +8,8 @@ import {
   Simple,
   SubmitAction,
   Title,
-} from '@stp/devfractal'
-import { empty, fn, req } from '@stp/utils'
-import React from 'react'
+} from 'technoidentity-devfractal'
+import { empty, fn, req } from 'technoidentity-utils'
 import { AssignDriver, assignDriverAPI } from '../common'
 
 const AssignDriverFormProps = req({

@@ -1,5 +1,5 @@
-import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
+import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 import { FSAll, FSAllComponentProps } from './FSAll'
 import { FSCreate } from './FSCreate'

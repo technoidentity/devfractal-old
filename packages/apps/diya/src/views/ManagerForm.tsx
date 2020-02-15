@@ -1,3 +1,5 @@
+import { ErrorMessage, Field, FieldProps, Form, Formik } from 'formik'
+import React from 'react'
 import {
   Button,
   CreateLink,
@@ -17,11 +19,9 @@ import {
   useGet,
   useParams,
   useSubmitRedirect,
-} from '@stp/devfractal'
-import { type } from '@stp/utils'
-import { IntFromString } from '@stp/utils'
-import { ErrorMessage, Field, FieldProps, Form, Formik } from 'formik'
-import React from 'react'
+} from 'technoidentity-devfractal'
+import { type } from 'technoidentity-utils'
+import { IntFromString } from 'technoidentity-utils'
 import { AdManager, adManagerAPI } from '../common'
 import { HeadTitle } from '../components'
 

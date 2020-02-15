@@ -1,4 +1,3 @@
-import { boolean, req, string, TypeOf } from '@stp/utils'
 import express, { Response } from 'express'
 import {
   BAD_REQUEST,
@@ -6,6 +5,7 @@ import {
   INTERNAL_SERVER_ERROR,
   NO_CONTENT,
 } from 'http-status-codes'
+import { boolean, req, string, TypeOf } from 'technoidentity-utils'
 import { AuthSession, Request } from './types'
 import { isUserValid } from './userSchema'
 

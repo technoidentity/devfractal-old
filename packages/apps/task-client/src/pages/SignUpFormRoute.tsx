@@ -1,5 +1,5 @@
-import { Post } from '@stp/crud'
 import React from 'react'
+import { Post } from 'technoidentity-crud'
 import { userAPI } from '../common'
 import { SignUpForm } from '../views'
 

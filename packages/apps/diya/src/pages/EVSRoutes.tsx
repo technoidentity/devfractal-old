@@ -1,5 +1,5 @@
-import { All, Create, links, paths } from '@stp/devfractal'
 import React from 'react'
+import { All, Create, links, paths } from 'technoidentity-devfractal'
 import { evAPI } from '../common'
 import { EVSList, RaiseRequestForm } from '../views'
 

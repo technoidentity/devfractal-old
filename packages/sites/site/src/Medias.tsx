@@ -1,5 +1,11 @@
-import { Container, Media, MediaContent, MediaLeft, Text } from '@stp/ui'
 import React from 'react'
+import {
+  Container,
+  Media,
+  MediaContent,
+  MediaLeft,
+  Text,
+} from 'technoidentity-ui'
 import columnsIcon from '../src/images/column.png'
 import componentsIcon from '../src/images/components.png'
 import compositesIcon from '../src/images/composites.png'

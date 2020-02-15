@@ -1,5 +1,5 @@
-import { useSubmitRedirect } from '@stp/core'
 import React from 'react'
+import { useSubmitRedirect } from 'technoidentity-core'
 import { SubmitAction } from './common'
 import { ServerError } from './ServerError'
 export interface PostComponentProps<T> {

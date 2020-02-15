@@ -1,6 +1,6 @@
-import { NavLink, useLocation } from '@stp/router'
-import { chop, extractSegment } from '@stp/utils'
 import React from 'react'
+import { NavLink, useLocation } from 'technoidentity-router'
+import { chop, extractSegment } from 'technoidentity-utils'
 import { classNamesHelper, El, Helpers } from '../core'
 
 interface RoutedTabsContext {

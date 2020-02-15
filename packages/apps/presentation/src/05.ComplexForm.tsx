@@ -1,6 +1,6 @@
-import { Section } from '@stp/devfractal'
 import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
+import { Section } from 'technoidentity-devfractal'
 import * as yup from 'yup'
 
 interface LoginValues {

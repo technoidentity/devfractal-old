@@ -1,5 +1,5 @@
-import { Box, Section, Text, Title } from '@stp/ui'
 import React from 'react'
+import { Box, Section, Text, Title } from 'technoidentity-ui'
 
 const TextSizesExample: React.FC = () => (
   <Section>

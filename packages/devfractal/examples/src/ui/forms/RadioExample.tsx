@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Column,
   Columns,
@@ -8,8 +9,7 @@ import {
   RadioGroup,
   Section,
   Title,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const DynamicRadioExample: React.FC = () => {
   const [select, setSelect] = React.useState('red')

@@ -1,3 +1,5 @@
+import { AxiosInstance } from 'axios'
+import { produce } from 'immer'
 import {
   ObjC,
   objPick,
@@ -6,9 +8,7 @@ import {
   readonlyArray,
   TypeOf,
   UnknownArray,
-} from '@stp/utils'
-import { AxiosInstance } from 'axios'
-import { produce } from 'immer'
+} from 'technoidentity-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 import { APIQuery, toAPIQuery as toQueryFn } from './query'
 

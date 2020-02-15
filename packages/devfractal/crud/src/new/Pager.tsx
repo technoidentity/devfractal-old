@@ -1,5 +1,9 @@
-import { Pagination, PaginationNext, PaginationPrevious } from '@stp/ui'
 import React from 'react'
+import {
+  Pagination,
+  PaginationNext,
+  PaginationPrevious,
+} from 'technoidentity-ui'
 
 export interface PagerProps {
   // first page is 1

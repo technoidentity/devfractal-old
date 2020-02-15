@@ -1,3 +1,5 @@
+import { format } from 'date-fns'
+import React from 'react'
 import {
   CheckBox,
   Input,
@@ -7,9 +9,7 @@ import {
   TableHead,
   Td,
   Tr,
-} from '@stp/ui'
-import { format } from 'date-fns'
-import React from 'react'
+} from 'technoidentity-ui'
 
 interface Todo {
   readonly id: number

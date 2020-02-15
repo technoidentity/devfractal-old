@@ -1,5 +1,5 @@
-import { verify } from '@stp/utils'
 import React from 'react'
+import { verify } from 'technoidentity-utils'
 import { AuthUserInfo } from '../common'
 import { LoginValues } from '../views'
 

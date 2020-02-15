@@ -1,6 +1,6 @@
-import { API, APIQuery } from '@stp/core'
-import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
+import { API, APIQuery } from 'technoidentity-core'
+import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { All, AllComponentProps } from './All'
 import { paths as resPaths } from './common'
 import { Create } from './Create'

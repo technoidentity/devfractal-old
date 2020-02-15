@@ -1,6 +1,6 @@
-import { verify } from '@stp/utils'
 import React from 'react'
 import useLocalStorage from 'react-use/lib/useLocalStorage'
+import { verify } from 'technoidentity-utils'
 
 interface AuthContext {
   readonly isLoggedIn: boolean

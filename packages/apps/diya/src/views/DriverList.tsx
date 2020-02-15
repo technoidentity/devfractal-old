@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Column,
   Columns,
@@ -8,8 +9,7 @@ import {
   Section,
   useHistory,
   useLocation,
-} from '@stp/devfractal'
-import React from 'react'
+} from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'

@@ -1,6 +1,6 @@
-import { Viewer } from '@stp/crud'
-import { SimpleTable } from '@stp/crud'
 import React from 'react'
+import { Viewer } from 'technoidentity-crud'
+import { SimpleTable } from 'technoidentity-crud'
 import { SimpleAddTodo } from './AddTodo'
 
 interface Todo {

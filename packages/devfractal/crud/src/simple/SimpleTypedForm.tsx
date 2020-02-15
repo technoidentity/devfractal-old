@@ -1,3 +1,5 @@
+import { Form, Formik } from 'formik'
+import React from 'react'
 import {
   CheckboxField,
   ErrorField,
@@ -6,11 +8,9 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from '@stp/ui'
-import { Field, Label } from '@stp/ui'
-import { camelCaseToPhrase } from '@stp/utils'
-import { Form, Formik } from 'formik'
-import React from 'react'
+} from 'technoidentity-ui'
+import { Field, Label } from 'technoidentity-ui'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import * as yup from 'yup'
 import {
   Simple,

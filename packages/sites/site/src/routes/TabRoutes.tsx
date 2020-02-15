@@ -1,5 +1,5 @@
-import { Route } from '@stp/router'
 import React from 'react'
+import { Route } from 'technoidentity-router'
 import { ComponentsTab, CompositesTab } from '../Tabs'
 import {
   ColumnsLinks,

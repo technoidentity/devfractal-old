@@ -1,4 +1,5 @@
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import {
   Card,
   CardContent,
@@ -17,8 +18,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const SimpleCardExample: React.FC = () => (
   <Section>

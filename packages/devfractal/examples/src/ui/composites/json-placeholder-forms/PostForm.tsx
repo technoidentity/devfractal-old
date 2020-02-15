@@ -1,5 +1,5 @@
 export const PostForm: number = 100
-// import * as t from '@stp/utils'
+// import * as t from 'technoidentity-utils'
 // import React from 'react'
 // import {
 //   consoleSubmit,
@@ -9,7 +9,7 @@ export const PostForm: number = 100
 //   Simple,
 //   Title,
 //   typeInvariant,
-// } from '@stp/ui'
+// } from 'technoidentity-ui'
 
 // // tslint:disable typedef
 

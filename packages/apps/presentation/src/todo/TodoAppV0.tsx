@@ -1,4 +1,13 @@
 import {
+  ErrorMessage,
+  Field,
+  FieldProps,
+  Form,
+  Formik,
+  FormikHelpers,
+} from 'formik'
+import React from 'react'
+import {
   Button,
   CheckBox,
   DateInput,
@@ -11,17 +20,8 @@ import {
   useGet,
   useParams,
   useSubmitRedirect,
-} from '@stp/devfractal'
-import { IntFromString, type } from '@stp/utils'
-import {
-  ErrorMessage,
-  Field,
-  FieldProps,
-  Form,
-  Formik,
-  FormikHelpers,
-} from 'formik'
-import React from 'react'
+} from 'technoidentity-devfractal'
+import { IntFromString, type } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'

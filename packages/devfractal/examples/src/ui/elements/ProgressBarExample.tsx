@@ -1,10 +1,10 @@
+import React from 'react'
 import {
   Box,
   ProgressBar as ProgressBarComponent,
   Section,
   Title,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 const BasicProgressBarExample: React.FC = () => (
   <Section>

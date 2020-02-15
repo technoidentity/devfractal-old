@@ -1,3 +1,5 @@
+import { Form, Formik, FormikProps } from 'formik'
+import React from 'react'
 import {
   Button,
   Container,
@@ -5,9 +7,7 @@ import {
   Field as FieldGroup,
   InputField,
   Label,
-} from '@stp/devfractal'
-import { Form, Formik, FormikProps } from 'formik'
-import React from 'react'
+} from 'technoidentity-devfractal'
 import yup from 'yup'
 
 interface LoginValues {

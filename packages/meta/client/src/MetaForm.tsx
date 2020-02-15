@@ -1,9 +1,9 @@
-import { Simple } from '@stp/crud'
-import { Field, Label } from '@stp/ui'
-import { camelCaseToPhrase } from '@stp/utils'
 import { FormikHelpers } from 'formik'
 import { EnumMT, Mixed, MT, PrimitiveMT } from 'meta-core'
 import React from 'react'
+import { Simple } from 'technoidentity-crud'
+import { Field, Label } from 'technoidentity-ui'
+import { camelCaseToPhrase } from 'technoidentity-utils'
 import { metaToInitialValues } from './metaToInitialValues'
 import { mtToYup } from './metaToYup'
 

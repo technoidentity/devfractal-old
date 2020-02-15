@@ -1,6 +1,6 @@
-import { rest } from '@stp/core'
-import { boolean, number, string, TypeOf } from '@stp/utils'
-import { ISODate, obj } from '@stp/utils'
+import { rest } from 'technoidentity-core'
+import { boolean, number, string, TypeOf } from 'technoidentity-utils'
+import { ISODate, obj } from 'technoidentity-utils'
 
 export const Todo = obj(
   { id: number },

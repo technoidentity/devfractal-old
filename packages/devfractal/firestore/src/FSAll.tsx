@@ -1,7 +1,7 @@
-import { Get } from '@stp/crud'
-import { Route } from '@stp/router'
-import { ObjC, Props, TypeOf } from '@stp/utils'
 import React from 'react'
+import { Get } from 'technoidentity-crud'
+import { Route } from 'technoidentity-router'
+import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 
 interface ChildrenProps<

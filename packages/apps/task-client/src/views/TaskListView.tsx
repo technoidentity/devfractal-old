@@ -1,5 +1,7 @@
-import { component } from '@stp/core'
-import { Link } from '@stp/router'
+import { format } from 'date-fns'
+import React from 'react'
+import { component } from 'technoidentity-core'
+import { Link } from 'technoidentity-router'
 import {
   ButtonsGroup,
   Field,
@@ -11,10 +13,8 @@ import {
   Th,
   Title,
   Tr,
-} from '@stp/ui'
-import { readonlyArray, req } from '@stp/utils'
-import { format } from 'date-fns'
-import React from 'react'
+} from 'technoidentity-ui'
+import { readonlyArray, req } from 'technoidentity-utils'
 import { Task } from '../common'
 import { PaginationView } from './PaginateView'
 

@@ -1,10 +1,10 @@
-import { rest } from '@stp/core'
-import { Router, SimpleRedirect } from '@stp/router'
-import { Section } from '@stp/ui'
-import { boolean, number, obj, string } from '@stp/utils'
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
+import { rest } from 'technoidentity-core'
+import { Router, SimpleRedirect } from 'technoidentity-router'
+import { Section } from 'technoidentity-ui'
+import { boolean, number, obj, string } from 'technoidentity-utils'
 import {
   ButtonLink,
   CrudRoutes,

@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   CreateLink,
   links,
@@ -5,8 +6,7 @@ import {
   RoutedPager,
   Section,
   Title,
-} from '@stp/devfractal'
-import React from 'react'
+} from 'technoidentity-devfractal'
 import { Battery } from '../common'
 import { DiyaTable } from '../components/DiyaTable'
 

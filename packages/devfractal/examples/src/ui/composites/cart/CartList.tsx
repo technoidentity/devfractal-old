@@ -1,5 +1,13 @@
-import { Table, TableBody, TableHead, Td, Th, Title, Tr } from '@stp/ui'
 import React from 'react'
+import {
+  Table,
+  TableBody,
+  TableHead,
+  Td,
+  Th,
+  Title,
+  Tr,
+} from 'technoidentity-ui'
 import { Product } from './Product'
 
 interface CartItem {

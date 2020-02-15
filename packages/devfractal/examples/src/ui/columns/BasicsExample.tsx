@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Column,
   Columns,
@@ -5,8 +6,7 @@ import {
   Notification,
   Section,
   Title,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const Basic: React.FC = () => (
   <Section>

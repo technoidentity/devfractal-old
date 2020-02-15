@@ -1,5 +1,5 @@
-import { useLocation } from '@stp/router'
 import React from 'react'
+import { useLocation } from 'technoidentity-router'
 
 // @TODO: need a spinner
 export const Loading: React.FC = () => (

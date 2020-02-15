@@ -1,7 +1,7 @@
-import { Get } from '@stp/crud'
-import { useParams } from '@stp/router'
-import { opt } from '@stp/utils'
 import React from 'react'
+import { Get } from 'technoidentity-crud'
+import { useParams } from 'technoidentity-router'
+import { opt } from 'technoidentity-utils'
 import { getTasks, TaskFilter } from '../common'
 import { TaskListView } from '../views'
 

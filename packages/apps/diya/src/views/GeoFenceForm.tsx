@@ -1,11 +1,11 @@
+import React from 'react'
 import {
   Column,
   Columns,
   formComponent,
   Section,
   Simple,
-} from '@stp/devfractal'
-import React from 'react'
+} from 'technoidentity-devfractal'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 import { GeoFence as GeoFenceMap } from '../maps'

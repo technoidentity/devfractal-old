@@ -6,6 +6,7 @@ import {
   faLock,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import {
   Button,
   CheckBox,
@@ -22,8 +23,7 @@ import {
   Section,
   Select,
   TextArea,
-} from '@stp/ui'
-import React from 'react'
+} from 'technoidentity-ui'
 
 export const General: React.FC = () => (
   <>

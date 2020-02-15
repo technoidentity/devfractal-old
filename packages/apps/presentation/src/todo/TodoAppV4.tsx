@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   All,
   Create,
@@ -12,9 +13,8 @@ import {
   Section,
   SimpleRedirect,
   Title,
-} from '@stp/devfractal'
-import { CreateLink } from '@stp/devfractal'
-import React from 'react'
+} from 'technoidentity-devfractal'
+import { CreateLink } from 'technoidentity-devfractal'
 import { Todo, todoAPI } from './common'
 
 const ps = paths(todoAPI.resource)

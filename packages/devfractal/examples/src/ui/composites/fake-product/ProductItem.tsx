@@ -1,5 +1,5 @@
-import { Button, Td, Tr } from '@stp/ui'
 import React from 'react'
+import { Button, Td, Tr } from 'technoidentity-ui'
 import { Product } from './fakeData'
 
 export interface ProductItemProps {

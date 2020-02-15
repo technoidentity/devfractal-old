@@ -1,5 +1,5 @@
-import { Button } from '@stp/ui'
 import React from 'react'
+import { Button } from 'technoidentity-ui'
 
 export interface DeleteButtonProps {
   readonly id?: string | number
