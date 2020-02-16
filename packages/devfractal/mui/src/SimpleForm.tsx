@@ -105,10 +105,10 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
         validate={validator(schema, validations)}
         aria-describedby={`${id}.help}`}
       />
-      <FormHelperText id={`${id}.help}`}>
+      {/* <FormHelperText id={`${id}.help}`}>
         We'll never share your email.
-      </FormHelperText>
-      {/* <ErrorField name={props.name} /> */}
+      </FormHelperText> */}
+      <ErrorField name={props.name} />
     </FormControl>
   )
 }
