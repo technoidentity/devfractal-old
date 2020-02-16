@@ -33,10 +33,7 @@ interface GeneralFormProps {
   readonly date: Date
 }
 
-const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = ({
-  values,
-  handleChange,
-}) => {
+const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = () => {
   return (
     <Paper>
       <Form>
@@ -63,7 +60,7 @@ const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = ({
         <br />
         <FormControl>
           <FormLabel>Subject</FormLabel>
-          <SelectField name="select" value={values.select}>
+          <SelectField name="select">
             <MenuItem value="associate">Associate</MenuItem>
             <MenuItem value="assistant">Assistant</MenuItem>
           </SelectField>
@@ -88,12 +85,7 @@ const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = ({
 
         <FormControl>
           <FormLabel>Date</FormLabel>
-          <DateField
-            name="date"
-            onChange={handleChange}
-            value={values.date}
-            variant="inline"
-          />
+          <DateField name="date" variant="inline" />
           <ErrorField name="date" />
         </FormControl>
         <br />
@@ -101,7 +93,7 @@ const InnerFieldsGeneralForm: React.FC<FormikProps<GeneralFormProps>> = ({
 
         <FormControl>
           <FormLabel>Gender</FormLabel>
-          <RadioGroupField name="gender" value={values.gender}>
+          <RadioGroupField name="gender">
             <RadioItem value="female" label="Female" />
             <RadioItem value="male" label="Male" />
             <RadioItem value="others" label="Others" />
