@@ -4,7 +4,12 @@ import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from './types'
 
-export type DateFieldProps = FormikFieldConfig & KeyboardDatePickerProps
+export interface DateFieldProps
+  extends FormikFieldConfig,
+    Omit<KeyboardDatePickerProps, 'name' | 'onChange' | 'value'> {
+  readonly onChange?: KeyboardDatePickerProps['onChange']
+  readonly value?: KeyboardDatePickerProps['value']
+}
 
 export const DateField: React.FC<DateFieldProps> = ({ children, ...props }) => {
   const [field, , helpers] = useField(props as any)
