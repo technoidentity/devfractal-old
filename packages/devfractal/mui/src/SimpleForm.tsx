@@ -16,6 +16,7 @@ import {
   FormikHelpers,
 } from 'formik'
 import React from 'react'
+import { DebugField } from 'technoidentity-core'
 import { camelCaseToPhrase, jsonStringify, timeout } from 'technoidentity-utils'
 import {
   // date,
@@ -245,7 +246,7 @@ export interface TypedForm<Values extends {}> {
   // readonly CheckboxItem: React.FC<CheckboxItemProps>
   readonly Form: React.FC<SimpleFormProps<Values>>
   readonly FormButtons: React.FC<SimpleFormButtonsProps>
-  // readonly Debug: typeof DebugField
+  readonly Debug: typeof DebugField
 }
 
 interface MultiCheckContext {
@@ -380,7 +381,7 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
       </Formik>
     ),
     FormButtons: SimpleFormButtons,
-    // Debug: DebugField,
+    Debug: DebugField,
   }
 }
 
