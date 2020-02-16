@@ -3,12 +3,12 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
-import { FieldsMuiGeneralForm } from './ui/composites/FieldsMuiGeneralForm'
+import { MuiSimpleFormExample } from './mui'
 
 export const App: React.FC = () => {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <FieldsMuiGeneralForm />
+      <MuiSimpleFormExample />
     </MuiPickersUtilsProvider>
   )
 }

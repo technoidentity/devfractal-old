@@ -34,9 +34,7 @@ export const RadioGroupField: React.FC<RadioGroupFieldProps> = props => {
 export type RadioItemProps = Omit<FormControlLabelProps, 'control'> &
   MuiRadioProps
 
-export const RadioItem: React.FC<RadioItemProps> = ({ label, ...rest }) => {
+export const RadioItem: React.FC<RadioItemProps> = props => {
   const { name } = React.useContext(RadioFieldContext)
-  return (
-    <FormControlLabel control={<Radio name={name} />} label={label} {...rest} />
-  )
+  return <FormControlLabel control={<Radio name={name} />} {...props} />
 }

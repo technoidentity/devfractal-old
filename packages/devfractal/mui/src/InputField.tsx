@@ -12,6 +12,6 @@ export const InputField: React.FC<InputFieldProps> = props => {
   const [field] = useField(props as any)
   const { validate, ...rest } = props
 
-  //@TODO: allow fullWidth to be passed
+  // @TODO: allow fullWidth to be passed
   return <MuiInput fullWidth={true} {...field} {...rest} />
 }

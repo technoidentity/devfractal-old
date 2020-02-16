@@ -1,29 +1,27 @@
 import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
 import React from 'react'
+import { DebugField } from 'technoidentity-core'
 import {
+  Button,
+  ButtonsGroup,
+  ButtonsGroupProps,
   CheckboxField,
   CheckboxFieldProps,
   DateField,
   DateFieldProps,
-  DebugField,
+  ElProps,
   ErrorField,
+  Field,
+  FieldPropsBase,
   InputField,
   InputFieldProps,
+  Label,
   RadioFieldProps,
   RadioGroupField,
   SelectField,
   SelectFieldProps,
   TextAreaField,
   TextAreaFieldProps,
-} from 'technoidentity-ui'
-import {
-  Button,
-  ButtonsGroup,
-  ButtonsGroupProps,
-  ElProps,
-  Field,
-  FieldPropsBase,
-  Label,
 } from 'technoidentity-ui'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
