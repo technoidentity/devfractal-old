@@ -10,7 +10,7 @@ import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from './types'
 
-export type RadioGroupProps = FormikFieldConfig & MuiRadioGroupProps
+export type RadioGroupFieldProps = FormikFieldConfig & MuiRadioGroupProps
 
 interface RadioContext {
   readonly name: string
@@ -20,7 +20,7 @@ const RadioFieldContext: React.Context<RadioContext> = React.createContext(
   undefined as any,
 )
 
-export const RadioGroupField: React.FC<RadioGroupProps> = props => {
+export const RadioGroupField: React.FC<RadioGroupFieldProps> = props => {
   const [field] = useField(props as any)
   const { validate, ...rest } = props
 

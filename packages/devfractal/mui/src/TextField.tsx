@@ -1,12 +1,14 @@
-import { TextField as MuiTextField } from '@material-ui/core'
-import { TextFieldProps } from '@material-ui/core/TextField'
+import {
+  TextField as MuiTextField,
+  TextFieldProps as MuiTextFieldProps,
+} from '@material-ui/core'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from './types'
 
-export type InputFieldProps = FormikFieldConfig & TextFieldProps
+export type TextFieldProps = FormikFieldConfig & MuiTextFieldProps
 
-export const TextField: React.FC<InputFieldProps> = props => {
+export const TextField: React.FC<TextFieldProps> = props => {
   const [field] = useField(props as any)
   const { validate, ...rest } = props
 
