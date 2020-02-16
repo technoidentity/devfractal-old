@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "dependencies": {
-    "@date-io/date-fns": "2.x",
+    "@date-io/date-fns": "1.x",
     "@material-ui/icons": "^4.9.1",
     "date-fns": "^2.9.0",
     "formik": "2.1.4",
