@@ -19,6 +19,8 @@ import React from 'react'
 import { DebugField } from 'technoidentity-core'
 import { camelCaseToPhrase, jsonStringify, timeout } from 'technoidentity-utils'
 import {
+  date,
+  DateSchema,
   // date,
   // DateSchema,
   number,
@@ -28,7 +30,7 @@ import {
   string,
   StringSchema,
 } from 'yup'
-import { CheckboxField, CheckboxFieldProps } from './CheckboxField'
+import { DateField, DateFieldProps } from './DateField'
 import { InputField, InputFieldProps } from './InputField'
 import { RadioGroupField, RadioGroupFieldProps } from './RadioGroupField'
 
@@ -114,29 +116,29 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
   )
 }
 
-// interface SimpleDateProps<Values extends {}>
-//   extends Omit<DateFieldProps, 'name' | 'size'>,
-//     Named<Values>,
-//     FieldProps {
-//   readonly validations?: ReadonlyArray<(schema: DateSchema) => DateSchema>
-//   readonly label?: string
-// }
+interface SimpleDateProps<Values extends {}>
+  extends Omit<DateFieldProps, 'name' | 'size'>,
+    Named<Values> {
+  readonly validations?: ReadonlyArray<(schema: DateSchema) => DateSchema>
+  readonly label?: string
+}
 
-// function SimpleDate<Values extends {}>(
-//   args: SimpleDateProps<Values>,
-// ): JSX.Element {
-//   const [fieldProps, rest] = splitFieldProps(args)
-//   const { label, validations, ...props } = rest
-//   const id: string = props.id || props.name
+function SimpleDate<Values extends {}>(
+  args: SimpleDateProps<Values>,
+): JSX.Element {
+  const { label, validations, ...props } = args
+  const id: string = props.id || props.name
 
-//   return (
-//     <Field {...fieldProps}>
-//       <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
-//       <DateField id={id} {...props} validate={validator(date(), validations)} />
-//       <ErrorField name={props.name} />
-//     </Field>
-//   )
-// }
+  return (
+    <FormControl>
+      <FormLabel htmlFor={id}>
+        {label || camelCaseToPhrase(props.name)}
+      </FormLabel>
+      <DateField id={id} {...props} validate={validator(date(), validations)} />
+      <ErrorField name={props.name} />
+    </FormControl>
+  )
+}
 
 export interface SimpleCheckboxProps<Values extends {}>
   extends Omit<CheckboxFieldProps, 'name' | 'size'>,
