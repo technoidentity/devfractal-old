@@ -30,9 +30,14 @@ import {
   string,
   StringSchema,
 } from 'yup'
+import {
+  CheckboxControlField,
+  CheckboxControlFieldProps,
+} from './CheckboxControlField'
 import { DateField, DateFieldProps } from './DateField'
 import { InputField, InputFieldProps } from './InputField'
 import { RadioGroupField, RadioGroupFieldProps } from './RadioGroupField'
+import { SelectField, SelectFieldProps } from './SelectField'
 
 function consoleSubmit<Values extends {}>(
   milliseconds: number = 0,
@@ -108,9 +113,6 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
         validate={validator(schema, validations)}
         aria-describedby={`${id}.help}`}
       />
-      {/* <FormHelperText id={`${id}.help}`}>
-        We'll never share your email.
-      </FormHelperText> */}
       <ErrorField name={props.name} />
     </FormControl>
   )
@@ -141,8 +143,9 @@ function SimpleDate<Values extends {}>(
 }
 
 export interface SimpleCheckboxProps<Values extends {}>
-  extends Omit<CheckboxFieldProps, 'name' | 'size'>,
+  extends Omit<CheckboxControlFieldProps, 'name' | 'size' | 'label'>,
     Named<Values> {
+  readonly label?: CheckboxControlFieldProps['label']
   readonly noLabel?: boolean
 }
 
@@ -162,12 +165,11 @@ export interface SimpleRadioGroupProps<Values extends {}>
 // export interface CheckboxItemProps
 //   extends Omit<CheckboxFieldProps, 'name' | 'size'> {}
 
-// export interface SimpleSelectProps<Values extends {}>
-//   extends Omit<SelectFieldProps, 'name' | 'size' | 'multiple'>,
-//     Named<Values>,
-//     FieldProps {
-//   readonly label?: string
-// }
+export interface SimpleSelectProps<Values extends {}>
+  extends Omit<SelectFieldProps, 'name' | 'size' | 'multiple'>,
+    Named<Values> {
+  readonly label?: string
+}
 
 // // @TODO: validations must be array validations?
 // export interface SimpleMultiSelectProps<Values extends {}>
@@ -233,7 +235,7 @@ export interface SimpleFormProps<Values> {
 
 export interface TypedForm<Values extends {}> {
   readonly Text: React.FC<GenericInputProps<Values, StringSchema>>
-  // readonly Date: React.FC<SimpleDateProps<Values>>
+  readonly Date: React.FC<SimpleDateProps<Values>>
   readonly Number: React.FC<GenericInputProps<Values, NumberSchema>>
   readonly Password: React.FC<GenericInputProps<Values, StringSchema>>
   readonly Email: React.FC<GenericInputProps<Values, StringSchema>>
@@ -242,7 +244,7 @@ export interface TypedForm<Values extends {}> {
   readonly Url: React.FC<GenericInputProps<Values, StringSchema>>
   readonly RadioGroup: React.FC<SimpleRadioGroupProps<Values>>
   // readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
-  // readonly Select: React.FC<SimpleSelectProps<Values>>
+  readonly Select: React.FC<SimpleSelectProps<Values>>
   // readonly MultiSelect: React.FC<SimpleMultiSelectProps<Values>>
   // readonly MultiCheckbox: React.FC<SimpleMultiCheckboxProps<Values>>
   // readonly CheckboxItem: React.FC<CheckboxItemProps>
@@ -262,7 +264,7 @@ const MultiCheckContext: React.Context<MultiCheckContext> = React.createContext(
 function typedFormInternal<Values extends {}>(): TypedForm<Values> {
   return {
     Text: props => <SimpleInput {...props} type="text" schema={string()} />,
-    // Date: props => <SimpleDate {...props} />,
+    Date: props => <SimpleDate {...props} />,
     Number: props => <SimpleInput schema={number()} {...props} type="number" />,
 
     Password: props => (
@@ -281,10 +283,13 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
 
       return (
         <FormControl>
-          <FormLabel htmlFor={id}>
-            {children || (!noLabel && ` ${camelCaseToPhrase(props.name)}`)}
-          </FormLabel>
-          <CheckboxField id={id} {...props} />
+          <CheckboxControlField
+            id={id}
+            label={
+              children || (!noLabel && ` ${camelCaseToPhrase(props.name)}`)
+            }
+            {...props}
+          />
           {/* <ErrorField name={props.name} /> */}
         </FormControl>
       )
@@ -304,20 +309,21 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
       )
     },
 
-    // Select: ({ children, label, ...args }) => {
-    //   const [fieldProps, props] = splitFieldProps(args)
-    //   const id: string = props.id || props.name
+    Select: ({ children, label, ...props }) => {
+      const id: string = props.id || props.name
 
-    //   return (
-    //     <Field {...fieldProps}>
-    //       <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
-    //       <SelectField id={id} {...props}>
-    //         {children}
-    //       </SelectField>
-    //       <ErrorField name={props.name} />
-    //     </Field>
-    //   )
-    // },
+      return (
+        <FormControl>
+          <InputLabel htmlFor={id}>
+            {label || camelCaseToPhrase(props.name)}
+          </InputLabel>
+          <SelectField id={id} {...props}>
+            {children}
+          </SelectField>
+          <ErrorField name={props.name} />
+        </FormControl>
+      )
+    },
 
     // MultiSelect: ({ label, ...args }) => {
     //   const [fieldProps, props] = splitFieldProps(args)
