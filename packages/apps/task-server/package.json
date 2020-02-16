@@ -1,6 +1,6 @@
 {
   "name": "app-task-manager-server",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Node Web API Starter using express and mongoose",
   "main": "build/main.js",
   "author": "Pervez Iqbal",
@@ -26,15 +26,15 @@
     "express": "4.17.1",
     "express-session": "1.17.0",
     "http-status-codes": "1.4.0",
-    "meta-core": "^2.0.0",
-    "meta-server": "^2.0.0",
+    "meta-core": "^2.0.1",
+    "meta-server": "^2.0.1",
     "mongodb": "3.5.3",
     "mongoose": "5.9.1",
     "mongoose-paginate": "5.0.3",
     "mongoose-unique-validator": "2.0.3",
     "tcomb": "3.2.29",
-    "technoidentity-dev-utils": "^2.0.0",
-    "technoidentity-utils": "^2.0.0"
+    "technoidentity-dev-utils": "^2.0.1",
+    "technoidentity-utils": "^2.0.1"
   },
   "devDependencies": {
     "backpack-core": "0.8.4",

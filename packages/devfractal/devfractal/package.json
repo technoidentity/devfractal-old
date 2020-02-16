@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-devfractal",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -24,11 +24,11 @@
     "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-core": "^2.0.0",
-    "technoidentity-crud": "^2.0.0",
-    "technoidentity-fs": "^2.0.0",
-    "technoidentity-router": "^2.0.0",
-    "technoidentity-ui": "^2.0.0",
+    "technoidentity-core": "^2.0.1",
+    "technoidentity-crud": "^2.0.1",
+    "technoidentity-fs": "^2.0.1",
+    "technoidentity-router": "^2.0.1",
+    "technoidentity-ui": "^2.0.1",
     "tslib": "1.10.0"
   },
   "devDependencies": {
