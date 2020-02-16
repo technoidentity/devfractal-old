@@ -1,5 +1,9 @@
+import { MenuItem } from '@material-ui/core'
+import { addDays } from 'date-fns'
 import React from 'react'
 import {
+  after,
+  before,
   email,
   lowercase,
   maxLength,
@@ -8,8 +12,8 @@ import {
   required,
   uppercase,
 } from 'technoidentity-core'
-import { RadioItem } from './RadioGroupField'
-import { typedForm } from './SimpleForm'
+import { RadioItem, typedForm } from 'technoidentity-mui'
+import { ISODate } from 'technoidentity-utils'
 
 interface SimpleValues {
   readonly username: string
@@ -19,6 +23,8 @@ interface SimpleValues {
   readonly phone: number
   readonly privileges: boolean
   readonly gender: string
+  readonly job: string
+  readonly date: ISODate | undefined
 }
 
 const initialValues: SimpleValues = {
@@ -29,11 +35,14 @@ const initialValues: SimpleValues = {
   phone: 0,
   privileges: false,
   gender: '',
+  date: new Date(),
+  job: '',
 }
 
-export const SimpleFormExample: React.FC = () => {
+export const MuiSimpleFormExample: React.FC = () => {
   // tslint:disable-next-line:typedef
   const Simple = typedForm<typeof initialValues>()
+
   return (
     <Simple.Form initialValues={initialValues}>
       <Simple.Text
@@ -59,8 +68,24 @@ export const SimpleFormExample: React.FC = () => {
         validations={[required(), positive()]}
       />
       <br />
-      <Simple.Checkbox name="privileges">yes</Simple.Checkbox>
-      <Simple.Checkbox name="privileges">no</Simple.Checkbox>
+      <Simple.Date
+        name="date"
+        validations={[
+          required(),
+          after(new Date()),
+          before(addDays(new Date(), 10)),
+        ]}
+      />
+      <br />
+      <Simple.Checkbox name="privileges">
+        Access to all privileges
+      </Simple.Checkbox>
+
+      <br />
+      <Simple.Select name="job" style={{ minWidth: 120 }}>
+        <MenuItem value="associate">Associate</MenuItem>
+        <MenuItem value="assistant">Assistant</MenuItem>
+      </Simple.Select>
       <br />
       <Simple.RadioGroup name="gender" defaultValue="female">
         <RadioItem value="female" label="Female" />
@@ -68,6 +93,7 @@ export const SimpleFormExample: React.FC = () => {
       </Simple.RadioGroup>
       <br />
       <Simple.FormButtons />
+      <Simple.Debug />
     </Simple.Form>
   )
 }
