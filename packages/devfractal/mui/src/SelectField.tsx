@@ -6,8 +6,11 @@ import { FormikFieldConfig } from './types'
 export type SelectFieldProps = FormikFieldConfig & SelectProps
 
 export const SelectField: React.FC<SelectFieldProps> = props => {
-  const [field] = useField({ as: 'select', ...(props as any) })
+  const [field, { error, touched }] = useField({
+    as: 'select',
+    ...(props as any),
+  })
   const { validate, ...rest } = props
 
-  return <Select {...field} {...rest} />
+  return <Select error={touched && error !== undefined} {...field} {...rest} />
 }

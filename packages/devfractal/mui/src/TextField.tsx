@@ -9,8 +9,15 @@ import { FormikFieldConfig } from './types'
 export type TextFieldProps = FormikFieldConfig & MuiTextFieldProps
 
 export const TextField: React.FC<TextFieldProps> = props => {
-  const [field] = useField(props as any)
+  const [field, { error, touched }] = useField(props as any)
   const { validate, ...rest } = props
 
-  return <MuiTextField fullWidth={true} {...field} {...rest} />
+  return (
+    <MuiTextField
+      error={touched && error !== undefined}
+      fullWidth={true}
+      {...field}
+      {...rest}
+    />
+  )
 }

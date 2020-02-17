@@ -12,11 +12,12 @@ export interface DateFieldProps
 }
 
 export const DateField: React.FC<DateFieldProps> = ({ children, ...props }) => {
-  const [field, , helpers] = useField(props as any)
+  const [field, { touched, error }, helpers] = useField(props as any)
   const { validate, ...rest } = props
 
   return (
     <KeyboardDatePicker
+      error={touched && error !== undefined}
       {...field}
       {...rest}
       onChange={date => {
