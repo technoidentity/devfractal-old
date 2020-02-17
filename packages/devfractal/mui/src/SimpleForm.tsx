@@ -16,7 +16,7 @@ import {
   FormikHelpers,
 } from 'formik'
 import React from 'react'
-import { DebugField } from 'technoidentity-core'
+import { DebugField, required } from 'technoidentity-core'
 import { camelCaseToPhrase, jsonStringify, timeout } from 'technoidentity-utils'
 import {
   date,
@@ -99,18 +99,32 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
 ): JSX.Element {
   const { schema, label, validations, ...props } = args
 
+  console.log(args.required)
+  const lv: typeof validations =
+    args.required === true
+      ? [required() as (schema: S) => S, ...(validations || [])]
+      : validations
+
   const id: string = props.id || props.name
+
+  const lb: string = label || camelCaseToPhrase(props.name)
+
+  const labelEl: string | JSX.Element = args.required ? (
+    <React.Fragment>
+      {lb}
+      {required && '\u00a0*'}
+    </React.Fragment>
+  ) : (
+    lb
+  )
 
   return (
     <FormControl>
-      <InputLabel htmlFor={id}>
-        {label || camelCaseToPhrase(props.name)}
-      </InputLabel>
-
+      <InputLabel htmlFor={id}>{labelEl}</InputLabel>
       <InputField
         id={id}
         {...props}
-        validate={validator(schema, validations)}
+        validate={validator(schema, lv)}
         aria-describedby={`${id}.help}`}
       />
       <ErrorField name={props.name} />

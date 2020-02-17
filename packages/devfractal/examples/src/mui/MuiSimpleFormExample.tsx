@@ -47,25 +47,29 @@ export const MuiSimpleFormExample: React.FC = () => {
     <Simple.Form initialValues={initialValues}>
       <Simple.Text
         name="username"
-        validations={[required(), minLength(6), maxLength(15), lowercase()]}
+        required
+        validations={[minLength(6), maxLength(15), lowercase()]}
       />
       <br />
       <Simple.Password
         label="Password"
         name="password"
-        validations={[required(), minLength(6), uppercase()]}
+        required
+        validations={[minLength(6), uppercase()]}
       />
       <br />
       <Simple.Email
         label="Email"
         name="email"
-        validations={[required(), email()]}
+        required
+        validations={[email()]}
       />
       <br />
       <Simple.Telephone
         label="Telephone"
         name="phone"
-        validations={[required(), positive()]}
+        required
+        validations={[positive()]}
       />
       <br />
       <Simple.Date
