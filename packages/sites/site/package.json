@@ -1,6 +1,6 @@
 {
   "name": "site-devfractal",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -34,11 +34,11 @@
     "react-dom": "16.12.0",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
-    "technoidentity-core": "^2.0.1",
-    "technoidentity-crud": "^2.0.1",
-    "technoidentity-mui": "^2.0.1",
+    "technoidentity-core": "^2.0.2",
+    "technoidentity-crud": "^2.0.2",
+    "technoidentity-mui": "^2.0.2",
     "technoidentity-router": "^2.0.1",
-    "technoidentity-ui": "^2.0.1",
+    "technoidentity-ui": "^2.0.2",
     "technoidentity-utils": "^2.0.1"
   },
   "devDependencies": {

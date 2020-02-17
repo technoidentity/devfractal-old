@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-ui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -47,7 +47,7 @@
     "prop-types-ts": "0.7.4",
     "react-is": "16.12.0",
     "react-styleguidist": "10.6.2",
-    "technoidentity-core": "^2.0.1",
+    "technoidentity-core": "^2.0.2",
     "technoidentity-router": "^2.0.1",
     "technoidentity-utils": "^2.0.1",
     "tsdx": "0.12.3",

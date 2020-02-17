@@ -1,6 +1,6 @@
 {
   "name": "app-presentation",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "scripts": {
     "start": "parcel index.html --open",
@@ -28,7 +28,7 @@
     "react-dom": "16.12.0",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
-    "technoidentity-devfractal": "^2.0.1",
+    "technoidentity-devfractal": "^2.0.2",
     "technoidentity-utils": "^2.0.1",
     "yup": "0.28.1"
   },

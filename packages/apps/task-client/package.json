@@ -1,6 +1,6 @@
 {
   "name": "app-task-manager-client",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "scripts": {
     "start": "parcel index.html --open",
@@ -25,7 +25,7 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-use": "13.24.0",
-    "technoidentity-devfractal": "^2.0.1",
+    "technoidentity-devfractal": "^2.0.2",
     "technoidentity-utils": "^2.0.1"
   },
   "devDependencies": {
