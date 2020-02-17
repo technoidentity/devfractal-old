@@ -1,3 +1,5 @@
+import * as api from './api'
+
 export * from './CheckboxControlField'
 export * from './CheckboxField'
 export * from './DateField'
@@ -8,3 +10,4 @@ export * from './SimpleForm'
 export * from './SimpleTable'
 export * from './SwitchField'
 export * from './TextField'
+export { api }
