@@ -1,13 +1,21 @@
 import DateFnsUtils from '@date-io/date-fns'
-import { Button } from '@material-ui/core'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import React from 'react'
+import { APIComponents } from 'technoidentity-core'
+import { MuiComponents } from 'technoidentity-mui'
+import { Route, Router } from 'technoidentity-router'
 import 'typeface-roboto'
+import { TodoApp } from './TodoApp'
 
-export const App = () => (
+const Index = () => (
   <MuiPickersUtilsProvider utils={DateFnsUtils}>
-    <Button variant="contained" color="primary">
-      OK
-    </Button>
+    <TodoApp />
   </MuiPickersUtilsProvider>
+)
+export const App = () => (
+  <APIComponents.Provider value={MuiComponents}>
+    <Router variant="browser">
+      <Route path="/" component={Index} />
+    </Router>
+  </APIComponents.Provider>
 )
