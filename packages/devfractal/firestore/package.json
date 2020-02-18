@@ -1,6 +1,6 @@
 {
   "name": "technoidentity-fs",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -33,7 +33,7 @@
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "technoidentity-crud": "^2.0.2",
+    "technoidentity-crud": "^2.0.3",
     "technoidentity-utils": "^2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
