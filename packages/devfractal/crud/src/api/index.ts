@@ -1,5 +1,4 @@
 export * from './common'
-export * from './Components'
 export * from './Del'
 export * from './Get'
 export * from './Patch'

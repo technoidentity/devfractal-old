@@ -1,6 +1,5 @@
 import React from 'react'
-import { AsyncResult, useGet } from 'technoidentity-core'
-import { useAPIComponents } from './Provider'
+import { AsyncResult, useAPIComponents, useGet } from 'technoidentity-core'
 
 // tslint:disable readonly-array no-unbound-method
 export interface GetProps<T extends {}, P extends any[]> {

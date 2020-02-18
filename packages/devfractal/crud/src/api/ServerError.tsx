@@ -1,7 +1,7 @@
 import React from 'react'
+import { useAPIComponents } from 'technoidentity-core'
 import * as t from 'technoidentity-utils'
 import { cast, keys } from 'technoidentity-utils'
-import { useAPIComponents } from './Provider'
 
 // tslint:disable typedef
 
@@ -21,10 +21,6 @@ const ValidationErrors: t.Type<ValidationErrors> = t.recursion(
 
 const ServerErrors = t.union([t.string, SingleError, Errors, ValidationErrors])
 type ServerErrors = t.TypeOf<typeof ServerErrors>
-
-export interface ServerErrorViewProps {
-  readonly error?: ServerErrors
-}
 
 function serverError(error: ServerErrors): string {
   cast(ServerErrors, error)
@@ -48,7 +44,11 @@ function serverError(error: ServerErrors): string {
   return 'FATAL: unknown server error'
 }
 
-export const ServerError: React.FC<ServerErrorViewProps> = ({ error }) => {
+export interface ServerErrorProps {
+  readonly error?: ServerErrors
+}
+
+export const ServerError: React.FC<ServerErrorProps> = ({ error }) => {
   const { ServerErrorsView } = useAPIComponents()
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDel } from 'technoidentity-core'
-import { useAPIComponents } from './Provider'
+import { useAPIComponents } from 'technoidentity-core'
 
 export interface DelProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

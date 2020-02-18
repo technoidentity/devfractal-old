@@ -1,4 +1,5 @@
 export * from './http'
+export * from './Provider'
 export * from './query'
 export * from './rest'
 export * from './useDel'

@@ -1,6 +1,6 @@
 import React from 'react'
-import { NotFound } from 'technoidentity-crud'
 import { Route, Router, Switch } from 'technoidentity-router'
+import { NotFound } from 'technoidentity-ui'
 import {
   CreateTaskRoute,
   EditTaskRoute,
