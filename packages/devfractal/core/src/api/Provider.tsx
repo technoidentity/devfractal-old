@@ -15,7 +15,7 @@ export interface ToastProps {
   readonly children: string
 }
 
-export interface APIComponentsProvider {
+export interface APIComponents {
   readonly Loading: React.FC
   readonly NotFound: React.FC
   readonly ErrorView: React.FC<ErrorViewProps>
@@ -23,12 +23,12 @@ export interface APIComponentsProvider {
   readonly Toast: React.FC<ToastProps>
 }
 
-export const APIComponentsProvider = React.createContext<
-  APIComponentsProvider | undefined
->(undefined)
+export const APIComponents = React.createContext<APIComponents | undefined>(
+  undefined,
+)
 
-export function useAPIComponents(): APIComponentsProvider {
-  const provider = React.useContext(APIComponentsProvider)
+export function useAPIComponents(): APIComponents {
+  const provider = React.useContext(APIComponents)
   verify(provider)
 
   return provider

@@ -110,10 +110,10 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
   const lb: string = label || camelCaseToPhrase(props.name)
 
   const labelEl: string | JSX.Element = args.required ? (
-    <React.Fragment>
+    <>
       {lb}
       {required && '\u00a0*'}
-    </React.Fragment>
+    </>
   ) : (
     lb
   )

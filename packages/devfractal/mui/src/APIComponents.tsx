@@ -1,5 +1,5 @@
 import React from 'react'
-import { APIComponentsProvider } from 'technoidentity-core'
+import { APIComponents } from 'technoidentity-core'
 import { useLocation } from 'technoidentity-router'
 
 // tslint:disable typedef
@@ -10,7 +10,7 @@ export const NotFound: React.FC = () => {
   return <h1>{`path ${pathname} did not match any route`}</h1>
 }
 
-export const MuiComponents: APIComponentsProvider = {
+export const MuiComponents: APIComponents = {
   Loading: () => <h1 className="is-text is-size-1 is-info">Loading....</h1>,
 
   ServerErrorsView: ({ children }) => (
