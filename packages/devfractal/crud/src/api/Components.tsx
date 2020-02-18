@@ -1,23 +1,27 @@
 import React from 'react'
 import { useLocation } from 'technoidentity-router'
+import { APIComponentsProvider } from './Provider'
 
-// @TODO: need a spinner
-export const Loading: React.FC = () => (
-  <h1 className="is-text is-size-1 is-info">Loading....</h1>
-)
+// tslint:disable typedef
 
-// @TODO: need a nice error view similar to next.js?
 export const NotFound: React.FC = () => {
   const { pathname } = useLocation()
 
   return <h1>{`path ${pathname} did not match any route`}</h1>
 }
 
-export interface ErrorViewProps {
-  readonly error: Error
-}
+export const UIComponents: APIComponentsProvider = {
+  Loading: () => <h1 className="is-text is-size-1 is-info">Loading....</h1>,
 
-// @TODO: This must use server error, if error.response.data is not undefined.
-export const ErrorView: React.FC<ErrorViewProps> = ({ error }) => (
-  <h1 className="is-text is-size-1 is-danger">{error.message}</h1>
-)
+  ServerErrorsView: ({ children }) => (
+    <h1 className="is-text is-size-1 is-danger">{children}</h1>
+  ),
+
+  ErrorView: ({ error }) => (
+    <h1 className="is-text is-size-1 is-danger">{error}</h1>
+  ),
+
+  Toast: ({ children }) => <h1 className="toast">{children}</h1>,
+
+  NotFound,
+}

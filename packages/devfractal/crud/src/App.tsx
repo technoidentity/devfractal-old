@@ -52,7 +52,7 @@ const TodoList = listComponent(Todo, ({ data }) => (
   </>
 ))
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <Router>
       <Section>
@@ -62,5 +62,13 @@ const App: React.FC = () => {
     </Router>
   )
 }
+
+// const App: React.FC = () => {
+//   return (
+//     <APIProvider.Provider value={UIComponents}>
+//       <h1>Hello, World</h1>
+//     </APIProvider.Provider>
+//   )
+// }
 
 render(<App />, document.getElementById('root'))

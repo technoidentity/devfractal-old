@@ -1,6 +1,6 @@
 import React from 'react'
 import { AsyncResult, useGet } from 'technoidentity-core'
-import { ErrorView, Loading } from './Components'
+import { useAPIComponents } from './Provider'
 
 // tslint:disable readonly-array no-unbound-method
 export interface GetProps<T extends {}, P extends any[]> {
@@ -18,6 +18,7 @@ export function Get<T extends {}, P extends any[]>({
   children,
 }: GetProps<T, P>): JSX.Element {
   const result: AsyncResult<T> = useGet(asyncFn, ...(deps as P))
+  const { ErrorView, Loading } = useAPIComponents()
 
   if (result.state === 'failure') {
     return <ErrorView error={result.error} />

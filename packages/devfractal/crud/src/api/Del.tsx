@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDel } from 'technoidentity-core'
+import { useAPIComponents } from './Provider'
 
 export interface DelProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,10 +15,11 @@ export function Del({
   ...props
 }: DelProps): JSX.Element {
   const { serverError, onClick } = useDel(onDel, onSuccess)
+  const { Toast } = useAPIComponents()
 
   return (
     <>
-      {serverError && <div className="toast">{serverError}</div>}
+      {serverError && <Toast>{serverError}</Toast>}
       <button {...props} onClick={onClick}>
         {children}
       </button>

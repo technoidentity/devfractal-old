@@ -1,6 +1,7 @@
 import React from 'react'
 import * as t from 'technoidentity-utils'
 import { cast, keys } from 'technoidentity-utils'
+import { useAPIComponents } from './Provider'
 
 // tslint:disable typedef
 
@@ -47,12 +48,10 @@ function serverError(error: ServerErrors): string {
   return 'FATAL: unknown server error'
 }
 
-export const ServerError: React.FC<ServerErrorViewProps> = ({ error }) => (
-  <>
-    {error && (
-      <article className="message is-danger">
-        <div className="message-body">{serverError(error)}</div>
-      </article>
-    )}
-  </>
-)
+export const ServerError: React.FC<ServerErrorViewProps> = ({ error }) => {
+  const { ServerErrorsView } = useAPIComponents()
+
+  return (
+    <>{error && <ServerErrorsView>{serverError(error)}</ServerErrorsView>}</>
+  )
+}
