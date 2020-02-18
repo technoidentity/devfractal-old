@@ -11,7 +11,7 @@ export const NotFound: React.FC = () => {
 }
 
 export const UIComponents: APIComponents = {
-  Loading: () => <h1 className="is-text is-size-1 is-info">Loading....</h1>,
+  Spinner: () => <h1 className="is-text is-size-1 is-info">Loading....</h1>,
 
   ServerErrorsView: ({ children }) => (
     <h1 className="is-text is-size-1 is-danger">{children}</h1>

@@ -17,7 +17,7 @@ export function Get<T extends {}, P extends any[]>({
   children,
 }: GetProps<T, P>): JSX.Element {
   const result: AsyncResult<T> = useGet(asyncFn, ...(deps as P))
-  const { ErrorView, Loading } = useAPIComponents()
+  const { ErrorView, Spinner } = useAPIComponents()
 
   if (result.state === 'failure') {
     return <ErrorView error={result.error} />
@@ -33,5 +33,5 @@ export function Get<T extends {}, P extends any[]>({
     throw new Error('component or children must be provided to Get')
   }
 
-  return <Loading />
+  return <Spinner />
 }

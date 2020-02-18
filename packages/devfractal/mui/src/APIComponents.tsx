@@ -1,3 +1,4 @@
+import { CircularProgress, Typography } from '@material-ui/core'
 import React from 'react'
 import { APIComponents } from 'technoidentity-core'
 import { useLocation } from 'technoidentity-router'
@@ -7,21 +8,27 @@ import { useLocation } from 'technoidentity-router'
 export const NotFound: React.FC = () => {
   const { pathname } = useLocation()
 
-  return <h1>{`path ${pathname} did not match any route`}</h1>
+  return <Typography>{`path ${pathname} did not match any route`}</Typography>
 }
 
 export const MuiComponents: APIComponents = {
-  Loading: () => <h1 className="is-text is-size-1 is-info">Loading....</h1>,
+  Spinner: ({ size }) => <CircularProgress size={size} />,
 
   ServerErrorsView: ({ children }) => (
-    <h1 className="is-text is-size-1 is-danger">{children}</h1>
+    <Typography variant="h4" color="error">
+      {children}
+    </Typography>
   ),
 
   ErrorView: ({ error }) => (
-    <h1 className="is-text is-size-1 is-danger">{error}</h1>
+    <Typography variant="h4" color="error">
+      {error.message}
+    </Typography>
   ),
 
-  Toast: ({ children }) => <h1 className="toast">{children}</h1>,
+  Toast: ({ children }) => (
+    <Typography className="toast">{children}</Typography>
+  ),
 
   NotFound,
 }

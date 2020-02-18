@@ -15,8 +15,12 @@ export interface ToastProps {
   readonly children: string
 }
 
+export interface SpinnerProps {
+  readonly size?: number
+}
+
 export interface APIComponents {
-  readonly Loading: React.FC
+  readonly Spinner: React.FC<SpinnerProps>
   readonly NotFound: React.FC
   readonly ErrorView: React.FC<ErrorViewProps>
   readonly ServerErrorsView: React.FC<ServerErrorViewProps>
