@@ -1,6 +1,6 @@
 import React from 'react'
 import { TaskManager } from './TaskManager'
-
+import { APIComponents, UIComponents } from 'technoidentity-devfractal'
 // export const App: React.FC = () => (
 //   <Router variant="browser">
 //     <Route exact path="/" component={TodoListRoute} />
@@ -40,4 +40,8 @@ import { TaskManager } from './TaskManager'
 //   )
 // }
 
-export const App: React.FC = () => <TaskManager />
+export const App: React.FC = () => (
+  <APIComponents.Provider value={UIComponents}>
+    <TaskManager />
+  </APIComponents.Provider>
+)

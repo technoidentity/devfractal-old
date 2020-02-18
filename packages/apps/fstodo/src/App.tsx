@@ -2,13 +2,20 @@ import 'bulma'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import { render } from 'react-dom'
-import { Router, SimpleRedirect } from 'technoidentity-devfractal'
+import {
+  APIComponents,
+  Router,
+  SimpleRedirect,
+  UIComponents,
+} from 'technoidentity-devfractal'
 import { FSTodoApp } from './v3'
 
 const App: React.FC = () => (
   <Router>
-    <SimpleRedirect from="/" to="/todos" />
-    <FSTodoApp />
+    <APIComponents.Provider value={UIComponents}>
+      <SimpleRedirect from="/" to="/todos" />
+      <FSTodoApp />
+    </APIComponents.Provider>
   </Router>
 )
 
