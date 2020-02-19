@@ -1,5 +1,5 @@
 export { useHistory, useLocation } from 'react-router'
-export { Link, NavLink, Switch } from 'react-router-dom'
+export { Link, LinkProps, NavLink, Switch } from 'react-router-dom'
 export * from './useParams'
 export * from './Router'
 export * from './RouterContext'
