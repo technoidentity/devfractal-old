@@ -1,6 +1,6 @@
+import { Paper } from '@material-ui/core'
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { Section } from 'technoidentity-ui'
 import { boolean, date, number } from 'technoidentity-utils'
 import { ObjectSchema } from 'yup'
 import { Simple } from './SimpleForm'
@@ -19,7 +19,7 @@ export function EditorView<T extends {}>({
   onSubmit,
 }: EditorViewProps<T>): JSX.Element {
   return (
-    <Section>
+    <Paper>
       <Simple.Form
         validationSchema={schema}
         initialValues={data}
@@ -43,6 +43,6 @@ export function EditorView<T extends {}>({
         ))}
         <Simple.FormButtons />
       </Simple.Form>
-    </Section>
+    </Paper>
   )
 }
