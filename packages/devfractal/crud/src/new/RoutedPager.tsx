@@ -1,8 +1,8 @@
 import { stringify } from 'query-string'
 import React from 'react'
 import { useHistory, useLocation } from 'technoidentity-router'
+import { Pager } from 'technoidentity-ui'
 import { IntFromString, opt } from 'technoidentity-utils'
-import { Pager } from './Pager'
 import { useQuery } from './useQuery'
 
 interface RoutedPagerProps {
