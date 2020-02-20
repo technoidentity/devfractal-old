@@ -1,4 +1,4 @@
-import { startOfDay } from 'date-fns'
+import { startOfDay, format } from 'date-fns'
 import { TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'
@@ -120,4 +120,12 @@ export function omit<T extends {}, K extends keyof T>(
   }
 
   return result
+}
+
+export function formatDate(date: Date | undefined): string | undefined {
+  return date && format(date, 'dd/MM/yyyy')
+}
+
+export function isFunction(x: unknown): x is Function {
+  return typeof x === 'function'
 }

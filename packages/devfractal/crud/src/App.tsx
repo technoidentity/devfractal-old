@@ -3,17 +3,15 @@ import React from 'react'
 import { render } from 'react-dom'
 import { rest } from 'technoidentity-core'
 import { Router, SimpleRedirect } from 'technoidentity-router'
-import { Section } from 'technoidentity-ui'
+import { ButtonLink, Section, Simple } from 'technoidentity-ui'
 import { boolean, number, obj, string } from 'technoidentity-utils'
 import {
-  ButtonLink,
   CrudRoutes,
   CrudTable,
   formComponent,
   links,
   listComponent,
 } from './new'
-import { Simple } from './simple'
 
 // tslint:disable typedef
 

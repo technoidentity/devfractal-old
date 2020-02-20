@@ -1,9 +1,8 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { component } from 'technoidentity-core'
-import { Simple } from 'technoidentity-crud'
 import { Link } from 'technoidentity-router'
-import { Column, Columns, Section, Text } from 'technoidentity-ui'
+import { Column, Columns, Section, Simple, Text } from 'technoidentity-ui'
 import { empty, fn, req, string, TypeOf } from 'technoidentity-utils'
 import * as yup from 'yup'
 

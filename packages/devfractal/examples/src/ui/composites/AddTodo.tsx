@@ -1,6 +1,5 @@
 import React from 'react'
-import { Simple } from 'technoidentity-crud'
-import { Section } from 'technoidentity-ui'
+import { Section, Simple } from 'technoidentity-ui'
 import { boolean, object, ObjectSchema, string } from 'yup'
 
 export interface AddTodoValues {

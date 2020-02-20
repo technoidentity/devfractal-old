@@ -1,8 +1,7 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Link } from 'technoidentity-router'
-import { Icon } from 'technoidentity-ui'
-import { SimpleTable, SimpleTableProps } from '../simple'
+import { Icon, SimpleTable, SimpleTableProps } from 'technoidentity-ui'
 
 export interface ActionsProps {
   readonly editTo: string

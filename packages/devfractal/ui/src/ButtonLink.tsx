@@ -7,7 +7,7 @@ import {
   removeControlHelpers,
   removeHelpers,
   removeIconHelpers,
-} from 'technoidentity-ui'
+} from './core'
 
 export interface ButtonLinkProps
   extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'defaultValue'>,

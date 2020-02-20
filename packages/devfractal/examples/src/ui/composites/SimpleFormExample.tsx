@@ -17,8 +17,7 @@ import {
   required,
   uppercase,
 } from 'technoidentity-core'
-import { typedForm } from 'technoidentity-crud'
-import { Radio, Section } from 'technoidentity-ui'
+import { Radio, Section, typedForm } from 'technoidentity-ui'
 import { ISODate, keyof, TypeOf } from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef

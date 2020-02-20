@@ -1,6 +1,6 @@
 import React from 'react'
 import { Viewer } from 'technoidentity-crud'
-import { SimpleTable } from 'technoidentity-crud'
+import { SimpleTable } from 'technoidentity-ui'
 import { SimpleAddTodo } from './AddTodo'
 
 interface Todo {

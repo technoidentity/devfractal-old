@@ -3,7 +3,7 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import React from 'react'
 import { render } from 'react-dom'
 import { APIComponents } from 'technoidentity-core'
-import { Route, Router } from 'technoidentity-router/src'
+import { Route, Router } from 'technoidentity-router'
 import 'typeface-roboto'
 import { MuiComponents } from './APIComponents'
 

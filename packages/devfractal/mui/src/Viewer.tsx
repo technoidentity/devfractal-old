@@ -1,15 +1,11 @@
 import { Checkbox, Grid, Paper, Typography } from '@material-ui/core'
-import { format } from 'date-fns'
 import React from 'react'
-import { boolean, camelCaseToPhrase, date } from 'technoidentity-utils'
-
-export function isFunction(x: unknown): x is Function {
-  return typeof x === 'function'
-}
-
-export function formatDate(date: Date | undefined): string | undefined {
-  return date && format(date, 'dd/MM/yyyy')
-}
+import {
+  boolean,
+  camelCaseToPhrase,
+  date,
+  formatDate,
+} from 'technoidentity-utils'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (
   <Typography variant="h6">{camelCaseToPhrase(objectKey)}</Typography>

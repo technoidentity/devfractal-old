@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimpleRoutedTabs, SimpleTabs } from 'technoidentity-crud'
+import { SimpleRoutedTabs, SimpleTabs } from 'technoidentity-ui'
 import { Section, Text } from 'technoidentity-ui'
 
 const SimpleTabsExample: React.FC = () => (

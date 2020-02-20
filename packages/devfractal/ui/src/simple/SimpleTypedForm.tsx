@@ -1,5 +1,9 @@
 import { Form, Formik } from 'formik'
 import React from 'react'
+import { consoleSubmit } from 'technoidentity-core'
+import { camelCaseToPhrase } from 'technoidentity-utils'
+import * as yup from 'yup'
+import { Field, Label } from '../core'
 import {
   CheckboxField,
   ErrorField,
@@ -8,10 +12,7 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from 'technoidentity-ui'
-import { Field, Label } from 'technoidentity-ui'
-import { camelCaseToPhrase } from 'technoidentity-utils'
-import * as yup from 'yup'
+} from '../forms'
 import {
   Simple,
   SimpleCheckboxProps,
@@ -20,7 +21,6 @@ import {
   SimpleSelectProps,
   SimpleTextAreaProps,
 } from './SimpleForm'
-import { consoleSubmit } from './utils'
 
 interface Named<Values extends {}, Value> {
   readonly name: keyof Values & string

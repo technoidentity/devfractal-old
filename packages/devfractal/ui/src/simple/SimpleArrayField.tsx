@@ -1,6 +1,6 @@
 import { FieldArray } from 'formik'
 import React from 'react'
-import { Button, Delete, Field, Notification } from 'technoidentity-ui'
+import { Button, Delete, Field, Notification } from '../core'
 
 export interface SimpleArrayFieldComponentProps<T> {
   readonly name: string

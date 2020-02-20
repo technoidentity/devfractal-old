@@ -1,6 +1,6 @@
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { Simple } from 'technoidentity-crud'
+import { Simple } from 'technoidentity-ui'
 import {
   CheckboxField,
   DateField,

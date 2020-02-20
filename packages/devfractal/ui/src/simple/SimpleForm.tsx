@@ -1,28 +1,6 @@
 import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
 import React from 'react'
-import { DebugField } from 'technoidentity-core'
-import {
-  Button,
-  ButtonsGroup,
-  ButtonsGroupProps,
-  CheckboxField,
-  CheckboxFieldProps,
-  DateField,
-  DateFieldProps,
-  ElProps,
-  ErrorField,
-  Field,
-  FieldPropsBase,
-  InputField,
-  InputFieldProps,
-  Label,
-  RadioFieldProps,
-  RadioGroupField,
-  SelectField,
-  SelectFieldProps,
-  TextAreaField,
-  TextAreaFieldProps,
-} from 'technoidentity-ui'
+import { consoleSubmit, DebugField } from 'technoidentity-core'
 import { camelCaseToPhrase } from 'technoidentity-utils'
 import {
   date,
@@ -34,7 +12,30 @@ import {
   string,
   StringSchema,
 } from 'yup'
-import { consoleSubmit } from './utils'
+import {
+  Button,
+  ButtonsGroup,
+  ButtonsGroupProps,
+  ElProps,
+  Field,
+  FieldPropsBase,
+  Label,
+} from '../core'
+import {
+  CheckboxField,
+  CheckboxFieldProps,
+  DateField,
+  DateFieldProps,
+  ErrorField,
+  InputField,
+  InputFieldProps,
+  RadioFieldProps,
+  RadioGroupField,
+  SelectField,
+  SelectFieldProps,
+  TextAreaField,
+  TextAreaFieldProps,
+} from '../forms'
 
 type Replace<T, K extends string & keyof T, R extends string> = Omit<T, K> &
   { readonly [P in R]?: T[K] }

@@ -8,7 +8,6 @@ import {
 } from '@material-ui/core'
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { Simple } from 'technoidentity-crud'
 import {
   CheckboxField,
   DateField,
@@ -17,7 +16,7 @@ import {
   SelectField,
   TextField,
 } from 'technoidentity-mui'
-import { ErrorField } from 'technoidentity-ui'
+import { ErrorField, Simple } from 'technoidentity-ui'
 import { boolean, date, object, ObjectSchema, string } from 'yup'
 
 // @TODO: implement RadioField with formik integration

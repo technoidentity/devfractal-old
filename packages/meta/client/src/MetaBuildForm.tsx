@@ -2,17 +2,15 @@ import { Form, Formik, FormikHelpers } from 'formik'
 import { PrimitiveMT } from 'meta-core'
 import React from 'react'
 import {
-  Simple,
-  SimpleArrayField,
-  SimpleArrayFieldComponentProps,
-} from 'technoidentity-crud'
-import {
   CheckBox,
   Column,
   Columns,
   Container,
   Input,
   Select,
+  Simple,
+  SimpleArrayField,
+  SimpleArrayFieldComponentProps,
   Text,
 } from 'technoidentity-ui'
 

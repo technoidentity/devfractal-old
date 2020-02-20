@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimplePagerView } from 'technoidentity-crud'
+import { SimplePagerView } from 'technoidentity-ui'
 import {
   Pagination,
   PaginationEllipsis,

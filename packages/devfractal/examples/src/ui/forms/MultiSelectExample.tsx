@@ -1,14 +1,15 @@
 import { Form, Formik } from 'formik'
 import React from 'react'
-import { Simple } from 'technoidentity-crud'
-import { CheckboxField, SelectField } from 'technoidentity-ui'
 import {
   Button,
+  CheckboxField,
   Column,
   Columns,
   Field,
   Label,
   Section,
+  SelectField,
+  Simple,
   SubTitle,
   Title,
 } from 'technoidentity-ui'

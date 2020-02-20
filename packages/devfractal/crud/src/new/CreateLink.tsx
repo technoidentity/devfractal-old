@@ -1,6 +1,10 @@
 import React from 'react'
-import { ButtonsGroup, ButtonsGroupProps } from 'technoidentity-ui'
-import { ButtonLink, ButtonLinkProps } from './ButtonLink'
+import {
+  ButtonLink,
+  ButtonLinkProps,
+  ButtonsGroup,
+  ButtonsGroupProps,
+} from 'technoidentity-ui'
 
 export interface CreateLinkProps extends ButtonLinkProps {
   readonly alignment?: ButtonsGroupProps['alignment']
