@@ -2,9 +2,9 @@ import { FormikHelpers } from 'formik'
 import React from 'react'
 import { Button, Container, Field } from 'technoidentity-ui'
 import { empty, Mixed, TypeOf } from 'technoidentity-utils'
-import { Editor } from './Editor'
-import { RowClickEvent, SimpleTable } from './simple'
-import { Viewer } from './Viewer'
+import { Editor } from '../Editor'
+import { RowClickEvent, SimpleTable } from '../simple'
+import { Viewer } from '../Viewer'
 
 interface EditProps<T extends Record<string, any>> {
   readonly data: T | (() => Promise<T>)

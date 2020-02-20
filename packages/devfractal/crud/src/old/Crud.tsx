@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Switch } from 'technoidentity-router'
 import { Mixed, TypeOf } from 'technoidentity-utils'
+import { paths as ps } from '../new'
 import { APIRepository } from './apiFn'
 import { components as comps, ComponentsResult } from './Components'
-import { paths as ps } from './new'
 
 export interface CrudProps<RT extends Mixed, ID extends keyof TypeOf<RT>> {
   readonly api: APIRepository<RT, ID>

@@ -1,5 +1,12 @@
-import { Int, string, TypeOf, union } from 'technoidentity-utils'
-import { cast, chop, verify } from 'technoidentity-utils'
+import {
+  cast,
+  chop,
+  Int,
+  string,
+  TypeOf,
+  union,
+  verify,
+} from 'technoidentity-utils'
 
 // tslint:disable-next-line: typedef
 const idRT = union([Int, string])

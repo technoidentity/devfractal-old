@@ -1,12 +1,13 @@
 import axios, { AxiosPromise } from 'axios'
 import {
+  cast,
   Mixed,
   readonlyArray,
   ReadonlyArrayC,
+  toPromise,
   Type,
   TypeOf,
 } from 'technoidentity-utils'
-import { cast, toPromise } from 'technoidentity-utils'
 import { apiURLs, URLs } from './urls'
 
 // tslint:disable typedef

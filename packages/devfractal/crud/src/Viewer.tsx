@@ -10,7 +10,7 @@ import {
 import * as t from 'technoidentity-utils'
 import { camelCaseToPhrase, date } from 'technoidentity-utils'
 import { Get } from './api'
-import { formatDate, isFunction } from './utils'
+import { formatDate, isFunction } from './old'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (
   <Title size="6">{camelCaseToPhrase(objectKey)}</Title>

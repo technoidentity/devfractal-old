@@ -2,8 +2,8 @@ import { FormikHelpers } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Mixed, TypeOf } from 'technoidentity-utils'
+import { links as links_, paths as paths_ } from '../new'
 import { APIRepository, Repository } from './apiFn'
-import { links as links_, paths as paths_ } from './new'
 import { CrudViewsResult, Views } from './Views'
 
 type APISubmitResult<Values extends {}, Result extends Values = Values> = (

@@ -5,8 +5,8 @@ import * as t from 'technoidentity-utils'
 import { date } from 'technoidentity-utils'
 import { ObjectSchema } from 'yup'
 import { Get } from './api'
+import { isFunction } from './old'
 import { Simple } from './simple'
-import { isFunction } from './utils'
 export interface EditorViewProps<T extends {}> {
   readonly data: T
   readonly id?: keyof T
