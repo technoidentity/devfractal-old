@@ -13,7 +13,7 @@
     "tlint:fix": "yarn lint --fix",
     "lint": "yarn elint && yarn tlint",
     "lint:fix": "yarn elint:fix && yarn tlint:fix",
-    "types": "tsc --noEmit -p .",
+    "types": "tsc --emitDeclarationOnly -p .",
     "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
     "validate:noFix": "yarn lint && yarn types && yarn test",

@@ -22,7 +22,7 @@
     "server": "ts-node-dev --project tsconfig.tsnode.json src/app.ts",
     "tlint:fix": "yarn lint --fix",
     "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
-    "types": "tsc --noEmit -p .",
+    "types": "tsc --emitDeclarationOnly -p .",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
     "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
     "validate": "yarn lint:fix && yarn types && yarn test",

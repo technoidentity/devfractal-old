@@ -15,7 +15,7 @@
     "elint:fix": "yarn elint --quiet --fix",
     "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "tlint:fix": "yarn lint --fix",
-    "types": "tsc --noEmit -p .",
+    "types": "tsc --emitDeclarationOnly -p .",
     "lint": "yarn elint && yarn tlint",
     "lint:fix": "yarn elint:fix && yarn tlint:fix",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",

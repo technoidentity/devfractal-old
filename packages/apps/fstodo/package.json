@@ -50,7 +50,7 @@
     "elint:fix": "yarn elint --quiet --fix",
     "lint": "yarn elint && yarn tlint",
     "lint:fix": "yarn elint:fix && yarn tlint:fix",
-    "types": "tsc --noEmit -p .",
+    "types": "tsc --emitDeclarationOnly -p .",
     "types:watch": "yarn types --watch",
     "validate": "yarn lint:fix && yarn types && yarn test",
     "validate:noFix": "yarn lint && yarn types && yarn test",

@@ -15,7 +15,7 @@
     "tlint:fix": "yarn lint --fix",
     "tlint": "yarn tslint -p . 'src/**/*.tsx' 'src/**/*.ts'",
     "types:watch": "yarn types --watch",
-    "types": "tsc --noEmit -p .",
+    "types": "tsc --emitDeclarationOnly -p .",
     "validate:noFix": "yarn lint && yarn types && yarn test",
     "validate": "yarn lint:fix && yarn types && yarn test"
   },

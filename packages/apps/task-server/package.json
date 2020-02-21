@@ -13,7 +13,7 @@
     "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
     "lint": "yarn lint:cmd 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
-    "types": "tsc --noEmit -p .",
+    "types": "tsc --emitDeclarationOnly -p .",
     "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
     "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
     "validate:noFix": "yarn lint && yarn types && yarn test",
