@@ -6,6 +6,7 @@ import {
   FormHelperTextProps,
   FormLabel,
   InputLabel,
+  TextFieldProps,
 } from '@material-ui/core'
 import {
   ErrorMessage,
@@ -189,23 +190,13 @@ export interface SimpleSelectProps<Values extends {}>
   readonly label?: string
 }
 
-// // @TODO: validations must be array validations?
-// export interface SimpleMultiSelectProps<Values extends {}>
-//   extends Omit<SelectFieldProps, 'name' | 'size' | 'value' | 'multiple'>,
-//     Named<Values>,
-//     FieldProps {
-//   // tslint:disable-next-line: readonly-array
-//   readonly value?: string[]
-//   readonly label?: string
-// }
-
-// export interface SimpleTextAreaProps<Values extends {}>
-//   extends Omit<TextAreaFieldProps, 'name' | 'size'>,
-//     Named<Values>,
-//     FieldProps {
-//   readonly label?: string
-//   readonly validations?: ReadonlyArray<(schema: StringSchema) => StringSchema>
-// }
+// @TODO: validations must be array validations?
+export interface SimpleMultiSelectProps<Values extends {}>
+  extends Omit<SelectFieldProps, 'name' | 'size' | 'value' | 'multiple'>,
+    Named<Values> {
+  readonly value?: readonly string[]
+  readonly label?: string
+}
 
 export interface SimpleFormButtonsProps {
   readonly submit?: boolean | string
@@ -251,8 +242,16 @@ export interface SimpleFormProps<Values> {
   onSubmit?(values: Values, actions: FormikHelpers<Values>): void
 }
 
+export interface SimpleTextAreaProps<Values extends {}>
+  extends Omit<GenericInputProps<Values, StringSchema>, 'multiline'> {
+  readonly label?: string
+  readonly rows: TextFieldProps['rows']
+  readonly validations?: ReadonlyArray<(schema: StringSchema) => StringSchema>
+}
+
 export interface TypedForm<Values extends {}> {
   readonly Text: React.FC<GenericInputProps<Values, StringSchema>>
+  readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
   readonly Date: React.FC<SimpleDateProps<Values>>
   readonly Number: React.FC<GenericInputProps<Values, NumberSchema>>
   readonly Password: React.FC<GenericInputProps<Values, StringSchema>>
@@ -261,9 +260,9 @@ export interface TypedForm<Values extends {}> {
   readonly Telephone: React.FC<GenericInputProps<Values, NumberSchema>>
   readonly Url: React.FC<GenericInputProps<Values, StringSchema>>
   readonly RadioGroup: React.FC<SimpleRadioGroupProps<Values>>
-  // readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
+
   readonly Select: React.FC<SimpleSelectProps<Values>>
-  // readonly MultiSelect: React.FC<SimpleMultiSelectProps<Values>>
+  readonly MultiSelect: React.FC<SimpleMultiSelectProps<Values>>
   // readonly MultiCheckbox: React.FC<SimpleMultiCheckboxProps<Values>>
   // readonly CheckboxItem: React.FC<CheckboxItemProps>
   readonly Form: React.FC<SimpleFormProps<Values>>
@@ -280,8 +279,13 @@ const MultiCheckContext: React.Context<MultiCheckContext> = React.createContext(
 )
 
 function typedFormInternal<Values extends {}>(): TypedForm<Values> {
+  const Text: React.FC<GenericInputProps<Values, StringSchema>> = props => (
+    <SimpleInput {...props} type="text" schema={string()} />
+  )
+
   return {
-    Text: props => <SimpleInput {...props} type="text" schema={string()} />,
+    Text,
+    TextArea: props => <Text multiline={true} {...props} />,
     Date: props => <SimpleDate {...props} />,
     Number: props => <SimpleInput schema={number()} {...props} type="number" />,
 
@@ -327,7 +331,7 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
       )
     },
 
-    Select: ({ children, label, ...props }) => {
+    Select: ({ label, ...props }) => {
       const id: string = props.id || props.name
 
       return (
@@ -335,26 +339,25 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
           <InputLabel htmlFor={id}>
             {label || camelCaseToPhrase(props.name)}
           </InputLabel>
-          <SelectField id={id} {...props}>
-            {children}
-          </SelectField>
+          <SelectField id={id} {...props} />
           <ErrorField name={props.name} />
         </FormControl>
       )
     },
 
-    // MultiSelect: ({ label, ...args }) => {
-    //   const [fieldProps, props] = splitFieldProps(args)
-    //   const id: string = props.id || props.name
+    MultiSelect: ({ label, ...props }) => {
+      const id: string = props.id || props.name
 
-    //   return (
-    //     <Field {...fieldProps}>
-    //       <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
-    //       <SelectField id={id} {...props} multiple={true} />
-    //       <ErrorField name={props.name} />
-    //     </Field>
-    //   )
-    // },
+      return (
+        <FormControl>
+          <InputLabel htmlFor={id}>
+            {label || camelCaseToPhrase(props.name)}
+          </InputLabel>
+          <SelectField id={id} {...props} multiple={true} />
+          <ErrorField name={props.name} />
+        </FormControl>
+      )
+    },
 
     // MultiCheckbox: ({ label, children, ...rest }) => {
     //   const [fieldProps, props] = splitFieldProps(rest)
@@ -376,22 +379,6 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
     //   return <CheckboxField name={name} id={id} {...props} />
     // },
 
-    // TextArea: ({ label, validations, ...args }) => {
-    //   const [fieldProps, props] = splitFieldProps(args)
-    //   const id: string = props.id || props.name
-
-    //   return (
-    //     <Field {...fieldProps}>
-    //       <Label htmlFor={id}>{label || camelCaseToPhrase(props.name)}</Label>
-    //       <TextAreaField
-    //         id={id}
-    //         {...props}
-    //         validate={validator(string(), validations)}
-    //       />
-    //       <ErrorField name={props.name} />
-    //     </Field>
-    //   )
-    // },
     Form: ({
       initialValues,
       validationSchema,
