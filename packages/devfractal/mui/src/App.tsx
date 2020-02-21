@@ -6,15 +6,23 @@ import { APIComponents, SafeRoute, SafeRouter } from 'technoidentity-core'
 import 'typeface-roboto'
 import { MuiComponents } from './APIComponents'
 
-const { ErrorView, Spinner, NotFound, ServerErrorsView } = MuiComponents
+// const { ErrorView, Spinner, NotFound, ServerErrorsView } = MuiComponents
+
+// const todo: any = { id: 1, title: 'open git hub', done: true }
 
 const CheckingComponents: React.FC = () => (
   <MuiPickersUtilsProvider utils={DateFnsUtils}>
     <APIComponents.Provider value={MuiComponents}>
-      <Spinner size={70} />
+      {/* <Spinner size={70} />
       <ErrorView error={new Error('error occurred')} />
       <NotFound />
-      <ServerErrorsView>error occurred</ServerErrorsView>
+      <ServerErrorsView>error occurred</ServerErrorsView> */}
+      {/* <EditorView data={todo} /> */}
+      {/* <Editor
+        data={todo}
+        id={'id'}
+        onSubmit={(values: any) => console.log(values)}
+      /> */}
     </APIComponents.Provider>
   </MuiPickersUtilsProvider>
 )
