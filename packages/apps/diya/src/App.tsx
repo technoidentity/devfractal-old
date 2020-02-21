@@ -1,9 +1,17 @@
 import 'bulma/css/bulma.css'
 import React from 'react'
-import { APIComponents, UIComponents } from 'technoidentity-devfractal'
+import {
+  APIComponents,
+  CrudComponents,
+  UIComponents,
+  UICrudComponents,
+} from 'technoidentity-devfractal'
+import { SuperAdmin } from './SuperAdmin'
 
 export const App = () => (
   <APIComponents.Provider value={UIComponents}>
-    <h1>Hello</h1>
+    <CrudComponents.Provider value={UICrudComponents}>
+      <SuperAdmin />
+    </CrudComponents.Provider>
   </APIComponents.Provider>
 )
