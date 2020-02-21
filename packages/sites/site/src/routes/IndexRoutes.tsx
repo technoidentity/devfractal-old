@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'technoidentity-router'
+import { SafeRoute } from 'technoidentity-core'
 import {
   BottomSection,
   ExploreUIComponents,
@@ -9,9 +9,9 @@ import {
 
 export const IndexRoutes: React.FC = () => (
   <>
-    <Route path="/" component={UIComponentsOverview} />
-    <Route path="/" component={ExploreUIComponents} />
-    <Route path="/" component={BottomSection} />
-    <Route path="/" component={ResourceSection} />
+    <SafeRoute path="/" component={UIComponentsOverview} />
+    <SafeRoute path="/" component={ExploreUIComponents} />
+    <SafeRoute path="/" component={BottomSection} />
+    <SafeRoute path="/" component={ResourceSection} />
   </>
 )

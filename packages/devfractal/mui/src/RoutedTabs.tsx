@@ -1,6 +1,7 @@
 import { Tab, TabProps, Tabs, TabsProps } from '@material-ui/core'
 import React from 'react'
-import { NavLink, useLocation } from 'technoidentity-router'
+import { useLocation } from 'react-router'
+import { NavLink } from 'react-router-dom'
 
 interface RoutedTabsContext {
   readonly baseURL?: string

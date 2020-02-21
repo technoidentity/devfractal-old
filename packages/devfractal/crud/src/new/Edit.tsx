@@ -1,6 +1,6 @@
 import React from 'react'
 import { API } from 'technoidentity-core'
-import { Route, useParams } from 'technoidentity-router'
+import { SafeRoute, useParamsSafe } from 'technoidentity-core'
 import {
   getProp,
   ObjC,
@@ -43,7 +43,7 @@ function Children<
     throw new Error(`${api.idKey} not defined`)
   }
 
-  const { params } = useParams(type({ [api.idKey]: string }))
+  const { params } = useParamsSafe(type({ [api.idKey]: string }))
 
   return (
     <Put
@@ -63,7 +63,7 @@ export function Edit<
   ID extends keyof TypeOf<ObjC<Opt, Req>>
 >({ path, ...props }: EditProps<Opt, Req, ID>): JSX.Element {
   return path ? (
-    <Route path={path} render={() => <Children {...props} />} />
+    <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (
     <Children {...props} />
   )

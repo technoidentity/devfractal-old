@@ -3,7 +3,7 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import React from 'react'
 import { APIComponents } from 'technoidentity-core'
 import { MuiComponents } from 'technoidentity-mui'
-import { Route, Router } from 'technoidentity-router'
+import { SafeRoute, SafeRouter } from 'react-router'
 import 'typeface-roboto'
 import { TodoApp } from './TodoApp'
 
@@ -14,8 +14,8 @@ const Index = () => (
 )
 export const App = () => (
   <APIComponents.Provider value={MuiComponents}>
-    <Router variant="browser">
-      <Route path="/" component={Index} />
-    </Router>
+    <SafeRouter variant="browser">
+      <SafeRoute path="/" component={Index} />
+    </SafeRouter>
   </APIComponents.Provider>
 )

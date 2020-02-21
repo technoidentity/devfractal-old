@@ -6,7 +6,7 @@ import {
   Put,
   SubmitAction,
   Title,
-  useParams,
+  useParamsSafe,
 } from 'technoidentity-devfractal'
 import { type } from 'technoidentity-utils'
 import { IntFromString } from 'technoidentity-utils'
@@ -31,7 +31,7 @@ const CreateTodo = () => (
 )
 
 const EditTodo: React.FC = () => {
-  const { id } = useParams(type({ id: IntFromString }))
+  const { id } = useParamsSafe(type({ id: IntFromString }))
 
   return (
     <Put

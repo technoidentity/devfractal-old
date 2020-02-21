@@ -9,7 +9,7 @@ import {
   links,
   listComponent,
   paths,
-  Router,
+  SafeRouter,
   Section,
   SimpleRedirect,
   Title,
@@ -54,12 +54,12 @@ const EditTodoRoute = () => (
 const TodoListRoute = () => <All path={ps.list} api={todoAPI} list={TodoList} />
 
 export const TodoApp = () => (
-  <Router>
+  <SafeRouter>
     <Section>
       <SimpleRedirect from="/" to={ls.list} />
       <EditTodoRoute />
       <TodoListRoute />
       <CreateTodoRoute />
     </Section>
-  </Router>
+  </SafeRouter>
 )

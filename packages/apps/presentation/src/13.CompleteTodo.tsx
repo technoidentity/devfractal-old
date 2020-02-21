@@ -7,13 +7,13 @@ import {
   Post,
   Put,
   rest,
-  Route,
-  Router,
+  SafeRoute,
+  SafeRouter,
   RowClickEvent,
   Section,
   SimpleTable,
   Title,
-  useParams,
+  useParamsSafe,
   useRedirect,
 } from 'technoidentity-devfractal'
 import {
@@ -69,7 +69,7 @@ const CreateTodoRoute = () => (
 const Params = req({ id: string })
 
 export const EditTodoRoute = () => {
-  const params = useParams(Params)
+  const params = useParamsSafe(Params)
 
   return (
     <Put
@@ -114,10 +114,10 @@ export const TodoListRoute = () => {
 
 export const TodoApp = () => (
   <Section>
-    <Router variant="browser">
-      <Route exact path="/" component={TodoListRoute} />
-      <Route exact path="/todos/add" component={CreateTodoRoute} />
-      <Route exact path="/todos/:id/edit" component={EditTodoRoute} />
-    </Router>
+    <SafeRouter variant="browser">
+      <SafeRoute exact path="/" component={TodoListRoute} />
+      <SafeRoute exact path="/todos/add" component={CreateTodoRoute} />
+      <SafeRoute exact path="/todos/:id/edit" component={EditTodoRoute} />
+    </SafeRouter>
   </Section>
 )

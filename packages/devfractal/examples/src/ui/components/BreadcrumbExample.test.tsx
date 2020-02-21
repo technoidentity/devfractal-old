@@ -1,12 +1,12 @@
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
-import { Router } from 'technoidentity-router'
+import { SafeRouter } from 'technoidentity-core'
 import { BreadcrumbExample } from './BreadcrumbExample'
 
 const Ex: React.FC = () => (
-  <Router variant="hash">
+  <SafeRouter variant="hash">
     <BreadcrumbExample />
-  </Router>
+  </SafeRouter>
 )
 
 test.skip('Breadcrumb Example', () => {

@@ -1,6 +1,6 @@
 import { stringify } from 'query-string'
 import React from 'react'
-import { useHistory, useLocation } from 'technoidentity-router'
+import { useHistory, useLocation } from 'react-router'
 import { Pager } from 'technoidentity-ui'
 import { IntFromString, opt } from 'technoidentity-utils'
 import { useQuery } from './useQuery'

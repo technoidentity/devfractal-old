@@ -1,6 +1,5 @@
 import React from 'react'
-import { API } from 'technoidentity-core'
-import { Route } from 'technoidentity-router'
+import { API, SafeRoute } from 'technoidentity-core'
 import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { Get } from '../api'
 
@@ -40,7 +39,7 @@ export function One<
   ID extends keyof TypeOf<ObjC<Opt, Req>>
 >({ path, ...props }: OneProps<Opt, Req, ID>): JSX.Element {
   return path ? (
-    <Route path={path} render={() => <Children {...props} />} />
+    <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (
     <Children {...props} />
   )

@@ -1,7 +1,7 @@
 import { parse, stringify } from 'query-string'
 import React from 'react'
-import { API, APIQuery, Page } from 'technoidentity-core'
-import { Route, useHistory, useLocation } from 'technoidentity-router'
+import { useHistory, useLocation } from 'react-router'
+import { API, APIQuery, Page, SafeRoute } from 'technoidentity-core'
 import {
   cast,
   IntFromString,
@@ -109,7 +109,7 @@ export function All<
   ID extends keyof TypeOf<ObjC<Opt, Req>>
 >({ path, ...props }: AllProps<Opt, Req, ID>): JSX.Element {
   return path ? (
-    <Route path={path} render={() => <Children {...props} />} />
+    <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (
     <Children {...props} />
   )

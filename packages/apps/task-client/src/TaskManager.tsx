@@ -1,6 +1,6 @@
 import React from 'react'
-import { Route, Router, Switch } from 'technoidentity-router'
-import { NotFound } from 'technoidentity-ui'
+import { Switch } from 'react-router'
+import { NotFound, SafeRoute, SafeRouter } from 'technoidentity-devfractal'
 import {
   CreateTaskRoute,
   EditTaskRoute,
@@ -13,17 +13,17 @@ import { Header } from './views'
 
 export const TaskManager = () => (
   <AuthProvider>
-    <Router variant="browser">
+    <SafeRouter variant="browser">
       <Header />
       <Switch>
-        <Route exact path="/" component={SignUpFormRoute} />
-        <Route exact path="/login" component={LoginRoute} />
-        <Route exact path="/tasks" component={TaskListRoute} />
-        <Route exact path="/tasks/:filter" component={TaskListRoute} />
-        <Route exact path="/add" component={CreateTaskRoute} />
-        <Route exact path="/tasks/:id/edit" component={EditTaskRoute} />
-        <Route component={NotFound} />
+        <SafeRoute exact path="/" component={SignUpFormRoute} />
+        <SafeRoute exact path="/login" component={LoginRoute} />
+        <SafeRoute exact path="/tasks" component={TaskListRoute} />
+        <SafeRoute exact path="/tasks/:filter" component={TaskListRoute} />
+        <SafeRoute exact path="/add" component={CreateTaskRoute} />
+        <SafeRoute exact path="/tasks/:id/edit" component={EditTaskRoute} />
+        <SafeRoute component={NotFound} />
       </Switch>
-    </Router>
+    </SafeRouter>
   </AuthProvider>
 )

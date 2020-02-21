@@ -1,5 +1,6 @@
 // tslint:disable typedef
 import React from 'react'
+import { useHistory } from 'react-router'
 import {
   ButtonLink,
   ButtonsGroup,
@@ -10,7 +11,6 @@ import {
   TableHead,
   Th,
   Tr,
-  useHistory,
 } from 'technoidentity-devfractal'
 import { fn, readonlyArray, req } from 'technoidentity-utils'
 import { FSTodo, fsTodoAPI } from '../common'

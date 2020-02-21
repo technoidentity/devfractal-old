@@ -1,7 +1,6 @@
 import React from 'react'
-import { Route, SimpleRedirect } from 'technoidentity-router'
-import { RoutedTabs, RoutedTabsItem } from 'technoidentity-ui'
-import { Title } from 'technoidentity-ui'
+import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
+import { RoutedTabs, RoutedTabsItem, Title } from 'technoidentity-ui'
 import {
   FieldsLoginForm,
   FormikLoginForm,
@@ -35,21 +34,21 @@ export const LoginFormVariantsRoutes: React.FC = () => (
       from="/composites/login-form-variants"
       to="/composites/login-form-variants/formik-form"
     />
-    <Route
+    <SafeRoute
       exact={false}
       path="/composites/login-form-variants/"
       component={LoginFormVariants}
     />
-    <Route
+    <SafeRoute
       path="/composites/login-form-variants/formik-form"
       component={FormikLoginForm}
     />
-    <Route
+    <SafeRoute
       path="/composites/login-form-variants/fields-form"
       component={FieldsLoginForm}
     />
 
-    <Route
+    <SafeRoute
       path="/composites/login-form-variants/simple-form"
       component={SimpleLoginForm}
     />

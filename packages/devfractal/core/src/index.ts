@@ -3,6 +3,7 @@ import { jsonStringify, timeout } from 'technoidentity-utils'
 
 export * from './api'
 export * from './CrudComponents'
+export * from './router'
 export * from './ui'
 export * from './validations'
 

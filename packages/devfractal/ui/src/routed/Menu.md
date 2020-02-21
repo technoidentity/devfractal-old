@@ -1,9 +1,9 @@
 ### Menu
 
 ```jsx
-import { Router, Route } from 'technoidentity-router'
-;<Router>
-  <Route
+import { SafeRouter, SafeRoute } from 'react-router'
+;<SafeRouter>
+  <SafeRoute
     path="/"
     render={() => (
       <Menu>
@@ -60,5 +60,5 @@ import { Router, Route } from 'technoidentity-router'
       </Menu>
     )}
   />
-</Router>
+</SafeRouter>
 ```

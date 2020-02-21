@@ -1,12 +1,12 @@
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
-import { Route, Router } from 'technoidentity-router'
+import { SafeRoute, SafeRouter } from 'technoidentity-core'
 import { DropdownExample } from './DropDownExample'
 
 const Ex: React.FC = () => (
-  <Router variant="hash">
-    <Route path="/" component={DropdownExample} />
-  </Router>
+  <SafeRouter variant="hash">
+    <SafeRoute path="/" component={DropdownExample} />
+  </SafeRouter>
 )
 test('Dropdown Example', () => {
   const component: ReactTestRenderer = renderer.create(<Ex />)

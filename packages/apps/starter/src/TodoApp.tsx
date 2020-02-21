@@ -11,7 +11,7 @@ import {
   listComponent,
   paths,
   rest,
-  Router,
+  SafeRouter,
   Section,
   SimpleRedirect,
   Title,
@@ -73,12 +73,12 @@ const TodoListRoute = () => {
 }
 
 export const TodoApp = () => (
-  <Router>
+  <SafeRouter>
     <Section>
       <SimpleRedirect from="/" to={ls.list} />
       <EditTodoRoute />
       <TodoListRoute />
       <CreateTodoRoute />
     </Section>
-  </Router>
+  </SafeRouter>
 )

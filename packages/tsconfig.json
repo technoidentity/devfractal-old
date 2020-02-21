@@ -13,7 +13,6 @@
     { "path": "devfractal/devfractal" },
     { "path": "devfractal/examples" },
     { "path": "devfractal/mui" },
-    { "path": "devfractal/router" },
     { "path": "devfractal/firestore" },
     { "path": "devfractal/core" },
     { "path": "devfractal/ui" },

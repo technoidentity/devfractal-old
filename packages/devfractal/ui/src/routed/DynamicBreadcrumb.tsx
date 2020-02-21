@@ -1,6 +1,6 @@
 import React from 'react'
 import { Null } from 'technoidentity-core'
-import { useLocation } from 'technoidentity-router'
+import { useLocation } from 'react-router'
 import { capitalizeAll, chop } from 'technoidentity-utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 

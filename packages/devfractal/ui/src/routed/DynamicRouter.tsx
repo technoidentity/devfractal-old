@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, SimpleRedirect } from 'technoidentity-router'
+import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
 import { capitalizeAll, toLower } from 'technoidentity-utils'
 import { RoutedTabs, RoutedTabsItem } from './RoutedTabs'
 
@@ -27,7 +27,7 @@ export function dynamicRouter<T extends {}>(
       )}
       {urls.map((url, i) => {
         const path = `${baseUrl}/${url}`
-        return <Route exact key={url} path={path} component={cs[keys[i]]} />
+        return <SafeRoute exact key={url} path={path} component={cs[keys[i]]} />
       })}
     </>
   )

@@ -18,7 +18,7 @@ import {
   Text,
   Title,
   useGet,
-  useParams,
+  useParamsSafe,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
 import { IntFromString, type } from 'technoidentity-utils'
@@ -115,7 +115,7 @@ const CreateTodo = () => {
 }
 
 const EditTodo: React.FC = () => {
-  const { id } = useParams(type({ id: IntFromString }))
+  const { id } = useParamsSafe(type({ id: IntFromString }))
 
   const result = useGet(todoAPI.get, id)
 

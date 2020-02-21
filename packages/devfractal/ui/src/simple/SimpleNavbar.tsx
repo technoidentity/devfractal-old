@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'technoidentity-router'
+import { NavLink } from 'react-router-dom'
 import {
   Navbar,
   NavbarBrand,

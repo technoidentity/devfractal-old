@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, useLocation } from 'technoidentity-router'
+import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
 import { chop } from 'technoidentity-utils'
 import { classNamesHelper, El, Helpers } from '../core'
 

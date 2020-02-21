@@ -1,6 +1,7 @@
 import React from 'react'
-import { Redirect, Route, RouteComponentProps } from 'react-router-dom'
+import { Redirect, RouteComponentProps } from 'react-router-dom'
 import { useSafeRouter } from './RouterContext'
+import { SafeRoute } from './SafeRoute'
 
 export interface SimpleRedirectProps {
   readonly from: string
@@ -15,7 +16,7 @@ export const SimpleRedirect: React.FC<SimpleRedirectProps> = ({
 }) => {
   const { setRouteMatched } = useSafeRouter()
   return (
-    <Route
+    <SafeRoute
       exact={exact !== undefined ? exact : true}
       path={from}
       render={() => {

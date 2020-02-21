@@ -1,5 +1,5 @@
 import React from 'react'
-import { Put, useParams } from 'technoidentity-devfractal'
+import { Put, useParamsSafe } from 'technoidentity-devfractal'
 import { string } from 'technoidentity-utils'
 import { req } from 'technoidentity-utils'
 import { todoApi } from './08.todoAPI'
@@ -7,7 +7,7 @@ import { TodoForm } from './09.TodoForm'
 
 const Params = req({ id: string })
 export const EditTodoRoute: React.FC = () => {
-  const params = useParams(Params)
+  const params = useParamsSafe(Params)
 
   return (
     <Put

@@ -37,7 +37,6 @@
     "technoidentity-core": "^2.0.3",
     "technoidentity-crud": "^2.0.3",
     "technoidentity-mui": "^2.0.3",
-    "technoidentity-router": "^2.0.1",
     "technoidentity-ui": "^2.0.3",
     "technoidentity-utils": "^2.0.1"
   },

@@ -8,7 +8,6 @@
   "references": [
     { "path": "../../common/utils" },
     { "path": "../core" },
-    { "path": "../crud" },
-    { "path": "../router" }
+    { "path": "../crud" }
   ]
 }

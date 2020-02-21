@@ -11,8 +11,8 @@ import {
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Link, Route } from 'technoidentity-router'
-import { DynamicBreadcrumb } from 'technoidentity-ui'
+import { Link } from 'react-router-dom'
+import { SafeRoute } from 'technoidentity-core'
 import {
   Button,
   ButtonsGroup,
@@ -20,6 +20,7 @@ import {
   Columns,
   Container,
   Content,
+  DynamicBreadcrumb,
   Hero,
   HeroHead,
   Icon,
@@ -153,7 +154,7 @@ export const SiteHeader: React.FC = () => (
           </NavbarMenu>
         </Navbar>
       </HeroHead>
-      <Route exact path="/" component={HeroBodySection} />
+      <SafeRoute exact path="/" component={HeroBodySection} />
     </Hero>
     <Section>
       <DynamicBreadcrumb />

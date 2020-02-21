@@ -7,11 +7,10 @@ import {
   faUserFriends,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
-
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
-import { Route, Router } from 'technoidentity-router'
+import { SafeRoute, SafeRouter } from 'technoidentity-core'
 import { Icon, Section } from './core'
 import { Menu, MenuItem, MenuList } from './routed'
 
@@ -57,11 +56,11 @@ const VehicleList: React.FC = () => <h1>vehicles</h1>
 export const App: React.FC = () => {
   return (
     <Section>
-      <Router variant="hash">
-        <Route exact path="/" component={MenuComponent} />
-        <Route exact path="/clients" component={ClientList} />
-        <Route exact path="/vehicles" component={VehicleList} />
-      </Router>
+      <SafeRouter variant="hash">
+        <SafeRoute exact path="/" component={MenuComponent} />
+        <SafeRoute exact path="/clients" component={ClientList} />
+        <SafeRoute exact path="/vehicles" component={VehicleList} />
+      </SafeRouter>
     </Section>
   )
 }

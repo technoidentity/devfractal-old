@@ -1,5 +1,5 @@
 import { parse } from 'query-string'
-import { useLocation } from 'technoidentity-router'
+import { useLocation } from 'react-router'
 import { cast, ObjC, Props, record, string, TypeOf } from 'technoidentity-utils'
 
 export function useQuery<Opt extends Props, Req extends Props>(

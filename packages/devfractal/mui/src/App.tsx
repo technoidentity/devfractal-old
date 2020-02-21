@@ -2,8 +2,7 @@ import DateFnsUtils from '@date-io/date-fns'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import React from 'react'
 import { render } from 'react-dom'
-import { APIComponents } from 'technoidentity-core'
-import { Route, Router } from 'technoidentity-router'
+import { APIComponents, SafeRoute, SafeRouter } from 'technoidentity-core'
 import 'typeface-roboto'
 import { MuiComponents } from './APIComponents'
 
@@ -22,9 +21,9 @@ const CheckingComponents: React.FC = () => (
 
 const App: React.FC = () => {
   return (
-    <Router variant="browser">
-      <Route path="/" component={CheckingComponents} />
-    </Router>
+    <SafeRouter variant="browser">
+      <SafeRoute path="/" component={CheckingComponents} />
+    </SafeRouter>
   )
 }
 

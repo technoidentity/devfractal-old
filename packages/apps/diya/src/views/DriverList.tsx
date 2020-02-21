@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory, useLocation } from 'react-router'
 import {
   Column,
   Columns,
@@ -7,8 +8,6 @@ import {
   listComponent,
   RoutedPager,
   Section,
-  useHistory,
-  useLocation,
 } from 'technoidentity-devfractal'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'

@@ -1,7 +1,7 @@
 import { CircularProgress, Typography } from '@material-ui/core'
 import React from 'react'
 import { APIComponents } from 'technoidentity-core'
-import { useLocation } from 'technoidentity-router'
+import { useLocation } from 'react-router'
 
 // tslint:disable typedef
 

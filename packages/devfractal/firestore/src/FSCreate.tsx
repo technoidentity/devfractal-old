@@ -1,7 +1,7 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
+import { SafeRoute } from 'technoidentity-core'
 import { Post } from 'technoidentity-crud'
-import { Route } from 'technoidentity-router'
 import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 
@@ -41,7 +41,7 @@ export function FSCreate<
   ID extends keyof TypeOf<ObjC<Opt, Req>>
 >({ path, ...props }: FSCreateProps<Opt, Req, ID>): JSX.Element {
   return path ? (
-    <Route path={path} render={() => <Children {...props} />} />
+    <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (
     <Children {...props} />
   )

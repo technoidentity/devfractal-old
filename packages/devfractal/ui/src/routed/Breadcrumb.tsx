@@ -1,7 +1,9 @@
 import React from 'react'
-import { NavLink, useLocation } from 'technoidentity-router'
+import { useLocation } from 'react-router'
+
 import { chop } from 'technoidentity-utils'
 import { classNamesHelper, El, Helpers } from '../core'
+import { NavLink } from 'react-router-dom'
 
 type BreadcrumbSize = 'small' | 'medium' | 'large'
 

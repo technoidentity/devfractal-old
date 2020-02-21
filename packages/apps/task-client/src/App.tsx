@@ -2,11 +2,11 @@ import React from 'react'
 import { APIComponents, UIComponents } from 'technoidentity-devfractal'
 import { TaskManager } from './TaskManager'
 // export const App: React.FC = () => (
-//   <Router variant="browser">
-//     <Route exact path="/" component={TodoListRoute} />
-//     <Route exact path="/todos/add" component={CreateTodoRoute} />
-//     <Route exact path="/todos/:id/edit" component={EditTodoRoute} />
-//   </Router>
+//   <SafeRouter variant="browser">
+//     <SafeRoute exact path="/" component={TodoListRoute} />
+//     <SafeRoute exact path="/todos/add" component={CreateTodoRoute} />
+//     <SafeRoute exact path="/todos/:id/edit" component={EditTodoRoute} />
+//   </SafeRouter>
 // )
 
 // export const App: React.FC = () => <h1>Hello, World</h1>

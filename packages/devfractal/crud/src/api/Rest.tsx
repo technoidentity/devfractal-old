@@ -1,8 +1,6 @@
 import React from 'react'
-import { API } from 'technoidentity-core'
-import { Route, useParams } from 'technoidentity-router'
-import { Mixed, type } from 'technoidentity-utils'
-import { getProp } from 'technoidentity-utils'
+import { API, SafeRoute, useParamsSafe } from 'technoidentity-core'
+import { getProp, Mixed, type } from 'technoidentity-utils'
 import { SubmitAction } from './common'
 import { Get } from './Get'
 import { Post } from './Post'
@@ -56,7 +54,7 @@ export function RestGet<T>({
   const { api } = useRest()
 
   return (
-    <Route
+    <SafeRoute
       path={path}
       render={() => (
         <Get asyncFn={() => api.many()}>
@@ -79,7 +77,7 @@ export function RestPost<T>({
   const { api, redirectTo } = useRest()
 
   return (
-    <Route
+    <SafeRoute
       path={path}
       render={() => (
         <Post
@@ -114,10 +112,10 @@ export function RestPut<T>({
   }
 
   // tslint:disable-next-line: typedef
-  const params = useParams(type({ [api.idKey]: idPropSpec }))
+  const params = useParamsSafe(type({ [api.idKey]: idPropSpec }))
 
   return (
-    <Route
+    <SafeRoute
       path={path}
       render={() => (
         <Put

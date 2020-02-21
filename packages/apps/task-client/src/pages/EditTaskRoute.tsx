@@ -1,16 +1,13 @@
 import React from 'react'
-import { Put } from 'technoidentity-crud'
-import { useParams } from 'technoidentity-router'
-import { Section, Title } from 'technoidentity-ui'
-import { string } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
+import { Put, Section, Title, useParamsSafe } from 'technoidentity-devfractal'
+import { req, string } from 'technoidentity-utils'
 import { taskAPI } from '../common'
 import { TaskForm } from '../views'
 
 const Params = req({ id: string })
 
 export const EditTaskRoute: React.FC = () => {
-  const params = useParams(Params)
+  const params = useParamsSafe(Params)
 
   return (
     <Section>

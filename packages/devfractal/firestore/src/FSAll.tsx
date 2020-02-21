@@ -1,6 +1,6 @@
 import React from 'react'
+import { SafeRoute } from 'technoidentity-core'
 import { Get } from 'technoidentity-crud'
-import { Route } from 'technoidentity-router'
 import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 
@@ -47,7 +47,7 @@ export function FSAll<
   ID extends keyof TypeOf<ObjC<Opt, Req>>
 >({ path, ...props }: FSAllProps<Opt, Req, ID>): JSX.Element {
   return path ? (
-    <Route path={path} render={() => <Children {...props} />} />
+    <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (
     <Children {...props} />
   )

@@ -1,13 +1,17 @@
 import React from 'react'
-import { Route, SimpleRedirect } from 'technoidentity-router'
+import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
 import {
   DropDown,
   DropDownDivider,
   DropDownItem,
+  Field,
+  Level,
+  LevelItem,
   RoutedTabs,
   RoutedTabsItem,
+  Section,
+  Title,
 } from 'technoidentity-ui'
-import { Field, Level, LevelItem, Section, Title } from 'technoidentity-ui'
 
 const DropdownExampleTab: React.FC = () => (
   <>
@@ -143,26 +147,29 @@ export const DropdownExampleRoutes: React.FC = () => (
       to="/components/dropdown/dropdown"
     />
 
-    <Route
+    <SafeRoute
       path="/components/dropdown/dropdown"
       component={DropdownExampleTab}
     />
-    <Route
+    <SafeRoute
       path="/components/dropdown/content"
       component={DropdownContentExampleTab}
     />
-    <Route
+    <SafeRoute
       path="/components/dropdown/hoverable"
       component={HoverableDropdownExampleTab}
     />
-    <Route
+    <SafeRoute
       path="/components/dropdown/right"
       component={RightAlignableDropdownExampleTab}
     />
-    <Route
+    <SafeRoute
       path="/components/dropdown/left"
       component={LeftAlignableDropdownExampleTab}
     />
-    <Route path="/components/dropdown/dropup" component={DropUpExampleTab} />
+    <SafeRoute
+      path="/components/dropdown/dropup"
+      component={DropUpExampleTab}
+    />
   </>
 )

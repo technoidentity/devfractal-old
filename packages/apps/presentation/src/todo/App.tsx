@@ -1,19 +1,19 @@
 import React from 'react'
 import {
-  Route,
-  Router,
+  SafeRoute,
+  SafeRouter,
   Section,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
 import { CreateTodo, EditTodo, TodoList } from './TodoAppV0'
 
 export const TodoApp = () => (
-  <Router>
+  <SafeRouter>
     <Section>
       <SimpleRedirect from="/" to="todos" />
-      <Route path="/todos" component={TodoList} />
-      <Route path="/todos/new" component={CreateTodo} />
-      <Route path="/todos/:id/edit" component={EditTodo} />
+      <SafeRoute path="/todos" component={TodoList} />
+      <SafeRoute path="/todos/new" component={CreateTodo} />
+      <SafeRoute path="/todos/:id/edit" component={EditTodo} />
     </Section>
-  </Router>
+  </SafeRouter>
 )

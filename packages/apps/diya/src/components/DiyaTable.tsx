@@ -1,6 +1,7 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Icon, Link } from 'technoidentity-devfractal'
+import { Link } from 'react-router-dom'
+import { Icon } from 'technoidentity-devfractal'
 import { ButtonLink, SimpleTable, SimpleTableProps } from 'technoidentity-ui'
 
 export interface DiyaActionsProps {

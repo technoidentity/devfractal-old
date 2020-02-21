@@ -5,9 +5,14 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Route, SimpleRedirect } from 'technoidentity-router'
-import { Breadcrumb, BreadcrumbItem } from 'technoidentity-ui'
-import { Container, Icon, Section } from 'technoidentity-ui'
+import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  Container,
+  Icon,
+  Section,
+} from 'technoidentity-ui'
 
 export const BreadcrumbAlignmentsExample: React.FC = () => (
   <>
@@ -124,22 +129,22 @@ export const BreadcrumbExample: React.FC = () => (
         from="/components/breadcrumb"
         to="/components/breadcrumb/alignments"
       />
-      <Route
+      <SafeRoute
         path="/components/breadcrumb/alignments"
         exact
         component={BreadcrumbAlignmentsExample}
       />
-      <Route
+      <SafeRoute
         path="/components/breadcrumb/icons"
         exact
         component={BreadcrumbIconsExample}
       />
-      <Route
+      <SafeRoute
         path="/components/breadcrumb/separators"
         component={BreadcrumbSeparatorsExample}
         exact
       />
-      <Route
+      <SafeRoute
         path="/components/breadcrumb/sizes"
         component={BreadcrumbSizesExample}
         exact

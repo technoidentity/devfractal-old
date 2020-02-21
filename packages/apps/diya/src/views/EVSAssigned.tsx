@@ -1,6 +1,6 @@
 import { faBus, faMapMarker } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Link } from 'technoidentity-devfractal'
+import { Link } from 'react-router-dom'
 import {
   Button,
   ButtonsGroup,
@@ -11,8 +11,7 @@ import {
   listComponent,
   SimpleTable,
 } from 'technoidentity-devfractal'
-import { string } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
+import { req, string } from 'technoidentity-utils'
 import { Ev } from '../common'
 import { HeadTitle } from '../components'
 
@@ -22,7 +21,7 @@ const Actions = component(ActionsRoutesProps, ({ editTo }) => (
   <ButtonsGroup>
     <Link to={editTo} className="button is-small is-rounded">
       <Icon icon={faMapMarker} />
-      <div>Plan Route</div>
+      <div>Plan SafeRoute</div>
     </Link>
 
     <Button rounded size="small">

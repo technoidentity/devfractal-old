@@ -9,19 +9,19 @@ import {
   Todo,
 } from 'devfractal-examples'
 import React from 'react'
-import { Route, SimpleRedirect } from 'technoidentity-router'
+import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
 
 export const CompositesRoutes: React.FC = () => (
   <>
     <SimpleRedirect from="/composites" to="/composites/simple-form" />
-    <Route path="/composites/simple-form" component={SimpleFormExample} />
-    <Route path="/composites/general-form" component={FieldsGeneralForm} />
-    <Route path="/composites/counter" component={Counter} />
-    <Route path="/composites/todo" component={Todo} />
-    <Route path="/composites/simple-todo" component={SimpleTodo} />
-    <Route path="/composites/github-card" component={CardApp} />
-    <Route path="/composites/cart-app" component={Cart} />
-    <Route
+    <SafeRoute path="/composites/simple-form" component={SimpleFormExample} />
+    <SafeRoute path="/composites/general-form" component={FieldsGeneralForm} />
+    <SafeRoute path="/composites/counter" component={Counter} />
+    <SafeRoute path="/composites/todo" component={Todo} />
+    <SafeRoute path="/composites/simple-todo" component={SimpleTodo} />
+    <SafeRoute path="/composites/github-card" component={CardApp} />
+    <SafeRoute path="/composites/cart-app" component={Cart} />
+    <SafeRoute
       path="/composites/login-form-variants"
       component={LoginFormVariantsRoutes}
     />

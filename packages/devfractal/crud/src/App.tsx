@@ -1,8 +1,7 @@
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
-import { rest } from 'technoidentity-core'
-import { Router, SimpleRedirect } from 'technoidentity-router'
+import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
 import { ButtonLink, Section, Simple } from 'technoidentity-ui'
 import { boolean, number, obj, string } from 'technoidentity-utils'
 import {
@@ -52,12 +51,12 @@ const TodoList = listComponent(Todo, ({ data }) => (
 
 export const App: React.FC = () => {
   return (
-    <Router>
+    <SafeRouter>
       <Section>
         <SimpleRedirect from="/" to="/todos" />
         <CrudRoutes api={api} form={TodoForm} list={TodoList} />
       </Section>
-    </Router>
+    </SafeRouter>
   )
 }
 

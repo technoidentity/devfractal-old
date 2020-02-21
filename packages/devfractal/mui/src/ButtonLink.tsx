@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from '@material-ui/core'
 import React from 'react'
-import { Link as RouterLink, LinkProps } from 'technoidentity-router'
+import { Link as RouterLink, LinkProps } from 'react-router-dom'
 
 export interface ButtonLinkProps extends ButtonProps {
   readonly to: LinkProps['to']

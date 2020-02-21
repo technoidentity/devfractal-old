@@ -1,8 +1,8 @@
 import React from 'react'
-import { Route as RRRoute, RouteProps } from 'react-router-dom'
+import { Route, RouteProps } from 'react-router-dom'
 import { useSafeRouter } from './RouterContext'
 
-export function Route({
+export function SafeRoute({
   component: Component,
   render,
   children,
@@ -12,7 +12,7 @@ export function Route({
   const { setRouteMatched } = useSafeRouter()
 
   return (
-    <RRRoute
+    <Route
       {...props}
       exact={exact !== undefined ? exact : true}
       render={renderProps => {

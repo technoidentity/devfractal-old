@@ -1,6 +1,7 @@
 import React from 'react'
+import { Switch } from 'react-router'
+import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
 import { components, paths } from 'technoidentity-crud'
-import { Route, SimpleRedirect, Switch } from 'technoidentity-router'
 import { inMemoryAPI } from './inMemoryAPI'
 import { TodoRT } from './types'
 
@@ -22,10 +23,10 @@ export const TodoRoutes: React.FC = () => {
     <>
       <SimpleRedirect exact from="/crud" to="/crud/todos" />
       <Switch>
-        <Route exact path={create} component={Create} />
-        <Route exact path={edit} component={Edit} />
-        <Route exact path={view} component={View} />
-        <Route exact path={list} component={List} />
+        <SafeRoute exact path={create} component={Create} />
+        <SafeRoute exact path={edit} component={Edit} />
+        <SafeRoute exact path={view} component={View} />
+        <SafeRoute exact path={list} component={List} />
       </Switch>
     </>
   )

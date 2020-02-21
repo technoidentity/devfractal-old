@@ -13,7 +13,7 @@ import {
   listComponent,
   paths,
 } from 'technoidentity-crud'
-import { Router, SimpleRedirect } from 'technoidentity-router'
+import { SafeRouter, SimpleRedirect } from 'react-router'
 import { boolean, ISODate, number, obj, string } from 'technoidentity-utils'
 
 const Todo = obj(
@@ -71,12 +71,12 @@ const TodoListRoute = () => {
 }
 
 export const TodoApp = () => (
-  <Router>
+  <SafeRouter>
     <Paper>
       <SimpleRedirect from="/" to={ls.list} />
       <EditTodoRoute />
       <TodoListRoute />
       <CreateTodoRoute />
     </Paper>
-  </Router>
+  </SafeRouter>
 )

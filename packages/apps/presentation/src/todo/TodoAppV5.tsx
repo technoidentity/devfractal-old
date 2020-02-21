@@ -6,7 +6,7 @@ import {
   formComponent,
   links,
   listComponent,
-  Router,
+  SafeRouter,
   Section,
   SimpleRedirect,
   Title,
@@ -40,11 +40,11 @@ const TodoList = listComponent(Todo, ({ data }) => (
 ))
 
 export const TodoApp = () => (
-  <Router>
+  <SafeRouter>
     <Section>
       <SimpleRedirect from="/" to={list} />
 
       <CrudRoutes api={todoAPI} form={TodoForm} list={TodoList} />
     </Section>
-  </Router>
+  </SafeRouter>
 )

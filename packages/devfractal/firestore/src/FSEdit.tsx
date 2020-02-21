@@ -1,6 +1,6 @@
 import React from 'react'
+import { SafeRoute, useParamsSafe } from 'technoidentity-core'
 import { Put, SubmitAction } from 'technoidentity-crud'
-import { Route, useParams } from 'technoidentity-router'
 import {
   getProp,
   ObjC,
@@ -44,7 +44,7 @@ function Children<
   }
 
   // tslint:disable-next-line: typedef
-  const params = useParams(type({ [api.idKey]: string }))
+  const params = useParamsSafe(type({ [api.idKey]: string }))
 
   return (
     <Put
@@ -64,7 +64,7 @@ export function FSEdit<
   ID extends keyof TypeOf<ObjC<Opt, Req>>
 >({ path, ...props }: FSEditProps<Opt, Req, ID>): JSX.Element {
   return path ? (
-    <Route path={path} render={() => <Children {...props} />} />
+    <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (
     <Children {...props} />
   )

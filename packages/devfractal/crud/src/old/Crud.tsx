@@ -1,5 +1,6 @@
 import React from 'react'
-import { Route, Switch } from 'technoidentity-router'
+import { Switch } from 'react-router'
+import { SafeRoute } from 'technoidentity-core'
 import { Mixed, TypeOf } from 'technoidentity-utils'
 import { paths as ps } from '../new'
 import { APIRepository } from './apiFn'
@@ -23,10 +24,10 @@ export function Crud<RT extends Mixed, ID extends keyof TypeOf<RT>>({
 
   return (
     <Switch>
-      <Route path={create} component={Create} />
-      <Route path={edit} component={Edit} />
-      <Route path={view} component={View} />
-      <Route path={list} component={List} />
+      <SafeRoute path={create} component={Create} />
+      <SafeRoute path={edit} component={Edit} />
+      <SafeRoute path={view} component={View} />
+      <SafeRoute path={list} component={List} />
     </Switch>
   )
 }

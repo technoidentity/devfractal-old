@@ -1,7 +1,6 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { API } from 'technoidentity-core'
-import { Route } from 'technoidentity-router'
+import { API, SafeRoute } from 'technoidentity-core'
 import { ObjC, Props, TypeOf } from 'technoidentity-utils'
 import { Post } from '../api'
 
@@ -43,7 +42,7 @@ export function Create<
   ID extends keyof TypeOf<ObjC<Opt, Req>>
 >({ path, ...props }: CreateProps<Opt, Req, ID>): JSX.Element {
   return path ? (
-    <Route path={path} render={() => <Children {...props} />} />
+    <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (
     <Children {...props} />
   )

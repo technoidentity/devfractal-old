@@ -12,7 +12,7 @@ const planLinks = links('plans')
 
 export const PlanRouteList = listComponent(PlanRoute, ({ data }) => (
   <Section>
-    <HeadTitle>Plan Route</HeadTitle>
+    <HeadTitle>Plan SafeRoute</HeadTitle>
 
     <CrudTable
       data={data}

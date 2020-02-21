@@ -51,7 +51,7 @@ const RouterChildren: React.FC = ({ children }) => (
   </Route>
 )
 
-export function Router<T extends RouterType>({
+export function SafeRouter<T extends RouterType>({
   variant,
   children,
   ...props

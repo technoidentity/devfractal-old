@@ -3,7 +3,7 @@ import React from 'react'
 import {
   Column,
   Columns,
-  Router,
+  SafeRouter,
   SimpleRedirect,
 } from 'technoidentity-devfractal'
 import { SideMenuView, Visibility } from './components'
@@ -32,7 +32,7 @@ export const SuperAdmin = () => {
   }
 
   return (
-    <Router variant="browser">
+    <SafeRouter variant="browser">
       <Columns>
         <SideMenuView visibility={visibility} onClick={handleClick} />
 
@@ -56,6 +56,6 @@ export const SuperAdmin = () => {
           <TripListRoute />
         </Column>
       </Columns>
-    </Router>
+    </SafeRouter>
   )
 }
