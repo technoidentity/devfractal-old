@@ -1,8 +1,14 @@
 import { FormikHelpers } from 'formik'
+import React from 'react'
+import { verify } from 'technoidentity-utils/src'
+import { ObjectSchema } from 'yup'
 
-export interface EditorProps<T extends {}> {
-  readonly data: T | (() => Promise<T>)
-  readonly id: keyof T
+// tslint:disable typedef
+
+export interface EditorViewProps<T extends {}> {
+  readonly data: T
+  readonly id?: keyof T
+  readonly schema?: ObjectSchema<T>
   onSubmit?(values: T, actions: FormikHelpers<T>): void
 }
 
@@ -35,7 +41,7 @@ export interface TableViewProps<
 }
 
 export interface CrudComponents<T extends Record<string, any>> {
-  EditorView({ data, onSubmit, id }: EditorProps<T>): JSX.Element
+  EditorView({ data, onSubmit, id }: EditorViewProps<T>): JSX.Element
   ViewerView({ data }: ViewerViewProps<T>): JSX.Element
 
   TableView<EK extends string, Select extends keyof T = keyof T>(
@@ -43,4 +49,15 @@ export interface CrudComponents<T extends Record<string, any>> {
   ): JSX.Element
 
   readonly Pager: React.FC<PagerProps>
+}
+
+export const CrudComponents = React.createContext<
+  CrudComponents<any> | undefined
+>(undefined)
+
+export function useCrudComponents(): CrudComponents<any> {
+  const ctx = React.useContext(CrudComponents)
+  verify(ctx !== undefined)
+
+  return ctx
 }

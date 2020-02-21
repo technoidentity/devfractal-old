@@ -16,7 +16,6 @@ export const InvoiceList = listComponent(Invoice, ({ data: invoiceList }) => (
       data={invoiceList}
       select={['invoicesNo', 'valid', 'dueDate', 'amount']}
       override={{ invoicesNo: 'InVoices No.' }}
-      striped
     />
 
     <RoutedPager />

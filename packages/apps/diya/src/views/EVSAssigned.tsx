@@ -46,7 +46,6 @@ export const EVSList = listComponent(Ev, ({ data: evsList }) => (
       select={['driverName']}
       override={{ driverName: 'Driver' }}
       extra={['Actions']}
-      striped
     >
       {(key: string) =>
         // tslint:disable-next-line: no-null-keyword

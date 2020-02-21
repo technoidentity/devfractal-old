@@ -1,18 +1,10 @@
-import { FormikHelpers } from 'formik'
 import React from 'react'
+import { EditorViewProps } from 'technoidentity-core'
 import { boolean, date, number } from 'technoidentity-utils'
-import { ObjectSchema } from 'yup'
 import { Section } from './core'
 import { Simple } from './simple'
 
-export interface EditorViewProps<T extends {}> {
-  readonly data: T
-  readonly id?: keyof T
-  readonly schema?: ObjectSchema<T>
-  onSubmit?(values: T, actions: FormikHelpers<T>): void
-}
-
-export function EditorView<T extends {}>({
+export function EditorView<T extends Record<string, any>>({
   data,
   id,
   schema,

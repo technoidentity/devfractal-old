@@ -1,7 +1,7 @@
 import { stringify } from 'query-string'
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { Pager } from 'technoidentity-ui'
+import { useCrudComponents } from 'technoidentity-core'
 import { IntFromString, opt } from 'technoidentity-utils'
 import { useQuery } from './useQuery'
 
@@ -13,6 +13,7 @@ export const RoutedPager: React.FC<RoutedPagerProps> = ({ count }) => {
   const { pathname } = useLocation()
   const { push } = useHistory()
 
+  const { Pager } = useCrudComponents()
   // tslint:disable-next-line: typedef
   const query = useQuery(opt({ page: IntFromString }))
 

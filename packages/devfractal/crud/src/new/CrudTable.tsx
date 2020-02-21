@@ -1,7 +1,8 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Icon, SimpleTable, SimpleTableProps } from 'technoidentity-ui'
+import { Icon } from 'technoidentity-ui'
+import { SimpleTable, SimpleTableProps } from '../SimpleTable'
 
 export interface ActionsProps {
   readonly editTo: string
@@ -58,7 +59,6 @@ export function CrudTable<T extends Record<string, any>, EK extends string>({
       select={select}
       override={override}
       extra={[...(extra || []), 'Actions']}
-      striped
       onRowClicked={onRowClicked}
     >
       {(key, value) =>

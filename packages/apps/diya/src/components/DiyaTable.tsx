@@ -1,9 +1,9 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { SimpleTable, SimpleTableProps } from 'technoidentity-crud'
 import { Icon } from 'technoidentity-devfractal'
-import { ButtonLink, SimpleTable, SimpleTableProps } from 'technoidentity-ui'
-
+import { ButtonLink } from 'technoidentity-ui'
 export interface DiyaActionsProps {
   readonly editTo: string
   readonly assignTo: string
@@ -72,7 +72,6 @@ export function DiyaTable<
       select={select}
       override={override}
       extra={[...(extra || []), 'Actions']}
-      striped
       onRowClicked={onRowClicked}
     >
       {(key, value) =>

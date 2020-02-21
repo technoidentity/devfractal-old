@@ -1,5 +1,5 @@
 import React from 'react'
-import { TableViewProps } from 'technoidentity-core'
+import { TableViewProps as TVProps } from 'technoidentity-core'
 import {
   boolean,
   camelCaseToPhrase,
@@ -18,19 +18,17 @@ import {
   Tr,
 } from '../core'
 
-export interface SimpleTableHeaderProps {
+export interface TableViewHeaderProps {
   readonly headers: readonly string[]
 }
 
-export interface SimpleTableProps<
+export interface UITableViewProps<
   T extends Record<string, any>,
   EK extends string,
   Select extends keyof T
-> extends Omit<TableProps, 'children'>, TableViewProps<T, EK, Select> {}
+> extends Omit<TableProps, 'children'>, TVProps<T, EK, Select> {}
 
-export const SimpleTableHeader: React.FC<SimpleTableHeaderProps> = ({
-  headers,
-}) => (
+const TableViewHeader: React.FC<TableViewHeaderProps> = ({ headers }) => (
   <TableHead>
     <Tr>
       {headers.map(h => (
@@ -40,11 +38,11 @@ export const SimpleTableHeader: React.FC<SimpleTableHeaderProps> = ({
   </TableHead>
 )
 
-export interface RowsProps<
+interface RowsProps<
   T extends Record<string, any>,
   EK extends string,
   Select extends keyof T
-> extends Omit<SimpleTableProps<T, EK, Select>, 'override'> {
+> extends Omit<UITableViewProps<T, EK, Select>, 'override'> {
   readonly select: readonly Select[]
   render?(keyOrHeader: string, value: T): React.ReactNode
 }
@@ -84,11 +82,11 @@ function Rows<
   )
 }
 
-export function SimpleTable<
+export function UITableView<
   T extends Record<string, any>,
   Select extends keyof T,
   EK extends string
->(args: SimpleTableProps<T, EK, Select>): JSX.Element {
+>(args: UITableViewProps<T, EK, Select>): JSX.Element {
   const {
     select,
     override,
@@ -117,7 +115,7 @@ export function SimpleTable<
 
   return (
     <Table {...props} fullWidth>
-      <SimpleTableHeader headers={labels} />
+      <TableViewHeader headers={labels} />
 
       <TableBody>
         <Rows
