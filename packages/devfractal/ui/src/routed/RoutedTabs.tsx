@@ -1,9 +1,9 @@
 import React from 'react'
 import { useLocation } from 'react-router'
 
+import { NavLink } from 'react-router-dom'
 import { chop, extractSegment } from 'technoidentity-utils'
 import { classNamesHelper, El, Helpers } from '../core'
-import { NavLink } from 'react-router-dom'
 
 interface RoutedTabsContext {
   readonly baseURL?: string

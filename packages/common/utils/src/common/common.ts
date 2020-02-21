@@ -1,4 +1,4 @@
-import { startOfDay, format } from 'date-fns'
+import { format, startOfDay } from 'date-fns'
 import { TypeOf, union } from 'io-ts'
 import { date } from 'io-ts-types/lib/date'
 import { DateFromISOString } from 'io-ts-types/lib/DateFromISOString'

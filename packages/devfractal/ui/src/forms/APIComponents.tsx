@@ -1,6 +1,6 @@
 import React from 'react'
-import { APIComponents } from 'technoidentity-core'
 import { useLocation } from 'react-router'
+import { APIComponents } from 'technoidentity-core'
 
 // tslint:disable typedef
 

@@ -1,6 +1,6 @@
 import { Paper, Typography } from '@material-ui/core'
 import React from 'react'
-import { rest } from 'technoidentity-core'
+import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
 import {
   All,
   Create,
@@ -13,7 +13,6 @@ import {
   listComponent,
   paths,
 } from 'technoidentity-crud'
-import { SafeRouter, SimpleRedirect } from 'react-router'
 import { boolean, ISODate, number, obj, string } from 'technoidentity-utils'
 
 const Todo = obj(
