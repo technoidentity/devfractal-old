@@ -33,11 +33,15 @@ import {
 import {
   CheckboxControlField,
   CheckboxControlFieldProps,
-} from './CheckboxControlField'
-import { DateField, DateFieldProps } from './DateField'
-import { InputField, InputFieldProps } from './InputField'
-import { RadioGroupField, RadioGroupFieldProps } from './RadioGroupField'
-import { SelectField, SelectFieldProps } from './SelectField'
+  DateField,
+  DateFieldProps,
+  InputField,
+  InputFieldProps,
+  RadioGroupField,
+  RadioGroupFieldProps,
+  SelectField,
+  SelectFieldProps,
+} from './fields'
 
 function consoleSubmit<Values extends {}>(
   milliseconds: number = 0,

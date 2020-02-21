@@ -1,5 +1,7 @@
-import { KeyboardDatePicker } from '@material-ui/pickers'
-import { KeyboardDatePickerProps } from '@material-ui/pickers/DatePicker'
+import {
+  KeyboardDatePicker,
+  KeyboardDatePickerProps,
+} from '@material-ui/pickers'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from './types'

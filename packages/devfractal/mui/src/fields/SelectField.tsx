@@ -1,4 +1,4 @@
-import Select, { SelectProps } from '@material-ui/core/Select'
+import { Select, SelectProps } from '@material-ui/core'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from './types'

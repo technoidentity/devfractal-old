@@ -1,5 +1,8 @@
-import { FormControlLabel, FormControlLabelProps } from '@material-ui/core'
-import Checkbox from '@material-ui/core/Checkbox'
+import {
+  Checkbox,
+  FormControlLabel,
+  FormControlLabelProps,
+} from '@material-ui/core'
 import { useField } from 'formik'
 import React from 'react'
 import { FormikFieldConfig } from './types'
