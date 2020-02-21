@@ -30,7 +30,7 @@
     "date-fns": "2.9.0",
     "react-datepicker": "2.12.1",
     "rifm": "0.11.0",
-    "tslib": "1.10.0"
+    "tslib": "1.11.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.27",
@@ -50,12 +50,12 @@
     "technoidentity-core": "^2.0.3",
     "technoidentity-utils": "^2.0.1",
     "tsdx": "0.12.3",
-    "tslib": "1.10.0",
+    "tslib": "1.11.0",
     "tslint": "6.0.0",
-    "typescript": "3.7.5"
+    "typescript": "3.8.2"
   },
   "peerDependencies": {
     "bulma": "0.8.0",
-    "technoidentity-core": "1.2.19"
+    "technoidentity-core": "2.0.3"
   }
 }

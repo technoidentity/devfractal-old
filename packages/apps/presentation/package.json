@@ -42,7 +42,7 @@
     "prettier": "1.19.1",
     "react-datepicker": "2.12.1",
     "tslint": "6.0.0",
-    "typescript": "3.7.5"
+    "typescript": "3.8.2"
   },
   "resolutions": {
     "react": "16.12.0",

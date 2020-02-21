@@ -28,7 +28,7 @@
     "technoidentity-crud": "^2.0.3",
     "technoidentity-fs": "^2.0.3",
     "technoidentity-ui": "^2.0.3",
-    "tslib": "1.10.0"
+    "tslib": "1.11.0"
   },
   "devDependencies": {
     "cross-env": "7.0.0",
@@ -41,13 +41,13 @@
     "react-test-renderer": "16.12.0",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
-    "typescript": "3.7.5"
+    "typescript": "3.8.2"
   },
   "peerDependencies": {
     "bulma": "0.8.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "technoidentity-utils": "1.2.19",
+    "technoidentity-utils": "2.0.1",
     "yup": "0.28.1"
   }
 }

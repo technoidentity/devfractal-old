@@ -29,11 +29,11 @@
     "@fortawesome/free-regular-svg-icons": "5.12.1",
     "@fortawesome/free-solid-svg-icons": "5.12.1",
     "@fortawesome/react-fontawesome": "0.1.8",
-    "@material-ui/core": "4.9.2",
+    "@material-ui/core": "4.9.3",
     "@material-ui/pickers": "3.2.10",
     "date-fns": "2.9.0",
     "tcomb": "3.2.29",
-    "tslib": "1.10.0"
+    "tslib": "1.11.0"
   },
   "devDependencies": {
     "cross-env": "7.0.0",
@@ -48,10 +48,10 @@
     "technoidentity-ui": "^2.0.3",
     "technoidentity-utils": "^2.0.1",
     "tsdx": "0.12.3",
-    "typescript": "3.7.5"
+    "typescript": "3.8.2"
   },
   "peerDependencies": {
-    "technoidentity-crud": "1.2.19",
-    "technoidentity-mui": "1.2.19"
+    "technoidentity-crud": "2.0.3",
+    "technoidentity-mui": "2.0.3"
   }
 }

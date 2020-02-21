@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "date-fns": "2.9.0",
-    "tslib": "1.10.0"
+    "tslib": "1.11.0"
   },
   "devDependencies": {
     "chance": "1.1.4",
@@ -46,11 +46,11 @@
     "technoidentity-utils": "^2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
-    "typescript": "3.7.5",
+    "typescript": "3.8.2",
     "yup": "0.28.1"
   },
   "peerDependencies": {
     "meta-core": "1.2.5",
-    "technoidentity-crud": "1.2.19"
+    "technoidentity-crud": "2.0.3"
   }
 }

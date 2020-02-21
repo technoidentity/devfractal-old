@@ -26,7 +26,7 @@
     "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "tslib": "1.10.0"
+    "tslib": "1.11.0"
   },
   "devDependencies": {
     "cross-env": "7.0.0",
@@ -40,7 +40,7 @@
     "technoidentity-utils": "2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",
-    "typescript": "3.7.5"
+    "typescript": "3.8.2"
   },
   "peerDependencies": {
     "technoidentity-crud": "2.0.3"
