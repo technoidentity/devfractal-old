@@ -1,10 +1,10 @@
 import { Paper, Typography } from '@material-ui/core'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
 import {
   All,
   Create,
-  CreateLink,
   CrudTable,
   Edit,
   Editor,
@@ -40,9 +40,7 @@ const TodoForm = formComponent(Todo, ({ onSubmit, initial, edit }) => (
 
 const TodoList = listComponent(Todo, ({ data }) => (
   <>
-    <CreateLink alignment="right" variant="primary" to={ls.create}>
-      Add
-    </CreateLink>
+    <Link to={ls.create}>Add</Link>
 
     <CrudTable
       data={data}

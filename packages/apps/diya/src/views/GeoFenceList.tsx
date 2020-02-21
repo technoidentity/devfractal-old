@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  CreateLink,
   CrudTable,
   links,
   listComponent,
@@ -9,6 +8,7 @@ import {
 } from 'technoidentity-devfractal'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
+import { CreateLink } from './CreateLink'
 
 const geoFenceLinks = links('geo_fences')
 
@@ -18,9 +18,7 @@ export const GeoFenceList = listComponent(
     <Section>
       <HeadTitle>GeoFence</HeadTitle>
 
-      <CreateLink alignment="right" variant="primary" to={geoFenceLinks.create}>
-        Create GeoFence
-      </CreateLink>
+      <CreateLink to={geoFenceLinks.create}>Create GeoFence</CreateLink>
 
       <CrudTable
         data={geoFenceList}

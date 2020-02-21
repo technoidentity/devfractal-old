@@ -5,7 +5,6 @@ import {
   Button,
   ButtonsGroup,
   component,
-  CreateLink,
   Icon,
   links,
   listComponent,
@@ -14,6 +13,7 @@ import {
 import { req, string } from 'technoidentity-utils'
 import { Ev } from '../common'
 import { HeadTitle } from '../components'
+import { CreateLink } from './CreateLink'
 
 const ActionsRoutesProps = req({ editTo: string })
 
@@ -37,9 +37,7 @@ export const EVSList = listComponent(Ev, ({ data: evsList }) => (
   <>
     <HeadTitle>EVS assigned</HeadTitle>
 
-    <CreateLink alignment="right" variant="primary" to={evsLinks.create}>
-      Request New EV
-    </CreateLink>
+    <CreateLink to={evsLinks.create}>Request New EV</CreateLink>
 
     <SimpleTable
       data={evsList}

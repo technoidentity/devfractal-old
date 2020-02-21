@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  CreateLink,
   links,
   listComponent,
   RoutedPager,
@@ -9,6 +8,7 @@ import {
 } from 'technoidentity-devfractal'
 import { Battery } from '../common'
 import { DiyaTable } from '../components/DiyaTable'
+import { CreateLink } from './CreateLink'
 
 const batteryLinks = links('batteries')
 
@@ -17,7 +17,7 @@ export const BatteryList = listComponent(Battery, ({ data: batteryList }) => (
     <Title size="4" textColor="info">
       Batteries
     </Title>
-    <CreateLink alignment="right" variant="primary" to={batteryLinks.create}>
+    <CreateLink variant="primary" to={batteryLinks.create}>
       Add Battery
     </CreateLink>
 

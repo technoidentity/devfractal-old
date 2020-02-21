@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  CreateLink,
   CrudTable,
   links,
   listComponent,
@@ -9,6 +8,7 @@ import {
 } from 'technoidentity-devfractal'
 import { Employee } from '../common'
 import { HeadTitle } from '../components'
+import { CreateLink } from './CreateLink'
 
 const employeeLinks = links('employees')
 
@@ -18,10 +18,7 @@ export const EmployeeList = listComponent(
     <Section>
       <HeadTitle>Employee</HeadTitle>
 
-      <CreateLink alignment="right" variant="primary" to={employeeLinks.create}>
-        {' '}
-        Add Employee
-      </CreateLink>
+      <CreateLink to={employeeLinks.create}>Add Employee</CreateLink>
 
       <CrudTable
         data={employeeList}

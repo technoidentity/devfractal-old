@@ -2,7 +2,6 @@ import { ErrorMessage, Field, FieldProps, Form, Formik } from 'formik'
 import React from 'react'
 import {
   Button,
-  CreateLink,
   CrudTable,
   DateInput,
   Field as UIField,
@@ -24,6 +23,7 @@ import { type } from 'technoidentity-utils'
 import { IntFromString } from 'technoidentity-utils'
 import { AdManager, adManagerAPI } from '../common'
 import { HeadTitle } from '../components'
+import { CreateLink } from './CreateLink'
 
 const { create, edit } = links(adManagerAPI.resource)
 
@@ -150,9 +150,7 @@ export const EditAdManager: React.FC = () => {
 export const AdManagerList = listComponent(AdManager, ({ data }) => (
   <>
     <Title textAlignment="centered">Ad Managers</Title>
-    <CreateLink alignment="right" to={create}>
-      Add AdManger
-    </CreateLink>
+    <CreateLink to={create}>Add AdManger</CreateLink>
     <CrudTable data={data} editTo={v => edit(v.id)} />
   </>
 ))

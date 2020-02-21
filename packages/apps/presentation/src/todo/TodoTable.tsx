@@ -3,8 +3,8 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import {
   Button,
+  ButtonLink,
   CheckBox,
-  CreateLink,
   Field,
   Table,
   TableBody,
@@ -36,9 +36,9 @@ export const TodoTable: React.FC<TodoTableProps> = ({ data }) => {
 
   return (
     <>
-      <CreateLink alignment="right" variant="primary" to="/todos/new">
+      <ButtonLink variant="primary" to="/todos/new">
         Add Todo
-      </CreateLink>
+      </ButtonLink>
 
       <Table fullWidth>
         <TableHead>

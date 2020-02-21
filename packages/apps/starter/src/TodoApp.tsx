@@ -1,8 +1,9 @@
 import React from 'react'
 import {
   All,
+  ButtonLink,
+  ButtonsGroup,
   Create,
-  CreateLink,
   CrudTable,
   Edit,
   Editor,
@@ -43,10 +44,11 @@ const TodoForm = formComponent(Todo, ({ onSubmit, initial, edit }) => (
 
 const TodoList = listComponent(Todo, ({ data }) => (
   <>
-    <CreateLink alignment="right" variant="primary" to={ls.create}>
-      Add
-    </CreateLink>
-
+    <ButtonsGroup alignment="right">
+      <ButtonLink variant="primary" to={ls.create}>
+        Add
+      </ButtonLink>
+    </ButtonsGroup>
     <CrudTable
       data={data}
       select={['title', 'scheduled', 'done']}

@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  ButtonLink,
   CrudRoutes,
   CrudTable,
   Editor,
@@ -11,7 +12,6 @@ import {
   SimpleRedirect,
   Title,
 } from 'technoidentity-devfractal'
-import { CreateLink } from 'technoidentity-devfractal'
 import { Todo, todoAPI } from './common'
 
 const { create, edit, list } = links(todoAPI.resource)
@@ -27,9 +27,7 @@ const TodoList = listComponent(Todo, ({ data }) => (
   <>
     <Title textAlignment="centered">Todo List</Title>
 
-    <CreateLink alignment="right" to={create}>
-      Add
-    </CreateLink>
+    <ButtonLink to={create}>Add</ButtonLink>
 
     <CrudTable
       data={data}

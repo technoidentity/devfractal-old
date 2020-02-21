@@ -3,7 +3,6 @@ import { useHistory, useLocation } from 'react-router'
 import {
   Column,
   Columns,
-  CreateLink,
   links,
   listComponent,
   RoutedPager,
@@ -13,6 +12,7 @@ import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'
 import { fetchSuggestions, Search } from '../components/Search'
+import { CreateLink } from './CreateLink'
 
 const driverLinks = links('drivers')
 
@@ -37,13 +37,7 @@ export const DriverList = listComponent(Driver, ({ data: driverList }) => {
             />
           </Column>
           <Column>
-            <CreateLink
-              alignment="right"
-              variant="primary"
-              to={driverLinks.create}
-            >
-              Add Driver
-            </CreateLink>
+            <CreateLink to={driverLinks.create}>Add Driver</CreateLink>
           </Column>
         </Columns>
 

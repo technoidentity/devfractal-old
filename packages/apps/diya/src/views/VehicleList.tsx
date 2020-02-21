@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  CreateLink,
   links,
   listComponent,
   RoutedPager,
@@ -9,6 +8,7 @@ import {
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'
+import { CreateLink } from './CreateLink'
 
 const vehicleLinks = links('vehicles')
 
@@ -17,9 +17,7 @@ export const VehicleList = listComponent(Vehicle, ({ data: vehicleList }) => {
     <Section>
       <HeadTitle>Vehicles</HeadTitle>
 
-      <CreateLink alignment="right" variant="primary" to={vehicleLinks.create}>
-        Add Vehicle
-      </CreateLink>
+      <CreateLink to={vehicleLinks.create}>Add Vehicle</CreateLink>
 
       <DiyaTable
         data={vehicleList}
