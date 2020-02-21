@@ -1,7 +1,7 @@
 import React from 'react'
 import { useCrudComponents } from 'technoidentity-core'
 import { isFunction } from 'technoidentity-utils'
-import { Get } from './api'
+import { Get } from '../api'
 
 export interface ViewerProps<T extends {}> {
   readonly data: T | (() => Promise<T>)

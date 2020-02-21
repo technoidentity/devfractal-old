@@ -1,6 +1,6 @@
 import React from 'react'
 import { RowClickEvent, useCrudComponents } from 'technoidentity-core'
-import { Get } from './api'
+import { Get } from '../api'
 
 export interface SimpleTableProps<
   T extends Record<string, any>,

@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch } from 'react-router'
 import { SafeRoute } from 'technoidentity-core'
 import { Mixed, TypeOf } from 'technoidentity-utils'
-import { paths as ps } from '../new'
+import { paths as ps } from '../crud'
 import { APIRepository } from './apiFn'
 import { components as comps, ComponentsResult } from './Components'
 

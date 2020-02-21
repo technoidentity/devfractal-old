@@ -1,6 +1,3 @@
 export * from './api'
-export * from './Editor'
-export * from './new'
+export * from './crud'
 export * from './old'
-export * from './SimpleTable'
-export * from './Viewer'

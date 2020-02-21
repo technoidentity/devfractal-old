@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useCrudComponents } from 'technoidentity-core'
-import { SimpleTable, SimpleTableProps } from '../SimpleTable'
+import { SimpleTable, SimpleTableProps } from './SimpleTable'
 
 export interface ActionsProps {
   readonly editTo: string
