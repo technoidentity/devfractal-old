@@ -1,6 +1,7 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { Button, Container, Field, RowClickEvent } from 'technoidentity-ui'
+import { RowClickEvent } from 'technoidentity-core'
+import { Button, Container, Field } from 'technoidentity-ui'
 import { empty, Mixed, TypeOf } from 'technoidentity-utils'
 import { Editor } from '../Editor'
 import { SimpleTable } from '../SimpleTable'

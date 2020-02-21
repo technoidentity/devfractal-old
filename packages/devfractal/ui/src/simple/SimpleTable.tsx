@@ -1,4 +1,5 @@
 import React from 'react'
+import { TableViewProps } from 'technoidentity-core'
 import {
   boolean,
   camelCaseToPhrase,
@@ -17,22 +18,15 @@ import {
   Tr,
 } from '../core'
 
-export interface SimpleTableProps<
-  T extends Record<string, any>,
-  EK extends string,
-  Select extends keyof T = keyof T
-> extends TableProps {
-  readonly select?: readonly Select[]
-  readonly override?: Partial<Record<Select, string>>
-  readonly extra?: readonly EK[]
-  readonly data: readonly T[]
-  onRowClicked?(value: RowClickEvent<T>): void
-  children?(key: keyof T | EK, value: T): React.ReactNode
-}
-
 export interface SimpleTableHeaderProps {
   readonly headers: readonly string[]
 }
+
+export interface SimpleTableProps<
+  T extends Record<string, any>,
+  EK extends string,
+  Select extends keyof T
+> extends Omit<TableProps, 'children'>, TableViewProps<T, EK, Select> {}
 
 export const SimpleTableHeader: React.FC<SimpleTableHeaderProps> = ({
   headers,
@@ -45,10 +39,6 @@ export const SimpleTableHeader: React.FC<SimpleTableHeaderProps> = ({
     </Tr>
   </TableHead>
 )
-
-export interface RowClickEvent<T extends Record<string, any>> {
-  readonly value: T
-}
 
 export interface RowsProps<
   T extends Record<string, any>,

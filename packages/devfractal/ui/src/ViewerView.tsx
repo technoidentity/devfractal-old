@@ -1,4 +1,5 @@
 import React from 'react'
+import { ViewerViewProps } from 'technoidentity-core'
 import {
   boolean,
   camelCaseToPhrase,
@@ -21,10 +22,6 @@ const Value: React.FC<{
   ) : (
     <>{objectValue}</>
   )
-
-export interface ViewerViewProps<T extends {}> {
-  readonly data: T
-}
 
 export function ViewerView<T extends {}>({
   data,

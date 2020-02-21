@@ -1,12 +1,6 @@
 import React from 'react'
+import { PagerProps } from 'technoidentity-core'
 import { Pagination, PaginationNext, PaginationPrevious } from './Pagination'
-
-export interface PagerProps {
-  // first page is 1
-  readonly page: number
-  readonly maxPages?: number
-  onPageChange(n: number): void
-}
 
 export const Pager: React.FC<PagerProps> = ({
   page,
