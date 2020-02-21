@@ -1,7 +1,6 @@
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Icon } from 'technoidentity-ui'
+import { useCrudComponents } from 'technoidentity-core'
 import { SimpleTable, SimpleTableProps } from '../SimpleTable'
 
 export interface ActionsProps {
@@ -10,10 +9,11 @@ export interface ActionsProps {
 }
 
 export const Actions: React.FC<ActionsProps> = ({ editTo, onDelete }) => {
+  const { TrashIcon } = useCrudComponents()
   return (
     <>
       <Link to={editTo}>
-        <Icon icon={faEdit} />
+        <TrashIcon />
       </Link>
       {onDelete && (
         <a
@@ -23,7 +23,7 @@ export const Actions: React.FC<ActionsProps> = ({ editTo, onDelete }) => {
             onDelete()
           }}
         >
-          <Icon icon={faTrash} />
+          <TrashIcon />
         </a>
       )}
     </>

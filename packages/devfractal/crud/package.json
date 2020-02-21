@@ -36,7 +36,6 @@
     "prettier": "1.19.1",
     "react-styleguidist": "10.6.2",
     "technoidentity-core": "2.0.3",
-    "technoidentity-ui": "2.0.3",
     "technoidentity-utils": "2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.0.0",

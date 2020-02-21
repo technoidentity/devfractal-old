@@ -1,7 +1,6 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
 import { RowClickEvent } from 'technoidentity-core'
-import { Button, Container, Field } from 'technoidentity-ui'
 import { empty, Mixed, TypeOf } from 'technoidentity-utils'
 import { Editor } from '../Editor'
 import { SimpleTable } from '../SimpleTable'
@@ -53,14 +52,14 @@ export function Views<RT extends Mixed, ID extends keyof RT>(
 
     List: ({ list, onCreate, onEdit }) => {
       return (
-        <Container>
-          <Field groupModifier="grouped-right">
-            <Button variant="primary" onClick={onCreate}>
+        <div className="container">
+          <div className="is-grouped is-grouped-right">
+            <button className="is-primary" onClick={onCreate}>
               New
-            </Button>
-          </Field>
+            </button>
+          </div>
           <SimpleTable data={list} onRowClicked={onEdit} />
-        </Container>
+        </div>
       )
     },
   }

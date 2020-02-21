@@ -1,7 +1,6 @@
 export * from './All'
 export * from './common'
 export * from './Create'
-export * from './CreateLink'
 export * from './CrudRoutes'
 export * from './CrudTable'
 export * from './Edit'

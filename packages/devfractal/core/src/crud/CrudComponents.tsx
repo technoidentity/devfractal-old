@@ -42,6 +42,7 @@ export interface TableViewProps<
 
 export interface CrudComponents<T extends Record<string, any>> {
   EditorView({ data, onSubmit, id }: EditorViewProps<T>): JSX.Element
+
   ViewerView({ data }: ViewerViewProps<T>): JSX.Element
 
   TableView<EK extends string, Select extends keyof T = keyof T>(
@@ -49,6 +50,8 @@ export interface CrudComponents<T extends Record<string, any>> {
   ): JSX.Element
 
   readonly Pager: React.FC<PagerProps>
+
+  readonly TrashIcon: React.FC
 }
 
 export const CrudComponents = React.createContext<

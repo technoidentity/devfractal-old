@@ -1,4 +1,7 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import { CrudComponents } from 'technoidentity-core'
+import { Icon } from './core'
 import { Pager } from './dynamic'
 import { EditorView } from './EditorView'
 import { UITableView } from './simple'
@@ -10,6 +13,7 @@ function uiCrudComponents<T extends Record<string, any>>(): CrudComponents<T> {
     ViewerView,
     TableView: UITableView,
     Pager,
+    TrashIcon: () => <Icon icon={faTrash} />,
   }
 }
 

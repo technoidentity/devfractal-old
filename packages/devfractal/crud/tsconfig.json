@@ -5,10 +5,5 @@
     "rootDir": "src",
     "jsx": "react"
   },
-  "references": [
-    { "path": "../../common/utils" },
-    { "path": "../core" },
-
-    { "path": "../ui" }
-  ]
+  "references": [{ "path": "../../common/utils" }, { "path": "../core" }]
 }

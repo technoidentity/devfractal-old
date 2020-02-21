@@ -1,71 +1,71 @@
-import 'bulma/css/bulma.css'
+// import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
-import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
-import { ButtonLink, Section, Simple } from 'technoidentity-ui'
-import { boolean, number, obj, string } from 'technoidentity-utils'
-import {
-  CrudRoutes,
-  CrudTable,
-  formComponent,
-  links,
-  listComponent,
-} from './new'
+// import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
+// import { ButtonLink, Section, Simple } from 'technoidentity-ui'
+// import { boolean, number, obj, string } from 'technoidentity-utils'
+// import {
+//   CrudRoutes,
+//   CrudTable,
+//   formComponent,
+//   links,
+//   listComponent,
+// } from './new'
 
 // tslint:disable typedef
 
-const Todo = obj({ id: number }, { title: string, done: boolean })
+// const Todo = obj({ id: number }, { title: string, done: boolean })
 
-const api = rest(Todo, 'id', 'todos', {
-  baseURL: 'http://localhost:3000',
-  withCredentials: true,
-})
+// const api = rest(Todo, 'id', 'todos', {
+//   baseURL: 'http://localhost:3000',
+//   withCredentials: true,
+// })
 
-// api
-//   .many()
-//   .then(values => console.log(values))
-//   .catch(err => console.error(err))
+// // api
+// //   .many()
+// //   .then(values => console.log(values))
+// //   .catch(err => console.error(err))
 
-const TodoForm = formComponent(Todo, ({ initial, onSubmit }) => (
-  <Simple.Form initialValues={initial} onSubmit={onSubmit}>
-    <Simple.Text name="title" />
-    <Simple.Checkbox name="done" />
-    <Simple.FormButtons />
-  </Simple.Form>
-))
+// const TodoForm = formComponent(Todo, ({ initial, onSubmit }) => (
+//   <Simple.Form initialValues={initial} onSubmit={onSubmit}>
+//     <Simple.Text name="title" />
+//     <Simple.Checkbox name="done" />
+//     <Simple.FormButtons />
+//   </Simple.Form>
+// ))
 
-const { create: createTo, edit: editTo } = links('todos')
+// const { create: createTo, edit: editTo } = links('todos')
 
-const TodoList = listComponent(Todo, ({ data }) => (
-  <>
-    <ButtonLink to={createTo} variant="primary">
-      Add
-    </ButtonLink>
-    <CrudTable
-      data={data}
-      select={['title', 'done']}
-      editTo={({ id }) => editTo(id)}
-    />
-  </>
-))
+// const TodoList = listComponent(Todo, ({ data }) => (
+//   <>
+//     <ButtonLink to={createTo} variant="primary">
+//       Add
+//     </ButtonLink>
+//     <CrudTable
+//       data={data}
+//       select={['title', 'done']}
+//       editTo={({ id }) => editTo(id)}
+//     />
+//   </>
+// ))
 
-export const App: React.FC = () => {
-  return (
-    <SafeRouter>
-      <Section>
-        <SimpleRedirect from="/" to="/todos" />
-        <CrudRoutes api={api} form={TodoForm} list={TodoList} />
-      </Section>
-    </SafeRouter>
-  )
-}
-
-// const App: React.FC = () => {
+// export const App: React.FC = () => {
 //   return (
-//     <APIProvider.Provider value={UIComponents}>
-//       <h1>Hello, World</h1>
-//     </APIProvider.Provider>
+//     <SafeRouter>
+//       <Section>
+//         <SimpleRedirect from="/" to="/todos" />
+//         <CrudRoutes api={api} form={TodoForm} list={TodoList} />
+//       </Section>
+//     </SafeRouter>
 //   )
 // }
 
-render(<App />, document.getElementById('root'))
+// // const App: React.FC = () => {
+// //   return (
+// //     <APIProvider.Provider value={UIComponents}>
+// //       <h1>Hello, World</h1>
+// //     </APIProvider.Provider>
+// //   )
+// // }
+
+render(<h1>Hello</h1>, document.getElementById('root'))
