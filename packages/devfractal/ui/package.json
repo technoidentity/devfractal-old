@@ -22,30 +22,28 @@
     "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
     "sg": "styleguidist server",
     "sg:build": "styleguidist build",
-    "validate:noFix": "yarn lint && yarn types && yarn test",
-    "validate": "yarn lint:fix && yarn types && yarn test"
+    "validate": "yarn lint:fix && yarn types && yarn test",
+    "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "cleave.js": "1.5.3",
-    "date-fns": "2.9.0",
-    "react-datepicker": "2.12.1",
-    "rifm": "0.11.0",
-    "tslib": "1.11.0"
-  },
-  "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.27",
     "@fortawesome/free-brands-svg-icons": "5.12.1",
     "@fortawesome/free-regular-svg-icons": "5.12.1",
     "@fortawesome/free-solid-svg-icons": "5.12.1",
     "@fortawesome/react-fontawesome": "0.1.8",
-    "@types/react-is": "16.7.1",
+    "cleave.js": "1.5.3",
+    "date-fns": "2.9.0",
+    "react-datepicker": "2.13.0",
+    "react-is": "16.12.0",
+    "rifm": "0.11.0",
+    "tslib": "1.11.0"
+  },
+  "devDependencies": {
     "cross-env": "7.0.0",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "prop-types-ts": "0.7.4",
-    "react-is": "16.12.0",
     "react-styleguidist": "10.6.2",
     "technoidentity-core": "^2.0.3",
     "technoidentity-utils": "^2.0.1",
