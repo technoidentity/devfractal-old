@@ -1,0 +1,115 @@
+import { FormControl, InputAdornment, InputLabel, Select, TextField } from '@material-ui/core'
+import Grid from '@material-ui/core/Grid'
+import SearchIcon from '@material-ui/icons/Search'
+import React from 'react'
+import { StepForm } from '../asp/StepForm'
+import { StepFormButtons } from '../asp/StepFormButtons'
+import { User } from './model'
+
+export interface AddUserInfoProps {
+  readonly initialValues: User
+  onSubmit(values: User): void
+}
+
+export const AddUserInfo: React.FC<AddUserInfoProps> = ({
+  initialValues,
+  onSubmit,
+}) => {
+  return (
+    <StepForm initialValues={initialValues} onSubmit={onSubmit}>
+      <Grid container spacing={2}>
+        Add User Info
+        <Grid container item xs={12} spacing={6}>
+          <Grid item xs={4}>
+            <TextField
+              placeholder="Enter User Name"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField placeholder="Password" />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField placeholder="Department" />
+          </Grid>
+          <Grid item xs={4}>
+            <FormControl>
+              <InputLabel id="country">Country</InputLabel>
+              <Select labelId="country" />
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={4}>
+            <FormControl>
+              <InputLabel id="language">Language</InputLabel>
+              <Select labelId="language" />
+            </FormControl>
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              placeholder="Telephone Number"
+              label="telephone number"
+              type="number"
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              placeholder="Area code"
+              label="Area code"
+              type="number"
+            />
+          </Grid>
+
+          <Grid item xs={4}>
+            <TextField placeholder="ISO Code" label="ISO Code" type="number" />
+          </Grid>
+        </Grid>
+        <Grid container item xs={12} spacing={6}>
+          <Grid item xs={4}>
+            <TextField placeholder="Email Address" label="Email Address" />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField placeholder="Title" label="Title" />
+          </Grid>
+          <Grid item xs={4}>
+            <FormControl>
+              <InputLabel id="currency">Currency</InputLabel>
+              <Select labelId="currency" />
+            </FormControl>
+          </Grid>
+          <Grid item xs={4}>
+            <FormControl>
+              <InputLabel id="contact number">Contact Number</InputLabel>
+              <Select labelId="contact number" />
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={4}>
+            <TextField placeholder="ISO Code" label="ISO Code" type="number" />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              placeholder="FAX NUmber"
+              label="Fax Number"
+              type="number"
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              placeholder="Area Code"
+              label="Area Code"
+              type="number"
+            />
+          </Grid>
+        </Grid>
+        <StepFormButtons />
+      </Grid>
+    </StepForm>
+  )
+}
