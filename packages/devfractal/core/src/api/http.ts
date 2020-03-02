@@ -1,4 +1,4 @@
-import ax, { AxiosInstance, AxiosRequestConfig } from 'axios'
+import ax, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { decode } from 'io-ts-promise'
 import { stringify } from 'query-string'
 import {
@@ -9,11 +9,14 @@ import {
   keys,
   Mixed,
   ObjC,
+  ObjInputOf,
   Props,
   string,
   TypeOf,
   verify,
 } from 'technoidentity-utils'
+
+// tslint:disable typedef
 
 export interface MethodArgs {
   readonly resource?: string
@@ -84,14 +87,74 @@ export function http(axiosConfig: RequestConfig | AxiosInstance) {
       })
     : axiosConfig
 
+  function get$<Spec extends Mixed>(
+    options: MethodArgs | string,
+    responseSpec: Spec,
+  ): {
+    readonly data: Promise<TypeOf<Spec>>
+    readonly response: Promise<AxiosResponse<Spec['_I']>>
+  } {
+    const response = axios.get<InputOf<Spec>>(url(options))
+    const data = response.then(res => res.data).then(decode(responseSpec))
+
+    return { response, data }
+  }
+
+  function post$<Spec extends Mixed, ID extends keyof Spec>(
+    options: Omit<MethodArgs, 'query'> | string,
+    data: Omit<InputOf<Spec>, ID>,
+    responseSpec: Spec,
+  ): {
+    readonly data: Promise<TypeOf<Spec>>
+    readonly response: Promise<AxiosResponse<Spec['_I']>>
+  } {
+    const response = axios.post<InputOf<Spec>>(url(options), data)
+
+    const result = response.then(res => res.data).then(decode(responseSpec))
+
+    return { response, data: result }
+  }
+
+  function patch$<Opt extends Props, Req extends Props>(
+    options: Omit<MethodArgs, 'query'> | string,
+    data: Partial<InputOf<ObjC<Opt, Req>>>,
+    responseSpec: ObjC<Opt, Req>,
+  ): {
+    readonly data: Promise<TypeOf<ObjC<Opt, Req>>>
+    readonly response: Promise<AxiosResponse<ObjInputOf<Opt, Req>>>
+  } {
+    const response = axios.patch<InputOf<ObjC<Opt, Req>>>(url(options), data)
+    const result = response.then(res => res.data).then(decode(responseSpec))
+
+    return { response, data: result }
+  }
+
+  function put$<Spec extends Mixed>(
+    options: Omit<MethodArgs, 'query'> | string,
+    data: InputOf<Spec>,
+    responseSpec: Spec,
+  ): {
+    readonly data: Promise<TypeOf<Spec>>
+    readonly response: Promise<AxiosResponse<Spec['_I']>>
+  } {
+    const response = axios.put<InputOf<Spec>>(url(options), data)
+
+    const result = response.then(res => res.data).then(decode(responseSpec))
+
+    return { response, data: result }
+  }
+
+  async function del$(
+    options: Omit<MethodArgs, 'query'> | string,
+  ): Promise<AxiosResponse<void>> {
+    return axios.delete(url(options))
+  }
+
   async function get<Spec extends Mixed>(
     options: MethodArgs | string,
     responseSpec: Spec,
   ): Promise<TypeOf<Spec>> {
-    return axios
-      .get<InputOf<Spec>>(url(options))
-      .then(res => res.data)
-      .then(decode(responseSpec))
+    return get$(options, responseSpec).data
   }
 
   async function post<Spec extends Mixed, ID extends keyof Spec>(
@@ -99,10 +162,7 @@ export function http(axiosConfig: RequestConfig | AxiosInstance) {
     data: Omit<InputOf<Spec>, ID>,
     responseSpec: Spec,
   ): Promise<TypeOf<Spec>> {
-    return axios
-      .post<InputOf<Spec>>(url(options), data)
-      .then(res => res.data)
-      .then(decode(responseSpec))
+    return post$(options, data, responseSpec).data
   }
 
   async function patch<Opt extends Props, Req extends Props>(
@@ -110,10 +170,7 @@ export function http(axiosConfig: RequestConfig | AxiosInstance) {
     data: Partial<InputOf<ObjC<Opt, Req>>>,
     responseSpec: ObjC<Opt, Req>,
   ): Promise<TypeOf<ObjC<Opt, Req>>> {
-    return axios
-      .patch<InputOf<ObjC<Opt, Req>>>(url(options), data)
-      .then(res => res.data)
-      .then(decode(responseSpec))
+    return patch$(options, data, responseSpec).data
   }
 
   async function put<Spec extends Mixed>(
@@ -121,17 +178,14 @@ export function http(axiosConfig: RequestConfig | AxiosInstance) {
     data: InputOf<Spec>,
     responseSpec: Spec,
   ): Promise<TypeOf<Spec>> {
-    return axios
-      .put<InputOf<Spec>>(url(options), data)
-      .then(res => res.data)
-      .then(decode(responseSpec))
+    return put$(options, data, responseSpec).data
   }
 
   async function del(
     options: Omit<MethodArgs, 'query'> | string,
   ): Promise<void> {
-    return axios.delete(url(options))
+    await del$(options)
   }
 
-  return { get, del, put, post, patch, axios }
+  return { get, del, put, post, patch, get$, del$, put$, post$, patch$, axios }
 }
