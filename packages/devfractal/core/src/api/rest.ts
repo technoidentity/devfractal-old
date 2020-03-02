@@ -1,6 +1,8 @@
 import { AxiosInstance, AxiosResponse } from 'axios'
 import { produce } from 'immer'
 import {
+  Int,
+  isRight,
   ObjC,
   ObjInputOf,
   objPick,
@@ -43,6 +45,14 @@ export interface API<
     query: APIQuery<TypeOf<ObjC<Opt, Req>>>,
     options?: Omit<APIMethodArgs, 'query'>,
   ): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>>
+
+  listWithCount(
+    query: APIQuery<TypeOf<ObjC<Opt, Req>>>,
+    options?: Omit<APIMethodArgs, 'query'>,
+  ): Promise<{
+    readonly list: ReadonlyArray<TypeOf<ObjC<Opt, Req>>>
+    readonly totalCount?: number
+  }>
 
   select<K extends keyof TypeOf<ObjC<Opt, Req>>>(
     query: Omit<APIQuery<TypeOf<ObjC<Opt, Req>>>, 'select'>,
@@ -276,6 +286,24 @@ export function rest<
     return list$(query, options).data
   }
 
+  async function listWithCount(
+    query: APIQuery<TypeOf<ObjC<Opt, Req>>>,
+    options?: Omit<APIMethodArgs, 'query'>,
+  ): Promise<{
+    list: ReadonlyArray<TypeOf<ObjC<Opt, Req>>>
+    totalCount?: number
+  }> {
+    // tslint:disable typedef
+    const result = list$(query, options)
+    const decoded = Int.decode((await result.response).headers['x-total-count'])
+    // tslint:enable typedef
+
+    return {
+      list: await result.data,
+      totalCount: isRight(decoded) ? decoded.right : undefined,
+    }
+  }
+
   function select$<K extends keyof TypeOf<ObjC<Opt, Req>>>(
     query: Omit<APIQuery<TypeOf<ObjC<Opt, Req>>>, 'select'>,
     select: readonly K[],
@@ -356,20 +384,29 @@ export function rest<
   return {
     one,
     one$,
+
     many,
     many$,
+
     replace,
     replace$,
+
     update,
     update$,
+
     create,
     create$,
+
     del,
     del$,
+
     get,
     get$,
+
     list,
+    listWithCount,
     list$,
+
     select,
     select$,
 
