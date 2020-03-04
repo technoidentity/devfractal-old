@@ -14,6 +14,7 @@ import { format } from 'date-fns'
 import React from 'react'
 import * as t from 'technoidentity-utils'
 import { camelCaseToPhrase, date } from 'technoidentity-utils'
+
 function formatDate(date: Date | undefined): string | undefined {
   return date && format(date, 'dd/MM/yyyy')
 }

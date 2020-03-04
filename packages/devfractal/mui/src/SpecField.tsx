@@ -5,12 +5,12 @@ import {
   DateC,
   EnumType,
   NumberC,
+  NumberType,
   ObjC,
   ObjTypeOf,
   Props,
   StringC,
   StringType,
-  NumberType,
 } from 'technoidentity-utils'
 import { CheckboxFieldProps, DateFieldProps, InputFieldProps } from './fields'
 import { Simple } from './SimpleForm'

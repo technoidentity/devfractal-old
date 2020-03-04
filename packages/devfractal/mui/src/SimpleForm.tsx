@@ -44,7 +44,7 @@ import {
   SelectFieldProps,
 } from './fields'
 
-function consoleSubmit<Values extends {}>(
+function consoleSubmit<Values extends object>(
   milliseconds: number = 0,
 ): (values: Values, formikArgs: FormikHelpers<Values>) => Promise<void> {
   return async (values, { setSubmitting }) =>
@@ -62,12 +62,12 @@ export const ErrorField: React.FC<ErrorMessageProps> = props => (
   <ErrorMessage {...props} component={FormikError} />
 )
 
-interface Named<Values extends {}> {
+interface Named<Values extends object> {
   readonly name: Extract<keyof Values, string>
 }
 
 // @TODO: value must by typed!
-interface SimpleInputProps<Values extends {}, S extends Schema<any>>
+interface SimpleInputProps<Values extends object, S extends Schema<any>>
   extends Omit<InputFieldProps, 'name' | 'size'>,
     Named<Values> {
   readonly schema: S
@@ -75,7 +75,7 @@ interface SimpleInputProps<Values extends {}, S extends Schema<any>>
   readonly validations?: ReadonlyArray<(schema: S) => S>
 }
 
-interface GenericInputProps<Values extends {}, S extends Schema<any>>
+interface GenericInputProps<Values extends object, S extends Schema<any>>
   extends Omit<SimpleInputProps<Values, S>, 'type' | 'schema'> {}
 
 function validator<S extends Schema<any>>(
@@ -99,7 +99,7 @@ function validator<S extends Schema<any>>(
   }
 }
 
-function SimpleInput<Values extends {}, S extends Schema<any>>(
+function SimpleInput<Values extends object, S extends Schema<any>>(
   args: SimpleInputProps<Values, S>,
 ): JSX.Element {
   const { schema, label, validations, ...props } = args
@@ -137,14 +137,14 @@ function SimpleInput<Values extends {}, S extends Schema<any>>(
   )
 }
 
-interface SimpleDateProps<Values extends {}>
+interface SimpleDateProps<Values extends object>
   extends Omit<DateFieldProps, 'name' | 'size'>,
     Named<Values> {
   readonly validations?: ReadonlyArray<(schema: DateSchema) => DateSchema>
   readonly label?: string
 }
 
-function SimpleDate<Values extends {}>(
+function SimpleDate<Values extends object>(
   args: SimpleDateProps<Values>,
 ): JSX.Element {
   const { label, validations, ...props } = args
@@ -161,20 +161,20 @@ function SimpleDate<Values extends {}>(
   )
 }
 
-export interface SimpleCheckboxProps<Values extends {}>
+export interface SimpleCheckboxProps<Values extends object>
   extends Omit<CheckboxControlFieldProps, 'name' | 'size' | 'label'>,
     Named<Values> {
   readonly label?: CheckboxControlFieldProps['label']
   readonly noLabel?: boolean
 }
 
-export interface SimpleRadioGroupProps<Values extends {}>
+export interface SimpleRadioGroupProps<Values extends object>
   extends Omit<RadioGroupFieldProps, 'name' | 'size'>,
     Named<Values> {
   readonly label?: string
 }
 
-// export interface SimpleMultiCheckboxProps<Values extends {}>
+// export interface SimpleMultiCheckboxProps<Values extends object>
 //   extends Omit<ElProps, 'name'>,
 //     Named<Values>,
 //     FieldProps {
@@ -184,14 +184,14 @@ export interface SimpleRadioGroupProps<Values extends {}>
 // export interface CheckboxItemProps
 //   extends Omit<CheckboxFieldProps, 'name' | 'size'> {}
 
-export interface SimpleSelectProps<Values extends {}>
+export interface SimpleSelectProps<Values extends object>
   extends Omit<SelectFieldProps, 'name' | 'size' | 'multiple'>,
     Named<Values> {
   readonly label?: string
 }
 
 // @TODO: validations must be array validations?
-export interface SimpleMultiSelectProps<Values extends {}>
+export interface SimpleMultiSelectProps<Values extends object>
   extends Omit<SelectFieldProps, 'name' | 'size' | 'value' | 'multiple'>,
     Named<Values> {
   readonly value?: readonly string[]
@@ -242,14 +242,14 @@ export interface SimpleFormProps<Values> {
   onSubmit?(values: Values, actions: FormikHelpers<Values>): void
 }
 
-export interface SimpleTextAreaProps<Values extends {}>
+export interface SimpleTextAreaProps<Values extends object>
   extends Omit<GenericInputProps<Values, StringSchema>, 'multiline'> {
   readonly label?: string
   readonly rows: TextFieldProps['rows']
   readonly validations?: ReadonlyArray<(schema: StringSchema) => StringSchema>
 }
 
-export interface TypedForm<Values extends {}> {
+export interface TypedForm<Values extends object> {
   readonly Text: React.FC<GenericInputProps<Values, StringSchema>>
   readonly TextArea: React.FC<SimpleTextAreaProps<Values>>
   readonly Date: React.FC<SimpleDateProps<Values>>
@@ -278,7 +278,7 @@ const MultiCheckContext: React.Context<MultiCheckContext> = React.createContext(
   undefined as any,
 )
 
-function typedFormInternal<Values extends {}>(): TypedForm<Values> {
+function typedFormInternal<Values extends object>(): TypedForm<Values> {
   const Text: React.FC<GenericInputProps<Values, StringSchema>> = props => (
     <SimpleInput {...props} type="text" schema={string()} />
   )
@@ -401,7 +401,7 @@ function typedFormInternal<Values extends {}>(): TypedForm<Values> {
 // tslint:disable-next-line: no-let
 let form: TypedForm<any> | undefined
 
-export function typedForm<Values extends {}>(): TypedForm<Values> {
+export function typedForm<Values extends object>(): TypedForm<Values> {
   if (form) {
     return form
   }
