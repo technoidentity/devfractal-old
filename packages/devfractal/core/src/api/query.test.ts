@@ -26,7 +26,7 @@ describe('query', () => {
     select: ['name', 'age'],
     like: { name: 'foo' },
     range: { current: 0, limit: 10 },
-    embed: 'address',
+    embed: ['address', 'name'],
   }
 
   const query2: APIQuery<User> = {
@@ -36,7 +36,7 @@ describe('query', () => {
 
   it('toJSONServerQuery', () => {
     expect(toJSONServerQuery(User, query)).toMatchInlineSnapshot(
-      `"_limit=10&_order=asc,desc&_page=0&_sort=name,age&age=20&embed=address&name=foo&name_like=foo&q=p"`,
+      `"_embed=address,name&_limit=10&_order=asc,desc&_page=0&_sort=name,age&age=20&name=foo&name_like=foo&q=p"`,
     )
 
     expect(toJSONServerQuery(User, query2)).toMatchInlineSnapshot(
@@ -44,13 +44,13 @@ describe('query', () => {
     )
   })
 
-  it('toQuery', () => {
+  it('toAPIQuery', () => {
     expect(toAPIQuery(User, query)).toMatchInlineSnapshot(
-      `"age=20&asc=name&current=0&desc=age&embed=address&limit=10&name=foo&name_like=foo&q=p&select=name,age"`,
+      `"age=20&asc[]=name&current=0&desc[]=age&embed[]=address&embed[]=name&limit=10&name=foo&name_like=foo&q=p&select[]=name&select[]=age"`,
     )
 
     expect(toAPIQuery(User, query2)).toMatchInlineSnapshot(
-      `"asc=name,age&end=10&start=0"`,
+      `"asc[]=name&asc[]=age&end=10&start=0"`,
     )
   })
 })

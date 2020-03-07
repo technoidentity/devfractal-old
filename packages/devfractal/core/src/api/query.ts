@@ -40,7 +40,8 @@ export interface APIQuery<C> {
   readonly desc?: ReadonlyArray<keyof C>
   readonly fullText?: string
   readonly like?: Partial<C>
-  readonly embed?: keyof C
+  // @TODO: Ref io-ts type must be implemented
+  readonly embed?: ReadonlyArray<keyof C>
   // readonly operators?: TypeOf<typeof Operators>
 }
 
@@ -56,7 +57,7 @@ function apiQuerySpec(codec: AnyObj) {
     fullText: string,
     like: partial(props),
     // operators: record(keys(codec), Operators),
-    embed: keyof(props),
+    embed: readonlyArray(keyof(props)),
   })
 }
 
@@ -93,7 +94,7 @@ export function toJSONServerQuery<Opt extends Props, Req extends Props>(
     .map(_ => 'asc')
     .concat((desc || []).map(_ => 'desc'))
 
-  const { filter, fullText: q, embed } = query
+  const { filter, fullText: q, embed: _embed } = query
   return stringify(
     {
       ...likeQuery(query.like),
@@ -102,7 +103,7 @@ export function toJSONServerQuery<Opt extends Props, Req extends Props>(
       _sort,
       _order,
       q,
-      embed,
+      _embed,
     },
     { arrayFormat: 'comma' },
   )
@@ -129,6 +130,6 @@ export function toAPIQuery<Opt extends Props, Req extends Props>(
       embed,
       ...likeQuery(query.like),
     },
-    { arrayFormat: 'comma' },
+    { arrayFormat: 'bracket' },
   )
 }
