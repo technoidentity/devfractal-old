@@ -11,7 +11,7 @@ export const NotFound: React.FC = () => {
   return <Typography>{`path ${pathname} did not match any route`}</Typography>
 }
 
-export const MuiComponents: APIComponents = {
+export const MuiAPIComponents: APIComponents = {
   Spinner: ({ size }) => <CircularProgress size={size} />,
 
   ServerErrorsView: ({ children }) => (
