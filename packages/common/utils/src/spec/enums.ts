@@ -2,7 +2,7 @@ import { failure, identity, string, success, Type } from 'io-ts'
 
 // tslint:disable no-class readonly-array
 
-export class EnumType<D extends string[], A> extends Type<A> {
+export class EnumType<D extends readonly string[], A> extends Type<A> {
   readonly _tag: 'EnumType' = 'EnumType'
 
   constructor(
@@ -16,9 +16,10 @@ export class EnumType<D extends string[], A> extends Type<A> {
   }
 }
 
-export interface EnumC<D extends string[]> extends EnumType<D, D[number]> {}
+export interface EnumC<D extends readonly string[]>
+  extends EnumType<D, D[number]> {}
 
-export function enums<T extends string[]>(
+export function enums<T extends readonly string[]>(
   name: string | undefined,
   ...keys: T
 ): EnumC<T> {

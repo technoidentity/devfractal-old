@@ -15,36 +15,40 @@ import {
 import { CheckboxFieldProps, DateFieldProps, InputFieldProps } from './fields'
 import { Simple } from './SimpleForm'
 
-type _Props<O extends Props, R extends Props> = ObjC<O, R>['props']
-
 type SpecFieldOuterProps<
-  Opt extends Props,
-  Req extends Props,
-  Name extends keyof ObjC<Opt, Req>['props']
-> = _Props<Opt, Req>[Name] extends NumberC | StringC
+  O extends Props,
+  R extends Props,
+  Name extends keyof ObjC<O, R>['props']
+> = ObjC<O, R>['props'][Name] extends NumberC | StringC
   ? Omit<InputFieldProps, 'name' | 'value'>
-  : _Props<Opt, Req>[Name] extends BooleanC
+  : ObjC<O, R>['props'][Name] extends BooleanC
   ? Omit<CheckboxFieldProps, 'name' | 'value'>
-  : _Props<Opt, Req>[Name] extends DateC
+  : ObjC<O, R>['props'][Name] extends DateC
   ? Omit<DateFieldProps, 'name' | 'value'>
   : never
 
-export type SpecFieldOwnProps<
-  Opt extends Props,
-  Req extends Props,
-  Name extends keyof ObjTypeOf<Opt, Req>
-> = SpecFieldOuterProps<Opt, Req, Name> & {
-  readonly name: Name
-  readonly value?: ObjTypeOf<Opt, Req>[Name]
+export interface SpecFieldOwnProps<
+  O extends Props,
+  R extends Props,
+  N extends keyof ObjTypeOf<O, R>
+> {
+  readonly name: N
+  readonly value?: ObjTypeOf<O, R>[N]
   readonly label?: string
-  readonly spec: ObjC<Opt, Req>
+  readonly spec: ObjC<O, R>
 }
 
+export type SpecFieldProps<
+  O extends Props,
+  R extends Props,
+  N extends keyof ObjTypeOf<O, R>
+> = SpecFieldOuterProps<O, R, N> & SpecFieldOwnProps<O, R, N>
+
 export function SpecField<
-  Opt extends Props,
-  Req extends Props,
-  Name extends keyof ObjC<Opt, Req>['props']
->({ spec, name, ...props }: SpecFieldOwnProps<Opt, Req, Name>): JSX.Element {
+  O extends Props,
+  R extends Props,
+  N extends keyof ObjC<O, R>['props']
+>({ spec, name, ...props }: SpecFieldProps<O, R, N>): JSX.Element {
   if (spec.props[name] instanceof StringType) {
     return <Simple.Text name={name as string} {...props} />
   }
