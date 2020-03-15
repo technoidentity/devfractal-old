@@ -8,9 +8,6 @@ import {
   InputOf,
   keys,
   Mixed,
-  ObjC,
-  ObjInputOf,
-  Props,
   string,
   TypeOf,
   verify,
@@ -115,15 +112,15 @@ export function http(axiosConfig: RequestConfig | AxiosInstance) {
     return { response, data: result }
   }
 
-  function patch$<Opt extends Props, Req extends Props>(
+  function patch$<Spec extends Mixed>(
     options: Omit<MethodArgs, 'query'> | string,
-    data: Partial<InputOf<ObjC<Opt, Req>>>,
-    responseSpec: ObjC<Opt, Req>,
+    data: Partial<InputOf<Spec>>,
+    responseSpec: Spec,
   ): {
-    readonly data: Promise<TypeOf<ObjC<Opt, Req>>>
-    readonly response: Promise<AxiosResponse<ObjInputOf<Opt, Req>>>
+    readonly data: Promise<TypeOf<Spec>>
+    readonly response: Promise<AxiosResponse<InputOf<Spec>>>
   } {
-    const response = axios.patch<InputOf<ObjC<Opt, Req>>>(url(options), data)
+    const response = axios.patch<InputOf<Spec>>(url(options), data)
     const result = response.then(res => res.data).then(decode(responseSpec))
 
     return { response, data: result }
@@ -165,11 +162,11 @@ export function http(axiosConfig: RequestConfig | AxiosInstance) {
     return post$(options, data, responseSpec).data
   }
 
-  async function patch<Opt extends Props, Req extends Props>(
+  async function patch<Spec extends Mixed>(
     options: Omit<MethodArgs, 'query'> | string,
-    data: Partial<InputOf<ObjC<Opt, Req>>>,
-    responseSpec: ObjC<Opt, Req>,
-  ): Promise<TypeOf<ObjC<Opt, Req>>> {
+    data: Partial<InputOf<Spec>>,
+    responseSpec: Spec,
+  ): Promise<TypeOf<Spec>> {
     return patch$(options, data, responseSpec).data
   }
 
