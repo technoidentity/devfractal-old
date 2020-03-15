@@ -14,17 +14,24 @@ import {
   TypeC,
   TypeOf,
 } from 'io-ts'
+import { PickByValue } from 'utility-types'
+import { buildObject } from '../common'
+import { ManyC } from './many'
+import { OneC } from './one'
+import { OptionC } from './option'
 
 // tslint:disable no-class readonly-array
 
-type OptSpec<Opt extends Props> = ReadonlyC<PartialC<Opt>>
-type ReqSpec<Req extends Props> = ReadonlyC<TypeC<Req>>
-type ObjSpec<Opt extends Props, Req extends Props> = IntersectionC<
+export type OptSpec<Opt extends Props> = ReadonlyC<PartialC<Opt>>
+export type ReqSpec<Req extends Props> = ReadonlyC<TypeC<Req>>
+export type ObjSpec<Opt extends Props, Req extends Props> = IntersectionC<
   [OptSpec<Opt>, ReqSpec<Req>]
 >
-type ExactObjSpec<Opt extends Props, Req extends Props> = ExactC<
+export type ExactObjSpec<Opt extends Props, Req extends Props> = ExactC<
   IntersectionC<[OptSpec<Opt>, ReqSpec<Req>]>
 >
+
+export type AnyObj = Mixed & ObjC<any, any>
 
 // type NoEmptyIntersect<Opt extends Props, Req extends Props> = {} extends Opt
 //   ? {} extends Req
@@ -83,38 +90,6 @@ function newObj<Opt extends Props, Req extends Props>(
     name || spec.name,
   )
 }
-
-export type ObjPropsOf<Opt extends Props, Req extends Props> = ObjC<
-  Opt,
-  Req
->['props']
-
-export type ObjReqOf<Opt extends Props, Req extends Props> = ObjC<
-  Opt,
-  Req
->['required']
-
-export type ObjOptOf<Opt extends Props, Req extends Props> = ObjC<
-  Opt,
-  Req
->['optional']
-
-export type ObjTypeOf<Opt extends Props, Req extends Props> = ObjC<
-  Opt,
-  Req
->['_A']
-
-export type ObjOutPutOf<Opt extends Props, Req extends Props> = ObjC<
-  Opt,
-  Req
->['_O']
-
-export type ObjInputOf<Opt extends Props, Req extends Props> = ObjC<
-  Opt,
-  Req
->['_I']
-
-export type AnyObj = Mixed & ObjC<any, any>
 
 export interface ExactObjC<Opt extends Props, Req extends Props>
   extends ObjType<
@@ -183,3 +158,91 @@ export function getProp<Spec extends AnyObj, K extends keyof TypeOf<Spec>>(
 ): Spec['props'][K] {
   return spec.props[prop]
 }
+
+type OptKeys<P extends Props> = keyof PickByValue<
+  P,
+  OptionC<any> | OneC<any> | ManyC<any>
+>
+
+type ReqKeys<P extends Props> = keyof Omit<P, OptKeys<P>>
+
+// type NormalizeOptional<P extends Props> = {
+//   readonly [K in keyof P]: P[K] extends OptionC<any> | OneC<any> | ManyC<any>
+//     ? P[K]['spec']
+//     : P[K]
+// }
+
+type OptProps<P extends Props> = Pick<P, OptKeys<P>>
+type ReqProps<P extends Props> = Pick<P, ReqKeys<P>>
+
+// tslint:disable typedef
+export function props<P extends Props>(
+  props: P,
+  name?: string,
+): ObjC<OptProps<P>, ReqProps<P>> {
+  const optional = buildObject<any, any>(props, pv =>
+    pv._tag &&
+    (pv._tag === 'OptType' || pv._tag === 'OneType' || pv._tag === 'ManyType')
+      ? pv.spec
+      : undefined,
+  )
+  const required = buildObject<any, any>(props, (v, k) =>
+    k in optional ? undefined : v,
+  )
+
+  const spec = intersection([
+    readonly(partial(optional)),
+    readonly(type(required)),
+  ])
+
+  return new ObjType(
+    optional,
+    required,
+    { ...optional, ...required },
+    spec,
+    name || spec.name,
+  ) as any
+}
+// tslint:enable typedef
+
+export type PropsReqOf<P extends AnyObj> = TypeOf<
+  TypeC<Pick<P['props'], ReqKeys<P['props']>>>
+>
+
+export type PropsOptOf<P extends AnyObj> = TypeOf<
+  PartialC<Pick<P['props'], OptKeys<P['props']>>>
+>
+
+export type PropsOptionOf<P extends AnyObj> = TypeOf<
+  PartialC<PickByValue<P['props'], OptionC<any>>>
+>
+
+export type PropsOneOf<P extends AnyObj> = TypeOf<
+  PartialC<PickByValue<P['props'], OneC<any>>>
+>
+
+export type PropsManyOf<P extends AnyObj> = TypeOf<
+  PartialC<PickByValue<P['props'], ManyC<any>>>
+>
+
+// const Rect = props({
+//   x: one(number),
+//   y: number,
+//   width: many(Int),
+//   height: option(Int),
+// })
+
+// type Rect = TypeOf<typeof Rect>
+
+// const rect: Rect = { x: 1, width: [10 as Int], height: 20 as Int, y: 2 }
+
+// console.log(Rect.decode(rect))
+
+// type TR = typeof Rect
+
+// type AT = PropsOf<TR>
+// type TT = PropsOptOf<TR>
+// type RT = PropsReqOf<TR>
+// type PT = PropsOptionOf<TR>
+// type MT = PropsManyOf<TR>
+// type OT = PropsOneOf<TR>

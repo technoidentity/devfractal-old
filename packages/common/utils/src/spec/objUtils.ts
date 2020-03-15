@@ -13,17 +13,8 @@ import {
 } from 'io-ts'
 import { PickByValue } from 'utility-types'
 import { buildObject, omit, pick } from '../common'
-import {
-  exactObj,
-  ExactObjC,
-  obj,
-  ObjC,
-  ObjOptOf,
-  ObjPropsOf,
-  ObjReqOf,
-  opt,
-  req,
-} from './obj'
+import { exactObj, ExactObjC, obj, ObjC, opt, req } from './obj'
+import { ObjOptOf, ObjPropsOf, ObjReqOf } from './types'
 
 export function objPick<
   Opt extends Props,
