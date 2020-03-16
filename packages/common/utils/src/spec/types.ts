@@ -1,5 +1,6 @@
 import { Props } from 'io-ts'
-import { ObjC, OptProps, ReqProps } from './obj'
+import { ObjC } from './obj'
+import { OptProps, ReqProps } from './propsObj'
 
 // tslint:disable readonly-array
 
