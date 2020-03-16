@@ -16,9 +16,9 @@ import {
 } from 'io-ts'
 import { PickByValue } from 'utility-types'
 import { buildObject } from '../common'
-import { ManyC } from './many'
-import { OneC } from './one'
-import { OptionC } from './option'
+import { ManyC } from './objMany'
+import { OneC } from './objOne'
+import { OptionC } from './objOption'
 
 // tslint:disable no-class readonly-array
 
@@ -172,18 +172,17 @@ type ReqKeys<P extends Props> = keyof Omit<P, OptKeys<P>>
 //     : P[K]
 // }
 
-type OptProps<P extends Props> = Pick<P, OptKeys<P>>
-type ReqProps<P extends Props> = Pick<P, ReqKeys<P>>
+export type OptProps<P extends Props> = Pick<P, OptKeys<P>>
+export type ReqProps<P extends Props> = Pick<P, ReqKeys<P>>
+
+export type PropsC<P extends Props> = ObjC<OptProps<P>, ReqProps<P>>
 
 // tslint:disable typedef
-export function props<P extends Props>(
-  props: P,
-  name?: string,
-): ObjC<OptProps<P>, ReqProps<P>> {
+export function props<P extends Props>(props: P, name?: string): PropsC<P> {
   const optional = buildObject<any, any>(props, pv =>
     pv._tag &&
     (pv._tag === 'OptType' || pv._tag === 'OneType' || pv._tag === 'ManyType')
-      ? pv.spec
+      ? pv
       : undefined,
   )
   const required = buildObject<any, any>(props, (v, k) =>
@@ -234,13 +233,17 @@ export type PropsManyOf<P extends AnyObj> = TypeOf<
 
 // type Rect = TypeOf<typeof Rect>
 
-// const rect: Rect = { x: 1, width: [10 as Int], height: 20 as Int, y: 2 }
+// const rect: Rect = {
+//   x: '1' as any,
+//   width: [10 as Int],
+//   height: 20 as Int,
+//   y: 2,
+// }
 
 // console.log(Rect.decode(rect))
 
 // type TR = typeof Rect
-
-// type AT = PropsOf<TR>
+// type AT = TypeOf<TR>
 // type TT = PropsOptOf<TR>
 // type RT = PropsReqOf<TR>
 // type PT = PropsOptionOf<TR>
