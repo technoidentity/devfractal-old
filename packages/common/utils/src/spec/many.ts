@@ -6,10 +6,6 @@ import {
   ReadonlyArrayC,
   Type,
   TypeOf,
-  undefined as ioUndefined,
-  UndefinedC,
-  union,
-  UnionC,
 } from 'io-ts'
 
 // tslint:disable readonly-array typedef no-class
@@ -33,16 +29,16 @@ export class ManyType<C extends Any, A = any, O = A, I = unknown> extends Type<
 
 export interface ManyC<C extends Mixed>
   extends ManyType<
-    UnionC<[ReadonlyArrayC<C>, UndefinedC]>,
-    TypeOf<UnionC<[ReadonlyArrayC<C>, UndefinedC]>>,
-    OutputOf<UnionC<[ReadonlyArrayC<C>, UndefinedC]>>
+    ReadonlyArrayC<C>,
+    TypeOf<ReadonlyArrayC<C>>,
+    OutputOf<ReadonlyArrayC<C>>
   > {}
 
 export const many = <C extends Mixed>(
   codec: C,
   name: string = `Many<${codec.name}>`,
 ): ManyC<C> => {
-  const type = union([readonlyArray(codec), ioUndefined])
+  const type = readonlyArray(codec)
 
   return new ManyType(name, type.is, type.validate, type.encode, type)
 }

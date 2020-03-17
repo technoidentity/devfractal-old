@@ -1,14 +1,4 @@
-import {
-  Any,
-  Mixed,
-  OutputOf,
-  Type,
-  TypeOf,
-  undefined as ioUndefined,
-  UndefinedC,
-  union,
-  UnionC,
-} from 'io-ts'
+import { Any, Mixed, OutputOf, Type, TypeOf } from 'io-ts'
 
 // tslint:disable readonly-array typedef no-class
 
@@ -30,17 +20,11 @@ export class OneType<C extends Any, A = any, O = A, I = unknown> extends Type<
 }
 
 export interface OneC<C extends Mixed>
-  extends OneType<
-    UnionC<[C, UndefinedC]>,
-    TypeOf<UnionC<[C, UndefinedC]>>,
-    OutputOf<UnionC<[C, UndefinedC]>>
-  > {}
+  extends OneType<C, TypeOf<C>, OutputOf<C>> {}
 
 export const one = <C extends Mixed>(
   codec: C,
   name: string = `Opt<${codec.name}>`,
 ): OneC<C> => {
-  const type = union([codec, ioUndefined])
-
-  return new OneType(name, type.is, type.validate, type.encode, type)
+  return new OneType(name, codec.is, codec.validate, codec.encode, codec)
 }
