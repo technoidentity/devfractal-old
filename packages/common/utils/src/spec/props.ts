@@ -1,121 +1,224 @@
 import {
-  exact,
+  boolean,
+  BooleanC,
+  BrandC,
+  Int,
+  IntBrand,
+  Mixed,
+  number,
+  NumberC,
   OutputOf,
-  PartialC,
   Props,
-  readonly,
+  string,
+  StringC,
   type,
   Type,
-  TypeC,
   TypeOf,
 } from 'io-ts'
-import { PickByValue } from 'utility-types'
+import { OmitByValue, PickByValue } from 'utility-types'
+import { buildObject, omit, pick } from '../common'
 import { ManyC } from './many'
 import { OneC } from './one'
-import { OptionC } from './option'
+import { option, OptionC } from './option'
 
 // tslint:disable readonly-array typedef no-class
 
 export class PropsType<P extends Props, A, O, I> extends Type<A, O, I> {
   readonly _tag: 'PropsType' = 'PropsType'
 
-  constructor(readonly props: P, readonly spec: Type<A, O, I>, name: string) {
+  constructor(readonly props: P, spec: Type<A, O, I>, name: string) {
     super(name, spec.is, spec.validate, spec.encode)
   }
 }
 
-type OptKeys<P extends Props> = keyof PickByValue<
-  P,
-  OptionC<any> | OneC<any> | ManyC<any>
->
+export type OptKeys<P extends Props> = keyof PickByValue<P, OptionC<any>>
+export type ReqKeys<P extends Props> = keyof Omit<P, OptKeys<P>>
 
-type ReqKeys<P extends Props> = keyof Omit<P, OptKeys<P>>
+export type OptProps<P extends Props> = { [K in OptKeys<P>]?: TypeOf<P[K]> }
+export type ReqProps<P extends Props> = { [K in ReqKeys<P>]: TypeOf<P[K]> }
+type AT<P extends Props> = Readonly<OptProps<P> & ReqProps<P>>
 
-type TypeOfProps<P extends Props> = Readonly<
-  { [K in OptKeys<P>]?: TypeOf<P[K]> } & { [K in ReqKeys<P>]-?: TypeOf<P[K]> }
->
+type OptOut<P extends Props> = { [K in OptKeys<P>]?: OutputOf<P[K]> }
+type ReqOut<P extends Props> = { [K in ReqKeys<P>]: OutputOf<P[K]> }
+type OT<P extends Props> = Readonly<OptOut<P> & ReqOut<P>>
 
-type OutputOfProps<P extends Props> = Readonly<
-  { [K in OptKeys<P>]?: OutputOf<P[K]> } &
-    { [K in ReqKeys<P>]-?: OutputOf<P[K]> }
->
+export interface PropsC<P extends Props, A = AT<P>, O = OT<P>, I = unknown>
+  extends PropsType<P, A, O, I> {}
 
-export interface PropsC<
-  P extends Props,
-  A = TypeOfProps<P>,
-  O = OutputOfProps<P>,
-  I = unknown
-> extends PropsType<P, A, O, I> {}
+export type PropsAny = PropsC<any, any, any>
+
+export type PropsTypeOf<Spec extends PropsAny> = Spec['_A']
+
+// export type OptionProps<P extends Props> = PickByValue<P, OptionC<any>>
+// export type OneProps<P extends Props> = PickByValue<P, OneC<any>>
+// export type ManyProps<P extends Props> = PickByValue<P, ManyC<any>>
+
+// export type OptionOf<P extends PropsAny> = TypeOf<
+//   PartialC<OptionProps<P['_A']>>
+// >
+// export type OneOf<P extends PropsAny> = TypeOf<TypeC<OneProps<P['_A']>>>
+// export type ManyOf<P extends PropsAny> = TypeOf<TypeC<ManyProps<P['_A']>>>
 
 export function props<P extends Props>(props: P, name?: string): PropsC<P> {
   // At this point I am using spec as if this is tcomb, ignoring types.
   // May be some day I might decide to make it safe and have
   // optional, required, oneRef and manyRef specs instead
-  const spec = readonly(exact(type(props))) as any
+  // deliberately avoiding readonly in spec. Avoiding 'freeze' by io-ts in dev mode
+  const spec = type(props) as any
 
-  return new PropsType(props, spec, name || type(props).name)
+  return new PropsType(props, spec, name || spec.name)
 }
 
-export function getProp<Spec extends AnyProps, K extends keyof TypeOf<Spec>>(
-  spec: Spec,
+export function getProp<P extends Props, K extends keyof P>(
+  spec: PropsC<P>,
   prop: K,
-): Spec['props'][K] {
+): P[K] {
   return spec.props[prop]
 }
 
-export function getProps<Spec extends AnyProps, K extends keyof TypeOf<Spec>>(
-  spec: Spec,
+export function getProps<P extends Props, K extends keyof P>(
+  spec: PropsC<P>,
   props: readonly K[],
-): Spec['props'][K] {
-  return props.reduce<Spec['props']>((acc, v) => {
+): P[K] {
+  return props.reduce((acc, v) => {
     // tslint:disable-next-line: no-object-mutation
     acc[v] = spec.props[v]
     return acc
-  }, {})
+  }, {} as any)
 }
 
-// export function getOptional<Spec extends AnyProps>(spec: Spec) {
-//   return getProps(spec)
+export function propsPick<P extends Props, K extends keyof PropsC<P>['_A']>(
+  spec: PropsC<P>,
+  keys: readonly K[],
+  name?: string,
+): PropsC<Pick<P, K>> {
+  return props(pick(spec.props, keys), name)
+}
+
+export function propsOmit<P extends Props, K extends keyof TypeOf<PropsC<P>>>(
+  spec: PropsC<P>,
+  keys: readonly K[],
+  name?: string,
+): PropsC<Omit<P, K>> {
+  return props(omit(spec.props, keys), name)
+}
+
+export function propsCombine<P extends Props, P2 extends Props>(
+  p: PropsC<P>,
+  p2: PropsC<P2>,
+  name?: string,
+): PropsC<P & P2> {
+  return props({ ...p.props, ...p2.props }, name)
+}
+
+export function toOpt<P extends Props>(
+  spec: PropsC<P>,
+  name?: string,
+): PropsC<
+  {
+    readonly [K in keyof P]: P[K] extends OptionC<any> ? P[K] : OptionC<P[K]>
+  }
+> {
+  return props(
+    buildObject(spec.props, v => (isOption(v) ? v : option(v))),
+    name,
+  ) as any
+}
+
+export function toReq<P extends Props>(
+  spec: PropsC<P>,
+  name?: string,
+): PropsC<
+  { readonly [K in keyof P]: P[K] extends OptionC<any> ? P[K]['spec'] : P[K] }
+> {
+  return props(
+    buildObject(spec.props, v => (isOption(v) ? v.spec : v)),
+    name,
+  ) as any
+}
+
+// export function propsToExact<P extends Props>(
+//   spec: PropsC<P>,
+//   name?: string,
+// ): PropsC<P> {
+//   return exactObj(spec.optional, spec.required, name)
 // }
 
-// export function getRequired<Spec extends AnyProps>(spec: Spec) {
-//   return spec.props[prop]
-// }
+// export function pickByValue
 
-// export function getMany<Spec extends AnyProps>(spec: Spec) {
-//   return spec.props[prop]
-// }
+export function isOption(spec: Mixed): spec is OneC<any> {
+  const type: any = spec
 
-// export function getOne<Spec extends AnyProps>(
-//   spec: Spec,
-//   prop: K,
-// ): Spec['props'][K] {
-//   return spec.props[prop]
-// }
+  return '_tag' in type && type._tag === 'OptionType'
+}
 
-export type AnyProps = PropsC<any, any, any>
+export function isOne(spec: Mixed): spec is OneC<any> {
+  const type: any = spec
 
-export type Of<P extends AnyProps> = TypeOf<P>
+  return '_tag' in type && type._tag === 'OneType'
+}
 
-export type ReqOf<P extends AnyProps> = TypeOf<
-  TypeC<Pick<P['props'], ReqKeys<P['props']>>>
+export function isMany(spec: Mixed): spec is ManyC<any> {
+  const type: any = spec
+
+  return '_tag' in type && type._tag === 'ManyType'
+}
+
+export type PropsCPickBy<P extends Props, ValueType> = PropsC<
+  PickByValue<P, ValueType>
 >
 
-export type OptOf<P extends AnyProps> = TypeOf<
-  PartialC<Pick<P['props'], OptKeys<P['props']>>>
->
+export function propsPickBy<P extends Props, Picks extends Mixed[]>(
+  spec: PropsC<P>,
+  ...picks: Picks
+): PropsCPickBy<P, typeof picks[number]> {
+  const names = picks.map(s => (isOption(s) ? s.spec.name : s.name))
+  const picked = (s: Mixed) => (names.includes(s.name) ? s : undefined)
 
-export type OptionOf<P extends AnyProps> = TypeOf<
-  PartialC<PickByValue<P['props'], OptionC<any>>>
->
+  return props(buildObject(spec.props, picked)) as any
+}
 
-export type OneOf<P extends AnyProps> = TypeOf<
-  PartialC<PickByValue<P['props'], OneC<any>>>
->
+export function propsPickStrings<P extends Props>(
+  spec: PropsC<P>,
+): PropsCPickBy<P, StringC> {
+  return propsPickBy(spec, string)
+}
 
-export type ManyOf<P extends AnyProps> = TypeOf<
-  PartialC<PickByValue<P['props'], ManyC<any>>>
->
+export function propsPickNumbers<P extends Props>(
+  spec: PropsC<P>,
+): PropsCPickBy<P, NumberC> {
+  return propsPickBy(spec, number)
+}
+
+export function propsPickInts<P extends Props>(
+  spec: PropsC<P>,
+): PropsCPickBy<P, BrandC<NumberC, IntBrand>> {
+  return propsPickBy(spec, Int)
+}
+
+export function propsPickNumeric<P extends Props>(
+  spec: PropsC<P>,
+): PropsCPickBy<P, NumberC | BrandC<NumberC, IntBrand>> {
+  return propsPickBy(spec, number, Int)
+}
+
+export function propsPickStringly<P extends Props>(
+  spec: PropsC<P>,
+): PropsCPickBy<P, NumberC | BrandC<NumberC, IntBrand> | StringC | BooleanC> {
+  return propsPickBy(spec, Int, number, string, boolean)
+}
+
+export function getOpt<P extends Props>(
+  spec: PropsC<P>,
+): PickByValue<P['_A'], OptionC<any>> {
+  return buildObject(spec.props, v => (isOption(v) ? v : undefined)) as any
+}
+
+export function getReq<P extends Props>(
+  spec: PropsC<P>,
+): OmitByValue<P['_A'], OptionC<any>> {
+  return buildObject(spec.props, v => (isOption(v) ? undefined : v)) as any
+}
 
 // const Rect = props({
 //   x: one(number),
