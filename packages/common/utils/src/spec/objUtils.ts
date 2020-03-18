@@ -13,6 +13,7 @@ import {
 } from 'io-ts'
 import { PickByValue } from 'utility-types'
 import { buildObject, omit, pick } from '../common'
+import { IDC, isID } from './id'
 import { isMany, ManyC } from './many'
 import { exactObj, ExactObjC, obj, ObjC, opt, req } from './obj'
 import { isOne, OneC } from './one'
@@ -185,7 +186,7 @@ export function pickStringly<Opt extends Props, Req extends Props>(
 
 export function getManyProps<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): Required<PickByValue<ObjC<Opt, Req>, ManyC<any>>> {
+): PickByValue<ObjC<Opt, Req>['props'], ManyC<any>> {
   return buildObject<any, any>(spec.props, prop =>
     isMany(prop) ? prop : undefined,
   ) as any
@@ -193,8 +194,16 @@ export function getManyProps<Opt extends Props, Req extends Props>(
 
 export function getOneProps<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): Required<PickByValue<ObjC<Opt, Req>, OneC<any>>> {
+): PickByValue<ObjC<Opt, Req>['props'], OneC<any>> {
   return buildObject<any, any>(spec.props, prop =>
     isOne(prop) ? prop : undefined,
+  ) as any
+}
+
+export function getIDProps<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): PickByValue<ObjC<Opt, Req>['props'], IDC<any>> {
+  return buildObject<any, any>(spec.props, prop =>
+    isID(prop) ? prop : undefined,
   ) as any
 }
