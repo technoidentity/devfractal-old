@@ -17,11 +17,11 @@ import {
 } from 'io-ts'
 import { OmitByValue, PickByValue } from 'utility-types'
 import { buildObject, omit, pick } from '../common'
-import { ManyC } from './many'
-import { OneC } from './one'
-import { option, OptionC } from './option'
+import { isMany, ManyC } from './many'
+import { isOne, OneC } from './one'
+import { isOption, option, OptionC } from './option'
 
-// tslint:disable readonly-array typedef no-class
+// tslint:disable readonly-array typedef no-class no-unnecessary-callback-wrapper
 
 export class PropsType<P extends Props, A, O, I> extends Type<A, O, I> {
   readonly _tag: 'PropsType' = 'PropsType'
@@ -29,6 +29,13 @@ export class PropsType<P extends Props, A, O, I> extends Type<A, O, I> {
   constructor(readonly props: P, spec: Type<A, O, I>, name: string) {
     super(name, spec.is, spec.validate, spec.encode)
   }
+}
+
+type WrapOption<P extends Props> = {
+  readonly [K in keyof P]: P[K] extends OptionC<any> ? P[K] : OptionC<P[K]>
+}
+type UnwrapOption<P extends Props> = {
+  readonly [K in keyof P]: P[K] extends OptionC<any> ? OptionC<P[K]> : P[K]
 }
 
 export type OptKeys<P extends Props> = keyof PickByValue<P, OptionC<any>>
@@ -114,11 +121,7 @@ export function propsCombine<P extends Props, P2 extends Props>(
 export function toOpt<P extends Props>(
   spec: PropsC<P>,
   name?: string,
-): PropsC<
-  {
-    readonly [K in keyof P]: P[K] extends OptionC<any> ? P[K] : OptionC<P[K]>
-  }
-> {
+): PropsC<WrapOption<PropsC<P>['props']>> {
   return props(
     buildObject(spec.props, v => (isOption(v) ? v : option(v))),
     name,
@@ -128,9 +131,7 @@ export function toOpt<P extends Props>(
 export function toReq<P extends Props>(
   spec: PropsC<P>,
   name?: string,
-): PropsC<
-  { readonly [K in keyof P]: P[K] extends OptionC<any> ? P[K]['spec'] : P[K] }
-> {
+): PropsC<UnwrapOption<PropsC<P>['props']>> {
   return props(
     buildObject(spec.props, v => (isOption(v) ? v.spec : v)),
     name,
@@ -145,24 +146,6 @@ export function toReq<P extends Props>(
 // }
 
 // export function pickByValue
-
-export function isOption(spec: Mixed): spec is OneC<any> {
-  const type: any = spec
-
-  return '_tag' in type && type._tag === 'OptionType'
-}
-
-export function isOne(spec: Mixed): spec is OneC<any> {
-  const type: any = spec
-
-  return '_tag' in type && type._tag === 'OneType'
-}
-
-export function isMany(spec: Mixed): spec is ManyC<any> {
-  const type: any = spec
-
-  return '_tag' in type && type._tag === 'ManyType'
-}
 
 export type PropsCPickBy<P extends Props, ValueType> = PropsC<
   PickByValue<P, ValueType>
@@ -218,6 +201,55 @@ export function getReq<P extends Props>(
   spec: PropsC<P>,
 ): OmitByValue<P['_A'], OptionC<any>> {
   return buildObject(spec.props, v => (isOption(v) ? undefined : v)) as any
+}
+
+export function objProps<Opt extends Props, Req extends Props>(
+  optional: Opt,
+  required: Req,
+  name?: string,
+): PropsC<Req & WrapOption<Opt>> {
+  return props(
+    { ...(buildObject(optional, o => option(o)) as any), ...required },
+    name,
+  )
+}
+
+// export function exactObj<Opt extends Props, Req extends Props>(
+//   optional: Opt,
+//   required: Req,
+//   name?: string,
+// ): ObjC<Opt, Req> {
+//   return newExactObj(optional, required, name)
+// }
+
+export function reqProps<Req extends Props>(
+  required: Req,
+  name?: string,
+): PropsC<Req> {
+  return props(required, name)
+}
+
+export function optProps<Opt extends Props>(
+  optional: Opt,
+  name?: string,
+): PropsC<WrapOption<Opt>> {
+  return props(buildObject(optional, o => option(o)) as any, name)
+}
+
+export function getManyProps<P extends Props>(
+  spec: PropsC<P>,
+): PickByValue<UnwrapOption<P>, ManyC<any>> {
+  return buildObject(spec.props, p =>
+    isMany(p) ? p : isOption(p) ? (isMany(p.spec) ? p : undefined) : undefined,
+  ) as any
+}
+
+export function getOneProps<P extends Props>(
+  spec: PropsC<P>,
+): PickByValue<UnwrapOption<P>, OneC<any>> {
+  return buildObject(spec.props, p =>
+    isOne(p) ? p : isOption(p) ? (isOne(p.spec) ? p : undefined) : undefined,
+  ) as any
 }
 
 // const Rect = props({
