@@ -7,7 +7,6 @@ import {
   Type,
   TypeOf,
 } from 'io-ts'
-
 // tslint:disable readonly-array typedef no-class
 
 export class ManyType<C extends Any, A = any, O = A, I = unknown> extends Type<
@@ -41,4 +40,10 @@ export const many = <C extends Mixed>(
   const type = readonlyArray(codec)
 
   return new ManyType(name, type.is, type.validate, type.encode, type)
+}
+
+export function isMany(spec: Mixed): spec is ManyC<any> {
+  const type: any = spec
+
+  return '_tag' in type && type._tag === 'ManyType'
 }

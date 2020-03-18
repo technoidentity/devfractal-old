@@ -28,3 +28,9 @@ export const one = <C extends Mixed>(
 ): OneC<C> => {
   return new OneType(name, codec.is, codec.validate, codec.encode, codec)
 }
+
+export function isOne(spec: Mixed): spec is OneC<any> {
+  const type: any = spec
+
+  return '_tag' in type && type._tag === 'OneType'
+}

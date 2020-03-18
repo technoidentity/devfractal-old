@@ -45,3 +45,9 @@ export const option = <C extends Mixed>(
 
   return new OptionType(name, type.is, type.validate, type.encode, type)
 }
+
+export function isOption(spec: Mixed): spec is OptionC<any> {
+  const type: any = spec
+
+  return '_tag' in type && type._tag === 'OptionType'
+}
