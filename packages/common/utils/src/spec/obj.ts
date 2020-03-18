@@ -63,7 +63,7 @@ export class ObjType<
       : this.spec.types[1].type.props
   }
 
-  get props(): Opt & Req {
+  get props(): Partial<Opt> & Req {
     return { ...this.optional, ...this.required }
   }
 }
