@@ -1,20 +1,50 @@
-import { brand, BrandC, Branded, Int, Mixed, string, TypeOf } from 'io-ts'
+import {
+  Mixed,
+  number,
+  NumberC,
+  OutputOf,
+  string,
+  StringC,
+  Type,
+  TypeOf,
+} from 'io-ts'
 
-// tslint:disable typedef
+// tslint:disable readonly-array typedef no-class
 
-export function id<T extends Mixed>(
-  inner: T,
-  name?: string,
-): BrandC<T, { readonly id: symbol }> {
-  return brand(
-    inner,
-    (n): n is Branded<TypeOf<T>, { readonly id: unique symbol }> => inner.is(n),
-    name || `id<${inner.name}`,
-  )
+export class IDType<
+  C extends NumberC | StringC,
+  A,
+  O,
+  I = unknown
+> extends Type<A, O, I> {
+  readonly _tag: 'IDType' = 'IDType'
+  constructor(
+    name: string,
+    is: IDType<C, A, O, I>['is'],
+    validate: IDType<C, A, O, I>['validate'],
+    encode: IDType<C, A, O, I>['encode'],
+    readonly spec: C,
+  ) {
+    super(name, is, validate, encode)
+  }
 }
 
-export const IntID = id(Int, 'IntID')
-export type IntID = TypeOf<typeof IntID>
+// eslint-disable-next-line @typescript-eslint/interface-name-prefix
+export interface IDC<C extends NumberC | StringC>
+  extends IDType<NumberC | StringC, TypeOf<C>, OutputOf<C>> {}
 
+const id = <C extends NumberC | StringC>(
+  codec: C & Mixed,
+  name: string = `Opt<${codec.name}>`,
+): IDC<C> => {
+  return new IDType(name, codec.is, codec.validate, codec.encode, codec)
+}
+
+export function isID(spec: Mixed): spec is IDC<any> {
+  const type: any = spec
+
+  return '_tag' in type && type._tag === 'IDType'
+}
+
+export const NumID = id(number, 'NumID')
 export const StrID = id(string, 'StrID')
-export type StrID = TypeOf<typeof IntID>
