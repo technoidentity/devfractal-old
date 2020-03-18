@@ -13,7 +13,9 @@ import {
 } from 'io-ts'
 import { PickByValue } from 'utility-types'
 import { buildObject, omit, pick } from '../common'
+import { isMany, ManyC } from './many'
 import { exactObj, ExactObjC, obj, ObjC, opt, req } from './obj'
+import { isOne, OneC } from './one'
 import { ObjOptOf, ObjPropsOf, ObjReqOf } from './types'
 
 export function objPick<
@@ -103,14 +105,14 @@ export function toOpt<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
   name?: string,
 ): ObjC<Req & Opt, {}> {
-  return opt(spec.props, name)
+  return opt(spec.props as Req & Opt, name)
 }
 
 export function toReq<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
   name?: string,
 ): ObjC<{}, Req & Opt> {
-  return req(spec.props, name)
+  return req(spec.props as Req & Opt, name)
 }
 
 export function toExact<Opt extends Props, Req extends Props>(
@@ -179,4 +181,20 @@ export function pickStringly<Opt extends Props, Req extends Props>(
   NumberC | BrandC<NumberC, IntBrand> | StringC | BooleanC
 > {
   return pickBy(spec, Int, number, string, boolean)
+}
+
+export function getManyProps<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): Required<PickByValue<ObjC<Opt, Req>, ManyC<any>>> {
+  return buildObject<any, any>(spec.props, prop =>
+    isMany(prop) ? prop : undefined,
+  ) as any
+}
+
+export function getOneProps<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): Required<PickByValue<ObjC<Opt, Req>, OneC<any>>> {
+  return buildObject<any, any>(spec.props, prop =>
+    isOne(prop) ? prop : undefined,
+  ) as any
 }
