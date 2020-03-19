@@ -9,15 +9,15 @@ export interface PutComponentProps<T> {
   readonly onSubmit: SubmitAction<T>
 }
 
-export interface PutProps<T, ID extends keyof T> {
+export interface PutProps<T, ID extends Partial<T>> {
   readonly redirectTo?: string
-  readonly id: T[ID]
-  doGet(id: T[ID]): Promise<T>
-  onPut(id: T[ID], values: T): Promise<T>
+  readonly id: ID
+  doGet(id: ID): Promise<T>
+  onPut(id: ID, values: T): Promise<T>
   readonly component: React.FC<PutComponentProps<T>>
 }
 
-export function Put<T, ID extends keyof T>({
+export function Put<T, ID extends Partial<T>>({
   id,
   redirectTo,
   doGet,

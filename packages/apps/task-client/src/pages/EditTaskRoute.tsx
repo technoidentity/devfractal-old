@@ -1,19 +1,17 @@
 import React from 'react'
 import { Put, Section, Title, useParamsSafe } from 'technoidentity-devfractal'
-import { req, string } from 'technoidentity-utils'
+import { idProps, req } from 'technoidentity-utils'
 import { taskAPI } from '../common'
 import { TaskForm } from '../views'
 
-const Params = req({ id: string })
-
 export const EditTaskRoute: React.FC = () => {
-  const params = useParamsSafe(Params)
+  const params = useParamsSafe(req(idProps(taskAPI.spec)))
 
   return (
     <Section>
       <Title textAlignment="centered">Edit Task</Title>
       <Put
-        id={params.id}
+        id={params}
         doGet={taskAPI.get}
         onPut={taskAPI.update}
         component={TaskForm}

@@ -15,9 +15,7 @@ import {
   Title,
   useParamsSafe,
 } from 'technoidentity-devfractal'
-import { type } from 'technoidentity-utils'
-import { IntFromString } from 'technoidentity-utils'
-import { empty } from 'technoidentity-utils'
+import { empty, idProps, type } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 
@@ -69,10 +67,8 @@ const CreateTodo = () => (
   <Post component={TodoForm} onPost={todoAPI.create} redirectTo="/todos" />
 )
 
-const Id = type({ id: IntFromString })
-
 const EditTodo: React.FC = () => {
-  const { id } = useParamsSafe(Id)
+  const id = useParamsSafe(type(idProps(todoAPI.spec)))
 
   return (
     <Put

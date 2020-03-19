@@ -1,6 +1,6 @@
 import React from 'react'
 import { API, SafeRoute } from 'technoidentity-core'
-import { ObjC, Props, TypeOf } from 'technoidentity-utils'
+import { IDProps, ObjC, Props, TypeC, TypeOf } from 'technoidentity-utils'
 import { Get } from '../api'
 
 export interface OneComponentProps<T> {
@@ -8,39 +8,30 @@ export interface OneComponentProps<T> {
   // fetchAgain(): void
 }
 
-export interface OneProps<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
-> {
-  readonly api: API<Opt, Req, ID>
+export interface OneProps<Opt extends Props, Req extends Props> {
+  readonly api: API<Opt, Req>
   readonly path: string
-  readonly id: TypeOf<ObjC<Opt, Req>>[ID]
+  readonly id: TypeOf<TypeC<IDProps<Opt, Req>>>
   readonly view: React.FC<OneComponentProps<TypeOf<ObjC<Opt, Req>>>>
 }
 
-function Children<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
->({
+function Children<Opt extends Props, Req extends Props>({
   api,
   id,
   view: Component,
-}: Omit<OneProps<Opt, Req, ID>, 'path'>): JSX.Element {
+}: Omit<OneProps<Opt, Req>, 'path'>): JSX.Element {
   return (
     <Get asyncFn={() => api.get(id)}>{data => <Component data={data} />}</Get>
   )
 }
 
-export function One<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
->({ path, ...props }: OneProps<Opt, Req, ID>): JSX.Element {
+export function One<Opt extends Props, Req extends Props>({
+  path,
+  ...props
+}: OneProps<Opt, Req>): JSX.Element {
   return path ? (
-    <SafeRoute path={path} render={() => <Children {...props} />} />
+    <SafeRoute path={path} render={() => <Children<Opt, Req> {...props} />} />
   ) : (
-    <Children {...props} />
+    <Children<Opt, Req> {...props} />
   )
 }

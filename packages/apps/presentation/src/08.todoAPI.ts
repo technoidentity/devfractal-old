@@ -2,16 +2,14 @@ import { rest } from 'technoidentity-devfractal'
 import {
   boolean,
   ISODate,
-  number,
+  NumID,
   obj,
   string,
   TypeOf,
 } from 'technoidentity-utils'
 
 export const Todo = obj(
-  {
-    id: number,
-  },
+  { id: NumID },
   {
     title: string,
     scheduled: ISODate,
@@ -21,12 +19,12 @@ export const Todo = obj(
 
 export type Todo = TypeOf<typeof Todo>
 
-export const todoApi = rest(Todo, 'id', 'todos', {
+export const todoApi = rest(Todo, ({ id }) => `${id}`, 'todos', {
   baseURL: 'http://localhost:3000',
 })
 
 export const checkApi = async () => {
-  const one = await todoApi.get(2)
+  const one = await todoApi.get({ id: 2 })
   console.log(one)
 
   const postTodo = await todoApi.create({
@@ -36,15 +34,18 @@ export const checkApi = async () => {
   })
   console.log(postTodo)
 
-  const putTodo = await todoApi.update(1, {
-    id: 1,
-    title: 'bring cupcake',
-    done: false,
-    scheduled: new Date('2019-07-07T07:39:53.863Z'),
-  })
+  const putTodo = await todoApi.update(
+    { id: 1 },
+    {
+      id: 1,
+      title: 'bring cupcake',
+      done: false,
+      scheduled: new Date('2019-07-07T07:39:53.863Z'),
+    },
+  )
   console.log(putTodo)
 
-  await todoApi.del(postTodo.id || 2)
+  await todoApi.del({ id: postTodo.id || 2 })
 
   const todos = await todoApi.many()
   console.log(todos)

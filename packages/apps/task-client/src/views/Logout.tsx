@@ -17,7 +17,7 @@ export const Logout = component(LogoutProps, ({ redirectTo }) => {
         <Button
           variant="dark"
           onClick={async () => {
-            await sessionAPI.del('')
+            await sessionAPI.del({ id: '' })
             logout()
             onRedirect(redirectTo)
           }}

@@ -17,14 +17,14 @@ import {
   SimpleRedirect,
   Title,
 } from 'technoidentity-devfractal'
-import { boolean, ISODate, number, obj, string } from 'technoidentity-utils'
+import { boolean, ISODate, NumID, obj, string } from 'technoidentity-utils'
 
 const Todo = obj(
-  { id: number },
+  { id: NumID },
   { title: string, scheduled: ISODate, done: boolean },
 )
 
-const todoApi = rest(Todo, 'id', 'todos', {
+const todoApi = rest(Todo, ({ id }) => `${id}`, 'todos', {
   baseURL: 'http://localhost:3000',
 })
 

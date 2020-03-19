@@ -1,13 +1,14 @@
 import {
   enumerate,
   Int,
-  number,
+  ISODate,
+  NumID,
   obj,
   req,
+  StrID,
   string,
   TypeOf,
 } from 'technoidentity-utils'
-import { ISODate } from 'technoidentity-utils'
 
 const Shift = enumerate('morning', 'evening')
 const Status = enumerate('active', 'inactive')
@@ -16,7 +17,7 @@ const Relation = enumerate('father', 'spouse')
 
 export const Driver = obj(
   {
-    id: string,
+    id: StrID,
     lastActive: ISODate,
     status: Status,
   },
@@ -47,7 +48,7 @@ const Group = enumerate('retail', 'cargo')
 
 export const Battery = obj(
   {
-    id: string,
+    id: StrID,
     name: string,
     group: Group,
     remainingCycles: Int,
@@ -66,7 +67,7 @@ export type Battery = TypeOf<typeof Battery>
 
 export const Vehicle = obj(
   {
-    id: string,
+    id: StrID,
     name: string,
     numberPlate: string,
     group: Group,
@@ -91,7 +92,7 @@ export type Vehicle = TypeOf<typeof Vehicle>
 const ContractType = enumerate('weekly', 'monthly')
 
 export const Client = obj(
-  { id: string },
+  { id: StrID },
   {
     clientName: string,
     contractType: ContractType,
@@ -107,7 +108,7 @@ export type Client = TypeOf<typeof Client>
 export const Role = enumerate('admin', 'reporter', 'dispatcher')
 
 export const User = obj(
-  { dateOfJoining: ISODate, id: string, email: string },
+  { dateOfJoining: ISODate, id: StrID, email: string },
   {
     userName: string,
     role: Role,
@@ -134,7 +135,7 @@ export type User = TypeOf<typeof User>
 const Frequency = enumerate('once', 'weekly', 'monthly', 'yearly')
 
 export const Ev = obj(
-  { id: string },
+  { id: StrID },
   { driverName: string, additionalEVsRequired: Int, frequency: Frequency },
 )
 
@@ -143,7 +144,7 @@ export type Ev = TypeOf<typeof Ev>
 const RouteStatus = enumerate('enroute', 'complete')
 
 export const PlanRoute = obj(
-  { id: string },
+  { id: StrID },
   {
     customerName: string,
     address: string,
@@ -155,7 +156,7 @@ export const PlanRoute = obj(
 const EmployeeRole = enumerate('clientDispatcher', 'reporter')
 
 export const Employee = obj(
-  { id: string },
+  { id: StrID },
   {
     name: string,
     phone: Int,
@@ -172,14 +173,14 @@ export const Employee = obj(
 export type Employee = TypeOf<typeof Employee>
 
 export const Invoice = obj(
-  { id: string },
+  { id: StrID },
   { invoicesNo: Int, valid: ISODate, dueDate: ISODate, amount: Int },
 )
 
 export type Invoice = TypeOf<typeof Invoice>
 
 export const GeoFence = obj(
-  { id: string },
+  { id: StrID },
   {
     areaName: string,
     assignVehicle: string,
@@ -191,7 +192,7 @@ export const GeoFence = obj(
 export type GeoFence = TypeOf<typeof GeoFence>
 
 export const Trip = obj(
-  { id: string },
+  { id: StrID },
   {
     customerName: string,
     address: string,
@@ -205,9 +206,7 @@ export type Trip = TypeOf<typeof Trip>
 export const SelectVehicles = enumerate('vehicle1', 'vehicle2', 'vehicle3')
 
 export const AdManager = obj(
-  {
-    id: number,
-  },
+  { id: NumID },
   {
     uploadImage: string,
     client: string,
@@ -248,7 +247,7 @@ export type AuthUserInfo = TypeOf<typeof AuthUserInfo>
 const VehicleNumbers = enumerate('first', 'second')
 
 export const AssignDriver = req({
-  id: string,
+  id: StrID,
   vehicleNumber: VehicleNumbers,
   batteryID: string,
   client: string,
@@ -257,7 +256,7 @@ export const AssignDriver = req({
 export type AssignDriver = TypeOf<typeof AssignDriver>
 
 export const AssignVehicle = req({
-  id: string,
+  id: StrID,
   client: string,
   batteryID: string,
   driver: string,
@@ -269,7 +268,7 @@ export const AssignVehicle = req({
 export type AssignVehicle = TypeOf<typeof AssignVehicle>
 
 export const AssignBattery = req({
-  id: string,
+  id: StrID,
   client: string,
   vehicleID: string,
   driver: string,
@@ -278,7 +277,7 @@ export const AssignBattery = req({
 export type AssignBattery = TypeOf<typeof AssignBattery>
 
 // export const VehicleInfo = req({
-//   id: string,
+//   id: StrID,
 //   customerName: string,
 //   address: string,
 //   contactNumber: Int,
@@ -309,7 +308,7 @@ const Lng = enumerate(
 
 export const VehicleLocation = obj(
   {
-    id: string,
+    id: StrID,
   },
   {
     lat: Lat,

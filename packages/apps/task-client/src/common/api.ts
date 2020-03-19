@@ -7,11 +7,13 @@ export const apiOptions = {
   withCredentials: true,
 }
 
-export const userAPI = rest(User, 'id', 'users', apiOptions)
+const idPath = ({ id }: { readonly id: string }) => `${id}`
 
-export const sessionAPI = rest(Session, 'id', 'session', apiOptions)
+export const userAPI = rest(User, idPath, 'users', apiOptions)
 
-export const taskAPI = rest(Task, '_id', 'tasks', apiOptions)
+export const sessionAPI = rest(Session, idPath, 'session', apiOptions)
+
+export const taskAPI = rest(Task, ({ _id }) => `${_id}`, 'tasks', apiOptions)
 
 export async function getTasks(path: TaskFilter): Promise<readonly Task[]> {
   verify(TaskFilter, path)

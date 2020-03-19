@@ -6,11 +6,7 @@ import { Post } from '../api'
 
 // tslint:disable no-unbound-method
 
-export interface CreateProps<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
-> {
+export interface CreateProps<Opt extends Props, Req extends Props> {
   readonly path: string
   readonly redirectTo?: string
   readonly form: React.FC<{
@@ -19,28 +15,23 @@ export interface CreateProps<
       actions: FormikHelpers<TypeOf<ObjC<Opt, Req>>>,
     ): Promise<void> // SubmitAction<TypeOf<ObjC<Opt, Req>>>
   }>
-  readonly api: API<Opt, Req, ID>
+  readonly api: API<Opt, Req>
 }
 
-function Children<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
->({
+function Children<Opt extends Props, Req extends Props>({
   api,
   redirectTo,
   form: Component,
-}: Omit<CreateProps<Opt, Req, ID>, 'path'>): JSX.Element {
+}: Omit<CreateProps<Opt, Req>, 'path'>): JSX.Element {
   return (
     <Post component={Component} onPost={api.create} redirectTo={redirectTo} />
   )
 }
 
-export function Create<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
->({ path, ...props }: CreateProps<Opt, Req, ID>): JSX.Element {
+export function Create<Opt extends Props, Req extends Props>({
+  path,
+  ...props
+}: CreateProps<Opt, Req>): JSX.Element {
   return path ? (
     <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (

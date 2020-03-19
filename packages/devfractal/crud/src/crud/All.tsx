@@ -28,12 +28,8 @@ export interface AllComponentProps<T> {
   onPageChange(page: number): void
 }
 
-interface ChildrenProps<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
-> {
-  readonly api: API<Opt, Req, ID>
+interface ChildrenProps<Opt extends Props, Req extends Props> {
+  readonly api: API<Opt, Req>
   readonly list: React.FC<AllComponentProps<TypeOf<ObjC<Opt, Req>>>>
   queryFn?(search: string): APIQuery<TypeOf<ObjC<Opt, Req>>>
 }
@@ -53,15 +49,11 @@ function defaultQueryFn<Opt extends Props, Req extends Props>(
   }
 }
 
-function Children<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
->({
+function Children<Opt extends Props, Req extends Props>({
   api,
   list: Component,
   queryFn = defaultQueryFn,
-}: ChildrenProps<Opt, Req, ID>): JSX.Element {
+}: ChildrenProps<Opt, Req>): JSX.Element {
   const { pathname, search } = useLocation()
   const { push } = useHistory()
 
@@ -95,19 +87,15 @@ export interface AllComponentProps<T> {
   // fetchAgain(): void
 }
 
-export interface AllProps<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
-> extends ChildrenProps<Opt, Req, ID> {
+export interface AllProps<Opt extends Props, Req extends Props>
+  extends ChildrenProps<Opt, Req> {
   readonly path: string
 }
 
-export function All<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
->({ path, ...props }: AllProps<Opt, Req, ID>): JSX.Element {
+export function All<Opt extends Props, Req extends Props>({
+  path,
+  ...props
+}: AllProps<Opt, Req>): JSX.Element {
   return path ? (
     <SafeRoute path={path} render={() => <Children {...props} />} />
   ) : (

@@ -19,8 +19,7 @@ import {
   useParamsSafe,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
-import { type } from 'technoidentity-utils'
-import { IntFromString } from 'technoidentity-utils'
+import { idProps, req } from 'technoidentity-utils'
 import { AdManager, adManagerAPI } from '../common'
 import { HeadTitle } from '../components'
 import { CreateLink } from './CreateLink'
@@ -119,7 +118,7 @@ export const CreateAdManager = () => {
 }
 
 export const EditAdManager: React.FC = () => {
-  const { id } = useParamsSafe(type({ id: IntFromString }))
+  const id = useParamsSafe(req(idProps(adManagerAPI.spec)))
 
   const result = useGet(adManagerAPI.get, id)
 

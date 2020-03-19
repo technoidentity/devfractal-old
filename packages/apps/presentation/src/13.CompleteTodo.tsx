@@ -19,19 +19,19 @@ import {
 import {
   boolean,
   fn,
+  idProps,
   ISODate,
-  number,
+  NumID,
   obj,
   readonlyArray,
   req,
   string,
+  type,
   TypeOf,
 } from 'technoidentity-utils'
 
 const Todo = obj(
-  {
-    id: number,
-  },
+  { id: NumID },
   {
     title: string,
     scheduled: ISODate,
@@ -41,7 +41,9 @@ const Todo = obj(
 
 type Todo = TypeOf<typeof Todo>
 
-const todoApi = rest(Todo, 'id', 'todos', { baseURL: 'http://localhost:3000' })
+const todoApi = rest(Todo, ({ id }) => `${id}`, 'todos', {
+  baseURL: 'http://localhost:3000',
+})
 
 const initialValues: Todo = { title: '', scheduled: new Date(), done: false }
 
@@ -66,16 +68,14 @@ const CreateTodoRoute = () => (
   </>
 )
 
-const Params = req({ id: string })
-
 export const EditTodoRoute = () => {
-  const params = useParamsSafe(Params)
+  const params = useParamsSafe(type(idProps(todoApi.spec)))
 
   return (
     <Put
-      id={params.id}
-      doGet={todoApi.get as any}
-      onPut={todoApi.update as any}
+      id={params}
+      doGet={todoApi.get}
+      onPut={todoApi.update}
       component={TodoForm}
       redirectTo="/"
     />

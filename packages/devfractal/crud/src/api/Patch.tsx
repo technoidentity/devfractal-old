@@ -9,15 +9,15 @@ export interface PatchComponentProps<T> {
   readonly onSubmit: SubmitAction<T>
 }
 
-export interface PatchProps<T, ID extends keyof T> {
+export interface PatchProps<T, ID extends Partial<T>> {
   readonly redirectTo?: string
-  readonly id: T[ID]
-  doGet(id: T[ID]): Promise<T>
-  onPatch(id: T[ID], values: Partial<T>): Promise<T>
+  readonly id: ID
+  doGet(id: ID): Promise<T>
+  onPatch(id: ID, values: Partial<T>): Promise<T>
   readonly component: React.FC<PatchComponentProps<T>>
 }
 
-export function Patch<T, ID extends keyof T>({
+export function Patch<T, ID extends Partial<T>>({
   id,
   redirectTo,
   doGet,

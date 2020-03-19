@@ -1,4 +1,12 @@
-import { ISODate, keyof, obj, req, string, TypeOf } from 'technoidentity-utils'
+import {
+  ISODate,
+  keyof,
+  obj,
+  req,
+  StrID,
+  string,
+  TypeOf,
+} from 'technoidentity-utils'
 
 const dateInfo = obj(
   { started: ISODate, completed: ISODate },
@@ -6,13 +14,13 @@ const dateInfo = obj(
 )
 
 export const Task = obj(
-  { _id: string }, // _id is optional, for create
+  { _id: StrID }, // _id is optional, for create
   { title: string, description: string, dateInfo },
 )
 export type Task = TypeOf<typeof Task>
 
 export const User = req({
-  id: string,
+  id: StrID,
   name: string,
   email: string,
   password: string,
@@ -20,7 +28,7 @@ export const User = req({
 export type User = TypeOf<typeof User>
 
 export const Session = req({
-  id: string,
+  id: StrID,
   name: string,
   password: string,
 })
