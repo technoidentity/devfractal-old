@@ -10,6 +10,7 @@ import {
   Props,
   string,
   StringC,
+  type,
 } from 'io-ts'
 import { PickByValue } from 'utility-types'
 import { buildObject, omit, pick } from '../common'
@@ -47,8 +48,8 @@ export function objOmit<
   keys: readonly K[],
   name?: string,
 ): ObjC<
-  Omit<Opt, Extract<keyof ObjC<Opt, Req>['optional'], K>>,
-  Omit<Req, Extract<keyof ObjC<Opt, Req>['required'], K>>
+  Omit<Opt, Extract<keyof ObjOptOf<Opt, Req>, K>>,
+  Omit<Req, Extract<keyof ObjReqOf<Opt, Req>, K>>
 > {
   return obj(
     omit(spec.optional, keys as any) as any,
@@ -56,34 +57,6 @@ export function objOmit<
     name,
   )
 }
-
-// export function propsPick<
-//   Opt extends Props,
-//   Req extends Props,
-//   KP extends keyof Opt,
-//   KR extends keyof Req
-// >(
-//   { optional, required }: ObjC<Opt, Req>,
-//   optKeys: readonly KP[] = [],
-//   reqKeys: readonly KR[] = [],
-//   name?: string,
-// ): ObjC<Pick<Opt, KP>, Pick<Req, KR>> {
-//   return obj(pick(optional, optKeys), pick(required, reqKeys), name)
-// }
-
-// export function propsOmit<
-//   Opt extends Props,
-//   Req extends Props,
-//   KP extends keyof Opt,
-//   KR extends keyof Req
-// >(
-//   { optional, required }: ObjC<Opt, Req>,
-//   optKeys: readonly KP[] = [],
-//   reqKeys: readonly KR[] = [],
-//   name?: string,
-// ): ObjC<Omit<Opt, KP>, Omit<Req, KR>> {
-//   return obj(omit(optional, optKeys), omit(required, reqKeys), name)
-// }
 
 export function objCombine<
   Opt extends Props,
@@ -126,8 +99,8 @@ export function toExact<Opt extends Props, Req extends Props>(
 // export function pickByValue
 
 export type ObjCPickBy<Opt extends Props, Req extends Props, ValueType> = ObjC<
-  PickByValue<ObjC<Opt, Req>['required'], ValueType>,
-  PickByValue<ObjC<Opt, Req>['optional'], ValueType>
+  PickByValue<ObjOptOf<Opt, Req>, ValueType>,
+  PickByValue<ObjReqOf<Opt, Req>, ValueType>
 >
 
 export function pickBy<
@@ -138,15 +111,14 @@ export function pickBy<
   spec: ObjC<Opt, Req>,
   ...picks: Picks
 ): ObjCPickBy<Opt, Req, typeof picks[number]> {
-  function isSpec(
-    names: readonly string[],
-  ): (spec: Mixed) => Mixed | undefined {
-    return spec => (names.includes(spec.name) ? spec : undefined)
-  }
+  // tslint:disable typedef
+  const names = picks.map(s => s.name)
+  const isSpec = (spec: Mixed) => (names.includes(spec.name) ? spec : undefined)
+  // tslint:enable typedef
 
   return obj(
-    buildObject(spec.required, isSpec(picks.map(s => s.name))),
-    buildObject(spec.optional, isSpec(picks.map(s => s.name))),
+    buildObject(spec.required, isSpec),
+    buildObject(spec.optional, isSpec),
   ) as any
 }
 
@@ -184,26 +156,53 @@ export function pickStringly<Opt extends Props, Req extends Props>(
   return pickBy(spec, Int, number, string, boolean)
 }
 
-export function getManyProps<Opt extends Props, Req extends Props>(
+export type IDKeys<Opt extends Props, Req extends Props> = keyof PickByValue<
+  ObjC<Opt, Req>['props'],
+  IDC<any>
+>
+export type IDProps<Opt extends Props, Req extends Props> = Pick<
+  ObjC<Opt, Req>['props'],
+  IDKeys<Opt, Req>
+>
+
+export type OneKeys<Opt extends Props, Req extends Props> = keyof PickByValue<
+  ObjC<Opt, Req>['props'],
+  OneC<any>
+>
+export type OneProps<Opt extends Props, Req extends Props> = Pick<
+  ObjC<Opt, Req>['props'],
+  OneKeys<Opt, Req>
+>
+
+export type ManyKeys<Opt extends Props, Req extends Props> = keyof PickByValue<
+  ObjC<Opt, Req>['props'],
+  ManyC<any>
+>
+export type ManyProps<Opt extends Props, Req extends Props> = Pick<
+  ObjC<Opt, Req>['props'],
+  ManyKeys<Opt, Req>
+>
+
+export function manyProps<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): PickByValue<ObjC<Opt, Req>['props'], ManyC<any>> {
+): ManyProps<Opt, Req> {
   return buildObject<any, any>(spec.props, prop =>
     isMany(prop) ? prop : undefined,
   ) as any
 }
 
-export function getOneProps<Opt extends Props, Req extends Props>(
+export function oneProps<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): PickByValue<ObjC<Opt, Req>['props'], OneC<any>> {
+): OneProps<Opt, Req> {
   return buildObject<any, any>(spec.props, prop =>
     isOne(prop) ? prop : undefined,
   ) as any
 }
 
-export function getIDProps<Opt extends Props, Req extends Props>(
+export function idProps<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): PickByValue<ObjC<Opt, Req>['props'], IDC<any>> {
-  return buildObject<any, any>(spec.props, prop =>
-    isID(prop) ? prop : undefined,
+): IDProps<Opt, Req> {
+  return type(
+    buildObject<any, any>(spec.props, prop => (isID(prop) ? prop : undefined)),
   ) as any
 }

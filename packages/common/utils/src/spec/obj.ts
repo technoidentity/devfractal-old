@@ -28,18 +28,12 @@ export type ExactObjSpec<Opt extends Props, Req extends Props> = ExactC<
 
 export type AnyObj = Mixed & ObjC<any, any>
 
-// type NoEmptyIntersect<Opt extends Props, Req extends Props> = {} extends Opt
-//   ? {} extends Req
-//     ? Opt
-//     : Req
-//   : Opt & Req
-
 export class ObjType<
   Opt extends Props,
   Req extends Props,
   A,
-  O = A,
-  I = unknown
+  O,
+  I
 > extends Type<A, O, I> {
   readonly _tag: 'ObjType' = 'ObjType'
 
@@ -63,13 +57,13 @@ export class ObjType<
       : this.spec.types[1].type.props
   }
 
-  get props(): Partial<Opt> & Req {
+  get props(): Opt & Req {
     return { ...this.optional, ...this.required }
   }
 }
 
 export function isObj(spec: Mixed & { readonly _tag: string }): spec is AnyObj {
-  return spec._tag === 'ObjType'
+  return spec instanceof ObjType
 }
 
 export interface ObjC<Opt extends Props, Req extends Props>
@@ -103,7 +97,6 @@ export interface ExactObjC<Opt extends Props, Req extends Props>
     ExactObjSpec<Opt, Req>['_I']
   > {}
 
-// @TODO: need ability to distinguish ObjType from Exact ObjType
 function newExactObj<Opt extends Props, Req extends Props>(
   optional: Opt,
   required: Req,
@@ -145,13 +138,16 @@ export function opt<Opt extends Props>(
   return obj(optional, {}, name)
 }
 
-export function getProps<Spec extends AnyObj>(spec: AnyObj): Spec['props'] {
+export function getProps<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): ObjC<Opt, Req>['props'] {
   return spec.props
 }
 
-export function getProp<Spec extends AnyObj, K extends keyof TypeOf<Spec>>(
-  spec: Spec,
-  prop: K,
-): Spec['props'][K] {
+export function getProp<
+  Opt extends Props,
+  Req extends Props,
+  K extends keyof TypeOf<ObjC<Opt, Req>>
+>(spec: ObjC<Opt, Req>, prop: K): ObjC<Opt, Req>['props'][K] {
   return spec.props[prop]
 }
