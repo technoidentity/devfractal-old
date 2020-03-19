@@ -117,8 +117,8 @@ export function pickBy<
   // tslint:enable typedef
 
   return obj(
-    buildObject(spec.required, isSpec),
     buildObject(spec.optional, isSpec),
+    buildObject(spec.required, isSpec),
   ) as any
 }
 

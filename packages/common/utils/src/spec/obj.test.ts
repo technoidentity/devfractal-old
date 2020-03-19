@@ -148,34 +148,34 @@ describe('ObjType', () => {
   })
 
   it('pickBy', () => {
-    const pt = obj({ x: number, y: string }, { a: string, b: number, c: Int })
-    const numbers = pickBy(pt, number)
-    const strings = pickBy(pt, string)
-    const ints = pickBy(pt, Int)
-    const numerics = pickBy(pt, number, Int)
-    const stringly = pickBy(pt, number, string, Int, boolean)
+    const o = obj({ x: number, y: string }, { a: string, b: number, c: Int })
+    const numbers = pickBy(o, number)
+    const strings = pickBy(o, string)
+    const ints = pickBy(o, Int)
+    const numerics = pickBy(o, number, Int)
+    const stringly = pickBy(o, number, string, Int, boolean)
 
     expect(numbers.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ b: number }>> & Readonly<{ x: number }>)"`,
+      `"(Readonly<Partial<{ x: number }>> & Readonly<{ b: number }>)"`,
     )
     expect(strings.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ a: string }>> & Readonly<{ y: string }>)"`,
+      `"(Readonly<Partial<{ y: string }>> & Readonly<{ a: string }>)"`,
     )
     expect(ints.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ c: Int }>> & Readonly<{  }>)"`,
+      `"(Readonly<Partial<{  }>> & Readonly<{ c: Int }>)"`,
     )
     expect(numerics.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ b: number, c: Int }>> & Readonly<{ x: number }>)"`,
+      `"(Readonly<Partial<{ x: number }>> & Readonly<{ b: number, c: Int }>)"`,
     )
     expect(stringly.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ a: string, b: number, c: Int }>> & Readonly<{ x: number, y: string }>)"`,
+      `"(Readonly<Partial<{ x: number, y: string }>> & Readonly<{ a: string, b: number, c: Int }>)"`,
     )
 
-    const ns: TypeOf<typeof numbers> = { x: 1 }
-    const ss: TypeOf<typeof strings> = { y: '' }
+    const ns: TypeOf<typeof numbers> = { b: 1 }
+    const ss: TypeOf<typeof strings> = { a: '' }
     const is: TypeOf<typeof ints> = { c: 10 as Int }
-    const nss: TypeOf<typeof numerics> = { x: 100 }
-    const sls: TypeOf<typeof stringly> = { x: 10, y: '' }
+    const nss: TypeOf<typeof numerics> = { b: 100, c: 100 as Int }
+    const sls: TypeOf<typeof stringly> = { a: '10', b: 10, c: 20 as Int, y: '' }
 
     expect(numbers.decode(ns)._tag).toEqual('Right')
     expect(strings.decode(ss)._tag).toEqual('Right')
