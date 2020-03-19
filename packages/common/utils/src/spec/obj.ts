@@ -7,8 +7,6 @@ import {
   partial,
   PartialC,
   Props,
-  readonly,
-  ReadonlyC,
   Type,
   type,
   TypeC,
@@ -17,13 +15,11 @@ import {
 
 // tslint:disable no-class readonly-array no-this
 
-export type OptSpec<Opt extends Props> = ReadonlyC<PartialC<Opt>>
-export type ReqSpec<Req extends Props> = ReadonlyC<TypeC<Req>>
-export type ObjSpec<Opt extends Props, Req extends Props> = IntersectionC<
-  [OptSpec<Opt>, ReqSpec<Req>]
+type ObjSpec<Opt extends Props, Req extends Props> = IntersectionC<
+  [PartialC<Opt>, TypeC<Req>]
 >
 export type ExactObjSpec<Opt extends Props, Req extends Props> = ExactC<
-  IntersectionC<[OptSpec<Opt>, ReqSpec<Req>]>
+  IntersectionC<[PartialC<Opt>, TypeC<Req>]>
 >
 
 export type AnyObj = Mixed & ObjC<any, any>
@@ -47,14 +43,14 @@ export class ObjType<
 
   get optional(): Opt {
     return this.spec._tag === 'ExactType'
-      ? this.spec.type.types[0].type.props
-      : this.spec.types[0].type.props
+      ? this.spec.type.types[0].props
+      : this.spec.types[0].props
   }
 
   get required(): Req {
     return this.spec._tag === 'ExactType'
-      ? this.spec.type.types[1].type.props
-      : this.spec.types[1].type.props
+      ? this.spec.type.types[1].props
+      : this.spec.types[1].props
   }
 
   get props(): Opt & Req {
@@ -62,7 +58,7 @@ export class ObjType<
   }
 }
 
-export function isObj(spec: Mixed & { readonly _tag: string }): spec is AnyObj {
+export function isObj(spec: Mixed): spec is AnyObj {
   return spec instanceof ObjType
 }
 
@@ -70,23 +66,28 @@ export interface ObjC<Opt extends Props, Req extends Props>
   extends ObjType<
     Opt,
     Req,
-    ObjSpec<Opt, Req>['_A'],
+    Readonly<ObjSpec<Opt, Req>['_A']>,
     ObjSpec<Opt, Req>['_O'],
     ObjSpec<Opt, Req>['_I']
   > {}
 
-function newObj<Opt extends Props, Req extends Props>(
-  optional: Opt,
-  required: Req,
-  name?: string,
-): ObjC<Opt, Req> {
-  const spec: ObjSpec<Opt, Req> = intersection([
-    readonly(partial(optional)),
-    readonly(type(required)),
-  ])
+export type ObjTypeOf<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['_A']
 
-  return new ObjType(spec, name || spec.name)
-}
+export type ObjOutputOf<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['_O']
+
+export type ObjInputOf<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['_I']
+
+export type OptC<O extends Props> = ObjC<O, {}>
+export type ReqC<R extends Props> = ObjC<{}, R>
 
 export interface ExactObjC<Opt extends Props, Req extends Props>
   extends ObjType<
@@ -97,13 +98,26 @@ export interface ExactObjC<Opt extends Props, Req extends Props>
     ExactObjSpec<Opt, Req>['_I']
   > {}
 
+function newObj<Opt extends Props, Req extends Props>(
+  optional: Opt,
+  required: Req,
+  name?: string,
+): ObjC<Opt, Req> {
+  const spec: ObjSpec<Opt, Req> = intersection([
+    partial(optional),
+    type(required),
+  ])
+
+  return new ObjType(spec, name || spec.name)
+}
+
 function newExactObj<Opt extends Props, Req extends Props>(
   optional: Opt,
   required: Req,
   name?: string,
 ): ExactObjC<Opt, Req> {
   const spec: ExactObjSpec<Opt, Req> = exact(
-    intersection([readonly(partial(optional)), readonly(type(required))]),
+    intersection([partial(optional), type(required)]),
   )
   return new ObjType(spec, name || spec.name)
 }
@@ -131,11 +145,25 @@ export function req<Req extends Props>(
   return obj({}, required, name)
 }
 
+export function exactReq<Req extends Props>(
+  required: Req,
+  name?: string,
+): ObjC<{}, Req> {
+  return exactObj({}, required, name)
+}
+
 export function opt<Opt extends Props>(
   optional: Opt,
   name?: string,
 ): ObjC<Opt, {}> {
   return obj(optional, {}, name)
+}
+
+export function exactOpt<Opt extends Props>(
+  optional: Opt,
+  name?: string,
+): ObjC<Opt, {}> {
+  return exactObj(optional, {}, name)
 }
 
 export function getProps<Opt extends Props, Req extends Props>(
@@ -151,3 +179,33 @@ export function getProp<
 >(spec: ObjC<Opt, Req>, prop: K): ObjC<Opt, Req>['props'][K] {
   return spec.props[prop]
 }
+
+export type PropsType<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['props']
+
+export type PropsKeys<Opt extends Props, Req extends Props> = keyof PropsType<
+  Opt,
+  Req
+>
+
+export type ReqType<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['required']
+
+export type ReqKeys<Opt extends Props, Req extends Props> = keyof ReqType<
+  Opt,
+  Req
+>
+
+export type OptType<Opt extends Props, Req extends Props> = ObjC<
+  Opt,
+  Req
+>['optional']
+
+export type OptKeys<Opt extends Props, Req extends Props> = keyof OptType<
+  Opt,
+  Req
+>

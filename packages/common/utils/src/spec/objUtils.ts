@@ -10,27 +10,40 @@ import {
   Props,
   string,
   StringC,
-  type,
+  TypeOf,
 } from 'io-ts'
 import { PickByValue } from 'utility-types'
 import { buildObject, omit, pick } from '../common'
 import { IDC, isID } from './id'
 import { isMany, ManyC } from './many'
-import { exactObj, ExactObjC, obj, ObjC, opt, req } from './obj'
+import {
+  exactObj,
+  ExactObjC,
+  obj,
+  ObjC,
+  opt,
+  OptC,
+  OptKeys,
+  PropsKeys,
+  PropsType,
+  req,
+  ReqC,
+  ReqKeys,
+  ReqType,
+} from './obj'
 import { isOne, OneC } from './one'
-import { ObjOptOf, ObjPropsOf, ObjReqOf } from './types'
 
 export function objPick<
   Opt extends Props,
   Req extends Props,
-  K extends keyof ObjC<Opt, Req>['props']
+  K extends PropsKeys<Opt, Req>
 >(
   spec: ObjC<Opt, Req>,
   keys: readonly K[],
   name?: string,
 ): ObjC<
-  Pick<Opt, Extract<keyof ObjOptOf<Opt, Req>, K>>,
-  Pick<Req, Extract<keyof ObjReqOf<Opt, Req>, K>>
+  Pick<Opt, Extract<OptKeys<Opt, Req>, K>>,
+  Pick<Req, Extract<ReqKeys<Opt, Req>, K>>
 > {
   return obj(
     pick(spec.optional, keys as any[]),
@@ -42,14 +55,14 @@ export function objPick<
 export function objOmit<
   Opt extends Props,
   Req extends Props,
-  K extends keyof ObjPropsOf<Opt, Req>
+  K extends keyof ObjC<Opt, Req>['props']
 >(
   spec: ObjC<Opt, Req>,
   keys: readonly K[],
   name?: string,
 ): ObjC<
-  Omit<Opt, Extract<keyof ObjOptOf<Opt, Req>, K>>,
-  Omit<Req, Extract<keyof ObjReqOf<Opt, Req>, K>>
+  Omit<Opt, Extract<keyof PropsType<Opt, Req>, K>>,
+  Omit<Req, Extract<keyof ReqType<Opt, Req>, K>>
 > {
   return obj(
     omit(spec.optional, keys as any) as any,
@@ -78,14 +91,14 @@ export function objCombine<
 export function toOpt<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
   name?: string,
-): ObjC<Req & Opt, {}> {
+): OptC<Req & Opt> {
   return opt(spec.props as Req & Opt, name)
 }
 
 export function toReq<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
   name?: string,
-): ObjC<{}, Req & Opt> {
+): ReqC<Req & Opt> {
   return req(spec.props as Req & Opt, name)
 }
 
@@ -98,9 +111,9 @@ export function toExact<Opt extends Props, Req extends Props>(
 
 // export function pickByValue
 
-export type ObjCPickBy<Opt extends Props, Req extends Props, ValueType> = ObjC<
-  PickByValue<ObjOptOf<Opt, Req>, ValueType>,
-  PickByValue<ObjReqOf<Opt, Req>, ValueType>
+export type ObjPickBy<Opt extends Props, Req extends Props, ValueType> = ObjC<
+  PickByValue<PropsType<Opt, Req>, ValueType>,
+  PickByValue<ReqType<Opt, Req>, ValueType>
 >
 
 export function pickBy<
@@ -110,7 +123,7 @@ export function pickBy<
 >(
   spec: ObjC<Opt, Req>,
   ...picks: Picks
-): ObjCPickBy<Opt, Req, typeof picks[number]> {
+): ObjPickBy<Opt, Req, typeof picks[number]> {
   // tslint:disable typedef
   const names = picks.map(s => s.name)
   const isSpec = (spec: Mixed) => (names.includes(spec.name) ? spec : undefined)
@@ -124,31 +137,31 @@ export function pickBy<
 
 export function pickStrings<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): ObjCPickBy<Opt, Req, StringC> {
+): ObjPickBy<Opt, Req, StringC> {
   return pickBy(spec, string)
 }
 
 export function pickNumbers<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): ObjCPickBy<Opt, Req, NumberC> {
+): ObjPickBy<Opt, Req, NumberC> {
   return pickBy(spec, number)
 }
 
 export function pickInts<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): ObjCPickBy<Opt, Req, BrandC<NumberC, IntBrand>> {
+): ObjPickBy<Opt, Req, BrandC<NumberC, IntBrand>> {
   return pickBy(spec, Int)
 }
 
 export function pickNumeric<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): ObjCPickBy<Opt, Req, NumberC | BrandC<NumberC, IntBrand>> {
+): ObjPickBy<Opt, Req, NumberC | BrandC<NumberC, IntBrand>> {
   return pickBy(spec, number, Int)
 }
 
 export function pickStringly<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): ObjCPickBy<
+): ObjPickBy<
   Opt,
   Req,
   NumberC | BrandC<NumberC, IntBrand> | StringC | BooleanC
@@ -156,53 +169,58 @@ export function pickStringly<Opt extends Props, Req extends Props>(
   return pickBy(spec, Int, number, string, boolean)
 }
 
-export type IDKeys<Opt extends Props, Req extends Props> = keyof PickByValue<
-  ObjC<Opt, Req>['props'],
-  IDC<any>
->
-export type IDProps<Opt extends Props, Req extends Props> = Pick<
-  ObjC<Opt, Req>['props'],
-  IDKeys<Opt, Req>
+export type IDKeys<P extends Props> = keyof PickByValue<P, IDC<any>>
+export type OneKeys<P extends Props> = keyof PickByValue<P, OneC<any>>
+export type ManyKeys<P extends Props> = keyof PickByValue<P, ManyC<any>>
+
+export type PickMany<Opt extends Props, Req extends Props> = ObjC<
+  Pick<Opt, ManyKeys<Opt>>,
+  Pick<Req, ManyKeys<Req>>
 >
 
-export type OneKeys<Opt extends Props, Req extends Props> = keyof PickByValue<
-  ObjC<Opt, Req>['props'],
-  OneC<any>
+export type PickID<Opt extends Props, Req extends Props> = ObjC<
+  Pick<Opt, IDKeys<Opt>>,
+  Pick<Req, IDKeys<Req>>
 >
-export type OneProps<Opt extends Props, Req extends Props> = Pick<
-  ObjC<Opt, Req>['props'],
-  OneKeys<Opt, Req>
->
-
-export type ManyKeys<Opt extends Props, Req extends Props> = keyof PickByValue<
-  ObjC<Opt, Req>['props'],
-  ManyC<any>
->
-export type ManyProps<Opt extends Props, Req extends Props> = Pick<
-  ObjC<Opt, Req>['props'],
-  ManyKeys<Opt, Req>
+export type PickOne<Opt extends Props, Req extends Props> = ObjC<
+  Pick<Opt, OneKeys<Opt>>,
+  Pick<Req, OneKeys<Req>>
 >
 
-export function manyProps<Opt extends Props, Req extends Props>(
+// tslint:disable typedef
+const buildMe = (me: (props: ManyC<any> | OneC<any> | IDC<any>) => boolean) => (
+  props: Props,
+) => buildObject<any, any>(props, prop => (me(prop) ? prop : undefined))
+
+const buildMany = buildMe(isMany)
+const buildOne = buildMe(isOne)
+const buildID = buildMe(isID)
+// tslint:enable typedef
+
+export function pickMany<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): ManyProps<Opt, Req> {
-  return buildObject<any, any>(spec.props, prop =>
-    isMany(prop) ? prop : undefined,
-  ) as any
+): PickMany<Opt, Req> {
+  return obj(buildMany(spec.optional), buildMany(spec.required)) as any
 }
 
-export function oneProps<Opt extends Props, Req extends Props>(
+export function pickOne<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): OneProps<Opt, Req> {
-  return buildObject<any, any>(spec.props, prop =>
-    isOne(prop) ? prop : undefined,
-  ) as any
+): PickOne<Opt, Req> {
+  return obj(buildOne(spec.optional), buildOne(spec.required)) as any
 }
 
-export function idProps<Opt extends Props, Req extends Props>(
+export function pickID<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-): IDProps<Opt, Req> {
-  return type(
-    buildObject<any, any>(spec.props, prop => (isID(prop) ? prop : undefined)),
-  ) as any
+): PickID<Opt, Req> {
+  return obj(buildID(spec.optional), buildID(spec.required)) as any
 }
+
+export type TypeOfID<Opt extends Props, Req extends Props> = TypeOf<
+  PickID<Opt, Req>
+>
+export type TypeOfOne<Opt extends Props, Req extends Props> = TypeOf<
+  PickOne<Opt, Req>
+>
+export type TypeOfMany<Opt extends Props, Req extends Props> = TypeOf<
+  PickOne<Opt, Req>
+>

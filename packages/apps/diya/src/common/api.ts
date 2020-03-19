@@ -1,5 +1,5 @@
 import { rest, toJSONServerQuery } from 'technoidentity-devfractal'
-import { IDProps, ObjC, Props, TypeC, TypeOf } from 'technoidentity-utils'
+import { ObjC, Props, TypeOfID } from 'technoidentity-utils'
 import { fakeBaseURL } from '../config'
 import {
   AdManager,
@@ -22,7 +22,7 @@ import {
 // tslint:disable-next-line: typedef
 function api<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-  idPath: (id: TypeOf<TypeC<IDProps<Opt, Req>>>) => string,
+  idPath: (id: TypeOfID<Opt, Req>) => string,
   resource: string,
 ) {
   return rest<Opt, Req>(
@@ -34,7 +34,7 @@ function api<Opt extends Props, Req extends Props>(
   )
 }
 
-const idPath = ({ id }: { readonly id: any }) => `${id}`
+const idPath = ({ id }: TypeOfID<any, any>) => `${id}`
 
 export const driverAPI = api(Driver, idPath, 'drivers')
 export const vehicleAPI = api(Vehicle, idPath, 'vehicles')

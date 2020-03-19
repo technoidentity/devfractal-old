@@ -21,7 +21,7 @@ import {
   useParamsSafe,
   useSubmitRedirect,
 } from 'technoidentity-devfractal'
-import { idProps, type } from 'technoidentity-utils'
+import { pickID } from 'technoidentity-utils'
 import * as yup from 'yup'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
@@ -115,7 +115,7 @@ const CreateTodo = () => {
 }
 
 const EditTodo: React.FC = () => {
-  const id = useParamsSafe(type(idProps(todoAPI.spec)))
+  const id = useParamsSafe(pickID(todoAPI.spec))
 
   const result = useGet(todoAPI.get, id)
 

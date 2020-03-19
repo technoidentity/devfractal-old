@@ -1,6 +1,6 @@
 import React from 'react'
 import { API, SafeRoute } from 'technoidentity-core'
-import { IDProps, ObjC, Props, TypeC, TypeOf } from 'technoidentity-utils'
+import { ObjC, Props, TypeOf, TypeOfID } from 'technoidentity-utils'
 import { Get } from '../api'
 
 export interface OneComponentProps<T> {
@@ -11,7 +11,7 @@ export interface OneComponentProps<T> {
 export interface OneProps<Opt extends Props, Req extends Props> {
   readonly api: API<Opt, Req>
   readonly path: string
-  readonly id: TypeOf<TypeC<IDProps<Opt, Req>>>
+  readonly id: TypeOfID<Opt, Req>
   readonly view: React.FC<OneComponentProps<TypeOf<ObjC<Opt, Req>>>>
 }
 

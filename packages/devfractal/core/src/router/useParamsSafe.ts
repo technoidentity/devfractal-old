@@ -1,12 +1,10 @@
 import { useParams } from 'react-router'
-import { cast, Mixed, TypeOf } from 'technoidentity-utils'
+import { cast, ObjC, ObjTypeOf, Props } from 'technoidentity-utils'
 
-export function useParamsSafe<Spec extends Mixed>(
-  paramsSpec: Spec,
-): TypeOf<Spec> {
+export function useParamsSafe<Opt extends Props, Req extends Props>(
+  paramsSpec: ObjC<Opt, Req>,
+): ObjTypeOf<Opt, Req> {
   // tslint:disable-next-line: typedef
   const params = useParams()
-  cast(paramsSpec, params)
-
-  return params
+  return cast(paramsSpec, params)
 }

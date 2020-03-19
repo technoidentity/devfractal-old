@@ -9,7 +9,7 @@ export interface PutComponentProps<T> {
   readonly onSubmit: SubmitAction<T>
 }
 
-export interface PutProps<T, ID extends Partial<T>> {
+export interface PutProps<T, ID> {
   readonly redirectTo?: string
   readonly id: ID
   doGet(id: ID): Promise<T>
@@ -17,7 +17,7 @@ export interface PutProps<T, ID extends Partial<T>> {
   readonly component: React.FC<PutComponentProps<T>>
 }
 
-export function Put<T, ID extends Partial<T>>({
+export function Put<T, ID>({
   id,
   redirectTo,
   doGet,

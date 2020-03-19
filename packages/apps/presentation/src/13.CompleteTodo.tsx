@@ -19,14 +19,13 @@ import {
 import {
   boolean,
   fn,
-  idProps,
   ISODate,
   NumID,
   obj,
+  pickID,
   readonlyArray,
   req,
   string,
-  type,
   TypeOf,
 } from 'technoidentity-utils'
 
@@ -69,7 +68,7 @@ const CreateTodoRoute = () => (
 )
 
 export const EditTodoRoute = () => {
-  const params = useParamsSafe(type(idProps(todoApi.spec)))
+  const params = useParamsSafe(pickID(todoApi.spec))
 
   return (
     <Put

@@ -1,4 +1,4 @@
-import { Mixed, ObjCPickBy, Props, TypeOf } from 'technoidentity-utils'
+import { Mixed, ObjPickBy, Props, TypeOf } from 'technoidentity-utils'
 
 export interface TypedField<Spec extends Mixed, Name extends string> {
   readonly name: Name
@@ -10,7 +10,7 @@ export type TypeForTypedField<
   Opt extends Props,
   Req extends Props,
   Spec extends Mixed
-> = TypedField<ObjCPickBy<Opt, Req, Spec>, keyof ObjCPickBy<Opt, Req, Spec>>
+> = TypedField<ObjPickBy<Opt, Req, Spec>, keyof ObjPickBy<Opt, Req, Spec>>
 
 // export interface TypedFields<
 //   Opt extends Props,

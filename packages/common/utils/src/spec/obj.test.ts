@@ -156,19 +156,17 @@ describe('ObjType', () => {
     const stringly = pickBy(o, number, string, Int, boolean)
 
     expect(numbers.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ x: number }>> & Readonly<{ b: number }>)"`,
+      `"(Partial<{ x: number }> & { b: number })"`,
     )
     expect(strings.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ y: string }>> & Readonly<{ a: string }>)"`,
+      `"(Partial<{ y: string }> & { a: string })"`,
     )
-    expect(ints.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{  }>> & Readonly<{ c: Int }>)"`,
-    )
+    expect(ints.name).toMatchInlineSnapshot(`"(Partial<{  }> & { c: Int })"`)
     expect(numerics.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ x: number }>> & Readonly<{ b: number, c: Int }>)"`,
+      `"(Partial<{ x: number }> & { b: number, c: Int })"`,
     )
     expect(stringly.name).toMatchInlineSnapshot(
-      `"(Readonly<Partial<{ x: number, y: string }>> & Readonly<{ a: string, b: number, c: Int }>)"`,
+      `"(Partial<{ x: number, y: string }> & { a: string, b: number, c: Int })"`,
     )
 
     const ns: TypeOf<typeof numbers> = { b: 1 }

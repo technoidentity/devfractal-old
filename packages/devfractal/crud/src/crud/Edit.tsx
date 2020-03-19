@@ -1,6 +1,6 @@
 import React from 'react'
 import { API, SafeRoute, useParamsSafe } from 'technoidentity-core'
-import { idProps, ObjC, Props, req, TypeOf } from 'technoidentity-utils'
+import { ObjC, pickID, Props, TypeOf } from 'technoidentity-utils'
 import { Put, SubmitAction } from '../api'
 
 // tslint:disable no-unbound-method
@@ -24,7 +24,7 @@ function Children<Opt extends Props, Req extends Props>({
 }: Omit<EditProps<Opt, Req>, 'path'>): JSX.Element {
   return (
     <Put
-      id={useParamsSafe(req(idProps(api.spec)))}
+      id={useParamsSafe(pickID(api.spec))}
       doGet={api.get}
       onPut={api.replace}
       component={Component}

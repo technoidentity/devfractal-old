@@ -1,14 +1,7 @@
 import React from 'react'
 import { SafeRoute, useParamsSafe } from 'technoidentity-core'
 import { Put, SubmitAction } from 'technoidentity-crud'
-import {
-  getProp,
-  ObjC,
-  Props,
-  string,
-  type,
-  TypeOf,
-} from 'technoidentity-utils'
+import { getProp, ObjC, Props, req, string, TypeOf } from 'technoidentity-utils'
 import { FirstoreAPI } from './firestoreRest'
 
 // tslint:disable no-unbound-method
@@ -44,7 +37,7 @@ function Children<
   }
 
   // tslint:disable-next-line: typedef
-  const params = useParamsSafe(type({ [api.idKey]: string }))
+  const params = useParamsSafe(req({ [api.idKey]: string }))
 
   return (
     <Put

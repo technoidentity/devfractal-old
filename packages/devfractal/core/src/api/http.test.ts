@@ -176,9 +176,9 @@ test('patch with incorrect value', async () => {
     )
   } catch (e) {
     expect(e.message).toMatchInlineSnapshot(`
-      "Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: string, title: string, done: boolean }>)/1: Readonly<{ id: string, title: string, done: boolean }>/title: string
-      Invalid value \\"true\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: string, title: string, done: boolean }>)/1: Readonly<{ id: string, title: string, done: boolean }>/done: boolean"
-    `)
+"Invalid value undefined supplied to : (Partial<{  }> & { id: string, title: string, done: boolean })/1: { id: string, title: string, done: boolean }/title: string
+Invalid value \\"true\\" supplied to : (Partial<{  }> & { id: string, title: string, done: boolean })/1: { id: string, title: string, done: boolean }/done: boolean"
+`)
   }
 })
 
