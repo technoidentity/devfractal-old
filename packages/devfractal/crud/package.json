@@ -26,20 +26,20 @@
     "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "tslib": "1.11.0"
+    "tslib": "1.11.1"
   },
   "devDependencies": {
-    "cross-env": "7.0.0",
+    "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react-styleguidist": "10.6.2",
+    "react-styleguidist": "11.0.3",
     "technoidentity-core": "2.0.3",
     "technoidentity-utils": "2.0.1",
     "tsdx": "0.12.3",
-    "tslint": "6.0.0",
-    "typescript": "3.8.2"
+    "tslint": "6.1.0",
+    "typescript": "3.8.3"
   },
   "peerDependencies": {
     "technoidentity-crud": "2.0.3"

@@ -26,28 +26,28 @@
     "validate:noFix": "yarn lint && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.9.0",
-    "tslib": "1.11.0"
+    "date-fns": "2.11.0",
+    "tslib": "1.11.1"
   },
   "devDependencies": {
     "chance": "1.1.4",
-    "cross-env": "7.0.0",
-    "date-fns": "2.9.0",
+    "cross-env": "7.0.2",
+    "date-fns": "2.11.0",
     "eslint": "6.8.0",
     "formik": "2.1.4",
     "jest": "25.1.0",
     "meta-core": "^2.0.1",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
     "technoidentity-core": "^2.0.3",
     "technoidentity-crud": "^2.0.3",
     "technoidentity-utils": "^2.0.1",
     "tsdx": "0.12.3",
-    "tslint": "6.0.0",
-    "typescript": "3.8.2",
-    "yup": "0.28.1"
+    "tslint": "6.1.0",
+    "typescript": "3.8.3",
+    "yup": "0.28.3"
   },
   "peerDependencies": {
     "meta-core": "1.2.5",

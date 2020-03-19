@@ -28,27 +28,27 @@
     "@fortawesome/free-brands-svg-icons": "5.12.1",
     "@fortawesome/free-regular-svg-icons": "5.12.1",
     "@fortawesome/free-solid-svg-icons": "5.12.1",
-    "@fortawesome/react-fontawesome": "0.1.8",
-    "@material-ui/core": "4.9.3",
+    "@fortawesome/react-fontawesome": "0.1.9",
+    "@material-ui/core": "4.9.7",
     "@material-ui/pickers": "3.2.10",
-    "date-fns": "2.9.0",
+    "date-fns": "2.11.0",
     "tcomb": "3.2.29",
-    "tslib": "1.11.0"
+    "tslib": "1.11.1"
   },
   "devDependencies": {
-    "cross-env": "7.0.0",
+    "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
     "technoidentity-crud": "2.0.3",
     "technoidentity-mui": "2.0.3",
     "technoidentity-ui": "2.0.3",
     "technoidentity-utils": "2.0.1",
     "tsdx": "0.12.3",
-    "typescript": "3.8.2"
+    "typescript": "3.8.3"
   },
   "peerDependencies": {
     "technoidentity-crud": "2.0.3",

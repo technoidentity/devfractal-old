@@ -7,7 +7,9 @@ import { classNamesHelper, El, Helpers, removeHelpers } from '../base'
 
 type IconDirection = 'left' | 'right'
 
-export interface IconProps extends FontAwesomeIconProps, Helpers {
+export interface IconProps
+  extends Omit<FontAwesomeIconProps, 'display'>,
+    Helpers {
   readonly direction?: IconDirection
 }
 

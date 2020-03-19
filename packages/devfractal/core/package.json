@@ -25,26 +25,26 @@
   },
   "dependencies": {
     "axios": "0.19.2",
-    "immer": "5.3.6",
+    "immer": "6.0.2",
     "io-ts-promise": "2.0.2",
-    "query-string": "6.11.0",
-    "react-is": "16.12.0",
-    "tslib": "1.11.0"
+    "query-string": "6.11.1",
+    "react-is": "16.13.0",
+    "tslib": "1.11.1"
   },
   "devDependencies": {
-    "cross-env": "7.0.0",
+    "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "technoidentity-utils": "2.0.1",
     "tsdx": "0.12.3",
-    "tslint": "6.0.0",
-    "typescript": "3.8.2"
+    "tslint": "6.1.0",
+    "typescript": "3.8.3"
   },
   "peerDependencies": {
     "formik": "2.1.4",
     "technoidentity-utils": "2.0.1",
-    "yup": "0.28.1"
+    "yup": "0.28.3"
   }
 }

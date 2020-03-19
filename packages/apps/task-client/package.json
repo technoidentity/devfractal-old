@@ -20,26 +20,26 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "date-fns": "2.9.0",
-    "immer": "5.3.6",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "react-use": "13.26.1",
+    "date-fns": "2.11.0",
+    "immer": "6.0.2",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "react-use": "13.27.0",
     "technoidentity-devfractal": "^2.0.3",
     "technoidentity-utils": "^2.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.8.4",
-    "cross-env": "7.0.0",
+    "@babel/core": "7.8.7",
+    "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "prettier": "1.19.1",
-    "tslint": "6.0.0",
-    "typescript": "3.8.2"
+    "tslint": "6.1.0",
+    "typescript": "3.8.3"
   },
   "resolutions": {
-    "react-dom": "16.12.0",
-    "react": "16.12.0"
+    "react-dom": "16.13.0",
+    "react": "16.13.0"
   },
   "browserslist": [
     ">0.2%",

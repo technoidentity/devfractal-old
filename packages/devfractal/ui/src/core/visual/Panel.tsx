@@ -61,7 +61,9 @@ export const PanelBlock: React.FC<PanelBlockProps> = ({
 
 type PanelIconDirection = 'left' | 'right'
 
-export interface PanelIconProps extends FontAwesomeIconProps, Helpers {
+export interface PanelIconProps
+  extends Omit<FontAwesomeIconProps, 'display'>,
+    Helpers {
   readonly icon: IconDefinition
   readonly direction?: PanelIconDirection
 }

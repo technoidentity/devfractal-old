@@ -25,12 +25,12 @@
   },
   "dependencies": {
     "technoidentity-utils": "^2.0.1",
-    "tslib": "1.11.0"
+    "tslib": "1.11.1"
   },
   "devDependencies": {
     "@types/json-schema": "7.0.4",
-    "ajv": "6.11.0",
-    "cross-env": "7.0.0",
+    "ajv": "6.12.0",
+    "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "jest": "25.1.0",
     "json-schema": "0.2.5",
@@ -38,8 +38,8 @@
     "tcomb-validation": "3.4.1",
     "technoidentity-utils": "2.0.1",
     "tsdx": "0.12.3",
-    "tslint": "6.0.0",
-    "typescript": "3.8.2"
+    "tslint": "6.1.0",
+    "typescript": "3.8.3"
   },
   "peerDependencies": {
     "technoidentity-utils": "2.0.1"
