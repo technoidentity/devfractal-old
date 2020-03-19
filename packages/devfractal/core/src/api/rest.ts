@@ -1,6 +1,8 @@
 import { AxiosInstance, AxiosResponse } from 'axios'
 import { produce } from 'immer'
 import {
+  idProps,
+  IDProps,
   Int,
   isRight,
   ObjC,
@@ -10,6 +12,7 @@ import {
   omit,
   Props,
   readonlyArray,
+  TypeC,
   TypeOf,
   UnknownArray,
 } from 'technoidentity-utils'
@@ -17,14 +20,9 @@ import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 import { APIQuery, toAPIQuery as toQueryFn } from './query'
 
 type APIMethodArgs = Omit<MethodArgs, 'resource'>
-export interface API<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
-> {
+export interface API<Opt extends Props, Req extends Props> {
   readonly http: ReturnType<typeof httpAPI>
   readonly spec: ObjC<Opt, Req>
-  readonly idKey: ID
   readonly resource: string
 
   many(options?: APIMethodArgs): Promise<ReadonlyArray<TypeOf<ObjC<Opt, Req>>>>
@@ -32,12 +30,12 @@ export interface API<
   one(options?: APIMethodArgs): Promise<TypeOf<ObjC<Opt, Req>>>
 
   create(
-    data: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
+    data: Omit<TypeOf<ObjC<Opt, Req>>, keyof TypeOf<TypeC<IDProps<Opt, Req>>>>,
     options?: APIMethodArgs,
   ): Promise<TypeOf<ObjC<Opt, Req>>>
 
   get(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     options?: APIMethodArgs,
   ): Promise<TypeOf<ObjC<Opt, Req>>>
 
@@ -67,18 +65,21 @@ export interface API<
   >
 
   replace(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     data: TypeOf<ObjC<Opt, Req>>,
     options?: APIMethodArgs,
   ): Promise<TypeOf<ObjC<Opt, Req>>>
 
   update(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     data: Partial<TypeOf<ObjC<Opt, Req>>>,
     options?: APIMethodArgs,
   ): Promise<TypeOf<ObjC<Opt, Req>>>
 
-  del(id: TypeOf<ObjC<Opt, Req>>[ID], options?: APIMethodArgs): Promise<void>
+  del(
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
+    options?: APIMethodArgs,
+  ): Promise<void>
 
   many$(
     options?: APIMethodArgs,
@@ -95,7 +96,7 @@ export interface API<
   }
 
   create$(
-    data: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
+    data: Omit<TypeOf<ObjC<Opt, Req>>, keyof TypeOf<TypeC<IDProps<Opt, Req>>>>,
     options?: APIMethodArgs,
   ): {
     readonly data: Promise<TypeOf<ObjC<Opt, Req>>>
@@ -103,7 +104,7 @@ export interface API<
   }
 
   get$(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     options?: APIMethodArgs,
   ): {
     readonly data: Promise<TypeOf<ObjC<Opt, Req>>>
@@ -137,7 +138,7 @@ export interface API<
   }
 
   replace$(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     data: TypeOf<ObjC<Opt, Req>>,
     options?: APIMethodArgs,
   ): {
@@ -146,7 +147,7 @@ export interface API<
   }
 
   update$(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     data: Partial<TypeOf<ObjC<Opt, Req>>>,
     options?: APIMethodArgs,
   ): {
@@ -155,7 +156,7 @@ export interface API<
   }
 
   del$(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     options?: APIMethodArgs,
   ): Promise<AxiosResponse<ObjInputOf<Opt, Req>>>
 }
@@ -172,20 +173,16 @@ function appendId(options: MethodArgs, id: string): MethodArgs {
   })
 }
 
-export function rest<
-  Opt extends Props,
-  Req extends Props,
-  ID extends keyof TypeOf<ObjC<Opt, Req>>
->(
+export function rest<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
-  idKey: ID,
+  idPath: (id: TypeOf<TypeC<IDProps<Opt, Req>>>) => string,
   resource: string,
   options: RequestConfig | AxiosInstance,
   toQuery: (
     spec: ObjC<Opt, Req>,
     query: APIQuery<TypeOf<ObjC<Opt, Req>>>,
   ) => string = toQueryFn,
-): API<Opt, Req, ID> {
+): API<Opt, Req> {
   const http: ReturnType<typeof httpAPI> = httpAPI(options)
 
   function many$(
@@ -217,7 +214,7 @@ export function rest<
   }
 
   function create$(
-    data: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
+    data: Omit<TypeOf<ObjC<Opt, Req>>, keyof TypeOf<TypeC<IDProps<Opt, Req>>>>,
     options: APIMethodArgs,
   ): {
     readonly data: Promise<TypeOf<ObjC<Opt, Req>>>
@@ -226,44 +223,44 @@ export function rest<
     // @TODO: Hopefully in future, either we won't omit, or use spec to omit.
     return http.post$(
       { ...options, resource },
-      omit(data, [idKey as any]),
+      omit(data, Object.keys(idProps(spec)) as any),
       spec,
     )
   }
 
   async function create(
-    data: Omit<TypeOf<ObjC<Opt, Req>>, ID>,
+    data: Omit<TypeOf<ObjC<Opt, Req>>, keyof TypeOf<TypeC<IDProps<Opt, Req>>>>,
     options: APIMethodArgs,
   ): Promise<TypeOf<ObjC<Opt, Req>>> {
     return create$(data, options).data
   }
 
   async function del$(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     options?: APIMethodArgs,
   ): Promise<AxiosResponse<void>> {
-    return http.del$(appendId({ ...options, resource }, id))
+    return http.del$(appendId({ ...options, resource }, idPath(id)))
   }
 
   async function del(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     options?: APIMethodArgs,
   ): Promise<void> {
     await del$(id, options)
   }
 
   function get$(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     options: APIMethodArgs,
   ): {
     readonly data: Promise<TypeOf<ObjC<Opt, Req>>>
     readonly response: Promise<AxiosResponse<ObjInputOf<Opt, Req>>>
   } {
-    return one$(appendId({ ...options, resource }, id))
+    return one$(appendId({ ...options, resource }, idPath(id)))
   }
 
   async function get(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     options: APIMethodArgs,
   ): Promise<TypeOf<ObjC<Opt, Req>>> {
     return get$(id, options).data
@@ -344,18 +341,18 @@ export function rest<
   }
 
   function replace$(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     data: TypeOf<ObjC<Opt, Req>>,
     options: APIMethodArgs,
   ): {
     readonly data: Promise<TypeOf<ObjC<Opt, Req>>>
     readonly response: Promise<AxiosResponse<ObjInputOf<Opt, Req>>>
   } {
-    return http.put$(appendId({ ...options, resource }, id), data, spec)
+    return http.put$(appendId({ ...options, resource }, idPath(id)), data, spec)
   }
 
   async function replace(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     data: TypeOf<ObjC<Opt, Req>>,
     options: APIMethodArgs,
   ): Promise<TypeOf<ObjC<Opt, Req>>> {
@@ -363,18 +360,22 @@ export function rest<
   }
 
   function update$(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     data: Partial<TypeOf<ObjC<Opt, Req>>>,
     options: APIMethodArgs,
   ): {
     readonly data: Promise<TypeOf<ObjC<Opt, Req>>>
     readonly response: Promise<AxiosResponse<ObjInputOf<Opt, Req>>>
   } {
-    return http.patch$(appendId({ ...options, resource }, id), data, spec)
+    return http.patch$(
+      appendId({ ...options, resource }, idPath(id)),
+      data,
+      spec,
+    )
   }
 
   async function update(
-    id: TypeOf<ObjC<Opt, Req>>[ID],
+    id: TypeOf<TypeC<IDProps<Opt, Req>>>,
     data: Partial<TypeOf<ObjC<Opt, Req>>>,
     options: APIMethodArgs,
   ): Promise<TypeOf<ObjC<Opt, Req>>> {
@@ -410,7 +411,6 @@ export function rest<
     select,
     select$,
 
-    idKey,
     spec,
     resource,
     http,

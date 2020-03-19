@@ -1,5 +1,4 @@
-import { boolean, number, string } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
+import { boolean, NumID, req, string } from 'technoidentity-utils'
 import { toJSONServerQuery } from './query'
 import { rest } from './rest'
 
@@ -24,10 +23,10 @@ describe('rest', () => {
     jest.resetAllMocks()
   })
 
-  const Todo = req({ id: number, title: string, done: boolean })
+  const Todo = req({ id: NumID, title: string, done: boolean })
   const todoAPI = rest(
     Todo,
-    'id',
+    ({ id }) => `${id}`,
     'todos',
     { baseURL: 'https://test2' },
     toJSONServerQuery,
@@ -61,7 +60,7 @@ describe('rest', () => {
   test('get', async () => {
     axiosMock.get.mockResolvedValue({ data })
 
-    const actual = await todoAPI.get(1, { query: 'foo=123' })
+    const actual = await todoAPI.get({ id: 1 }, { query: 'foo=123' })
 
     expect(actual).toEqual(data)
   })
@@ -72,11 +71,11 @@ describe('rest', () => {
     })
 
     try {
-      await todoAPI.get(1, { query: 'foo=123' })
+      await todoAPI.get({ id: 1 }, { query: 'foo=123' })
     } catch (e) {
       expect(e.message).toMatchInlineSnapshot(`
-        "Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/title: string
-        Invalid value \\"false\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
+        "Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/title: string
+        Invalid value \\"false\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/done: boolean"
       `)
     }
   })
@@ -98,19 +97,22 @@ describe('rest', () => {
       await todoAPI.create({ title: 'todo', done: false })
     } catch (e) {
       expect(e.message).toMatchInlineSnapshot(`
-        "Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/title: string
-        Invalid value \\"false\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
+        "Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/title: string
+        Invalid value \\"false\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/done: boolean"
       `)
     }
   })
 
   test('put', async () => {
     axiosMock.put.mockResolvedValue({ data })
-    const actual = await todoAPI.replace(1, {
-      id: 1,
-      title: 'todo',
-      done: true,
-    })
+    const actual = await todoAPI.replace(
+      { id: 1 },
+      {
+        id: 1,
+        title: 'todo',
+        done: true,
+      },
+    )
 
     expect(actual).toEqual(data)
   })
@@ -120,19 +122,19 @@ describe('rest', () => {
       data: { id: '1', description: 'todo', done: 'true' },
     })
     try {
-      await todoAPI.replace(1, { id: 1, title: 'todo', done: true })
+      await todoAPI.replace({ id: 1 }, { id: 1, title: 'todo', done: true })
     } catch (e) {
       expect(e.message).toMatchInlineSnapshot(`
-        "Invalid value \\"1\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/id: number
-        Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/title: string
-        Invalid value \\"true\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
+        "Invalid value \\"1\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/id: NumID
+        Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/title: string
+        Invalid value \\"true\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/done: boolean"
       `)
     }
   })
 
   test('patch', async () => {
     axiosMock.patch.mockResolvedValue({ data })
-    const actual = await todoAPI.update(1, { id: 1, title: 'todo' })
+    const actual = await todoAPI.update({ id: 1 }, { id: 1, title: 'todo' })
     expect(actual).toEqual(data)
   })
 
@@ -141,12 +143,12 @@ describe('rest', () => {
       data: { id: '1', description: 'todo', done: 'true' },
     })
     try {
-      await todoAPI.update(1, { done: 'true' } as any)
+      await todoAPI.update({ id: 1 }, { done: 'true' } as any)
     } catch (e) {
       expect(e.message).toMatchInlineSnapshot(`
-        "Invalid value \\"1\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/id: number
-        Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/title: string
-        Invalid value \\"true\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: number, title: string, done: boolean }>)/1: Readonly<{ id: number, title: string, done: boolean }>/done: boolean"
+        "Invalid value \\"1\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/id: NumID
+        Invalid value undefined supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/title: string
+        Invalid value \\"true\\" supplied to : (Readonly<Partial<{  }>> & Readonly<{ id: NumID, title: string, done: boolean }>)/1: Readonly<{ id: NumID, title: string, done: boolean }>/done: boolean"
       `)
     }
   })
@@ -154,7 +156,7 @@ describe('rest', () => {
   test('delete', async () => {
     axiosMock.delete.mockResolvedValue(undefined)
     // tslint:disable-next-line: no-void-expression
-    const actual: void = await todoAPI.del(1)
+    const actual: void = await todoAPI.del({ id: 1 })
     expect(actual).toBeUndefined()
   })
 })
