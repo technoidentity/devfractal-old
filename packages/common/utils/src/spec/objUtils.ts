@@ -187,6 +187,23 @@ export type PickOne<Opt extends Props, Req extends Props> = ObjC<
   Pick<Opt, OneKeys<Opt>>,
   Pick<Req, OneKeys<Req>>
 >
+export type PickPlain<Opt extends Props, Req extends Props> = ObjC<
+  Omit<Opt, OneKeys<Opt> | ManyKeys<Opt>>,
+  Omit<Req, OneKeys<Req> | ManyKeys<Req>>
+>
+
+export type PickPlainNoID<Opt extends Props, Req extends Props> = ObjC<
+  Omit<Opt, IDKeys<Opt> | OneKeys<Opt> | ManyKeys<Opt>>,
+  Omit<Req, IDKeys<Req> | OneKeys<Req> | ManyKeys<Req>>
+>
+
+export function isPlain(spec: Mixed): boolean {
+  return !(isOne(spec) && isMany(spec))
+}
+
+export function isPlainNoID(spec: Mixed): boolean {
+  return !(isOne(spec) && isMany(spec) && isID(spec))
+}
 
 // tslint:disable typedef
 const buildMe = (me: (props: ManyC<any> | OneC<any> | IDC<any>) => boolean) => (
@@ -196,6 +213,9 @@ const buildMe = (me: (props: ManyC<any> | OneC<any> | IDC<any>) => boolean) => (
 const buildMany = buildMe(isMany)
 const buildOne = buildMe(isOne)
 const buildID = buildMe(isID)
+const buildPlain = buildMe(isPlain)
+const buildPlainNoID = buildMe(isPlainNoID)
+
 // tslint:enable typedef
 
 export function pickMany<Opt extends Props, Req extends Props>(
@@ -216,6 +236,21 @@ export function pickID<Opt extends Props, Req extends Props>(
   return obj(buildID(spec.optional), buildID(spec.required)) as any
 }
 
+export function pickPlain<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): PickPlain<Opt, Req> {
+  return obj(buildPlain(spec.optional), buildPlain(spec.required)) as any
+}
+
+export function pickPlainNoID<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): PickPlainNoID<Opt, Req> {
+  return obj(
+    buildPlainNoID(spec.optional),
+    buildPlainNoID(spec.required),
+  ) as any
+}
+
 export type TypeOfID<Opt extends Props, Req extends Props> = TypeOf<
   PickID<Opt, Req>
 >
@@ -224,4 +259,10 @@ export type TypeOfOne<Opt extends Props, Req extends Props> = TypeOf<
 >
 export type TypeOfMany<Opt extends Props, Req extends Props> = TypeOf<
   PickOne<Opt, Req>
+>
+export type TypeOfPlain<Opt extends Props, Req extends Props> = TypeOf<
+  PickPlain<Opt, Req>
+>
+export type TypeOfPlainNoID<Opt extends Props, Req extends Props> = TypeOf<
+  PickPlainNoID<Opt, Req>
 >
