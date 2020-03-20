@@ -1,6 +1,7 @@
 import {
   exact,
   ExactC,
+  ExactType,
   intersection,
   IntersectionC,
   Mixed,
@@ -10,8 +11,8 @@ import {
   Type,
   type,
   TypeC,
-  TypeOf,
 } from 'io-ts'
+import { keys } from '../common'
 
 // tslint:disable no-class readonly-array no-this
 
@@ -34,8 +35,7 @@ export class ObjType<
   readonly _tag: 'ObjType' = 'ObjType'
 
   constructor(
-    private readonly spec: Type<A, O, I> &
-      (ObjSpec<Opt, Req> | ExactObjSpec<Opt, Req>),
+    readonly spec: Type<A, O, I> & (ObjSpec<Opt, Req> | ExactObjSpec<Opt, Req>),
     name: string,
   ) {
     super(name, spec.is, spec.validate, spec.encode)
@@ -60,6 +60,10 @@ export class ObjType<
 
 export function isObj(spec: Mixed): spec is AnyObj {
   return spec instanceof ObjType
+}
+
+export function isExactObj(spec: Mixed): spec is AnyObj {
+  return spec instanceof ObjType && spec.spec instanceof ExactType
 }
 
 export interface ObjC<Opt extends Props, Req extends Props>
@@ -89,16 +93,16 @@ export type ObjInputOf<Opt extends Props, Req extends Props> = ObjC<
 export type OptC<O extends Props> = ObjC<O, {}>
 export type ReqC<R extends Props> = ObjC<{}, R>
 
-export interface ExactObjC<Opt extends Props, Req extends Props>
-  extends ObjType<
-    Opt,
-    Req,
-    ExactObjSpec<Opt, Req>['_A'],
-    ExactObjSpec<Opt, Req>['_O'],
-    ExactObjSpec<Opt, Req>['_I']
-  > {}
+// export interface ExactObjC<Opt extends Props, Req extends Props>
+//   extends ObjType<
+//     Opt,
+//     Req,
+//     Readonly<ExactObjSpec<Opt, Req>['_A']>,
+//     ExactObjSpec<Opt, Req>['_O'],
+//     ExactObjSpec<Opt, Req>['_I']
+//   > {}
 
-function newObj<Opt extends Props, Req extends Props>(
+export function obj<Opt extends Props, Req extends Props>(
   optional: Opt,
   required: Req,
   name?: string,
@@ -111,58 +115,42 @@ function newObj<Opt extends Props, Req extends Props>(
   return new ObjType(spec, name || spec.name)
 }
 
-function newExactObj<Opt extends Props, Req extends Props>(
+export function exactObj<Opt extends Props, Req extends Props>(
   optional: Opt,
   required: Req,
   name?: string,
-): ExactObjC<Opt, Req> {
+): ObjC<Opt, Req> {
   const spec: ExactObjSpec<Opt, Req> = exact(
     intersection([partial(optional), type(required)]),
   )
   return new ObjType(spec, name || spec.name)
 }
 
-export function obj<Opt extends Props, Req extends Props>(
-  optional: Opt,
-  required: Req,
-  name?: string,
-): ObjC<Opt, Req> {
-  return newObj(optional, required, name)
-}
-
-export function exactObj<Opt extends Props, Req extends Props>(
-  optional: Opt,
-  required: Req,
-  name?: string,
-): ObjC<Opt, Req> {
-  return newExactObj(optional, required, name)
-}
-
 export function req<Req extends Props>(
   required: Req,
   name?: string,
-): ObjC<{}, Req> {
+): ReqC<Req> {
   return obj({}, required, name)
 }
 
 export function exactReq<Req extends Props>(
   required: Req,
   name?: string,
-): ObjC<{}, Req> {
+): ReqC<Req> {
   return exactObj({}, required, name)
 }
 
 export function opt<Opt extends Props>(
   optional: Opt,
   name?: string,
-): ObjC<Opt, {}> {
+): OptC<Opt> {
   return obj(optional, {}, name)
 }
 
 export function exactOpt<Opt extends Props>(
   optional: Opt,
   name?: string,
-): ObjC<Opt, {}> {
+): OptC<Opt> {
   return exactObj(optional, {}, name)
 }
 
@@ -172,11 +160,17 @@ export function getProps<Opt extends Props, Req extends Props>(
   return spec.props
 }
 
+export function getKeys<Opt extends Props, Req extends Props>(
+  spec: ObjC<Opt, Req>,
+): ReadonlyArray<keyof ObjTypeOf<Opt, Req>> {
+  return keys(spec.props)
+}
+
 export function getProp<
   Opt extends Props,
   Req extends Props,
-  K extends keyof TypeOf<ObjC<Opt, Req>>
->(spec: ObjC<Opt, Req>, prop: K): ObjC<Opt, Req>['props'][K] {
+  K extends keyof PropsType<Opt, Req>
+>(spec: ObjC<Opt, Req>, prop: K): PropsType<Opt, Req>[K] {
   return spec.props[prop]
 }
 

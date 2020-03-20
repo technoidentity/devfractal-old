@@ -1,13 +1,54 @@
 import { isRight } from 'fp-ts/lib/Either'
-import { boolean, Branded, Int, IntBrand, number, string, TypeOf } from 'io-ts'
+import {
+  boolean,
+  Branded,
+  Int,
+  IntBrand,
+  number,
+  partial,
+  string,
+  type,
+  TypeOf,
+} from 'io-ts'
 import { IntFromString } from 'io-ts-types/lib/IntFromString'
 import { NumberFromString } from 'io-ts-types/lib/NumberFromString'
-import { exactObj, obj, opt, req } from './obj'
+import {
+  exactObj,
+  exactOpt,
+  exactReq,
+  isExactObj,
+  isObj,
+  obj,
+  opt,
+  req,
+} from './obj'
 import { objCombine, objOmit, objPick, pickBy, toOpt, toReq } from './objUtils'
 
 // tslint:disable typedef
 
 describe('ObjType', () => {
+  it('isObj', () => {
+    expect(isObj(type({ x: number }))).toBeFalsy()
+    expect(isObj(partial({ x: number }))).toBeFalsy()
+    expect(isObj(opt({ x: number }))).toBeTruthy()
+    expect(isObj(exactOpt({ x: number }))).toBeTruthy()
+    expect(isObj(req({ s: number }))).toBeTruthy()
+    expect(isObj(exactReq({ s: number }))).toBeTruthy()
+    expect(isObj(obj({ s: number }, { i: string }))).toBeTruthy()
+    expect(isObj(exactObj({ s: number }, { i: string }))).toBeTruthy()
+  })
+
+  it('isExactObj', () => {
+    expect(isExactObj(type({ x: number }))).toBeFalsy()
+    expect(isExactObj(partial({ x: number }))).toBeFalsy()
+    expect(isExactObj(opt({ x: number }))).toBeFalsy()
+    expect(isExactObj(exactOpt({ x: number }))).toBeTruthy()
+    expect(isExactObj(req({ s: number }))).toBeFalsy()
+    expect(isExactObj(exactReq({ s: number }))).toBeTruthy()
+    expect(isExactObj(obj({ s: number }, { i: string }))).toBeFalsy()
+    expect(isExactObj(exactObj({ s: number }, { i: string }))).toBeTruthy()
+  })
+
   it('req', () => {
     const Point = req({ x: number, y: number })
     type Point = TypeOf<typeof Point>

@@ -18,7 +18,6 @@ import { IDC, isID } from './id'
 import { isMany, ManyC } from './many'
 import {
   exactObj,
-  ExactObjC,
   obj,
   ObjC,
   opt,
@@ -46,8 +45,8 @@ export function objPick<
   Pick<Req, Extract<ReqKeys<Opt, Req>, K>>
 > {
   return obj(
-    pick(spec.optional, keys as any[]),
-    pick(spec.required, keys as any[]),
+    pick(spec.optional, keys as ReadonlyArray<Extract<OptKeys<Opt, Req>, K>>),
+    pick(spec.required, keys as ReadonlyArray<Extract<ReqKeys<Opt, Req>, K>>),
     name,
   )
 }
@@ -61,12 +60,12 @@ export function objOmit<
   keys: readonly K[],
   name?: string,
 ): ObjC<
-  Omit<Opt, Extract<keyof PropsType<Opt, Req>, K>>,
-  Omit<Req, Extract<keyof ReqType<Opt, Req>, K>>
+  Omit<Opt, Extract<OptKeys<Opt, Req>, K>>,
+  Omit<Req, Extract<ReqKeys<Opt, Req>, K>>
 > {
   return obj(
-    omit(spec.optional, keys as any) as any,
-    omit(spec.required, keys as any) as any,
+    omit(spec.optional, keys as ReadonlyArray<Extract<OptKeys<Opt, Req>, K>>),
+    omit(spec.required, keys as ReadonlyArray<Extract<ReqKeys<Opt, Req>, K>>),
     name,
   )
 }
@@ -92,20 +91,20 @@ export function toOpt<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
   name?: string,
 ): OptC<Req & Opt> {
-  return opt(spec.props as Req & Opt, name)
+  return opt(spec.props, name)
 }
 
 export function toReq<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
   name?: string,
 ): ReqC<Req & Opt> {
-  return req(spec.props as Req & Opt, name)
+  return req(spec.props, name)
 }
 
 export function toExact<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
   name?: string,
-): ExactObjC<Opt, Req> {
+): ObjC<Opt, Req> {
   return exactObj(spec.optional, spec.required, name)
 }
 
@@ -126,12 +125,14 @@ export function pickBy<
 ): ObjPickBy<Opt, Req, typeof picks[number]> {
   // tslint:disable typedef
   const names = picks.map(s => s.name)
-  const isSpec = (spec: Mixed) => (names.includes(spec.name) ? spec : undefined)
+
+  const isPicked = (spec: Mixed) =>
+    names.includes(spec.name) ? spec : undefined
   // tslint:enable typedef
 
   return obj(
-    buildObject(spec.optional, isSpec),
-    buildObject(spec.required, isSpec),
+    buildObject(spec.optional, isPicked),
+    buildObject(spec.required, isPicked),
   ) as any
 }
 
