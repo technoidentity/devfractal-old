@@ -30,7 +30,5 @@ export const one = <C extends Mixed>(
 }
 
 export function isOne(spec: Mixed): spec is OneC<any> {
-  const type: any = spec
-
-  return '_tag' in type && type._tag === 'OneType'
+  return spec instanceof OneType
 }

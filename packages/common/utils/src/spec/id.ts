@@ -41,9 +41,7 @@ const id = <C extends NumberC | StringC>(
 }
 
 export function isID(spec: Mixed): spec is IDC<any> {
-  const type: any = spec
-
-  return '_tag' in type && type._tag === 'IDType'
+  return spec instanceof IDType
 }
 
 export const NumID = id(number, 'NumID')

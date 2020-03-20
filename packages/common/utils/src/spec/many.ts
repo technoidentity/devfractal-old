@@ -43,7 +43,5 @@ export const many = <C extends Mixed>(
 }
 
 export function isMany(spec: Mixed): spec is ManyC<any> {
-  const type: any = spec
-
-  return '_tag' in type && type._tag === 'ManyType'
+  return spec instanceof ManyType
 }
