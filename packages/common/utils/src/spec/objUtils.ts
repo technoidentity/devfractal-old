@@ -198,17 +198,17 @@ export type PickPlainNoID<Opt extends Props, Req extends Props> = ObjC<
 >
 
 export function isPlain(spec: Mixed): boolean {
-  return !(isOne(spec) && isMany(spec))
+  return !(isOne(spec) || isMany(spec))
 }
 
 export function isPlainNoID(spec: Mixed): boolean {
-  return !(isOne(spec) && isMany(spec) && isID(spec))
+  return !(isOne(spec) || isMany(spec) || isID(spec))
 }
 
 // tslint:disable typedef
 const buildMe = (me: (props: ManyC<any> | OneC<any> | IDC<any>) => boolean) => (
   props: Props,
-) => buildObject<any, any>(props, prop => (me(prop) ? prop : undefined))
+) => buildObject<any, any>(props, (v, _: any) => (me(v) ? v : undefined))
 
 const buildMany = buildMe(isMany)
 const buildOne = buildMe(isOne)
@@ -239,6 +239,7 @@ export function pickID<Opt extends Props, Req extends Props>(
 export function pickPlain<Opt extends Props, Req extends Props>(
   spec: ObjC<Opt, Req>,
 ): PickPlain<Opt, Req> {
+  // console.log(Object.keys(buildPlain(spec.required)))
   return obj(buildPlain(spec.optional), buildPlain(spec.required)) as any
 }
 
