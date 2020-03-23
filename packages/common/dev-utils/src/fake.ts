@@ -1,24 +1,27 @@
-import Chance from 'chance'
 import {
   AnyArrayType,
   ArrayC,
   ArrayType,
   BooleanType,
+  buildObject,
   EnumType,
   ExactType,
   InterfaceType,
   IntersectionType,
   KeyofType,
   LiteralType,
+  ManyType,
   Mixed,
   NullType,
   NumberType,
   ObjType,
+  OneType,
   PartialType,
   ReadonlyArrayC,
   ReadonlyArrayType,
   ReadonlyType,
   RefinementType,
+  repeatedly,
   StringType,
   TupleType,
   Type,
@@ -27,12 +30,12 @@ import {
   UnionType,
   unknown,
   VoidType,
+  OptionType,
 } from 'technoidentity-utils'
-import { buildObject, repeatedly } from 'technoidentity-utils'
+import uid from 'uid'
+import { chance } from './chance'
 
 // tslint:disable typedef no-use-before-declare
-
-const chance = new Chance()
 
 export const defaultOptions = {
   integer: { min: 100, max: 1000 },
@@ -66,8 +69,24 @@ export function fake<T extends Mixed>(
   spec: T,
   options: FakeOptions = defaultOptions,
 ): TypeOf<typeof spec> {
-  if (spec.name === 'Int') {
+  if (spec.name === 'Int' || spec.name === 'IntID') {
     return chance.integer(options.integer)
+  }
+
+  if (spec.name === 'StrID') {
+    return uid()
+  }
+
+  if (spec instanceof ManyType) {
+    return fake(spec.spec)
+  }
+
+  if (spec instanceof OneType) {
+    return fake(spec.spec)
+  }
+
+  if (spec instanceof OptionType) {
+    return fake(spec.spec)
   }
 
   if (spec instanceof NumberType) {
