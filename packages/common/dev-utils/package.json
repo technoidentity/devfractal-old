@@ -11,7 +11,7 @@
   "author": "Pervez Iqbal",
   "scripts": {
     "start": "parcel index.html --open",
-    "server": "ts-node-dev --project tsconfig.tsnode.json src/app.ts",
+    "server": "nodemon dist/app.js",
     "build": "tsdx build --tsconfig tsconfig.build.json",
     "lib": "tsdx watch --tsconfig tsconfig.build.json",
     "test": "jest --passWithNoTests",
@@ -33,11 +33,13 @@
     "json-server": "0.16.1",
     "tcomb": "3.2.29",
     "technoidentity-utils": "^2.0.1",
-    "tslib": "1.11.1"
+    "tslib": "1.11.1",
+    "uid": "^1.0.0"
   },
   "devDependencies": {
     "cross-env": "7.0.2",
     "jest": "25.1.0",
+    "nodemon": "^2.0.2",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "ts-node-dev": "1.0.0-pre.44",
