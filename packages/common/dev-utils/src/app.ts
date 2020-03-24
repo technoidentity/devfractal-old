@@ -1,13 +1,75 @@
-import * as t from 'technoidentity-utils'
-import { date } from 'technoidentity-utils'
-import { req } from 'technoidentity-utils'
+import {
+  boolean,
+  date,
+  NumID,
+  one,
+  req,
+  StrID,
+  string,
+} from 'technoidentity-utils'
 import { startFakeJSONServer } from './fakeServer'
 
-const User = req({
-  id: t.Int,
-  name: t.string,
-  male: t.boolean,
-  dateOfBirth: date,
-})
+const User = req(
+  {
+    id: StrID,
+    name: string,
+    male: boolean,
+    dateOfBirth: date,
+  },
+  'User',
+)
 
-startFakeJSONServer([{ count: 10, name: 'users', spec: User }])
+const Todo = req(
+  {
+    id: NumID,
+    title: string,
+    done: boolean,
+    user: one(User),
+  },
+  'Todo',
+)
+
+// interface User {
+//   readonly id: TypeOf<typeof StrID>
+//   readonly name: string
+//   readonly male: boolean
+//   readonly dateOfBirth: Date
+//   readonly todos: readonly Todo[]
+// }
+
+// interface Todo {
+//   readonly id: TypeOf<typeof NumID>
+//   readonly title: string
+//   readonly done: boolean
+//   readonly user: User
+// }
+
+// const User: Type<User> = rec(() =>
+//   req(
+//     {
+//       id: StrID,
+//       name: string,
+//       male: boolean,
+//       dateOfBirth: date,
+//       todos: many(Todo),
+//     },
+//     'User',
+//   ),
+// )
+
+// const Todo: Type<Todo> = rec(() =>
+//   req(
+//     {
+//       id: NumID,
+//       title: string,
+//       done: boolean,
+//       user: one(User),
+//     },
+//     'Todo',
+//   ),
+// )
+
+startFakeJSONServer([
+  { count: 10, spec: Todo },
+  { count: 10, spec: User },
+])
