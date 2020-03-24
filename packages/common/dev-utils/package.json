@@ -31,15 +31,17 @@
   "dependencies": {
     "chance": "1.1.4",
     "json-server": "0.16.1",
+    "pluralize": "8.0.0",
     "tcomb": "3.2.29",
-    "technoidentity-utils": "^2.0.1",
+    "technoidentity-utils": "2.0.1",
     "tslib": "1.11.1",
-    "uid": "^1.0.0"
+    "uid": "1.0.0"
   },
   "devDependencies": {
+    "@types/pluralize": "0.0.29",
     "cross-env": "7.0.2",
     "jest": "25.1.0",
-    "nodemon": "^2.0.2",
+    "nodemon": "2.0.2",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "ts-node-dev": "1.0.0-pre.44",
