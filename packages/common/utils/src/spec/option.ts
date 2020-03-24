@@ -47,7 +47,5 @@ export const option = <C extends Mixed>(
 }
 
 export function isOption(spec: Mixed): spec is OptionC<any> {
-  const type: any = spec
-
-  return '_tag' in type && type._tag === 'OptionType'
+  return spec instanceof OptionType
 }

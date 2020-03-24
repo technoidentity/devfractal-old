@@ -11,6 +11,9 @@ export class ObjRecType<
   I
 > extends Type<A, O, I> {
   readonly _tag: 'RecursiveType' = 'RecursiveType'
+
+  readonly type!: ObjC<Opt, Req>
+
   constructor(
     is: ObjRecType<Opt, Req, A, O, I>['is'],
     validate: ObjRecType<Opt, Req, A, O, I>['validate'],
@@ -19,7 +22,6 @@ export class ObjRecType<
   ) {
     super('RecursiveType', is, validate, encode)
   }
-  readonly type!: ObjC<Opt, Req>
 }
 
 export interface ObjRecC<Opt extends Props, Req extends Props>
@@ -43,12 +45,15 @@ export const rec = <Opt extends Props, Req extends Props>(
   definition: (self: ObjC<Opt, Req>) => ObjC<Opt, Req>,
 ): ObjRecC<Opt, Req> => {
   let cache: ObjC<Opt, Req>
+
   const runDefinition = (): ObjC<Opt, Req> => {
     if (!cache) {
       cache = definition(Self)
     }
+
     return cache
   }
+
   const Self: any = new ObjRecType<
     Opt,
     Req,
@@ -61,5 +66,6 @@ export const rec = <Opt extends Props, Req extends Props>(
     a => runDefinition().encode(a),
     runDefinition,
   )
+
   return Self
 }
