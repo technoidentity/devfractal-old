@@ -1,33 +1,28 @@
 import {
   boolean,
   date,
+  model,
   NumID,
-  one,
-  req,
+  obj,
   StrID,
   string,
+  TypeOf,
 } from 'technoidentity-utils'
 import { startFakeJSONServer } from './fakeServer'
 
-const User = req(
-  {
-    id: StrID,
-    name: string,
-    male: boolean,
-    dateOfBirth: date,
-  },
+const User = obj(
+  { dateOfBirth: date },
+  { id: StrID, name: string, male: boolean },
   'User',
 )
 
-const Todo = req(
-  {
-    id: NumID,
-    title: string,
-    done: boolean,
-    user: one(User),
-  },
-  'Todo',
-)
+const Todo = obj({ done: boolean }, { id: NumID, title: string }, 'Todo')
+
+export const TodoModel = model({ plain: Todo, one: { user: User } })
+export const UserModel = model({ plain: User, many: { todos: Todo } })
+
+export type UserModel = TypeOf<typeof UserModel>
+export type TodoModel = TypeOf<typeof TodoModel>
 
 // interface User {
 //   readonly id: TypeOf<typeof StrID>
