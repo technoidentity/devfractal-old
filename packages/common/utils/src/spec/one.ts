@@ -24,7 +24,7 @@ export interface OneC<C extends Mixed>
 
 export const one = <C extends Mixed>(
   codec: C,
-  name: string = `Opt<${codec.name}>`,
+  name: string = `One<${codec.name}>`,
 ): OneC<C> => {
   return new OneType(name, codec.is, codec.validate, codec.encode, codec)
 }
