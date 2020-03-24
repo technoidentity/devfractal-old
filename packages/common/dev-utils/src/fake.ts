@@ -16,6 +16,7 @@ import {
   NumberType,
   ObjType,
   OneType,
+  OptionType,
   PartialType,
   ReadonlyArrayC,
   ReadonlyArrayType,
@@ -30,7 +31,6 @@ import {
   UnionType,
   unknown,
   VoidType,
-  OptionType,
 } from 'technoidentity-utils'
 import uid from 'uid'
 import { chance } from './chance'
@@ -69,7 +69,7 @@ export function fake<T extends Mixed>(
   spec: T,
   options: FakeOptions = defaultOptions,
 ): TypeOf<typeof spec> {
-  if (spec.name === 'Int' || spec.name === 'IntID') {
+  if (spec.name === 'Int' || spec.name === 'NumID') {
     return chance.integer(options.integer)
   }
 
