@@ -26,4 +26,4 @@ export const Battery = obj(
   },
 )
 
-startFakeJSONServer([{ name: 'batteries', spec: Battery, count: 50 }], 9999)
+startFakeJSONServer([{ spec: Battery, count: 50 }], 9999)
