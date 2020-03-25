@@ -15,8 +15,9 @@ import {
 import { PickByValue } from 'utility-types'
 import { buildObject, omit, pick } from '../common'
 import { IDC, isID } from './id'
-import { isMany, ManyC } from './many'
+import { isMany, many, ManyC } from './many'
 import {
+  AnyObj,
   exactObj,
   obj,
   ObjC,
@@ -30,7 +31,23 @@ import {
   ReqKeys,
   ReqType,
 } from './obj'
-import { isOne, OneC } from './one'
+import { isOne, one, OneC } from './one'
+import { option, OptionC } from './option'
+
+export type ObjPick<
+  Opt extends Props,
+  Req extends Props,
+  K extends PropsKeys<Opt, Req>
+> = ObjC<
+  Pick<Opt, Extract<OptKeys<Opt, Req>, K>>,
+  Pick<Req, Extract<ReqKeys<Opt, Req>, K>>
+>
+
+export type TypeOfPick<
+  Opt extends Props,
+  Req extends Props,
+  K extends PropsKeys<Opt, Req>
+> = TypeOf<ObjPick<Opt, Req, K>>
 
 export function objPick<
   Opt extends Props,
@@ -40,10 +57,7 @@ export function objPick<
   spec: ObjC<Opt, Req>,
   keys: readonly K[],
   name?: string,
-): ObjC<
-  Pick<Opt, Extract<OptKeys<Opt, Req>, K>>,
-  Pick<Req, Extract<ReqKeys<Opt, Req>, K>>
-> {
+): ObjPick<Opt, Req, K> {
   return obj(
     pick(spec.optional, keys as ReadonlyArray<Extract<OptKeys<Opt, Req>, K>>),
     pick(spec.required, keys as ReadonlyArray<Extract<ReqKeys<Opt, Req>, K>>),
@@ -51,10 +65,25 @@ export function objPick<
   )
 }
 
+export type ObjOmit<
+  Opt extends Props,
+  Req extends Props,
+  K extends PropsKeys<Opt, Req>
+> = ObjC<
+  Omit<Opt, Extract<OptKeys<Opt, Req>, K>>,
+  Omit<Req, Extract<ReqKeys<Opt, Req>, K>>
+>
+
+export type TypeOfOmit<
+  Opt extends Props,
+  Req extends Props,
+  K extends PropsKeys<Opt, Req>
+> = TypeOf<ObjOmit<Opt, Req, K>>
+
 export function objOmit<
   Opt extends Props,
   Req extends Props,
-  K extends keyof ObjC<Opt, Req>['props']
+  K extends PropsKeys<Opt, Req>
 >(
   spec: ObjC<Opt, Req>,
   keys: readonly K[],
@@ -107,8 +136,6 @@ export function toExact<Opt extends Props, Req extends Props>(
 ): ObjC<Opt, Req> {
   return exactObj(spec.optional, spec.required, name)
 }
-
-// export function pickByValue
 
 export type ObjPickBy<Opt extends Props, Req extends Props, ValueType> = ObjC<
   PickByValue<PropsType<Opt, Req>, ValueType>,
@@ -267,3 +294,68 @@ export type TypeOfPlain<Opt extends Props, Req extends Props> = TypeOf<
 export type TypeOfPlainNoID<Opt extends Props, Req extends Props> = TypeOf<
   PickPlainNoID<Opt, Req>
 >
+export interface ObjProps {
+  readonly [s: string]: AnyObj
+}
+
+export type WrapMany<P extends ObjProps> = {
+  readonly [K in keyof P]: ManyC<P[K]>
+}
+
+export type WrapOne<P extends ObjProps> = {
+  readonly [K in keyof P]: OneC<P[K]>
+}
+
+export type WrapOption<P extends ObjProps> = {
+  readonly [K in keyof P]: OptionC<P[K]>
+}
+
+// tslint:disable no-unnecessary-callback-wrapper
+export function wrapMany<P extends ObjProps = {}>(props: P): WrapMany<P> {
+  return buildObject(props, v => many(v)) as any
+}
+
+export function wrapOne<P extends ObjProps = {}>(props: P): WrapOne<P> {
+  return buildObject(props, v => one(v)) as any
+}
+
+export function wrapOption<P extends ObjProps = {}>(props: P): WrapOption<P> {
+  return buildObject(props, v => option(v)) as any
+}
+// tslint:enable no-unnecessary-callback-wrapper
+
+interface UnwraProps<T> {
+  readonly [s: string]: T
+}
+
+export type UnwrapMany<P extends UnwraProps<any>> = {
+  readonly [K in keyof P]: P[K] extends ManyC<infer R> ? R : never
+}
+
+export type UnwrapOne<P extends UnwraProps<any>> = {
+  readonly [K in keyof P]: P[K] extends OneC<infer R> ? R : never
+}
+
+export type UnwrapOption<P extends UnwraProps<any>> = {
+  readonly [K in keyof P]: P[K] extends OneC<infer R> ? R : never
+}
+
+// tslint:disable no-unnecessary-callback-wrapper
+
+export function unwrapMany<P extends UnwraProps<ManyC<any>>>(
+  props: P,
+): UnwrapMany<P> {
+  return buildObject(props, v => v.spec) as any
+}
+
+export function unwrapOne<P extends UnwraProps<OneC<any>>>(
+  props: P,
+): UnwrapOne<P> {
+  return buildObject(props, v => v.spec) as any
+}
+
+export function unwrapOption<P extends UnwraProps<OptionC<any>>>(
+  props: P,
+): UnwrapOption<P> {
+  return buildObject(props, v => v.spec) as any
+}
