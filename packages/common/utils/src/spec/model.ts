@@ -1,22 +1,18 @@
+/* eslint-disable @typescript-eslint/interface-name-prefix */
 import { Props } from 'io-ts'
-import { OptionalKeys, RequiredKeys } from 'utility-types'
-import { NumID, StrID } from './id'
-import { AnyObj, obj, ObjC } from './obj'
+import { IDC } from './id'
+import { obj, ObjC, ReqC } from './obj'
+import { ObjProps, WrapMany, wrapMany, WrapOne, wrapOne } from './objUtils'
 
-type ID = typeof StrID | typeof NumID
+// tslint:disable no-unnecessary-callback-wrapper typedef
 
-// eslint-disable-next-line @typescript-eslint/interface-name-prefix
-interface IDProps {
-  readonly id: ID
-}
-
-interface ObjProps {
-  readonly [s: string]: AnyObj
+export interface ModelID {
+  readonly id: IDC<any> | ReqC<{ readonly [s: string]: IDC<any> }>
 }
 
 interface ResArgs<
   Opt extends Props,
-  Req extends Props & IDProps,
+  Req extends Props & ModelID,
   Many extends ObjProps,
   One extends ObjProps
 > {
@@ -25,25 +21,55 @@ interface ResArgs<
   readonly one?: One
 }
 
-export type PickRequired<T> = Pick<T, RequiredKeys<T>>
-export type PickOptional<T> = Pick<T, OptionalKeys<T>>
-
-export type ModelC<P> = ObjC<Required<PickOptional<P>>, PickRequired<P>>
+interface IDResArgs<
+  ID extends ModelID,
+  Opt extends Props,
+  Req extends Props,
+  Many extends ObjProps,
+  One extends ObjProps
+> {
+  readonly id: ID
+  readonly plain: ObjC<Opt, Omit<Req, 'id'>>
+  readonly many?: Many
+  readonly one?: One
+}
 
 export function model<
   Opt extends Props,
-  Req extends Props & IDProps,
+  Req extends Props & ModelID,
   Many extends ObjProps = {},
   One extends ObjProps = {}
 >({
   plain: { optional, required },
   many,
   one,
-}: ResArgs<Opt, Req, Many, One>): ModelC<
-  Partial<Opt> & Partial<Many> & Req & One
+}: ResArgs<Opt, Req, Many, One>): ObjC<
+  Opt & WrapMany<Many> & WrapOne<One>,
+  Req
 > {
-  return obj(
-    many ? { ...optional, ...many } : optional,
-    one ? { ...required, ...one } : required,
-  ) as any
+  const m = many && wrapMany(many)
+  const o = one && wrapOne(one)
+
+  return obj({ ...optional, ...m, ...o }, required) as any
+}
+
+export function idModel<
+  ID extends ModelID,
+  Opt extends Props,
+  Req extends Props,
+  Many extends ObjProps = {},
+  One extends ObjProps = {}
+>({
+  id,
+  plain: { optional, required },
+  many,
+  one,
+}: IDResArgs<ID, Opt, Req, Many, One>): ObjC<
+  Opt & WrapMany<Many> & WrapOne<One>,
+  Req
+> {
+  const m = many && wrapMany(many)
+  const o = one && wrapOne(one)
+
+  return obj({ ...optional, ...m, ...o }, { ...required, ...id }) as any
 }
