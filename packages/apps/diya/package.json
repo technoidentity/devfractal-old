@@ -25,11 +25,12 @@
     "@types/googlemaps": "3.39.3",
     "date-fns": "2.11.0",
     "formik": "2.1.4",
-    "react": "16.13.0",
     "react-autosuggest": "9.4.3",
     "react-dom": "16.13.0",
-    "technoidentity-devfractal": "^2.0.3",
-    "technoidentity-utils": "^2.0.1",
+    "react": "16.13.0",
+    "technoidentity-crud": "2.0.3",
+    "technoidentity-ui": "2.0.3",
+    "technoidentity-utils": "2.0.1",
     "yup": "0.28.3"
   },
   "devDependencies": {
