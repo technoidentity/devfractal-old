@@ -1,7 +1,7 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
-import { http as httpAPI } from 'technoidentity-devfractal'
+import { http as httpAPI } from 'technoidentity-core'
 import { Input } from 'technoidentity-ui'
 import { Mixed, readonlyArray } from 'technoidentity-utils'
 import '../stylesheets/auto-suggestion.scss'

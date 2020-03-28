@@ -1,6 +1,6 @@
 import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api'
 import React from 'react'
-import { http as httpAPI } from 'technoidentity-devfractal'
+import { http as httpAPI } from 'technoidentity-core'
 import { readonlyArray } from 'technoidentity-utils'
 import { VehicleLocation } from '../common'
 import { fakeBaseURL, googleMapApiKey } from '../config'

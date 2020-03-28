@@ -1,14 +1,7 @@
 import React from 'react'
-import {
-  Column,
-  Columns,
-  component,
-  Create,
-  Section,
-  Simple,
-  SubmitAction,
-  Title,
-} from 'technoidentity-devfractal'
+import { component } from 'technoidentity-core'
+import { Create, SubmitAction } from 'technoidentity-crud'
+import { Column, Columns, Section, Simple, Title } from 'technoidentity-ui'
 import { empty, fn, req } from 'technoidentity-utils'
 import { AssignDriver, assignDriverAPI } from '../common'
 

@@ -1,19 +1,19 @@
 import React from 'react'
+import { required } from 'technoidentity-core'
+import { formComponent } from 'technoidentity-crud'
 import {
   Box,
   Button,
   Column,
   Columns,
-  formComponent,
   Image,
   Media,
   MediaContent,
   Radio,
-  required,
   Section,
   Simple,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-ui'
 import { User } from '../common'
 import { HeadTitle } from '../components'
 

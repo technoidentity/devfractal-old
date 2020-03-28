@@ -20,7 +20,7 @@ import {
   NavbarBurger,
   NavbarBurgerProps,
   Section,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-ui'
 import { fn, keyof, req, TypeOf } from 'technoidentity-utils'
 import diyaLogo from '../images/diyaLogo.png'
 import { MenuBurger } from './MenuBurger'

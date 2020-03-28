@@ -1,5 +1,5 @@
 import React from 'react'
-import { All, paths } from 'technoidentity-devfractal'
+import { All, paths } from 'technoidentity-crud'
 import { invoiceAPI } from '../common'
 import { InvoiceList } from '../views'
 

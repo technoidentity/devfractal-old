@@ -4,8 +4,8 @@ import {
   links,
   listComponent,
   RoutedPager,
-  Section,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-crud'
+import { Section } from 'technoidentity-ui'
 import { Employee } from '../common'
 import { HeadTitle } from '../components'
 import { CreateLink } from './CreateLink'

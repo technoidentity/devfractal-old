@@ -1,12 +1,6 @@
 import React from 'react'
-import {
-  Column,
-  Columns,
-  formComponent,
-  Section,
-  Simple,
-  Title,
-} from 'technoidentity-devfractal'
+import { formComponent } from 'technoidentity-crud'
+import { Column, Columns, Section, Simple, Title } from 'technoidentity-ui'
 import { Client } from '../common'
 
 export const ClientForm = formComponent(

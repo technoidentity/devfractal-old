@@ -1,13 +1,7 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
-import {
-  Column,
-  Columns,
-  links,
-  listComponent,
-  RoutedPager,
-  Section,
-} from 'technoidentity-devfractal'
+import { links, listComponent, RoutedPager } from 'technoidentity-crud'
+import { Column, Columns, Section } from 'technoidentity-ui'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'

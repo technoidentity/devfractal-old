@@ -1,11 +1,7 @@
 import React from 'react'
-import {
-  component,
-  Create,
-  formProps,
-  Section,
-  Simple,
-} from 'technoidentity-devfractal'
+import { component } from 'technoidentity-core'
+import { Create, formProps } from 'technoidentity-crud'
+import { Section, Simple } from 'technoidentity-ui'
 import { empty } from 'technoidentity-utils'
 import { AssignBattery, assignBatteryAPI } from '../common'
 import { HeadTitle } from '../components'

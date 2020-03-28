@@ -1,10 +1,6 @@
 import React from 'react'
-import {
-  CrudTable,
-  links,
-  listComponent,
-  Section,
-} from 'technoidentity-devfractal'
+import { CrudTable, links, listComponent } from 'technoidentity-crud'
+import { Section } from 'technoidentity-ui'
 import { Trip } from '../common'
 import { HeadTitle } from '../components'
 

@@ -1,4 +1,4 @@
-import { rest, toJSONServerQuery } from 'technoidentity-devfractal'
+import { rest, toJSONServerQuery } from 'technoidentity-core'
 import { ObjC, Props, TypeOfID } from 'technoidentity-utils'
 import { fakeBaseURL } from '../config'
 import {

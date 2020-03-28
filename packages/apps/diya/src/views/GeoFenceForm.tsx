@@ -1,11 +1,6 @@
 import React from 'react'
-import {
-  Column,
-  Columns,
-  formComponent,
-  Section,
-  Simple,
-} from 'technoidentity-devfractal'
+import { formComponent } from 'technoidentity-crud'
+import { Column, Columns, Section, Simple } from 'technoidentity-ui'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 import { GeoFence as GeoFenceMap } from '../maps'

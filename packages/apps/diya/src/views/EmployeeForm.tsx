@@ -1,18 +1,18 @@
 import React from 'react'
+import { required } from 'technoidentity-core'
+import { formComponent } from 'technoidentity-crud'
 import {
   Box,
   Button,
   Column,
   Columns,
-  formComponent,
   Image,
   Media,
   MediaContent,
-  required,
   Section,
   Simple,
   Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-ui'
 import { Employee } from '../common'
 
 // const validationSchema = yup.object().shape({

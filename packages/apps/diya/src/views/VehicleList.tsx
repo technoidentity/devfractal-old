@@ -1,10 +1,6 @@
 import React from 'react'
-import {
-  links,
-  listComponent,
-  RoutedPager,
-  Section,
-} from 'technoidentity-devfractal'
+import { links, listComponent, RoutedPager } from 'technoidentity-crud'
+import { Section } from 'technoidentity-ui'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'

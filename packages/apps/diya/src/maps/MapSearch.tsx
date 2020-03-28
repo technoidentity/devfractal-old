@@ -6,7 +6,7 @@ import {
   MarkerProps,
 } from '@react-google-maps/api'
 import React from 'react'
-import { Input, InputProps } from 'technoidentity-devfractal'
+import { Input, InputProps } from 'technoidentity-ui'
 import { LoadMapApiKey } from './LoadMapApiKey'
 
 interface MapSearchProps {

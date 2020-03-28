@@ -1,11 +1,6 @@
 import React from 'react'
-import {
-  links,
-  listComponent,
-  RoutedPager,
-  Section,
-  Title,
-} from 'technoidentity-devfractal'
+import { links, listComponent, RoutedPager } from 'technoidentity-crud'
+import { Section, Title } from 'technoidentity-ui'
 import { Battery } from '../common'
 import { DiyaTable } from '../components/DiyaTable'
 import { CreateLink } from './CreateLink'

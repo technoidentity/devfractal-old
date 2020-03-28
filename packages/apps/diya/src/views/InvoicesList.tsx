@@ -1,10 +1,6 @@
 import React from 'react'
-import {
-  listComponent,
-  RoutedPager,
-  Section,
-  SimpleTable,
-} from 'technoidentity-devfractal'
+import { listComponent, RoutedPager, SimpleTable } from 'technoidentity-crud'
+import { Section } from 'technoidentity-ui'
 import { Invoice } from '../common'
 import { HeadTitle } from '../components'
 

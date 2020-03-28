@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrudRoutes } from 'technoidentity-devfractal'
+import { CrudRoutes } from 'technoidentity-crud'
 import { batteryAPI } from '../common'
 import { BatteryForm, BatteryList } from '../views'
 
