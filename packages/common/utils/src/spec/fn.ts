@@ -1,4 +1,5 @@
 import { failure, identity, success, Type } from 'io-ts'
+import { isFunction } from '../common/common'
 
 // tslint:disable no-class no-this
 
@@ -8,7 +9,8 @@ export class FnType<F extends Function> extends Type<F> {
   constructor() {
     super(
       'FnType',
-      (u): u is F => typeof u === 'function',
+      // tslint:disable-next-line: no-unnecessary-callback-wrapper
+      (u): u is F => isFunction(u),
 
       (u, c) => (this.is(u) ? success(u) : failure(u, c)),
       identity,

@@ -1,5 +1,6 @@
 import React from 'react'
 import { RowClickEvent, useCrudComponents } from 'technoidentity-core'
+import { isFunction } from 'technoidentity-utils/src'
 import { Get } from '../api'
 
 export interface SimpleTableProps<
@@ -23,7 +24,7 @@ export function SimpleTable<
   const { data, ...props } = args
   const { TableView } = useCrudComponents()
 
-  return typeof data === 'function' ? (
+  return isFunction(data) ? (
     <Get asyncFn={data}>{data => <TableView {...props} data={data} />}</Get>
   ) : (
     <TableView data={data} {...props} />
