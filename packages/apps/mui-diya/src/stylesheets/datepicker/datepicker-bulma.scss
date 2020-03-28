@@ -1,0 +1,13 @@
+@import './variables.scss';
+@import '~bulma/bulma.sass';
+
+$datepicker__background-color: $primary;
+$datepicker__selected-color: $primary;
+$datepicker__border-radius: $radius-small;
+$datepicker__font-size: $size-6;
+$datepicker__border-color: 0.1rem solid $white-ter;
+$datepicker__header-color: findColorInvert($datepicker__background-color);
+$datepicker__muted-color: findColorInvert($datepicker__background-color);
+$datepicker__day-margin: 0.5rem;
+
+@import 'datepicker.scss';

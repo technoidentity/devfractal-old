@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.client.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "jsx": "react"
+  },
+  "references": [
+    { "path": "../../common/utils" },
+    { "path": "../../devfractal/core" },
+    { "path": "../../devfractal/crud" },
+    { "path": "../../devfractal/mui" },
+    { "path": "../../devfractal/ui" }
+  ]
+}

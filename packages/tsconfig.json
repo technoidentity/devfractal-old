@@ -4,6 +4,7 @@
     { "path": "common/dev-utils" },
     { "path": "common/utils" },
     { "path": "apps/diya" },
+    { "path": "apps/mui-diya" },
     { "path": "apps/presentation" },
     { "path": "apps/task-client" },
     { "path": "apps/starter" },

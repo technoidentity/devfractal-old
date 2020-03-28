@@ -1,0 +1,73 @@
+{
+  "name": "apps-mui-diya-client",
+  "version": "2.0.3",
+  "private": true,
+  "scripts": {
+    "start": "parcel index.html --open",
+    "server": "cross-env PORT=9999 ts-node --project tsconfig.tsnode.json src/db.ts",
+    "build": "parcel build index.html",
+    "test": "jest --passWithNoTests",
+    "test:watch": "yarn test --watch",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "elint:fix": "yarn elint --quiet --fix",
+    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
+    "tlint:fix": "yarn lint --fix",
+    "lint": "yarn elint && yarn tlint",
+    "lint:fix": "yarn elint:fix && yarn tlint:fix",
+    "types": "tsc --emitDeclarationOnly -p .",
+    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
+    "validate": "yarn lint:fix && yarn types && yarn test"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "1.8.5",
+    "@types/googlemaps": "3.39.3",
+    "date-fns": "2.11.0",
+    "formik": "2.1.4",
+    "react-autosuggest": "9.4.3",
+    "react-dom": "16.13.0",
+    "react": "16.13.0",
+    "technoidentity-crud": "2.0.3",
+    "technoidentity-mui": "2.0.3",
+    "technoidentity-ui": "2.0.3",
+    "technoidentity-utils": "2.0.1",
+    "yup": "0.28.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.1.1",
+    "@testing-library/react": "10.0.1",
+    "@types/jest": "25.1.4",
+    "@types/node": "13.9.2",
+    "@types/react": "16.9.23",
+    "@types/react-autosuggest": "9.3.13",
+    "@types/yup": "0.26.33",
+    "bulmaswatch": "0.8.0",
+    "cross-env": "7.0.2",
+    "eslint": "6.8.0",
+    "jest": "25.1.0",
+    "node-sass": "4.13.1",
+    "parcel-bundler": "1.12.4",
+    "prettier": "1.19.1",
+    "react-datepicker": "2.14.0",
+    "technoidentity-dev-utils": "^2.0.1",
+    "ts-jest": "25.2.1",
+    "ts-node": "8.7.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-immutable": "6.0.1",
+    "tslint-react": "4.2.0",
+    "typescript": "3.8.3",
+    "typescript-tslint-plugin": "0.5.5"
+  },
+  "proxy": "http://localhost:9999",
+  "resolutions": {
+    "react": "16.13.0",
+    "react-dom": "16.13.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
