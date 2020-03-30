@@ -1,7 +1,7 @@
 import { Form, Formik } from 'formik'
 import React from 'react'
-import { consoleSubmit } from 'technoidentity-core'
-import { camelCaseToPhrase } from 'technoidentity-utils'
+import { consoleSubmit } from 'srtp-core'
+import { camelCaseToPhrase } from 'srtp-utils'
 import * as yup from 'yup'
 import { Field, Label } from '../core'
 import {

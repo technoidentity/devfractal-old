@@ -15,7 +15,7 @@ import {
   PanelTabs,
   PanelTabsItem,
   Section,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const PanelExample: React.FC = () => (
   <Section>

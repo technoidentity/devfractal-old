@@ -11,7 +11,7 @@ import {
   Props,
   StringC,
   StringType,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 import { CheckboxFieldProps, DateFieldProps, InputFieldProps } from './fields'
 import { Simple } from './SimpleForm'
 

@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Container,
-  Media,
-  MediaContent,
-  MediaLeft,
-  Text,
-} from 'technoidentity-ui'
+import { Container, Media, MediaContent, MediaLeft, Text } from 'srtp-ui'
 
 export const FormMedia: React.FC = () => (
   <Container style={{ margin: '25px' }}>

@@ -1,5 +1,5 @@
-import * as t from 'technoidentity-utils'
-import { date, lit, obj, opt, req } from 'technoidentity-utils'
+import * as t from 'srtp-utils'
+import { date, lit, obj, opt, req } from 'srtp-utils'
 
 // tslint:disable typedef
 

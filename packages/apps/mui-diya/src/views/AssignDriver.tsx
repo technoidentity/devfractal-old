@@ -1,8 +1,8 @@
 import React from 'react'
-import { component } from 'technoidentity-core'
-import { Create, SubmitAction } from 'technoidentity-crud'
-import { Column, Columns, Section, Simple, Title } from 'technoidentity-ui'
-import { empty, fn, req } from 'technoidentity-utils'
+import { component } from 'srtp-core'
+import { Create, SubmitAction } from 'srtp-crud'
+import { Column, Columns, Section, Simple, Title } from 'srtp-ui'
+import { empty, fn, req } from 'srtp-utils'
 import { AssignDriver, assignDriverAPI } from '../common'
 
 const AssignDriverFormProps = req({

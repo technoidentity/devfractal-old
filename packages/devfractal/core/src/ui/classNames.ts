@@ -1,4 +1,4 @@
-import { keys, string, UnknownArray, UnknownRecord } from 'technoidentity-utils'
+import { keys, string, UnknownArray, UnknownRecord } from 'srtp-utils'
 
 export type ClassNameArg =
   | string

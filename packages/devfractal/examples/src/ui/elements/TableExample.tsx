@@ -9,7 +9,7 @@ import {
   Th,
   Title,
   Tr,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const BorderedTableExample: React.FC = () => (
   <Section>

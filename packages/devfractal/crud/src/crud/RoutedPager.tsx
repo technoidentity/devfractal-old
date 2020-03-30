@@ -1,8 +1,8 @@
 import { stringify } from 'query-string'
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { useCrudComponents } from 'technoidentity-core'
-import { IntFromString, opt } from 'technoidentity-utils'
+import { useCrudComponents } from 'srtp-core'
+import { IntFromString, opt } from 'srtp-utils'
 import { useQuery } from './useQuery'
 
 interface RoutedPagerProps {

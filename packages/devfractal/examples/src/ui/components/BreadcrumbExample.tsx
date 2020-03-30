@@ -5,14 +5,8 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Container,
-  Icon,
-  Section,
-} from 'technoidentity-ui'
+import { SafeRoute, SimpleRedirect } from 'srtp-core'
+import { Breadcrumb, BreadcrumbItem, Container, Icon, Section } from 'srtp-ui'
 
 export const BreadcrumbAlignmentsExample: React.FC = () => (
   <>

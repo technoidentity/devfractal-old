@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrudRoutes } from 'technoidentity-crud'
+import { CrudRoutes } from 'srtp-crud'
 import { vehicleAPI } from '../common'
 import { VehicleForm, VehicleList } from '../views'
 

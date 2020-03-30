@@ -1,5 +1,5 @@
 import React from 'react'
-import { Section, Simple } from 'technoidentity-ui'
+import { Section, Simple } from 'srtp-ui'
 import { boolean, object, ObjectSchema, string } from 'yup'
 
 export interface AddTodoValues {

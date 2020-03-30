@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Container,
-  Media,
-  MediaContent,
-  MediaLeft,
-  Text,
-} from 'technoidentity-ui'
+import { Container, Media, MediaContent, MediaLeft, Text } from 'srtp-ui'
 import columnsIcon from '../src/images/column.png'
 import componentsIcon from '../src/images/components.png'
 import compositesIcon from '../src/images/composites.png'

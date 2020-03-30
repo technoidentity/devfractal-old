@@ -11,7 +11,7 @@ import {
   StringMT,
   StringRefinements,
 } from 'meta-core'
-import { buildObject } from 'technoidentity-utils'
+import { buildObject } from 'srtp-utils'
 import {
   array,
   ArraySchema,

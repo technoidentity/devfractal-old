@@ -1,10 +1,6 @@
 import React from 'react'
-import {
-  ControlledProps,
-  Uncontrolled,
-  ValueChangeEvent,
-} from 'technoidentity-core'
-import { debug } from 'technoidentity-utils'
+import { ControlledProps, Uncontrolled, ValueChangeEvent } from 'srtp-core'
+import { debug } from 'srtp-utils'
 import { classNamesHelper, El, Helpers } from '../core'
 
 export interface TabsChangeEvent extends ValueChangeEvent<string> {}

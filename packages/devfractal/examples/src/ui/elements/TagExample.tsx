@@ -1,5 +1,5 @@
 import React from 'react'
-import { Control } from 'technoidentity-ui'
+import { Control } from 'srtp-ui'
 import {
   Box,
   Delete,
@@ -9,7 +9,7 @@ import {
   Tags,
   Text,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const BasicTagExample: React.FC = () => (
   <Section>

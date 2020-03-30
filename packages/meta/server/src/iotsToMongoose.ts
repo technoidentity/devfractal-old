@@ -1,7 +1,7 @@
 import { Document, model, Model, Schema } from 'mongoose'
-import * as t from 'technoidentity-utils'
-import { EnumType, ObjType } from 'technoidentity-utils'
-import { buildObject, keys } from 'technoidentity-utils'
+import * as t from 'srtp-utils'
+import { EnumType, ObjType } from 'srtp-utils'
+import { buildObject, keys } from 'srtp-utils'
 
 function schemaFromPrimitiveRT(spec: t.Mixed): any {
   if (spec.name === 'Int') {

@@ -1,5 +1,5 @@
 {
-  "name": "technoidentity-dev-utils",
+  "name": "srtp-dev-utils",
   "version": "2.0.1",
   "description": "devlopment utils for all devfractal libs",
   "main": "dist/index.js",
@@ -33,7 +33,7 @@
     "json-server": "0.16.1",
     "pluralize": "8.0.0",
     "tcomb": "3.2.29",
-    "technoidentity-utils": "2.0.1",
+    "srtp-utils": "2.0.1",
     "tslib": "1.11.1",
     "uid": "1.0.0"
   },

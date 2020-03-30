@@ -1,7 +1,7 @@
 import { parse, stringify } from 'query-string'
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { API, APIQuery, Page, SafeRoute } from 'technoidentity-core'
+import { API, APIQuery, Page, SafeRoute } from 'srtp-core'
 import {
   cast,
   IntFromString,
@@ -11,7 +11,7 @@ import {
   record,
   string,
   TypeOf,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 import { Get } from '../api'
 
 // tslint:disable-next-line: typedef

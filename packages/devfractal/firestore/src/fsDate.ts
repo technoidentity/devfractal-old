@@ -1,7 +1,7 @@
 import * as firebase from 'firebase/app'
 import 'firebase/firestore'
-import * as t from 'technoidentity-utils'
-import { date } from 'technoidentity-utils'
+import * as t from 'srtp-utils'
+import { date } from 'srtp-utils'
 
 export interface DateFromTimestampC
   extends t.Type<Date, firebase.firestore.Timestamp> {}

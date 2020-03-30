@@ -1,5 +1,5 @@
 import React from 'react'
-import { debug } from 'technoidentity-utils'
+import { debug } from 'srtp-utils'
 import { classNamesHelper, El, Helpers } from '../base'
 import { AllControlHelpers } from './controlDiv'
 import { ControlWrapper } from './ControlWrapper'

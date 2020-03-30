@@ -1,5 +1,5 @@
-import { FSDate, fsRest } from 'technoidentity-fs'
-import { boolean, req, string, TypeOf } from 'technoidentity-utils'
+import { FSDate, fsRest } from 'srtp-fs'
+import { boolean, req, string, TypeOf } from 'srtp-utils'
 import { db } from './firestore'
 // tslint:disable typedef
 export const FSTodo = req({

@@ -7,8 +7,8 @@ import {
   FormikHelpers,
 } from 'formik'
 import React from 'react'
-import { useGet, useParamsSafe, useSubmitRedirect } from 'technoidentity-core'
-import { ServerError } from 'technoidentity-crud'
+import { useGet, useParamsSafe, useSubmitRedirect } from 'srtp-core'
+import { ServerError } from 'srtp-crud'
 import {
   Button,
   CheckBox,
@@ -18,8 +18,8 @@ import {
   Label,
   Text,
   Title,
-} from 'technoidentity-ui'
-import { pickID } from 'technoidentity-utils'
+} from 'srtp-ui'
+import { pickID } from 'srtp-utils'
 import * as yup from 'yup'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'

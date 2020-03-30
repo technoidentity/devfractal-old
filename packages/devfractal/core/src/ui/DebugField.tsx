@@ -1,6 +1,6 @@
 import { FormikConsumer } from 'formik'
 import React from 'react'
-import { jsonStringify } from 'technoidentity-utils'
+import { jsonStringify } from 'srtp-utils'
 
 export interface DebugFieldProps {
   readonly includeTouched?: boolean

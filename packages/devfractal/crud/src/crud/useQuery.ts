@@ -1,6 +1,6 @@
 import { parse } from 'query-string'
 import { useLocation } from 'react-router'
-import { cast, ObjC, Props, record, string, TypeOf } from 'technoidentity-utils'
+import { cast, ObjC, Props, record, string, TypeOf } from 'srtp-utils'
 
 export function useQuery<Opt extends Props, Req extends Props>(
   spec: ObjC<Req, Opt>,

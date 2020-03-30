@@ -11,9 +11,9 @@ import {
   positive,
   required,
   uppercase,
-} from 'technoidentity-core'
-import { RadioItem, typedForm } from 'technoidentity-mui'
-import { ISODate } from 'technoidentity-utils'
+} from 'srtp-core'
+import { RadioItem, typedForm } from 'srtp-mui'
+import { ISODate } from 'srtp-utils'
 
 interface SimpleValues {
   readonly username: string

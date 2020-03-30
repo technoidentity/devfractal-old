@@ -12,8 +12,8 @@ import {
   Td,
   Th,
   Tr,
-} from 'technoidentity-ui'
-import { boolean, capitalize, date } from 'technoidentity-utils'
+} from 'srtp-ui'
+import { boolean, capitalize, date } from 'srtp-utils'
 import { Todo } from './common'
 
 const Actions = withRouter(({ history, editTo }: any) => {

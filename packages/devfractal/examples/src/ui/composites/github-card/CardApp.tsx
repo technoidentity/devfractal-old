@@ -1,5 +1,5 @@
 import React from 'react'
-import { Section } from 'technoidentity-ui'
+import { Section } from 'srtp-ui'
 import { Card } from './Card'
 import { SearchForm } from './SearchForm'
 

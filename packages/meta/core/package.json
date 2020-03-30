@@ -24,7 +24,7 @@
     "validate": "yarn lint:fix && yarn types && yarn test"
   },
   "dependencies": {
-    "technoidentity-utils": "^2.0.1",
+    "srtp-utils": "2.0.1",
     "tslib": "1.11.1"
   },
   "devDependencies": {
@@ -36,12 +36,12 @@
     "json-schema": "0.2.5",
     "prettier": "1.19.1",
     "tcomb-validation": "3.4.1",
-    "technoidentity-utils": "2.0.1",
+    "srtp-utils": "2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.1.0",
     "typescript": "3.8.3"
   },
   "peerDependencies": {
-    "technoidentity-utils": "2.0.1"
+    "srtp-utils": "2.0.1"
   }
 }

@@ -1,12 +1,7 @@
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { ErrorField, InputField } from 'technoidentity-ui'
-import {
-  Button,
-  Container,
-  Field as FieldGroup,
-  Label,
-} from 'technoidentity-ui'
+import { ErrorField, InputField } from 'srtp-ui'
+import { Button, Container, Field as FieldGroup, Label } from 'srtp-ui'
 import { initialLoginValues, loginSchema, LoginValues } from './common'
 
 const LoginFormInner: React.FC<FormikProps<LoginValues>> = () => (

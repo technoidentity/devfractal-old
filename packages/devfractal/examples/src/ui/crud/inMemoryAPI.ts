@@ -1,8 +1,8 @@
+import { Repository } from 'srtp-crud'
+import { Either, isRight } from 'srtp-utils'
+import t from 'srtp-utils'
+import { rejected, toPromise } from 'srtp-utils'
 import { assert, Number } from 'tcomb'
-import { Repository } from 'technoidentity-crud'
-import { Either, isRight } from 'technoidentity-utils'
-import t from 'technoidentity-utils'
-import { rejected, toPromise } from 'technoidentity-utils'
 import { fakeTodoList } from './fakeTodoList'
 import { Todo, TodoListRT, TodoRT } from './types'
 

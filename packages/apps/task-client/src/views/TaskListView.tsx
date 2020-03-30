@@ -1,7 +1,7 @@
 import { format } from 'date-fns'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { component } from 'technoidentity-core'
+import { component } from 'srtp-core'
 import {
   ButtonsGroup,
   Field,
@@ -13,8 +13,8 @@ import {
   Th,
   Title,
   Tr,
-} from 'technoidentity-ui'
-import { readonlyArray, req } from 'technoidentity-utils'
+} from 'srtp-ui'
+import { readonlyArray, req } from 'srtp-utils'
 import { Task } from '../common'
 import { PaginationView } from './PaginateView'
 

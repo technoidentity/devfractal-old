@@ -1,4 +1,4 @@
-import { classNames } from 'technoidentity-core'
+import { classNames } from 'srtp-core'
 
 type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7'
 

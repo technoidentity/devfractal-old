@@ -20,7 +20,7 @@ import {
   Section,
   Text,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const DynamicButtonExample: React.FC = () => {
   const [click, setClick] = React.useState(false)

@@ -1,5 +1,5 @@
 {
-  "name": "technoidentity-utils",
+  "name": "srtp-utils",
   "version": "2.0.1",
   "description": "utils for all devfractal libraries",
   "main": "dist/index.js",

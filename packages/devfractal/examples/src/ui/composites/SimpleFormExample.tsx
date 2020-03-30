@@ -1,4 +1,4 @@
-// import { maxLength, min, required } from 'technoidentity-ui'
+// import { maxLength, min, required } from 'srtp-ui'
 
 import { addDays } from 'date-fns'
 import React from 'react'
@@ -16,9 +16,9 @@ import {
   positive,
   required,
   uppercase,
-} from 'technoidentity-core'
-import { Radio, Section, typedForm } from 'technoidentity-ui'
-import { ISODate, keyof, TypeOf } from 'technoidentity-utils'
+} from 'srtp-core'
+import { Radio, Section, typedForm } from 'srtp-ui'
+import { ISODate, keyof, TypeOf } from 'srtp-utils'
 
 // tslint:disable-next-line: typedef
 const Position = keyof({

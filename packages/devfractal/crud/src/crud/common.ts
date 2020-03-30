@@ -1,12 +1,4 @@
-import {
-  fn,
-  Mixed,
-  number,
-  obj,
-  readonlyArray,
-  req,
-  TypeOf,
-} from 'technoidentity-utils'
+import { fn, Mixed, number, obj, readonlyArray, req, TypeOf } from 'srtp-utils'
 import { SubmitAction } from '../api'
 
 // tslint:disable typedef

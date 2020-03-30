@@ -1,6 +1,6 @@
 import React from 'react'
-import { Mixed, TypeOf } from 'technoidentity-utils'
-import { cast } from 'technoidentity-utils'
+import { Mixed, TypeOf } from 'srtp-utils'
+import { cast } from 'srtp-utils'
 import { listProps } from './common'
 
 export interface ListProps<T> {

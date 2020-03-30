@@ -1,5 +1,5 @@
 import React from 'react'
-import { All, Create, links, paths } from 'technoidentity-crud'
+import { All, Create, links, paths } from 'srtp-crud'
 import { employeeAPI } from '../common'
 import { EmployeeForm, EmployeeList } from '../views'
 

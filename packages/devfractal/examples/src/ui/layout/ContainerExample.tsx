@@ -4,7 +4,7 @@ import {
   Notification,
   Section,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const CenteredContainerExample: React.FC = () => (
   <Section>

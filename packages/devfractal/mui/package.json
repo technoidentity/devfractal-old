@@ -1,5 +1,5 @@
 {
-  "name": "technoidentity-mui",
+  "name": "srtp-mui",
   "version": "2.0.3",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -44,14 +44,14 @@
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "react-styleguidist": "11.0.3",
-    "technoidentity-core": "2.0.3",
-    "technoidentity-utils": "2.0.1",
+    "srtp-core": "2.0.3",
+    "srtp-utils": "2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.1.0",
     "typescript": "3.8.3"
   },
   "peerDependencies": {
-    "technoidentity-core": "2.0.3"
+    "srtp-core": "2.0.3"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

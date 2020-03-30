@@ -1,6 +1,6 @@
 import React from 'react'
-import { APIComponents } from 'technoidentity-core'
-import { UIComponents } from 'technoidentity-ui'
+import { APIComponents } from 'srtp-core'
+import { UIComponents } from 'srtp-ui'
 import { TaskManager } from './TaskManager'
 // export const App: React.FC = () => (
 //   <SafeRouter variant="browser">

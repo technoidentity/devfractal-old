@@ -1,11 +1,6 @@
 import React from 'react'
-import {
-  CrudTable,
-  links,
-  listComponent,
-  RoutedPager,
-} from 'technoidentity-crud'
-import { Section } from 'technoidentity-ui'
+import { CrudTable, links, listComponent, RoutedPager } from 'srtp-crud'
+import { Section } from 'srtp-ui'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 import { CreateLink } from './CreateLink'

@@ -1,7 +1,7 @@
 import { Paper } from '@material-ui/core'
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { boolean, date, number } from 'technoidentity-utils'
+import { boolean, date, number } from 'srtp-utils'
 import { ObjectSchema } from 'yup'
 import { Simple } from './SimpleForm'
 

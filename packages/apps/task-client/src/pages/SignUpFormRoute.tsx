@@ -1,5 +1,5 @@
 import React from 'react'
-import { Post } from 'technoidentity-crud'
+import { Post } from 'srtp-crud'
 import { userAPI } from '../common'
 import { SignUpForm } from '../views'
 

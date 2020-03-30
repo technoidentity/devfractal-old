@@ -24,7 +24,7 @@ import {
   Ol,
   Section,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const ImageModalExample: React.FC = () => {
   const [modal, setModal] = React.useState(false)

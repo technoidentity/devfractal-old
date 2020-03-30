@@ -1,5 +1,5 @@
 import React from 'react'
-import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
+import { rest, SafeRouter, SimpleRedirect } from 'srtp-core'
 import {
   All,
   Create,
@@ -10,9 +10,9 @@ import {
   links,
   listComponent,
   paths,
-} from 'technoidentity-crud'
-import { ButtonLink, ButtonsGroup, Section, Title } from 'technoidentity-ui'
-import { boolean, ISODate, NumID, obj, string } from 'technoidentity-utils'
+} from 'srtp-crud'
+import { ButtonLink, ButtonsGroup, Section, Title } from 'srtp-ui'
+import { boolean, ISODate, NumID, obj, string } from 'srtp-utils'
 
 const Todo = obj(
   { id: NumID },

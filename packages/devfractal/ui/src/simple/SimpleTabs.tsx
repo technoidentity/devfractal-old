@@ -1,5 +1,5 @@
 import React from 'react'
-import { camelCaseToPhrase } from 'technoidentity-utils'
+import { camelCaseToPhrase } from 'srtp-utils'
 import { Tabs, TabsItem, TabsProps } from '../dynamic'
 import { RoutedTabs, RoutedTabsItem, RoutedTabsProps } from '../routed'
 

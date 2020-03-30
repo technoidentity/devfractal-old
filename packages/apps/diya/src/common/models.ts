@@ -8,7 +8,7 @@ import {
   StrID,
   string,
   TypeOf,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 
 const Shift = enumerate('morning', 'evening')
 const Status = enumerate('active', 'inactive')

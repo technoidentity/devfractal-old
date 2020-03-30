@@ -1,7 +1,7 @@
 import { Field, Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { Text, Title } from 'technoidentity-ui'
+import { Text, Title } from 'srtp-ui'
 import { FSTodo, fsTodoAPI } from '../common'
 
 export interface AddTodoProps {

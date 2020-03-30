@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames } from 'technoidentity-core'
+import { classNames } from 'srtp-core'
 import { classNamesHelper, El, Helpers } from '../base'
 
 type FixedSquaredImageSize =

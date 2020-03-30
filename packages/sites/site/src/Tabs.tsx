@@ -1,5 +1,5 @@
 import React from 'react'
-import { RoutedTabs, RoutedTabsItem } from 'technoidentity-ui'
+import { RoutedTabs, RoutedTabsItem } from 'srtp-ui'
 
 export const ComponentsTab: React.FC = () => (
   <RoutedTabs to="/components" size="medium">

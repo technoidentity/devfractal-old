@@ -10,7 +10,7 @@ import {
   tuple,
   type,
   union,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 
 console.log(
   empty(

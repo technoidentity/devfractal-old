@@ -5,7 +5,7 @@ import {
   INTERNAL_SERVER_ERROR,
   NO_CONTENT,
 } from 'http-status-codes'
-import { boolean, req, string, TypeOf } from 'technoidentity-utils'
+import { boolean, req, string, TypeOf } from 'srtp-utils'
 import { AuthSession, Request } from './types'
 import { isUserValid } from './userSchema'
 

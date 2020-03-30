@@ -17,8 +17,8 @@ import {
   FormikHelpers,
 } from 'formik'
 import React from 'react'
-import { DebugField, required } from 'technoidentity-core'
-import { camelCaseToPhrase, jsonStringify, timeout } from 'technoidentity-utils'
+import { DebugField, required } from 'srtp-core'
+import { camelCaseToPhrase, jsonStringify, timeout } from 'srtp-utils'
 import {
   date,
   DateSchema,

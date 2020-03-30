@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  Section,
-  TextArea as TextAreaComponent,
-  Title,
-} from 'technoidentity-ui'
+import { Section, TextArea as TextAreaComponent, Title } from 'srtp-ui'
 
 const DynamicTextAreaExample: React.FC = () => {
   const [change, setChange] = React.useState('')

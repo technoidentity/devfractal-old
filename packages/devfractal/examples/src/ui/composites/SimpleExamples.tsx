@@ -1,6 +1,6 @@
 import React from 'react'
-import { SimpleRoutedTabs, SimpleTabs } from 'technoidentity-ui'
-import { Section, Text } from 'technoidentity-ui'
+import { SimpleRoutedTabs, SimpleTabs } from 'srtp-ui'
+import { Section, Text } from 'srtp-ui'
 
 const SimpleTabsExample: React.FC = () => (
   <SimpleTabs

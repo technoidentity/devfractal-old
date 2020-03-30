@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeRouter } from 'technoidentity-core'
+import { SafeRouter } from 'srtp-core'
 import { SiteHeader } from './IndexPage'
 import { MainRoute } from './MainRoute'
 import { ScrollToTop } from './ScrollToTop'

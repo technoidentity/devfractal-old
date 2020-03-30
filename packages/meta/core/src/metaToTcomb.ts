@@ -1,4 +1,3 @@
-import * as t from 'tcomb'
 import {
   ArrayMaxLength,
   ArrayMinLength,
@@ -16,7 +15,8 @@ import {
   Positive,
   Upper,
   Url,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
+import * as t from 'tcomb'
 import {
   ArrayRefinements,
   DateRefinements,

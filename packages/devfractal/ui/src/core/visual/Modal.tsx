@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames, Null } from 'technoidentity-core'
+import { classNames, Null } from 'srtp-core'
 import { classNamesHelper, El, Helpers } from '../base'
 
 export interface ModalProps

@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  Box,
-  Section,
-  SubTitle,
-  Title as TitleComponent,
-} from 'technoidentity-ui'
+import { Box, Section, SubTitle, Title as TitleComponent } from 'srtp-ui'
 
 const TitleSizeExample: React.FC = () => (
   <Section>

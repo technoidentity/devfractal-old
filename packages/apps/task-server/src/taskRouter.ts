@@ -5,7 +5,7 @@ import {
   INTERNAL_SERVER_ERROR,
   NO_CONTENT,
 } from 'http-status-codes'
-import { req, string, toInt, TypeOf } from 'technoidentity-utils'
+import { req, string, toInt, TypeOf } from 'srtp-utils'
 import { auth } from './auth'
 import { TaskModel } from './taskSchema'
 import { Request } from './types'

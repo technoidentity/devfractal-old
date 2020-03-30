@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Td, Tr } from 'technoidentity-ui'
+import { Button, Td, Tr } from 'srtp-ui'
 import { Product } from './fakeData'
 
 export interface ProductItemProps {

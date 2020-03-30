@@ -9,7 +9,7 @@ import {
   TableHead,
   Td,
   Tr,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 interface Todo {
   readonly id: number

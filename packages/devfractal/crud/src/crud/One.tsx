@@ -1,6 +1,6 @@
 import React from 'react'
-import { API, SafeRoute } from 'technoidentity-core'
-import { ObjC, Props, TypeOf, TypeOfID } from 'technoidentity-utils'
+import { API, SafeRoute } from 'srtp-core'
+import { ObjC, Props, TypeOf, TypeOfID } from 'srtp-utils'
 import { Get } from '../api'
 
 export interface OneComponentProps<T> {

@@ -1,12 +1,4 @@
-import {
-  ISODate,
-  keyof,
-  obj,
-  req,
-  StrID,
-  string,
-  TypeOf,
-} from 'technoidentity-utils'
+import { ISODate, keyof, obj, req, StrID, string, TypeOf } from 'srtp-utils'
 
 const dateInfo = obj(
   { started: ISODate, completed: ISODate },

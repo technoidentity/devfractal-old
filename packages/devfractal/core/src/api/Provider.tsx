@@ -1,5 +1,5 @@
 import React from 'react'
-import { verify } from 'technoidentity-utils'
+import { verify } from 'srtp-utils'
 
 // tslint:disable: typedef
 

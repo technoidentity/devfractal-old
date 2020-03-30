@@ -36,14 +36,14 @@
     "eslint": "6.8.0",
     "formik": "2.1.4",
     "jest": "25.1.0",
-    "meta-core": "^2.0.1",
+    "meta-core": "2.0.1",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "react": "16.13.0",
     "react-dom": "16.13.0",
-    "technoidentity-core": "^2.0.3",
-    "technoidentity-crud": "^2.0.3",
-    "technoidentity-utils": "^2.0.1",
+    "srtp-core": "2.0.3",
+    "srtp-crud": "2.0.3",
+    "srtp-utils": "2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.1.0",
     "typescript": "3.8.3",
@@ -51,6 +51,6 @@
   },
   "peerDependencies": {
     "meta-core": "1.2.5",
-    "technoidentity-crud": "2.0.3"
+    "srtp-crud": "2.0.3"
   }
 }

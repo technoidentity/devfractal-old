@@ -4,7 +4,7 @@ import {
   Section as SectionComponent,
   SubTitle,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const LargeSectionExample: React.FC = () => (
   <SectionComponent>

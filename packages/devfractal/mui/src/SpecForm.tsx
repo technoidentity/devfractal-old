@@ -1,4 +1,4 @@
-import { Mixed, ObjPickBy, Props, TypeOf } from 'technoidentity-utils'
+import { Mixed, ObjPickBy, Props, TypeOf } from 'srtp-utils'
 
 export interface TypedField<Spec extends Mixed, Name extends string> {
   readonly name: Name

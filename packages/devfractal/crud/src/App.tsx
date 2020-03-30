@@ -1,9 +1,9 @@
 // import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
-// import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
-// import { ButtonLink, Section, Simple } from 'technoidentity-ui'
-// import { boolean, number, obj, string } from 'technoidentity-utils'
+// import { rest, SafeRouter, SimpleRedirect } from 'srtp-core'
+// import { ButtonLink, Section, Simple } from 'srtp-ui'
+// import { boolean, number, obj, string } from 'srtp-utils'
 // import {
 //   CrudRoutes,
 //   CrudTable,

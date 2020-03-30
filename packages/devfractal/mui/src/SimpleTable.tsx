@@ -12,8 +12,8 @@ import {
 } from '@material-ui/core'
 import { format } from 'date-fns'
 import React from 'react'
-import * as t from 'technoidentity-utils'
-import { camelCaseToPhrase, date } from 'technoidentity-utils'
+import * as t from 'srtp-utils'
+import { camelCaseToPhrase, date } from 'srtp-utils'
 
 function formatDate(date: Date | undefined): string | undefined {
   return date && format(date, 'dd/MM/yyyy')

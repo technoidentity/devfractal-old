@@ -8,8 +8,8 @@ import {
   faMusic,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Tabs, TabsItem } from 'technoidentity-ui'
-import { Box, Icon, Section, Title } from 'technoidentity-ui'
+import { Tabs, TabsItem } from 'srtp-ui'
+import { Box, Icon, Section, Title } from 'srtp-ui'
 
 export const TabsExamples: React.FC = () => (
   <>

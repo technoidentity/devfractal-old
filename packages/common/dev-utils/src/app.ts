@@ -7,7 +7,7 @@ import {
   StrID,
   string,
   TypeOf,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 import { startFakeJSONServer } from './fakeServer'
 
 const User = obj(

@@ -7,7 +7,7 @@ import {
   MediaContent,
   MediaLeft,
   Section,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const Box: React.FC = () => (
   <Section>

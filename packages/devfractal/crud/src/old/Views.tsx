@@ -1,7 +1,7 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { RowClickEvent } from 'technoidentity-core'
-import { empty, Mixed, TypeOf } from 'technoidentity-utils'
+import { RowClickEvent } from 'srtp-core'
+import { empty, Mixed, TypeOf } from 'srtp-utils'
 import { Editor, SimpleTable, Viewer } from '../crud'
 
 interface EditProps<T extends Record<string, any>> {

@@ -1,6 +1,6 @@
 import React from 'react'
-import { API, SafeRoute, useParamsSafe } from 'technoidentity-core'
-import { ObjC, pickID, Props, TypeOf } from 'technoidentity-utils'
+import { API, SafeRoute, useParamsSafe } from 'srtp-core'
+import { ObjC, pickID, Props, TypeOf } from 'srtp-utils'
 import { Put, SubmitAction } from '../api'
 
 // tslint:disable no-unbound-method

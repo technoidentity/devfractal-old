@@ -1,8 +1,8 @@
 import { FormikHelpers } from 'formik'
 import { EnumMT, Mixed, MT, PrimitiveMT } from 'meta-core'
 import React from 'react'
-import { Field, Label, Simple } from 'technoidentity-ui'
-import { camelCaseToPhrase } from 'technoidentity-utils'
+import { Field, Label, Simple } from 'srtp-ui'
+import { camelCaseToPhrase } from 'srtp-utils'
 import { metaToInitialValues } from './metaToInitialValues'
 import { mtToYup } from './metaToYup'
 

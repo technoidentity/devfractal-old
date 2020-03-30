@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
+import { SafeRoute, SimpleRedirect } from 'srtp-core'
 import {
   DropDown,
   DropDownDivider,
@@ -11,7 +11,7 @@ import {
   RoutedTabsItem,
   Section,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const DropdownExampleTab: React.FC = () => (
   <>

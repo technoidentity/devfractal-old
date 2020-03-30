@@ -1,5 +1,5 @@
 import { useParams } from 'react-router'
-import { cast, ObjC, ObjTypeOf, Props } from 'technoidentity-utils'
+import { cast, ObjC, ObjTypeOf, Props } from 'srtp-utils'
 
 export function useParamsSafe<Opt extends Props, Req extends Props>(
   paramsSpec: ObjC<Opt, Req>,

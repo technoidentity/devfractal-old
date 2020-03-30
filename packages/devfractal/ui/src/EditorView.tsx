@@ -1,6 +1,6 @@
 import React from 'react'
-import { EditorViewProps } from 'technoidentity-core'
-import { boolean, date, number } from 'technoidentity-utils'
+import { EditorViewProps } from 'srtp-core'
+import { boolean, date, number } from 'srtp-utils'
 import { Section } from './core'
 import { Simple } from './simple'
 

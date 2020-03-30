@@ -1,5 +1,5 @@
 {
-  "name": "technoidentity-core",
+  "name": "srtp-core",
   "version": "2.0.3",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -37,14 +37,14 @@
     "jest": "25.1.0",
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
-    "technoidentity-utils": "2.0.1",
+    "srtp-utils": "2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.1.0",
     "typescript": "3.8.3"
   },
   "peerDependencies": {
     "formik": "2.1.4",
-    "technoidentity-utils": "2.0.1",
+    "srtp-utils": "2.0.1",
     "yup": "0.28.3"
   }
 }

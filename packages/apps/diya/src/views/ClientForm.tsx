@@ -1,6 +1,6 @@
 import React from 'react'
-import { formComponent } from 'technoidentity-crud'
-import { Column, Columns, Section, Simple, Title } from 'technoidentity-ui'
+import { formComponent } from 'srtp-crud'
+import { Column, Columns, Section, Simple, Title } from 'srtp-ui'
 import { Client } from '../common'
 
 export const ClientForm = formComponent(

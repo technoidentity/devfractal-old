@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  CheckBox as CheckBoxComponent,
-  Field,
-  Section,
-  Title,
-} from 'technoidentity-ui'
+import { CheckBox as CheckBoxComponent, Field, Section, Title } from 'srtp-ui'
 
 const DynamicCheckBoxExample: React.FC = () => {
   const [checked, setChecked] = React.useState(false)

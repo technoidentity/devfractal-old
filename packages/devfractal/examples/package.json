@@ -43,16 +43,16 @@
     "prettier": "1.19.1",
     "react": "16.13.0",
     "react-dom": "16.13.0",
-    "technoidentity-crud": "2.0.3",
-    "technoidentity-mui": "2.0.3",
-    "technoidentity-ui": "2.0.3",
-    "technoidentity-utils": "2.0.1",
+    "srtp-crud": "2.0.3",
+    "srtp-mui": "2.0.3",
+    "srtp-ui": "2.0.3",
+    "srtp-utils": "2.0.1",
     "tsdx": "0.12.3",
     "typescript": "3.8.3"
   },
   "peerDependencies": {
-    "technoidentity-crud": "2.0.3",
-    "technoidentity-mui": "2.0.3",
-    "technoidentity-ui": "2.0.3"
+    "srtp-crud": "2.0.3",
+    "srtp-mui": "2.0.3",
+    "srtp-ui": "2.0.3"
   }
 }

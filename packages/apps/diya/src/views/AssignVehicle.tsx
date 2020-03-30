@@ -1,8 +1,8 @@
 import React from 'react'
-import { component } from 'technoidentity-core'
-import { Create, formProps } from 'technoidentity-crud'
-import { Column, Columns, Section, Simple } from 'technoidentity-ui'
-import { empty } from 'technoidentity-utils'
+import { component } from 'srtp-core'
+import { Create, formProps } from 'srtp-crud'
+import { Column, Columns, Section, Simple } from 'srtp-ui'
+import { empty } from 'srtp-utils'
 import { AssignVehicle, assignVehicleAPI } from '../common'
 import { HeadTitle } from '../components'
 

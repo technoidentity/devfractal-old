@@ -6,7 +6,7 @@ import {
   SubTitle,
   Tile as TileComponent,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const SimpleTilesExample: React.FC = () => (
   <Section>

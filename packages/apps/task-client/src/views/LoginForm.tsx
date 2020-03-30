@@ -1,8 +1,8 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { component } from 'technoidentity-core'
-import { Column, Columns, Section, Simple } from 'technoidentity-ui'
-import { empty, fn, req, string, TypeOf } from 'technoidentity-utils'
+import { component } from 'srtp-core'
+import { Column, Columns, Section, Simple } from 'srtp-ui'
+import { empty, fn, req, string, TypeOf } from 'srtp-utils'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({

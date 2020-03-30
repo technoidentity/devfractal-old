@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, TableBody, TableHead, Th, Tr } from 'technoidentity-ui'
+import { Table, TableBody, TableHead, Th, Tr } from 'srtp-ui'
 import { Product } from './fakeData'
 import { ProductItem } from './ProductItem'
 

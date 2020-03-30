@@ -21,7 +21,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const BasicNavbarExample: React.FC = () => (
   <>

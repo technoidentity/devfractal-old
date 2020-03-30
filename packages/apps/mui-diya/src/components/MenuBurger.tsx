@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames } from 'technoidentity-core'
+import { classNames } from 'srtp-core'
 
 export const MenuBurger: React.FC<any> = ({ isMinimal, onClick }) => (
   <a

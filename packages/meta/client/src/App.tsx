@@ -1,7 +1,7 @@
 import { MBool, MDate, MMT, MNumber, MString } from 'meta-core'
 import React from 'react'
 import { render } from 'react-dom'
-import { Section, Title } from 'technoidentity-ui'
+import { Section, Title } from 'srtp-ui'
 import { MetaForm } from './MetaForm'
 import { MetaList } from './MetaList'
 import { MetaView } from './MetaView'

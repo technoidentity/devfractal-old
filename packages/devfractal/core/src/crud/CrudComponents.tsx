@@ -1,6 +1,6 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { verify } from 'technoidentity-utils/src'
+import { verify } from 'srtp-utils/src'
 import { ObjectSchema } from 'yup'
 
 // tslint:disable typedef

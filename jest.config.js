@@ -12,14 +12,14 @@ module.exports = {
   },
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   roots: [
+    '<rootDir>/packages/common/dev-utils',
     '<rootDir>/packages/common/utils',
-    '<rootDir>/packages/devfractal/examples',
     '<rootDir>/packages/devfractal/core',
-    '<rootDir>/packages/devfractal/ui',
     '<rootDir>/packages/devfractal/crud',
-    '<rootDir>/packages/devfractal/starter',
-    '<rootDir>/packages/meta/core',
+    '<rootDir>/packages/devfractal/examples',
+    '<rootDir>/packages/devfractal/ui',
     '<rootDir>/packages/meta/client',
+    '<rootDir>/packages/meta/core',
     '<rootDir>/packages/meta/server',
   ],
   globals: {

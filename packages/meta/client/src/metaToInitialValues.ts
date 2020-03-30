@@ -1,5 +1,5 @@
 import { Mixed } from 'meta-core'
-import { buildObject } from 'technoidentity-utils'
+import { buildObject } from 'srtp-utils'
 
 // tslint:disable typedef switch-default
 

@@ -29,10 +29,10 @@
     "eslint": "6.8.0",
     "express": "4.17.1",
     "jest": "25.1.0",
-    "meta-core": "^2.0.1",
+    "meta-core": "2.0.1",
     "mongodb": "3.5.5",
     "prettier": "1.19.1",
-    "technoidentity-utils": "^2.0.1",
+    "srtp-utils": "2.0.1",
     "tsdx": "0.12.3",
     "tslint": "6.1.0",
     "typescript": "3.8.3"

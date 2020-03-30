@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeRouter, SimpleRedirect } from 'technoidentity-core'
+import { SafeRouter, SimpleRedirect } from 'srtp-core'
 import {
   CrudRoutes,
   CrudTable,
@@ -7,8 +7,8 @@ import {
   formComponent,
   links,
   listComponent,
-} from 'technoidentity-crud'
-import { ButtonLink, Section, Title } from 'technoidentity-ui'
+} from 'srtp-crud'
+import { ButtonLink, Section, Title } from 'srtp-ui'
 import { Todo, todoAPI } from './common'
 
 const { create, edit, list } = links(todoAPI.resource)

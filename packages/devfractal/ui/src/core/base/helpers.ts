@@ -1,4 +1,4 @@
-import { ClassNameArg, classNames } from 'technoidentity-core'
+import { ClassNameArg, classNames } from 'srtp-core'
 import {
   removeTextHelpers,
   TextHelpers,

@@ -1,12 +1,5 @@
-import { rest } from 'technoidentity-core'
-import {
-  boolean,
-  ISODate,
-  NumID,
-  obj,
-  string,
-  TypeOf,
-} from 'technoidentity-utils'
+import { rest } from 'srtp-core'
+import { boolean, ISODate, NumID, obj, string, TypeOf } from 'srtp-utils'
 
 export const Todo = obj(
   { id: NumID },

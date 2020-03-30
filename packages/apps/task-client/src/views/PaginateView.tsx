@@ -6,7 +6,7 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const PaginationView: React.FC = () => (
   <Pagination alignment="centered">

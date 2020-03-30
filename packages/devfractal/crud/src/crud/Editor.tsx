@@ -1,7 +1,7 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { useCrudComponents } from 'technoidentity-core'
-import { isFunction } from 'technoidentity-utils'
+import { useCrudComponents } from 'srtp-core'
+import { isFunction } from 'srtp-utils'
 import { Get } from '../api'
 
 export interface EditorProps<T extends {}> {

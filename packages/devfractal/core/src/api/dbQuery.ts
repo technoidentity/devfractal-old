@@ -15,7 +15,7 @@
 //   string,
 //   TypeOf,
 //   union,
-// } from 'technoidentity-utils'
+// } from 'srtp-utils'
 
 // // tslint:disable typedef
 

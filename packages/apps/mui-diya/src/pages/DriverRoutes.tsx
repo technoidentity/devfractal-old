@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrudRoutes } from 'technoidentity-crud'
+import { CrudRoutes } from 'srtp-crud'
 import { driverAPI } from '../common'
 import { DriverForm, DriverList } from '../views'
 

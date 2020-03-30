@@ -1,5 +1,5 @@
 import React from 'react'
-import { debug } from 'technoidentity-utils'
+import { debug } from 'srtp-utils'
 
 export interface ValueChangeEvent<Value> {
   readonly name?: string

@@ -23,7 +23,7 @@ import {
   Section,
   Select,
   TextArea,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const General: React.FC = () => (
   <>

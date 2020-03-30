@@ -1,4 +1,4 @@
-import { cast, ObjC, Props, TypeOf } from 'technoidentity-utils'
+import { cast, ObjC, Props, TypeOf } from 'srtp-utils'
 
 // tslint:disable typedef
 

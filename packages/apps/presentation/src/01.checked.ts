@@ -1,5 +1,5 @@
-import { number, readonly, string, type } from 'technoidentity-utils'
-import { checked, checkedAsync, range } from 'technoidentity-utils'
+import { number, readonly, string, type } from 'srtp-utils'
+import { checked, checkedAsync, range } from 'srtp-utils'
 
 export const checkedAdd = checked(
   [number, number, number],

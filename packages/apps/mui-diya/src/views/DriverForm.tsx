@@ -1,6 +1,6 @@
 import React from 'react'
-import { required } from 'technoidentity-core'
-import { formComponent } from 'technoidentity-crud'
+import { required } from 'srtp-core'
+import { formComponent } from 'srtp-crud'
 import {
   Box,
   Button,
@@ -13,7 +13,7 @@ import {
   Section,
   Simple,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 import { Driver } from '../common'
 import { HeadTitle } from '../components'
 

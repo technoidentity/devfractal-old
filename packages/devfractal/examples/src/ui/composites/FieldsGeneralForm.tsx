@@ -1,6 +1,6 @@
 import { Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { Simple } from 'technoidentity-ui'
+import { Simple } from 'srtp-ui'
 import {
   CheckboxField,
   DateField,
@@ -9,15 +9,8 @@ import {
   RadioGroupField,
   SelectField,
   TextAreaField,
-} from 'technoidentity-ui'
-import {
-  Button,
-  Container,
-  Field,
-  Label,
-  Radio,
-  Section,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
+import { Button, Container, Field, Label, Radio, Section } from 'srtp-ui'
 import { array, boolean, date, object, ObjectSchema, string } from 'yup'
 
 interface GeneralFormProps {

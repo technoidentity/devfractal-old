@@ -11,7 +11,7 @@ import {
   string,
   TypeOf,
   verify,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 
 // tslint:disable typedef
 

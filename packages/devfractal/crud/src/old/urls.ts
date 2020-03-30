@@ -1,12 +1,4 @@
-import {
-  cast,
-  chop,
-  Int,
-  string,
-  TypeOf,
-  union,
-  verify,
-} from 'technoidentity-utils'
+import { cast, chop, Int, string, TypeOf, union, verify } from 'srtp-utils'
 
 // tslint:disable-next-line: typedef
 const idRT = union([Int, string])

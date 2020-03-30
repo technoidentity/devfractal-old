@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSubmitRedirect } from 'technoidentity-core'
+import { useSubmitRedirect } from 'srtp-core'
 import { SubmitAction } from './common'
 import { Get } from './Get'
 import { ServerError } from './ServerError'

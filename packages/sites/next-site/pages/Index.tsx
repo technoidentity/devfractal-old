@@ -31,7 +31,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 import Link from 'next/link'
 import React from 'react'
 import {

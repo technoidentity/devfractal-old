@@ -8,9 +8,9 @@ import {
   SafeRouter,
   useParamsSafe,
   useRedirect,
-} from 'technoidentity-core'
-import { Editor, Get, Post, Put, SimpleTable } from 'technoidentity-crud'
-import { Section, Title } from 'technoidentity-ui'
+} from 'srtp-core'
+import { Editor, Get, Post, Put, SimpleTable } from 'srtp-crud'
+import { Section, Title } from 'srtp-ui'
 import {
   boolean,
   fn,
@@ -22,7 +22,7 @@ import {
   req,
   string,
   TypeOf,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 
 const Todo = obj(
   { id: NumID },

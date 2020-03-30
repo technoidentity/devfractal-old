@@ -1,7 +1,7 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { API, SafeRoute } from 'technoidentity-core'
-import { ObjC, Props, TypeOf } from 'technoidentity-utils'
+import { API, SafeRoute } from 'srtp-core'
+import { ObjC, Props, TypeOf } from 'srtp-utils'
 import { Post } from '../api'
 
 // tslint:disable no-unbound-method

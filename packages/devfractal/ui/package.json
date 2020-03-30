@@ -1,5 +1,5 @@
 {
-  "name": "technoidentity-ui",
+  "name": "srtp-ui",
   "version": "2.0.3",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -45,8 +45,8 @@
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1",
     "react-styleguidist": "11.0.3",
-    "technoidentity-core": "^2.0.3",
-    "technoidentity-utils": "^2.0.1",
+    "srtp-core": "2.0.3",
+    "srtp-utils": "2.0.1",
     "tsdx": "0.12.3",
     "tslib": "1.11.1",
     "tslint": "6.1.0",
@@ -54,6 +54,6 @@
   },
   "peerDependencies": {
     "bulma": "0.8.0",
-    "technoidentity-core": "2.0.3"
+    "srtp-core": "2.0.3"
   }
 }

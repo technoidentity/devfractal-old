@@ -1,7 +1,7 @@
 import React from 'react'
-import { SafeRoute, useParamsSafe } from 'technoidentity-core'
-import { Put, SubmitAction } from 'technoidentity-crud'
-import { getProp, ObjC, Props, req, string, TypeOf } from 'technoidentity-utils'
+import { SafeRoute, useParamsSafe } from 'srtp-core'
+import { Put, SubmitAction } from 'srtp-crud'
+import { getProp, ObjC, Props, req, string, TypeOf } from 'srtp-utils'
 import { FirstoreAPI } from './firestoreRest'
 
 // tslint:disable no-unbound-method

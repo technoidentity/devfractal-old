@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSubmitReset } from 'technoidentity-core'
+import { useSubmitReset } from 'srtp-core'
 import { SubmitAction } from './common'
 import { Get } from './Get'
 import { ServerError } from './ServerError'

@@ -1,6 +1,6 @@
 import Chance from 'chance'
+import { range } from 'srtp-utils'
 import tcomb, { assert } from 'tcomb'
-import { range } from 'technoidentity-utils'
 import { Todo, TodoList } from './types'
 
 const chance: Chance.Chance = new Chance()

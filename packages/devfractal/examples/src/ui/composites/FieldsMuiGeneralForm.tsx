@@ -15,8 +15,8 @@ import {
   RadioItem,
   SelectField,
   TextField,
-} from 'technoidentity-mui'
-import { ErrorField, Simple } from 'technoidentity-ui'
+} from 'srtp-mui'
+import { ErrorField, Simple } from 'srtp-ui'
 import { boolean, date, object, ObjectSchema, string } from 'yup'
 
 // @TODO: implement RadioField with formik integration

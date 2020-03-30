@@ -6,7 +6,7 @@ import {
   Section,
   Text,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const BasicContentExample: React.FC = () => (
   <Section>

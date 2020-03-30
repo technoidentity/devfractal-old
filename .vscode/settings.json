@@ -1,11 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "cSpell.words": [
-    "devfractal",
-    "formik",
-    "gmail",
-    "middlewares",
-    "technoidentity"
-  ],
+  "cSpell.words": ["devfractal", "formik", "gmail", "middlewares"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

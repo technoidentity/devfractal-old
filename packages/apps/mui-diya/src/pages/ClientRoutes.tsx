@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrudRoutes } from 'technoidentity-crud'
+import { CrudRoutes } from 'srtp-crud'
 import { clientAPI } from '../common'
 import { ClientForm, ClientList } from '../views'
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import { RowClickEvent, useCrudComponents } from 'technoidentity-core'
-import { isFunction } from 'technoidentity-utils/src'
+import { RowClickEvent, useCrudComponents } from 'srtp-core'
+import { isFunction } from 'srtp-utils/src'
 import { Get } from '../api'
 
 export interface SimpleTableProps<

@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
-import { SafeRoute, SafeRouter } from 'technoidentity-core'
+import { SafeRoute, SafeRouter } from 'srtp-core'
 import { DropdownExample } from './DropDownExample'
 
 const Ex: React.FC = () => (

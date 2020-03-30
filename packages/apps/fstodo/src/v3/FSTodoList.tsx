@@ -1,7 +1,7 @@
 // tslint:disable typedef
 import React from 'react'
-import { CrudTable, links } from 'technoidentity-crud'
-import { readonlyArray, req } from 'technoidentity-utils'
+import { CrudTable, links } from 'srtp-crud'
+import { readonlyArray, req } from 'srtp-utils'
 import { component } from '../../../../devfractal/core/dist'
 import { FSTodo } from '../common'
 

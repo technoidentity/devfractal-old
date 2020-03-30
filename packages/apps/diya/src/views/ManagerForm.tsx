@@ -1,13 +1,13 @@
 import { ErrorMessage, Field, FieldProps, Form, Formik } from 'formik'
 import React from 'react'
-import { useGet, useParamsSafe, useSubmitRedirect } from 'technoidentity-core'
+import { useGet, useParamsSafe, useSubmitRedirect } from 'srtp-core'
 import {
   CrudTable,
   links,
   listComponent,
   ServerError,
   SubmitAction,
-} from 'technoidentity-crud'
+} from 'srtp-crud'
 import {
   Button,
   DateInput,
@@ -18,8 +18,8 @@ import {
   SelectField,
   Text,
   Title,
-} from 'technoidentity-ui'
-import { pickID } from 'technoidentity-utils'
+} from 'srtp-ui'
+import { pickID } from 'srtp-utils'
 import { AdManager, adManagerAPI } from '../common'
 import { HeadTitle } from '../components'
 import { CreateLink } from './CreateLink'

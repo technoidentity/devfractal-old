@@ -1,15 +1,7 @@
 import { format } from 'date-fns'
 import React from 'react'
-import { Get } from 'technoidentity-crud'
-import {
-  CheckBox,
-  Table,
-  TableBody,
-  TableHead,
-  Td,
-  Th,
-  Tr,
-} from 'technoidentity-ui'
+import { Get } from 'srtp-crud'
+import { CheckBox, Table, TableBody, TableHead, Td, Th, Tr } from 'srtp-ui'
 import { Todo, todoApi } from './08.todoAPI'
 
 export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (

@@ -1,7 +1,7 @@
 import React from 'react'
-import { useParamsSafe } from 'technoidentity-core'
-import { Get } from 'technoidentity-crud'
-import { opt } from 'technoidentity-utils'
+import { useParamsSafe } from 'srtp-core'
+import { Get } from 'srtp-crud'
+import { opt } from 'srtp-utils'
 import { getTasks, TaskFilter } from '../common'
 import { TaskListView } from '../views'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { PagerProps } from 'technoidentity-core'
+import { PagerProps } from 'srtp-core'
 import { Pagination, PaginationNext, PaginationPrevious } from './Pagination'
 
 export const Pager: React.FC<PagerProps> = ({

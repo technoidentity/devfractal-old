@@ -7,7 +7,7 @@ import {
   Field as FieldGroup,
   InputField,
   Label,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 import yup from 'yup'
 
 interface LoginValues {

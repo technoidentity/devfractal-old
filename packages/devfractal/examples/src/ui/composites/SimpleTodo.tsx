@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimpleTable, Viewer } from 'technoidentity-crud'
+import { SimpleTable, Viewer } from 'srtp-crud'
 import { SimpleAddTodo } from './AddTodo'
 
 interface Todo {

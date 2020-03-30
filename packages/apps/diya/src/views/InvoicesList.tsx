@@ -1,6 +1,6 @@
 import React from 'react'
-import { listComponent, RoutedPager, SimpleTable } from 'technoidentity-crud'
-import { Section } from 'technoidentity-ui'
+import { listComponent, RoutedPager, SimpleTable } from 'srtp-crud'
+import { Section } from 'srtp-ui'
 import { Invoice } from '../common'
 import { HeadTitle } from '../components'
 

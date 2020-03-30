@@ -1,8 +1,8 @@
 // tslint:disable typedef
 import React from 'react'
 import { useHistory } from 'react-router'
-import { component } from 'technoidentity-core'
-import { Get } from 'technoidentity-crud'
+import { component } from 'srtp-core'
+import { Get } from 'srtp-crud'
 import {
   ButtonLink,
   ButtonsGroup,
@@ -11,8 +11,8 @@ import {
   TableHead,
   Th,
   Tr,
-} from 'technoidentity-ui'
-import { fn, readonlyArray, req } from 'technoidentity-utils'
+} from 'srtp-ui'
+import { fn, readonlyArray, req } from 'srtp-utils'
 import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoItem } from './FSTodoItem'
 

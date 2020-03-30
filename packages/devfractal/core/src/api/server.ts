@@ -1,5 +1,5 @@
-import { startFakeJSONServer } from 'technoidentity-dev-utils'
-import { Int, keyof, obj, string } from 'technoidentity-utils'
+import { startFakeJSONServer } from 'srtp-dev-utils'
+import { Int, keyof, obj, string } from 'srtp-utils'
 
 // tslint:disable typedef
 

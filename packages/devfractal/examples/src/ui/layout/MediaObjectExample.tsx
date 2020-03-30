@@ -17,7 +17,7 @@ import {
   Section,
   TextArea,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const SimpleMediaObjectExample: React.FC = () => (
   <Section>

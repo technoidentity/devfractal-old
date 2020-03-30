@@ -1,5 +1,5 @@
 import Chance from 'chance'
-import { range } from 'technoidentity-utils'
+import { range } from 'srtp-utils'
 
 const chance: Chance.Chance = new Chance()
 

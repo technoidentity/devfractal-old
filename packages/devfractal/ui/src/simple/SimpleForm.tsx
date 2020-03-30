@@ -1,7 +1,7 @@
 import { Form, Formik, FormikConsumer, FormikHelpers } from 'formik'
 import React from 'react'
-import { consoleSubmit, DebugField } from 'technoidentity-core'
-import { camelCaseToPhrase } from 'technoidentity-utils'
+import { consoleSubmit, DebugField } from 'srtp-core'
+import { camelCaseToPhrase } from 'srtp-utils'
 import {
   date,
   DateSchema,

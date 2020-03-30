@@ -7,7 +7,7 @@ import {
   MessageHeader,
   Section,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const SimpleMessageExample: React.FC = () => (
   <Section>

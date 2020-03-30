@@ -1,8 +1,8 @@
 // tslint:disable typedef
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { Get } from 'technoidentity-crud'
-import { Simple, Text } from 'technoidentity-ui'
+import { Get } from 'srtp-crud'
+import { Simple, Text } from 'srtp-ui'
 import { FSTodo, fsTodoAPI } from '../common'
 
 export interface EditTodoViewProps {

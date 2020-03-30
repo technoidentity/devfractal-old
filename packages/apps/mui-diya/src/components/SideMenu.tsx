@@ -20,8 +20,8 @@ import {
   NavbarBurger,
   NavbarBurgerProps,
   Section,
-} from 'technoidentity-ui'
-import { fn, keyof, req, TypeOf } from 'technoidentity-utils'
+} from 'srtp-ui'
+import { fn, keyof, req, TypeOf } from 'srtp-utils'
 import diyaLogo from '../images/diyaLogo.png'
 import { MenuBurger } from './MenuBurger'
 

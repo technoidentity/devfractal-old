@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch } from 'react-router'
-import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
-import { components, paths } from 'technoidentity-crud'
+import { SafeRoute, SimpleRedirect } from 'srtp-core'
+import { components, paths } from 'srtp-crud'
 import { inMemoryAPI } from './inMemoryAPI'
 import { TodoRT } from './types'
 
@@ -33,7 +33,7 @@ export const TodoRoutes: React.FC = () => {
 }
 
 // import React from 'react'
-// import { api, Crud, Section, SimpleRedirect } from 'technoidentity-ui'
+// import { api, Crud, Section, SimpleRedirect } from 'srtp-ui'
 // import { TodoRT } from './types'
 
 // const resource: string = 'todos'

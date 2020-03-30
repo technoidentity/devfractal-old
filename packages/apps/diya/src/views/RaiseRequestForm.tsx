@@ -1,8 +1,8 @@
 import React from 'react'
-import { component } from 'technoidentity-core'
-import { formProps } from 'technoidentity-crud'
-import { Section, Simple } from 'technoidentity-ui'
-import { empty } from 'technoidentity-utils'
+import { component } from 'srtp-core'
+import { formProps } from 'srtp-crud'
+import { Section, Simple } from 'srtp-ui'
+import { empty } from 'srtp-utils'
 import { Ev } from '../common'
 import { HeadTitle } from '../components'
 

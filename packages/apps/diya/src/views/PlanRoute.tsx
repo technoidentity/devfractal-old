@@ -1,6 +1,6 @@
 import React from 'react'
-import { CrudTable, links, listComponent } from 'technoidentity-crud'
-import { Section } from 'technoidentity-ui'
+import { CrudTable, links, listComponent } from 'srtp-crud'
+import { Section } from 'srtp-ui'
 import { PlanRoute } from '../common'
 import { HeadTitle } from '../components'
 

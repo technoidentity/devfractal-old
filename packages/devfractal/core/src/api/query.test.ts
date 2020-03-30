@@ -1,5 +1,5 @@
-import * as t from 'technoidentity-utils'
-import { obj, opt } from 'technoidentity-utils'
+import * as t from 'srtp-utils'
+import { obj, opt } from 'srtp-utils'
 import { APIQuery, toAPIQuery, toJSONServerQuery } from './query'
 
 // tslint:disable typedef

@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrudRoutes } from 'technoidentity-crud'
+import { CrudRoutes } from 'srtp-crud'
 import { geoFenceAPI } from '../common'
 import { GeoFenceForm, GeoFenceList } from '../views'
 

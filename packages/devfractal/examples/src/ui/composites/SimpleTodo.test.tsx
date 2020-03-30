@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer, { ReactTestRenderer } from 'react-test-renderer'
-import { CrudComponents } from 'technoidentity-core'
-import { UICrudComponents } from 'technoidentity-ui'
+import { CrudComponents } from 'srtp-core'
+import { UICrudComponents } from 'srtp-ui'
 import { SimpleTodo } from './SimpleTodo'
 
 test('Simple Todo', () => {

@@ -1,8 +1,8 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { component } from 'technoidentity-core'
-import { Section, Simple } from 'technoidentity-ui'
-import { fn, obj, TypeOf } from 'technoidentity-utils'
+import { component } from 'srtp-core'
+import { Section, Simple } from 'srtp-ui'
+import { fn, obj, TypeOf } from 'srtp-utils'
 import { Todo } from './08.todoAPI'
 
 export const initialValues: Todo = {

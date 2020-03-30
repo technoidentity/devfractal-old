@@ -1,7 +1,7 @@
 import React from 'react'
-import { useParamsSafe, useSubmitRedirect } from 'technoidentity-core'
-import { Get } from 'technoidentity-crud'
-import { req, string } from 'technoidentity-utils'
+import { useParamsSafe, useSubmitRedirect } from 'srtp-core'
+import { Get } from 'srtp-crud'
+import { req, string } from 'srtp-utils'
 import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoForm } from './FSTodoForm'
 

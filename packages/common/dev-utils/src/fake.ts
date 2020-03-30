@@ -31,7 +31,7 @@ import {
   UnionType,
   unknown,
   VoidType,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 import uid from 'uid'
 import { chance } from './chance'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, TableBody, TableHead, Text, Th, Tr } from 'technoidentity-ui'
+import { Table, TableBody, TableHead, Text, Th, Tr } from 'srtp-ui'
 import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoItem } from './FSTodoItem'
 

@@ -1,7 +1,7 @@
 import { Form, Formik } from 'formik'
 import React from 'react'
-import { useParamsSafe } from 'technoidentity-core'
-import { Get, Post, Put, SubmitAction } from 'technoidentity-crud'
+import { useParamsSafe } from 'srtp-core'
+import { Get, Post, Put, SubmitAction } from 'srtp-crud'
 import {
   Button,
   CheckboxField,
@@ -11,8 +11,8 @@ import {
   InputField,
   Label,
   Title,
-} from 'technoidentity-ui'
-import { empty, pickID } from 'technoidentity-utils'
+} from 'srtp-ui'
+import { empty, pickID } from 'srtp-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router'
 
 import { NavLink } from 'react-router-dom'
-import { chop, extractSegment } from 'technoidentity-utils'
+import { chop, extractSegment } from 'srtp-utils'
 import { classNamesHelper, El, Helpers } from '../core'
 
 interface RoutedTabsContext {

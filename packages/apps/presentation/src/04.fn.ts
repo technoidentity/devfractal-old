@@ -1,5 +1,5 @@
-import { number, TypeOf } from 'technoidentity-utils'
-import { cast, fn, obj } from 'technoidentity-utils'
+import { number, TypeOf } from 'srtp-utils'
+import { cast, fn, obj } from 'srtp-utils'
 
 // tslint:disable no-empty
 

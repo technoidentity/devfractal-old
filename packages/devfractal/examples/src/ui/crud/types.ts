@@ -6,7 +6,7 @@ import {
   string,
   type,
   TypeOf,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 
 // tslint:disable typedef
 export const TodoRT = readonly(

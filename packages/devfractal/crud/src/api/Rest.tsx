@@ -1,6 +1,6 @@
 // import React from 'react'
-// import { API, SafeRoute, useParamsSafe } from 'technoidentity-core'
-// import { getProp, Mixed, type } from 'technoidentity-utils'
+// import { API, SafeRoute, useParamsSafe } from 'srtp-core'
+// import { getProp, Mixed, type } from 'srtp-utils'
 // import { SubmitAction } from './common'
 // import { Get } from './Get'
 // import { Post } from './Post'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch } from 'react-router'
-import { SafeRoute, SafeRouter } from 'technoidentity-core'
-import { NotFound } from 'technoidentity-ui'
+import { SafeRoute, SafeRouter } from 'srtp-core'
+import { NotFound } from 'srtp-ui'
 import {
   CreateTaskRoute,
   EditTaskRoute,

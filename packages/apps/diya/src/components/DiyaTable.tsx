@@ -1,8 +1,8 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { SimpleTable, SimpleTableProps } from 'technoidentity-crud'
-import { ButtonLink, Icon } from 'technoidentity-ui'
+import { SimpleTable, SimpleTableProps } from 'srtp-crud'
+import { ButtonLink, Icon } from 'srtp-ui'
 
 export interface DiyaActionsProps {
   readonly editTo: string

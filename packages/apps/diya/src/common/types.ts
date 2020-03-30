@@ -1,6 +1,6 @@
-import { keyof, string } from 'technoidentity-utils'
-import { IntFromString } from 'technoidentity-utils'
-import { opt, req } from 'technoidentity-utils'
+import { keyof, string } from 'srtp-utils'
+import { IntFromString } from 'srtp-utils'
+import { opt, req } from 'srtp-utils'
 
 export const Resources = keyof({
   batteries: 0,

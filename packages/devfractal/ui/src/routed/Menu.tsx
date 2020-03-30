@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router'
 import { Link } from 'react-router-dom'
-import { chop } from 'technoidentity-utils'
+import { chop } from 'srtp-utils'
 import { classNamesHelper, El, Helpers } from '../core'
 
 type MenuSize = 'small' | 'medium' | 'large'

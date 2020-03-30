@@ -1,6 +1,6 @@
 import React from 'react'
-import { links, listComponent, RoutedPager } from 'technoidentity-crud'
-import { Section, Title } from 'technoidentity-ui'
+import { links, listComponent, RoutedPager } from 'srtp-crud'
+import { Section, Title } from 'srtp-ui'
 import { Battery } from '../common'
 import { DiyaTable } from '../components/DiyaTable'
 import { CreateLink } from './CreateLink'

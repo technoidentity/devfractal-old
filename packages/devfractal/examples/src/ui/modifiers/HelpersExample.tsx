@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Section, Text, Title } from 'technoidentity-ui'
+import { Box, Button, Section, Text, Title } from 'srtp-ui'
 
 export const Helpers: React.FC = () => (
   <>

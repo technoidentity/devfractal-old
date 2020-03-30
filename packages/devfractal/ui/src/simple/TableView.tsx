@@ -1,11 +1,6 @@
 import React from 'react'
-import { TableViewProps as TVProps } from 'technoidentity-core'
-import {
-  boolean,
-  camelCaseToPhrase,
-  date,
-  formatDate,
-} from 'technoidentity-utils'
+import { TableViewProps as TVProps } from 'srtp-core'
+import { boolean, camelCaseToPhrase, date, formatDate } from 'srtp-utils'
 import {
   CheckBox,
   Table,

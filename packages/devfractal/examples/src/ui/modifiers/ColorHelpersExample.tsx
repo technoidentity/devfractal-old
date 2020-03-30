@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Section, Text, Title } from 'technoidentity-ui'
+import { Box, Section, Text, Title } from 'srtp-ui'
 
 const TextColorExample: React.FC = () => (
   <Section>

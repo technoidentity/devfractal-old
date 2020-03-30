@@ -1,14 +1,5 @@
 import React from 'react'
-import {
-  Button,
-  Table,
-  TableBody,
-  TableHead,
-  Td,
-  Th,
-  Title,
-  Tr,
-} from 'technoidentity-ui'
+import { Button, Table, TableBody, TableHead, Td, Th, Title, Tr } from 'srtp-ui'
 
 export interface Product {
   readonly id: number

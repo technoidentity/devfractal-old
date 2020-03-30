@@ -1,5 +1,5 @@
 import React from 'react'
-import { Simple, Title } from 'technoidentity-ui'
+import { Simple, Title } from 'srtp-ui'
 import { Product } from './fakeData'
 
 export interface AddProductFormProps {

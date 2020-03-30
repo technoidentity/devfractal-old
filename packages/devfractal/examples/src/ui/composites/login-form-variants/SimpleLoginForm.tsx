@@ -1,6 +1,6 @@
 import React from 'react'
-import { maxLength, minLength, required } from 'technoidentity-core'
-import { Section, Simple } from 'technoidentity-ui'
+import { maxLength, minLength, required } from 'srtp-core'
+import { Section, Simple } from 'srtp-ui'
 import { initialLoginValues } from './common'
 
 export const SimpleLoginForm: React.FC = () => (

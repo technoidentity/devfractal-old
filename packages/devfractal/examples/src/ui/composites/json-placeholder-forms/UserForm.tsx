@@ -1,5 +1,5 @@
 export const UserForm: number = 100
-// import * as t from 'technoidentity-utils'
+// import * as t from 'srtp-utils'
 // import React from 'react'
 // import {
 //   consoleSubmit,
@@ -13,7 +13,7 @@ export const UserForm: number = 100
 //   Title,
 //   typeInvariant,
 //   url,
-// } from 'technoidentity-ui'
+// } from 'srtp-ui'
 
 // // tslint:disable typedef
 

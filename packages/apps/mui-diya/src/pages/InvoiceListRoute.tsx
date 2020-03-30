@@ -1,5 +1,5 @@
 import React from 'react'
-import { All, paths } from 'technoidentity-crud'
+import { All, paths } from 'srtp-crud'
 import { invoiceAPI } from '../common'
 import { InvoiceList } from '../views'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router'
-import { Null } from 'technoidentity-core'
-import { capitalizeAll, chop } from 'technoidentity-utils'
+import { Null } from 'srtp-core'
+import { capitalizeAll, chop } from 'srtp-utils'
 import { Breadcrumb, BreadcrumbItem } from './Breadcrumb'
 
 export const DynamicBreadcrumb: React.FC = () => {

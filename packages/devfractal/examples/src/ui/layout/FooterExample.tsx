@@ -1,5 +1,5 @@
 import React from 'react'
-import { Content, Footer as FooterComponent, Section } from 'technoidentity-ui'
+import { Content, Footer as FooterComponent, Section } from 'srtp-ui'
 
 export const Footer: React.FC = () => (
   <Section>

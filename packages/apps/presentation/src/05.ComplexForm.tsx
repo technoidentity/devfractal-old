@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik, FormikProps } from 'formik'
 import React from 'react'
-import { Section } from 'technoidentity-ui'
+import { Section } from 'srtp-ui'
 import * as yup from 'yup'
 
 interface LoginValues {

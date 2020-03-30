@@ -7,10 +7,10 @@
     "react": "16.13.0",
     "react-datepicker": "2.14.0",
     "react-dom": "16.13.0",
-    "technoidentity-core": "^2.0.3",
-    "technoidentity-ui": "^2.0.3",
-    "technoidentity-crud": "^2.0.3",
-    "technoidentity-utils": "^2.0.1",
+    "srtp-core": "2.0.3",
+    "srtp-ui": "2.0.3",
+    "srtp-crud": "2.0.3",
+    "srtp-utils": "2.0.1",
     "yup": "0.28.3"
   },
   "devDependencies": {

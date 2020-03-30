@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useCrudComponents } from 'technoidentity-core'
+import { useCrudComponents } from 'srtp-core'
 import { SimpleTable, SimpleTableProps } from './SimpleTable'
 
 export interface ActionsProps {

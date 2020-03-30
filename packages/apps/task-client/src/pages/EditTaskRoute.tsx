@@ -1,8 +1,8 @@
 import React from 'react'
-import { useParamsSafe } from 'technoidentity-core'
-import { Put } from 'technoidentity-crud'
-import { Section, Title } from 'technoidentity-ui'
-import { pickID } from 'technoidentity-utils'
+import { useParamsSafe } from 'srtp-core'
+import { Put } from 'srtp-crud'
+import { Section, Title } from 'srtp-ui'
+import { pickID } from 'srtp-utils'
 import { taskAPI } from '../common'
 import { TaskForm } from '../views'
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
-import { capitalizeAll, toLower } from 'technoidentity-utils'
+import { SafeRoute, SimpleRedirect } from 'srtp-core'
+import { capitalizeAll, toLower } from 'srtp-utils'
 import { RoutedTabs, RoutedTabsItem } from './RoutedTabs'
 
 export interface DynamicRouterResult {

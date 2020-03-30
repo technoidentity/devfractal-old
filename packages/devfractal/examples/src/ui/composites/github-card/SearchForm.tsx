@@ -1,7 +1,7 @@
 import { Form, Formik } from 'formik'
 import React from 'react'
-import { InputField } from 'technoidentity-ui'
-import { Button, Field } from 'technoidentity-ui'
+import { InputField } from 'srtp-ui'
+import { Button, Field } from 'srtp-ui'
 
 export interface SearchFormProps {
   onSearch(name: string): void

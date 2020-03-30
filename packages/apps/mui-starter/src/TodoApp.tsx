@@ -1,7 +1,7 @@
 import { Paper, Typography } from '@material-ui/core'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
+import { rest, SafeRouter, SimpleRedirect } from 'srtp-core'
 import {
   All,
   Create,
@@ -12,8 +12,8 @@ import {
   links,
   listComponent,
   paths,
-} from 'technoidentity-crud'
-import { boolean, ISODate, NumID, obj, string } from 'technoidentity-utils'
+} from 'srtp-crud'
+import { boolean, ISODate, NumID, obj, string } from 'srtp-utils'
 
 const Todo = obj(
   { id: NumID },

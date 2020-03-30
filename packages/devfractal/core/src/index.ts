@@ -1,5 +1,5 @@
 import { FormikHelpers } from 'formik'
-import { jsonStringify, timeout } from 'technoidentity-utils'
+import { jsonStringify, timeout } from 'srtp-utils'
 
 export * from './api'
 export * from './crud'

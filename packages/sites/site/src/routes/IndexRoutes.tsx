@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeRoute } from 'technoidentity-core'
+import { SafeRoute } from 'srtp-core'
 import {
   BottomSection,
   ExploreUIComponents,

@@ -12,7 +12,7 @@ import {
   SimpleArrayField,
   SimpleArrayFieldComponentProps,
   Text,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export interface MetaBuildFormProps {
   onSubmit(values: any, formikActions: FormikHelpers<any>): void

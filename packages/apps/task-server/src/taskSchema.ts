@@ -1,7 +1,7 @@
 import { compareAsc, format, startOfDay } from 'date-fns'
 import { Document, model, Schema } from 'mongoose'
 import mongoosePaginate from 'mongoose-paginate'
-import { ISODate, obj, string, TypeOf } from 'technoidentity-utils'
+import { ISODate, obj, string, TypeOf } from 'srtp-utils'
 
 const dateSchema = new Schema({
   started: { type: Date },

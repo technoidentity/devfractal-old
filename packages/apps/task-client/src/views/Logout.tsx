@@ -1,7 +1,7 @@
 import React from 'react'
-import { component, useRedirect } from 'technoidentity-core'
-import { Button } from 'technoidentity-ui'
-import { req, string } from 'technoidentity-utils'
+import { component, useRedirect } from 'srtp-core'
+import { Button } from 'srtp-ui'
+import { req, string } from 'srtp-utils'
 import { sessionAPI } from '../common'
 import { useAuth } from '../utils'
 

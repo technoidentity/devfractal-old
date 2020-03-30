@@ -1,7 +1,7 @@
 import { MT } from 'meta-core'
 import React from 'react'
-import { Viewer } from 'technoidentity-crud'
-import { Box, Label } from 'technoidentity-ui'
+import { Viewer } from 'srtp-crud'
+import { Box, Label } from 'srtp-ui'
 
 export interface MetaViewProps {
   readonly meta: MT

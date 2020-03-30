@@ -1,8 +1,8 @@
 import React from 'react'
-import { useParamsSafe } from 'technoidentity-core'
-import { Editor, Get, Post, Put, SubmitAction } from 'technoidentity-crud'
-import { Title } from 'technoidentity-ui'
-import { empty, pickID } from 'technoidentity-utils'
+import { useParamsSafe } from 'srtp-core'
+import { Editor, Get, Post, Put, SubmitAction } from 'srtp-crud'
+import { Title } from 'srtp-ui'
+import { empty, pickID } from 'srtp-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
 

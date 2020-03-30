@@ -1,7 +1,7 @@
 import React from 'react'
-import { useAPIComponents } from 'technoidentity-core'
-import * as t from 'technoidentity-utils'
-import { cast, keys } from 'technoidentity-utils'
+import { useAPIComponents } from 'srtp-core'
+import * as t from 'srtp-utils'
+import { cast, keys } from 'srtp-utils'
 
 // tslint:disable typedef
 

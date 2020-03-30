@@ -1,6 +1,6 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { cast, empty, Mixed, TypeOf } from 'technoidentity-utils'
+import { cast, empty, Mixed, TypeOf } from 'srtp-utils'
 import { formProps } from './common'
 
 interface InnerFormProps<T> {

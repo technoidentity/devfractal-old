@@ -9,7 +9,7 @@ import {
   RadioGroup,
   Section,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const DynamicRadioExample: React.FC = () => {
   const [select, setSelect] = React.useState('red')

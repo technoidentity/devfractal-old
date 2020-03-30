@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css'
 import React from 'react'
-import { APIComponents, CrudComponents } from 'technoidentity-core'
-import { UIComponents, UICrudComponents } from 'technoidentity-ui'
+import { APIComponents, CrudComponents } from 'srtp-core'
+import { UIComponents, UICrudComponents } from 'srtp-ui'
 import { SuperAdmin } from './SuperAdmin'
 
 export const App = () => (

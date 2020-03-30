@@ -9,7 +9,7 @@ import {
   Todo,
 } from 'devfractal-examples'
 import React from 'react'
-import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
+import { SafeRoute, SimpleRedirect } from 'srtp-core'
 
 export const CompositesRoutes: React.FC = () => (
   <>

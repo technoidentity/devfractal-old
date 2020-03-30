@@ -1,5 +1,5 @@
 import React from 'react'
-import { Simple } from 'technoidentity-ui'
+import { Simple } from 'srtp-ui'
 import { number, object, ObjectSchema, string } from 'yup'
 
 interface LoginValues {

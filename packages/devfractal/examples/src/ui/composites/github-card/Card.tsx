@@ -6,7 +6,7 @@ import {
   CardImage,
   SubTitle,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 import { GithubUserInfo } from './types'
 
 export interface CardViewProps {

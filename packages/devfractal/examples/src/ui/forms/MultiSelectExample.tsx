@@ -12,7 +12,7 @@ import {
   Simple,
   SubTitle,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 type JobTypes = 'designer' | 'developer' | 'manager'
 

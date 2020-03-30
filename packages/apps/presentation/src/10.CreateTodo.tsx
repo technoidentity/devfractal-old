@@ -1,6 +1,6 @@
 import React from 'react'
-import { Post } from 'technoidentity-crud'
-import { Section, Title } from 'technoidentity-ui'
+import { Post } from 'srtp-crud'
+import { Section, Title } from 'srtp-ui'
 import { todoApi } from './08.todoAPI'
 import { TodoForm } from './09.TodoForm'
 

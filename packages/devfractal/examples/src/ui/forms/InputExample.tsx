@@ -10,7 +10,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const DynamicInputExample: React.FC = () => {
   const [change, setChange] = React.useState('')

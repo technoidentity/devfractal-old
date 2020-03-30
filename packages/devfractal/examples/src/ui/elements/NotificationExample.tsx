@@ -5,7 +5,7 @@ import {
   Notification as NotificationComponent,
   Section,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const BasicNotificationExample: React.FC = () => (
   <Section>

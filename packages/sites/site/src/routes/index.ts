@@ -5,7 +5,7 @@ import {
   layout,
   modifiers,
 } from 'devfractal-examples'
-import { dynamicRouter } from 'technoidentity-ui'
+import { dynamicRouter } from 'srtp-ui'
 
 export * from './ComponentRoutes'
 export * from './CompositesRoutes'

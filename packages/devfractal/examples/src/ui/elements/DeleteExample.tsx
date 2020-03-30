@@ -10,7 +10,7 @@ import {
   Tag,
   Tags,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const DynamicDeleteExample: React.FC = () => {
   const [click, setDeleted] = React.useState('click Me!')

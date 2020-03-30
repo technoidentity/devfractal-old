@@ -10,7 +10,7 @@ import {
 import 'bulma/css/bulma.css'
 import React from 'react'
 import { render } from 'react-dom'
-import { SafeRoute, SafeRouter } from 'technoidentity-core'
+import { SafeRoute, SafeRouter } from 'srtp-core'
 import { Icon, Section } from './core'
 import { Menu, MenuItem, MenuList } from './routed'
 

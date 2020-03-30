@@ -1,5 +1,5 @@
-import { rest, toJSONServerQuery } from 'technoidentity-core'
-import { ObjC, Props, TypeOfID } from 'technoidentity-utils'
+import { rest, toJSONServerQuery } from 'srtp-core'
+import { ObjC, Props, TypeOfID } from 'srtp-utils'
 import { fakeBaseURL } from '../config'
 import {
   AdManager,

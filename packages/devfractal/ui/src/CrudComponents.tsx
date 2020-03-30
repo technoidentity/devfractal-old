@@ -1,6 +1,6 @@
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { CrudComponents } from 'technoidentity-core'
+import { CrudComponents } from 'srtp-core'
 import { Icon } from './core'
 import { Pager } from './dynamic'
 import { EditorView } from './EditorView'

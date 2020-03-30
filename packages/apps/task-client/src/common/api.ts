@@ -1,5 +1,5 @@
-import { rest } from 'technoidentity-core'
-import { verify } from 'technoidentity-utils'
+import { rest } from 'srtp-core'
+import { verify } from 'srtp-utils'
 import { Session, Task, TaskFilter, User } from './types'
 
 export const apiOptions = {

@@ -1,11 +1,6 @@
 import React from 'react'
-import { ViewerViewProps } from 'technoidentity-core'
-import {
-  boolean,
-  camelCaseToPhrase,
-  date,
-  formatDate,
-} from 'technoidentity-utils'
+import { ViewerViewProps } from 'srtp-core'
+import { boolean, camelCaseToPhrase, date, formatDate } from 'srtp-utils'
 import { CheckBox, Column, Columns, Section, Text, Title } from './core'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (

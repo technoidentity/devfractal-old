@@ -6,7 +6,7 @@ import {
   Notification,
   Section,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const Gap: React.FC = () => (
   <div>

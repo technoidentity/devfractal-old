@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  Table,
-  TableBody,
-  TableHead,
-  Td,
-  Th,
-  Title,
-  Tr,
-} from 'technoidentity-ui'
+import { Table, TableBody, TableHead, Td, Th, Title, Tr } from 'srtp-ui'
 import { Product } from './Product'
 
 interface CartItem {

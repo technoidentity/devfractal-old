@@ -12,7 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { SafeRoute } from 'technoidentity-core'
+import { SafeRoute } from 'srtp-core'
 import {
   Button,
   ButtonsGroup,
@@ -36,7 +36,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 import { default as developer } from '../src/images/asset/developer.png'
 import logo from '../src/images/asset/logo.png'
 import { default as contentLoader } from '../src/images/contentLoader.png'

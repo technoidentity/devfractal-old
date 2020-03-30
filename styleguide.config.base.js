@@ -37,6 +37,6 @@ module.exports = {
   components: './src/**/[A-Z]*.tsx',
   exampleMode: 'expand',
   pagePerSection: true,
-  title: 'technoidentity-core Style Guide',
+  title: 'srtp-core Style Guide',
   ignore: ['./src/App.tsx', './src/**/*.test.tsx', './src/**/*.test.ts'],
 }

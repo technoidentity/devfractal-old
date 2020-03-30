@@ -1,4 +1,4 @@
-import { boolean, NumID, req, string } from 'technoidentity-utils'
+import { boolean, NumID, req, string } from 'srtp-utils'
 import { toJSONServerQuery } from './query'
 import { rest } from './rest'
 

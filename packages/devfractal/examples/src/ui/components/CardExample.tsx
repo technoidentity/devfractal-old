@@ -18,7 +18,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const SimpleCardExample: React.FC = () => (
   <Section>

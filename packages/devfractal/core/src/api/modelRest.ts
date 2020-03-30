@@ -15,7 +15,7 @@ import {
   TypeOf,
   TypeOfPick,
   UnknownArray,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 import { APIQuery, toAPIQuery as toQueryFn } from './query'
 

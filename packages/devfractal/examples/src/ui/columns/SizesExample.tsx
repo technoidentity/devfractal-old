@@ -8,7 +8,7 @@ import {
   Section,
   SubTitle,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 export const Sizes: React.FC = () => (
   <div>

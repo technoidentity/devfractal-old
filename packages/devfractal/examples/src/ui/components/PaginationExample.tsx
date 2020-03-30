@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimplePagerView } from 'technoidentity-ui'
+import { SimplePagerView } from 'srtp-ui'
 import {
   Pagination,
   PaginationEllipsis,
@@ -7,8 +7,8 @@ import {
   PaginationList,
   PaginationNext,
   PaginationPrevious,
-} from 'technoidentity-ui'
-import { Section, Text, Title } from 'technoidentity-ui'
+} from 'srtp-ui'
+import { Section, Text, Title } from 'srtp-ui'
 
 export const SimplePaginationExample: React.FC = () => (
   <>

@@ -1,6 +1,6 @@
 import React from 'react'
-import { links, listComponent, RoutedPager } from 'technoidentity-crud'
-import { Section } from 'technoidentity-ui'
+import { links, listComponent, RoutedPager } from 'srtp-crud'
+import { Section } from 'srtp-ui'
 import { Vehicle } from '../common'
 import { HeadTitle } from '../components'
 import { DiyaTable } from '../components/DiyaTable'

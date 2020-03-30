@@ -1,6 +1,6 @@
 import { compareAsc } from 'date-fns'
+import { buildObject, jsonStringify, keys } from 'srtp-utils'
 import * as t from 'tcomb'
-import { buildObject, jsonStringify, keys } from 'technoidentity-utils'
 import {
   ArrayMT,
   ArrayRefinements,

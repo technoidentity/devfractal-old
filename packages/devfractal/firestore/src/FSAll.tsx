@@ -1,7 +1,7 @@
 import React from 'react'
-import { SafeRoute } from 'technoidentity-core'
-import { Get } from 'technoidentity-crud'
-import { ObjC, Props, TypeOf } from 'technoidentity-utils'
+import { SafeRoute } from 'srtp-core'
+import { Get } from 'srtp-crud'
+import { ObjC, Props, TypeOf } from 'srtp-utils'
 import { FirstoreAPI } from './firestoreRest'
 
 interface ChildrenProps<

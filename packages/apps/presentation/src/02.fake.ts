@@ -1,4 +1,4 @@
-import { fake } from 'technoidentity-dev-utils'
+import { fake } from 'srtp-dev-utils'
 import {
   array,
   boolean,
@@ -11,7 +11,7 @@ import {
   tuple,
   type,
   union,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 
 console.log(
   fake(

@@ -1,6 +1,6 @@
 import React from 'react'
-import { APIComponents, SafeRouter } from 'technoidentity-core'
-import { UIComponents } from 'technoidentity-ui'
+import { APIComponents, SafeRouter } from 'srtp-core'
+import { UIComponents } from 'srtp-ui'
 import { TodoApp } from './TodoApp'
 
 export const App = () => (

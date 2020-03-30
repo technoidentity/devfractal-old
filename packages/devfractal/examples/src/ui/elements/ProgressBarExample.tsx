@@ -4,7 +4,7 @@ import {
   ProgressBar as ProgressBarComponent,
   Section,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const BasicProgressBarExample: React.FC = () => (
   <Section>

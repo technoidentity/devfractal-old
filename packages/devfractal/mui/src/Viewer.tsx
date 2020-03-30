@@ -1,11 +1,6 @@
 import { Checkbox, Grid, Paper, Typography } from '@material-ui/core'
 import React from 'react'
-import {
-  boolean,
-  camelCaseToPhrase,
-  date,
-  formatDate,
-} from 'technoidentity-utils'
+import { boolean, camelCaseToPhrase, date, formatDate } from 'srtp-utils'
 
 const Header: React.FC<{ readonly objectKey: string }> = ({ objectKey }) => (
   <Typography variant="h6">{camelCaseToPhrase(objectKey)}</Typography>

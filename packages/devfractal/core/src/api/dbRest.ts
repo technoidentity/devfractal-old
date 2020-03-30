@@ -13,7 +13,7 @@
 //   toDbOpt,
 //   TypeOf,
 //   UnknownArray,
-// } from 'technoidentity-utils'
+// } from 'srtp-utils'
 // import { APIQuery, toAPIQuery as toQueryFn } from './dbQuery'
 // import { http as httpAPI, MethodArgs, RequestConfig } from './http'
 

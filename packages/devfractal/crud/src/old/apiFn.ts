@@ -7,7 +7,7 @@ import {
   toPromise,
   Type,
   TypeOf,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 import { apiURLs, URLs } from './urls'
 
 // tslint:disable typedef

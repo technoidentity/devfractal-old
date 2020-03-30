@@ -1,6 +1,6 @@
 import React from 'react'
-import { Post } from 'technoidentity-crud'
-import { Section, Title } from 'technoidentity-ui'
+import { Post } from 'srtp-crud'
+import { Section, Title } from 'srtp-ui'
 import { Task, taskAPI } from '../common'
 import { TaskForm } from '../views'
 

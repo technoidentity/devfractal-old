@@ -9,7 +9,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from 'technoidentity-ui'
+} from 'srtp-ui'
 
 const LevelLeftExample: React.FC = () => (
   <Section>

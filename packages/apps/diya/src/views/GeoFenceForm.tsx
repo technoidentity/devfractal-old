@@ -1,6 +1,6 @@
 import React from 'react'
-import { formComponent } from 'technoidentity-crud'
-import { Column, Columns, Section, Simple } from 'technoidentity-ui'
+import { formComponent } from 'srtp-crud'
+import { Column, Columns, Section, Simple } from 'srtp-ui'
 import { GeoFence } from '../common'
 import { HeadTitle } from '../components'
 import { GeoFence as GeoFenceMap } from '../maps'

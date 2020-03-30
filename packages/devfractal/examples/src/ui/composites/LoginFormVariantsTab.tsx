@@ -1,6 +1,6 @@
 import React from 'react'
-import { SafeRoute, SimpleRedirect } from 'technoidentity-core'
-import { RoutedTabs, RoutedTabsItem, Title } from 'technoidentity-ui'
+import { SafeRoute, SimpleRedirect } from 'srtp-core'
+import { RoutedTabs, RoutedTabsItem, Title } from 'srtp-ui'
 import {
   FieldsLoginForm,
   FormikLoginForm,

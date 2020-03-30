@@ -11,7 +11,7 @@ import {
   pickPlain,
   range,
   verify,
-} from 'technoidentity-utils'
+} from 'srtp-utils'
 import { chance } from './chance'
 import { fake } from './fake'
 

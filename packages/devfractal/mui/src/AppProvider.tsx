@@ -2,12 +2,7 @@ import DateFnsUtils from '@date-io/date-fns'
 import { MuiThemeProvider } from '@material-ui/core'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import React from 'react'
-import {
-  APIComponents,
-  RouterProps,
-  RouterType,
-  SafeRouter,
-} from 'technoidentity-core'
+import { APIComponents, RouterProps, RouterType, SafeRouter } from 'srtp-core'
 import 'typeface-roboto'
 import { MuiAPIComponents } from './MuiAPIComponents'
 

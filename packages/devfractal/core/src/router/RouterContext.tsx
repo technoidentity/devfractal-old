@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteChildrenProps } from 'react-router'
-import { verify } from 'technoidentity-utils'
+import { verify } from 'srtp-utils'
 
 // tslint:disable typedef
 
