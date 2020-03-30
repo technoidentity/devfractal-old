@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  APIComponents,
-  SafeRouter,
-  UIComponents,
-} from 'technoidentity-devfractal'
+import { APIComponents, SafeRouter } from 'technoidentity-core'
+import { UIComponents } from 'technoidentity-ui'
 import { TodoApp } from './TodoApp'
 
 export const App = () => (

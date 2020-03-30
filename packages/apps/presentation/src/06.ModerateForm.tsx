@@ -7,7 +7,7 @@ import {
   Field as FieldGroup,
   InputField,
   Label,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-ui'
 import yup from 'yup'
 
 interface LoginValues {

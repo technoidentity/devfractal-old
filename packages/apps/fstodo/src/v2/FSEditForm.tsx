@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  Get,
-  useParamsSafe,
-  useSubmitRedirect,
-} from 'technoidentity-devfractal'
+import { useParamsSafe, useSubmitRedirect } from 'technoidentity-core'
+import { Get } from 'technoidentity-crud'
 import { req, string } from 'technoidentity-utils'
 import { FSTodo, fsTodoAPI } from '../common'
 import { FSTodoForm } from './FSTodoForm'

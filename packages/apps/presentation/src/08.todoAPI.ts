@@ -1,4 +1,4 @@
-import { rest } from 'technoidentity-devfractal'
+import { rest } from 'technoidentity-core'
 import {
   boolean,
   ISODate,

@@ -1,7 +1,8 @@
 // tslint:disable typedef
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import { formComponent, Simple } from 'technoidentity-devfractal'
+import { formComponent } from 'technoidentity-crud'
+import { Simple } from 'technoidentity-ui'
 import { FSTodo } from '../common'
 
 export const FSTodoForm = formComponent(FSTodo, ({ initial, onSubmit }) => (

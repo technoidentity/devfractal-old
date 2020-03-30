@@ -2,12 +2,8 @@ import 'bulma'
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import { render } from 'react-dom'
-import {
-  APIComponents,
-  SafeRouter,
-  SimpleRedirect,
-  UIComponents,
-} from 'technoidentity-devfractal'
+import { APIComponents, SafeRouter, SimpleRedirect } from 'technoidentity-core'
+import { UIComponents } from 'technoidentity-ui'
 import { FSTodoApp } from './v3'
 
 const App: React.FC = () => (

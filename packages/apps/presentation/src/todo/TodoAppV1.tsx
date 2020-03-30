@@ -1,20 +1,17 @@
 import { Form, Formik } from 'formik'
 import React from 'react'
+import { useParamsSafe } from 'technoidentity-core'
+import { Get, Post, Put, SubmitAction } from 'technoidentity-crud'
 import {
   Button,
   CheckboxField,
   DateField,
   ErrorField,
   Field,
-  Get,
   InputField,
   Label,
-  Post,
-  Put,
-  SubmitAction,
   Title,
-  useParamsSafe,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-ui'
 import { empty, pickID } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FSCrudRoutes } from 'technoidentity-devfractal'
+import { FSCrudRoutes } from 'technoidentity-fs'
 import { fsTodoAPI } from '../common'
 import { FSTodoForm } from './FSTodoForm'
 import { FSTodoList } from './FSTodoList'

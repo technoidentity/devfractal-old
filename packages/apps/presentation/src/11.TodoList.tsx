@@ -1,15 +1,15 @@
 import { format } from 'date-fns'
 import React from 'react'
+import { Get } from 'technoidentity-crud'
 import {
   CheckBox,
-  Get,
   Table,
   TableBody,
   TableHead,
   Td,
   Th,
   Tr,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-ui'
 import { Todo, todoApi } from './08.todoAPI'
 
 export const TodoItem: React.FC<Todo> = ({ id, title, scheduled, done }) => (

@@ -1,16 +1,12 @@
 import React from 'react'
 import {
-  Get,
   maxLength,
   minLength,
-  Post,
-  Put,
   required,
-  Simple,
-  SubmitAction,
-  Title,
   useParamsSafe,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-core'
+import { Get, Post, Put, SubmitAction } from 'technoidentity-crud'
+import { Simple, Title } from 'technoidentity-ui'
 import { empty, pickID } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'

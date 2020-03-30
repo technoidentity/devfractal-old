@@ -1,5 +1,7 @@
 import React from 'react'
-import { Put, Section, Title, useParamsSafe } from 'technoidentity-devfractal'
+import { useParamsSafe } from 'technoidentity-core'
+import { Put } from 'technoidentity-crud'
+import { Section, Title } from 'technoidentity-ui'
 import { pickID } from 'technoidentity-utils'
 import { taskAPI } from '../common'
 import { TaskForm } from '../views'

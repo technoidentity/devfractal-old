@@ -1,8 +1,7 @@
 import React from 'react'
+import { rest, SafeRouter, SimpleRedirect } from 'technoidentity-core'
 import {
   All,
-  ButtonLink,
-  ButtonsGroup,
   Create,
   CrudTable,
   Edit,
@@ -11,12 +10,8 @@ import {
   links,
   listComponent,
   paths,
-  rest,
-  SafeRouter,
-  Section,
-  SimpleRedirect,
-  Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-crud'
+import { ButtonLink, ButtonsGroup, Section, Title } from 'technoidentity-ui'
 import { boolean, ISODate, NumID, obj, string } from 'technoidentity-utils'
 
 const Todo = obj(

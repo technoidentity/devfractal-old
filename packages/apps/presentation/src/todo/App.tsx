@@ -1,10 +1,6 @@
 import React from 'react'
-import {
-  SafeRoute,
-  SafeRouter,
-  Section,
-  SimpleRedirect,
-} from 'technoidentity-devfractal'
+import { SafeRoute, SafeRouter, SimpleRedirect } from 'technoidentity-core'
+import { Section } from 'technoidentity-ui'
 import { CreateTodo, EditTodo, TodoList } from './TodoAppV0'
 
 export const TodoApp = () => (

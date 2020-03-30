@@ -1,7 +1,7 @@
 import React from 'react'
+import { SafeRouter, SimpleRedirect } from 'technoidentity-core'
 import {
   All,
-  ButtonLink,
   Create,
   CrudTable,
   Edit,
@@ -10,11 +10,8 @@ import {
   links,
   listComponent,
   paths,
-  SafeRouter,
-  Section,
-  SimpleRedirect,
-  Title,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-crud'
+import { ButtonLink, Section, Title } from 'technoidentity-ui'
 import { Todo, todoAPI } from './common'
 
 const ps = paths(todoAPI.resource)

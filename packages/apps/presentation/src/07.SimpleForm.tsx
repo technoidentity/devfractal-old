@@ -1,11 +1,6 @@
 import React from 'react'
-import {
-  maxLength,
-  minLength,
-  required,
-  Section,
-  Simple,
-} from 'technoidentity-devfractal'
+import { maxLength, minLength, required } from 'technoidentity-core'
+import { Section, Simple } from 'technoidentity-ui'
 import { initialLoginValues } from './06.ModerateForm'
 
 export const SimpleLoginForm: React.FC = () => (

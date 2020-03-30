@@ -1,5 +1,6 @@
 import React from 'react'
-import { APIComponents, UIComponents } from 'technoidentity-devfractal'
+import { APIComponents } from 'technoidentity-core'
+import { UIComponents } from 'technoidentity-ui'
 import { TaskManager } from './TaskManager'
 // export const App: React.FC = () => (
 //   <SafeRouter variant="browser">

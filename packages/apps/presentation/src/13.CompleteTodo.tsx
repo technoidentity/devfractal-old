@@ -2,20 +2,15 @@ import { FormikHelpers } from 'formik'
 import React from 'react'
 import {
   component,
-  Editor,
-  Get,
-  Post,
-  Put,
   rest,
   RowClickEvent,
   SafeRoute,
   SafeRouter,
-  Section,
-  SimpleTable,
-  Title,
   useParamsSafe,
   useRedirect,
-} from 'technoidentity-devfractal'
+} from 'technoidentity-core'
+import { Editor, Get, Post, Put, SimpleTable } from 'technoidentity-crud'
+import { Section, Title } from 'technoidentity-ui'
 import {
   boolean,
   fn,

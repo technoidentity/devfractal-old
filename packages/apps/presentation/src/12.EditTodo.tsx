@@ -1,5 +1,6 @@
 import React from 'react'
-import { Put, useParamsSafe } from 'technoidentity-devfractal'
+import { useParamsSafe } from 'technoidentity-core'
+import { Put } from 'technoidentity-crud'
 import { pickID } from 'technoidentity-utils'
 import { todoApi } from './08.todoAPI'
 import { TodoForm } from './09.TodoForm'

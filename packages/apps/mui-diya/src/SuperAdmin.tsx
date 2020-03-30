@@ -1,11 +1,7 @@
 import 'bulma/css/bulma.css'
 import React from 'react'
-import {
-  Column,
-  Columns,
-  SafeRouter,
-  SimpleRedirect,
-} from 'technoidentity-devfractal'
+import { SafeRouter, SimpleRedirect } from 'technoidentity-core'
+import { Column, Columns } from 'technoidentity-ui'
 import { SideMenuView, Visibility } from './components'
 import {
   BatteryRoutes,

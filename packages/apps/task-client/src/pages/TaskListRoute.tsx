@@ -1,5 +1,6 @@
 import React from 'react'
-import { Get, useParamsSafe } from 'technoidentity-devfractal'
+import { useParamsSafe } from 'technoidentity-core'
+import { Get } from 'technoidentity-crud'
 import { opt } from 'technoidentity-utils'
 import { getTasks, TaskFilter } from '../common'
 import { TaskListView } from '../views'

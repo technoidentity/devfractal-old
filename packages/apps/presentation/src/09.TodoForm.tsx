@@ -1,9 +1,8 @@
 import { FormikHelpers } from 'formik'
 import React from 'react'
-import { Simple } from 'technoidentity-devfractal'
-import { component, Section } from 'technoidentity-devfractal'
-import { TypeOf } from 'technoidentity-utils'
-import { fn, obj } from 'technoidentity-utils'
+import { component } from 'technoidentity-core'
+import { Section, Simple } from 'technoidentity-ui'
+import { fn, obj, TypeOf } from 'technoidentity-utils'
 import { Todo } from './08.todoAPI'
 
 export const initialValues: Todo = {

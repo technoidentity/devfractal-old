@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch } from 'react-router'
-import { NotFound, SafeRoute, SafeRouter } from 'technoidentity-devfractal'
+import { SafeRoute, SafeRouter } from 'technoidentity-core'
+import { NotFound } from 'technoidentity-ui'
 import {
   CreateTaskRoute,
   EditTaskRoute,

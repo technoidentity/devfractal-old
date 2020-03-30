@@ -1,13 +1,7 @@
 import React from 'react'
-import {
-  Editor,
-  Get,
-  Post,
-  Put,
-  SubmitAction,
-  Title,
-  useParamsSafe,
-} from 'technoidentity-devfractal'
+import { useParamsSafe } from 'technoidentity-core'
+import { Editor, Get, Post, Put, SubmitAction } from 'technoidentity-crud'
+import { Title } from 'technoidentity-ui'
 import { empty, pickID } from 'technoidentity-utils'
 import { Todo, todoAPI } from './common'
 import { TodoTable } from './TodoTable'
