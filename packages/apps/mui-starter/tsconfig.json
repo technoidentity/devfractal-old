@@ -7,6 +7,8 @@
   },
   "references": [
     { "path": "../../common/utils" },
+    { "path": "../../devfractal/core" },
+    { "path": "../../devfractal/crud" },
     { "path": "../../devfractal/mui" }
   ]
 }

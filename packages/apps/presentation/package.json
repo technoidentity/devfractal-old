@@ -28,7 +28,9 @@
     "react-dom": "16.13.0",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
-    "technoidentity-devfractal": "^2.0.3",
+    "technoidentity-core": "^2.0.3",
+    "technoidentity-ui": "^2.0.3",
+    "technoidentity-crud": "^2.0.3",
     "technoidentity-utils": "^2.0.1",
     "yup": "0.28.3"
   },

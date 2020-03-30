@@ -12,7 +12,6 @@
     { "path": "apps/fstodo" },
     { "path": "apps/task-server" },
     { "path": "devfractal/crud" },
-    { "path": "devfractal/devfractal" },
     { "path": "devfractal/examples" },
     { "path": "devfractal/mui" },
     { "path": "devfractal/firestore" },

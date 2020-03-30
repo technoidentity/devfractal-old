@@ -5,8 +5,5 @@
     "rootDir": "src",
     "jsx": "react"
   },
-  "references": [
-    { "path": "../../common/utils" },
-    { "path": "../../devfractal/devfractal" }
-  ]
+  "references": [{ "path": "../../common/utils" }]
 }
