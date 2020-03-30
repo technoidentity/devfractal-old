@@ -21,8 +21,8 @@ const Todo = obj({ done: boolean }, { id: NumID, title: string }, 'Todo')
 export const TodoModel = model({ plain: Todo, one: { user: User } })
 export const UserModel = model({ plain: User, many: { todos: Todo } })
 
-export type UserModel = TypeOf<typeof UserModel>
-export type TodoModel = TypeOf<typeof TodoModel>
+export interface UserModel extends TypeOf<typeof UserModel> {}
+export interface TodoModel extends TypeOf<typeof TodoModel> {}
 
 // interface User {
 //   readonly id: TypeOf<typeof StrID>
