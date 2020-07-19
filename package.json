@@ -81,7 +81,7 @@
     "lerna": "3.20.2",
     "lint-staged": "10.0.8",
     "lodash-es": "4.17.15",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "mongoose": "5.9.5",
     "npm-check-updates": "4.0.4",
     "react-datepicker": "2.14.0",
