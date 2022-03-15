@@ -80,7 +80,7 @@
     "husky": "4.2.3",
     "lerna": "3.20.2",
     "lint-staged": "10.0.8",
-    "lodash-es": "4.17.15",
+    "lodash-es": "4.17.21",
     "lodash": "4.17.15",
     "mongoose": "5.9.5",
     "npm-check-updates": "4.0.4",
