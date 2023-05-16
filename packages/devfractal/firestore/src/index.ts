@@ -1,6 +1,0 @@
-export * from './FSAll'
-export * from './FSEdit'
-export * from './FSCreate'
-export * from './FSCrudRoutes'
-export * from './firestoreRest'
-export * from './fsDate'
