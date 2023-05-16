@@ -1,0 +1,53 @@
+{
+  "name": "@df/fetch",
+  "version": "1.0.0",
+  "description": "common utility hooks for react",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "keywords": [],
+  "author": "Pervez Iqbal",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
+    "types:dev": "tsc --noEmit -p . --watch",
+    "types": "tsc --noEmit -p .",
+    "test": "vitest run",
+    "test:dev": "vitest dev",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint --fix --max-warnings=0 --cache src --ext .ts,.tsx",
+    "lint:dev": "cross-env TIMING=1 pnpm lint --quiet --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "dependencies": {
+    "@df/core": "workspace:*",
+    "@df/local-state": "workspace:*",
+    "@df/spec": "workspace:*",
+    "@tanstack/react-query": "4.29.5",
+    "immer": "10.0.2",
+    "query-string": "8.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "redaxios": "0.5.1",
+    "tiny-invariant": "1.3.1",
+    "tiny-warning": "1.0.3",
+    "tslib": "2.5.0",
+    "use-immer": "0.9.0",
+    "zod": "3.21.4"
+  },
+  "devDependencies": {
+    "@df/tsconfig": "workspace:*",
+    "@types/node": "20.1.4",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "cross-env": "7.0.3",
+    "eslint": "8.40.0",
+    "eslint-config-srtp": "workspace:*",
+    "prettier": "2.8.8",
+    "tsup": "6.7.0",
+    "typescript": "5.0.4",
+    "vitest": "0.31.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "@df/tsconfig/base.json",
+  "include": [
+    "src",
+    "tests",
+    "__previewjs__",
+    "../fn/src/iter.ts",
+    "../fn/src/isEmpty.ts",
+    "../fn/src/pipe.ts",
+    "../fn/src/mapUtils.ts"
+  ]
+}

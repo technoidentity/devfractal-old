@@ -1,0 +1,6 @@
+packages:
+  - 'apps/*'
+  - 'libs/*'
+  - 'packages/*'
+  - 'starters/*'
+  - 'e2e'

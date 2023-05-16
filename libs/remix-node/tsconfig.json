@@ -1,0 +1,4 @@
+{
+  "extends": "@df/tsconfig/react.json",
+  "include": ["src", "tests", "__previewjs__"]
+}

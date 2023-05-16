@@ -1,3 +1,0 @@
-{
-  "**/*.{ts,tsx,js,jsx,json,css}": ["yarn prettier --write"]
-}

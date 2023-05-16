@@ -1,0 +1,40 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "NODE_ENV",
+    "NEXT_PUBLIC_API_MOCKING",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_KEY"
+  ],
+  "globalDependencies": [".env", ".env.development", ".env.dev"],
+
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      "outputMode": "full",
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["types", "dist/**"]
+    },
+    "lint": {
+      "dependsOn": ["types"],
+      "outputs": []
+    },
+    "clean": {
+      "outputs": []
+    },
+    "upd": {
+      "outputs": []
+    },
+    "types": {
+      "dependsOn": ["^build", "^types"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "outputs": []
+    }
+  }
+}

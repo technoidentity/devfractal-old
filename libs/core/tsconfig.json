@@ -1,0 +1,4 @@
+{
+  "extends": "@df/tsconfig/base.json",
+  "include": ["src", "tests", "__previewjs__"]
+}
